@@ -65,6 +65,21 @@
       </tags>
   </entry>
   <entry>
+    <title>AFnetworking的常见问题</title>
+    <url>/2017/08/31/AFnetworking%E7%9A%84%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>废话不多说，直接上问题：<br>1.如何拼接请求头？</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;申明返回的结果是json类型</span><br><span class="line">  </span><br><span class="line">  manager.responseSerializer &#x3D; [AFJSONResponseSerializer serializer];</span><br><span class="line">  </span><br><span class="line">  &#x2F;&#x2F;申明请求的数据是json类型</span><br><span class="line">  </span><br><span class="line">  manager.requestSerializer&#x3D;[AFJSONRequestSerializer serializer];</span><br><span class="line">  </span><br><span class="line">  &#x2F;&#x2F;  &#x2F;如果报接受类型不一致请替换一致text&#x2F;html或别的</span><br><span class="line">  </span><br><span class="line">  [manager.requestSerializer setValue:@&quot;application&#x2F;json&quot; forHTTPHeaderField:@&quot;Accept&quot;];</span><br><span class="line">  [manager.requestSerializer setValue:@&quot;application&#x2F;json&quot; forHTTPHeaderField:@&quot;Content-Type&quot;];</span><br><span class="line">  [manager.requestSerializer setValue:value forHTTPHeaderField:key];</span><br><span class="line">  [manager.requestSerializer setValue: value forHTTPHeaderField:key];</span><br><span class="line">  [manager.requestSerializer setValue: value forHTTPHeaderField:key];</span><br><span class="line">  </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>2.如何返回参数在调用的同一方法中？</p>
+<p>block,参数带有block去实现</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">__block NSString *longitude; &#x2F;&#x2F; __block,静态变量</span><br><span class="line">[self.manager POST:URL parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) &#123;</span><br><span class="line">  </span><br><span class="line">  NSDictionary *locDictionary &#x3D; [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];</span><br><span class="line">  longitude &#x3D; [locDictionary objectForKey:@&quot;lon&quot;]; &#x2F;&#x2F; 纠正后经度</span><br><span class="line">  </span><br><span class="line">  if (finishBlock)</span><br><span class="line">  &#123;</span><br><span class="line">    finishBlock(longitude, nil);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">&#125; failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) &#123;</span><br><span class="line">  NSLog(@&quot;%@&quot;, error);</span><br><span class="line">  if (finishBlock)</span><br><span class="line">  &#123;</span><br><span class="line">    finishBlock(nil, error);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>iOS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Android studio如何使用jar/aar包（二）</title>
     <url>/2017/01/09/Android%20studio%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8jar:aar%E5%8C%85%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
     <content><![CDATA[<p>上一篇说到如何创建jar/aar，这篇介绍如何使用</p>
@@ -95,21 +110,6 @@
       </categories>
       <tags>
         <tag>Android</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>AFnetworking的常见问题</title>
-    <url>/2017/08/31/AFnetworking%E7%9A%84%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<p>废话不多说，直接上问题：<br>1.如何拼接请求头？</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;申明返回的结果是json类型</span><br><span class="line">  </span><br><span class="line">  manager.responseSerializer &#x3D; [AFJSONResponseSerializer serializer];</span><br><span class="line">  </span><br><span class="line">  &#x2F;&#x2F;申明请求的数据是json类型</span><br><span class="line">  </span><br><span class="line">  manager.requestSerializer&#x3D;[AFJSONRequestSerializer serializer];</span><br><span class="line">  </span><br><span class="line">  &#x2F;&#x2F;  &#x2F;如果报接受类型不一致请替换一致text&#x2F;html或别的</span><br><span class="line">  </span><br><span class="line">  [manager.requestSerializer setValue:@&quot;application&#x2F;json&quot; forHTTPHeaderField:@&quot;Accept&quot;];</span><br><span class="line">  [manager.requestSerializer setValue:@&quot;application&#x2F;json&quot; forHTTPHeaderField:@&quot;Content-Type&quot;];</span><br><span class="line">  [manager.requestSerializer setValue:value forHTTPHeaderField:key];</span><br><span class="line">  [manager.requestSerializer setValue: value forHTTPHeaderField:key];</span><br><span class="line">  [manager.requestSerializer setValue: value forHTTPHeaderField:key];</span><br><span class="line">  </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>2.如何返回参数在调用的同一方法中？</p>
-<p>block,参数带有block去实现</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">__block NSString *longitude; &#x2F;&#x2F; __block,静态变量</span><br><span class="line">[self.manager POST:URL parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) &#123;</span><br><span class="line">  </span><br><span class="line">  NSDictionary *locDictionary &#x3D; [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];</span><br><span class="line">  longitude &#x3D; [locDictionary objectForKey:@&quot;lon&quot;]; &#x2F;&#x2F; 纠正后经度</span><br><span class="line">  </span><br><span class="line">  if (finishBlock)</span><br><span class="line">  &#123;</span><br><span class="line">    finishBlock(longitude, nil);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">&#125; failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) &#123;</span><br><span class="line">  NSLog(@&quot;%@&quot;, error);</span><br><span class="line">  if (finishBlock)</span><br><span class="line">  &#123;</span><br><span class="line">    finishBlock(nil, error);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>iOS</category>
-      </categories>
-      <tags>
-        <tag>iOS</tag>
       </tags>
   </entry>
   <entry>
@@ -219,46 +219,6 @@
       </tags>
   </entry>
   <entry>
-    <title>FastLane-ios自动打包效率神器</title>
-    <url>/2019/07/08/FastLane-ios%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85%E6%95%88%E7%8E%87%E7%A5%9E%E5%99%A8/</url>
-    <content><![CDATA[<h1 id="FastLane-ios自动打包效率神器"><a href="#FastLane-ios自动打包效率神器" class="headerlink" title="FastLane-ios自动打包效率神器"></a>FastLane-ios自动打包效率神器</h1><p>背景: 不想每次测试都喊我打包,很累的,所以开始寻找,有你的世界在哪里</p>
-<h2 id="一-安装fastlane"><a href="#一-安装fastlane" class="headerlink" title="一.安装fastlane"></a>一.安装fastlane</h2><h3 id="1-换ruby源"><a href="#1-换ruby源" class="headerlink" title="1.换ruby源"></a>1.换ruby源</h3><p>多话不说,墙,换成国内镜像源</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ gem sources --add https:&#x2F;&#x2F;gems.ruby-china.com&#x2F; --remove https:&#x2F;&#x2F;rubygems.org&#x2F;</span><br><span class="line">$ gem sources -l</span><br><span class="line">https:&#x2F;&#x2F;gems.ruby-china.com</span><br><span class="line"># 确保只有 gems.ruby-china.com</span><br></pre></td></tr></table></figure>
-<h3 id="2-开始用gem安装-不建议使用brew-cask安装"><a href="#2-开始用gem安装-不建议使用brew-cask安装" class="headerlink" title="2.开始用gem安装(不建议使用brew cask安装)"></a>2.开始用gem安装(不建议使用brew cask安装)</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo gem install fastlane -NV</span><br></pre></td></tr></table></figure>
-<p>耐心等待,等装完</p>
-<h2 id="二-为项目配置fastlane"><a href="#二-为项目配置fastlane" class="headerlink" title="二.为项目配置fastlane"></a>二.为项目配置fastlane</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd 到你的ios项目根目录下</span><br><span class="line">fastlane init</span><br></pre></td></tr></table></figure>
-<p><img src="/images/fastlane/1.png" alt="如图"></p>
-<p>这时候有个选项,根据自己需求选就行,我选择的4,自定义,然后回车</p>
-<p>当命令执行到</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bundle update</span><br></pre></td></tr></table></figure>
-<p>接着你会发现,你卡在这了,也是墙的原因,不要犹豫,ctrl+c暂停一哈</p>
-<p>用finder打开你的ios项目根目录,你会发现生成了<br>GemFile文件和fastlane文件夹(里面包含一个Appfile和FastFile)</p>
-<p>这时候我们打开GemFile,将里面的ruby源改为国内镜像</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#旧,删除这行</span><br><span class="line">source &quot;https:&#x2F;&#x2F;rubygems.org&quot;</span><br><span class="line">#新</span><br><span class="line">source &quot;https:&#x2F;&#x2F;gems.ruby-china.com&quot;</span><br></pre></td></tr></table></figure>
-<p>保存以后,cd到ios根目录下,输入</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bundle update</span><br></pre></td></tr></table></figure>
-<p>继续升级,期间可能问你要几次密码,输入你的mac开机密码即可.</p>
-<p>至此,为项目做准备工作完毕.</p>
-<h2 id="三-FastLane编写"><a href="#三-FastLane编写" class="headerlink" title="三.FastLane编写"></a>三.FastLane编写</h2><p>FastLane文件夹下有个FastLane文件,这个文件其实就是我们进行打包工作用的ruby脚本<br>(不要看到ruby脚本就害怕,我也不会,但是依葫芦画瓢没什么难的)<br>如图,给我们留了一个示例.</p>
-<p><img src="/images/fastlane/2.png" alt="示例"><br>再百度一下别人咋写的,我们依葫芦画瓢抄一份,如下图</p>
-<p><img src="/images/fastlane/3.png" alt="我写的"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">desc &quot;打一个测试包看看&quot;</span><br><span class="line">  lane :test_ad do |options|</span><br><span class="line">  gym(</span><br><span class="line">    clean:true, #打包前clean项目</span><br><span class="line">    export_method: &quot;ad-hoc&quot;, #导出方式,平时打包这个肯定看过,不用我多说</span><br><span class="line">    scheme:&quot;RevenueReport&quot;, #scheme,写你项目的target名</span><br><span class="line">    configuration: &quot;Release&quot;,#环境 Debug,Release,或者你自己改过项目可能还有别的环境,这个你填自己项目的就行</span><br><span class="line">    output_directory:&quot;.&#x2F;app&quot;,#ipa的存放目录,没有文件夹会自动生成</span><br><span class="line">    #output_name:get_build_number()#输出ipa的文件名为当前的build号,我改成了我app的名字如下</span><br><span class="line">    output_name:&quot;RevenueReport&quot;</span><br><span class="line">  )</span><br><span class="line">    # add actions here: https:&#x2F;&#x2F;docs.fastlane.tools&#x2F;actions</span><br><span class="line">  end</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>保存,我们开始打个ad包看看(如果你有多个target或者使用pod等三方库管理,怎么编写自行百度一下,我因为是react-native的项目,没有使用pod管理,这里就不写了)</p>
-<h3 id="四-打包"><a href="#四-打包" class="headerlink" title="四.打包"></a>四.打包</h3><p>依旧,我们cd到ios根目录下</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd 项目根目录</span><br><span class="line">#test_ad是刚刚在fastlane的文件中起的名字,你写自己的</span><br><span class="line">fastlane test_ad</span><br></pre></td></tr></table></figure>
-<p>中途可能会问你要appid和appid密码以及开了双重认证的密码,这个就不用说了,你填写就行.我因为填写过,这里就不截图了.</p>
-<p>耐心等待即可.</p>
-<p><img src="/images/fastlane/4.png" alt="image"></p>
-<p><img src="/images/fastlane/5.png" alt="image"><br>打包就完成了,ipa和dsym都有.稳</p>
-]]></content>
-      <categories>
-        <category>iOS</category>
-      </categories>
-      <tags>
-        <tag>iOS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Cocoapods发布Framework</title>
     <url>/2018/12/17/Cocoapods%E5%8F%91%E5%B8%83Framework/</url>
     <content><![CDATA[<h2 id="1-创建git仓库"><a href="#1-创建git仓库" class="headerlink" title="1.创建git仓库"></a>1.创建git仓库</h2><p>本项目由于属于商业项目，不开源，因此使用framework方式上传。</p>
@@ -308,6 +268,46 @@
 <p>(提交Framework到CocoaPods)[<a href="https://www.jianshu.com/p/40f854f6380f]">https://www.jianshu.com/p/40f854f6380f]</a></p>
 <p>(发布开源项目到cocoapods上去)[<a href="https://www.jianshu.com/p/69ebc6a4cae4]">https://www.jianshu.com/p/69ebc6a4cae4]</a></p>
 <p>(iOS中Cocoapods的Bundle)[<a href="https://www.jianshu.com/p/73e4262136fc]">https://www.jianshu.com/p/73e4262136fc]</a></p>
+]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>iOS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>FastLane-ios自动打包效率神器</title>
+    <url>/2019/07/08/FastLane-ios%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85%E6%95%88%E7%8E%87%E7%A5%9E%E5%99%A8/</url>
+    <content><![CDATA[<h1 id="FastLane-ios自动打包效率神器"><a href="#FastLane-ios自动打包效率神器" class="headerlink" title="FastLane-ios自动打包效率神器"></a>FastLane-ios自动打包效率神器</h1><p>背景: 不想每次测试都喊我打包,很累的,所以开始寻找,有你的世界在哪里</p>
+<h2 id="一-安装fastlane"><a href="#一-安装fastlane" class="headerlink" title="一.安装fastlane"></a>一.安装fastlane</h2><h3 id="1-换ruby源"><a href="#1-换ruby源" class="headerlink" title="1.换ruby源"></a>1.换ruby源</h3><p>多话不说,墙,换成国内镜像源</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ gem sources --add https:&#x2F;&#x2F;gems.ruby-china.com&#x2F; --remove https:&#x2F;&#x2F;rubygems.org&#x2F;</span><br><span class="line">$ gem sources -l</span><br><span class="line">https:&#x2F;&#x2F;gems.ruby-china.com</span><br><span class="line"># 确保只有 gems.ruby-china.com</span><br></pre></td></tr></table></figure>
+<h3 id="2-开始用gem安装-不建议使用brew-cask安装"><a href="#2-开始用gem安装-不建议使用brew-cask安装" class="headerlink" title="2.开始用gem安装(不建议使用brew cask安装)"></a>2.开始用gem安装(不建议使用brew cask安装)</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo gem install fastlane -NV</span><br></pre></td></tr></table></figure>
+<p>耐心等待,等装完</p>
+<h2 id="二-为项目配置fastlane"><a href="#二-为项目配置fastlane" class="headerlink" title="二.为项目配置fastlane"></a>二.为项目配置fastlane</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd 到你的ios项目根目录下</span><br><span class="line">fastlane init</span><br></pre></td></tr></table></figure>
+<p><img src="/images/fastlane/1.png" alt="如图"></p>
+<p>这时候有个选项,根据自己需求选就行,我选择的4,自定义,然后回车</p>
+<p>当命令执行到</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bundle update</span><br></pre></td></tr></table></figure>
+<p>接着你会发现,你卡在这了,也是墙的原因,不要犹豫,ctrl+c暂停一哈</p>
+<p>用finder打开你的ios项目根目录,你会发现生成了<br>GemFile文件和fastlane文件夹(里面包含一个Appfile和FastFile)</p>
+<p>这时候我们打开GemFile,将里面的ruby源改为国内镜像</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#旧,删除这行</span><br><span class="line">source &quot;https:&#x2F;&#x2F;rubygems.org&quot;</span><br><span class="line">#新</span><br><span class="line">source &quot;https:&#x2F;&#x2F;gems.ruby-china.com&quot;</span><br></pre></td></tr></table></figure>
+<p>保存以后,cd到ios根目录下,输入</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bundle update</span><br></pre></td></tr></table></figure>
+<p>继续升级,期间可能问你要几次密码,输入你的mac开机密码即可.</p>
+<p>至此,为项目做准备工作完毕.</p>
+<h2 id="三-FastLane编写"><a href="#三-FastLane编写" class="headerlink" title="三.FastLane编写"></a>三.FastLane编写</h2><p>FastLane文件夹下有个FastLane文件,这个文件其实就是我们进行打包工作用的ruby脚本<br>(不要看到ruby脚本就害怕,我也不会,但是依葫芦画瓢没什么难的)<br>如图,给我们留了一个示例.</p>
+<p><img src="/images/fastlane/2.png" alt="示例"><br>再百度一下别人咋写的,我们依葫芦画瓢抄一份,如下图</p>
+<p><img src="/images/fastlane/3.png" alt="我写的"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">desc &quot;打一个测试包看看&quot;</span><br><span class="line">  lane :test_ad do |options|</span><br><span class="line">  gym(</span><br><span class="line">    clean:true, #打包前clean项目</span><br><span class="line">    export_method: &quot;ad-hoc&quot;, #导出方式,平时打包这个肯定看过,不用我多说</span><br><span class="line">    scheme:&quot;RevenueReport&quot;, #scheme,写你项目的target名</span><br><span class="line">    configuration: &quot;Release&quot;,#环境 Debug,Release,或者你自己改过项目可能还有别的环境,这个你填自己项目的就行</span><br><span class="line">    output_directory:&quot;.&#x2F;app&quot;,#ipa的存放目录,没有文件夹会自动生成</span><br><span class="line">    #output_name:get_build_number()#输出ipa的文件名为当前的build号,我改成了我app的名字如下</span><br><span class="line">    output_name:&quot;RevenueReport&quot;</span><br><span class="line">  )</span><br><span class="line">    # add actions here: https:&#x2F;&#x2F;docs.fastlane.tools&#x2F;actions</span><br><span class="line">  end</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>保存,我们开始打个ad包看看(如果你有多个target或者使用pod等三方库管理,怎么编写自行百度一下,我因为是react-native的项目,没有使用pod管理,这里就不写了)</p>
+<h3 id="四-打包"><a href="#四-打包" class="headerlink" title="四.打包"></a>四.打包</h3><p>依旧,我们cd到ios根目录下</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd 项目根目录</span><br><span class="line">#test_ad是刚刚在fastlane的文件中起的名字,你写自己的</span><br><span class="line">fastlane test_ad</span><br></pre></td></tr></table></figure>
+<p>中途可能会问你要appid和appid密码以及开了双重认证的密码,这个就不用说了,你填写就行.我因为填写过,这里就不截图了.</p>
+<p>耐心等待即可.</p>
+<p><img src="/images/fastlane/4.png" alt="image"></p>
+<p><img src="/images/fastlane/5.png" alt="image"><br>打包就完成了,ipa和dsym都有.稳</p>
 ]]></content>
       <categories>
         <category>iOS</category>
@@ -1326,6 +1326,40 @@
       </tags>
   </entry>
   <entry>
+    <title>无星的RN学习之旅（三）-bridge is not set.</title>
+    <url>/2017/07/24/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89-bridge-is-not-set/</url>
+    <content><![CDATA[<p>报错信息：bridge is not set. This is probably because you’ve “<br>            “explicitly synthesized the bridge in %@, even though it’s inherited “<br>            “from RCTEventEmitter.</p>
+<p>踩坑了。。。<br>        我相信肯定有兄弟需要从原生的OC向RN主动发起事件。而且这种场景也很多，比如集成第三方的服务，通过代理回调获取结果发送给RN等等等等。。。<br>我将我遇到的坑总结一下吧。<br>先看下官网怎么写的</p>
+<p><img src="/images/RN3/1.png" alt="官网介绍1"></p>
+<p><img src="/images/RN3/2.png" alt="官网介绍2.png"><br>1.你是不是像官网一样，先写一个继承自RCTEventEmitter的对象，什么都不写，看看能不能运行？<br>答案是：并不能运行=。=你必须写实现，也就是以下这个方法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;.m文件</span><br><span class="line">- (NSArray&lt;NSString *&gt; *)supportedEvents</span><br><span class="line">&#123;</span><br><span class="line">  return @[@&quot;EventReminder&quot;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.你在使用发送文件，也就是</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[self sendEventWithName:@&quot;消息名&quot; body:参数];</span><br></pre></td></tr></table></figure>
+<p>运行这个方法的时候有没有崩溃啊=。=<br>崩溃的提示是不是</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bridge is not set. This is probably because you&#39;ve &quot;</span><br><span class="line">            &quot;explicitly synthesized the bridge in %@, even though it&#39;s inherited &quot;</span><br><span class="line">            &quot;from RCTEventEmitter.</span><br></pre></td></tr></table></figure>
+<p>其实就是bridage为空。<br>这个时候你查这个报错提示是不是发现有人说在Appdelegate.m里把rootView的bridage赋给这个你创建的对象，然后你试了一下确实发出去了开始哈皮=。=</p>
+<p>这时候你会发现一个悲伤的事实，不管你在RN里怎么写监听，你都监听不到这个事件=。=<br>那么正确的解法是什么呢=。=<br>（1）必须使用单例<br>（2）必须复写alloczone<br>其实就是加这么一段代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;.m文件</span><br><span class="line">+(id)allocWithZone:(NSZone *)zone &#123;</span><br><span class="line">  static RNBridge *sharedInstance &#x3D; nil;</span><br><span class="line">  static dispatch_once_t onceToken;</span><br><span class="line">  dispatch_once(&amp;onceToken, ^&#123;</span><br><span class="line">    sharedInstance &#x3D; [super allocWithZone:zone];</span><br><span class="line">  &#125;);</span><br><span class="line">  return sharedInstance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在APPdelegate中就不需要将rootView的bridge赋予原生模块了。<br>用self进行发送即可<br>RN中使用NativeEventEmitter进行监听即可。<br>还有问题简书私信我，一起交流解决=。=</p>
+<h2 id="2017-12-22更新"><a href="#2017-12-22更新" class="headerlink" title="2017-12-22更新"></a>2017-12-22更新</h2><p>还是有兄弟对于iOS与RN的交互有问题，直接上代码吧。图片名会写明是在桥接类的.h还是.m文件的代码<br><img src="/images/RN3/3.png" alt=".h.png"></p>
+<p><img src="/images/RN3/4.png" alt=".m.png"></p>
+<p><img src="/images/RN3/5.png" alt=".m.png"></p>
+<p><img src="/images/RN3/6.png" alt=".m.png"></p>
+<p>接下来是js方面如何监听</p>
+<p><img src="/images/RN3/7.png" alt="js.png"></p>
+<p><img src="/images/RN3/8.png" alt="js.png"></p>
+<p>这里要注意了，下面这幅截图中的代码，如果使用DevicceEventEmitter无法监听到的话，用我图中写的对应自己原生模块的nativeBridgeEmitter（名字自取）去监听。<br><img src="/images/RN3/9.png" alt="js.png"></p>
+<p>理论上，只要你的RN方面的服务以及模块已经启动，那就可以顺畅的进行oc的主动通信，不然是无法通信而且会导致崩溃的。</p>
+<p><a href="http://www.jianshu.com/p/d417f7bdc511">无星的RN学习之旅（一）-环境安装以及新建项目</a><br><a href="http://www.jianshu.com/p/cd0cfa602963">无星的RN学习之旅（二）-RN与原生的通信</a><br><a href="http://www.jianshu.com/p/cccf744bdd8d">无星的RN学习之旅（四）——通信、持久化存储、xcode打包</a><br><a href="http://www.jianshu.com/p/0c821a63852d">无星的RN学习之旅（五）-关于react-navigation多层级页面返回时，去掉逐层推出动画</a><br><a href="http://www.jianshu.com/p/42d9c668cbb1">无星的RN学习之旅（六）-第三方App跳转，苹果商店跳转，loading框</a></p>
+]]></content>
+      <categories>
+        <category>react-native</category>
+      </categories>
+      <tags>
+        <tag>react-native</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>无星的RN学习之旅（九）-ESLint引入</title>
     <url>/2018/11/10/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%B9%9D%EF%BC%89-ESLint%E5%BC%95%E5%85%A5/</url>
     <content><![CDATA[<p>这篇是写给原生老哥们看的，毕竟如果是做js的老哥肯定是不用说了。。。</p>
@@ -1378,40 +1412,6 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm run lint</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
 
 <p>各位可以适当改动一下，使得其能检查你们的文件，毕竟能少敲一些代码是一些=。=</p>
-]]></content>
-      <categories>
-        <category>react-native</category>
-      </categories>
-      <tags>
-        <tag>react-native</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>无星的RN学习之旅（三）-bridge is not set.</title>
-    <url>/2017/07/24/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89-bridge-is-not-set/</url>
-    <content><![CDATA[<p>报错信息：bridge is not set. This is probably because you’ve “<br>            “explicitly synthesized the bridge in %@, even though it’s inherited “<br>            “from RCTEventEmitter.</p>
-<p>踩坑了。。。<br>        我相信肯定有兄弟需要从原生的OC向RN主动发起事件。而且这种场景也很多，比如集成第三方的服务，通过代理回调获取结果发送给RN等等等等。。。<br>我将我遇到的坑总结一下吧。<br>先看下官网怎么写的</p>
-<p><img src="/images/RN3/1.png" alt="官网介绍1"></p>
-<p><img src="/images/RN3/2.png" alt="官网介绍2.png"><br>1.你是不是像官网一样，先写一个继承自RCTEventEmitter的对象，什么都不写，看看能不能运行？<br>答案是：并不能运行=。=你必须写实现，也就是以下这个方法</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;.m文件</span><br><span class="line">- (NSArray&lt;NSString *&gt; *)supportedEvents</span><br><span class="line">&#123;</span><br><span class="line">  return @[@&quot;EventReminder&quot;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>2.你在使用发送文件，也就是</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[self sendEventWithName:@&quot;消息名&quot; body:参数];</span><br></pre></td></tr></table></figure>
-<p>运行这个方法的时候有没有崩溃啊=。=<br>崩溃的提示是不是</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bridge is not set. This is probably because you&#39;ve &quot;</span><br><span class="line">            &quot;explicitly synthesized the bridge in %@, even though it&#39;s inherited &quot;</span><br><span class="line">            &quot;from RCTEventEmitter.</span><br></pre></td></tr></table></figure>
-<p>其实就是bridage为空。<br>这个时候你查这个报错提示是不是发现有人说在Appdelegate.m里把rootView的bridage赋给这个你创建的对象，然后你试了一下确实发出去了开始哈皮=。=</p>
-<p>这时候你会发现一个悲伤的事实，不管你在RN里怎么写监听，你都监听不到这个事件=。=<br>那么正确的解法是什么呢=。=<br>（1）必须使用单例<br>（2）必须复写alloczone<br>其实就是加这么一段代码：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;.m文件</span><br><span class="line">+(id)allocWithZone:(NSZone *)zone &#123;</span><br><span class="line">  static RNBridge *sharedInstance &#x3D; nil;</span><br><span class="line">  static dispatch_once_t onceToken;</span><br><span class="line">  dispatch_once(&amp;onceToken, ^&#123;</span><br><span class="line">    sharedInstance &#x3D; [super allocWithZone:zone];</span><br><span class="line">  &#125;);</span><br><span class="line">  return sharedInstance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在APPdelegate中就不需要将rootView的bridge赋予原生模块了。<br>用self进行发送即可<br>RN中使用NativeEventEmitter进行监听即可。<br>还有问题简书私信我，一起交流解决=。=</p>
-<h2 id="2017-12-22更新"><a href="#2017-12-22更新" class="headerlink" title="2017-12-22更新"></a>2017-12-22更新</h2><p>还是有兄弟对于iOS与RN的交互有问题，直接上代码吧。图片名会写明是在桥接类的.h还是.m文件的代码<br><img src="/images/RN3/3.png" alt=".h.png"></p>
-<p><img src="/images/RN3/4.png" alt=".m.png"></p>
-<p><img src="/images/RN3/5.png" alt=".m.png"></p>
-<p><img src="/images/RN3/6.png" alt=".m.png"></p>
-<p>接下来是js方面如何监听</p>
-<p><img src="/images/RN3/7.png" alt="js.png"></p>
-<p><img src="/images/RN3/8.png" alt="js.png"></p>
-<p>这里要注意了，下面这幅截图中的代码，如果使用DevicceEventEmitter无法监听到的话，用我图中写的对应自己原生模块的nativeBridgeEmitter（名字自取）去监听。<br><img src="/images/RN3/9.png" alt="js.png"></p>
-<p>理论上，只要你的RN方面的服务以及模块已经启动，那就可以顺畅的进行oc的主动通信，不然是无法通信而且会导致崩溃的。</p>
-<p><a href="http://www.jianshu.com/p/d417f7bdc511">无星的RN学习之旅（一）-环境安装以及新建项目</a><br><a href="http://www.jianshu.com/p/cd0cfa602963">无星的RN学习之旅（二）-RN与原生的通信</a><br><a href="http://www.jianshu.com/p/cccf744bdd8d">无星的RN学习之旅（四）——通信、持久化存储、xcode打包</a><br><a href="http://www.jianshu.com/p/0c821a63852d">无星的RN学习之旅（五）-关于react-navigation多层级页面返回时，去掉逐层推出动画</a><br><a href="http://www.jianshu.com/p/42d9c668cbb1">无星的RN学习之旅（六）-第三方App跳转，苹果商店跳转，loading框</a></p>
 ]]></content>
       <categories>
         <category>react-native</category>
@@ -1599,6 +1599,34 @@
       </tags>
   </entry>
   <entry>
+    <title>无星的electron之旅（三）——跨域</title>
+    <url>/2020/09/09/%E6%97%A0%E6%98%9F%E7%9A%84electron%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E8%B7%A8%E5%9F%9F/</url>
+    <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>你只要打包就肯定遇到这个问题…</p>
+<p>原本开发的时候可以通过webpack的proxy做转发,避免跨域的问题</p>
+<p>但是打包上线会发现,这和普通的前端项目上线不一样,不会发布到对应的域名下</p>
+<p>而是本地文件协议加载,app//.或者file://这种协议</p>
+<p>因此在填写网络请求baseurl的时候,势必会遇到跨域问题</p>
+<p>解决方式由两种</p>
+<h1 id="一-后台解决"><a href="#一-后台解决" class="headerlink" title="一.后台解决"></a>一.后台解决</h1><p>这个就不多说了,让后台去加cors即可.</p>
+<p>要是有Nginx上也可以在Nginx上搞,百度一下都有</p>
+<h1 id="二-端上解决"><a href="#二-端上解决" class="headerlink" title="二.端上解决"></a>二.端上解决</h1><p>你能百度到的基本都是</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">win &#x3D; new BrowserWindow(&#123;</span><br><span class="line">  webPreferences: &#123;</span><br><span class="line">    &#x2F;&#x2F;添加这样一个配置项,允许跨域</span><br><span class="line">    webSecurity: false,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>包括在electron的官方文档也是这么写的</p>
+<p>但是我实测,不生效</p>
+<p>还需要在文件顶端加上</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">app.commandLine.appendSwitch(&#39;disable-web-security&#39;);</span><br></pre></td></tr></table></figure>
+
+<p>这样才能允许端上跨域访问</p>
+<h1 id="感谢用户126777253074这位大哥在评论区给的回复"><a href="#感谢用户126777253074这位大哥在评论区给的回复" class="headerlink" title="感谢用户126777253074这位大哥在评论区给的回复"></a>感谢<a href="https://juejin.im/user/1266248485452910">用户126777253074</a>这位大哥在<a href="https://juejin.im/post/6844904202905321480">评论区给的回复</a></h1>]]></content>
+      <categories>
+        <category>electron</category>
+      </categories>
+      <tags>
+        <tag>electron</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>无星的electron之旅（九）—— JS注入</title>
     <url>/2021/01/03/%E6%97%A0%E6%98%9F%E7%9A%84electron%E4%B9%8B%E6%97%85%EF%BC%88%E4%B9%9D%EF%BC%89%E2%80%94%E2%80%94%20JS%E6%B3%A8%E5%85%A5/</url>
     <content><![CDATA[<h2 id="一、背景"><a href="#一、背景" class="headerlink" title="一、背景"></a>一、背景</h2><p>开发群中讨论，如何给electron注入js</p>
@@ -1624,34 +1652,6 @@
 <h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="https://nklayman.github.io/vue-cli-plugin-electron-builder/guide/guide.html#preload-files">preload.js</a></p>
 <p><a href="https://nklayman.github.io/vue-cli-plugin-electron-builder/guide/security.html#node-integration">Node Integration</a></p>
 ]]></content>
-      <categories>
-        <category>electron</category>
-      </categories>
-      <tags>
-        <tag>electron</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>无星的electron之旅（三）——跨域</title>
-    <url>/2020/09/09/%E6%97%A0%E6%98%9F%E7%9A%84electron%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E8%B7%A8%E5%9F%9F/</url>
-    <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>你只要打包就肯定遇到这个问题…</p>
-<p>原本开发的时候可以通过webpack的proxy做转发,避免跨域的问题</p>
-<p>但是打包上线会发现,这和普通的前端项目上线不一样,不会发布到对应的域名下</p>
-<p>而是本地文件协议加载,app//.或者file://这种协议</p>
-<p>因此在填写网络请求baseurl的时候,势必会遇到跨域问题</p>
-<p>解决方式由两种</p>
-<h1 id="一-后台解决"><a href="#一-后台解决" class="headerlink" title="一.后台解决"></a>一.后台解决</h1><p>这个就不多说了,让后台去加cors即可.</p>
-<p>要是有Nginx上也可以在Nginx上搞,百度一下都有</p>
-<h1 id="二-端上解决"><a href="#二-端上解决" class="headerlink" title="二.端上解决"></a>二.端上解决</h1><p>你能百度到的基本都是</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">win &#x3D; new BrowserWindow(&#123;</span><br><span class="line">  webPreferences: &#123;</span><br><span class="line">    &#x2F;&#x2F;添加这样一个配置项,允许跨域</span><br><span class="line">    webSecurity: false,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>包括在electron的官方文档也是这么写的</p>
-<p>但是我实测,不生效</p>
-<p>还需要在文件顶端加上</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">app.commandLine.appendSwitch(&#39;disable-web-security&#39;);</span><br></pre></td></tr></table></figure>
-
-<p>这样才能允许端上跨域访问</p>
-<h1 id="感谢用户126777253074这位大哥在评论区给的回复"><a href="#感谢用户126777253074这位大哥在评论区给的回复" class="headerlink" title="感谢用户126777253074这位大哥在评论区给的回复"></a>感谢<a href="https://juejin.im/user/1266248485452910">用户126777253074</a>这位大哥在<a href="https://juejin.im/post/6844904202905321480">评论区给的回复</a></h1>]]></content>
       <categories>
         <category>electron</category>
       </categories>
@@ -2174,33 +2174,6 @@
       </tags>
   </entry>
   <entry>
-    <title>无星的前端之旅（五）——小程序批量发布如何压缩打包时间</title>
-    <url>/2020/05/09/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%89%B9%E9%87%8F%E5%8F%91%E5%B8%83%E5%A6%82%E4%BD%95%E5%8E%8B%E7%BC%A9%E6%89%93%E5%8C%85%E6%97%B6%E9%97%B4/</url>
-    <content><![CDATA[<p>其实标题起的有点大，主要是使用shell中的&amp;和wait这两个命令。</p>
-<p>运维大佬不要嘲笑。</p>
-<p><a href="http://blog.xingxiaowu.cn/2020/05/07/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/">无星的前端之旅（四）——小程序持续集成</a>前面介绍了背景，我们有一套代码要发40多个客户的小程序主体。</p>
-<p>在Jenkins中加shell去完成上传开发版这个操作。但是需要进行多参数化配置，换句话说就是40多家客户我们要打40多个包，分别上传。</p>
-<p>shell的执行方式是，前面执行完了，我们才能执行下一个命令。</p>
-<p>因此如果我们打一个包并上传的时间是1分钟，那40家就是40分钟。这谁顶得住啊。</p>
-<p>所以需要考虑如何压缩这个打包上传时间，能不能同时打包，同时上传。</p>
-<p>原本的shell如下，变量我就写中文代替了</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function npminstall()&#123;</span><br><span class="line">  echo &quot;拉依赖&quot;</span><br><span class="line">  cd 代码文件夹下</span><br><span class="line">  npm install</span><br><span class="line">&#125;</span><br><span class="line">function buildwx()&#123;</span><br><span class="line">  echo &quot;执行构建&quot;</span><br><span class="line">  # echo &#39;环境:&#39;$1</span><br><span class="line">  # echo &#39;文件名:&#39;$2</span><br><span class="line">  # echo &#39;客户名:&#39;$3</span><br><span class="line">  npx cross-env 环境&#x3D;$1 文件名&#x3D;$2 客户名&#x3D;$3 node build&#x2F;build.js wx</span><br><span class="line">&#125;</span><br><span class="line">function upload()&#123;</span><br><span class="line">  echo &quot;执行上传&quot;</span><br><span class="line">  # echo &#39;文件名:&#39;$1</span><br><span class="line">  # echo &#39;appid:&#39;$2</span><br><span class="line">  # echo &#39;version:&#39;$3</span><br><span class="line">  npx miniprogram-ci upload --pp  .&#x2F;dist&#x2F;$&#123;1&#125;&#x2F;wx --pkp .&#x2F;privatekey&#x2F;private.$&#123;2&#125;.key --appid $&#123;2&#125; --uv $&#123;3&#125; -r 1 --enable-es6 true</span><br><span class="line">&#125;</span><br><span class="line">#------------------待构建配置------------------</span><br><span class="line">configs&#x3D;(</span><br><span class="line">&quot;xxx客户;xxx环境;xxx文件名;xxxxappid&quot;</span><br><span class="line">&quot;xxx客户;xxx环境;xxx文件名;xxxxappid&quot;</span><br><span class="line">)</span><br><span class="line">##读取version变量</span><br><span class="line">version&#x3D;‘xxx文件读取’</span><br><span class="line">#------------------执行批量构建------------------</span><br><span class="line">npminstall</span><br><span class="line">for xxx in $&#123;configs[@]&#125;;do </span><br><span class="line">客户名&#x3D;&#96;echo $&#123;xxx&#125; | awk -F &quot;;&quot; &#39;&#123;print $1&#125;&#39;&#96;</span><br><span class="line">环境&#x3D;&#96;echo $&#123;xxx&#125; | awk -F &quot;;&quot; &#39;&#123;print $2&#125;&#39;&#96;</span><br><span class="line">文件名&#x3D;&#96;echo $&#123;xxx&#125; | awk -F &quot;;&quot; &#39;&#123;print $3&#125;&#39;&#96;</span><br><span class="line">appid&#x3D;&#96;echo $&#123;xxx&#125; | awk -F &quot;;&quot; &#39;&#123;print $4&#125;&#39;&#96;</span><br><span class="line">buildwx $&#123;环境&#125; $&#123;文件名&#125; $&#123;客户名&#125;</span><br><span class="line">upload $&#123;文件名&#125; $&#123;appid&#125; $&#123;version&#125;</span><br><span class="line">echo &quot;$客户名 上传完毕&quot;</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-
-<p>就是一个简单的for循环，根据配置信息批量打包。40多家就是40分钟。</p>
-<p>&amp;：可以将命令转到后台执行，不阻塞。<br>wait：可以等待前面命令全部执行完毕，避免终端提前退出。</p>
-<p>因此我们改造一下批量构建的shell</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npminstall</span><br><span class="line">for xxx in $&#123;configs[@]&#125;;do &#123;</span><br><span class="line">客户名&#x3D;&#96;echo $&#123;xxx&#125; | awk -F &quot;;&quot; &#39;&#123;print $1&#125;&#39;&#96;</span><br><span class="line">环境&#x3D;&#96;echo $&#123;xxx&#125; | awk -F &quot;;&quot; &#39;&#123;print $2&#125;&#39;&#96;</span><br><span class="line">文件名&#x3D;&#96;echo $&#123;xxx&#125; | awk -F &quot;;&quot; &#39;&#123;print $3&#125;&#39;&#96;</span><br><span class="line">appid&#x3D;&#96;echo $&#123;xxx&#125; | awk -F &quot;;&quot; &#39;&#123;print $4&#125;&#39;&#96;</span><br><span class="line">buildwx $&#123;环境&#125; $&#123;文件名&#125; $&#123;客户名&#125;</span><br><span class="line">upload $&#123;文件名&#125; $&#123;appid&#125; $&#123;version&#125;</span><br><span class="line">echo &quot;$客户名 上传完毕&quot;</span><br><span class="line">&#125; &amp;</span><br><span class="line">done</span><br><span class="line">wait </span><br><span class="line">echo &quot;全部完成&quot;</span><br></pre></td></tr></table></figure>
-
-<p>就这样，将Jenkins的整个时间，从40分钟，降到了3分钟。</p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>前端</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>无星的前端之旅（二）-vue 使用 lottie</title>
     <url>/2019/12/31/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89-vue-%E4%BD%BF%E7%94%A8-lottie/</url>
     <content><![CDATA[<h2 id="背景："><a href="#背景：" class="headerlink" title="背景："></a>背景：</h2><p>最近在写vue，使用的是nuxt框架做ssr。css属实有点难搞，ui又想让我做动画，说要好看，要酷，要炫。属实有点要命。</p>
@@ -2241,6 +2214,33 @@
       </categories>
       <tags>
         <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>无星的前端之旅（五）——小程序批量发布如何压缩打包时间</title>
+    <url>/2020/05/09/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%89%B9%E9%87%8F%E5%8F%91%E5%B8%83%E5%A6%82%E4%BD%95%E5%8E%8B%E7%BC%A9%E6%89%93%E5%8C%85%E6%97%B6%E9%97%B4/</url>
+    <content><![CDATA[<p>其实标题起的有点大，主要是使用shell中的&amp;和wait这两个命令。</p>
+<p>运维大佬不要嘲笑。</p>
+<p><a href="http://blog.xingxiaowu.cn/2020/05/07/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/">无星的前端之旅（四）——小程序持续集成</a>前面介绍了背景，我们有一套代码要发40多个客户的小程序主体。</p>
+<p>在Jenkins中加shell去完成上传开发版这个操作。但是需要进行多参数化配置，换句话说就是40多家客户我们要打40多个包，分别上传。</p>
+<p>shell的执行方式是，前面执行完了，我们才能执行下一个命令。</p>
+<p>因此如果我们打一个包并上传的时间是1分钟，那40家就是40分钟。这谁顶得住啊。</p>
+<p>所以需要考虑如何压缩这个打包上传时间，能不能同时打包，同时上传。</p>
+<p>原本的shell如下，变量我就写中文代替了</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function npminstall()&#123;</span><br><span class="line">  echo &quot;拉依赖&quot;</span><br><span class="line">  cd 代码文件夹下</span><br><span class="line">  npm install</span><br><span class="line">&#125;</span><br><span class="line">function buildwx()&#123;</span><br><span class="line">  echo &quot;执行构建&quot;</span><br><span class="line">  # echo &#39;环境:&#39;$1</span><br><span class="line">  # echo &#39;文件名:&#39;$2</span><br><span class="line">  # echo &#39;客户名:&#39;$3</span><br><span class="line">  npx cross-env 环境&#x3D;$1 文件名&#x3D;$2 客户名&#x3D;$3 node build&#x2F;build.js wx</span><br><span class="line">&#125;</span><br><span class="line">function upload()&#123;</span><br><span class="line">  echo &quot;执行上传&quot;</span><br><span class="line">  # echo &#39;文件名:&#39;$1</span><br><span class="line">  # echo &#39;appid:&#39;$2</span><br><span class="line">  # echo &#39;version:&#39;$3</span><br><span class="line">  npx miniprogram-ci upload --pp  .&#x2F;dist&#x2F;$&#123;1&#125;&#x2F;wx --pkp .&#x2F;privatekey&#x2F;private.$&#123;2&#125;.key --appid $&#123;2&#125; --uv $&#123;3&#125; -r 1 --enable-es6 true</span><br><span class="line">&#125;</span><br><span class="line">#------------------待构建配置------------------</span><br><span class="line">configs&#x3D;(</span><br><span class="line">&quot;xxx客户;xxx环境;xxx文件名;xxxxappid&quot;</span><br><span class="line">&quot;xxx客户;xxx环境;xxx文件名;xxxxappid&quot;</span><br><span class="line">)</span><br><span class="line">##读取version变量</span><br><span class="line">version&#x3D;‘xxx文件读取’</span><br><span class="line">#------------------执行批量构建------------------</span><br><span class="line">npminstall</span><br><span class="line">for xxx in $&#123;configs[@]&#125;;do </span><br><span class="line">客户名&#x3D;&#96;echo $&#123;xxx&#125; | awk -F &quot;;&quot; &#39;&#123;print $1&#125;&#39;&#96;</span><br><span class="line">环境&#x3D;&#96;echo $&#123;xxx&#125; | awk -F &quot;;&quot; &#39;&#123;print $2&#125;&#39;&#96;</span><br><span class="line">文件名&#x3D;&#96;echo $&#123;xxx&#125; | awk -F &quot;;&quot; &#39;&#123;print $3&#125;&#39;&#96;</span><br><span class="line">appid&#x3D;&#96;echo $&#123;xxx&#125; | awk -F &quot;;&quot; &#39;&#123;print $4&#125;&#39;&#96;</span><br><span class="line">buildwx $&#123;环境&#125; $&#123;文件名&#125; $&#123;客户名&#125;</span><br><span class="line">upload $&#123;文件名&#125; $&#123;appid&#125; $&#123;version&#125;</span><br><span class="line">echo &quot;$客户名 上传完毕&quot;</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<p>就是一个简单的for循环，根据配置信息批量打包。40多家就是40分钟。</p>
+<p>&amp;：可以将命令转到后台执行，不阻塞。<br>wait：可以等待前面命令全部执行完毕，避免终端提前退出。</p>
+<p>因此我们改造一下批量构建的shell</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npminstall</span><br><span class="line">for xxx in $&#123;configs[@]&#125;;do &#123;</span><br><span class="line">客户名&#x3D;&#96;echo $&#123;xxx&#125; | awk -F &quot;;&quot; &#39;&#123;print $1&#125;&#39;&#96;</span><br><span class="line">环境&#x3D;&#96;echo $&#123;xxx&#125; | awk -F &quot;;&quot; &#39;&#123;print $2&#125;&#39;&#96;</span><br><span class="line">文件名&#x3D;&#96;echo $&#123;xxx&#125; | awk -F &quot;;&quot; &#39;&#123;print $3&#125;&#39;&#96;</span><br><span class="line">appid&#x3D;&#96;echo $&#123;xxx&#125; | awk -F &quot;;&quot; &#39;&#123;print $4&#125;&#39;&#96;</span><br><span class="line">buildwx $&#123;环境&#125; $&#123;文件名&#125; $&#123;客户名&#125;</span><br><span class="line">upload $&#123;文件名&#125; $&#123;appid&#125; $&#123;version&#125;</span><br><span class="line">echo &quot;$客户名 上传完毕&quot;</span><br><span class="line">&#125; &amp;</span><br><span class="line">done</span><br><span class="line">wait </span><br><span class="line">echo &quot;全部完成&quot;</span><br></pre></td></tr></table></figure>
+
+<p>就这样，将Jenkins的整个时间，从40分钟，降到了3分钟。</p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
       </tags>
   </entry>
   <entry>
@@ -2302,6 +2302,32 @@
       </tags>
   </entry>
   <entry>
+    <title>无星的前端之旅（十一）——Vscode的换行符问题</title>
+    <url>/2020/11/26/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94Vscode%E7%9A%84%E6%8D%A2%E8%A1%8C%E7%AC%A6%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>大🔥都知道，Vscode的换行符有LF和CRLF</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">在各操作系统下，文本文件所使用的换行符是不一样的。UNIX&#x2F;Linux 使用的是 0x0A（LF），早期的 Mac OS 使用的是0x0D（CR），后来的 OS X 在更换内核后与 UNIX 保持一致了。但 DOS&#x2F;Windows 一直使用 0x0D0A（CRLF）作为换行符。Git提供了一个“换行符自动转换”功能。这个功能默认处于“自动模式”，当你在签出文件时，它试图将 UNIX 换行符（LF）替换为 Windows 的换行符（CRLF）；当你在提交文件时，它又试图将 CRLF 替换为 LF。Git 的“换行符自动转换”功能听起来似乎很智能、很贴心，因为它试图一方面保持仓库内文件的一致性（UNIX 风格），一方面又保证本地文件的兼容性（Windows 风格）。但遗憾的是，这个功能是有 bug 的，而且在短期内都不太可能会修正。 </span><br></pre></td></tr></table></figure>
+<p>从<a href="https://www.cnblogs.com/sdgf/p/6237847.html">git 换行符LF与CRLF转换问题</a>抄的</p>
+<p>这里我们可以知道，在macOS和linux上，与windows的换行符是不一致的。</p>
+<p>一旦使用eslint等工具，就会整个项目出问题。。。</p>
+<h2 id="可能在百度搜半天，怎么解决这个问题，发现的都是以下两种："><a href="#可能在百度搜半天，怎么解决这个问题，发现的都是以下两种：" class="headerlink" title="可能在百度搜半天，怎么解决这个问题，发现的都是以下两种："></a>可能在百度搜半天，怎么解决这个问题，发现的都是以下两种：</h2><p>1.新建文件怎么设置换行符</p>
+<p>2.单文件如何通过编辑器修改换行符</p>
+<p>丝毫没提如何修正已有文件</p>
+<h2 id="项目那么多文件，怎么可能手动一个个修复"><a href="#项目那么多文件，怎么可能手动一个个修复" class="headerlink" title="项目那么多文件，怎么可能手动一个个修复"></a>项目那么多文件，怎么可能手动一个个修复</h2><p> 所以这里提一下如何修正</p>
+<h3 id="在mac-linux上："><a href="#在mac-linux上：" class="headerlink" title="在mac/linux上："></a>在mac/linux上：</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd 项目根目录</span><br><span class="line">find . -type f | grep -v &quot;node_modules&quot; | xargs dos2unix</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="在windows上，使用git-bash终端，不要用cmd或者powershell"><a href="#在windows上，使用git-bash终端，不要用cmd或者powershell" class="headerlink" title="在windows上，使用git-bash终端，不要用cmd或者powershell"></a>在windows上，使用git-bash终端，不要用cmd或者powershell</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd 项目根目录</span><br><span class="line">find . -type f | grep -v &quot;node_modules&quot; | xargs dos2unix</span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>无星的前端之旅（十七）-typescript初探</title>
     <url>/2021/02/13/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E4%B8%83%EF%BC%89-typescript%E5%88%9D%E6%8E%A2/</url>
     <content><![CDATA[<p>之前干iOS的，写过一段时间swift，所以从js转到ts对我其实影响不太大。</p>
@@ -2327,32 +2353,6 @@
 <h1 id="P-S：掘金的搜索能不能添加一个沸点搜索功能"><a href="#P-S：掘金的搜索能不能添加一个沸点搜索功能" class="headerlink" title="P.S：掘金的搜索能不能添加一个沸点搜索功能"></a>P.S：掘金的搜索能不能添加一个沸点搜索功能</h1><p>之前在掘金的沸点看到过一个老哥提问，说看中文网上写的：“默认情况下null和undefined是所有类型的子类型。 就是说你可以把 null和undefined赋值给number类型的变量。”但是发布沸点的老哥表示自己尝试了一下，报错了，不知道原因为何。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let aa: number &#x3D; null;</span><br></pre></td></tr></table></figure>
 <p>实际上文档下面标注了，strictNullChecks这个选项在文档介绍中是关闭的<br><img src="/images/%E5%89%8D%E7%AB%AF17/1.png"></p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>前端</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>无星的前端之旅（十一）——Vscode的换行符问题</title>
-    <url>/2020/11/26/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94Vscode%E7%9A%84%E6%8D%A2%E8%A1%8C%E7%AC%A6%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<p>大🔥都知道，Vscode的换行符有LF和CRLF</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">在各操作系统下，文本文件所使用的换行符是不一样的。UNIX&#x2F;Linux 使用的是 0x0A（LF），早期的 Mac OS 使用的是0x0D（CR），后来的 OS X 在更换内核后与 UNIX 保持一致了。但 DOS&#x2F;Windows 一直使用 0x0D0A（CRLF）作为换行符。Git提供了一个“换行符自动转换”功能。这个功能默认处于“自动模式”，当你在签出文件时，它试图将 UNIX 换行符（LF）替换为 Windows 的换行符（CRLF）；当你在提交文件时，它又试图将 CRLF 替换为 LF。Git 的“换行符自动转换”功能听起来似乎很智能、很贴心，因为它试图一方面保持仓库内文件的一致性（UNIX 风格），一方面又保证本地文件的兼容性（Windows 风格）。但遗憾的是，这个功能是有 bug 的，而且在短期内都不太可能会修正。 </span><br></pre></td></tr></table></figure>
-<p>从<a href="https://www.cnblogs.com/sdgf/p/6237847.html">git 换行符LF与CRLF转换问题</a>抄的</p>
-<p>这里我们可以知道，在macOS和linux上，与windows的换行符是不一致的。</p>
-<p>一旦使用eslint等工具，就会整个项目出问题。。。</p>
-<h2 id="可能在百度搜半天，怎么解决这个问题，发现的都是以下两种："><a href="#可能在百度搜半天，怎么解决这个问题，发现的都是以下两种：" class="headerlink" title="可能在百度搜半天，怎么解决这个问题，发现的都是以下两种："></a>可能在百度搜半天，怎么解决这个问题，发现的都是以下两种：</h2><p>1.新建文件怎么设置换行符</p>
-<p>2.单文件如何通过编辑器修改换行符</p>
-<p>丝毫没提如何修正已有文件</p>
-<h2 id="项目那么多文件，怎么可能手动一个个修复"><a href="#项目那么多文件，怎么可能手动一个个修复" class="headerlink" title="项目那么多文件，怎么可能手动一个个修复"></a>项目那么多文件，怎么可能手动一个个修复</h2><p> 所以这里提一下如何修正</p>
-<h3 id="在mac-linux上："><a href="#在mac-linux上：" class="headerlink" title="在mac/linux上："></a>在mac/linux上：</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd 项目根目录</span><br><span class="line">find . -type f | grep -v &quot;node_modules&quot; | xargs dos2unix</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="在windows上，使用git-bash终端，不要用cmd或者powershell"><a href="#在windows上，使用git-bash终端，不要用cmd或者powershell" class="headerlink" title="在windows上，使用git-bash终端，不要用cmd或者powershell"></a>在windows上，使用git-bash终端，不要用cmd或者powershell</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd 项目根目录</span><br><span class="line">find . -type f | grep -v &quot;node_modules&quot; | xargs dos2unix</span><br></pre></td></tr></table></figure>
-
-
 ]]></content>
       <categories>
         <category>前端</category>
@@ -2716,31 +2716,6 @@
       </tags>
   </entry>
   <entry>
-    <title>无星的微前端之旅（一）——微前端选型</title>
-    <url>/2021/02/19/%E6%97%A0%E6%98%9F%E7%9A%84%E5%BE%AE%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E5%BE%AE%E5%89%8D%E7%AB%AF%E9%80%89%E5%9E%8B/</url>
-    <content><![CDATA[<h1 id="微前端是什么"><a href="#微前端是什么" class="headerlink" title="微前端是什么"></a>微前端是什么</h1><p>我觉得没有什么说的必要，可以百度到</p>
-<h1 id="微前端能解决什么"><a href="#微前端能解决什么" class="headerlink" title="微前端能解决什么"></a>微前端能解决什么</h1><p>也没有什么必要赘述</p>
-<h1 id="微前端能为我们带来什么"><a href="#微前端能为我们带来什么" class="headerlink" title="微前端能为我们带来什么"></a>微前端能为我们带来什么</h1><p>不被时间所淘汰的技术选型！！！</p>
-<p><a href="https://www.yuque.com/kuitos/gky7yw/rhduwc">微前端的核心价值</a></p>
-<h1 id="选型开始"><a href="#选型开始" class="headerlink" title="选型开始"></a>选型开始</h1><h3 id="备选库"><a href="#备选库" class="headerlink" title="备选库"></a>备选库</h3><p><a href="https://single-spa.js.org/">SingleSpa</a>:可以说“万物基于SingleSpa”，当前流行的大量框架其实是SingleSpa的上层封装。</p>
-<p><a href="https://qiankun.umijs.org/">qiankungithub</a>:阿里开源的一套，基于SingleSpa的上层封装，社区活跃。</p>
-<p><a href="https://github.com/teambit/bit">bit</a>:当前比较流行的一套</p>
-<p><a href="https://webpack.js.org/concepts/module-federation/">webpack5配合Module Federation</a>:是的，没错，webpack5配合Module Federation也能达到相同目的，但是目前资料较少</p>
-<p><a href="https://docs.piral.io/guidelines/tutorials/01-introduction">piral</a> |<br><a href="https://frint.js.org/">frint</a> |<br><a href="https://github.com/SAP/luigi">luigi</a> |<br><a href="https://github.com/puzzle-js/puzzle-js">puzzle-js</a></p>
-<h3 id="优势说明"><a href="#优势说明" class="headerlink" title="优势说明"></a>优势说明</h3><p>就当前看来，SingleSpa提供给较为基础的api，应用在项目中需要进行大量封装。</p>
-<p>qiankun目前生态较好，中文文档齐全，有大量的先行者铺路。</p>
-<p>bit生态发展较好，有大量使用者，英文文档齐全，并结合了webpack5的module federation。</p>
-<h3 id="选择结果"><a href="#选择结果" class="headerlink" title="选择结果"></a>选择结果</h3><p>这里建议选择qiankun作为框架实践，因为中文文档齐全，且国内生态很好。</p>
-<p>接下来就要进行业务开发了，冲！</p>
-]]></content>
-      <categories>
-        <category>微前端</category>
-      </categories>
-      <tags>
-        <tag>微前端</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>无星的前端之旅（四）——小程序持续集成</title>
     <url>/2020/05/07/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/</url>
     <content><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>刚刚跑路到一家新公司。新公司的前端小改改负责开发小程序，为四十多家客户服务，而且是他们的账号主体。</p>
@@ -2805,6 +2780,31 @@
       </categories>
       <tags>
         <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>无星的微前端之旅（一）——微前端选型</title>
+    <url>/2021/02/19/%E6%97%A0%E6%98%9F%E7%9A%84%E5%BE%AE%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E5%BE%AE%E5%89%8D%E7%AB%AF%E9%80%89%E5%9E%8B/</url>
+    <content><![CDATA[<h1 id="微前端是什么"><a href="#微前端是什么" class="headerlink" title="微前端是什么"></a>微前端是什么</h1><p>我觉得没有什么说的必要，可以百度到</p>
+<h1 id="微前端能解决什么"><a href="#微前端能解决什么" class="headerlink" title="微前端能解决什么"></a>微前端能解决什么</h1><p>也没有什么必要赘述</p>
+<h1 id="微前端能为我们带来什么"><a href="#微前端能为我们带来什么" class="headerlink" title="微前端能为我们带来什么"></a>微前端能为我们带来什么</h1><p>不被时间所淘汰的技术选型！！！</p>
+<p><a href="https://www.yuque.com/kuitos/gky7yw/rhduwc">微前端的核心价值</a></p>
+<h1 id="选型开始"><a href="#选型开始" class="headerlink" title="选型开始"></a>选型开始</h1><h3 id="备选库"><a href="#备选库" class="headerlink" title="备选库"></a>备选库</h3><p><a href="https://single-spa.js.org/">SingleSpa</a>:可以说“万物基于SingleSpa”，当前流行的大量框架其实是SingleSpa的上层封装。</p>
+<p><a href="https://qiankun.umijs.org/">qiankungithub</a>:阿里开源的一套，基于SingleSpa的上层封装，社区活跃。</p>
+<p><a href="https://github.com/teambit/bit">bit</a>:当前比较流行的一套</p>
+<p><a href="https://webpack.js.org/concepts/module-federation/">webpack5配合Module Federation</a>:是的，没错，webpack5配合Module Federation也能达到相同目的，但是目前资料较少</p>
+<p><a href="https://docs.piral.io/guidelines/tutorials/01-introduction">piral</a> |<br><a href="https://frint.js.org/">frint</a> |<br><a href="https://github.com/SAP/luigi">luigi</a> |<br><a href="https://github.com/puzzle-js/puzzle-js">puzzle-js</a></p>
+<h3 id="优势说明"><a href="#优势说明" class="headerlink" title="优势说明"></a>优势说明</h3><p>就当前看来，SingleSpa提供给较为基础的api，应用在项目中需要进行大量封装。</p>
+<p>qiankun目前生态较好，中文文档齐全，有大量的先行者铺路。</p>
+<p>bit生态发展较好，有大量使用者，英文文档齐全，并结合了webpack5的module federation。</p>
+<h3 id="选择结果"><a href="#选择结果" class="headerlink" title="选择结果"></a>选择结果</h3><p>这里建议选择qiankun作为框架实践，因为中文文档齐全，且国内生态很好。</p>
+<p>接下来就要进行业务开发了，冲！</p>
+]]></content>
+      <categories>
+        <category>微前端</category>
+      </categories>
+      <tags>
+        <tag>微前端</tag>
       </tags>
   </entry>
   <entry>
