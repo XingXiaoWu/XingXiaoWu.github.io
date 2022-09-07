@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.xingxiaowu.cn","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="这里是一些很浅很浅的东西，大佬们不要喷我&#x3D;。&#x3D;。 qiankun将应用分为两种：主应用，微（子）应用 一.主应用是一个基座主应用是一个基座，承载着各个子应用。 主应用负责各个应用之间的加载，通信和调度。 带🔥都说，这是微服务在前端的应用，不过我没做过服务端，对微服务不是很了解，因此不敢乱说。 我只做过客户端，从客户端的角度来看，这看上去就类似于iOS的组件化。将模块解耦后，通过主工程进行加载调用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="无星的微前端之旅（二）—— qiankun的一些预知项">
+<meta property="og:url" content="http://blog.xingxiaowu.cn/2021/02/19/%E6%97%A0%E6%98%9F%E7%9A%84%E5%BE%AE%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20qiankun%E5%81%9A%E4%BA%86%E5%95%A5/index.html">
+<meta property="og:site_name" content="无星的小窝">
+<meta property="og:description" content="这里是一些很浅很浅的东西，大佬们不要喷我&#x3D;。&#x3D;。 qiankun将应用分为两种：主应用，微（子）应用 一.主应用是一个基座主应用是一个基座，承载着各个子应用。 主应用负责各个应用之间的加载，通信和调度。 带🔥都说，这是微服务在前端的应用，不过我没做过服务端，对微服务不是很了解，因此不敢乱说。 我只做过客户端，从客户端的角度来看，这看上去就类似于iOS的组件化。将模块解耦后，通过主工程进行加载调用">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.xingxiaowu.cn/images/qiankun2/1.png">
+<meta property="og:image" content="http://blog.xingxiaowu.cn/images/qiankun2/2.png">
+<meta property="article:published_time" content="2021-02-19T07:27:08.000Z">
+<meta property="article:modified_time" content="2022-09-06T08:56:11.945Z">
+<meta property="article:author" content="无星">
+<meta property="article:tag" content="微前端">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.xingxiaowu.cn/images/qiankun2/1.png">
+
+<link rel="canonical" href="http://blog.xingxiaowu.cn/2021/02/19/%E6%97%A0%E6%98%9F%E7%9A%84%E5%BE%AE%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20qiankun%E5%81%9A%E4%BA%86%E5%95%A5/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>无星的微前端之旅（二）—— qiankun的一些预知项 | 无星的小窝</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5976024V60"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-5976024V60');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?bdba6c3bda62a07f58f3cf06034704d5";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="无星的小窝" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+    <span id="forkongithub"><a target="_blank" rel="noopener" href="https://github.com/XingXiaoWu">我的GitHub</a></span>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">无星的小窝</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">估计也么的人看</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-留言板">
+
+    <a href="/guestbook" rel="section"><i class="fab fa-leanpub fa-fw"></i>留言板</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/html/404.html" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2021/02/19/%E6%97%A0%E6%98%9F%E7%9A%84%E5%BE%AE%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20qiankun%E5%81%9A%E4%BA%86%E5%95%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          无星的微前端之旅（二）—— qiankun的一些预知项
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-02-19 15:27:08" itemprop="dateCreated datePublished" datetime="2021-02-19T15:27:08+08:00">2021-02-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-06 16:56:11" itemprop="dateModified" datetime="2022-09-06T16:56:11+08:00">2022-09-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%BE%AE%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">微前端</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/02/19/%E6%97%A0%E6%98%9F%E7%9A%84%E5%BE%AE%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20qiankun%E5%81%9A%E4%BA%86%E5%95%A5/" class="post-meta-item leancloud_visitors" data-flag-title="无星的微前端之旅（二）—— qiankun的一些预知项" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>这里是一些很浅很浅的东西，大佬们不要喷我=。=。</p>
+<p>qiankun将应用分为两种：主应用，微（子）应用</p>
+<h1 id="一-主应用是一个基座"><a href="#一-主应用是一个基座" class="headerlink" title="一.主应用是一个基座"></a>一.主应用是一个基座</h1><p>主应用是一个基座，承载着各个子应用。</p>
+<p>主应用负责各个应用之间的加载，通信和调度。</p>
+<p>带🔥都说，这是微服务在前端的应用，不过我没做过服务端，对微服务不是很了解，因此不敢乱说。</p>
+<p>我只做过客户端，从客户端的角度来看，这看上去就类似于iOS的组件化。将模块解耦后，通过主工程进行加载调用。这样一来有客户端背景的同学是不是就比较好理解了。</p>
+<h1 id="二-主应用通过注册好的配置表，去分别加载各自子应用的资源。"><a href="#二-主应用通过注册好的配置表，去分别加载各自子应用的资源。" class="headerlink" title="二.主应用通过注册好的配置表，去分别加载各自子应用的资源。"></a>二.主应用通过注册好的<a target="_blank" rel="noopener" href="https://qiankun.umijs.org/zh/guide/tutorial#%E4%B8%BB%E5%BA%94%E7%94%A8">配置表</a>，去分别加载各自子应用的资源。</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; registerMicroApps, start &#125; <span class="keyword">from</span> <span class="string">&#x27;qiankun&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="title function_">registerMicroApps</span>([</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="comment">//   子应用的名称，需要唯一</span></span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;reactApp&#x27;</span>,</span><br><span class="line">    <span class="comment">//   需要加载资源的地址</span></span><br><span class="line">    <span class="attr">entry</span>: <span class="string">&#x27;//localhost:3000&#x27;</span>,</span><br><span class="line">    <span class="comment">// 用于替换dom的id</span></span><br><span class="line">    <span class="attr">container</span>: <span class="string">&#x27;#container&#x27;</span>,</span><br><span class="line">    <span class="comment">// 激活规则</span></span><br><span class="line">    <span class="attr">activeRule</span>: <span class="string">&#x27;/app-react&#x27;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;vueApp&#x27;</span>,</span><br><span class="line">    <span class="attr">entry</span>: <span class="string">&#x27;//localhost:8080&#x27;</span>,</span><br><span class="line">    <span class="attr">container</span>: <span class="string">&#x27;#container&#x27;</span>,</span><br><span class="line">    <span class="attr">activeRule</span>: <span class="string">&#x27;/app-vue&#x27;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;angularApp&#x27;</span>,</span><br><span class="line">    <span class="attr">entry</span>: <span class="string">&#x27;//localhost:4200&#x27;</span>,</span><br><span class="line">    <span class="attr">container</span>: <span class="string">&#x27;#container&#x27;</span>,</span><br><span class="line">    <span class="attr">activeRule</span>: <span class="string">&#x27;/app-angular&#x27;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">]);</span><br><span class="line"><span class="comment">// 启动 qiankun</span></span><br><span class="line"><span class="title function_">start</span>();</span><br></pre></td></tr></table></figure>
+
+<p>这里可以看到两步：注册，启动</p>
+<p>换句话说，注册和启动是可以分开的。</p>
+<p>并且本身<a target="_blank" rel="noopener" href="https://qiankun.umijs.org/zh/api#%E6%89%8B%E5%8A%A8%E5%8A%A0%E8%BD%BD%E5%BE%AE%E5%BA%94%E7%94%A8">手动加载loadMicroApp</a></p>
+<p>这意味着，配置表可以从远端请求下来，进行动态修改，这就能做一些非常有意思的操作了[旺柴]:比如:<a href="https://blog.xingxiaowu.cn/2021/03/20/%E6%97%A0%E6%98%9F%E7%9A%84%E5%BE%AE%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94qiankun%E7%BA%BF%E4%B8%8A%E6%9C%8D%E5%8A%A1%E4%BB%A3%E7%90%86%E5%88%B0%E6%9C%AC%E5%9C%B0/">无星的微前端之旅（四）——qiankun线上服务代理到本地</a></p>
+<h1 id="三-entry"><a href="#三-entry" class="headerlink" title="三.entry"></a>三.entry</h1><p>entry虽然写的是一个地址，但实际上</p>
+<p>指向的应该是具体的html！</p>
+<p>指向的应该是具体的html！</p>
+<p>指向的应该是具体的html！</p>
+<p>重要的话说三遍</p>
+<p>本地开发的时候，//localhost:3000 其实就是加载public文件夹中的html了。</p>
+<p>而配置nginx上线的时候，一般都会加上</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">    root xxxx/xxx/;</span><br><span class="line">    index index.html index.htm;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其实指向的就是html。</p>
+<p>因为无论是开发还是打包，spa类型项目都是加载html，html再去加载js，然后再来接管前端路由的。</p>
+<h3 id="为什么要强调这个？"><a href="#为什么要强调这个？" class="headerlink" title="为什么要强调这个？"></a>为什么要强调这个？</h3><p>因为可能在某些场景下，不让配置nginx。</p>
+<p>比如，将前端产物放到springboot的静态文件夹里上线，这种时候你可能就不知道这里填啥了，这里填子应用对应的html地址就行。</p>
+<h1 id="container"><a href="#container" class="headerlink" title="container"></a>container</h1><p>微应用的容器节点的选择器或者 Element 实例。</p>
+<p>其dom节点内会被插入一个dom节点，用于展示子应用的html内容。</p>
+<p>如下图，sub-apps是主应用提供的dom节点</p>
+<p><img src="/images/qiankun2/1.png" alt="1"><br><img src="/images/qiankun2/2.png" alt="2"></p>
+<p>这意味这，如果你的某些子应用是路由不敏感的，配合activeRule完全可以同屏展示。</p>
+<p>同时，另一方面，一些需要通过cdn引入的资源依赖，只需要在主应用引入即可，子应用不需要再引入，比如阿里的iconfont等。</p>
+<p>如果子应用有单独访问的需求，可以在script标签添加一个<code>ignore</code>属性。这样主应用访问的时候，就不会引入两次。公共依赖处理等，都可以使用这种方式，详细可以往下看<code>五.公共依赖相关</code>。</p>
+<h1 id="activeRule"><a href="#activeRule" class="headerlink" title="activeRule"></a>activeRule</h1><p>这就是子应用的激活规则。</p>
+<p>别看大量的demo中这里填写的都是路由地址，你就认为这里写的是路由。</p>
+<p>其实不然，它只表示激活规则，具体请看<a target="_blank" rel="noopener" href="https://qiankun.umijs.org/zh/api#registermicroappsapps-lifecycles">文档</a></p>
+<p>这意味这，如果使用function，返回true，配合不同的container，就能同时激活两个子应用。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一般情况下，最佳实践，仍然是使用子应用的packagename作为前缀来制定路由激活规则，方便部署，也方便划分。</span><br></pre></td></tr></table></figure>
+
+<p>另外使用hash路由，需要注意，path前面需要加上#/，并且最好加上如下方法，而不要直接使用string</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const getActiveRule = (hash) =&gt; (location) =&gt; location.hash.startsWith(hash);</span><br></pre></td></tr></table></figure>
+
+<p>例如，有个子应用使用hash路由，前缀为sub-login，则写法如下，以避免某些情况下路由正确却不激活子应用，<a target="_blank" rel="noopener" href="https://qiankun.umijs.org/zh/cookbook#activerule-%E4%BD%BF%E7%94%A8-locationhash-%E5%8C%BA%E5%88%86%E5%BE%AE%E5%BA%94%E7%94%A8">文档</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  name: &#x27;sub-login&#x27;,</span><br><span class="line">  entry: &#x27;//xxx&#x27;,</span><br><span class="line">  container: &#x27;#container&#x27;,</span><br><span class="line">   activeRule: getActiveRule(&#x27;#/sub-login&#x27;),</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<h1 id="四-子应用的js加载后怎么执行的"><a href="#四-子应用的js加载后怎么执行的" class="headerlink" title="四.子应用的js加载后怎么执行的"></a>四.子应用的js加载后怎么执行的</h1><p>请求到子应用以后，通过eval直接执行子应用代码。这个大家起一个子应用，然后打个断点，在浏览器中断点滚到最上面就能看到eval的包裹了。</p>
+<h1 id="五-公共依赖相关"><a href="#五-公共依赖相关" class="headerlink" title="五.公共依赖相关"></a>五.公共依赖相关</h1><p>其实在我司的项目中，并没有做对应处理，但是也了解了一下相关的。</p>
+<p>首先说这种微前端的设计预期：既然最大的价值是技术栈无关，那么还要做公共依赖，自然是不符合原本的设计预期的。</p>
+<p>当然，也不是不能做。</p>
+<p>结合实现方式分析一下，主应用本身是基座，那么主应用的依赖，必定是全部会被加载的，那么公共依赖，应当是加载主应用的依赖以后，就不需要加载子应用的了。</p>
+<p>所以如果有相同依赖的情况下，子应用只需要打包的时候剔除，在主应用加载子应用的时候，子应用其实就能读到相同依赖。</p>
+<h2 id="但是这时候需要考虑另一个问题：子应用独立运行访问。"><a href="#但是这时候需要考虑另一个问题：子应用独立运行访问。" class="headerlink" title="但是这时候需要考虑另一个问题：子应用独立运行访问。"></a>但是这时候需要考虑另一个问题：子应用独立运行访问。</h2><p>考虑到上述html的加载，实际上是把子应用的html内容加载到主应用的容器节点下，那意味着，如果子应用使用script标签做cdn加载，就能在子应用独立访问时，能够获取到对应依赖。</p>
+<p>但是这样，前面的剔除操作不就白做了吗？我们需要对cdn加载的script标签添加一个<code>ignore</code>属性，这样在主应用中，就依然不会加载该资源了。</p>
+<p>来自<a target="_blank" rel="noopener" href="https://github.com/umijs/qiankun/issues/1260#issuecomment-774644038">issuse</a>。</p>
+<hr>
+<p>沙箱和css隔离我暂时还没有用到，所以没有什么要写的。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/" rel="tag"># 微前端</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/02/14/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E5%85%AB%EF%BC%89-Vue3+ts%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" rel="prev" title="无星的前端之旅（十八）-Vue3+ts常见问题">
+      <i class="fa fa-chevron-left"></i> 无星的前端之旅（十八）-Vue3+ts常见问题
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/02/19/%E6%97%A0%E6%98%9F%E7%9A%84%E5%BE%AE%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E5%BE%AE%E5%89%8D%E7%AB%AF%E9%80%89%E5%9E%8B/" rel="next" title="无星的微前端之旅（一）——微前端选型">
+      无星的微前端之旅（一）——微前端选型 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80-%E4%B8%BB%E5%BA%94%E7%94%A8%E6%98%AF%E4%B8%80%E4%B8%AA%E5%9F%BA%E5%BA%A7"><span class="nav-number">1.</span> <span class="nav-text">一.主应用是一个基座</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C-%E4%B8%BB%E5%BA%94%E7%94%A8%E9%80%9A%E8%BF%87%E6%B3%A8%E5%86%8C%E5%A5%BD%E7%9A%84%E9%85%8D%E7%BD%AE%E8%A1%A8%EF%BC%8C%E5%8E%BB%E5%88%86%E5%88%AB%E5%8A%A0%E8%BD%BD%E5%90%84%E8%87%AA%E5%AD%90%E5%BA%94%E7%94%A8%E7%9A%84%E8%B5%84%E6%BA%90%E3%80%82"><span class="nav-number">2.</span> <span class="nav-text">二.主应用通过注册好的配置表，去分别加载各自子应用的资源。</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89-entry"><span class="nav-number">3.</span> <span class="nav-text">三.entry</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%BC%BA%E8%B0%83%E8%BF%99%E4%B8%AA%EF%BC%9F"><span class="nav-number">3.0.1.</span> <span class="nav-text">为什么要强调这个？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#container"><span class="nav-number">4.</span> <span class="nav-text">container</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#activeRule"><span class="nav-number">5.</span> <span class="nav-text">activeRule</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B-%E5%AD%90%E5%BA%94%E7%94%A8%E7%9A%84js%E5%8A%A0%E8%BD%BD%E5%90%8E%E6%80%8E%E4%B9%88%E6%89%A7%E8%A1%8C%E7%9A%84"><span class="nav-number">6.</span> <span class="nav-text">四.子应用的js加载后怎么执行的</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%94-%E5%85%AC%E5%85%B1%E4%BE%9D%E8%B5%96%E7%9B%B8%E5%85%B3"><span class="nav-number">7.</span> <span class="nav-text">五.公共依赖相关</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%86%E6%98%AF%E8%BF%99%E6%97%B6%E5%80%99%E9%9C%80%E8%A6%81%E8%80%83%E8%99%91%E5%8F%A6%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98%EF%BC%9A%E5%AD%90%E5%BA%94%E7%94%A8%E7%8B%AC%E7%AB%8B%E8%BF%90%E8%A1%8C%E8%AE%BF%E9%97%AE%E3%80%82"><span class="nav-number">7.1.</span> <span class="nav-text">但是这时候需要考虑另一个问题：子应用独立运行访问。</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="无星"
+      src="/images/headerPic.png">
+  <p class="site-author-name" itemprop="name">无星</p>
+  <div class="site-description" itemprop="description">一个么的前途的弟中弟</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">113</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/XingXiaoWu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;XingXiaoWu" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jianshu.com/u/fef7696741c8" title="简书 → https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;fef7696741c8" rel="noopener" target="_blank"><i class="fa fa-link fa-fw"></i>简书</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://juejin.cn/user/1503787636493886" title="掘金 → https:&#x2F;&#x2F;juejin.cn&#x2F;user&#x2F;1503787636493886" rel="noopener" target="_blank"><i class="fa fa-link fa-fw"></i>掘金</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://aiiko.club/" title="https:&#x2F;&#x2F;aiiko.club" rel="noopener" target="_blank">爱喵日记</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.mikuchan.top/?ref=xingxiaowu.cn" title="https:&#x2F;&#x2F;www.mikuchan.top?ref&#x3D;xingxiaowu.cn" rel="noopener" target="_blank">团子的航海日志</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://dazhuang.store/webp/" title="https:&#x2F;&#x2F;dazhuang.store&#x2F;webp&#x2F;" rel="noopener" target="_blank">大壮</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">无星</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">235k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:33</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+<a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank" style="display:flex;flex-direction: row;align-items: center;justify-content: center; border:none; color: #999;">
+  由
+  <img src="/images/upaiyun/logo.png"/ style="width:80px;margin:0;">
+  提供CDN加速/云存储服务
+</a>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"pnwsxTh3sKr3Lb0RG3KCrFxX-gzGzoHsz","app_key":"CKxxpzPHaBUuiudduqDrkBUk","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'c06f519d5671dfd10942',
+      clientSecret: '38d97414c2b8bfec7f473f9f3458ca58fd0d25d1',
+      repo        : 'XingXiaoWu.github.io',
+      owner       : 'XingXiaoWu',
+      admin       : ['XingXiaoWu'],
+      id          : 'bf68cc28ba4a85250a5ffec728c3620c',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+  <style>
+    #forkongithub a{
+      background:#000;color:#fff;
+      text-decoration:none;font-family:arial,sans-serif;
+      text-align:center;font-weight:bold;padding:5px 40px;
+      font-size:1rem;line-height:2rem;position:relative;transition:0.5s;
+    }
+    #forkongithub a:hover{background:#c11;color:#fff;}
+    #forkongithub a::before,#forkongithub a::after{content:"";width:100%;display:block;position:absolute;top:1px;left:0;height:1px;background:#fff;}
+    #forkongithub a::after{bottom:1px;top:auto;}
+    @media screen and (min-width:800px){
+      #forkongithub{position:fixed;display:block;top:0;right:0;width:200px;overflow:hidden;height:200px;z-index:9999;
+    }
+    #forkongithub a{
+      width:200px;
+      position:absolute;top:60px;right:-60px;
+      transform:rotate(45deg);-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);-moz-transform:rotate(45deg);-o-transform:rotate(45deg);
+      box-shadow:4px 4px 10px rgba(0,0,0,0.8);
+    }
+  </style>
+</body>
+</html>
