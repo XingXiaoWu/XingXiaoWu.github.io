@@ -18,11 +18,13 @@
       <guid>http://blog.xingxiaowu.cn/2022/09/06/Postman%E6%89%B9%E9%87%8F%E8%AF%B7%E6%B1%82%E5%B9%B6%E4%BF%9D%E5%AD%98%E8%AF%B7%E6%B1%82%E7%BB%93%E6%9E%9C/</guid>
       <pubDate>Tue, 06 Sep 2022 09:24:00 GMT</pubDate>
       
-        
-        
       <description>&lt;h1 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h1&gt;&lt;p&gt;现在基本不怎么写代码了，偶尔会用技术去辅助业务。&lt;/p&gt;
-&lt;p&gt;这次业务上碰到这样一个问题，要去采集客户系统的数据信息，之前是相关业务人员一</description>
-        
+&lt;p&gt;这次业务上碰到这样一个问题，要去采集客户系统的数据信息，之前是相关业务人员一页一页查，然后复制粘贴，所以我们使用postman进行批量请求，并保存结果&lt;/p&gt;
+&lt;h2 id=&quot;1-设置请求变化参数&quot;&gt;&lt;a href=&quot;#1-设置请求变化参数&quot; class=&quot;headerlink&quot; title=&quot;1.设置请求变化参数&quot;&gt;&lt;/a&gt;1.设置请求变化参数&lt;/h2&gt;&lt;p&gt;假设前期的请求已经设置好了，那么接下来就是设置变化的参数&lt;/p&gt;
+&lt;p&gt;其实肥肠简单，只要把相关参数设置为&lt;code&gt;&amp;#123;&amp;#123;参数名&amp;#125;&amp;#125;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;如下图&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/postman1/1.png&quot; alt=&quot;配置&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;2-放置待变化的参数，数组类型&quot;&gt;&lt;a href=&quot;#2-放置待变化的参数，数组类型&quot; class=&quot;headerlink&quot; title=&quot;2.放置待变化的参数，数组类型&quot;&gt;&lt;/a&gt;2.放置待变化的参数，数组类型&lt;/h2&gt;&lt;h3 id=&quot;2-1打开Run&quot;&gt;&lt;a href=&quot;#2-1打开Run&quot; class=&quot;headerlink&quot; title=&quot;2.1打开Run&quot;&gt;&lt;/a&gt;2.1打开&lt;code&gt;Run&lt;/code&gt;&lt;/h3&gt;</description>
       
       
       
@@ -45,12 +47,16 @@
       <guid>http://blog.xingxiaowu.cn/2022/05/16/%E6%97%A0%E6%98%9F%E7%9A%84%E5%85%9A%E5%91%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%83%EF%BC%89/</guid>
       <pubDate>Mon, 16 May 2022 09:15:00 GMT</pubDate>
       
-        
-        
       <description>&lt;p&gt;最近在读党史，记录一些随笔。&lt;/p&gt;
 &lt;p&gt;孙中山先生是一位伟大的爱国主义者，也是中国民主革命的伟大先行者。&lt;/p&gt;
-&lt;p&gt;三民主义由民族主义（Principles of Nationalism）、民权主义（Principles of Democracy）和民生主义（Pri</description>
-        
+&lt;p&gt;三民主义由民族主义（Principles of Nationalism）、民权主义（Principles of Democracy）和民生主义（Principles of People’s Livelihood）组成。&lt;/p&gt;
+&lt;p&gt;三民主义是孙中山先生民主思想的精髓和高度概括。&lt;/p&gt;
+&lt;p&gt;孙中山先生创立的中国同盟会，以“驱除鞑虏，恢复中华，创立民国，平均地权”的十六字革命纲领，首次提出了要以资产阶级民主共和国取代封建王朝的革命目标。&lt;/p&gt;
+&lt;p&gt;在同盟会成立后，革命党人开始了宣传工作，并积极联络军队，先后发起了一系列武装起义。如：广东潮州黄冈起义，惠州七女湖起义，广州起义等。这些奇艺虽然实质上是脱离人民群众的单纯军事行动，因而很快失败，但它反映了资产阶级革命党人反封建的精神，在全国不断扩大了影响力。&lt;/p&gt;
+&lt;p&gt;最终，以湖北新军为主力，发起的武昌起义获得了全国各省的积极响应，迅速推翻了清王朝，建立了中华民国。&lt;/p&gt;
+&lt;p&gt;1912年1月1日，孙中山在南京就任中华民国第一任临时大总统，发布《中华民国临时约法》，并颁布了多项新的政策政令，如：改国号为中华民国，不再跪拜，不再留长发，女子不再裹小脚等。反映出以孙中山先生为首的资产阶级革命派除旧布新，矢志共和的革命精神。&lt;/p&gt;
+&lt;p&gt;辛亥革命的成功，在于它推翻了清王朝的封建统治，结束了中国几千年的君主专制制度，推动了中国人民思想解放。为中国的先进分子探索救国救民的道路，拓宽了视野，为中国的进步潮流打开了阀门。&lt;/p&gt;
+&lt;p&gt;但辛亥革命也有弱点，没能提出明确的反帝反封建的革命纲领，加上帝国主义和封建势力在当时的力量强大，导致南京临时政府仅存在三个月，就被以袁世凯为代表的北洋军阀窃取了革命成果。因此从根本上讲，辛亥革命，既未能产出帝国主义和封建势力在中国的根基，也没能改变中国半殖民地半封建的社会性质。从这个角度看，辛亥革命并未成功。&lt;/p&gt;</description>
       
       
       
@@ -73,12 +79,16 @@
       <guid>http://blog.xingxiaowu.cn/2022/04/11/%E6%97%A0%E6%98%9F%E7%9A%84%E5%85%9A%E5%91%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89/</guid>
       <pubDate>Mon, 11 Apr 2022 12:42:00 GMT</pubDate>
       
-        
-        
       <description>&lt;p&gt;最近在读党史，记录一些随笔。&lt;/p&gt;
 &lt;p&gt;在近代中国，出现了两个新的阶级：资产阶级和无产阶级。&lt;/p&gt;
-&lt;p&gt;自甲午战争失败，以康有为，谭嗣同，梁启超为代表的资产阶级维新派奋起，希望通过变法挽救国家，通过维新运动，试图仿照英日等资本主义，建立君主立宪制，以发展资本主义为目</description>
-        
+&lt;p&gt;自甲午战争失败，以康有为，谭嗣同，梁启超为代表的资产阶级维新派奋起，希望通过变法挽救国家，通过维新运动，试图仿照英日等资本主义，建立君主立宪制，以发展资本主义为目标开始自上而下的改革。历时103天，通过光绪皇帝下达变法诏书，希望能拯救中国，史称“百日维新”。&lt;/p&gt;
+&lt;p&gt;但资产阶级维新派自身力量弱小，光绪皇帝没有实权，因此被封建顽固扼杀在摇篮里，戊戌六君子血洒菜市口。&lt;/p&gt;
+&lt;p&gt;戊戌维新的失败表明，在近代中国，资产阶级改良主义道路是行不通的。&lt;/p&gt;
+&lt;p&gt;这个时间段，各个阶级的有识之士都在探索，如何才能拯救国家，力挽狂澜。她们敏锐地意识到，落后就会挨打，所以无不希望通过学习西方的知识，武装自己，走上资本主义的富强道路。&lt;/p&gt;
+&lt;p&gt;先进的中国人向西方学习经历了一个演进深化的过程：以林则徐，龚自珍，魏源为代表的第一代，要开眼看世界，师夷长技以制夷-&amp;gt;太平天国洪秀全明确支持《资政新篇》中的资本主义纲领-&amp;gt;洋务运动“自强求富”，希望“中体西用”。&lt;/p&gt;
+&lt;p&gt;但是甲午海战的失败表明了洋务运动的破产。&lt;/p&gt;
+&lt;p&gt;这时的中国，被八国联军侵占北京，积贫积弱，人民饥寒交迫，面临着亡国灭种。在这样日益深重的民族危机和社会危机下，近代中国民族民主革命所面临的反帝反封建任务更迫切的摆在中国人民面前。&lt;/p&gt;
+&lt;h3 id=&quot;谁能领导中国人民求得民族独立和人民解放，谁就将成为中国革命的领导阶级&quot;&gt;&lt;a href=&quot;#谁能领导中国人民求得民族独立和人民解放，谁就将成为中国革命的领导阶级&quot; class=&quot;headerlink&quot; title=&quot;谁能领导中国人民求得民族独立和人民解放，谁就将成为中国革命的领导阶级&quot;&gt;&lt;/a&gt;谁能领导中国人民求得民族独立和人民解放，谁就将成为中国革命的领导阶级&lt;/h3&gt;</description>
       
       
       
@@ -101,11 +111,15 @@
       <guid>http://blog.xingxiaowu.cn/2022/03/26/%E6%97%A0%E6%98%9F%E7%9A%84%E5%85%9A%E5%91%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%94%EF%BC%89/</guid>
       <pubDate>Sat, 26 Mar 2022 11:12:00 GMT</pubDate>
       
-        
-        
       <description>&lt;p&gt;最近在读党史，记录一些随笔。&lt;/p&gt;
-&lt;p&gt;从鸦片战争开始，中国的仁人志士就开始同帝国主义和封建势力开始了斗争。从最早的广东三元里抗英斗争，到义和团，太平天国运动。无数的仁人志士前仆后继，抛头颅洒热血，显示出中国人民不屈不挠的反侵略反压迫的坚强意志和斗争精神。“我自横刀向天</description>
-        
+&lt;p&gt;从鸦片战争开始，中国的仁人志士就开始同帝国主义和封建势力开始了斗争。从最早的广东三元里抗英斗争，到义和团，太平天国运动。无数的仁人志士前仆后继，抛头颅洒热血，显示出中国人民不屈不挠的反侵略反压迫的坚强意志和斗争精神。“我自横刀向天笑，去留肝胆两昆仑”——谭嗣同。&lt;/p&gt;
+&lt;p&gt;反帝反封建斗争的主力最初是农民，其实从历史就能看出来，自古封建统治阶级压迫农民，当农民日子过不下去了，就会起义。&lt;/p&gt;
+&lt;p&gt;农民战争是封建社会阶级斗争的产物。“封建社会的主要矛盾，是农民阶级和地主阶级的矛盾。”（《毛泽东选集》第2卷第625页）&lt;/p&gt;
+&lt;p&gt;但是历史上的农民起义，哪怕成功了，也没有改善农民的生活水平，只是有一批“农民阶级”通过起义跃迁到了“地主阶级”。&lt;/p&gt;
+&lt;p&gt;太平天国是近代以来，旧式农民战争的巅峰！而且太平天国发布了中国农民战争史上的第一个完整土地纲领——《天朝田亩制度》，虽然因为其带有空想色彩难以落地，但它反映了千百年来，农民对拥有自己土地的渴望，对于发动农民参与反封建斗争起到了非常积极的作用。&lt;/p&gt;
+&lt;p&gt;太平天国爆发出的力量，让帝国主义者看到了中国蕴藏的巨大反抗力量，让他们知道，如此“民气坚韧”的中国是不可征服的。&lt;/p&gt;
+&lt;p&gt;但是农民不代表新的生产方式，提不出科学的有远见的斗争纲领，不能战胜强大的敌人。在中外反动势力的镇压下，农民斗争以一次又一次的失败告终。在半封建半殖民的中国，太平天国和义和团运动证明：农民固然是一只强大的反帝反封建主力军，但是如果没有先进阶级的领导，是无法完成反帝反封建的历史任务的。&lt;/p&gt;
+</description>
       
       
       
@@ -128,11 +142,14 @@
       <guid>http://blog.xingxiaowu.cn/2022/03/03/%E6%97%A0%E6%98%9F%E7%9A%84electron%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E5%A4%8D%E5%88%B6%E5%9B%BE%E7%89%87%E5%88%B0%E5%89%AA%E5%88%87%E6%9D%BF/</guid>
       <pubDate>Thu, 03 Mar 2022 10:32:54 GMT</pubDate>
       
-        
-        
       <description>&lt;h2 id=&quot;一、背景&quot;&gt;&lt;a href=&quot;#一、背景&quot; class=&quot;headerlink&quot; title=&quot;一、背景&quot;&gt;&lt;/a&gt;一、背景&lt;/h2&gt;&lt;p&gt;需求变更。。。仅此而已&lt;/p&gt;
-&lt;h2 id=&quot;二、如何实现&quot;&gt;&lt;a href=&quot;#二、如何实现&quot; class=&quot;heade</description>
-        
+&lt;h2 id=&quot;二、如何实现&quot;&gt;&lt;a href=&quot;#二、如何实现&quot; class=&quot;headerlink&quot; title=&quot;二、如何实现&quot;&gt;&lt;/a&gt;二、如何实现&lt;/h2&gt;&lt;p&gt;通过上一篇，我们已经知道了如何获取dom节点&lt;/p&gt;
+&lt;p&gt;接下来要做的，则是将图片复制到剪切板&lt;/p&gt;
+&lt;p&gt;我们从文档可以看到&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.electronjs.org/zh/docs/latest/api/native-image#nativeimagecreatefromnamedimageimagename-hslshift-macos&quot;&gt;clipboard.writeImage&lt;/a&gt;&lt;br&gt;&lt;code&gt;clipboard&lt;/code&gt;支持读写图片到剪切板，但必须是&lt;code&gt;nativeimage&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.electronjs.org/zh/docs/latest/api/native-image#nativeimagecreatefromdataurldataurl&quot;&gt;nativeimage.createFromDataURL&lt;/a&gt;&lt;br&gt;而&lt;code&gt;nativeimage&lt;/code&gt;可以支持从base64创建&lt;/p&gt;
+&lt;p&gt;那么配合上一篇，我们拿到base64以后，通过这个操作，就可以复制图片到剪切板了&lt;/p&gt;
+&lt;p&gt;代码如下&lt;/p&gt;</description>
       
       
       
@@ -155,10 +172,13 @@
       <guid>http://blog.xingxiaowu.cn/2022/03/02/%E6%97%A0%E6%98%9F%E7%9A%84electron%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E5%A6%82%E4%BD%95%E5%83%8F%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%80%E6%A0%B7%E5%88%B6%E4%BD%9C%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/</guid>
       <pubDate>Wed, 02 Mar 2022 15:32:54 GMT</pubDate>
       
-        
-        
-      <description>&lt;h2 id=&quot;一、背景&quot;&gt;&lt;a href=&quot;#一、背景&quot; class=&quot;headerlink&quot; title=&quot;一、背景&quot;&gt;&lt;/a&gt;一、背景&lt;/h2&gt;&lt;p&gt;接了个小需求，已有网站，做了个electron的壳，需要添加右键菜单&lt;br&gt;1.复制图片为base64&lt;br&gt;2.另存为图片</description>
-        
+      <description>&lt;h2 id=&quot;一、背景&quot;&gt;&lt;a href=&quot;#一、背景&quot; class=&quot;headerlink&quot; title=&quot;一、背景&quot;&gt;&lt;/a&gt;一、背景&lt;/h2&gt;&lt;p&gt;接了个小需求，已有网站，做了个electron的壳，需要添加右键菜单&lt;br&gt;1.复制图片为base64&lt;br&gt;2.另存为图片&lt;br&gt;3.复制图片地址&lt;/p&gt;
+&lt;h2 id=&quot;二、首先需要添加右键菜单&quot;&gt;&lt;a href=&quot;#二、首先需要添加右键菜单&quot; class=&quot;headerlink&quot; title=&quot;二、首先需要添加右键菜单&quot;&gt;&lt;/a&gt;二、首先需要添加右键菜单&lt;/h2&gt;&lt;h2 id=&quot;1-主线程-background-js添加右键菜单内容&quot;&gt;&lt;a href=&quot;#1-主线程-background-js添加右键菜单内容&quot; class=&quot;headerlink&quot; title=&quot;1.主线程 background.js添加右键菜单内容&quot;&gt;&lt;/a&gt;1.主线程 background.js添加右键菜单内容&lt;/h2&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// background.js&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;///////////&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; rightMenu = &lt;span class=&quot;title function_&quot;&gt;initRightMenu&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;initRightMenu&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; rightTemplate = [&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;attr&quot;&gt;label&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&amp;quot;复制图片为base64&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;attr&quot;&gt;click&lt;/span&gt;: &lt;span class=&quot;function&quot;&gt;() =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;log&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;复制图片为base64&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;attr&quot;&gt;label&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&amp;quot;另存为图片&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;attr&quot;&gt;click&lt;/span&gt;: &lt;span class=&quot;function&quot;&gt;() =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;log&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;另存为图片&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;attr&quot;&gt;label&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&amp;quot;复制图片URL&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;attr&quot;&gt;click&lt;/span&gt;: &lt;span class=&quot;function&quot;&gt;() =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;log&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;复制图片URL&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  ];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; menu = &lt;span class=&quot;title class_&quot;&gt;Menu&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;buildFromTemplate&lt;/span&gt;(rightTemplate);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; menu;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;///////////&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;2-页面右键要能调用&quot;&gt;&lt;a href=&quot;#2-页面右键要能调用&quot; class=&quot;headerlink&quot; title=&quot;2.页面右键要能调用&quot;&gt;&lt;/a&gt;2.页面右键要能调用&lt;/h2&gt;&lt;p&gt;需要页面右键能够响应&lt;/p&gt;
+&lt;p&gt;那么我们需要在页面上能够获取到右键的点击事件&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 页面入口，比如vue的main.js&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable language_&quot;&gt;window&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;addEventListener&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;contextmenu&amp;quot;&lt;/span&gt;, &lt;span class=&quot;function&quot;&gt;(&lt;span class=&quot;params&quot;&gt;e&lt;/span&gt;) =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  e.&lt;span class=&quot;title function_&quot;&gt;preventDefault&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;comment&quot;&gt;// TODO 通知主线程&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;3-通知主线程响应&quot;&gt;&lt;a href=&quot;#3-通知主线程响应&quot; class=&quot;headerlink&quot; title=&quot;3.通知主线程响应&quot;&gt;&lt;/a&gt;3.通知主线程响应&lt;/h2&gt;</description>
       
       
       
@@ -181,11 +201,14 @@
       <guid>http://blog.xingxiaowu.cn/2022/02/21/%E6%97%A0%E6%98%9F%E7%9A%84electron%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E9%98%BF%E6%98%9F%E7%9A%84electron%E6%89%93%E5%8C%85%E9%A1%B5%E9%9D%A2/</guid>
       <pubDate>Mon, 21 Feb 2022 14:32:54 GMT</pubDate>
       
-        
-        
       <description>&lt;h2 id=&quot;一、背景&quot;&gt;&lt;a href=&quot;#一、背景&quot; class=&quot;headerlink&quot; title=&quot;一、背景&quot;&gt;&lt;/a&gt;一、背景&lt;/h2&gt;&lt;p&gt;因为用的是mac，发现有些网站不提供mac的应用版，所以很不爽，想自己打包&lt;/p&gt;
-&lt;p&gt;其实也有些企业做好了网站，想套个壳</description>
-        
+&lt;p&gt;其实也有些企业做好了网站，想套个壳直接做成应用&lt;/p&gt;
+&lt;p&gt;因此我用我毕生功力，做了个打包页面，快速产壳&lt;/p&gt;
+&lt;h2 id=&quot;二、地址&quot;&gt;&lt;a href=&quot;#二、地址&quot; class=&quot;headerlink&quot; title=&quot;二、地址&quot;&gt;&lt;/a&gt;二、地址&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://blog.xingxiaowu.cn/electron&quot;&gt;阿星的打包页面&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;依次输入我需要的参数&lt;/p&gt;
+&lt;p&gt;例如:&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;客户端需要打包的url地址: https://www.bilibili.com/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;客户端名称: bilibili&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;客户端appid: com.bilibili.app&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;接收应用程序的邮箱: 329106954@qq.com&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;然后选择需要打包的平台&lt;/p&gt;</description>
       
       
       
@@ -208,12 +231,12 @@
       <guid>http://blog.xingxiaowu.cn/2022/02/15/%E6%97%A0%E6%98%9F%E7%9A%84%E5%85%9A%E5%91%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89/</guid>
       <pubDate>Tue, 15 Feb 2022 09:42:00 GMT</pubDate>
       
-        
-        
       <description>&lt;p&gt;最近在读党史，记录一些随笔。&lt;/p&gt;
 &lt;p&gt;外国资本主义的入侵，打断了中国社会的正常发展历程。由此派生的社会矛盾，阶级关系和革命性质逐渐发生了深刻的变化。&lt;/p&gt;
-&lt;p&gt;在外国资本主义入侵之前，我国是一个独立的以农业经济为基础的封建君主制国家，而社会内部的商品经济发展已经孕</description>
-        
+&lt;p&gt;在外国资本主义入侵之前，我国是一个独立的以农业经济为基础的封建君主制国家，而社会内部的商品经济发展已经孕育着资本主义生产关系萌芽。假如没有西方资本主义的入侵，我国也许也会和西方国家一样，缓慢发展到资本主义社会。&lt;/p&gt;
+&lt;p&gt;但是因为西方列强的侵略，打断了中国的自然发展道路。西方列强的侵略目的，不是把中国变成资本主义国家，而是希望把中国变成单纯的商品市场和原料基地。由于资本主义的入侵，我国的资本主义也得到了加速发展，但是传统的农业经济仍是中国的主要经济形式，“封建社会中占主导地位的自给自足的自然经济虽然逐渐遭到破坏，但是封建的土地关系，即封建剥削制度的根基——地主阶级对农民的剥削，不但依旧保持着，而且同官僚买办资本和高利贷的剥削结合在了一起，在中国的社会经济生活中仍占明显优势”。这一点在后续的革命中非常重要，也是为什么我党的革命能成功。&lt;/p&gt;
+&lt;p&gt;另一方面不少仁人志士围绕挽救民族危亡和改革中国社会，开展了一系列的革命行动。&lt;/p&gt;
+</description>
       
       
       
@@ -236,11 +259,12 @@
       <guid>http://blog.xingxiaowu.cn/2022/01/07/%E6%97%A0%E6%98%9F%E7%9A%84%E5%85%9A%E5%91%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/</guid>
       <pubDate>Fri, 07 Jan 2022 13:32:00 GMT</pubDate>
       
-        
-        
       <description>&lt;p&gt;最近在读党史，记录一些随笔。&lt;/p&gt;
-&lt;p&gt;西方列强通过一次又一次的对华侵略战争，签订了一系列的不平等条约。西方列强在中国的活动，是以享受条约所赋予的特权为基本特征的。它们通过不平等条约，在中国取得了许多重要的特权。如设立港口“租界”，开设矿场，修筑铁路，建立银行等。它们控</description>
-        
+&lt;p&gt;西方列强通过一次又一次的对华侵略战争，签订了一系列的不平等条约。西方列强在中国的活动，是以享受条约所赋予的特权为基本特征的。它们通过不平等条约，在中国取得了许多重要的特权。如设立港口“租界”，开设矿场，修筑铁路，建立银行等。它们控制着通商口岸，海关，对外贸易，交通运输。大量的倾销它们的商品，把中国变成它们的销售市场和榨取原料的基地。&lt;/p&gt;
+&lt;p&gt;实际上我们可以看到，所有的殖民地，资本主义国家对他们的态度都是一样的，要么变成某一单一原料的生产基地，要么变成产品倾销地，或二者皆有。反过来想想现在，大多数的发展中国家，有很多都是单一的原料生产国，巴西，菲律宾，厄瓜多尔等等。现有的西方发达国家，限制发展中国家们的发展，只希望它们成为单一的原料生产国，而加工等作业停留在本国，以及其便宜的原材料进口，然后对外输出商品。&lt;/p&gt;
+&lt;p&gt;在19世纪末，世界资本主义开始进入帝国主义阶段，垄断代替自由竞争模式。甲午战争后，资本输出成为帝国主义侵华的特殊手段。除在华投资建厂外，对中国的贷款成为帝国主义控制中国财政，争夺“势力范围“和左右中国政局的工具。除经济侵略之外，还有文化侵略，以传教为中心，不断对中国实行着精神灌输，妄图通过潜移默化的思想教育去”统治“中国人。&lt;/p&gt;
+&lt;p&gt;从1840年战争伊始，到20世纪初，中国虽然保持着形式上的独立，但是实际上已经完全沦为几个帝国主义国家的半殖民地，面临着空前的民族危机。&lt;/p&gt;
+</description>
       
       
       
@@ -263,13 +287,15 @@
       <guid>http://blog.xingxiaowu.cn/2022/01/06/%E6%97%A0%E6%98%9F%E7%9A%84%E5%85%9A%E5%91%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/</guid>
       <pubDate>Thu, 06 Jan 2022 12:11:00 GMT</pubDate>
       
-        
-        
       <description>&lt;p&gt;最近在读党史，记录一些随笔。&lt;/p&gt;
 &lt;p&gt;前面我们解释了为什么西方的资本主义国家想要进入中国市场。但是为什么不通过贸易的方式和平进入，而要发动鸦片战争？&lt;/p&gt;
 &lt;p&gt;带着这个问题，我继续阅读着党史。&lt;/p&gt;
-&lt;p&gt;西方资本主义国家也曾希望通过商品贸易进入中国，但是当时的</description>
-        
+&lt;p&gt;西方资本主义国家也曾希望通过商品贸易进入中国，但是当时的中国还处于封建社会，由清政府统治。&lt;br&gt;清政府采取闭关锁国的策略，认为自己是“天朝上国”，物资充沛，自给自足。而确实，当时的中国是小农经济社会，商品并未完全自由流通。因此西方的商品，无法进入中国，反倒是中国的茶叶丝绸瓷器，在国外很受欢迎，这样就形成了贸易逆差。对西方而言，不仅赚不到钱，反而不断向中国送钱。&lt;/p&gt;
+&lt;p&gt;所以西方想出了一个恶毒的点子，贩卖鸦片。（我的评价是：西方🐶真的畜生。）因为鸦片具有成瘾性，可以源源不断的带来收益。&lt;/p&gt;
+&lt;p&gt;幸而有识之士的出现，1839年林则徐虎门销烟，开启了全面禁烟的时代。&lt;/p&gt;
+&lt;p&gt;但是彼时我国无论是经济政治还是军事文化，全面滞后于世界。落后就要挨打，虎门销烟后，列强就打算用大炮轰开我国的大门，获得贸易权。1840年第一次鸦片战争，就这样发生了。1842年，英军直逼南京城下，迫使清政府屈服，订立了中国近代史上第一个丧权辱国的不平等条约——中英《南京条约》。&lt;/p&gt;
+&lt;p&gt;鸦片战争成为中国近代史的转折点。从此西方侵略者穷凶极恶的对中国发起一次又一次的战争，把中国一步一步推入半殖民地的深渊。&lt;/p&gt;
+</description>
       
       
       
