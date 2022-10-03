@@ -223,6 +223,342 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2017/08/27/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E9%80%9A%E4%BF%A1%E3%80%81%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8%E3%80%81iOS%E6%89%93%E5%8C%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/08/27/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E9%80%9A%E4%BF%A1%E3%80%81%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8%E3%80%81iOS%E6%89%93%E5%8C%85/" class="post-title-link" itemprop="url">无星的RN学习之旅（四）——通信、持久化存储、iOS打包</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-08-27 16:26:00" itemprop="dateCreated datePublished" datetime="2017-08-27T16:26:00+08:00">2017-08-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-06 16:56:11" itemprop="dateModified" datetime="2022-09-06T16:56:11+08:00">2022-09-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/react-native/" itemprop="url" rel="index"><span itemprop="name">react-native</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2017/08/27/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E9%80%9A%E4%BF%A1%E3%80%81%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8%E3%80%81iOS%E6%89%93%E5%8C%85/" class="post-meta-item leancloud_visitors" data-flag-title="无星的RN学习之旅（四）——通信、持久化存储、iOS打包" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>说说最近项目的一些感想吧。</p>
+<p>###一、RN的创意<br>RN其实我觉得是一个很有创意的想法。不知道各位写RN项目的时候，有没有打开Xcode看过app的层级关系，我发现RN的这个想法，真的很有创意。<br>作为一名原生的开发，一直都是一个控制器上放一个View，然后在这个底层的View上添加UI控件，当需要一个新的视图的时候，创建一个新的视图控制器，再放新的View。<br>###重点来了！RN并不是这么做的</p>
+<p><img src="/images/RN4/1.png" alt="根视图.png"><br>RN是将App创建的时候生成的根视图控制器，也就是底层的视图控制器，作为根本，然后通过JS文件写的视图，也就是View，不停的增加在这个rootViewCtrl上，进行覆盖替换。<br>###二、Text的区别<br>或许有的兄弟还没遇到这个坑，假如使用图片或者其他背景色作为背景，往上添加Text标签的时候，安卓默认为透明背景色，但是苹果默认为灰白色。因此，在写App的时候，需要在Text的样式添加backgroundColor为transparent</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">backgroundColor:&#x27;transparent&#x27;,</span><br></pre></td></tr></table></figure>
+<p>###三、原生与RN的通信<br>以前对原生与RN的通信不太了解。现在有了一些想法。<br>1.callback的通信方式，是会返回一个callback，这个callback是可以保存的，也就是说这个返回结果可以保存再用的。<br>2.promise，这个就比较有趣了，形象的说，这是个“通道”，RN的方法中，放一个promise的参数，在原生的module中，可以先定义几个promise的回调，在不同的地方用。<br>举个例子，我在RN中写几个方法。分别是：调用A方法，调用B方法，调用C方法，调用D方法。都是带Promise的。</p>
+<p><img src="/images/RN4/2.png" alt="promise.png"><br>（lz是iOS开发，iOS中可以先声明几个变量）在iOS的module中，可以先声明几个promise的回调。比如先声明</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> RCTPromiseResolveBlock resolveA</span><br><span class="line"> RCTPromiseResolveBlock resolveB</span><br><span class="line"> RCTPromiseResolveBlock resolveC</span><br><span class="line"> RCTPromiseResolveBlock resolveD</span><br><span class="line"></span><br><span class="line">RCTPromiseRejectBlock rejectA</span><br><span class="line">RCTPromiseRejectBlock rejectB</span><br><span class="line">RCTPromiseRejectBlock rejectC</span><br><span class="line">RCTPromiseRejectBlock rejectD</span><br></pre></td></tr></table></figure>
+<p>这四个回调的函数可以先声明，为什么会叫他通道，原因就是它其实可以这么理解，你将本来理解可能混乱的东西专一化，定义一个A方法成功的回调resolveA和一个A方法失败的回调rejectA，这两个回调只用于A方法。这么理解起来是不是清晰多了。因此可以理解为他是一个原生回调给RN的通信通道。<br>3.原生直接发消息，通过</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[self sendEventWithName:@&quot;EventReminder&quot; body:@&#123;@&quot;name&quot;: eventName&#125;];</span><br></pre></td></tr></table></figure>
+<p>这种方式注意了，请使用单例。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/08/27/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E9%80%9A%E4%BF%A1%E3%80%81%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8%E3%80%81iOS%E6%89%93%E5%8C%85/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2017/07/24/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89-bridge-is-not-set/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/07/24/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89-bridge-is-not-set/" class="post-title-link" itemprop="url">无星的RN学习之旅（三）-bridge is not set.</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-07-24 21:32:00" itemprop="dateCreated datePublished" datetime="2017-07-24T21:32:00+08:00">2017-07-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-06 16:56:11" itemprop="dateModified" datetime="2022-09-06T16:56:11+08:00">2022-09-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/react-native/" itemprop="url" rel="index"><span itemprop="name">react-native</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2017/07/24/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89-bridge-is-not-set/" class="post-meta-item leancloud_visitors" data-flag-title="无星的RN学习之旅（三）-bridge is not set." title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>报错信息：bridge is not set. This is probably because you’ve “<br>            “explicitly synthesized the bridge in %@, even though it’s inherited “<br>            “from RCTEventEmitter.</p>
+<p>踩坑了。。。<br>        我相信肯定有兄弟需要从原生的OC向RN主动发起事件。而且这种场景也很多，比如集成第三方的服务，通过代理回调获取结果发送给RN等等等等。。。<br>我将我遇到的坑总结一下吧。<br>先看下官网怎么写的</p>
+<p><img src="/images/RN3/1.png" alt="官网介绍1"></p>
+<p><img src="/images/RN3/2.png" alt="官网介绍2.png"><br>1.你是不是像官网一样，先写一个继承自RCTEventEmitter的对象，什么都不写，看看能不能运行？<br>答案是：并不能运行=。=你必须写实现，也就是以下这个方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//.m文件</span><br><span class="line">- (NSArray&lt;NSString *&gt; *)supportedEvents</span><br><span class="line">&#123;</span><br><span class="line">  return @[@&quot;EventReminder&quot;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.你在使用发送文件，也就是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[self sendEventWithName:@&quot;消息名&quot; body:参数];</span><br></pre></td></tr></table></figure>
+<p>运行这个方法的时候有没有崩溃啊=。=<br>崩溃的提示是不是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bridge is not set. This is probably because you&#x27;ve &quot;</span><br><span class="line">            &quot;explicitly synthesized the bridge in %@, even though it&#x27;s inherited &quot;</span><br><span class="line">            &quot;from RCTEventEmitter.</span><br></pre></td></tr></table></figure>
+<p>其实就是bridage为空。<br>这个时候你查这个报错提示是不是发现有人说在Appdelegate.m里把rootView的bridage赋给这个你创建的对象，然后你试了一下确实发出去了开始哈皮=。=</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/07/24/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89-bridge-is-not-set/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2017/07/17/AFNetworking%E6%8A%A5%E9%94%99unacceptable%20content-type-texthtml/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/07/17/AFNetworking%E6%8A%A5%E9%94%99unacceptable%20content-type-texthtml/" class="post-title-link" itemprop="url">AFNetworking报错：unacceptable content-type- text/html</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-07-17 16:28:00" itemprop="dateCreated datePublished" datetime="2017-07-17T16:28:00+08:00">2017-07-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-06 16:56:11" itemprop="dateModified" datetime="2022-09-06T16:56:11+08:00">2022-09-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2017/07/17/AFNetworking%E6%8A%A5%E9%94%99unacceptable%20content-type-texthtml/" class="post-meta-item leancloud_visitors" data-flag-title="AFNetworking报错：unacceptable content-type- text/html" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>912</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>有时候用AFNetworking发送数据的时候会产生这种错误：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Request failed: unacceptable content-type: text/html</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/Afnetwork%E6%8A%A5%E9%94%99/1.png" alt="3259244-7ef2c6bad256fe3a.png.jpeg"></p>
+<p>这是因为text/html这个方式AF中没有。。这种时候有两种方式解决<br>1.直接修改AF的文件：<br>AFURLResponseSerialization.m文件中大约226行处，将</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">self.acceptableContentTypes = [NSSet setWithObjects:@&quot;application/json&quot;, @&quot;text/json&quot;, @&quot;text/javascript&quot;, nil];</span><br></pre></td></tr></table></figure>
+<p>修改为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">self.acceptableContentTypes = [NSSet setWithObjects:@&quot;application/json&quot;, @&quot;text/json&quot;, @&quot;text/javascript&quot;, @&quot;text/html&quot;,nil];</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/Afnetwork%E6%8A%A5%E9%94%99/2.png" alt="2.jpg"><br>此时便可以正常发送消息了。<br>不过不是很建议直接修改，比如你要封装sdk总不能直接把别人写的第三方封进来吧，一方面别人集成容易产生冲突，第二你的sdk体积会大很多。这时候可以采用第二种方式<br>2.在你发送的时候每次都添加</p>
+<p><img src="/images/Afnetwork%E6%8A%A5%E9%94%99/3.png" alt="3.jpg"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">manager.requestSerializer = [AFHTTPRequestSerializer serializer];</span><br><span class="line">manager.responseSerializer = [AFJSONResponseSerializer serializer];</span><br><span class="line">manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@&quot;application/json&quot;, @&quot;text/json&quot;, @&quot;text/javascript&quot;,@&quot;text/html&quot;,@&quot;text/plain&quot;, nil];</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/07/17/AFNetworking%E6%8A%A5%E9%94%99unacceptable%20content-type-texthtml/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2017/07/17/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89-RN%E4%B8%8E%E5%8E%9F%E7%94%9F%E7%9A%84%E9%80%9A%E4%BF%A1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -986,331 +1322,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2016/12/26/iOS%20%20encode/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2016/12/26/iOS%20%20encode/" class="post-title-link" itemprop="url">iOS  encode</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-12-26 13:50:12" itemprop="dateCreated datePublished" datetime="2016-12-26T13:50:12+08:00">2016-12-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-06 16:56:11" itemprop="dateModified" datetime="2022-09-06T16:56:11+08:00">2022-09-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2016/12/26/iOS%20%20encode/" class="post-meta-item leancloud_visitors" data-flag-title="iOS  encode" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>511</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>相信大家总会碰到需要encode的时候，接着百度啊，然后发现stringByAddingPercentEscapesUsingEncoding这个方法，但是这个方法有时候无法对+等符号进行encode。那这时候咋办呢？</p>
-<p><img src="/images/ios-encode/1.png" alt="img"></p>
-<p><img src="/images/ios-encode/2.png" alt="img"></p>
-<p>//encode</p>
-<p>CF_EXPORT</p>
-<p>CFStringRef CFURLCreateStringByAddingPercentEscapes(CFAllocatorRef allocator, CFStringRef originalString, CFStringRef charactersToLeaveUnescaped, CFStringRef legalURLCharactersToBeEscaped, CFStringEncoding encoding);</p>
-<p>NSString <em>encodedValue = (NSString</em>)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(nil,(CFStringRef)value, nil,(CFStringRef)@”!*’();:@&amp;=+$,/ %#[]”, kCFStringEncodingUTF8));</p>
-
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2016/12/26/iOS%20%20encode/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2016/12/26/xode8%20%E7%9C%9F%E6%9C%BA%E8%B0%83%E8%AF%95%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%88%E6%9C%89%E7%BD%91%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2016/12/26/xode8%20%E7%9C%9F%E6%9C%BA%E8%B0%83%E8%AF%95%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%88%E6%9C%89%E7%BD%91%EF%BC%89/" class="post-title-link" itemprop="url">xcode8真机调试最简单的方法（有网）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-12-26 13:38:12" itemprop="dateCreated datePublished" datetime="2016-12-26T13:38:12+08:00">2016-12-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-06 16:56:11" itemprop="dateModified" datetime="2022-09-06T16:56:11+08:00">2022-09-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2016/12/26/xode8%20%E7%9C%9F%E6%9C%BA%E8%B0%83%E8%AF%95%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%88%E6%9C%89%E7%BD%91%EF%BC%89/" class="post-meta-item leancloud_visitors" data-flag-title="xcode8真机调试最简单的方法（有网）" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>81</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>其实真机调试没那么难。。。又是证书又是什么的，最简单的方法，有网的情况下</p>
-<p><img src="/images/%E7%9C%9F%E6%9C%BA%E8%B0%83%E8%AF%95/1.png" alt="img"></p>
-<p>OK了，就可以进行真机调试了</p>
-<p>PS：如果运行时出现问题，建议将bitcode选择no运行试试</p>
-<p><img src="/images/%E7%9C%9F%E6%9C%BA%E8%B0%83%E8%AF%95/2.png" alt="img"></p>
-
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2016/12/26/xode8%20%E7%9C%9F%E6%9C%BA%E8%B0%83%E8%AF%95%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%88%E6%9C%89%E7%BD%91%EF%BC%89/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2016/12/17/AFNetworking%E5%A6%82%E4%BD%95%E4%BC%A0%E9%80%92%E7%BB%93%E6%9E%9C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2016/12/17/AFNetworking%E5%A6%82%E4%BD%95%E4%BC%A0%E9%80%92%E7%BB%93%E6%9E%9C/" class="post-title-link" itemprop="url">AFNetworking如何传递结果</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-12-17 13:57:12" itemprop="dateCreated datePublished" datetime="2016-12-17T13:57:12+08:00">2016-12-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-06 16:56:11" itemprop="dateModified" datetime="2022-09-06T16:56:11+08:00">2022-09-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2016/12/17/AFNetworking%E5%A6%82%E4%BD%95%E4%BC%A0%E9%80%92%E7%BB%93%E6%9E%9C/" class="post-meta-item leancloud_visitors" data-flag-title="AFNetworking如何传递结果" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>72</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>因为在AFNetworking中的请求结果采用block，是异步请求结果</p>
-<p>那么如何返回结果呢？</p>
-<p>答案很简单：代理。</p>
-<p>例如：</p>
-<p><img src="/images/afnet%E4%BC%A0%E9%80%92%E7%BB%93%E6%9E%9C/1.png" alt="img"></p>
-<p><img src="/images/afnet%E4%BC%A0%E9%80%92%E7%BB%93%E6%9E%9C/2.png" alt="img"></p>
-<p>代理在哪实现，结果在哪返回。</p>
-
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2016/12/17/AFNetworking%E5%A6%82%E4%BD%95%E4%BC%A0%E9%80%92%E7%BB%93%E6%9E%9C/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1382,20 +1393,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">113</span>
+          <span class="site-state-item-count">116</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1459,13 +1470,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">235k</span>
+    <span title="站点总字数">241k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:33</span>
+    <span title="站点阅读时长">3:39</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
