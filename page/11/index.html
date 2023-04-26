@@ -223,6 +223,442 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2017/10/09/iOS%E7%9A%84xcode%E7%9A%84version%EF%BC%8Cbuild%E4%BB%A5%E5%8F%8AApp%20Store%E7%9A%84version/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/10/09/iOS%E7%9A%84xcode%E7%9A%84version%EF%BC%8Cbuild%E4%BB%A5%E5%8F%8AApp%20Store%E7%9A%84version/" class="post-title-link" itemprop="url">iOS的xcode的version，build以及App Store的version</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-10-09 13:14:00" itemprop="dateCreated datePublished" datetime="2017-10-09T13:14:00+08:00">2017-10-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-06 16:56:11" itemprop="dateModified" datetime="2022-09-06T16:56:11+08:00">2022-09-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2017/10/09/iOS%E7%9A%84xcode%E7%9A%84version%EF%BC%8Cbuild%E4%BB%A5%E5%8F%8AApp%20Store%E7%9A%84version/" class="post-meta-item leancloud_visitors" data-flag-title="iOS的xcode的version，build以及App Store的version" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>前人挖坑后人填。。。。<br>阐述一下背景：<br>&emsp;App更新迭代，需要跟后台做一个版本控制更新的开关。正常来说应该是将xcode的version与App Store的version对应，并通过该值判断开关是否打开。<br>&emsp;但是问题来了。。上一位iOS工程师一直是使用的build进行版本控制，本地xocde的version比App Store的version高出不少。<br> &emsp;先说一说Version。分为xcode的version和App Store的version。理论上应该两者一致。方便维护。</p>
+<p>###xcode的version<br>可以通过</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//  获得version号</span><br><span class="line">  NSString *versionCode =[[NSBundle mainBundle] objectForInfoDictionaryKey:@&quot;CFBundleShortVersionString&quot;];</span><br></pre></td></tr></table></figure>
+<p>获取，获取的是info.plist文件中的<br><img src="/images/ios-version/1.png" alt="335E8913-16AA-4B95-B4CB-63B50AEF28F6.png"></p>
+<p>###App Store的version<br>则是通过调取接口:<br><a target="_blank" rel="noopener" href="https://itunes.apple.com/lookup?id=%E4%BD%A0%E7%9A%84app%E7%9A%84id%E5%8F%B7%EF%BC%9B">https://itunes.apple.com/lookup?id=你的app的id号；</a><br>调用方式：post<br>返回结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">NSArray *array = responseObject[@&quot;results&quot;];</span><br><span class="line">NSDictionary *dict = [array lastObject];</span><br><span class="line">NSLog(@&quot;当前版本为：%@&quot;, dict[@&quot;version&quot;]);</span><br></pre></td></tr></table></figure>
+<p>代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];</span><br><span class="line">    [manager POST:@&quot;https://itunes.apple.com/lookup?id=414478124&quot; parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) &#123;</span><br><span class="line">        NSArray *array = responseObject[@&quot;results&quot;];</span><br><span class="line">        NSDictionary *dict = [array lastObject];</span><br><span class="line">        NSLog(@&quot;当前版本为：%@&quot;, dict[@&quot;version&quot;]);</span><br><span class="line">    &#125; failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) &#123;</span><br><span class="line">        NSLog @&quot;请求失败&quot;;</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>正常来说都是对外暴露的版本，xcode与App Store的版本理应一致。方便维护。</p>
+<p>###build：<br>开发内部测试版本号，写多少都行，内部开发测试用的，写多少都行，最好是不要对外暴露。因为每次打包都需要往上+，所以用于版本控制效果不好。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/10/09/iOS%E7%9A%84xcode%E7%9A%84version%EF%BC%8Cbuild%E4%BB%A5%E5%8F%8AApp%20Store%E7%9A%84version/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2017/09/22/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E5%85%AD%EF%BC%89-%E7%AC%AC%E4%B8%89%E6%96%B9App%E8%B7%B3%E8%BD%AC%EF%BC%8C%E8%8B%B9%E6%9E%9C%E5%95%86%E5%BA%97%E8%B7%B3%E8%BD%AC%EF%BC%8Cloading%E6%A1%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/09/22/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E5%85%AD%EF%BC%89-%E7%AC%AC%E4%B8%89%E6%96%B9App%E8%B7%B3%E8%BD%AC%EF%BC%8C%E8%8B%B9%E6%9E%9C%E5%95%86%E5%BA%97%E8%B7%B3%E8%BD%AC%EF%BC%8Cloading%E6%A1%86/" class="post-title-link" itemprop="url">无星的RN学习之旅（六）-第三方App跳转，苹果商店跳转，loading框</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-09-22 09:33:00" itemprop="dateCreated datePublished" datetime="2017-09-22T09:33:00+08:00">2017-09-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-06 16:56:11" itemprop="dateModified" datetime="2022-09-06T16:56:11+08:00">2022-09-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/react-native/" itemprop="url" rel="index"><span itemprop="name">react-native</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2017/09/22/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E5%85%AD%EF%BC%89-%E7%AC%AC%E4%B8%89%E6%96%B9App%E8%B7%B3%E8%BD%AC%EF%BC%8C%E8%8B%B9%E6%9E%9C%E5%95%86%E5%BA%97%E8%B7%B3%E8%BD%AC%EF%BC%8Cloading%E6%A1%86/" class="post-meta-item leancloud_visitors" data-flag-title="无星的RN学习之旅（六）-第三方App跳转，苹果商店跳转，loading框" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>#1.第三方App跳转<br>这是很常见的问题，第三方app跳转到本app去做一些业务操作。<br>但是这时候会发现，你跳进来，是黑色的，没有界面，没想到吧23333<br>其实这在前面说过，RN的想法很独特，是一个ctrl上放了无数个view，不停的更改view来渲染，而rn的首页view，则是在appdelegate的初始化方法里去添加的。跳转进来的处理方法里如果你不写，就不会有view添加进来。<br>所以这时候有两种方法来完成这个view的添加操作：<br>####A.在第三方跳转进来的方法里做视图加载操作，但是这会遇到一个问题。假使你使用了RN的启动页，你会发现每次跳转进来都会开启启动页。这对用户的体验明显是很不好的。<br>####B.自己创建一个UIViewCtrl，并作为根视图放进window中，在这个UIViewCtrl中做视图加载操作。这样跳转进来加载根视图的时候就会把这个RN的View给加载上去。而且根据生命周期场景复现的原则，不会再有加载第二次第三次的情况。</p>
+<p>如图</p>
+<p><img src="/images/RN6/1.png" alt="Appdelegate.m"></p>
+<p><img src="/images/RN6/2.png" alt="RootViewCtrl.m"></p>
+<p>另外，如果要跳到某一页面做某一操作，又不想重复跳，可以采用以下方式移除</p>
+<p><img src="/images/RN6/3.png" alt="第三方跳转"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#pragma mark --第三方跳转进入这里(新)</span><br><span class="line">-(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url &#123;</span><br><span class="line">//  NSLog(@&quot;url ====%@&quot;,url);</span><br><span class="line">  thirdViewController *vc = [thirdViewController sharedthirdViewController];</span><br><span class="line">  vc.url = url;</span><br><span class="line">  </span><br><span class="line">  UIViewController *topViewCtrl = self.nav.topViewController;</span><br><span class="line">  if ([topViewCtrl isKindOfClass:[thirdViewController class]]) &#123;  //判断是否在最顶层</span><br><span class="line">    [vc thirdSign];</span><br><span class="line">  &#125;else&#123;</span><br><span class="line">    [self.nav pushViewController:vc animated:YES];</span><br><span class="line">    [vc thirdSign];</span><br><span class="line">  &#125;</span><br><span class="line">  return YES;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>#2.应用升级苹果商店跳转<br>这个就很简单了啊，直接link：app在苹果商店的地址就行，至于怎么找app在苹果商店的地址，谷歌一下或百度一下都有。<br>#3.启动屏设置<br>采用了RN的启动页，你需要把原生的启动页稍作更改。把这个勾去掉</p>
+<p><img src="/images/RN6/4.png" alt="把这里改一下"></p>
+<p>#3.按钮点击封装防止二次点击<br>是不是有时候控件响应较慢，点击两次还以为没反应，结果却运行两次操作，感觉比较烦人。<br>这里贴出一个大佬给的方式，其实是采用定时器操作，只要有点击操作，做出事件处理，并开启定时器，在定时器时间内屏蔽其他的点击操作。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/09/22/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E5%85%AD%EF%BC%89-%E7%AC%AC%E4%B8%89%E6%96%B9App%E8%B7%B3%E8%BD%AC%EF%BC%8C%E8%8B%B9%E6%9E%9C%E5%95%86%E5%BA%97%E8%B7%B3%E8%BD%AC%EF%BC%8Cloading%E6%A1%86/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2017/09/18/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89-%E5%85%B3%E4%BA%8Ereact-navigation%E5%A4%9A%E5%B1%82%E7%BA%A7%E9%A1%B5%E9%9D%A2%E8%BF%94%E5%9B%9E%E6%97%B6%EF%BC%8C%E5%8E%BB%E6%8E%89%E9%80%90%E5%B1%82%E6%8E%A8%E5%87%BA%E5%8A%A8%E7%94%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/09/18/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89-%E5%85%B3%E4%BA%8Ereact-navigation%E5%A4%9A%E5%B1%82%E7%BA%A7%E9%A1%B5%E9%9D%A2%E8%BF%94%E5%9B%9E%E6%97%B6%EF%BC%8C%E5%8E%BB%E6%8E%89%E9%80%90%E5%B1%82%E6%8E%A8%E5%87%BA%E5%8A%A8%E7%94%BB/" class="post-title-link" itemprop="url">无星的RN学习之旅（五）-关于react-navigation多层级页面返回时，去掉逐层推出动画</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-09-18 15:19:00" itemprop="dateCreated datePublished" datetime="2017-09-18T15:19:00+08:00">2017-09-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-06 16:56:11" itemprop="dateModified" datetime="2022-09-06T16:56:11+08:00">2022-09-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/react-native/" itemprop="url" rel="index"><span itemprop="name">react-native</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2017/09/18/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89-%E5%85%B3%E4%BA%8Ereact-navigation%E5%A4%9A%E5%B1%82%E7%BA%A7%E9%A1%B5%E9%9D%A2%E8%BF%94%E5%9B%9E%E6%97%B6%EF%BC%8C%E5%8E%BB%E6%8E%89%E9%80%90%E5%B1%82%E6%8E%A8%E5%87%BA%E5%8A%A8%E7%94%BB/" class="post-meta-item leancloud_visitors" data-flag-title="无星的RN学习之旅（五）-关于react-navigation多层级页面返回时，去掉逐层推出动画" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>857</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>git：<a target="_blank" rel="noopener" href="https://github.com/react-community/react-navigation/issues/1493">https://github.com/react-community/react-navigation/issues/1493</a><br>来，下猛药：<br>首先找到文件：src/views/ScenesReducer.js<br>然后用下面的代码：<br>　　let k = null;<br>　　let v = null;<br>　　staleScenes.forEach(scene =&gt; {<br>　　let {key} = scene;<br>　　k = key;<br>　　v = scene;<br>　　});<br>　　newStaleScenes = k &amp;&amp; v ? new Map([[k, v]]) : new Map();<br>　　newStaleScenes.forEach(mergeScene);<br>替换：staleScenes.forEach(mergeScene);<br>保存编译，就只有返回某页的动画了</p>
+<p>转自<a target="_blank" rel="noopener" href="http://www.cnblogs.com/lc901221/p/7543094.html">http://www.cnblogs.com/lc901221/p/7543094.html</a><br>我就是那个贴了帖子看不懂答案的傻逼，。。</p>
+<p>另外：<br>transitionConfig : () =&gt; ({<br>                transitionSpec: {<br>                    duration: 0,<br>                    timing: Animated.timing,<br>                    easing: Easing.step0,<br>                },<br>            }),<br>去掉动画效果</p>
+<p>2018-2-23 更新<br>以上解决方案适用于1.0.0beta版<br>升级到React-navigation 1.1.1版本后可直接通过key去回退指定版本。<br>至于怎么取key=&gt;可以在跳转时缓存页面对应key值，通过页面名去获取缓存的key值跳转。<br>注意源码中当页面层级index为0时（首页）不会back。这一块应该是有想法的，但在特定情况下会有bug，因为我们项目就遇到了–但我暂时无法用语言总结出出现的场景。</p>
+<p><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/d417f7bdc511">无星的RN学习之旅（一）-环境安装以及新建项目</a><br><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/cd0cfa602963">无星的RN学习之旅（二）-RN与原生的通信</a><br><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/ea3484f54643">无星的RN学习之旅（三）-bridge is not set.</a><br><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/cccf744bdd8d">无星的RN学习之旅（四）——通信、持久化存储、xcode打包</a><br><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/42d9c668cbb1">无星的RN学习之旅（六）-第三方App跳转，苹果商店跳转，loading框</a></p>
+
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/09/18/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89-%E5%85%B3%E4%BA%8Ereact-navigation%E5%A4%9A%E5%B1%82%E7%BA%A7%E9%A1%B5%E9%9D%A2%E8%BF%94%E5%9B%9E%E6%97%B6%EF%BC%8C%E5%8E%BB%E6%8E%89%E9%80%90%E5%B1%82%E6%8E%A8%E5%87%BA%E5%8A%A8%E7%94%BB/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2017/08/31/AFnetworking%E7%9A%84%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/08/31/AFnetworking%E7%9A%84%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">AFnetworking的常见问题</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-08-31 09:02:00" itemprop="dateCreated datePublished" datetime="2017-08-31T09:02:00+08:00">2017-08-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-06 16:56:11" itemprop="dateModified" datetime="2022-09-06T16:56:11+08:00">2022-09-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2017/08/31/AFnetworking%E7%9A%84%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" class="post-meta-item leancloud_visitors" data-flag-title="AFnetworking的常见问题" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>废话不多说，直接上问题：<br>1.如何拼接请求头？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">//申明返回的结果是json类型</span><br><span class="line">  </span><br><span class="line">  manager.responseSerializer = [AFJSONResponseSerializer serializer];</span><br><span class="line">  </span><br><span class="line">  //申明请求的数据是json类型</span><br><span class="line">  </span><br><span class="line">  manager.requestSerializer=[AFJSONRequestSerializer serializer];</span><br><span class="line">  </span><br><span class="line">  //  /如果报接受类型不一致请替换一致text/html或别的</span><br><span class="line">  </span><br><span class="line">  [manager.requestSerializer setValue:@&quot;application/json&quot; forHTTPHeaderField:@&quot;Accept&quot;];</span><br><span class="line">  [manager.requestSerializer setValue:@&quot;application/json&quot; forHTTPHeaderField:@&quot;Content-Type&quot;];</span><br><span class="line">  [manager.requestSerializer setValue:value forHTTPHeaderField:key];</span><br><span class="line">  [manager.requestSerializer setValue: value forHTTPHeaderField:key];</span><br><span class="line">  [manager.requestSerializer setValue: value forHTTPHeaderField:key];</span><br><span class="line">  </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>2.如何返回参数在调用的同一方法中？</p>
+<p>block,参数带有block去实现</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">__block NSString *longitude; // __block,静态变量</span><br><span class="line">[self.manager POST:URL parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) &#123;</span><br><span class="line">  </span><br><span class="line">  NSDictionary *locDictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];</span><br><span class="line">  longitude = [locDictionary objectForKey:@&quot;lon&quot;]; // 纠正后经度</span><br><span class="line">  </span><br><span class="line">  if (finishBlock)</span><br><span class="line">  &#123;</span><br><span class="line">    finishBlock(longitude, nil);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">&#125; failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) &#123;</span><br><span class="line">  NSLog(@&quot;%@&quot;, error);</span><br><span class="line">  if (finishBlock)</span><br><span class="line">  &#123;</span><br><span class="line">    finishBlock(nil, error);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/08/31/AFnetworking%E7%9A%84%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2017/08/27/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E9%80%9A%E4%BF%A1%E3%80%81%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8%E3%80%81iOS%E6%89%93%E5%8C%85/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -890,438 +1326,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2017/01/19/%E5%B0%86json%E6%A0%BC%E5%BC%8F%E7%9A%84String%E8%BD%AC%E6%8D%A2%E6%88%90map/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/01/19/%E5%B0%86json%E6%A0%BC%E5%BC%8F%E7%9A%84String%E8%BD%AC%E6%8D%A2%E6%88%90map/" class="post-title-link" itemprop="url">将json格式的String转换成map</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-01-19 15:19:00" itemprop="dateCreated datePublished" datetime="2017-01-19T15:19:00+08:00">2017-01-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-06 16:56:11" itemprop="dateModified" datetime="2022-09-06T16:56:11+08:00">2022-09-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2017/01/19/%E5%B0%86json%E6%A0%BC%E5%BC%8F%E7%9A%84String%E8%BD%AC%E6%8D%A2%E6%88%90map/" class="post-meta-item leancloud_visitors" data-flag-title="将json格式的String转换成map" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>324</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="/images/%E5%B0%86json%E6%A0%BC%E5%BC%8F%E7%9A%84String%E8%BD%AC%E6%8D%A2%E6%88%90map/1.png" alt="img"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">HashMapreMap =newHashMap();</span><br><span class="line"></span><br><span class="line">try&#123;</span><br><span class="line"></span><br><span class="line">JSONObject jsonobject=newJSONObject(response);</span><br><span class="line"></span><br><span class="line">Iterator i=jsonobject.keys();</span><br><span class="line"></span><br><span class="line">while(i.hasNext())&#123;</span><br><span class="line"></span><br><span class="line">String key = (String) i.next();</span><br><span class="line"></span><br><span class="line">String values=jsonobject.getString(key);</span><br><span class="line"></span><br><span class="line">reMap.put(key,values);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;catch(JSONException e) &#123;</span><br><span class="line"></span><br><span class="line">e.printStackTrace();</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2017/01/19/%E5%B0%86json%E6%A0%BC%E5%BC%8F%E7%9A%84String%E8%BD%AC%E6%8D%A2%E6%88%90map/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2017/01/17/Android-studio%E5%A6%82%E4%BD%95%E5%B0%86%E7%AC%AC%E4%B8%89%E6%96%B9jar%E5%8C%85%E6%89%93%E5%85%A5%E4%B8%80%E4%B8%AAjar%E5%8C%85%EF%BC%88%E4%B8%89%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/01/17/Android-studio%E5%A6%82%E4%BD%95%E5%B0%86%E7%AC%AC%E4%B8%89%E6%96%B9jar%E5%8C%85%E6%89%93%E5%85%A5%E4%B8%80%E4%B8%AAjar%E5%8C%85%EF%BC%88%E4%B8%89%EF%BC%89/" class="post-title-link" itemprop="url">（转载）Android studio如何将第三方jar包打入一个jar包（三）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-01-17 10:28:00" itemprop="dateCreated datePublished" datetime="2017-01-17T10:28:00+08:00">2017-01-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-06 16:56:11" itemprop="dateModified" datetime="2022-09-06T16:56:11+08:00">2022-09-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2017/01/17/Android-studio%E5%A6%82%E4%BD%95%E5%B0%86%E7%AC%AC%E4%B8%89%E6%96%B9jar%E5%8C%85%E6%89%93%E5%85%A5%E4%B8%80%E4%B8%AAjar%E5%8C%85%EF%BC%88%E4%B8%89%EF%BC%89/" class="post-meta-item leancloud_visitors" data-flag-title="（转载）Android studio如何将第三方jar包打入一个jar包（三）" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.7k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>问题：</p>
-<p>存在这么一种情况：</p>
-<p>我们要打包的android项目中已经引用了一个或多个第三方.jar文件。那么我们按上面的方法打成.jar文件，在引入到别的项目中使用中，</p>
-<p>会发现出现错误：</p>
-<p>NoClassDefFoundError</p>
-<p>定位到错误代码位置，会发现生成.jar文件的原始android项目中引用的第三方.jar文件中的类找不到。</p>
-<p>这里可以猜测，使用上述方法将android项目打成.jar文件的过程中，并没有将android项目原来引用的第三方.jar文件也一起打入到新的.jar文件中。</p>
-<p>可以测试一下，将android项目打成的.jar文件解压缩，会发现只有java代码相关文件，而没有原来android项目中引用的第三方.jar文件</p>
-<p>解决方案：</p>
-<p>1、首先 问题产生的原因就是生成.jar文件的android项目原先引用的第三方.jar文件没有被打入到 新的.jar文件中</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2017/01/17/Android-studio%E5%A6%82%E4%BD%95%E5%B0%86%E7%AC%AC%E4%B8%89%E6%96%B9jar%E5%8C%85%E6%89%93%E5%85%A5%E4%B8%80%E4%B8%AAjar%E5%8C%85%EF%BC%88%E4%B8%89%EF%BC%89/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2017/01/09/Android%20studio%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8jaraar%E5%8C%85%EF%BC%88%E4%BA%8C%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/01/09/Android%20studio%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8jaraar%E5%8C%85%EF%BC%88%E4%BA%8C%EF%BC%89/" class="post-title-link" itemprop="url">Android studio如何使用jar/aar包（二）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-01-09 16:47:12" itemprop="dateCreated datePublished" datetime="2017-01-09T16:47:12+08:00">2017-01-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-06 16:56:11" itemprop="dateModified" datetime="2022-09-06T16:56:11+08:00">2022-09-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2017/01/09/Android%20studio%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8jaraar%E5%8C%85%EF%BC%88%E4%BA%8C%EF%BC%89/" class="post-meta-item leancloud_visitors" data-flag-title="Android studio如何使用jar/aar包（二）" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>219</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>上一篇说到如何创建jar/aar，这篇介绍如何使用</p>
-<h1 id="一-jar的使用"><a href="#一-jar的使用" class="headerlink" title="一 jar的使用"></a>一 jar的使用</h1><p>jar包的使用很简单，直接将jar包拷如lib目录下</p>
-<p><img src="/images/as-jar-arr2/1.png" alt="img"></p>
-<p><img src="/images/as-jar-arr2/2.png" alt="img"></p>
-<p>运行完之后我们试一下</p>
-<p><img src="/images/as-jar-arr2/3.png" alt="img"></p>
-<p>使用成功。</p>
-<p>二 aar包的使用</p>
-<p>同样先导入libs目录下</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2017/01/09/Android%20studio%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8jaraar%E5%8C%85%EF%BC%88%E4%BA%8C%EF%BC%89/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2017/01/09/Android-studio%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BAjaraar%E5%8C%85%EF%BC%88%E4%B8%80%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/01/09/Android-studio%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BAjaraar%E5%8C%85%EF%BC%88%E4%B8%80%EF%BC%89/" class="post-title-link" itemprop="url">Android studio如何创建jar/aar包（一）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-01-09 16:23:12" itemprop="dateCreated datePublished" datetime="2017-01-09T16:23:12+08:00">2017-01-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-06 16:56:11" itemprop="dateModified" datetime="2022-09-06T16:56:11+08:00">2022-09-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2017/01/09/Android-studio%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BAjaraar%E5%8C%85%EF%BC%88%E4%B8%80%EF%BC%89/" class="post-meta-item leancloud_visitors" data-flag-title="Android studio如何创建jar/aar包（一）" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>750</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Android studio下，有几种包可以放出去给别的项目调用，这里介绍jar和aar如何用as创建，可能有些简单，但确实有不会的，如有错误，请大牛指正。</p>
-<h1 id="一-jar包的创建"><a href="#一-jar包的创建" class="headerlink" title="一 jar包的创建"></a>一 jar包的创建</h1><h3 id="1-新建一个空白工程。"><a href="#1-新建一个空白工程。" class="headerlink" title="1.新建一个空白工程。"></a>1.新建一个空白工程。</h3><p><img src="/images/as-jar-arr1/1.png" alt="img"></p>
-<p>新建一个module文件</p>
-<p><img src="/images/as-jar-arr1/2.png" alt="img"></p>
-<p><img src="/images/as-jar-arr1/3.png" alt="img"></p>
-<h3 id="2-新建一个jar可使用的方法"><a href="#2-新建一个jar可使用的方法" class="headerlink" title="2.新建一个jar可使用的方法"></a>2.新建一个jar可使用的方法</h3><p><img src="/images/as-jar-arr1/4.png" alt="img"></p>
-<p><img src="/images/as-jar-arr1/5.png" alt="img"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2017/01/09/Android-studio%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BAjaraar%E5%8C%85%EF%BC%88%E4%B8%80%EF%BC%89/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1393,7 +1397,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">116</span>
+          <span class="site-state-item-count">120</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1438,6 +1442,9 @@
         <li class="links-of-blogroll-item">
           <a href="https://dazhuang.store/webp/" title="https:&#x2F;&#x2F;dazhuang.store&#x2F;webp&#x2F;" rel="noopener" target="_blank">大壮</a>
         </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.v2rayfree.eu.org/" title="https:&#x2F;&#x2F;www.v2rayfree.eu.org&#x2F;" rel="noopener" target="_blank">应急链接</a>
+        </li>
     </ul>
   </div>
 
@@ -1460,7 +1467,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -1470,13 +1477,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">241k</span>
+    <span title="站点总字数">247k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:39</span>
+    <span title="站点阅读时长">3:44</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
