@@ -223,6 +223,115 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2020/04/29/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95cli%E5%B7%A5%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/29/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95cli%E5%B7%A5%E7%A8%8B/" class="post-title-link" itemprop="url">无星的前端之旅（三）——如何调试cli工程</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-29 16:42:00" itemprop="dateCreated datePublished" datetime="2020-04-29T16:42:00+08:00">2020-04-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-06 16:56:11" itemprop="dateModified" datetime="2022-09-06T16:56:11+08:00">2022-09-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/04/29/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95cli%E5%B7%A5%E7%A8%8B/" class="post-meta-item leancloud_visitors" data-flag-title="无星的前端之旅（三）——如何调试cli工程" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>作为前端开发工程师，希望搭建一些基础设置，cli是必不可少的一项。</p>
+<p>至于cli如何制作，文章一大堆，相信网上大家都能搜到。</p>
+<p>但是cli工具如何debug，我查了2天，都没查到。</p>
+<p>我用的开发工具是vscode。虽然我知道答案一定在<br><a target="_blank" rel="noopener" href="https://code.visualstudio.com/docs/nodejs/nodejs-debugging#_launch-configuration-attributes">VSCode调试</a>与<a target="_blank" rel="noopener" href="https://nodejs.org/en/docs/guides/debugging-getting-started/">NodeJS调试入门</a>中，但我天资愚钝，不知道如何融合起来。</p>
+<p>不过天不亡我，最终还是找到了解决方式。</p>
+<p> 不多bb，直接上代码和截图。</p>
+<h3 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h3><h4 id="1-新增vscode的launch选项卡"><a href="#1-新增vscode的launch选项卡" class="headerlink" title="1.新增vscode的launch选项卡"></a>1.新增vscode的launch选项卡</h4><p><img src="/images/cli-debug/1.png" alt="1"></p>
+<p> 抄就完事了，注意端口号，是根据后续产生的端口号去填写，可以先填一个。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/04/29/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95cli%E5%B7%A5%E7%A8%8B/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2020/02/15/%E8%8B%B9%E6%9E%9C%E5%8D%A1%E9%AA%8C%E8%AF%81%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%8C%E7%BB%88%E4%BA%8E%E2%84%A2%E8%A7%A3%E5%86%B3%E4%BA%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -664,117 +773,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2019/09/08/%E6%97%A0%E6%98%9F%E7%9A%84Flutter%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89-Plugin%E5%8F%91%E5%B8%83%E9%81%87%E5%9D%91%EF%BC%8Cgoogle%E6%8E%88%E6%9D%83%E5%A4%B1%E8%B4%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/09/08/%E6%97%A0%E6%98%9F%E7%9A%84Flutter%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89-Plugin%E5%8F%91%E5%B8%83%E9%81%87%E5%9D%91%EF%BC%8Cgoogle%E6%8E%88%E6%9D%83%E5%A4%B1%E8%B4%A5/" class="post-title-link" itemprop="url">无星的Flutter学习之旅（二） Plugin发布遇坑，google授权失败</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-09-08 15:48:00" itemprop="dateCreated datePublished" datetime="2019-09-08T15:48:00+08:00">2019-09-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-06 16:56:11" itemprop="dateModified" datetime="2022-09-06T16:56:11+08:00">2022-09-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/flutter/" itemprop="url" rel="index"><span itemprop="name">flutter</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2019/09/08/%E6%97%A0%E6%98%9F%E7%9A%84Flutter%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89-Plugin%E5%8F%91%E5%B8%83%E9%81%87%E5%9D%91%EF%BC%8Cgoogle%E6%8E%88%E6%9D%83%E5%A4%B1%E8%B4%A5/" class="post-meta-item leancloud_visitors" data-flag-title="无星的Flutter学习之旅（二） Plugin发布遇坑，google授权失败" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.5k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Plugin的创建与开发，已经有各路大神写过，在这里不赘述了。</p>
-<p>这里只讲讲在我天朝特色下，发布遇到的坑。</p>
-<h2 id="死活无法连上外网，报错为获取谷歌账号授权失败"><a href="#死活无法连上外网，报错为获取谷歌账号授权失败" class="headerlink" title="死活无法连上外网，报错为获取谷歌账号授权失败"></a>死活无法连上外网，报错为获取谷歌账号授权失败</h2><p>请求google授权，翻出去，登录了账号，授权了，但是终端依旧报错如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">It looks like accounts.google.com is having some trouble.</span><br><span class="line">Pub will wait for a while before trying to connect again.</span><br><span class="line">OS Error: Operation timed out, errno = 60, address = accounts.google.com, port = 53165</span><br></pre></td></tr></table></figure>
-
-<p>原因都知道，天朝特色。都知道终端要翻墙，但查来查去，就是不说怎么终端翻墙，真是气死人。（我从晚上11点想发布了去睡觉一直搞到凌晨4点）</p>
-<p>我就直说了吧。</p>
-<p>一般都是小飞机，然后开全局模式，然后发现终端还是不行。</p>
-<p>下面我说如何解决</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/09/08/%E6%97%A0%E6%98%9F%E7%9A%84Flutter%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89-Plugin%E5%8F%91%E5%B8%83%E9%81%87%E5%9D%91%EF%BC%8Cgoogle%E6%8E%88%E6%9D%83%E5%A4%B1%E8%B4%A5/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2019/09/08/%E6%97%A0%E6%98%9F%E7%9A%84Flutter%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%80%EF%BC%89-%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -863,6 +861,117 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2019/09/08/%E6%97%A0%E6%98%9F%E7%9A%84Flutter%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%80%EF%BC%89-%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2019/09/08/%E6%97%A0%E6%98%9F%E7%9A%84Flutter%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89-Plugin%E5%8F%91%E5%B8%83%E9%81%87%E5%9D%91%EF%BC%8Cgoogle%E6%8E%88%E6%9D%83%E5%A4%B1%E8%B4%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/09/08/%E6%97%A0%E6%98%9F%E7%9A%84Flutter%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89-Plugin%E5%8F%91%E5%B8%83%E9%81%87%E5%9D%91%EF%BC%8Cgoogle%E6%8E%88%E6%9D%83%E5%A4%B1%E8%B4%A5/" class="post-title-link" itemprop="url">无星的Flutter学习之旅（二） Plugin发布遇坑，google授权失败</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-09-08 15:48:00" itemprop="dateCreated datePublished" datetime="2019-09-08T15:48:00+08:00">2019-09-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-06 16:56:11" itemprop="dateModified" datetime="2022-09-06T16:56:11+08:00">2022-09-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/flutter/" itemprop="url" rel="index"><span itemprop="name">flutter</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/09/08/%E6%97%A0%E6%98%9F%E7%9A%84Flutter%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89-Plugin%E5%8F%91%E5%B8%83%E9%81%87%E5%9D%91%EF%BC%8Cgoogle%E6%8E%88%E6%9D%83%E5%A4%B1%E8%B4%A5/" class="post-meta-item leancloud_visitors" data-flag-title="无星的Flutter学习之旅（二） Plugin发布遇坑，google授权失败" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Plugin的创建与开发，已经有各路大神写过，在这里不赘述了。</p>
+<p>这里只讲讲在我天朝特色下，发布遇到的坑。</p>
+<h2 id="死活无法连上外网，报错为获取谷歌账号授权失败"><a href="#死活无法连上外网，报错为获取谷歌账号授权失败" class="headerlink" title="死活无法连上外网，报错为获取谷歌账号授权失败"></a>死活无法连上外网，报错为获取谷歌账号授权失败</h2><p>请求google授权，翻出去，登录了账号，授权了，但是终端依旧报错如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">It looks like accounts.google.com is having some trouble.</span><br><span class="line">Pub will wait for a while before trying to connect again.</span><br><span class="line">OS Error: Operation timed out, errno = 60, address = accounts.google.com, port = 53165</span><br></pre></td></tr></table></figure>
+
+<p>原因都知道，天朝特色。都知道终端要翻墙，但查来查去，就是不说怎么终端翻墙，真是气死人。（我从晚上11点想发布了去睡觉一直搞到凌晨4点）</p>
+<p>我就直说了吧。</p>
+<p>一般都是小飞机，然后开全局模式，然后发现终端还是不行。</p>
+<p>下面我说如何解决</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/09/08/%E6%97%A0%E6%98%9F%E7%9A%84Flutter%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89-Plugin%E5%8F%91%E5%B8%83%E9%81%87%E5%9D%91%EF%BC%8Cgoogle%E6%8E%88%E6%9D%83%E5%A4%B1%E8%B4%A5/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1203,117 +1312,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2019/06/27/iOS%E5%86%85%E6%B5%8B%E5%88%86%E5%8F%91/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/06/27/iOS%E5%86%85%E6%B5%8B%E5%88%86%E5%8F%91/" class="post-title-link" itemprop="url">iOS内测分发</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-06-27 22:41:00" itemprop="dateCreated datePublished" datetime="2019-06-27T22:41:00+08:00">2019-06-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-06 16:56:11" itemprop="dateModified" datetime="2022-09-06T16:56:11+08:00">2022-09-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2019/06/27/iOS%E5%86%85%E6%B5%8B%E5%88%86%E5%8F%91/" class="post-meta-item leancloud_visitors" data-flag-title="iOS内测分发" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.9k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="iOS内测分发"><a href="#iOS内测分发" class="headerlink" title="iOS内测分发"></a>iOS内测分发</h1><h5 id="2019-12-10更新"><a href="#2019-12-10更新" class="headerlink" title="2019-12-10更新"></a>2019-12-10更新</h5><p>gitee似乎不让下载了。可以考虑放到别的带https的地方，比如腾讯云的对象存储桶，github等等，反正有https就行，方法不变。</p>
-<h5 id="2019-11-15更新"><a href="#2019-11-15更新" class="headerlink" title="2019-11-15更新"></a>2019-11-15更新</h5><p>不要再问android怎么搞了。。。直接apk往仓库一丢，网页给个链接，点一下不就完事了，比iOS省事多了</p>
-<h3 id="背景"><a href="#背景" class="headerlink" title="背景:"></a>背景:</h3><p>我写博客一般都会写背景,因为我觉得光写某个技术点没有意义,技术最终都是为业务服务,因此我喜欢交代自己的使用场景,基于什么原因,我做过哪些常识,为什么最终这么做,这么做能解决我的什么问题….</p>
-<p>我们是一个小业务部,而且是传统行业转型互联网,业务部内还处于”史前洪荒”的状况,各种现在流行的东西都没有使用,移动端更是如此,开发迭代出的app都是靠微信/内部邮件转发来转发去,iOS更难受,由于ipa包不能像Android一样,随下随装,”必须”依赖电脑用iTools或类似的工具去安装ipa包,很是繁琐.</p>
-<p>说到这里肯定就有人提到:”为啥不用蒲公英(fir)等内测分发平台?”</p>
-<p>说实话我第一反应也是盯上了这些,但是要实名信息注册啊QAQ,企业要传营业执照,个人要传身份证信息,作为一个较为保守且不想这么兴师动众的人,我选择了放弃使用这些平台.那么没办法了,只能自己写了.那么接下来,我会告诉你,他们是怎么把ipa包,转成一个二维码让你能够下载的(都是猜的).当然,有企业账号自己做企业分发,也可以用我这个方式</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/06/27/iOS%E5%86%85%E6%B5%8B%E5%88%86%E5%8F%91/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1381,7 +1383,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">120</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1394,7 +1396,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">29</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1429,6 +1431,9 @@
         <li class="links-of-blogroll-item">
           <a href="https://www.v2rayfree.eu.org/" title="https:&#x2F;&#x2F;www.v2rayfree.eu.org&#x2F;" rel="noopener" target="_blank">应急链接</a>
         </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://fanjunyang.zone/" title="https:&#x2F;&#x2F;fanjunyang.zone&#x2F;" rel="noopener" target="_blank">俊阳的IT主页</a>
+        </li>
     </ul>
   </div>
 
@@ -1461,13 +1466,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">247k</span>
+    <span title="站点总字数">249k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:44</span>
+    <span title="站点阅读时长">3:46</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

@@ -223,6 +223,117 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2023/05/21/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94ts%E8%B7%AF%E5%BE%84alias/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/05/21/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94ts%E8%B7%AF%E5%BE%84alias/" class="post-title-link" itemprop="url">无星的前端之旅（二十七）——ts路径alias</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-05-21 22:22:00" itemprop="dateCreated datePublished" datetime="2023-05-21T22:22:00+08:00">2023-05-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-06-28 08:47:14" itemprop="dateModified" datetime="2023-06-28T08:47:14+08:00">2023-06-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2023/05/21/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94ts%E8%B7%AF%E5%BE%84alias/" class="post-meta-item leancloud_visitors" data-flag-title="无星的前端之旅（二十七）——ts路径alias" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>好久没写前端的东西了，正好前段时间写<code>typescript</code>时用<code>alias</code>遇到了一些问题，今天来聊一聊。</p>
+<h1 id="alias"><a href="#alias" class="headerlink" title="alias"></a>alias</h1><p>其实用web框架写应用的时候用的很多啊</p>
+<p>比如层级很深的时候</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> aa <span class="keyword">from</span> <span class="string">&quot;../../../utils/index&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>通过配置<code>alias</code>，比如把根目录配置成<code>@</code>就会写成</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> aa <span class="keyword">from</span> <span class="string">&quot;@/utils/index&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>这样</p>
+<p>具体的路径就不演示了，大家应该都能明白，都用过。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/05/21/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94ts%E8%B7%AF%E5%BE%84alias/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2023/03/17/%E6%97%A0%E6%98%9F%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94PlayWright%E6%8F%90%E4%BA%A4%E9%80%89%E6%8B%A9%E6%96%87%E4%BB%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -354,10 +465,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2023-03-17 15:27:08 / 修改时间：15:50:49" itemprop="dateCreated datePublished" datetime="2023-03-17T15:27:08+08:00">2023-03-17</time>
+              <time title="创建时间：2023-03-17 15:27:08" itemprop="dateCreated datePublished" datetime="2023-03-17T15:27:08+08:00">2023-03-17</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-05-15 15:30:29" itemprop="dateModified" datetime="2023-05-15T15:30:29+08:00">2023-05-15</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -1180,121 +1297,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2022/04/11/%E6%97%A0%E6%98%9F%E7%9A%84%E5%85%9A%E5%91%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/04/11/%E6%97%A0%E6%98%9F%E7%9A%84%E5%85%9A%E5%91%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89/" class="post-title-link" itemprop="url">无星的党员学习笔记（六） —— 资产阶级初登政治舞台</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-04-11 20:42:00" itemprop="dateCreated datePublished" datetime="2022-04-11T20:42:00+08:00">2022-04-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-06 16:56:11" itemprop="dateModified" datetime="2022-09-06T16:56:11+08:00">2022-09-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%85%9A%E5%91%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">党员学习笔记</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2022/04/11/%E6%97%A0%E6%98%9F%E7%9A%84%E5%85%9A%E5%91%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89/" class="post-meta-item leancloud_visitors" data-flag-title="无星的党员学习笔记（六） —— 资产阶级初登政治舞台" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>588</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>最近在读党史，记录一些随笔。</p>
-<p>在近代中国，出现了两个新的阶级：资产阶级和无产阶级。</p>
-<p>自甲午战争失败，以康有为，谭嗣同，梁启超为代表的资产阶级维新派奋起，希望通过变法挽救国家，通过维新运动，试图仿照英日等资本主义，建立君主立宪制，以发展资本主义为目标开始自上而下的改革。历时103天，通过光绪皇帝下达变法诏书，希望能拯救中国，史称“百日维新”。</p>
-<p>但资产阶级维新派自身力量弱小，光绪皇帝没有实权，因此被封建顽固扼杀在摇篮里，戊戌六君子血洒菜市口。</p>
-<p>戊戌维新的失败表明，在近代中国，资产阶级改良主义道路是行不通的。</p>
-<p>这个时间段，各个阶级的有识之士都在探索，如何才能拯救国家，力挽狂澜。她们敏锐地意识到，落后就会挨打，所以无不希望通过学习西方的知识，武装自己，走上资本主义的富强道路。</p>
-<p>先进的中国人向西方学习经历了一个演进深化的过程：以林则徐，龚自珍，魏源为代表的第一代，要开眼看世界，师夷长技以制夷-&gt;太平天国洪秀全明确支持《资政新篇》中的资本主义纲领-&gt;洋务运动“自强求富”，希望“中体西用”。</p>
-<p>但是甲午海战的失败表明了洋务运动的破产。</p>
-<p>这时的中国，被八国联军侵占北京，积贫积弱，人民饥寒交迫，面临着亡国灭种。在这样日益深重的民族危机和社会危机下，近代中国民族民主革命所面临的反帝反封建任务更迫切的摆在中国人民面前。</p>
-<h3 id="谁能领导中国人民求得民族独立和人民解放，谁就将成为中国革命的领导阶级"><a href="#谁能领导中国人民求得民族独立和人民解放，谁就将成为中国革命的领导阶级" class="headerlink" title="谁能领导中国人民求得民族独立和人民解放，谁就将成为中国革命的领导阶级"></a>谁能领导中国人民求得民族独立和人民解放，谁就将成为中国革命的领导阶级</h3>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/04/11/%E6%97%A0%E6%98%9F%E7%9A%84%E5%85%9A%E5%91%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1362,7 +1368,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">120</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1375,7 +1381,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">29</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1410,6 +1416,9 @@
         <li class="links-of-blogroll-item">
           <a href="https://www.v2rayfree.eu.org/" title="https:&#x2F;&#x2F;www.v2rayfree.eu.org&#x2F;" rel="noopener" target="_blank">应急链接</a>
         </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://fanjunyang.zone/" title="https:&#x2F;&#x2F;fanjunyang.zone&#x2F;" rel="noopener" target="_blank">俊阳的IT主页</a>
+        </li>
     </ul>
   </div>
 
@@ -1442,13 +1451,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">247k</span>
+    <span title="站点总字数">249k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:44</span>
+    <span title="站点阅读时长">3:46</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

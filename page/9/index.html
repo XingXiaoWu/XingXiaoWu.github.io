@@ -223,6 +223,113 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2019/06/27/iOS%E5%86%85%E6%B5%8B%E5%88%86%E5%8F%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/06/27/iOS%E5%86%85%E6%B5%8B%E5%88%86%E5%8F%91/" class="post-title-link" itemprop="url">iOS内测分发</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-06-27 22:41:00" itemprop="dateCreated datePublished" datetime="2019-06-27T22:41:00+08:00">2019-06-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-06 16:56:11" itemprop="dateModified" datetime="2022-09-06T16:56:11+08:00">2022-09-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/06/27/iOS%E5%86%85%E6%B5%8B%E5%88%86%E5%8F%91/" class="post-meta-item leancloud_visitors" data-flag-title="iOS内测分发" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="iOS内测分发"><a href="#iOS内测分发" class="headerlink" title="iOS内测分发"></a>iOS内测分发</h1><h5 id="2019-12-10更新"><a href="#2019-12-10更新" class="headerlink" title="2019-12-10更新"></a>2019-12-10更新</h5><p>gitee似乎不让下载了。可以考虑放到别的带https的地方，比如腾讯云的对象存储桶，github等等，反正有https就行，方法不变。</p>
+<h5 id="2019-11-15更新"><a href="#2019-11-15更新" class="headerlink" title="2019-11-15更新"></a>2019-11-15更新</h5><p>不要再问android怎么搞了。。。直接apk往仓库一丢，网页给个链接，点一下不就完事了，比iOS省事多了</p>
+<h3 id="背景"><a href="#背景" class="headerlink" title="背景:"></a>背景:</h3><p>我写博客一般都会写背景,因为我觉得光写某个技术点没有意义,技术最终都是为业务服务,因此我喜欢交代自己的使用场景,基于什么原因,我做过哪些常识,为什么最终这么做,这么做能解决我的什么问题….</p>
+<p>我们是一个小业务部,而且是传统行业转型互联网,业务部内还处于”史前洪荒”的状况,各种现在流行的东西都没有使用,移动端更是如此,开发迭代出的app都是靠微信/内部邮件转发来转发去,iOS更难受,由于ipa包不能像Android一样,随下随装,”必须”依赖电脑用iTools或类似的工具去安装ipa包,很是繁琐.</p>
+<p>说到这里肯定就有人提到:”为啥不用蒲公英(fir)等内测分发平台?”</p>
+<p>说实话我第一反应也是盯上了这些,但是要实名信息注册啊QAQ,企业要传营业执照,个人要传身份证信息,作为一个较为保守且不想这么兴师动众的人,我选择了放弃使用这些平台.那么没办法了,只能自己写了.那么接下来,我会告诉你,他们是怎么把ipa包,转成一个二维码让你能够下载的(都是猜的).当然,有企业账号自己做企业分发,也可以用我这个方式</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/06/27/iOS%E5%86%85%E6%B5%8B%E5%88%86%E5%8F%91/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2019/04/28/Jenkins%E5%AE%89%E8%A3%85-2019/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1216,121 +1323,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2018/08/25/mock%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B-%E5%9B%BE%E6%96%87%E7%89%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/08/25/mock%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B-%E5%9B%BE%E6%96%87%E7%89%88/" class="post-title-link" itemprop="url">mock入门教程-图文版</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-08-25 22:24:00" itemprop="dateCreated datePublished" datetime="2018-08-25T22:24:00+08:00">2018-08-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-06 16:56:11" itemprop="dateModified" datetime="2022-09-06T16:56:11+08:00">2022-09-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2018/08/25/mock%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B-%E5%9B%BE%E6%96%87%E7%89%88/" class="post-meta-item leancloud_visitors" data-flag-title="mock入门教程-图文版" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>背景：相信经常有这种情况，后端定义好了接口文档，但是还没开发，这时候前端或者客户端就无法进行联调，只能通过自己伪造数据进行开发。</p>
-<p>###伪造数据这个过程，就叫做mock<br>但是总是因为各种各样的情况，不能总拿死数据来开发，需要一些随机数据，这样才能更好的覆盖整个用例的可能性<br>mock的方法其实很多：<br>本地写死返回值，抓包工具断点篡改返回值，本地结果替换等等。<br>这次介绍的是使用mock这个开源项目进行随机返回值的替换<br>###<a target="_blank" rel="noopener" href="http://mockjs.com/">Mock.js</a>虽然名字是js，不过可不限于前端哟<br>###部署的方式很多，比如部署专门的服务器，或者本地部署等等<br>但是我比较菜，也比较懒，我就直接用别人部署好的服务器进行使用，其他的部署方式就需要各位老哥自行学习了。</p>
-<p>先介绍一个网站<br>###<a target="_blank" rel="noopener" href="https://www.easy-mock.com/">Easy Mock</a></p>
-<p>登录进去以后，创建你的第一个项目<br><img src="/images/mock/1.png" alt="mock首页"><br><img src="/images/mock/2.png" alt="初始化的填写"><br>创建完毕以后就会有一个项目出现在你的首页了，点击该项目</p>
-<p>例如我这里创建了一个wx项目，点进去就可以看到<br><img src="/images/mock/3.png" alt="配置"></p>
-<p>正常在开发过程中，肯定是有正式环境、开发环境这种区分的，除了域名不一样，后面的接口拼接都是一样的，在这里也是一样的。只需要将你某个环境下的域名或者ip替换成图中的baseURL即可，至于怎么替换，在接下来会讲到。</p>
-<p>###我们举个例子来理解一下。<br>我们的域名为：<a target="_blank" rel="noopener" href="http://www.baidu.com/">http://www.baidu.com</a><br>有一个获取版本号的接口为：<a target="_blank" rel="noopener" href="http://www.baidu.com/common/version/ios">http://www.baidu.com/common/version/ios</a><br>还有一个获取helloworld的接口为：<a target="_blank" rel="noopener" href="http://www.baidu.com/helloworld">http://www.baidu.com/helloworld</a><br>可以看到，所有的请求的baseurl都是<a target="_blank" rel="noopener" href="http://www.baidu.com,接口只是在后面拼接.我们先到easymock上建立获取版本号的接口./">http://www.baidu.com，接口只是在后面拼接。我们先到easymock上建立获取版本号的接口。</a></p>
-<p>####点击创建接口<br><img src="/images/mock/4.png" alt="如图"><br>具体的返回值的语法规则这里就不说了，直接在官网能查到，没有写的必要<br><a target="_blank" rel="noopener" href="https://github.com/nuysoft/Mock/wiki/Syntax-Specification">语法规范</a><br>这样我们就得到了一个mock接口<br>###接下来就是替换域名的操作了<br>我们需要用到的工具是Charles<br>因为Charles可以对子集全部代理，所以这里我们选择charles，当然，如果你可以配置node服务进行跨域也是ok的，方式有多种，目的都是一个，替换baseURL<br><img src="/images/mock/5.png" alt="Charles配置"></p>
-<p><img src="/images/mock/6.png" alt="image.png"><br><img src="/images/mock/7.png" alt="通配符"><br>注意需要使用通配符，至于啥叫通配符就百度一下吧~~<br>ok，至此，Charles配置完毕，让我们看看效果。<br><img src="/images/mock/8.png" alt="网络请求"><br>如图，我写了一个网络请求，地址是<a target="_blank" rel="noopener" href="http://www.baidu.com/common/version/ios">http://www.baidu.com/common/version/ios</a><br>在抓包中得到了什么呢<br><img src="/images/mock/9.png" alt="地址被替换成了mock地址"></p>
-<p>###结束语<br>其实很简单，不过各位该锤后台的还是要锤，毕竟前台后台，相爱相杀，hhhh</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2018/08/25/mock%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B-%E5%9B%BE%E6%96%87%E7%89%88/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1398,7 +1394,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">120</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1411,7 +1407,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">29</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1446,6 +1442,9 @@
         <li class="links-of-blogroll-item">
           <a href="https://www.v2rayfree.eu.org/" title="https:&#x2F;&#x2F;www.v2rayfree.eu.org&#x2F;" rel="noopener" target="_blank">应急链接</a>
         </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://fanjunyang.zone/" title="https:&#x2F;&#x2F;fanjunyang.zone&#x2F;" rel="noopener" target="_blank">俊阳的IT主页</a>
+        </li>
     </ul>
   </div>
 
@@ -1478,13 +1477,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">247k</span>
+    <span title="站点总字数">249k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:44</span>
+    <span title="站点阅读时长">3:46</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

@@ -223,6 +223,118 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2017/04/24/1.Unicode%E7%A0%81%E5%87%BA%E9%94%99%202.%E5%88%A4%E6%96%AD%E7%B1%BB%E5%9E%8B%203.json%E8%BD%AC%E6%8D%A2%E5%AD%97%E5%85%B8%E6%88%96%E6%95%B0%E7%BB%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/04/24/1.Unicode%E7%A0%81%E5%87%BA%E9%94%99%202.%E5%88%A4%E6%96%AD%E7%B1%BB%E5%9E%8B%203.json%E8%BD%AC%E6%8D%A2%E5%AD%97%E5%85%B8%E6%88%96%E6%95%B0%E7%BB%84/" class="post-title-link" itemprop="url">1.Unicode码出错 2.判断类型 3.json转换字典或数组</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-04-24 19:47:00" itemprop="dateCreated datePublished" datetime="2017-04-24T19:47:00+08:00">2017-04-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-06 16:56:11" itemprop="dateModified" datetime="2022-09-06T16:56:11+08:00">2022-09-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2017/04/24/1.Unicode%E7%A0%81%E5%87%BA%E9%94%99%202.%E5%88%A4%E6%96%AD%E7%B1%BB%E5%9E%8B%203.json%E8%BD%AC%E6%8D%A2%E5%AD%97%E5%85%B8%E6%88%96%E6%95%B0%E7%BB%84/" class="post-meta-item leancloud_visitors" data-flag-title="1.Unicode码出错 2.判断类型 3.json转换字典或数组" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>这个是一些小坑，大牛们忽略。</p>
+<p>1.有些时候，后台传输一些json数据会是Unicode码，如果存在在数组里，就更尴尬了，无法转成数组，那么这时候怎么办呢。</p>
+<p><img src="/images/Unicode%E7%A0%81%E5%87%BA%E9%94%99/%E4%BE%8B%E5%A6%82.jpeg" alt="例如.png"></p>
+<p>这时候，一定要把\U转换成\u，转换成功即可正常使用。<br>2.如何判断属于什么类型。<br>数据属于什么类型，使用iskindofclass来进行判断</p>
+<p><img src="/images/Unicode%E7%A0%81%E5%87%BA%E9%94%99/%E5%86%8D%E4%BE%8B%E5%A6%82.jpeg" alt="再例如.png"></p>
+<p>3.如何将json串转换成dic或array<br>如果json数据正常，直接使用如图方法，如json数据为单引号，则进行转义。</p>
+<p><img src="/images/Unicode%E7%A0%81%E5%87%BA%E9%94%99/%E8%BD%AC%E6%8D%A2.jpeg" alt="转换.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">    NSString *arrString = [jsonDic valueForKey:@&quot;XXX&quot;];</span><br><span class="line">    </span><br><span class="line">    if ([arrString isKindOfClass:[NSString class]]) &#123;</span><br><span class="line">        NSLog(@&quot;NSString类&quot;);</span><br><span class="line">    &#125;else if([arrString isKindOfClass:[NSArray class]])&#123;</span><br><span class="line">        NSLog(@&quot;NSArray类&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">//如果是单引号加上这句    </span><br><span class="line">    NSString *str3 = [arrString stringByReplacingOccurrencesOfString:@&quot;&#x27;&quot; withString:@&quot;\&quot;&quot;];</span><br><span class="line">    </span><br><span class="line">    NSData *arrData = [str3 dataUsingEncoding:NSUTF8StringEncoding];//也可以试试NSASCIIStringEncoding</span><br><span class="line">    NSArray *array = [self toArrayOrNSDictionary:arrData];</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#pragma mark -- 将JSON串转化为NSDictionary或NSArray</span><br><span class="line">- (id)toArrayOrNSDictionary:(NSData *)jsonData&#123;</span><br><span class="line">    NSError *error = nil;</span><br><span class="line">    id jsonObject = [NSJSONSerialization JSONObjectWithData:jsonData</span><br><span class="line">                                                    options:NSJSONReadingAllowFragments</span><br><span class="line">                                                      error:&amp;error];</span><br><span class="line">    </span><br><span class="line">    if (jsonObject != nil &amp;&amp; error == nil)&#123;</span><br><span class="line">        return jsonObject;</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        // 解析错误</span><br><span class="line">        return nil;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/04/24/1.Unicode%E7%A0%81%E5%87%BA%E9%94%99%202.%E5%88%A4%E6%96%AD%E7%B1%BB%E5%9E%8B%203.json%E8%BD%AC%E6%8D%A2%E5%AD%97%E5%85%B8%E6%88%96%E6%95%B0%E7%BB%84/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2017/01/19/%E5%B0%86json%E6%A0%BC%E5%BC%8F%E7%9A%84String%E8%BD%AC%E6%8D%A2%E6%88%90map/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1194,118 +1306,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2016/12/12/%E5%A6%82%E4%BD%95%E9%99%90%E5%88%B6%E5%88%AB%E4%BA%BA%E4%BC%A0%E9%80%92%E7%9A%84%E5%AD%97%E5%85%B8%E7%B1%BB%E5%9E%8B%E5%8F%82%E6%95%B0%E7%9A%84key/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2016/12/12/%E5%A6%82%E4%BD%95%E9%99%90%E5%88%B6%E5%88%AB%E4%BA%BA%E4%BC%A0%E9%80%92%E7%9A%84%E5%AD%97%E5%85%B8%E7%B1%BB%E5%9E%8B%E5%8F%82%E6%95%B0%E7%9A%84key/" class="post-title-link" itemprop="url">如何限制别人传递的字典类型参数的key</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-12-12 10:23:12" itemprop="dateCreated datePublished" datetime="2016-12-12T10:23:12+08:00">2016-12-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-06 16:56:11" itemprop="dateModified" datetime="2022-09-06T16:56:11+08:00">2022-09-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2016/12/12/%E5%A6%82%E4%BD%95%E9%99%90%E5%88%B6%E5%88%AB%E4%BA%BA%E4%BC%A0%E9%80%92%E7%9A%84%E5%AD%97%E5%85%B8%E7%B1%BB%E5%9E%8B%E5%8F%82%E6%95%B0%E7%9A%84key/" class="post-meta-item leancloud_visitors" data-flag-title="如何限制别人传递的字典类型参数的key" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>252</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>在封装SDK时，只能限制开发者传参的类型，而不能限制传递参数的内容。</p>
-<p>例如-(void)tranwithDic:(NSDictionary *)traderInfo;</p>
-<p>此时，要求别人传字典类型参数，别人传的key:value是什么无法做出限制。</p>
-<p>如果你需要拿着别人传递的参数去请求服务器来返回结果，那就必须对key做出限定，那应该怎么办呢？</p>
-<p>答案很简单：-(void)tranwithDic:(NSObject *)traderInfo;</p>
-<p>传递一个对象，把需要的key做成对象属性，然后在方法内部将对象转换成字典即可。</p>
-
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2016/12/12/%E5%A6%82%E4%BD%95%E9%99%90%E5%88%B6%E5%88%AB%E4%BA%BA%E4%BC%A0%E9%80%92%E7%9A%84%E5%AD%97%E5%85%B8%E7%B1%BB%E5%9E%8B%E5%8F%82%E6%95%B0%E7%9A%84key/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span>
+    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1373,7 +1377,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">120</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1386,7 +1390,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">29</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1421,6 +1425,9 @@
         <li class="links-of-blogroll-item">
           <a href="https://www.v2rayfree.eu.org/" title="https:&#x2F;&#x2F;www.v2rayfree.eu.org&#x2F;" rel="noopener" target="_blank">应急链接</a>
         </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://fanjunyang.zone/" title="https:&#x2F;&#x2F;fanjunyang.zone&#x2F;" rel="noopener" target="_blank">俊阳的IT主页</a>
+        </li>
     </ul>
   </div>
 
@@ -1453,13 +1460,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">247k</span>
+    <span title="站点总字数">249k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:44</span>
+    <span title="站点阅读时长">3:46</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

@@ -223,6 +223,117 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2018/08/25/mock%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B-%E5%9B%BE%E6%96%87%E7%89%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/08/25/mock%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B-%E5%9B%BE%E6%96%87%E7%89%88/" class="post-title-link" itemprop="url">mock入门教程-图文版</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-08-25 22:24:00" itemprop="dateCreated datePublished" datetime="2018-08-25T22:24:00+08:00">2018-08-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-06 16:56:11" itemprop="dateModified" datetime="2022-09-06T16:56:11+08:00">2022-09-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2018/08/25/mock%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B-%E5%9B%BE%E6%96%87%E7%89%88/" class="post-meta-item leancloud_visitors" data-flag-title="mock入门教程-图文版" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>背景：相信经常有这种情况，后端定义好了接口文档，但是还没开发，这时候前端或者客户端就无法进行联调，只能通过自己伪造数据进行开发。</p>
+<p>###伪造数据这个过程，就叫做mock<br>但是总是因为各种各样的情况，不能总拿死数据来开发，需要一些随机数据，这样才能更好的覆盖整个用例的可能性<br>mock的方法其实很多：<br>本地写死返回值，抓包工具断点篡改返回值，本地结果替换等等。<br>这次介绍的是使用mock这个开源项目进行随机返回值的替换<br>###<a target="_blank" rel="noopener" href="http://mockjs.com/">Mock.js</a>虽然名字是js，不过可不限于前端哟<br>###部署的方式很多，比如部署专门的服务器，或者本地部署等等<br>但是我比较菜，也比较懒，我就直接用别人部署好的服务器进行使用，其他的部署方式就需要各位老哥自行学习了。</p>
+<p>先介绍一个网站<br>###<a target="_blank" rel="noopener" href="https://www.easy-mock.com/">Easy Mock</a></p>
+<p>登录进去以后，创建你的第一个项目<br><img src="/images/mock/1.png" alt="mock首页"><br><img src="/images/mock/2.png" alt="初始化的填写"><br>创建完毕以后就会有一个项目出现在你的首页了，点击该项目</p>
+<p>例如我这里创建了一个wx项目，点进去就可以看到<br><img src="/images/mock/3.png" alt="配置"></p>
+<p>正常在开发过程中，肯定是有正式环境、开发环境这种区分的，除了域名不一样，后面的接口拼接都是一样的，在这里也是一样的。只需要将你某个环境下的域名或者ip替换成图中的baseURL即可，至于怎么替换，在接下来会讲到。</p>
+<p>###我们举个例子来理解一下。<br>我们的域名为：<a target="_blank" rel="noopener" href="http://www.baidu.com/">http://www.baidu.com</a><br>有一个获取版本号的接口为：<a target="_blank" rel="noopener" href="http://www.baidu.com/common/version/ios">http://www.baidu.com/common/version/ios</a><br>还有一个获取helloworld的接口为：<a target="_blank" rel="noopener" href="http://www.baidu.com/helloworld">http://www.baidu.com/helloworld</a><br>可以看到，所有的请求的baseurl都是<a target="_blank" rel="noopener" href="http://www.baidu.com,接口只是在后面拼接.我们先到easymock上建立获取版本号的接口./">http://www.baidu.com，接口只是在后面拼接。我们先到easymock上建立获取版本号的接口。</a></p>
+<p>####点击创建接口<br><img src="/images/mock/4.png" alt="如图"><br>具体的返回值的语法规则这里就不说了，直接在官网能查到，没有写的必要<br><a target="_blank" rel="noopener" href="https://github.com/nuysoft/Mock/wiki/Syntax-Specification">语法规范</a><br>这样我们就得到了一个mock接口<br>###接下来就是替换域名的操作了<br>我们需要用到的工具是Charles<br>因为Charles可以对子集全部代理，所以这里我们选择charles，当然，如果你可以配置node服务进行跨域也是ok的，方式有多种，目的都是一个，替换baseURL<br><img src="/images/mock/5.png" alt="Charles配置"></p>
+<p><img src="/images/mock/6.png" alt="image.png"><br><img src="/images/mock/7.png" alt="通配符"><br>注意需要使用通配符，至于啥叫通配符就百度一下吧~~<br>ok，至此，Charles配置完毕，让我们看看效果。<br><img src="/images/mock/8.png" alt="网络请求"><br>如图，我写了一个网络请求，地址是<a target="_blank" rel="noopener" href="http://www.baidu.com/common/version/ios">http://www.baidu.com/common/version/ios</a><br>在抓包中得到了什么呢<br><img src="/images/mock/9.png" alt="地址被替换成了mock地址"></p>
+<p>###结束语<br>其实很简单，不过各位该锤后台的还是要锤，毕竟前台后台，相爱相杀，hhhh</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/08/25/mock%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B-%E5%9B%BE%E6%96%87%E7%89%88/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2018/08/12/%E4%B8%AA%E6%8E%A8-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%8E%A8%E9%80%81%E6%B5%8B%E8%AF%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1208,125 +1319,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2017/10/11/%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95sdk/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/10/11/%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95sdk/" class="post-title-link" itemprop="url">断点调试SDK</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-10-11 14:09:00" itemprop="dateCreated datePublished" datetime="2017-10-11T14:09:00+08:00">2017-10-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-06 16:56:11" itemprop="dateModified" datetime="2022-09-06T16:56:11+08:00">2022-09-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2017/10/11/%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95sdk/" class="post-meta-item leancloud_visitors" data-flag-title="断点调试SDK" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>907</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>其实就是用workspace把两个项目连起来<br>凉白开记录了，懒得写了。。<br>地址：<a target="_blank" rel="noopener" href="http://www.jianshu.com/p/6c9b380cfe5c?utm_source=desktop&amp;utm_medium=timeline">http://www.jianshu.com/p/6c9b380cfe5c?utm_source=desktop&amp;utm_medium=timeline</a><br>如果修改了文件位置或者啥的，报头文件找不到，去示例代码工程把</p>
-<p><img src="/images/%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95sdk/%E5%B7%A5%E7%A8%8B1.jpeg" alt="49F27CAE-95C4-4F32-80EC-543ADFD05B49.png"><br>把sdk的link删掉再加上，重新运行就好了</p>
-<p>//—————以下是凉白开总结的——————//</p>
-<p>  自从上次写完SDK并接入别人的项目中之后就一直没怎么管过这东西了，昨天一人突然问我<strong>调试SDK</strong>怎么弄，我说不能。(结果今天啪啪啪自己打脸了)   恩他解决了一个<strong>SDK不能调试的一个超级大问题</strong>，征得同意后我来记录一下，自己记录一下其次文后并附上他的简书地址。</p>
-<blockquote>
-<p><strong>1.新建workspace。</strong></p>
-</blockquote>
-<p><img src="https://upload-images.jianshu.io/upload_images/2820888-c4788afc08929230.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1090/format/webp" alt="img"></p>
-<p>新建workspace</p>
-<blockquote>
-<p>*<em>2.新建文件夹，将*<em>workspace，demo以及SDK**放入文件夹中。**</em>*</em>*</p>
-</blockquote>
-<p><img src="/images/%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95sdk/%E6%96%B0%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9.webp" alt="img"></p>
-<p>新建文件夹及放入</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2017/10/11/%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95sdk/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1394,7 +1390,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">120</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1407,7 +1403,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">29</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1442,6 +1438,9 @@
         <li class="links-of-blogroll-item">
           <a href="https://www.v2rayfree.eu.org/" title="https:&#x2F;&#x2F;www.v2rayfree.eu.org&#x2F;" rel="noopener" target="_blank">应急链接</a>
         </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://fanjunyang.zone/" title="https:&#x2F;&#x2F;fanjunyang.zone&#x2F;" rel="noopener" target="_blank">俊阳的IT主页</a>
+        </li>
     </ul>
   </div>
 
@@ -1474,13 +1473,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">247k</span>
+    <span title="站点总字数">249k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:44</span>
+    <span title="站点阅读时长">3:46</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
