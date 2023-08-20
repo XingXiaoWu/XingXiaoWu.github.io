@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.2">
+<meta name="generator" content="Hexo 7.0.0-rc2">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -719,7 +719,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>907</span>
+              <span>927</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -738,9 +738,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>其实就是用workspace把两个项目连起来<br>凉白开记录了，懒得写了。。<br>地址：<a target="_blank" rel="noopener" href="http://www.jianshu.com/p/6c9b380cfe5c?utm_source=desktop&amp;utm_medium=timeline">http://www.jianshu.com/p/6c9b380cfe5c?utm_source=desktop&amp;utm_medium=timeline</a><br>如果修改了文件位置或者啥的，报头文件找不到，去示例代码工程把</p>
+          <p>其实就是用workspace把两个项目连起来<br>凉白开记录了，懒得写了。。<br>地址：<a target="_blank" rel="noopener" href="http://www.jianshu.com/p/6c9b380cfe5c?utm_source=desktop&utm_medium=timeline">http://www.jianshu.com/p/6c9b380cfe5c?utm_source=desktop&amp;utm_medium=timeline</a><br>如果修改了文件位置或者啥的，报头文件找不到，去示例代码工程把</p>
 <p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95sdk/%E5%B7%A5%E7%A8%8B1.jpeg" alt="49F27CAE-95C4-4F32-80EC-543ADFD05B49.png"><br>把sdk的link删掉再加上，重新运行就好了</p>
-<p>//—————以下是凉白开总结的——————//</p>
+<p>&#x2F;&#x2F;—————以下是凉白开总结的——————&#x2F;&#x2F;</p>
 <p>  自从上次写完SDK并接入别人的项目中之后就一直没怎么管过这东西了，昨天一人突然问我<strong>调试SDK</strong>怎么弄，我说不能。(结果今天啪啪啪自己打脸了)   恩他解决了一个<strong>SDK不能调试的一个超级大问题</strong>，征得同意后我来记录一下，自己记录一下其次文后并附上他的简书地址。</p>
 <blockquote>
 <p><strong>1.新建workspace。</strong></p>
@@ -1057,7 +1057,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>857</span>
+              <span>912</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -1076,10 +1076,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>git：<a target="_blank" rel="noopener" href="https://github.com/react-community/react-navigation/issues/1493">https://github.com/react-community/react-navigation/issues/1493</a><br>来，下猛药：<br>首先找到文件：src/views/ScenesReducer.js<br>然后用下面的代码：<br>　　let k = null;<br>　　let v = null;<br>　　staleScenes.forEach(scene =&gt; {<br>　　let {key} = scene;<br>　　k = key;<br>　　v = scene;<br>　　});<br>　　newStaleScenes = k &amp;&amp; v ? new Map([[k, v]]) : new Map();<br>　　newStaleScenes.forEach(mergeScene);<br>替换：staleScenes.forEach(mergeScene);<br>保存编译，就只有返回某页的动画了</p>
+          <p>git：<a target="_blank" rel="noopener" href="https://github.com/react-community/react-navigation/issues/1493">https://github.com/react-community/react-navigation/issues/1493</a><br>来，下猛药：<br>首先找到文件：src&#x2F;views&#x2F;ScenesReducer.js<br>然后用下面的代码：<br>　　let k &#x3D; null;<br>　　let v &#x3D; null;<br>　　staleScenes.forEach(scene &#x3D;&gt; {<br>　　let {key} &#x3D; scene;<br>　　k &#x3D; key;<br>　　v &#x3D; scene;<br>　　});<br>　　newStaleScenes &#x3D; k &amp;&amp; v ? new Map([[k, v]]) : new Map();<br>　　newStaleScenes.forEach(mergeScene);<br>替换：staleScenes.forEach(mergeScene);<br>保存编译，就只有返回某页的动画了</p>
 <p>转自<a target="_blank" rel="noopener" href="http://www.cnblogs.com/lc901221/p/7543094.html">http://www.cnblogs.com/lc901221/p/7543094.html</a><br>我就是那个贴了帖子看不懂答案的傻逼，。。</p>
-<p>另外：<br>transitionConfig : () =&gt; ({<br>                transitionSpec: {<br>                    duration: 0,<br>                    timing: Animated.timing,<br>                    easing: Easing.step0,<br>                },<br>            }),<br>去掉动画效果</p>
-<p>2018-2-23 更新<br>以上解决方案适用于1.0.0beta版<br>升级到React-navigation 1.1.1版本后可直接通过key去回退指定版本。<br>至于怎么取key=&gt;可以在跳转时缓存页面对应key值，通过页面名去获取缓存的key值跳转。<br>注意源码中当页面层级index为0时（首页）不会back。这一块应该是有想法的，但在特定情况下会有bug，因为我们项目就遇到了–但我暂时无法用语言总结出出现的场景。</p>
+<p>另外：<br>transitionConfig : () &#x3D;&gt; ({<br>                transitionSpec: {<br>                    duration: 0,<br>                    timing: Animated.timing,<br>                    easing: Easing.step0,<br>                },<br>            }),<br>去掉动画效果</p>
+<p>2018-2-23 更新<br>以上解决方案适用于1.0.0beta版<br>升级到React-navigation 1.1.1版本后可直接通过key去回退指定版本。<br>至于怎么取key&#x3D;&gt;可以在跳转时缓存页面对应key值，通过页面名去获取缓存的key值跳转。<br>注意源码中当页面层级index为0时（首页）不会back。这一块应该是有想法的，但在特定情况下会有bug，因为我们项目就遇到了–但我暂时无法用语言总结出出现的场景。</p>
 <p><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/d417f7bdc511">无星的RN学习之旅（一）-环境安装以及新建项目</a><br><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/cd0cfa602963">无星的RN学习之旅（二）-RN与原生的通信</a><br><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/ea3484f54643">无星的RN学习之旅（三）-bridge is not set.</a><br><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/cccf744bdd8d">无星的RN学习之旅（四）——通信、持久化存储、xcode打包</a><br><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/42d9c668cbb1">无星的RN学习之旅（六）-第三方App跳转，苹果商店跳转，loading框</a></p>
 
           <!--noindex-->
@@ -1270,14 +1270,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>4.9k</span>
+              <span>5.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
+              <span>5 分钟</span>
             </span>
 
         </div>
@@ -1478,13 +1478,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">257k</span>
+    <span title="站点总字数">258k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:53</span>
+    <span title="站点阅读时长">3:55</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.2">
+<meta name="generator" content="Hexo 7.0.0-rc2">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -21,12 +21,12 @@
     var CONFIG = {"hostname":"blog.xingxiaowu.cn","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="其实就是用workspace把两个项目连起来凉白开记录了，懒得写了。。地址：http:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;6c9b380cfe5c?utm_source&#x3D;desktop&amp;utm_medium&#x3D;timeline如果修改了文件位置或者啥的，报头文件找不到，去示例代码工程把 把sdk的link删掉再加上，重新运行就好了 &#x2F;&#x2F;—————以下是凉白开总结的——————&#x2F;&#x2F;   自">
+  <meta name="description" content="其实就是用workspace把两个项目连起来凉白开记录了，懒得写了。。地址：http:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;6c9b380cfe5c?utm_source&#x3D;desktop&amp;utm_medium&#x3D;timeline如果修改了文件位置或者啥的，报头文件找不到，去示例代码工程把 把sdk的link删掉再加上，重新运行就好了 &#x2F;&#x2F;—————以下是凉白开总结的——">
 <meta property="og:type" content="article">
 <meta property="og:title" content="断点调试SDK">
 <meta property="og:url" content="http://blog.xingxiaowu.cn/2017/10/11/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95sdk/index.html">
 <meta property="og:site_name" content="无星的小窝">
-<meta property="og:description" content="其实就是用workspace把两个项目连起来凉白开记录了，懒得写了。。地址：http:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;6c9b380cfe5c?utm_source&#x3D;desktop&amp;utm_medium&#x3D;timeline如果修改了文件位置或者啥的，报头文件找不到，去示例代码工程把 把sdk的link删掉再加上，重新运行就好了 &#x2F;&#x2F;—————以下是凉白开总结的——————&#x2F;&#x2F;   自">
+<meta property="og:description" content="其实就是用workspace把两个项目连起来凉白开记录了，懒得写了。。地址：http:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;6c9b380cfe5c?utm_source&#x3D;desktop&amp;utm_medium&#x3D;timeline如果修改了文件位置或者啥的，报头文件找不到，去示例代码工程把 把sdk的link删掉再加上，重新运行就好了 &#x2F;&#x2F;—————以下是凉白开总结的——">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95sdk/%E5%B7%A5%E7%A8%8B1.jpeg">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95sdk/file.webp">
@@ -300,7 +300,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>907</span>
+              <span>927</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -319,9 +319,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>其实就是用workspace把两个项目连起来<br>凉白开记录了，懒得写了。。<br>地址：<a target="_blank" rel="noopener" href="http://www.jianshu.com/p/6c9b380cfe5c?utm_source=desktop&amp;utm_medium=timeline">http://www.jianshu.com/p/6c9b380cfe5c?utm_source=desktop&amp;utm_medium=timeline</a><br>如果修改了文件位置或者啥的，报头文件找不到，去示例代码工程把</p>
+        <p>其实就是用workspace把两个项目连起来<br>凉白开记录了，懒得写了。。<br>地址：<a target="_blank" rel="noopener" href="http://www.jianshu.com/p/6c9b380cfe5c?utm_source=desktop&utm_medium=timeline">http://www.jianshu.com/p/6c9b380cfe5c?utm_source=desktop&amp;utm_medium=timeline</a><br>如果修改了文件位置或者啥的，报头文件找不到，去示例代码工程把</p>
 <p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95sdk/%E5%B7%A5%E7%A8%8B1.jpeg" alt="49F27CAE-95C4-4F32-80EC-543ADFD05B49.png"><br>把sdk的link删掉再加上，重新运行就好了</p>
-<p>//—————以下是凉白开总结的——————//</p>
+<p>&#x2F;&#x2F;—————以下是凉白开总结的——————&#x2F;&#x2F;</p>
 <p>  自从上次写完SDK并接入别人的项目中之后就一直没怎么管过这东西了，昨天一人突然问我<strong>调试SDK</strong>怎么弄，我说不能。(结果今天啪啪啪自己打脸了)   恩他解决了一个<strong>SDK不能调试的一个超级大问题</strong>，征得同意后我来记录一下，自己记录一下其次文后并附上他的简书地址。</p>
 <blockquote>
 <p><strong>1.新建workspace。</strong></p>
@@ -574,13 +574,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">257k</span>
+    <span title="站点总字数">258k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:53</span>
+    <span title="站点阅读时长">3:55</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

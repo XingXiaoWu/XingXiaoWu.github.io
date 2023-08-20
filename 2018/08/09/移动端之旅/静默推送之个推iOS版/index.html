@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.2">
+<meta name="generator" content="Hexo 7.0.0-rc2">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -21,12 +21,12 @@
     var CONFIG = {"hostname":"blog.xingxiaowu.cn","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="因为公司业务关系，希望在iOS在后台的时候能存活去做某些业务操作（其实就是流氓的后台保活&#x3D;。&#x3D;）最早是使用后台定位实现的，信心满满的去上架，结果被苹果爸爸锤的头都破了。连续被拒3次，申请打电话苹果代表也锤了我一顿，申请苹果审核申诉又被锤了一顿。想一想我真是头铁啊emmm闲话不多说，开始这篇博客的主题我们的业务其实很简单，就是后台有业务数据来了，客户端哪怕在后台也要处理。 #苹果的保活无非三种方式#">
+  <meta name="description" content="因为公司业务关系，希望在iOS在后台的时候能存活去做某些业务操作（其实就是流氓的后台保活&#x3D;。&#x3D;）最早是使用后台定位实现的，信心满满的去上架，结果被苹果爸爸锤的头都破了。连续被拒3次，申请打电话苹果代表也锤了我一顿，申请苹果审核申诉又被锤了一顿。想一想我真是头铁啊emmm闲话不多说，开始这篇博客的主题我们的业务其实很简单，就是后台有业务数据来了，客户端哪怕在后台也要处理。 #苹果">
 <meta property="og:type" content="article">
 <meta property="og:title" content="个推--静默推送">
 <meta property="og:url" content="http://blog.xingxiaowu.cn/2018/08/09/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E9%9D%99%E9%BB%98%E6%8E%A8%E9%80%81%E4%B9%8B%E4%B8%AA%E6%8E%A8iOS%E7%89%88/index.html">
 <meta property="og:site_name" content="无星的小窝">
-<meta property="og:description" content="因为公司业务关系，希望在iOS在后台的时候能存活去做某些业务操作（其实就是流氓的后台保活&#x3D;。&#x3D;）最早是使用后台定位实现的，信心满满的去上架，结果被苹果爸爸锤的头都破了。连续被拒3次，申请打电话苹果代表也锤了我一顿，申请苹果审核申诉又被锤了一顿。想一想我真是头铁啊emmm闲话不多说，开始这篇博客的主题我们的业务其实很简单，就是后台有业务数据来了，客户端哪怕在后台也要处理。 #苹果的保活无非三种方式#">
+<meta property="og:description" content="因为公司业务关系，希望在iOS在后台的时候能存活去做某些业务操作（其实就是流氓的后台保活&#x3D;。&#x3D;）最早是使用后台定位实现的，信心满满的去上架，结果被苹果爸爸锤的头都破了。连续被拒3次，申请打电话苹果代表也锤了我一顿，申请苹果审核申诉又被锤了一顿。想一想我真是头铁啊emmm闲话不多说，开始这篇博客的主题我们的业务其实很简单，就是后台有业务数据来了，客户端哪怕在后台也要处理。 #苹果">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E4%B8%AA%E6%8E%A8-%E9%9D%99%E9%BB%98%E6%8E%A8%E9%80%81/1.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E4%B8%AA%E6%8E%A8-%E9%9D%99%E9%BB%98%E6%8E%A8%E9%80%81/2.png">
@@ -295,14 +295,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.6k</span>
+              <span>1.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -314,7 +314,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>因为公司业务关系，希望在iOS在后台的时候能存活去做某些业务操作（其实就是流氓的后台保活=。=）<br>最早是使用后台定位实现的，信心满满的去上架，结果被苹果爸爸锤的头都破了。连续被拒3次，申请打电话苹果代表也锤了我一顿，申请苹果审核申诉又被锤了一顿。想一想我真是头铁啊emmm<br>闲话不多说，开始这篇博客的主题<br>我们的业务其实很简单，就是后台有业务数据来了，客户端哪怕在后台也要处理。</p>
+        <p>因为公司业务关系，希望在iOS在后台的时候能存活去做某些业务操作（其实就是流氓的后台保活&#x3D;。&#x3D;）<br>最早是使用后台定位实现的，信心满满的去上架，结果被苹果爸爸锤的头都破了。连续被拒3次，申请打电话苹果代表也锤了我一顿，申请苹果审核申诉又被锤了一顿。想一想我真是头铁啊emmm<br>闲话不多说，开始这篇博客的主题<br>我们的业务其实很简单，就是后台有业务数据来了，客户端哪怕在后台也要处理。</p>
 <p>#苹果的保活无非三种方式<br>###1.后台播放无声音乐<br>###2.后台定位<br>###3.推送唤醒</p>
 <p>##播放音乐<br>直接被我pass了，我觉得机审都会把我拒了。。。压根不考虑</p>
 <p>##后台定位<br>正好我们的业务吐过硬扯还能和业务办公场所扯上关系，头铁就是上！通过后台定位让app保活，成功实现了。不过被🍎爸爸锤了。方案二，pass</p>
@@ -323,7 +323,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;aps&quot;: &#123;</span><br><span class="line">        &quot;content-available&quot;: 1,</span><br><span class="line">        &quot;sound&quot;: &quot;com.gexin.ios.silence&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这个东西，不过万一有没搜到的呢emmm我还是再说一遍<br>content-available属性。0是非静默，1是静默<br>个推中，无声，sound属性：com.gexin.ios.silence（其他的推送是不是如此我就不太清楚了）<br>###alert，body切记不要写东西，要传值往最后看<br>###接下来是傻瓜式教程<br>###准备工作<br>####1.推送证书准备好<br>这部分太多教程了，随便搜一个搞一下就差不多了，不上图了。记得导出的p12要放到个推平台哟。<br>####2.打开开关<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E4%B8%AA%E6%8E%A8-%E9%9D%99%E9%BB%98%E6%8E%A8%E9%80%81/1.png" alt="推送开关"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E4%B8%AA%E6%8E%A8-%E9%9D%99%E9%BB%98%E6%8E%A8%E9%80%81/2.png" alt="允许后台推送"></p>
-<p>####3.代码部分<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E4%B8%AA%E6%8E%A8-%E9%9D%99%E9%BB%98%E6%8E%A8%E9%80%81/3.png" alt="静默推送回调"><br>就在这个里面了，当被挂起的时候，收到推送，执行这里的代码，唤醒app30s左右的时间，让你尽情的做自己想做的事😝。<br>我把生命周期写在下面，也好复制粘贴去搜索，我是不是很体贴=。=</p>
+<p>####3.代码部分<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E4%B8%AA%E6%8E%A8-%E9%9D%99%E9%BB%98%E6%8E%A8%E9%80%81/3.png" alt="静默推送回调"><br>就在这个里面了，当被挂起的时候，收到推送，执行这里的代码，唤醒app30s左右的时间，让你尽情的做自己想做的事😝。<br>我把生命周期写在下面，也好复制粘贴去搜索，我是不是很体贴&#x3D;。&#x3D;</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler</span><br></pre></td></tr></table></figure>
 <p>接下来怎么处理就是你们自己去做业务处理了~</p>
 <p>####如何不要后台配合自行测试？<br>个推官网是干什么用的啊？<br>小伙子来来来，又是两篇傻瓜式教程（内容如标题，如果都会了就不用看了~）<br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f59568676d3a">个推-开发环境推送测试</a><br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/2fa7d0c28640">个推-iOS特定人群推送</a><br>####打开个推官网<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E4%B8%AA%E6%8E%A8-%E9%9D%99%E9%BB%98%E6%8E%A8%E9%80%81/4.png" alt="创建推送"></p>
@@ -538,13 +538,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">257k</span>
+    <span title="站点总字数">258k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:53</span>
+    <span title="站点阅读时长">3:55</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

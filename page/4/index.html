@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.2">
+<meta name="generator" content="Hexo 7.0.0-rc2">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -634,7 +634,7 @@
 <p>每个页面都要处理上下翻页，搜索，mounted加载首页table数据等等逻辑</p>
 <p>虽然不复杂，但很累。</p>
 <p>因此，我们需要封装一些<code>DSL</code>来降低我们的重复工作量</p>
-<h1 id="啥是CompositionAPI-hook"><a href="#啥是CompositionAPI-hook" class="headerlink" title="啥是CompositionAPI/hook"></a>啥是CompositionAPI/hook</h1><p>看看文档</p>
+<h1 id="啥是CompositionAPI-hook"><a href="#啥是CompositionAPI-hook" class="headerlink" title="啥是CompositionAPI&#x2F;hook"></a>啥是CompositionAPI&#x2F;hook</h1><p>看看文档</p>
 <h1 id="我们的请求经过封装，大概是这种格式"><a href="#我们的请求经过封装，大概是这种格式" class="headerlink" title="我们的请求经过封装，大概是这种格式"></a>我们的请求经过封装，大概是这种格式</h1>
           <!--noindex-->
             <div class="post-button">
@@ -827,7 +827,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>5k</span>
+              <span>5.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -851,7 +851,7 @@
 
 <h1 id="2-react-ts项目eslint如何引入"><a href="#2-react-ts项目eslint如何引入" class="headerlink" title="2.react+ts项目eslint如何引入"></a>2.react+ts项目eslint如何引入</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yarn add eslint --dev</span><br><span class="line"></span><br><span class="line">npx eslint --init</span><br></pre></td></tr></table></figure>
 <p>选项如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">? How would you like to use ESLint? … </span><br><span class="line">  To check syntax only</span><br><span class="line">  To check syntax and find problems</span><br><span class="line">❯ To check syntax, find problems, and enforce code style</span><br><span class="line"></span><br><span class="line">? What <span class="built_in">type</span> of modules does your project use? … </span><br><span class="line">❯ JavaScript modules (import/export)</span><br><span class="line">  CommonJS (require/exports)</span><br><span class="line">  None of these</span><br><span class="line"></span><br><span class="line">? Which framework does your project use? … </span><br><span class="line">❯ React</span><br><span class="line">  Vue.js</span><br><span class="line">  None of these</span><br><span class="line"></span><br><span class="line">? Does your project use TypeScript? › No / Yes✔</span><br><span class="line"></span><br><span class="line">? Where does your code run? …  (Press &lt;space&gt; to select, &lt;a&gt; to toggle all, &lt;i&gt; to invert selection)</span><br><span class="line">✔ Browser</span><br><span class="line">  Node</span><br><span class="line"></span><br><span class="line">? How would you like to define a style <span class="keyword">for</span> your project? … </span><br><span class="line">❯ Use a popular style guide</span><br><span class="line">  Answer questions about your style</span><br><span class="line">  Inspect your JavaScript file(s)</span><br><span class="line"></span><br><span class="line">? Which style guide <span class="keyword">do</span> you want to follow? … </span><br><span class="line">❯ Airbnb: https://github.com/airbnb/javascript</span><br><span class="line">  Standard: https://github.com/standard/standard</span><br><span class="line">  Google: https://github.com/google/eslint-config-google</span><br><span class="line"></span><br><span class="line">? What format <span class="keyword">do</span> you want your config file to be <span class="keyword">in</span>? … (任选)</span><br><span class="line">  JavaScript</span><br><span class="line">  YAML</span><br><span class="line">❯ JSON</span><br><span class="line"></span><br><span class="line">? Would you like to install them now with npm? › No / Yes✔</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">? How would you like to use ESLint? … </span><br><span class="line">  To check syntax only</span><br><span class="line">  To check syntax and find problems</span><br><span class="line">❯ To check syntax, find problems, and enforce code style</span><br><span class="line"></span><br><span class="line">? What <span class="built_in">type</span> of modules does your project use? … </span><br><span class="line">❯ JavaScript modules (import/export)</span><br><span class="line">  CommonJS (require/exports)</span><br><span class="line">  None of these</span><br><span class="line"></span><br><span class="line">? Which framework does your project use? … </span><br><span class="line">❯ React</span><br><span class="line">  Vue.js</span><br><span class="line">  None of these</span><br><span class="line"></span><br><span class="line">? Does your project use TypeScript? › No / Yes✔</span><br><span class="line"></span><br><span class="line">? Where does your code run? …  (Press &lt;space&gt; to <span class="keyword">select</span>, &lt;a&gt; to toggle all, &lt;i&gt; to invert selection)</span><br><span class="line">✔ Browser</span><br><span class="line">  Node</span><br><span class="line"></span><br><span class="line">? How would you like to define a style <span class="keyword">for</span> your project? … </span><br><span class="line">❯ Use a popular style guide</span><br><span class="line">  Answer questions about your style</span><br><span class="line">  Inspect your JavaScript file(s)</span><br><span class="line"></span><br><span class="line">? Which style guide <span class="keyword">do</span> you want to follow? … </span><br><span class="line">❯ Airbnb: https://github.com/airbnb/javascript</span><br><span class="line">  Standard: https://github.com/standard/standard</span><br><span class="line">  Google: https://github.com/google/eslint-config-google</span><br><span class="line"></span><br><span class="line">? What format <span class="keyword">do</span> you want your config file to be <span class="keyword">in</span>? … (任选)</span><br><span class="line">  JavaScript</span><br><span class="line">  YAML</span><br><span class="line">❯ JSON</span><br><span class="line"></span><br><span class="line">? Would you like to install them now with npm? › No / Yes✔</span><br></pre></td></tr></table></figure>
 
 <p>npm下载完成以后，删掉package-lock.json，重新使用yarn去加载依赖</p>
 <p>接着，以为已经使用<code>airbnb规则</code>，万事大吉</p>
@@ -1471,13 +1471,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">257k</span>
+    <span title="站点总字数">258k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:53</span>
+    <span title="站点阅读时长">3:55</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

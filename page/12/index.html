@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.2">
+<meta name="generator" content="Hexo 7.0.0-rc2">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -301,13 +301,13 @@
           <p>报错信息：bridge is not set. This is probably because you’ve “<br>            “explicitly synthesized the bridge in %@, even though it’s inherited “<br>            “from RCTEventEmitter.</p>
 <p>踩坑了。。。<br>        我相信肯定有兄弟需要从原生的OC向RN主动发起事件。而且这种场景也很多，比如集成第三方的服务，通过代理回调获取结果发送给RN等等等等。。。<br>我将我遇到的坑总结一下吧。<br>先看下官网怎么写的</p>
 <p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/RN3/1.png" alt="官网介绍1"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/RN3/2.png" alt="官网介绍2.png"><br>1.你是不是像官网一样，先写一个继承自RCTEventEmitter的对象，什么都不写，看看能不能运行？<br>答案是：并不能运行=。=你必须写实现，也就是以下这个方法</p>
+<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/RN3/2.png" alt="官网介绍2.png"><br>1.你是不是像官网一样，先写一个继承自RCTEventEmitter的对象，什么都不写，看看能不能运行？<br>答案是：并不能运行&#x3D;。&#x3D;你必须写实现，也就是以下这个方法</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//.m文件</span><br><span class="line">- (NSArray&lt;NSString *&gt; *)supportedEvents</span><br><span class="line">&#123;</span><br><span class="line">  return @[@&quot;EventReminder&quot;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>2.你在使用发送文件，也就是</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[self sendEventWithName:@&quot;消息名&quot; body:参数];</span><br></pre></td></tr></table></figure>
-<p>运行这个方法的时候有没有崩溃啊=。=<br>崩溃的提示是不是</p>
+<p>运行这个方法的时候有没有崩溃啊&#x3D;。&#x3D;<br>崩溃的提示是不是</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bridge is not set. This is probably because you&#x27;ve &quot;</span><br><span class="line">            &quot;explicitly synthesized the bridge in %@, even though it&#x27;s inherited &quot;</span><br><span class="line">            &quot;from RCTEventEmitter.</span><br></pre></td></tr></table></figure>
-<p>其实就是bridage为空。<br>这个时候你查这个报错提示是不是发现有人说在Appdelegate.m里把rootView的bridage赋给这个你创建的对象，然后你试了一下确实发出去了开始哈皮=。=</p>
+<p>其实就是bridage为空。<br>这个时候你查这个报错提示是不是发现有人说在Appdelegate.m里把rootView的bridage赋给这个你创建的对象，然后你试了一下确实发出去了开始哈皮&#x3D;。&#x3D;</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2017/07/24/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89-bridge-is-not-set/#more" rel="contents">
@@ -390,7 +390,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>912</span>
+              <span>917</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -414,7 +414,7 @@
 
 
 <p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/Afnetwork%E6%8A%A5%E9%94%99/1.png" alt="3259244-7ef2c6bad256fe3a.png.jpeg"></p>
-<p>这是因为text/html这个方式AF中没有。。这种时候有两种方式解决<br>1.直接修改AF的文件：<br>AFURLResponseSerialization.m文件中大约226行处，将</p>
+<p>这是因为text&#x2F;html这个方式AF中没有。。这种时候有两种方式解决<br>1.直接修改AF的文件：<br>AFURLResponseSerialization.m文件中大约226行处，将</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">self.acceptableContentTypes = [NSSet setWithObjects:@&quot;application/json&quot;, @&quot;text/json&quot;, @&quot;text/javascript&quot;, nil];</span><br></pre></td></tr></table></figure>
 <p>修改为：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">self.acceptableContentTypes = [NSSet setWithObjects:@&quot;application/json&quot;, @&quot;text/json&quot;, @&quot;text/javascript&quot;, @&quot;text/html&quot;,nil];</span><br></pre></td></tr></table></figure>
@@ -1053,7 +1053,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>219</span>
+              <span>224</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -1072,7 +1072,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>上一篇说到如何创建jar/aar，这篇介绍如何使用</p>
+          <p>上一篇说到如何创建jar&#x2F;aar，这篇介绍如何使用</p>
 <h1 id="一-jar的使用"><a href="#一-jar的使用" class="headerlink" title="一 jar的使用"></a>一 jar的使用</h1><p>jar包的使用很简单，直接将jar包拷如lib目录下</p>
 <p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/as-jar-arr2/1.png" alt="img"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/as-jar-arr2/2.png" alt="img"></p>
@@ -1271,7 +1271,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>511</span>
+              <span>536</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -1293,10 +1293,10 @@
           <p>相信大家总会碰到需要encode的时候，接着百度啊，然后发现stringByAddingPercentEscapesUsingEncoding这个方法，但是这个方法有时候无法对+等符号进行encode。那这时候咋办呢？</p>
 <p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/ios-encode/1.png" alt="img"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/ios-encode/2.png" alt="img"></p>
-<p>//encode</p>
+<p>&#x2F;&#x2F;encode</p>
 <p>CF_EXPORT</p>
 <p>CFStringRef CFURLCreateStringByAddingPercentEscapes(CFAllocatorRef allocator, CFStringRef originalString, CFStringRef charactersToLeaveUnescaped, CFStringRef legalURLCharactersToBeEscaped, CFStringEncoding encoding);</p>
-<p>NSString <em>encodedValue = (NSString</em>)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(nil,(CFStringRef)value, nil,(CFStringRef)@”!*’();:@&amp;=+$,/ %#[]”, kCFStringEncodingUTF8));</p>
+<p>NSString <em>encodedValue &#x3D; (NSString</em>)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(nil,(CFStringRef)value, nil,(CFStringRef)@”!*’();:@&amp;&#x3D;+$,&#x2F; %#[]”, kCFStringEncodingUTF8));</p>
 
           <!--noindex-->
             <div class="post-button">
@@ -1477,13 +1477,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">257k</span>
+    <span title="站点总字数">258k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:53</span>
+    <span title="站点阅读时长">3:55</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

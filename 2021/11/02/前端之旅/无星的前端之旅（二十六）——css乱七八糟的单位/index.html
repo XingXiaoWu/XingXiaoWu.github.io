@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.2">
+<meta name="generator" content="Hexo 7.0.0-rc2">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -21,12 +21,12 @@
     var CONFIG = {"hostname":"blog.xingxiaowu.cn","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="背景因为要适配的设备有点多，经常性出现适配问题，单位又多的一批，烦死了 所以我决定从头来看，这些单位到底代表什么，和分辨率， 到底是个什么关系 我先放个移动端的iphone 设备表在这，再来分析    手机设备型号 屏幕尺寸 分辨率点数 设备像素比(DPR) 分辨率像素 屏幕比例    iPhone SE 4.0英寸 320x568 @2x 640x1136 16:9   iPhone 6&#x2F;6s&#x2F;">
+  <meta name="description" content="背景因为要适配的设备有点多，经常性出现适配问题，单位又多的一批，烦死了 所以我决定从头来看，这些单位到底代表什么，和分辨率， 到底是个什么关系 我先放个移动端的iphone 设备表在这，再来分析    手机设备型号 屏幕尺寸 分辨率点数 设备像素比(DPR) 分辨率像素 屏幕比例    iPhone SE 4.0英寸 320x568 @2x 640x1136 16:9   iPhone 6&amp;#x2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="无星的前端之旅（二十六）——css乱七八糟的单位">
 <meta property="og:url" content="http://blog.xingxiaowu.cn/2021/11/02/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94css%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F%E7%9A%84%E5%8D%95%E4%BD%8D/index.html">
 <meta property="og:site_name" content="无星的小窝">
-<meta property="og:description" content="背景因为要适配的设备有点多，经常性出现适配问题，单位又多的一批，烦死了 所以我决定从头来看，这些单位到底代表什么，和分辨率， 到底是个什么关系 我先放个移动端的iphone 设备表在这，再来分析    手机设备型号 屏幕尺寸 分辨率点数 设备像素比(DPR) 分辨率像素 屏幕比例    iPhone SE 4.0英寸 320x568 @2x 640x1136 16:9   iPhone 6&#x2F;6s&#x2F;">
+<meta property="og:description" content="背景因为要适配的设备有点多，经常性出现适配问题，单位又多的一批，烦死了 所以我决定从头来看，这些单位到底代表什么，和分辨率， 到底是个什么关系 我先放个移动端的iphone 设备表在这，再来分析    手机设备型号 屏幕尺寸 分辨率点数 设备像素比(DPR) 分辨率像素 屏幕比例    iPhone SE 4.0英寸 320x568 @2x 640x1136 16:9   iPhone 6&amp;#x2">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E5%89%8D%E7%AB%AF26/1.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E5%89%8D%E7%AB%AF26/3.webp">
@@ -292,7 +292,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>4.2k</span>
+              <span>4.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -334,7 +334,7 @@
 <td>16:9</td>
 </tr>
 <tr>
-<td>iPhone 6/6s/7/8/SE 2</td>
+<td>iPhone 6&#x2F;6s&#x2F;7&#x2F;8&#x2F;SE 2</td>
 <td>4.7英寸</td>
 <td>375x667</td>
 <td>@2x</td>
@@ -342,7 +342,7 @@
 <td>16:9</td>
 </tr>
 <tr>
-<td>iPhone 6p/7p/8p</td>
+<td>iPhone 6p&#x2F;7p&#x2F;8p</td>
 <td>5.5英寸</td>
 <td>414x736</td>
 <td>@3x</td>
@@ -350,7 +350,7 @@
 <td>16:9</td>
 </tr>
 <tr>
-<td>iPhone XR/11</td>
+<td>iPhone XR&#x2F;11</td>
 <td>6.1英寸</td>
 <td>414x896</td>
 <td>@2x</td>
@@ -358,7 +358,7 @@
 <td>19.5:9</td>
 </tr>
 <tr>
-<td>iPhone X/XS/11 Pro</td>
+<td>iPhone X&#x2F;XS&#x2F;11 Pro</td>
 <td>5.8英寸</td>
 <td>375x812</td>
 <td>@3x</td>
@@ -366,7 +366,7 @@
 <td>19.5:9</td>
 </tr>
 <tr>
-<td>iPhone XS Max/11 Pro Max</td>
+<td>iPhone XS Max&#x2F;11 Pro Max</td>
 <td>6.5英寸</td>
 <td>414x896</td>
 <td>@3x</td>
@@ -382,7 +382,7 @@
 <td>19.5:9</td>
 </tr>
 <tr>
-<td>iPhone 12/12 Pro</td>
+<td>iPhone 12&#x2F;12 Pro</td>
 <td>6.1英寸</td>
 <td>390x844</td>
 <td>@3x</td>
@@ -406,7 +406,7 @@
 <td>19.5:9</td>
 </tr>
 <tr>
-<td>iPhone 13/13 Pro</td>
+<td>iPhone 13&#x2F;13 Pro</td>
 <td>6.1英寸</td>
 <td>390x844</td>
 <td>@3x</td>
@@ -449,7 +449,7 @@
 
 <p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E5%89%8D%E7%AB%AF26/1.png" alt="301635840360_.pic.jpg"></p>
 <p>而2020年，我新推出了一款设备，还是10英寸x10英寸的</p>
-<p>但是这时候技术升级了，我一个像素点的发光元器件可以缩小到1/4英寸这么小，如上图右侧</p>
+<p>但是这时候技术升级了，我一个像素点的发光元器件可以缩小到1&#x2F;4英寸这么小，如上图右侧</p>
 <p>这时候要展示10英寸x10英寸大小的盒子，我就要是原来的好多倍了</p>
 <p>而且技术不断革新，可能未来越来越小呢，不可能软件不停的去改啊</p>
 <p>所以这时候，就有了逻辑像素的出现，不管你物理像素缩的多小，逻辑上，这个设备的宽高像素点就是一定的</p>
@@ -463,13 +463,13 @@
 <p><code>iPhone 13</code>屏幕比例为<code>19.5:9</code>,根据勾股定理，我们可以列出式子<code>(19.5x)^2 + (9x)^2 = (6.1)^2</code></p>
 <p>解出<code>x约等于0.284</code></p>
 <p>则高约为<code>5.538英寸</code>，宽为<code>2.55英寸</code></p>
-<p>(当然，主要是没仔细查屏幕的宽高，有时间的同学自己查一下，就免得算了=。=)</p>
+<p>(当然，主要是没仔细查屏幕的宽高，有时间的同学自己查一下，就免得算了&#x3D;。&#x3D;)</p>
 <p>那么我们算算它的PPI（1英寸像素密度）</p>
 <p>其实非常简单</p>
 <p><code>2532/5.538</code> 约等于457</p>
 <p>或</p>
 <p><code>1170/2.55</code> 约等于等于458</p>
-<p>那么实际上，<code>iPhone 13</code>的像素密度为460，和我们估算的差不多，毕竟宽高我们都是估算的=。=</p>
+<p>那么实际上，<code>iPhone 13</code>的像素密度为460，和我们估算的差不多，毕竟宽高我们都是估算的&#x3D;。&#x3D;</p>
 <p>其实就是<code>物理像素（高）/高（英寸）</code>或<code>物理像素（宽）/宽（英寸）</code></p>
 <p>记得是英寸啊</p>
 <h2 id="然而"><a href="#然而" class="headerlink" title="然而"></a>然而</h2><p>大部分时候，不会去列举屏幕的宽高英寸，而是标注屏幕大小（斜对角线）</p>
@@ -485,7 +485,7 @@
 <h3 id="css中我们写的px，实际上也是会随着物理分辨率的变化而调整的，所以它其实是逻辑像素"><a href="#css中我们写的px，实际上也是会随着物理分辨率的变化而调整的，所以它其实是逻辑像素" class="headerlink" title="css中我们写的px，实际上也是会随着物理分辨率的变化而调整的，所以它其实是逻辑像素"></a>css中我们写的px，实际上也是会随着物理分辨率的变化而调整的，所以它其实是逻辑像素</h3><p>这里就产生了一个经典的面试题<code>移动设备上h5的1px像素问题</code></p>
 <p>指得就是css写了1px，但是在某些设备上，展示了2px以上的宽度</p>
 <h1 id="px"><a href="#px" class="headerlink" title="px"></a>px</h1><p>我们在css中写的px，是逻辑像素</p>
-<h1 id="pt"><a href="#pt" class="headerlink" title="pt"></a>pt</h1><p>是一个标准的长度单位，1pt＝1/72英寸，打印常用</p>
+<h1 id="pt"><a href="#pt" class="headerlink" title="pt"></a>pt</h1><p>是一个标准的长度单位，1pt＝1&#x2F;72英寸，打印常用</p>
 <p>但是我们不是打印！就展示而言，但其实也和DPR有关</p>
 <p>可见参考资料<a target="_blank" rel="noopener" href="https://www.cnblogs.com/chinhr/archive/2008/01/23/1049576.html">CSS长度单位：px和pt的区别 - 莫问奴归处 - 博客园 (cnblogs.com)</a></p>
 <p>其中最重要的一句话，我引用过来</p>
@@ -498,9 +498,9 @@
 
 <p>如果没有特殊设置</p>
 <p>浏览器中默认font-size的设定为16px</p>
-<p>即1em = 16px, 但是这就不好算了</p>
+<p>即1em &#x3D; 16px, 但是这就不好算了</p>
 <p>所以在使用em的时候，有时候会这么做：</p>
-<p>body选择器中，设置font-size为62.5%，这时候，默认font-size就缩放为了10px，这个时候1em = 10px了</p>
+<p>body选择器中，设置font-size为62.5%，这时候，默认font-size就缩放为了10px，这个时候1em &#x3D; 10px了</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;body style=&quot;font-size:62.5%&quot;&gt;</span><br><span class="line">    &lt;p style=&quot;font-size:2em&quot;&gt;我这里的字体显示大小是28px(14px*2)&lt;/p&gt;  </span><br><span class="line">    &lt;div style=&quot;font-size:18px&quot;&gt;</span><br><span class="line">        &lt;p style=&quot;font-size:2em&quot;&gt;我这里显示字体大小是36px(18px*2),而不是上面计算的28px&lt;/p&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
 
 <h1 id="rem"><a href="#rem" class="headerlink" title="rem"></a>rem</h1><p>摘自<a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000004605022">pt，px，rem和em之间区别总结 - SegmentFault 思否</a></p>
@@ -512,7 +512,7 @@
 <p>vh：视窗高度，1vh等于视窗高度的1%。</p>
 <p>vmin：vw和vh中较小的那个。</p>
 <p>vmax：vw和vh中较大的那个。</p>
-<p>（vw, vh, vmin, vmax：IE9+局部支持，chrome/firefox/safari/opera支持，iOS safari 8+支持，Android browser4.4+支持，chrome for android39支持）</p>
+<p>（vw, vh, vmin, vmax：IE9+局部支持，chrome&#x2F;firefox&#x2F;safari&#x2F;opera支持，iOS safari 8+支持，Android browser4.4+支持，chrome for android39支持）</p>
 <h1 id="那么回到最上面的问题，如何处理不同设备的适配呢？"><a href="#那么回到最上面的问题，如何处理不同设备的适配呢？" class="headerlink" title="那么回到最上面的问题，如何处理不同设备的适配呢？"></a>那么回到最上面的问题，如何处理不同设备的适配呢？</h1><p>如果使用媒体查询，预区分不同设备</p>
 <p>使用<code>window.devicePixelRatio</code>来获取DRP</p>
 <p>使用rem单位</p>
@@ -730,13 +730,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">257k</span>
+    <span title="站点总字数">258k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:53</span>
+    <span title="站点阅读时长">3:55</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.2">
+<meta name="generator" content="Hexo 7.0.0-rc2">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -333,8 +333,8 @@
 <p>例如:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># 配置</span><br><span class="line">listen 7788;</span><br><span class="line">server_name localhost;</span><br><span class="line"># 1.</span><br><span class="line">location /a&#123;&#125;</span><br><span class="line"></span><br><span class="line">http://localhost:7788/a   会被nginx响应</span><br><span class="line"></span><br><span class="line"># 2.</span><br><span class="line">location /b&#123;&#125;</span><br><span class="line"></span><br><span class="line">http://localhost:7788/b   会被nginx响应</span><br><span class="line"></span><br><span class="line"># 3.</span><br><span class="line">location /&#123;&#125;</span><br><span class="line"></span><br><span class="line">http://localhost:7788/   会被nginx响应</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>// TODO：补全此知识点，location的生效规则</p>
-<p>因为我暂时没有了解location的生效顺序规则，所以我不会去写/这个规则。或许以后我会来补全这个知识点。</p>
+<p>&#x2F;&#x2F; TODO：补全此知识点，location的生效规则</p>
+<p>因为我暂时没有了解location的生效顺序规则，所以我不会去写&#x2F;这个规则。或许以后我会来补全这个知识点。</p>
 <h3 id="4-1-root"><a href="#4-1-root" class="headerlink" title="4.1 root"></a>4.1 root</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location /b&#123;</span><br><span class="line">    root /Users/xing.wu/Desktop;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>意思是当前server+port指向root</p>
@@ -343,7 +343,7 @@
 
 <h3 id="4-2-alias"><a href="#4-2-alias" class="headerlink" title="4.2 alias"></a>4.2 alias</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location /b&#123;</span><br><span class="line">    alias /Users/xing.wu/Desktop;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>别名，意思是server+port+location地址 = alias的地址</p>
+<p>别名，意思是server+port+location地址 &#x3D; alias的地址</p>
 <p>换句话说</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#输入：</span><br><span class="line">http://localhost:7788/b  </span><br><span class="line"></span><br><span class="line">#会被指向本地的文件夹：</span><br><span class="line">#输出：</span><br><span class="line">/Users/xing.wu/Desktop/</span><br><span class="line"></span><br><span class="line"># 注意没，本地路径后面没有b了</span><br></pre></td></tr></table></figure>
 
@@ -586,13 +586,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">257k</span>
+    <span title="站点总字数">258k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:53</span>
+    <span title="站点阅读时长">3:55</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

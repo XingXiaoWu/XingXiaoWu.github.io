@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.2">
+<meta name="generator" content="Hexo 7.0.0-rc2">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -319,10 +319,10 @@
         <h1 id="iOS内测分发"><a href="#iOS内测分发" class="headerlink" title="iOS内测分发"></a>iOS内测分发</h1><h5 id="2019-12-10更新"><a href="#2019-12-10更新" class="headerlink" title="2019-12-10更新"></a>2019-12-10更新</h5><p>gitee似乎不让下载了。可以考虑放到别的带https的地方，比如腾讯云的对象存储桶，github等等，反正有https就行，方法不变。</p>
 <h5 id="2019-11-15更新"><a href="#2019-11-15更新" class="headerlink" title="2019-11-15更新"></a>2019-11-15更新</h5><p>不要再问android怎么搞了。。。直接apk往仓库一丢，网页给个链接，点一下不就完事了，比iOS省事多了</p>
 <h3 id="背景"><a href="#背景" class="headerlink" title="背景:"></a>背景:</h3><p>我写博客一般都会写背景,因为我觉得光写某个技术点没有意义,技术最终都是为业务服务,因此我喜欢交代自己的使用场景,基于什么原因,我做过哪些常识,为什么最终这么做,这么做能解决我的什么问题….</p>
-<p>我们是一个小业务部,而且是传统行业转型互联网,业务部内还处于”史前洪荒”的状况,各种现在流行的东西都没有使用,移动端更是如此,开发迭代出的app都是靠微信/内部邮件转发来转发去,iOS更难受,由于ipa包不能像Android一样,随下随装,”必须”依赖电脑用iTools或类似的工具去安装ipa包,很是繁琐.</p>
+<p>我们是一个小业务部,而且是传统行业转型互联网,业务部内还处于”史前洪荒”的状况,各种现在流行的东西都没有使用,移动端更是如此,开发迭代出的app都是靠微信&#x2F;内部邮件转发来转发去,iOS更难受,由于ipa包不能像Android一样,随下随装,”必须”依赖电脑用iTools或类似的工具去安装ipa包,很是繁琐.</p>
 <p>说到这里肯定就有人提到:”为啥不用蒲公英(fir)等内测分发平台?”</p>
 <p>说实话我第一反应也是盯上了这些,但是要实名信息注册啊QAQ,企业要传营业执照,个人要传身份证信息,作为一个较为保守且不想这么兴师动众的人,我选择了放弃使用这些平台.那么没办法了,只能自己写了.那么接下来,我会告诉你,他们是怎么把ipa包,转成一个二维码让你能够下载的(都是猜的).当然,有企业账号自己做企业分发,也可以用我这个方式</p>
-<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作:"></a>准备工作:</h3><p>1.公司能够提供https的服务器/github/码云/其他任何能够提供https连接的平台(部门太小,么有https证书,所以最后我个人在这里选择了码云,原因只有一个,它在国内,快)</p>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作:"></a>准备工作:</h3><p>1.公司能够提供https的服务器&#x2F;github&#x2F;码云&#x2F;其他任何能够提供https连接的平台(部门太小,么有https证书,所以最后我个人在这里选择了码云,原因只有一个,它在国内,快)</p>
 <p>2.一个57x57的小图标和一个512x512的大图标(随便找两张图片做成这个尺寸就行)</p>
 <h3 id="一-在码云创建一个仓库"><a href="#一-在码云创建一个仓库" class="headerlink" title="一.在码云创建一个仓库"></a>一.在码云创建一个仓库</h3><p>就正常创建即可,创建完如下图</p>
 <p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/ios-%E5%86%85%E6%B5%8B%E5%88%86%E5%8F%91/1.png" alt="image"></p>
@@ -333,9 +333,9 @@
 
 <p>重点就是这个</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;a id=&quot;clickMe&quot;</span><br><span class="line">            href=&quot;itms-services:///?action=download-manifest&amp;url=plist文件的路径&quot;&gt;点我下载iOS版本&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-<p>url=  后面拼接的这个路径最后将填写为你放plist文件的路径,暂时可以先空着不填</p>
+<p>url&#x3D;  后面拼接的这个路径最后将填写为你放plist文件的路径,暂时可以先空着不填</p>
 <p>创建完毕以后,提交文件到码云</p>
-<h3 id="二-开启page服务"><a href="#二-开启page服务" class="headerlink" title="二.开启page服务"></a>二.开启page服务</h3><p>应该有很多朋友看过什么&lt;&lt;利用github/gitee一分钟搭建自己的博客&gt;&gt;之类的文章,当然,没有看过也没关系,你可以简单的理解为,他给你一个地址,点开就是你写的index.html所呈现的静态网页.</p>
+<h3 id="二-开启page服务"><a href="#二-开启page服务" class="headerlink" title="二.开启page服务"></a>二.开启page服务</h3><p>应该有很多朋友看过什么&lt;&lt;利用github&#x2F;gitee一分钟搭建自己的博客&gt;&gt;之类的文章,当然,没有看过也没关系,你可以简单的理解为,他给你一个地址,点开就是你写的index.html所呈现的静态网页.</p>
 <p>这里我们要用到码云提供的page服务如下图(github也有,具体位置我就不截图了,可以百度搜一下)</p>
 <p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/ios-%E5%86%85%E6%B5%8B%E5%88%86%E5%8F%91/2.png" alt="image"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/ios-%E5%86%85%E6%B5%8B%E5%88%86%E5%8F%91/3.png" alt="image"></p>
@@ -345,7 +345,7 @@
 <p>有企业账户,自己做过企业分发的同学,应该会对我接下来的操作比较熟悉</p>
 <p>依旧,我们和往常一样,选择打包.这里我们选打得是adhoc包</p>
 <p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/ios-%E5%86%85%E6%B5%8B%E5%88%86%E5%8F%91/5.png" alt="image"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/ios-%E5%86%85%E6%B5%8B%E5%88%86%E5%8F%91/6.png" alt="image"><br>这里就要注意了,把这个选项勾上,实际上我们能做分发,就是通过这个选项,这个选项能允许你提供一个安全(https)的包下载路径,允许内测用户(设备在公司或个人账号下注册过 / 企业账户不限制用户)进行直接下载</p>
+<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/ios-%E5%86%85%E6%B5%8B%E5%88%86%E5%8F%91/6.png" alt="image"><br>这里就要注意了,把这个选项勾上,实际上我们能做分发,就是通过这个选项,这个选项能允许你提供一个安全(https)的包下载路径,允许内测用户(设备在公司或个人账号下注册过 &#x2F; 企业账户不限制用户)进行直接下载</p>
 <p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/ios-%E5%86%85%E6%B5%8B%E5%88%86%E5%8F%91/7.png" alt="image"></p>
 <p>这三个路径写你想放的路径(如果你不懂我这句话的意思,那你跟着我操作好了),我们回到之前创建的码云仓库</p>
 <p>在仓库中,新建一个ios文件夹,再ios文件夹下新建一个app文件夹,用来存放ipa包</p>
@@ -568,13 +568,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">257k</span>
+    <span title="站点总字数">258k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:53</span>
+    <span title="站点阅读时长">3:55</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.2">
+<meta name="generator" content="Hexo 7.0.0-rc2">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -329,7 +329,7 @@
 <p>父组件如下</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&lt;!----&gt;</span><br><span class="line">&lt;!----&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;main&quot;&gt;</span><br><span class="line">    &lt;Test1 v-model=&quot;nums1&quot; /&gt;</span><br><span class="line">    &lt;Test2 v-model=&quot;nums2&quot; /&gt;</span><br><span class="line">    &lt;p&gt;num1:&#123;&#123; nums1 &#125;&#125;&lt;/p&gt;</span><br><span class="line">    &lt;p&gt;num2:&#123;&#123; nums2 &#125;&#125;&lt;/p&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import Test1 from &#x27;./test1.vue&#x27;</span><br><span class="line">import Test2 from &#x27;./test2.vue&#x27;</span><br><span class="line">export default &#123;</span><br><span class="line">  // import引入的组件需要注入到对象中才能使用</span><br><span class="line">  components: &#123;</span><br><span class="line">    Test1,</span><br><span class="line">    Test2,</span><br><span class="line">  &#125;,</span><br><span class="line">  data: () =&gt; (&#123;</span><br><span class="line">    nums1: 0,</span><br><span class="line">    nums2: 0,</span><br><span class="line">  &#125;),</span><br><span class="line">  computed: &#123;&#125;,</span><br><span class="line">  watch: &#123;&#125;,</span><br><span class="line">  mounted() &#123;&#125;,</span><br><span class="line">  // 方法集合</span><br><span class="line">  methods: &#123;&#125;,</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style lang=&quot;less&quot; scoped&gt;</span><br><span class="line">.main &#123;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/vue-v-model/1.png" alt="官网说明"><br>从官网链接可以看到自定义组件，默认会把value这个key作为prop，默认有个input事件。（跟我用不用input这个dom没关系，可以换成&lt;p&gt;&lt;/p&gt;） 体现在代码中就是。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/vue-v-model/1.png" alt="官网说明"><br>从官网链接可以看到自定义组件，默认会把value这个key作为prop，默认有个input事件。（跟我用不用input这个dom没关系，可以换成&lt;p&gt;&lt;&#x2F;p&gt;） 体现在代码中就是。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/vue-v-model/2.png" alt="注释"></p>
 <p>效果如下图</p>
 <p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/vue-v-model/3.png" alt="演示"><br>可以看到，跟随变化，且右边没有报警告</p>
@@ -556,13 +556,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">257k</span>
+    <span title="站点总字数">258k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:53</span>
+    <span title="站点阅读时长">3:55</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

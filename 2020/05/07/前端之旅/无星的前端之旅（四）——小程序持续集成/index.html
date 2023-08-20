@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.2">
+<meta name="generator" content="Hexo 7.0.0-rc2">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -21,12 +21,12 @@
     var CONFIG = {"hostname":"blog.xingxiaowu.cn","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="背景刚刚跑路到一家新公司。新公司的前端小改改负责开发小程序，为四十多家客户服务，而且是他们的账号主体。 换句话说，一套代码，要切换多个 appid 去打包上传多个小程序账号发布。 所以每次发布，同事都切来切去，麻烦的一批，疲于奔命。 因此需要做一套自动部署，将开发从这个上面解放出来，让运营&#x2F;实施去完成这个发布操作，开发只需要专注于代码开发即可。 技术选型这里分为两个技术选型。 一.小程序的支持方式">
+  <meta name="description" content="背景刚刚跑路到一家新公司。新公司的前端小改改负责开发小程序，为四十多家客户服务，而且是他们的账号主体。 换句话说，一套代码，要切换多个 appid 去打包上传多个小程序账号发布。 所以每次发布，同事都切来切去，麻烦的一批，疲于奔命。 因此需要做一套自动部署，将开发从这个上面解放出来，让运营&#x2F;实施去完成这个发布操作，开发只需要专注于代码开发即可。 技术选型这里分为两个技术选型。 一.小程序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="无星的前端之旅（四）——小程序持续集成">
 <meta property="og:url" content="http://blog.xingxiaowu.cn/2020/05/07/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/index.html">
 <meta property="og:site_name" content="无星的小窝">
-<meta property="og:description" content="背景刚刚跑路到一家新公司。新公司的前端小改改负责开发小程序，为四十多家客户服务，而且是他们的账号主体。 换句话说，一套代码，要切换多个 appid 去打包上传多个小程序账号发布。 所以每次发布，同事都切来切去，麻烦的一批，疲于奔命。 因此需要做一套自动部署，将开发从这个上面解放出来，让运营&#x2F;实施去完成这个发布操作，开发只需要专注于代码开发即可。 技术选型这里分为两个技术选型。 一.小程序的支持方式">
+<meta property="og:description" content="背景刚刚跑路到一家新公司。新公司的前端小改改负责开发小程序，为四十多家客户服务，而且是他们的账号主体。 换句话说，一套代码，要切换多个 appid 去打包上传多个小程序账号发布。 所以每次发布，同事都切来切去，麻烦的一批，疲于奔命。 因此需要做一套自动部署，将开发从这个上面解放出来，让运营&#x2F;实施去完成这个发布操作，开发只需要专注于代码开发即可。 技术选型这里分为两个技术选型。 一.小程序">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E5%89%8D%E7%AB%AF4/1.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E5%89%8D%E7%AB%AF4/2.png">
@@ -293,7 +293,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.9k</span>
+              <span>3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -315,7 +315,7 @@
         <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>刚刚跑路到一家新公司。新公司的前端小改改负责开发小程序，为四十多家客户服务，而且是他们的账号主体。</p>
 <p>换句话说，一套代码，要切换多个 appid 去打包上传多个小程序账号发布。</p>
 <p>所以每次发布，同事都切来切去，麻烦的一批，疲于奔命。</p>
-<p>因此需要做一套自动部署，将开发从这个上面解放出来，让运营/实施去完成这个发布操作，开发只需要专注于代码开发即可。</p>
+<p>因此需要做一套自动部署，将开发从这个上面解放出来，让运营&#x2F;实施去完成这个发布操作，开发只需要专注于代码开发即可。</p>
 <h2 id="技术选型"><a href="#技术选型" class="headerlink" title="技术选型"></a>技术选型</h2><p>这里分为两个技术选型。</p>
 <h4 id="一-小程序的支持方式选型"><a href="#一-小程序的支持方式选型" class="headerlink" title="一.小程序的支持方式选型"></a>一.小程序的支持方式选型</h4><p>小程序的官网可以看到，他们支持三种方式</p>
 <p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/devtools/cli.html">命令行 V2</a></p>
@@ -334,7 +334,7 @@
 <p>自制 cli 方式集成 ️❤️️❤️❤️</p>
 <h4 id="理由如下：-1"><a href="#理由如下：-1" class="headerlink" title="理由如下："></a>理由如下：</h4><p>Jenkins 老牌构建工具：专治各种工作流。方案成熟，首选。</p>
 <p>提供 GUI 页面调用 node 服务：因为我们业务本身有一个专门的客户管理平台，可以考虑在这上面提供一些页面或功能，便于运营人员发版。但当前服务的接口是个 java 编写的，对于 ci 的 npm 包使用可能存在一些技术风险点。但从业务角度来看，效果是最好的。</p>
-<p>自制 cli 方式集成：在<a target="_blank" rel="noopener" href="https://juejin.im/post/5ea93384f265da7bd802a5af">无星的前端之旅（三）——cli 工程调试</a>可以看到,我们正在做一些 cli 工具，因此我们可以将这些东西放到 cli 工具中，全局安装即可使用。但我们的目的是把这些任务甩给运营/实施这些非技术人员，因此这种方式我们排除。</p>
+<p>自制 cli 方式集成：在<a target="_blank" rel="noopener" href="https://juejin.im/post/5ea93384f265da7bd802a5af">无星的前端之旅（三）——cli 工程调试</a>可以看到,我们正在做一些 cli 工具，因此我们可以将这些东西放到 cli 工具中，全局安装即可使用。但我们的目的是把这些任务甩给运营&#x2F;实施这些非技术人员，因此这种方式我们排除。</p>
 <h1 id="综上-技术选型是-Jenkins-构建-CI"><a href="#综上-技术选型是-Jenkins-构建-CI" class="headerlink" title="综上,技术选型是 Jenkins 构建+CI"></a>综上,技术选型是 Jenkins 构建+CI</h1><h3 id="接下里就是实现了"><a href="#接下里就是实现了" class="headerlink" title="接下里就是实现了"></a>接下里就是实现了</h3><p>实现其实非常简单。</p>
 <h3 id="1-去微信添加上传代码白名单，并下载上传代码的私钥"><a href="#1-去微信添加上传代码白名单，并下载上传代码的私钥" class="headerlink" title="1.去微信添加上传代码白名单，并下载上传代码的私钥"></a>1.去微信添加上传代码白名单，并下载上传代码的私钥</h3><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/">官网地址</a>登录以后</p>
 <p>侧边栏选择-开发-开发设置-小程序代码上传</p>
@@ -363,7 +363,7 @@
 <p>就是纯调用微信的 miniprogram-ci，前面也说了怎么获取 appid。我都是放在 Jenkins 的下拉参数了。至于私钥，我是放在了项目目录下，因此 git 拉取后是能获取到私钥的。获取私钥的方式，各位可以各显神通。</p>
 <p>成果：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E5%89%8D%E7%AB%AF4/4.png"></p>
-<h3 id="npx"><a href="#npx" class="headerlink" title="npx"></a>npx</h3><p>npx 可以帮助把项目中用到的一些工具的命令软连接提取出来（不知道这样描述对不对），举个例子，你在项目中下载 eslint，不是全局安装，执行 eslint 命令需要到 node_module/eslint/bin 下去找到 eslint 才能执行对应命令，使用 npx 则可以直接执行。（这里在使用微信的 miniprogram-ci 的时候，就排上用场了，我不希望在 Jenkins 宿主机的全局去安装 miniprogram-ci）</p>
+<h3 id="npx"><a href="#npx" class="headerlink" title="npx"></a>npx</h3><p>npx 可以帮助把项目中用到的一些工具的命令软连接提取出来（不知道这样描述对不对），举个例子，你在项目中下载 eslint，不是全局安装，执行 eslint 命令需要到 node_module&#x2F;eslint&#x2F;bin 下去找到 eslint 才能执行对应命令，使用 npx 则可以直接执行。（这里在使用微信的 miniprogram-ci 的时候，就排上用场了，我不希望在 Jenkins 宿主机的全局去安装 miniprogram-ci）</p>
 <p>也可以在你本地不打算装一些模块，临时下载远程模块调用，可以加参数在调用后删除。（同理，不想宿主机全局安装，cross-env 就是这么用上的）</p>
 <h3 id="cross-env"><a href="#cross-env" class="headerlink" title="cross-env"></a>cross-env</h3><p>运行跨平台设置和使用环境变量的脚本</p>
 <h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a target="_blank" rel="noopener" href="https://github.com/yingye/Blog/issues/8">Jenkins 持续集成</a></p>
@@ -574,13 +574,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">257k</span>
+    <span title="站点总字数">258k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:53</span>
+    <span title="站点阅读时长">3:55</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

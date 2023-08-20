@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.2">
+<meta name="generator" content="Hexo 7.0.0-rc2">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -328,7 +328,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">window.onerror = function (message, source, line, column, error) &#123;</span><br><span class="line">//错误捕获1与   window.addEventListener(&#x27;error&#x27;） 二选一即可</span><br><span class="line">&#125;</span><br><span class="line">window.addEventListener(&#x27;error&#x27;, event =&gt; &#123;</span><br><span class="line">//错误捕获2，与   window.onerror 二选一即可     </span><br><span class="line">&#125;)</span><br><span class="line">window.addEventListener(&#x27;unhandledrejection&#x27;, event =&gt; &#123;</span><br><span class="line">//错误捕获3，未实现Promise.reject()</span><br><span class="line">// 默认实现，以免控制台红色警告</span><br><span class="line">    if (process.env.NODE_ENV === &#x27;production&#x27;) &#123; event.preventDefault(); &#125;</span><br><span class="line">&#125;)</span><br><span class="line">function networkHandle(): void &#123;</span><br><span class="line">//错误捕获4，网络请求错误</span><br><span class="line">    let originSend = XMLHttpRequest.prototype.send;</span><br><span class="line">    XMLHttpRequest.prototype.send = function () &#123;</span><br><span class="line">        console.log(&#x27;send&#x27;, arguments);</span><br><span class="line">        this.addEventListener(&#x27;loadend&#x27;, () =&gt; &#123;</span><br><span class="line">            console.log(&#x27;loadend&#x27;)</span><br><span class="line">            if (this.status !== 200) &#123;</span><br><span class="line">            //网络请求挂了，捕获</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">        originSend.apply(this, arguments);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>对于额外的框架提供的错误，例如vue,它有着自己的Vue.config.errorHandler机制</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Vue.config.errorHandler = function (error: Error, vm: Object, info: any) &#123;</span><br><span class="line">//错误捕获处理</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="2-3-2-手动上报方式"><a href="#2-3-2-手动上报方式" class="headerlink" title="2.3.2 手动上报方式"></a>2.3.2 手动上报方式</h4><p>这个方式也是一定要有的，它可以用来人为捕获一些业务/技术错误</p>
+<h4 id="2-3-2-手动上报方式"><a href="#2-3-2-手动上报方式" class="headerlink" title="2.3.2 手动上报方式"></a>2.3.2 手动上报方式</h4><p>这个方式也是一定要有的，它可以用来人为捕获一些业务&#x2F;技术错误</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function notify(error: Error): void &#123;</span><br><span class="line">//这里面就写点格式化处理和上报</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="2-4-2-如何进行错误格式化"><a href="#2-4-2-如何进行错误格式化" class="headerlink" title="2.4.2 如何进行错误格式化"></a>2.4.2 如何进行错误格式化</h4><p>上面也说了，核心思想是</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">差异化采集，格式化上报</span><br></pre></td></tr></table></figure>
@@ -564,13 +564,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">257k</span>
+    <span title="站点总字数">258k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:53</span>
+    <span title="站点阅读时长">3:55</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

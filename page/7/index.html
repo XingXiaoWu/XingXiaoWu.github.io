@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.2">
+<meta name="generator" content="Hexo 7.0.0-rc2">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -279,7 +279,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>472</span>
+              <span>492</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -301,7 +301,7 @@
           <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>你只要打包就肯定遇到这个问题…</p>
 <p>原本开发的时候可以通过webpack的proxy做转发,避免跨域的问题</p>
 <p>但是打包上线会发现,这和普通的前端项目上线不一样,不会发布到对应的域名下</p>
-<p>而是本地文件协议加载,app//.或者file://这种协议</p>
+<p>而是本地文件协议加载,app&#x2F;&#x2F;.或者file:&#x2F;&#x2F;这种协议</p>
 <p>因此在填写网络请求baseurl的时候,势必会遇到跨域问题</p>
 <p>解决方式由两种</p>
 <h1 id="一-后台解决"><a href="#一-后台解决" class="headerlink" title="一.后台解决"></a>一.后台解决</h1><p>这个就不多说了,让后台去加cors即可.</p>
@@ -829,7 +829,7 @@
 <h1 id="sequelize配置"><a href="#sequelize配置" class="headerlink" title="sequelize配置"></a>sequelize配置</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">// 不同环境的库当然不一样,自己配置多环境的config.xx.js,我这就写个default</span><br><span class="line">// ./config/config.default.js</span><br><span class="line">// sql配置,填自己的即可</span><br><span class="line">  config.sequelize = &#123;</span><br><span class="line">    dialect: &#x27;mysql&#x27;,</span><br><span class="line">    host: &#x27;127.0.0.1&#x27;,</span><br><span class="line">    port: 3306,</span><br><span class="line">    database: &#x27;monitor&#x27;,</span><br><span class="line">    username: &#x27;root&#x27;,</span><br><span class="line">    password: &#x27;123456&#x27;,</span><br><span class="line">    define: &#123; // model的全局配置</span><br><span class="line">      timestamps: true, // 添加create,update,delete时间戳</span><br><span class="line">      paranoid: true, // 添加软删除</span><br><span class="line">      freezeTableName: true, // 防止修改表名为复数</span><br><span class="line">      underscored: true, // 使用下划线</span><br><span class="line">    &#125;,</span><br><span class="line">    timezone: &#x27;+8:00&#x27;, // 由于orm用的UTC时间，这里必须加上东八区，否则取出来的时间相差8小时</span><br><span class="line">    dialectOptions: &#123; // 让读取date类型数据时返回字符串而不是UTC时间</span><br><span class="line">      dateStrings: true,</span><br><span class="line">      typeCast(field, next) &#123;</span><br><span class="line">        if (field.type === &#x27;DATETIME&#x27;) &#123;</span><br><span class="line">          return field.string();</span><br><span class="line">        &#125;</span><br><span class="line">        return next();</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h1 id="插件配置"><a href="#插件配置" class="headerlink" title="插件配置"></a>插件配置</h1><p>开启sequelize插件</p>
-<p>./config/plugin.js</p>
+<p>.&#x2F;config&#x2F;plugin.js</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x27;use strict&#x27;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/** @type Egg.EggPlugin */</span><br><span class="line">module.exports = &#123;</span><br><span class="line">  //  xxxxxx</span><br><span class="line">   sequelize: &#123;</span><br><span class="line">     enable: true,</span><br><span class="line">     package: &#x27;egg-sequelize&#x27;,</span><br><span class="line">   &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h1 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h1><p>和正常的sequelize相似</p>
@@ -1030,7 +1030,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>407</span>
+              <span>417</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -1455,13 +1455,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">257k</span>
+    <span title="站点总字数">258k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:53</span>
+    <span title="站点阅读时长">3:55</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

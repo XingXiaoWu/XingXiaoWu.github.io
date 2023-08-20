@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.2">
+<meta name="generator" content="Hexo 7.0.0-rc2">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -294,7 +294,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.4k</span>
+              <span>2.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -331,7 +331,7 @@
 <p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/electron6/1.png" alt="1"></p>
 <p>这里我们解释一下</p>
 <h3 id="1-mac上直接在这写就行。（亲测可行）"><a href="#1-mac上直接在这写就行。（亲测可行）" class="headerlink" title="1.mac上直接在这写就行。（亲测可行）"></a>1.mac上直接在这写就行。（亲测可行）</h3><p>mac的协议唤起，实质上是dmg安装文件后的info.plist文件下的URLType，干过iOS开发的同事应该都有经验。</p>
-<p>路径是/Application/你的应用程序   右键显示包内容  /Contents/Info.plist</p>
+<p>路径是&#x2F;Application&#x2F;你的应用程序   右键显示包内容  &#x2F;Contents&#x2F;Info.plist</p>
 <p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/electron6/3.png" alt="3"></p>
 <h2 id="2-Windows需要额外写脚本-（写本博客的时候，我还没测试过Windows）亲测可行"><a href="#2-Windows需要额外写脚本-（写本博客的时候，我还没测试过Windows）亲测可行" class="headerlink" title="2.Windows需要额外写脚本 （写本博客的时候，我还没测试过Windows）亲测可行"></a>2.Windows需要额外写脚本 <del>（写本博客的时候，我还没测试过Windows）</del>亲测可行</h2><p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/electron6/5.png" alt="5"><br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/electron6/2.png" alt="2"></p>
 <p>Windows需要通过指定打包方式nsis，并在打包时注入执行的sh脚本，以达到安装注入协议的目的。</p>
@@ -352,17 +352,17 @@
 
 
 
-<p>这里的startapp/here其实都是没用的，主要是配合添加host和path以及query，这种格式比较适合后期延展</p>
+<p>这里的startapp&#x2F;here其实都是没用的，主要是配合添加host和path以及query，这种格式比较适合后期延展</p>
 <h2 id="四、如何通过这种方式传参，怎么接收呢？"><a href="#四、如何通过这种方式传参，怎么接收呢？" class="headerlink" title="四、如何通过这种方式传参，怎么接收呢？"></a>四、如何通过这种方式传参，怎么接收呢？</h2><p>需要两个生命周期</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">// windows唤起</span><br><span class="line">app.on(&#x27;second-instance&#x27;, (event, argv) =&gt; &#123;</span><br><span class="line">  if (process.platform === &#x27;win32&#x27;) &#123;</span><br><span class="line">    logger.warn(&#x27;唤起&#x27;);</span><br><span class="line">    logger.warn(event, argv);</span><br><span class="line">    //TODO:还没写</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// macOS唤起</span><br><span class="line">app.on(&#x27;open-url&#x27;, (event, urlStr) =&gt; &#123;</span><br><span class="line">  logger.warn(&#x27;唤起&#x27;);</span><br><span class="line">  logger.warn(event, urlStr);</span><br><span class="line">  // 解析数据</span><br><span class="line">  const urlObj = new URL(urlStr);</span><br><span class="line">  const &#123; searchParams &#125; = urlObj;</span><br><span class="line">  //数据</span><br><span class="line">  const xxx = searchParams.get(&#x27;xxx&#x27;);</span><br><span class="line">  const xxx2 = searchParams.get(&#x27;xxx2&#x27;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="五、可能碰到的问题："><a href="#五、可能碰到的问题：" class="headerlink" title="五、可能碰到的问题："></a>五、可能碰到的问题：</h2><h3 id="1-唤醒的app不对"><a href="#1-唤醒的app不对" class="headerlink" title="1.唤醒的app不对"></a>1.唤醒的app不对</h3><p>我在mac上唤醒app，一直莫名其妙唤起了./node_modules/electron/dist/Electron.app，然后我把所有的node_modules删了，并重新打开了一下app，再唤起，正常了。</p>
+<h2 id="五、可能碰到的问题："><a href="#五、可能碰到的问题：" class="headerlink" title="五、可能碰到的问题："></a>五、可能碰到的问题：</h2><h3 id="1-唤醒的app不对"><a href="#1-唤醒的app不对" class="headerlink" title="1.唤醒的app不对"></a>1.唤醒的app不对</h3><p>我在mac上唤醒app，一直莫名其妙唤起了.&#x2F;node_modules&#x2F;electron&#x2F;dist&#x2F;Electron.app，然后我把所有的node_modules删了，并重新打开了一下app，再唤起，正常了。</p>
 <p>实测直接把dmg直接发给同事，他安装以后可以直接唤醒，不会错误唤醒。</p>
 <p>可能是electron的bug吧</p>
 <h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/dengdongxia/article/details/105906975">electron唤起原理</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/5c0bb0599dff">两种方式的mac/win注册协议唤起Electron应用</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/5c0bb0599dff">两种方式的mac&#x2F;win注册协议唤起Electron应用</a></p>
 <p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000011511106">唤起示例</a></p>
 <p><a target="_blank" rel="noopener" href="https://glebbahmutov.com/blog/electron-app-with-custom-protocol/#external-custom-protocol-links">配置查看</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/d880c0ca0911">通过协议唤起Electron应用</a></p>
@@ -573,13 +573,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">257k</span>
+    <span title="站点总字数">258k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:53</span>
+    <span title="站点阅读时长">3:55</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

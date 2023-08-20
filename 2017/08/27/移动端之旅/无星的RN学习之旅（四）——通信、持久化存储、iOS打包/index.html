@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.2">
+<meta name="generator" content="Hexo 7.0.0-rc2">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -292,14 +292,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>4.9k</span>
+              <span>5.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
+              <span>5 分钟</span>
             </span>
 
         </div>
@@ -323,27 +323,33 @@
 <p>这种方式注意了，请使用单例。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/RN4/3.png" alt="单例.png"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#pragma mark -- RCTEventEmitter类单例</span><br><span class="line">+ (id)allocWithZone:(NSZone *)zone &#123;</span><br><span class="line">  static RNBridge *sharedInstance = nil;</span><br><span class="line">  static dispatch_once_t onceToken;</span><br><span class="line">  dispatch_once(&amp;onceToken, ^&#123;</span><br><span class="line">    sharedInstance = [super allocWithZone:zone];</span><br><span class="line">  &#125;);</span><br><span class="line">  return sharedInstance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>不然可能会报bridge为空。<br>详情可见<br><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/ea3484f54643">无星的RN学习之旅（三)</a><br>###四、RN与webView中html的通信<br>这块我感觉有坑，但因为html不是强项，因此交给我们前端去做了。按官网的标准，使用onMessage()发送的消息在html中经常接受不到，不知道是为什么，希望有知道的旁友可以教教我=。=<br>###五、debug是个坑！！！<br>在我使用真机调试的时候，经常报找不到资源，这时候需要将appdelegate的j什么什么的我给忘了- -明天去公司复制一下代码。</p>
+<p>不然可能会报bridge为空。<br>详情可见<br><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/ea3484f54643">无星的RN学习之旅（三)</a><br>###四、RN与webView中html的通信<br>这块我感觉有坑，但因为html不是强项，因此交给我们前端去做了。按官网的标准，使用onMessage()发送的消息在html中经常接受不到，不知道是为什么，希望有知道的旁友可以教教我&#x3D;。&#x3D;<br>###五、debug是个坑！！！<br>在我使用真机调试的时候，经常报找不到资源，这时候需要将appdelegate的j什么什么的我给忘了- -明天去公司复制一下代码。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">  jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@&quot;index.ios&quot; fallbackResource:nil];</span><br><span class="line">//  jsCodeLocation = [NSURL URLWithString:@&quot;http://自己的ip地址/index.ios.bundle?platform=ios&amp;dev=true&quot;];</span><br></pre></td></tr></table></figure>
 <p>需要把地址更换为ip地址，注意，debug模式，手机和电脑必须处于同一个网段下。差不多就是这个地方来回换，总能debug进去。</p>
 <p>当点击事件报错的时候，注意一下飘红信息，有的是debug模式的错误，忽略即可。<br>等明天上班再上图。。。这个地方的图有点难搞了。。。调试出错了我再截图回头放上来<br>###五、RN的持久化存储，AsyncStorage<br>其实这一块是我旁边的安卓大佬写的，我没啥了解的，我要说的也不是如何存储。。<br>我要说的是取出。先说下可能出现的应用场景：<br>在App初始化的时候，可能需要从本地取储存的数据，iOS原生开发都是在沙盒里存储，安卓也有对应的地方去存储。但现在换RN了，可能有的老哥就不知道咋办了。<br>其实不管那些乱七八糟的，RN的存储也是基于原生去封装的。就iOS来说，数据其实还是存在沙盒中，位于Documents文件夹下，会默认创建一个名为</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RCTAsyncLocalStorage_V1</span><br><span class="line">````</span><br><span class="line">的文件夹，其中有个默认名为</span><br></pre></td></tr></table></figure>
 <p>manifest.json</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">的文件，因此就可以直接读取出来。</span><br><span class="line">这里给大家一个查看真机沙盒的方法：</span><br><span class="line"></span><br><span class="line">![1.png](https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/RN4/4.png)</span><br><span class="line"></span><br><span class="line">![2](https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/RN4/8.webp)</span><br><span class="line"></span><br><span class="line">![3](https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/RN4/5.png)</span><br><span class="line"></span><br><span class="line">![4.png](https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/RN4/6.png)</span><br><span class="line">显示包内容，这样就能下载真机的沙盒地址了</span><br><span class="line">不过这里要注意了，里面存的json，都不是正儿八经的json。。。会多很多的转义符\和双引号单引号。这里我的推荐做法是先用json解析成字典，在对其进行特殊符号的去除操作（明天上代码- -）。如下：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>#pragma mark – JSON转字典<br>+(NSDictionary *)jsonToDic:(NSString *)jsonString {<br>  NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];<br>  NSError *error = nil;<br>  id jsonObject = [NSJSONSerialization JSONObjectWithData:jsonData<br>                                                  options:NSJSONReadingAllowFragments<br>                                                    error:&amp;error];<br>  if (jsonObject != nil &amp;&amp; error == nil){<br>    return jsonObject;<br>  }else{<br>    // 解析错误<br>    return nil;<br>  }<br>}</p>
-<p>#pragma mark – 去除RN存储数据解析后的字符串含有 “ 和 转义符<br>+(NSString*)removeEscapeCharacter:(NSString*)string{<br>//  首先自己定义一个NSCharacterSet, 包含需要去除的特殊符号<br>  NSCharacterSet <em>set = [NSCharacterSet characterSetWithCharactersInString:@”@/：；（）¥「」＂、[]{}#%-</em>+=<em>\|~＜＞$€^•‘@#$%^&amp;*()</em>+’&quot;“];</p>
-<p>  NSString *responseString = [string stringByTrimmingCharactersInSet:set];</p>
+<p>#pragma mark – JSON转字典<br>+(NSDictionary *)jsonToDic:(NSString *)jsonString {<br>  NSData *jsonData &#x3D; [jsonString dataUsingEncoding:NSUTF8StringEncoding];<br>  NSError *error &#x3D; nil;<br>  id jsonObject &#x3D; [NSJSONSerialization JSONObjectWithData:jsonData<br>                                                  options:NSJSONReadingAllowFragments<br>                                                    error:&amp;error];<br>  if (jsonObject !&#x3D; nil &amp;&amp; error &#x3D;&#x3D; nil){<br>    return jsonObject;<br>  }else{<br>    &#x2F;&#x2F; 解析错误<br>    return nil;<br>  }<br>}</p>
+<p>#pragma mark – 去除RN存储数据解析后的字符串含有 “ 和 转义符<br>+(NSString*)removeEscapeCharacter:(NSString*)string{<br>&#x2F;&#x2F;  首先自己定义一个NSCharacterSet, 包含需要去除的特殊符号<br>  NSCharacterSet <em>set &#x3D; [NSCharacterSet characterSetWithCharactersInString:@”@&#x2F;：；（）¥「」＂、[]{}#%-</em>+&#x3D;<em>\|~＜＞$€^•‘@#$%^&amp;*()</em>+’&quot;“];</p>
+<p>  NSString *responseString &#x3D; [string stringByTrimmingCharactersInSet:set];</p>
 <p>  return responseString;<br>}</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">这是我能想到的最好办法了，如果还有大佬有更高级的方法，麻烦告诉一声~~</span><br><span class="line">###六：（伪）modal与alert冲突</span><br><span class="line">为什么要说一个伪字呢，因为我发现，似乎不是冲突，而是在某些情况下modal的弹窗或者alert的弹窗会导致应用卡死，应该算是一个bug吧。就比如做跳转webview的时候alert等情况下。。想了一下，这个地方的代码不太好上，还是等各位自己遇到吧。。。。</span><br><span class="line">###七：debug产生的奇怪效果</span><br><span class="line">1.原生的UI优先级会更高：当你某个效果跳转展现原生UI的时候，你进行reload，你会发现应用重新刷新，但是页面却仍然是原生的页面再最上层，这个原生的UI是不会进行reload的。。这时候只能重启服务来重新打开app</span><br><span class="line">2.modal视图层在最上面。你也可以试试弹一个modal，reload也不会刷新这个modal。</span><br><span class="line">###八：iOS打包</span><br><span class="line">cd到项目目录下</span><br><span class="line">然后手动在项目目录下的iOS文件夹创建一个bundle文件夹</span><br><span class="line"></span><br><span class="line">![如图](https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/RN4/7.png)</span><br><span class="line"></span><br><span class="line">然后打开命令行，输入</span><br></pre></td></tr></table></figure>
-<p>react-native bundle –entry-file index.ios.js –bundle-output ./ios/bundle/index.ios.jsbundle –platform ios –assets-dest ./ios/bundle –dev false</p>
+<p>react-native bundle –entry-file index.ios.js –bundle-output .&#x2F;ios&#x2F;bundle&#x2F;index.ios.jsbundle –platform ios –assets-dest .&#x2F;ios&#x2F;bundle –dev false</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">执行完毕之后，你就发现bundle文件夹下就多了静态资源文件。</span><br><span class="line">但注意了，只有require导入的图片资源会被放进来</span><br><span class="line">静态网页的css样式之类的，资源可能不会被放进来，这时候怎么办？答案是手动导入。</span><br><span class="line"></span><br><span class="line">暂时就想到这么多，等项目完成了再进行一下经验完善~~~</span><br><span class="line"></span><br><span class="line">2017-11-17</span><br><span class="line">如果你使用上面的打包报错，报错信息为</span><br></pre></td></tr></table></figure>
 <p>error: options ‘–entry-file’ missing</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">请使用以下命令打包:</span><br></pre></td></tr></table></figure>
-<p>react-native bundle –platform ios –entry-file index.ios.js –bundle-output ./ios/bundle/index.ios.jsbundle –assets-dest ./ios/bundle –dev false</p>
+<p>react-native bundle –platform ios –entry-file index.ios.js –bundle-output .&#x2F;ios&#x2F;bundle&#x2F;index.ios.jsbundle –assets-dest .&#x2F;ios&#x2F;bundle –dev false</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">新版本0.5版本以上（没有index.ios.js的）用下面这个，其实就是改了一丢丢</span><br></pre></td></tr></table></figure>
-<p>react-native bundle –entry-file index.js –bundle-output ./ios/bundle/index.jsbundle –platform ios –assets-dest ./ios/bundle –dev false</p>
-<p>```<br>转载请说明来自：<a target="_blank" rel="noopener" href="http://www.jianshu.com/u/fef7696741c8">http://www.jianshu.com/u/fef7696741c8</a></p>
-<p><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/d417f7bdc511">无星的RN学习之旅（一）-环境安装以及新建项目</a><br><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/cd0cfa602963">无星的RN学习之旅（二）-RN与原生的通信</a><br><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/ea3484f54643">无星的RN学习之旅（三）-bridge is not set.</a><br><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/0c821a63852d">无星的RN学习之旅（五）-关于react-navigation多层级页面返回时，去掉逐层推出动画</a><br><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/42d9c668cbb1">无星的RN学习之旅（六）-第三方App跳转，苹果商店跳转，loading框</a></p>
+<p>react-native bundle –entry-file index.js –bundle-output .&#x2F;ios&#x2F;bundle&#x2F;index.jsbundle –platform ios –assets-dest .&#x2F;ios&#x2F;bundle –dev false</p>
+<pre><code>转载请说明来自：http://www.jianshu.com/u/fef7696741c8
+
+[无星的RN学习之旅（一）-环境安装以及新建项目](http://www.jianshu.com/p/d417f7bdc511)
+[无星的RN学习之旅（二）-RN与原生的通信](http://www.jianshu.com/p/cd0cfa602963)
+[无星的RN学习之旅（三）-bridge is not set.](http://www.jianshu.com/p/ea3484f54643)
+[无星的RN学习之旅（五）-关于react-navigation多层级页面返回时，去掉逐层推出动画](http://www.jianshu.com/p/0c821a63852d)
+[无星的RN学习之旅（六）-第三方App跳转，苹果商店跳转，loading框](http://www.jianshu.com/p/42d9c668cbb1)
+</code></pre>
 
     </div>
 
@@ -549,13 +555,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">257k</span>
+    <span title="站点总字数">258k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:53</span>
+    <span title="站点阅读时长">3:55</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.2">
+<meta name="generator" content="Hexo 7.0.0-rc2">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -281,7 +281,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.5k</span>
+              <span>1.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -314,10 +314,10 @@
 
 <h3 id="一些问题"><a href="#一些问题" class="headerlink" title="一些问题"></a>一些问题</h3><h4 id="1-项目中有alias重命名了目录怎么办？"><a href="#1-项目中有alias重命名了目录怎么办？" class="headerlink" title="1.项目中有alias重命名了目录怎么办？"></a>1.项目中有alias重命名了目录怎么办？</h4><p>例如：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//vue.config.js</span><br><span class="line">module.exports = &#123;</span><br><span class="line">//省略</span><br><span class="line">....</span><br><span class="line">configureWebpack: &#123;</span><br><span class="line">    resolve: &#123;</span><br><span class="line">      alias: &#123;</span><br><span class="line">        &#x27;@&#x27;: resolve(&#x27;src&#x27;),</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
-<p>在.storybook/main.js中一样新增即可</p>
+<p>在.storybook&#x2F;main.js中一样新增即可</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">//.storybook/main.js</span><br><span class="line">const path = require(&#x27;path&#x27;)</span><br><span class="line">module.exports = &#123;</span><br><span class="line">//省略</span><br><span class="line">.......</span><br><span class="line">  webpackFinal: async (config) =&gt; &#123;</span><br><span class="line">    config.resolve = &#123;</span><br><span class="line">      ...config.resolve,</span><br><span class="line">      alias: &#123;</span><br><span class="line">        ...config.resolve.alias,</span><br><span class="line">        &#x27;@&#x27;: path.join(__dirname, &#x27;../src&#x27;),</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">//省略</span><br><span class="line">.......</span><br><span class="line">    return config</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h4 id="2-项目中用到了less-scss等怎么办"><a href="#2-项目中用到了less-scss等怎么办" class="headerlink" title="2.项目中用到了less/scss等怎么办?"></a>2.项目中用到了less/scss等怎么办?</h4><p>因为基于vue.cli4版本的项目，脚手架内置了cssloader，因此什么都不用做。<br>但是storybook还是需要手动处理</p>
+<h4 id="2-项目中用到了less-scss等怎么办"><a href="#2-项目中用到了less-scss等怎么办" class="headerlink" title="2.项目中用到了less&#x2F;scss等怎么办?"></a>2.项目中用到了less&#x2F;scss等怎么办?</h4><p>因为基于vue.cli4版本的项目，脚手架内置了cssloader，因此什么都不用做。<br>但是storybook还是需要手动处理</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">//.storybook/main.js</span><br><span class="line">module.exports = &#123;</span><br><span class="line">//省略</span><br><span class="line">....</span><br><span class="line">  webpackFinal: async (config) =&gt; &#123;</span><br><span class="line">  //省略</span><br><span class="line">  ......</span><br><span class="line">  //这里只写less的，scss同理改一下配置即可</span><br><span class="line">    config.module.rules.push(&#123;</span><br><span class="line">      test: /\.less$/,</span><br><span class="line">      loaders: [&quot;style-loader&quot;, &quot;css-loader&quot;, &quot;less-loader&quot;],</span><br><span class="line">      include: path.resolve(__dirname, &#x27;../&#x27;)</span><br><span class="line">    &#125;);</span><br><span class="line">  //省略</span><br><span class="line">  ......</span><br><span class="line">    return config</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h4 id="3-Vue项目中引入了element-ui，大量组件基于element-ui封装的，怎么让storybook能够读取到element-ui的组件"><a href="#3-Vue项目中引入了element-ui，大量组件基于element-ui封装的，怎么让storybook能够读取到element-ui的组件" class="headerlink" title="3.Vue项目中引入了element-ui，大量组件基于element-ui封装的，怎么让storybook能够读取到element-ui的组件?"></a>3.Vue项目中引入了element-ui，大量组件基于element-ui封装的，怎么让storybook能够读取到element-ui的组件?</h4><p>在.storybook文件夹下新建一个config.js文件,引入即可</p>
@@ -529,13 +529,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">257k</span>
+    <span title="站点总字数">258k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:53</span>
+    <span title="站点阅读时长">3:55</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

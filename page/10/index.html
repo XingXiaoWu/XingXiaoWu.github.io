@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.2">
+<meta name="generator" content="Hexo 7.0.0-rc2">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -514,7 +514,7 @@
       
           <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>菜鸡，半个iOS开发，js了解不深入，见解不一定正确，有错指出，意会一下这个意思就行了，大牛就没必要看了、、、</p>
 <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>以下所有是基于mac的，Windows老哥只能参考着看了</p>
-<p>cmd = ctrl ， option = alt</p>
+<p>cmd &#x3D; ctrl ， option &#x3D; alt</p>
 <h2 id="一、环境安装"><a href="#一、环境安装" class="headerlink" title="一、环境安装"></a>一、环境安装</h2><p>其实官方的环境安装教程很简单，但也不排除有老哥看不懂，所以还是再赘述一下，下面是mac的傻瓜式环境安装教程（安装好了的不用看，windows老哥挑着看）</p>
 <p>打开终端，我们开始了</p>
 <h3 id="1-开启任意来源"><a href="#1-开启任意来源" class="headerlink" title="1.开启任意来源"></a>1.开启任意来源</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo spctl --master-disable</span><br></pre></td></tr></table></figure>
@@ -1035,14 +1035,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.6k</span>
+              <span>1.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -1054,7 +1054,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>因为公司业务关系，希望在iOS在后台的时候能存活去做某些业务操作（其实就是流氓的后台保活=。=）<br>最早是使用后台定位实现的，信心满满的去上架，结果被苹果爸爸锤的头都破了。连续被拒3次，申请打电话苹果代表也锤了我一顿，申请苹果审核申诉又被锤了一顿。想一想我真是头铁啊emmm<br>闲话不多说，开始这篇博客的主题<br>我们的业务其实很简单，就是后台有业务数据来了，客户端哪怕在后台也要处理。</p>
+          <p>因为公司业务关系，希望在iOS在后台的时候能存活去做某些业务操作（其实就是流氓的后台保活&#x3D;。&#x3D;）<br>最早是使用后台定位实现的，信心满满的去上架，结果被苹果爸爸锤的头都破了。连续被拒3次，申请打电话苹果代表也锤了我一顿，申请苹果审核申诉又被锤了一顿。想一想我真是头铁啊emmm<br>闲话不多说，开始这篇博客的主题<br>我们的业务其实很简单，就是后台有业务数据来了，客户端哪怕在后台也要处理。</p>
 <p>#苹果的保活无非三种方式<br>###1.后台播放无声音乐<br>###2.后台定位<br>###3.推送唤醒</p>
 <p>##播放音乐<br>直接被我pass了，我觉得机审都会把我拒了。。。压根不考虑</p>
 <p>##后台定位<br>正好我们的业务吐过硬扯还能和业务办公场所扯上关系，头铁就是上！通过后台定位让app保活，成功实现了。不过被🍎爸爸锤了。方案二，pass</p>
@@ -1063,7 +1063,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;aps&quot;: &#123;</span><br><span class="line">        &quot;content-available&quot;: 1,</span><br><span class="line">        &quot;sound&quot;: &quot;com.gexin.ios.silence&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这个东西，不过万一有没搜到的呢emmm我还是再说一遍<br>content-available属性。0是非静默，1是静默<br>个推中，无声，sound属性：com.gexin.ios.silence（其他的推送是不是如此我就不太清楚了）<br>###alert，body切记不要写东西，要传值往最后看<br>###接下来是傻瓜式教程<br>###准备工作<br>####1.推送证书准备好<br>这部分太多教程了，随便搜一个搞一下就差不多了，不上图了。记得导出的p12要放到个推平台哟。<br>####2.打开开关<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E4%B8%AA%E6%8E%A8-%E9%9D%99%E9%BB%98%E6%8E%A8%E9%80%81/1.png" alt="推送开关"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E4%B8%AA%E6%8E%A8-%E9%9D%99%E9%BB%98%E6%8E%A8%E9%80%81/2.png" alt="允许后台推送"></p>
-<p>####3.代码部分<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E4%B8%AA%E6%8E%A8-%E9%9D%99%E9%BB%98%E6%8E%A8%E9%80%81/3.png" alt="静默推送回调"><br>就在这个里面了，当被挂起的时候，收到推送，执行这里的代码，唤醒app30s左右的时间，让你尽情的做自己想做的事😝。<br>我把生命周期写在下面，也好复制粘贴去搜索，我是不是很体贴=。=</p>
+<p>####3.代码部分<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E4%B8%AA%E6%8E%A8-%E9%9D%99%E9%BB%98%E6%8E%A8%E9%80%81/3.png" alt="静默推送回调"><br>就在这个里面了，当被挂起的时候，收到推送，执行这里的代码，唤醒app30s左右的时间，让你尽情的做自己想做的事😝。<br>我把生命周期写在下面，也好复制粘贴去搜索，我是不是很体贴&#x3D;。&#x3D;</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2018/08/09/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E9%9D%99%E9%BB%98%E6%8E%A8%E9%80%81%E4%B9%8B%E4%B8%AA%E6%8E%A8iOS%E7%89%88/#more" rel="contents">
@@ -1165,15 +1165,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>写的都是自己的一些感受=。=可能都是野路子=。=大牛就别看了=。=<br>代码：<a target="_blank" rel="noopener" href="https://github.com/XingXiaoWu/mobx-/tree/master">https://github.com/XingXiaoWu/mobx-/tree/master</a><br>先声明一句话：</p>
-<p>#MobX 会对在追踪函数执行过程中读取现存的可观察属性做出反应。<br>以下所有内容基于rn0.56版本以前（即低于0.56），语法是ES6语法（可能有ES7，反正我是分不清=。=）<br>#一、引入Mobx<br>首先，安装yarn（别问我为什么不用npm）</p>
+          <p>写的都是自己的一些感受&#x3D;。&#x3D;可能都是野路子&#x3D;。&#x3D;大牛就别看了&#x3D;。&#x3D;<br>代码：<a target="_blank" rel="noopener" href="https://github.com/XingXiaoWu/mobx-/tree/master">https://github.com/XingXiaoWu/mobx-/tree/master</a><br>先声明一句话：</p>
+<p>#MobX 会对在追踪函数执行过程中读取现存的可观察属性做出反应。<br>以下所有内容基于rn0.56版本以前（即低于0.56），语法是ES6语法（可能有ES7，反正我是分不清&#x3D;。&#x3D;）<br>#一、引入Mobx<br>首先，安装yarn（别问我为什么不用npm）</p>
 <p>##1.在项目根目录下输入<br>    yarn add mobx mobx-react<br>此命令作用：引入mobx和mobx-react<br>##2.在项目根目录下继续输入(看清楚你的版本选择命令)</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//这是0.57以下的</span><br><span class="line">    yarn add babel-plugin-transform-decorators-legacy babel-preset-react-native-stage-0</span><br><span class="line">//这是0.57及以上的</span><br><span class="line">yarn add @babel/core --dev</span><br><span class="line">yarn add @babel/plugin-proposal-decorators --dev</span><br><span class="line">yarn add @babel/plugin-transform-runtime --dev</span><br><span class="line">yarn add @babel/runtime --dev</span><br></pre></td></tr></table></figure>
 <p>此命令作用：能够使用@标签</p>
 <p>##3.用IDE打开项目<br>打开.babelrc文件<br>修改为(看清楚版本)</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">//0.57以下</span><br><span class="line">&#123;</span><br><span class="line">    &quot;presets&quot;: [&quot;react-native&quot;],</span><br><span class="line">    &quot;plugins&quot;: [&quot;transform-decorators-legacy&quot;]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//0.57及以上</span><br><span class="line">&#123;</span><br><span class="line">  &quot;presets&quot;: [&quot;module:metro-react-native-babel-preset&quot;],</span><br><span class="line">  &quot;plugins&quot;: [</span><br><span class="line">    [&quot;@babel/plugin-proposal-decorators&quot;, &#123; &quot;legacy&quot;: true &#125;],</span><br><span class="line">    [&quot;@babel/transform-runtime&quot;, &#123;</span><br><span class="line">      &quot;helpers&quot;: true,</span><br><span class="line">      &quot;regenerator&quot;: false</span><br><span class="line">    &#125;]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>至此，如果没报错，环境配置完毕，可以正常使用mobx了<br>#二、mobx的常用标签<br>##1.定义observable<br>observable，顾名思义，可以被观察的，即被观察者<br>一般用于数据，几乎所有数据都可以被观察，无论是对象、数组、类。 循环数据结构、引用，都可以被观察，只要给他们打上@ observable的标签，他们都可以被观察。</p>
-<p>我写了三种导出模式，相互的优劣和使用方式还需要琢磨<br>#ThingModel=&gt;static定义的，导出的是ThingModel这个class</p>
+<p>我写了三种导出模式，相互的优劣和使用方式还需要琢磨<br>#ThingModel&#x3D;&gt;static定义的，导出的是ThingModel这个class</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import &#123;observable&#125; from &quot;mobx&quot;</span><br><span class="line"></span><br><span class="line">export class ThingModel &#123;</span><br><span class="line">    @observable</span><br><span class="line">    static thing = &quot;我是数据1&quot;</span><br><span class="line"></span><br><span class="line">   @action</span><br><span class="line">    static setThing(value) &#123;</span><br><span class="line">        ThingModel.thing = value</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//使用</span><br><span class="line">ThingModel.thing</span><br><span class="line">ThingModel. setThing(xxx)</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
@@ -1278,9 +1278,9 @@
       
           <p>角色权限判断，这应该是大部分应用都有的功能，那么如何进行权限判断？</p>
 <p>这里说下我们用的思路，可能会比较low，各位看官别笑。<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E4%BD%8D%E8%BF%90%E7%AE%97/1.jpg"></p>
-<p>打个比方，我现在有A,B,C,D四个功能。要对某个账户是否具有这些功能权限做判断。<br>我们有个list，里面存放着这个账户所有的权限。（list从哪来？当然是后台请求回来啊！）<br>A功能对应的权限是=&gt;0,以此类推B=&gt;1,C=&gt;2,D=&gt;3这样子。</p>
+<p>打个比方，我现在有A,B,C,D四个功能。要对某个账户是否具有这些功能权限做判断。<br>我们有个list，里面存放着这个账户所有的权限。（list从哪来？当然是后台请求回来啊！）<br>A功能对应的权限是&#x3D;&gt;0,以此类推B&#x3D;&gt;1,C&#x3D;&gt;2,D&#x3D;&gt;3这样子。</p>
 <p>那么如果我有一个账号拥有所有权限，list就是【0，1，2，3】，如果没有B权限就是【0，2，3，4】这样子，相信大家都应该明白我要表达的意思了。</p>
-<p>那么要判断是否拥有某个权限，这时候肯定就会说，遍历一下list不就知道了？那如果权限比较多呢？而且你不觉得这样更low么=。=<br>所以这个时候，我们可以使用位运算打成这个目的:</p>
+<p>那么要判断是否拥有某个权限，这时候肯定就会说，遍历一下list不就知道了？那如果权限比较多呢？而且你不觉得这样更low么&#x3D;。&#x3D;<br>所以这个时候，我们可以使用位运算打成这个目的:</p>
 <p>先说我们用来判断的方法：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//判断是否存在权限，permission是所有权限展示中的某个权限，只有一个&amp;，不是两个，别搞错了</span><br><span class="line">    hasPermission(permission) &#123;</span><br><span class="line">        return permission &amp; GlobalValue.authValue</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <p>再定义一个包含了所有权限的声明</p>
@@ -1466,13 +1466,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">257k</span>
+    <span title="站点总字数">258k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:53</span>
+    <span title="站点阅读时长">3:55</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
