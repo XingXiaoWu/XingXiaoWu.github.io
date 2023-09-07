@@ -223,6 +223,223 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2023/03/05/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84electron%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20%E8%A3%81%E5%8C%85%E4%B9%8B%E5%8E%BB%E6%8E%89%E8%AF%AD%E8%A8%80%E6%96%87%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/03/05/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84electron%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20%E8%A3%81%E5%8C%85%E4%B9%8B%E5%8E%BB%E6%8E%89%E8%AF%AD%E8%A8%80%E6%96%87%E4%BB%B6/" class="post-title-link" itemprop="url">无星的electron之旅（十四）—— 裁包之去掉语言文件</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-03-05 18:32:54" itemprop="dateCreated datePublished" datetime="2023-03-05T18:32:54+08:00">2023-03-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-08-05 22:52:50" itemprop="dateModified" datetime="2023-08-05T22:52:50+08:00">2023-08-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/electron/" itemprop="url" rel="index"><span itemprop="name">electron</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2023/03/05/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84electron%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20%E8%A3%81%E5%8C%85%E4%B9%8B%E5%8E%BB%E6%8E%89%E8%AF%AD%E8%A8%80%E6%96%87%E4%BB%B6/" class="post-meta-item leancloud_visitors" data-flag-title="无星的electron之旅（十四）—— 裁包之去掉语言文件" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>793</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="一、背景"><a href="#一、背景" class="headerlink" title="一、背景"></a>一、背景</h2><p>很久没写bug了，最近写了一些业务上的小工具，因为包有点大，所以要裁一下。</p>
+<p>首选其实就是去掉不需要的语言文件</p>
+<h2 id="二、如何实现"><a href="#二、如何实现" class="headerlink" title="二、如何实现"></a>二、如何实现</h2><h3 id="2-1-添加默认语言"><a href="#2-1-添加默认语言" class="headerlink" title="2.1 添加默认语言"></a>2.1 添加默认语言</h3><p>在<code>electron</code>的入口文件添加</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.<span class="property">commandLine</span>.<span class="title function_">appendSwitch</span>(<span class="string">&#x27;lang&#x27;</span>, <span class="string">&#x27;zh-CN&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-在打包后的钩子处脚本删除"><a href="#2-2-在打包后的钩子处脚本删除" class="headerlink" title="2.2 在打包后的钩子处脚本删除"></a>2.2 在打包后的钩子处脚本删除</h3><p>比如我使用的是<code>electron-builder</code>，可以在打包配置文件中找到<code>afterPack</code>这个配置项</p>
+<p>配置读取的脚本文件如下：</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/03/05/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84electron%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20%E8%A3%81%E5%8C%85%E4%B9%8B%E5%8E%BB%E6%8E%89%E8%AF%AD%E8%A8%80%E6%96%87%E4%BB%B6/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2022/10/03/%E9%A5%A5%E8%8D%92/%E6%97%A0%E6%98%9F%E7%9A%84%E9%A5%A5%E8%8D%92%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94Mod/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/10/03/%E9%A5%A5%E8%8D%92/%E6%97%A0%E6%98%9F%E7%9A%84%E9%A5%A5%E8%8D%92%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94Mod/" class="post-title-link" itemprop="url">无星的饥荒（二）——Mod</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-10-03 16:52:04" itemprop="dateCreated datePublished" datetime="2022-10-03T16:52:04+08:00">2022-10-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-08-05 22:52:50" itemprop="dateModified" datetime="2023-08-05T22:52:50+08:00">2023-08-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A5%A5%E8%8D%92/" itemprop="url" rel="index"><span itemprop="name">饥荒</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2022/10/03/%E9%A5%A5%E8%8D%92/%E6%97%A0%E6%98%9F%E7%9A%84%E9%A5%A5%E8%8D%92%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94Mod/" class="post-meta-item leancloud_visitors" data-flag-title="无星的饥荒（二）——Mod" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>我们来讲讲,已经启动的服务器,怎么配置mod</p>
+<h1 id="一-暂停饥荒服务"><a href="#一-暂停饥荒服务" class="headerlink" title="一.暂停饥荒服务"></a>一.暂停饥荒服务</h1><p>通过<code>netstat</code>和<code>kill</code>把服务器暂停先.</p>
+<h1 id="二-解析各个文件夹"><a href="#二-解析各个文件夹" class="headerlink" title="二.解析各个文件夹"></a>二.解析各个文件夹</h1><h2 id="1-dstsave"><a href="#1-dstsave" class="headerlink" title="1.dstsave"></a>1.<code>dstsave</code></h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /home/dstsave/dst/World1</span><br><span class="line">ls</span><br></pre></td></tr></table></figure>
+
+<p>里面包含两个两个文件夹<code>Master``Caves</code></p>
+<p>前面说过,<code>Master</code>为主世界,<code>Caves</code>为洞穴</p>
+<p>实际上两个文件夹里的内容都差不多,我们这里只说<code>mod</code>相关配置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 修改的话,最好Master和Caves两者同步修改,这里以Master为例</span><br><span class="line">cd Master</span><br><span class="line">vim ./modoverrides.lua</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/10/03/%E9%A5%A5%E8%8D%92/%E6%97%A0%E6%98%9F%E7%9A%84%E9%A5%A5%E8%8D%92%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94Mod/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2022/10/03/%E9%A5%A5%E8%8D%92/%E6%97%A0%E6%98%9F%E7%9A%84%E9%A5%A5%E8%8D%92%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E5%AE%89%E8%A3%85/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1093,222 +1310,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2022/02/21/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84electron%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E9%98%BF%E6%98%9F%E7%9A%84electron%E6%89%93%E5%8C%85%E9%A1%B5%E9%9D%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/02/21/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84electron%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E9%98%BF%E6%98%9F%E7%9A%84electron%E6%89%93%E5%8C%85%E9%A1%B5%E9%9D%A2/" class="post-title-link" itemprop="url">无星的electron之旅（十一）—— 阿星的electron打包页面</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-02-21 22:32:54" itemprop="dateCreated datePublished" datetime="2022-02-21T22:32:54+08:00">2022-02-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-08-05 22:52:50" itemprop="dateModified" datetime="2023-08-05T22:52:50+08:00">2023-08-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/electron/" itemprop="url" rel="index"><span itemprop="name">electron</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2022/02/21/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84electron%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E9%98%BF%E6%98%9F%E7%9A%84electron%E6%89%93%E5%8C%85%E9%A1%B5%E9%9D%A2/" class="post-meta-item leancloud_visitors" data-flag-title="无星的electron之旅（十一）—— 阿星的electron打包页面" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>433</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="一、背景"><a href="#一、背景" class="headerlink" title="一、背景"></a>一、背景</h2><p>因为用的是mac，发现有些网站不提供mac的应用版，所以很不爽，想自己打包</p>
-<p>其实也有些企业做好了网站，想套个壳直接做成应用</p>
-<p>因此我用我毕生功力，做了个打包页面，快速产壳</p>
-<h2 id="二、地址"><a href="#二、地址" class="headerlink" title="二、地址"></a>二、地址</h2><p><a href="https://blog.xingxiaowu.cn/electron">阿星的打包页面</a></p>
-<p>依次输入我需要的参数</p>
-<p>例如:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">客户端需要打包的url地址: https://www.bilibili.com/</span><br><span class="line"></span><br><span class="line">客户端名称: bilibili</span><br><span class="line"></span><br><span class="line">客户端appid: com.bilibili.app</span><br><span class="line"></span><br><span class="line">接收应用程序的邮箱: 329106954@qq.com</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>然后选择需要打包的平台</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/02/21/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84electron%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E9%98%BF%E6%98%9F%E7%9A%84electron%E6%89%93%E5%8C%85%E9%A1%B5%E9%9D%A2/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2022/02/15/%E5%85%9A%E5%91%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%97%A0%E6%98%9F%E7%9A%84%E5%85%9A%E5%91%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/02/15/%E5%85%9A%E5%91%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%97%A0%E6%98%9F%E7%9A%84%E5%85%9A%E5%91%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89/" class="post-title-link" itemprop="url">无星的党员学习笔记（四）—— 列强侵华引发了什么变化</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-02-15 17:42:00" itemprop="dateCreated datePublished" datetime="2022-02-15T17:42:00+08:00">2022-02-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-08-05 22:52:50" itemprop="dateModified" datetime="2023-08-05T22:52:50+08:00">2023-08-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%85%9A%E5%91%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">党员学习笔记</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2022/02/15/%E5%85%9A%E5%91%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%97%A0%E6%98%9F%E7%9A%84%E5%85%9A%E5%91%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89/" class="post-meta-item leancloud_visitors" data-flag-title="无星的党员学习笔记（四）—— 列强侵华引发了什么变化" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>472</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>最近在读党史，记录一些随笔。</p>
-<p>外国资本主义的入侵，打断了中国社会的正常发展历程。由此派生的社会矛盾，阶级关系和革命性质逐渐发生了深刻的变化。</p>
-<p>在外国资本主义入侵之前，我国是一个独立的以农业经济为基础的封建君主制国家，而社会内部的商品经济发展已经孕育着资本主义生产关系萌芽。假如没有西方资本主义的入侵，我国也许也会和西方国家一样，缓慢发展到资本主义社会。</p>
-<p>但是因为西方列强的侵略，打断了中国的自然发展道路。西方列强的侵略目的，不是把中国变成资本主义国家，而是希望把中国变成单纯的商品市场和原料基地。由于资本主义的入侵，我国的资本主义也得到了加速发展，但是传统的农业经济仍是中国的主要经济形式，“封建社会中占主导地位的自给自足的自然经济虽然逐渐遭到破坏，但是封建的土地关系，即封建剥削制度的根基——地主阶级对农民的剥削，不但依旧保持着，而且同官僚买办资本和高利贷的剥削结合在了一起，在中国的社会经济生活中仍占明显优势”。这一点在后续的革命中非常重要，也是为什么我党的革命能成功。</p>
-<p>另一方面不少仁人志士围绕挽救民族危亡和改革中国社会，开展了一系列的革命行动。</p>
-
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/02/15/%E5%85%9A%E5%91%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%97%A0%E6%98%9F%E7%9A%84%E5%85%9A%E5%91%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1380,7 +1381,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">125</span>
+          <span class="site-state-item-count">127</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1393,7 +1394,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-count">32</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1432,6 +1433,12 @@
           <a href="https://blog.fanjunyang.zone/" title="https:&#x2F;&#x2F;blog.fanjunyang.zone&#x2F;" rel="noopener" target="_blank">俊阳的IT主页</a>
         </li>
         <li class="links-of-blogroll-item">
+          <a href="https://www.sqlsec.com/" title="https:&#x2F;&#x2F;www.sqlsec.com&#x2F;" rel="noopener" target="_blank">国光</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://xiaoqiuxx.xyz/" title="http:&#x2F;&#x2F;xiaoqiuxx.xyz&#x2F;" rel="noopener" target="_blank">xiaoqiuxx's Blog</a>
+        </li>
+        <li class="links-of-blogroll-item">
           <a href="https://www.v2rayfree.eu.org/" title="https:&#x2F;&#x2F;www.v2rayfree.eu.org&#x2F;" rel="noopener" target="_blank">应急链接</a>
         </li>
     </ul>
@@ -1466,7 +1473,7 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">258k</span>
+    <span title="站点总字数">259k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>

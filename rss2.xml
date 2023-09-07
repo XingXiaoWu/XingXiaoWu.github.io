@@ -9,8 +9,70 @@
     <atom:link href="http://blog.xingxiaowu.cn/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>一个么的前途的弟中弟</description>
-    <pubDate>Sun, 20 Aug 2023 14:05:47 GMT</pubDate>
+    <pubDate>Thu, 07 Sep 2023 02:23:52 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>无星的安全之旅（四）——内网渗透</title>
+      <link>http://blog.xingxiaowu.cn/2023/09/07/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/</link>
+      <guid>http://blog.xingxiaowu.cn/2023/09/07/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/</guid>
+      <pubDate>Thu, 07 Sep 2023 02:17:00 GMT</pubDate>
+      
+      <description>&lt;p&gt;内网渗透的流程&lt;/p&gt;
+&lt;h1 id=&quot;内网扫描&quot;&gt;&lt;a href=&quot;#内网扫描&quot; class=&quot;headerlink&quot; title=&quot;内网扫描&quot;&gt;&lt;/a&gt;内网扫描&lt;/h1&gt;&lt;p&gt;&lt;code&gt;fscan&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;nmap&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id=&quot;内网信息收集&quot;&gt;&lt;a href=&quot;#内网信息收集&quot; class=&quot;headerlink&quot; title=&quot;内网信息收集&quot;&gt;&lt;/a&gt;内网信息收集&lt;/h1&gt;&lt;p&gt;1.当前主机用户权限 whoami&amp;#x2F;all&lt;br&gt;2.当前网路配置 ipconfig&amp;#x2F;all&lt;br&gt;3.当前操作系统信息 systeminfo&lt;br&gt;4.当前进程信息 tasklist&amp;#x2F;svc&lt;br&gt;5.查看补丁 vmic qfe get Caption,Csname,Descripition,HotFiixID,InstalledOn&lt;br&gt;6.查看当前登陆用户 query user&lt;/p&gt;
+&lt;p&gt;与环境&lt;/p&gt;
+&lt;p&gt;1.域环境 net config workstation&lt;br&gt;2.域用户信息 net user &amp;#x2F;domain&lt;br&gt;3.域用户组 net group &amp;#x2F;domain&lt;br&gt;4.域控主机 net group&lt;/p&gt;
+&lt;h1 id=&quot;内网钓鱼&quot;&gt;&lt;a href=&quot;#内网钓鱼&quot; class=&quot;headerlink&quot; title=&quot;内网钓鱼&quot;&gt;&lt;/a&gt;内网钓鱼&lt;/h1&gt;&lt;p&gt;钓鱼是最常用的手法，也是投入产出比最高的手段&lt;/p&gt;</description>
+      
+      
+      
+      <content:encoded><![CDATA[<p>内网渗透的流程</p><h1 id="内网扫描"><a href="#内网扫描" class="headerlink" title="内网扫描"></a>内网扫描</h1><p><code>fscan</code></p><p><code>nmap</code></p><h1 id="内网信息收集"><a href="#内网信息收集" class="headerlink" title="内网信息收集"></a>内网信息收集</h1><p>1.当前主机用户权限 whoami&#x2F;all<br>2.当前网路配置 ipconfig&#x2F;all<br>3.当前操作系统信息 systeminfo<br>4.当前进程信息 tasklist&#x2F;svc<br>5.查看补丁 vmic qfe get Caption,Csname,Descripition,HotFiixID,InstalledOn<br>6.查看当前登陆用户 query user</p><p>与环境</p><p>1.域环境 net config workstation<br>2.域用户信息 net user &#x2F;domain<br>3.域用户组 net group &#x2F;domain<br>4.域控主机 net group</p><h1 id="内网钓鱼"><a href="#内网钓鱼" class="headerlink" title="内网钓鱼"></a>内网钓鱼</h1><p>钓鱼是最常用的手法，也是投入产出比最高的手段</p><p>可以使用<code>Cobalt Strike</code>进行邮件钓鱼</p><h1 id="打洞"><a href="#打洞" class="headerlink" title="打洞"></a>打洞</h1><p><code>frps</code></p>]]></content:encoded>
+      
+      
+      <category domain="http://blog.xingxiaowu.cn/categories/%E5%AE%89%E5%85%A8/">安全</category>
+      
+      
+      <category domain="http://blog.xingxiaowu.cn/tags/CTF/">CTF</category>
+      
+      <category domain="http://blog.xingxiaowu.cn/tags/%E6%B8%97%E9%80%8F/">渗透</category>
+      
+      
+      <comments>http://blog.xingxiaowu.cn/2023/09/07/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>无星的安全之旅（三）——互联网渗透</title>
+      <link>http://blog.xingxiaowu.cn/2023/09/06/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E4%BA%92%E8%81%94%E7%BD%91%E6%B8%97%E9%80%8F/</link>
+      <guid>http://blog.xingxiaowu.cn/2023/09/06/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E4%BA%92%E8%81%94%E7%BD%91%E6%B8%97%E9%80%8F/</guid>
+      <pubDate>Wed, 06 Sep 2023 12:17:00 GMT</pubDate>
+      
+      <description>&lt;p&gt;互联网渗透的流程&lt;/p&gt;
+&lt;p&gt;信息收集-&amp;gt;突破边界-&amp;gt;横向移动&lt;/p&gt;
+&lt;h1 id=&quot;信息收集&quot;&gt;&lt;a href=&quot;#信息收集&quot; class=&quot;headerlink&quot; title=&quot;信息收集&quot;&gt;&lt;/a&gt;信息收集&lt;/h1&gt;&lt;h2 id=&quot;指纹识别&quot;&gt;&lt;a href=&quot;#指纹识别&quot; class=&quot;headerlink&quot; title=&quot;指纹识别&quot;&gt;&lt;/a&gt;指纹识别&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://microsoftedge.microsoft.com/addons/detail/mnbndgmknlpdjdnjfmfcdjoegcckoikn&quot;&gt;&lt;code&gt;Wappalyzer&lt;/code&gt;&lt;/a&gt;浏览器插件&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/EdgeSecurityTeam/EHole&quot;&gt;Ehole&lt;/a&gt;&lt;br&gt;内置指纹规则，识别CMS，可自行添加规则&lt;/p&gt;
+&lt;h2 id=&quot;子域名收集&quot;&gt;&lt;a href=&quot;#子域名收集&quot; class=&quot;headerlink&quot; title=&quot;子域名收集&quot;&gt;&lt;/a&gt;子域名收集&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://fofa.info/&quot;&gt;&lt;code&gt;fofa&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://hunter.qianxin.com/&quot;&gt;&lt;code&gt;鹰图&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/shmilylty/OneForAll&quot;&gt;&lt;code&gt;oneforall&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;</description>
+      
+      
+      
+      <content:encoded><![CDATA[<p>互联网渗透的流程</p><p>信息收集-&gt;突破边界-&gt;横向移动</p><h1 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h1><h2 id="指纹识别"><a href="#指纹识别" class="headerlink" title="指纹识别"></a>指纹识别</h2><p><a href="https://microsoftedge.microsoft.com/addons/detail/mnbndgmknlpdjdnjfmfcdjoegcckoikn"><code>Wappalyzer</code></a>浏览器插件</p><p><a href="https://github.com/EdgeSecurityTeam/EHole">Ehole</a><br>内置指纹规则，识别CMS，可自行添加规则</p><h2 id="子域名收集"><a href="#子域名收集" class="headerlink" title="子域名收集"></a>子域名收集</h2><p><a href="https://fofa.info/"><code>fofa</code></a></p><p><a href="https://hunter.qianxin.com/"><code>鹰图</code></a></p><p><a href="https://github.com/shmilylty/OneForAll"><code>oneforall</code></a></p><h2 id="文件路径扫描"><a href="#文件路径扫描" class="headerlink" title="文件路径扫描"></a>文件路径扫描</h2><p><a href="https://github.com/maurosoria/dirsearch"><code>dirsearch</code></a></p><h2 id="JS文件收集"><a href="#JS文件收集" class="headerlink" title="JS文件收集"></a>JS文件收集</h2><p><a href="https://github.com/momosecurity/FindSomething"><code>FindSomething</code></a></p><h2 id="主机的信息收集"><a href="#主机的信息收集" class="headerlink" title="主机的信息收集"></a>主机的信息收集</h2><p><code>fofa</code></p><p>现在常用的都是<code>java</code> <code>spring</code>，我们可以使用<a href="https://github.com/metaStor/SpringScan"><code>springscan</code></a> <a href="https://github.com/pyroxenites/SpringScan"><code>springscan2</code></a>扫描</p><p><code>fscan</code></p><h2 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h2><ul><li>1.漏洞识别与验证</li><li>2.漏洞利用</li><li>3.渗透后权限提升（权限维持）</li></ul><h3 id="漏洞文库："><a href="#漏洞文库：" class="headerlink" title="漏洞文库："></a>漏洞文库：</h3><p><a href="https://baizesec.github.io/bylibrary/">白阁</a></p><p><a href="https://peiqi.wgpsec.org/dynamic/">佩奇</a></p><h3 id="弱口令"><a href="#弱口令" class="headerlink" title="弱口令:"></a>弱口令:</h3><p>常用字典：</p><p><a href="https://github.com/TheKingOfDuck/fuzzDicts">fuzzDicts</a></p><p><a href="https://github.com/wwl012345/PasswordDic">PasswordDic</a></p><p>常用工具：</p><p><code>Burp</code></p><p><a href="https://link.zhihu.com/?target=https://github.com/shack2/SNETCracker/releases">超级弱口令检查工具</a></p><p><a href="https://github.com/f0ng/captcha-killer-modified"><code>captcha-killer-modified</code></a></p><p><a href="https://github.com/sml2h3/ddddocr"><code>ddddocr</code></a></p><p><a href="https://github.com/sml2h3/ocr_api_server"><code>ddddocr_api_server</code></a>一键部署版</p><h1 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h1><p>1.内核漏洞提权<br><a href="https://github.com/The-Z-Labs/linux-exploit-suggester">linux-exploit-suggester</a></p><p>2.错误配置提权<br><a href="https://gtfobins.github.io/">gtfobins</a></p>]]></content:encoded>
+      
+      
+      <category domain="http://blog.xingxiaowu.cn/categories/%E5%AE%89%E5%85%A8/">安全</category>
+      
+      
+      <category domain="http://blog.xingxiaowu.cn/tags/CTF/">CTF</category>
+      
+      <category domain="http://blog.xingxiaowu.cn/tags/%E6%B8%97%E9%80%8F/">渗透</category>
+      
+      
+      <comments>http://blog.xingxiaowu.cn/2023/09/06/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E4%BA%92%E8%81%94%E7%BD%91%E6%B8%97%E9%80%8F/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>无星的前端之旅（二十六）—— 离线安装npm库</title>
@@ -75,20 +137,26 @@
     </item>
     
     <item>
-      <title>无星的CTF之旅（一）——Burp爆破</title>
-      <link>http://blog.xingxiaowu.cn/2023/07/30/CTF/%E6%97%A0%E6%98%9F%E7%9A%84CTF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94Burp%E7%88%86%E7%A0%B4/</link>
-      <guid>http://blog.xingxiaowu.cn/2023/07/30/CTF/%E6%97%A0%E6%98%9F%E7%9A%84CTF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94Burp%E7%88%86%E7%A0%B4/</guid>
+      <title>无星的安全之旅（一）——Burp爆破</title>
+      <link>http://blog.xingxiaowu.cn/2023/07/30/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94Burp%E7%88%86%E7%A0%B4/</link>
+      <guid>http://blog.xingxiaowu.cn/2023/07/30/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94Burp%E7%88%86%E7%A0%B4/</guid>
       <pubDate>Sun, 30 Jul 2023 12:17:00 GMT</pubDate>
       
-      <description>&lt;p&gt;1231&lt;/p&gt;
+      <description>&lt;p&gt;对于带验证码的爆破，需要对验证码进行识别&lt;/p&gt;
+&lt;p&gt;可以使用&lt;a href=&quot;https://github.com/f0ng/captcha-killer-modified&quot;&gt;captcha-killer-modified&lt;/a&gt;搭配&lt;code&gt;Burp&lt;/code&gt;进行爆破&lt;/p&gt;
+&lt;p&gt;同时推荐&lt;a href=&quot;https://github.com/sml2h3/ddddocr&quot;&gt;&lt;code&gt;ddddocr&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;现在是2023年9月7日，&lt;code&gt;Pillow==9.5.0&lt;/code&gt;当前的&lt;code&gt;ddddocr&lt;/code&gt;并未对版本进行兼容&lt;/p&gt;
+&lt;p&gt;我改了两个docker，有需要可以直接拉取部署&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# centos&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;docker pull 329106954/ocr_server:centos&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;# mac Inter芯片&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;docker pull 329106954/ocr_server:mac&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
 </description>
       
       
       
-      <content:encoded><![CDATA[<p>1231</p>]]></content:encoded>
+      <content:encoded><![CDATA[<p>对于带验证码的爆破，需要对验证码进行识别</p><p>可以使用<a href="https://github.com/f0ng/captcha-killer-modified">captcha-killer-modified</a>搭配<code>Burp</code>进行爆破</p><p>同时推荐<a href="https://github.com/sml2h3/ddddocr"><code>ddddocr</code></a></p><p>现在是2023年9月7日，<code>Pillow==9.5.0</code>当前的<code>ddddocr</code>并未对版本进行兼容</p><p>我改了两个docker，有需要可以直接拉取部署</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># centos</span><br><span class="line">docker pull 329106954/ocr_server:centos</span><br><span class="line"># mac Inter芯片</span><br><span class="line">docker pull 329106954/ocr_server:mac</span><br></pre></td></tr></table></figure>]]></content:encoded>
       
       
-      <category domain="http://blog.xingxiaowu.cn/categories/CTF/">CTF</category>
+      <category domain="http://blog.xingxiaowu.cn/categories/%E5%AE%89%E5%85%A8/">安全</category>
       
       
       <category domain="http://blog.xingxiaowu.cn/tags/CTF/">CTF</category>
@@ -96,14 +164,14 @@
       <category domain="http://blog.xingxiaowu.cn/tags/Burp/">Burp</category>
       
       
-      <comments>http://blog.xingxiaowu.cn/2023/07/30/CTF/%E6%97%A0%E6%98%9F%E7%9A%84CTF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94Burp%E7%88%86%E7%A0%B4/#disqus_thread</comments>
+      <comments>http://blog.xingxiaowu.cn/2023/07/30/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94Burp%E7%88%86%E7%A0%B4/#disqus_thread</comments>
       
     </item>
     
     <item>
-      <title>无星的CTF之旅（二）——文件上传</title>
-      <link>http://blog.xingxiaowu.cn/2023/07/30/CTF/%E6%97%A0%E6%98%9F%E7%9A%84CTF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</link>
-      <guid>http://blog.xingxiaowu.cn/2023/07/30/CTF/%E6%97%A0%E6%98%9F%E7%9A%84CTF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</guid>
+      <title>无星的安全之旅（二）——文件上传</title>
+      <link>http://blog.xingxiaowu.cn/2023/07/30/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</link>
+      <guid>http://blog.xingxiaowu.cn/2023/07/30/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</guid>
       <pubDate>Sun, 30 Jul 2023 12:17:00 GMT</pubDate>
       
       <description>&lt;p&gt;文件上传是个经典问题&lt;/p&gt;
@@ -120,7 +188,7 @@
       <content:encoded><![CDATA[<p>文件上传是个经典问题</p><p>推荐靶场：<a href="https://github.com/c0ny1/upload-labs">upload-labs</a></p><p>我们可以在这个靶场中进行文件上传绕过的练习</p><p>先说<code>webshell</code>，我们写个一句话木马先</p><p>这里留个大哥若干年前的总结 <a href="https://www.webshell.cc/2265.html">webshell一句话木马大全</a></p><p>接下来我们聊聊文件上传的漏洞</p><h1 id="一-啥防护没有"><a href="#一-啥防护没有" class="headerlink" title="一.啥防护没有"></a>一.啥防护没有</h1><p>直接一句话木马上传就完事了</p><h1 id="二-前端文件后缀判断"><a href="#二-前端文件后缀判断" class="headerlink" title="二.前端文件后缀判断"></a>二.前端文件后缀判断</h1><p>打开开发者工具，提交文件，看是否存在网络请求</p><p>不存在则说明是前端判断，直接把<code>js</code>禁用了就完事了</p><h1 id="三-MIME判断"><a href="#三-MIME判断" class="headerlink" title="三.MIME判断"></a>三.MIME判断</h1><p>使用<code>burp</code>抓包，将<code>Content-Type: application/xxx</code></p><p>修改为<code>image/jpeg</code>、<code>image/png</code>、<code>image/gif</code>任意允许类型上传即可。</p><h1 id="四-黑名单上传"><a href="#四-黑名单上传" class="headerlink" title="四.黑名单上传"></a>四.黑名单上传</h1><h2 id="4-1-简单的黑名单上传"><a href="#4-1-简单的黑名单上传" class="headerlink" title="4.1 简单的黑名单上传"></a>4.1 简单的黑名单上传</h2><p>黑名单的检测不严谨，比如只是限制<br><code>.asp,.aspx,.php..jsp</code><br>这种</p><p>直接把木马文件后缀改一下， <code>php、php2、php3、php4、php5、php6、php7、pht、phtm、phtml</code>这些文件后缀在某些环境都会被当作php解析</p><h2 id="4-2-如果上述文件都被限制了？"><a href="#4-2-如果上述文件都被限制了？" class="headerlink" title="4.2 如果上述文件都被限制了？"></a>4.2 如果上述文件都被限制了？</h2><p>还有大小写呢，<code>Php,PHP,PHp</code>等等</p><h2 id="4-3-如果后台校验规则已经添加了转小写"><a href="#4-3-如果后台校验规则已经添加了转小写" class="headerlink" title="4.3 如果后台校验规则已经添加了转小写"></a>4.3 如果后台校验规则已经添加了转小写</h2><p>搬出<code>.htaccess</code></p><p><code>.htaccess</code>内容如下</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AddType application/x-httpd-php .png</span><br></pre></td></tr></table></figure><p>主要作用是将<code>png</code>文件识别为<code>php</code>执行</p><p>先将<code>php</code>文件修改后缀为<code>png</code></p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GIF89a</span><br><span class="line"><span class="meta">&lt;?php</span> @<span class="keyword">eval</span>(<span class="variable">$_POST</span>[sb])<span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure><p>上传<code>png</code>，再上传<code>.htaccess</code>，御剑链接<code>png</code>即可</p>]]></content:encoded>
       
       
-      <category domain="http://blog.xingxiaowu.cn/categories/CTF/">CTF</category>
+      <category domain="http://blog.xingxiaowu.cn/categories/%E5%AE%89%E5%85%A8/">安全</category>
       
       
       <category domain="http://blog.xingxiaowu.cn/tags/CTF/">CTF</category>
@@ -128,7 +196,7 @@
       <category domain="http://blog.xingxiaowu.cn/tags/Burp/">Burp</category>
       
       
-      <comments>http://blog.xingxiaowu.cn/2023/07/30/CTF/%E6%97%A0%E6%98%9F%E7%9A%84CTF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/#disqus_thread</comments>
+      <comments>http://blog.xingxiaowu.cn/2023/07/30/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/#disqus_thread</comments>
       
     </item>
     
@@ -252,65 +320,6 @@
       
       
       <comments>http://blog.xingxiaowu.cn/2023/03/05/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84electron%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20electron%E8%AE%BF%E9%97%AEiframe/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>无星的electron之旅（十四）—— 裁包之去掉语言文件</title>
-      <link>http://blog.xingxiaowu.cn/2023/03/05/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84electron%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20%E8%A3%81%E5%8C%85%E4%B9%8B%E5%8E%BB%E6%8E%89%E8%AF%AD%E8%A8%80%E6%96%87%E4%BB%B6/</link>
-      <guid>http://blog.xingxiaowu.cn/2023/03/05/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84electron%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20%E8%A3%81%E5%8C%85%E4%B9%8B%E5%8E%BB%E6%8E%89%E8%AF%AD%E8%A8%80%E6%96%87%E4%BB%B6/</guid>
-      <pubDate>Sun, 05 Mar 2023 10:32:54 GMT</pubDate>
-      
-      <description>&lt;h2 id=&quot;一、背景&quot;&gt;&lt;a href=&quot;#一、背景&quot; class=&quot;headerlink&quot; title=&quot;一、背景&quot;&gt;&lt;/a&gt;一、背景&lt;/h2&gt;&lt;p&gt;很久没写bug了，最近写了一些业务上的小工具，因为包有点大，所以要裁一下。&lt;/p&gt;
-&lt;p&gt;首选其实就是去掉不需要的语言文件&lt;/p&gt;
-&lt;h2 id=&quot;二、如何实现&quot;&gt;&lt;a href=&quot;#二、如何实现&quot; class=&quot;headerlink&quot; title=&quot;二、如何实现&quot;&gt;&lt;/a&gt;二、如何实现&lt;/h2&gt;&lt;h3 id=&quot;2-1-添加默认语言&quot;&gt;&lt;a href=&quot;#2-1-添加默认语言&quot; class=&quot;headerlink&quot; title=&quot;2.1 添加默认语言&quot;&gt;&lt;/a&gt;2.1 添加默认语言&lt;/h3&gt;&lt;p&gt;在&lt;code&gt;electron&lt;/code&gt;的入口文件添加&lt;/p&gt;
-&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;app.&lt;span class=&quot;property&quot;&gt;commandLine&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;appendSwitch&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;#x27;lang&amp;#x27;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;#x27;zh-CN&amp;#x27;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;h3 id=&quot;2-2-在打包后的钩子处脚本删除&quot;&gt;&lt;a href=&quot;#2-2-在打包后的钩子处脚本删除&quot; class=&quot;headerlink&quot; title=&quot;2.2 在打包后的钩子处脚本删除&quot;&gt;&lt;/a&gt;2.2 在打包后的钩子处脚本删除&lt;/h3&gt;&lt;p&gt;比如我使用的是&lt;code&gt;electron-builder&lt;/code&gt;，可以在打包配置文件中找到&lt;code&gt;afterPack&lt;/code&gt;这个配置项&lt;/p&gt;
-&lt;p&gt;配置读取的脚本文件如下：&lt;/p&gt;</description>
-      
-      
-      
-      <content:encoded><![CDATA[<h2 id="一、背景"><a href="#一、背景" class="headerlink" title="一、背景"></a>一、背景</h2><p>很久没写bug了，最近写了一些业务上的小工具，因为包有点大，所以要裁一下。</p><p>首选其实就是去掉不需要的语言文件</p><h2 id="二、如何实现"><a href="#二、如何实现" class="headerlink" title="二、如何实现"></a>二、如何实现</h2><h3 id="2-1-添加默认语言"><a href="#2-1-添加默认语言" class="headerlink" title="2.1 添加默认语言"></a>2.1 添加默认语言</h3><p>在<code>electron</code>的入口文件添加</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.<span class="property">commandLine</span>.<span class="title function_">appendSwitch</span>(<span class="string">&#x27;lang&#x27;</span>, <span class="string">&#x27;zh-CN&#x27;</span>);</span><br></pre></td></tr></table></figure><h3 id="2-2-在打包后的钩子处脚本删除"><a href="#2-2-在打包后的钩子处脚本删除" class="headerlink" title="2.2 在打包后的钩子处脚本删除"></a>2.2 在打包后的钩子处脚本删除</h3><p>比如我使用的是<code>electron-builder</code>，可以在打包配置文件中找到<code>afterPack</code>这个配置项</p><p>配置读取的脚本文件如下：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//build/hooks/afterPack.js</span></span><br><span class="line"><span class="comment">//参考 https://www.electron.build/configuration/configuration#afterpack</span></span><br><span class="line"><span class="built_in">exports</span>.<span class="property">default</span> = <span class="keyword">async</span> <span class="keyword">function</span> (<span class="params">context</span>) &#123;</span><br><span class="line">    <span class="comment">//console.log(context)</span></span><br><span class="line">    <span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br><span class="line">    <span class="keyword">const</span> localeDir = context.<span class="property">appOutDir</span> + <span class="string">&#x27;/locales/&#x27;</span></span><br><span class="line"></span><br><span class="line">    fs.<span class="title function_">readdir</span>(localeDir, <span class="keyword">function</span> (<span class="params">err, files</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!(files &amp;&amp; files.<span class="property">length</span>)) <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, len = files.<span class="property">length</span>; i &lt; len; i++) &#123;</span><br><span class="line">            <span class="keyword">const</span> match = files[i].<span class="title function_">match</span>(<span class="regexp">/zh-CN\.pak/</span>) <span class="comment">//只保留中文</span></span><br><span class="line">            <span class="keyword">if</span> (match === <span class="literal">null</span>) &#123;</span><br><span class="line">                fs.<span class="title function_">unlinkSync</span>(localeDir + files[i])</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="done"><a href="#done" class="headerlink" title="done"></a>done</h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://www.w3cways.com/2484.html">electron通过删除未使用的语言文件缩减打包后大小</a></p>]]></content:encoded>
-      
-      
-      <category domain="http://blog.xingxiaowu.cn/categories/electron/">electron</category>
-      
-      
-      <category domain="http://blog.xingxiaowu.cn/tags/electron/">electron</category>
-      
-      
-      <comments>http://blog.xingxiaowu.cn/2023/03/05/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84electron%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20%E8%A3%81%E5%8C%85%E4%B9%8B%E5%8E%BB%E6%8E%89%E8%AF%AD%E8%A8%80%E6%96%87%E4%BB%B6/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>无星的饥荒（二）——Mod</title>
-      <link>http://blog.xingxiaowu.cn/2022/10/03/%E9%A5%A5%E8%8D%92/%E6%97%A0%E6%98%9F%E7%9A%84%E9%A5%A5%E8%8D%92%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94Mod/</link>
-      <guid>http://blog.xingxiaowu.cn/2022/10/03/%E9%A5%A5%E8%8D%92/%E6%97%A0%E6%98%9F%E7%9A%84%E9%A5%A5%E8%8D%92%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94Mod/</guid>
-      <pubDate>Mon, 03 Oct 2022 08:52:04 GMT</pubDate>
-      
-      <description>&lt;p&gt;我们来讲讲,已经启动的服务器,怎么配置mod&lt;/p&gt;
-&lt;h1 id=&quot;一-暂停饥荒服务&quot;&gt;&lt;a href=&quot;#一-暂停饥荒服务&quot; class=&quot;headerlink&quot; title=&quot;一.暂停饥荒服务&quot;&gt;&lt;/a&gt;一.暂停饥荒服务&lt;/h1&gt;&lt;p&gt;通过&lt;code&gt;netstat&lt;/code&gt;和&lt;code&gt;kill&lt;/code&gt;把服务器暂停先.&lt;/p&gt;
-&lt;h1 id=&quot;二-解析各个文件夹&quot;&gt;&lt;a href=&quot;#二-解析各个文件夹&quot; class=&quot;headerlink&quot; title=&quot;二.解析各个文件夹&quot;&gt;&lt;/a&gt;二.解析各个文件夹&lt;/h1&gt;&lt;h2 id=&quot;1-dstsave&quot;&gt;&lt;a href=&quot;#1-dstsave&quot; class=&quot;headerlink&quot; title=&quot;1.dstsave&quot;&gt;&lt;/a&gt;1.&lt;code&gt;dstsave&lt;/code&gt;&lt;/h2&gt;&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;cd /home/dstsave/dst/World1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ls&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;里面包含两个两个文件夹&lt;code&gt;Master``Caves&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;前面说过,&lt;code&gt;Master&lt;/code&gt;为主世界,&lt;code&gt;Caves&lt;/code&gt;为洞穴&lt;/p&gt;
-&lt;p&gt;实际上两个文件夹里的内容都差不多,我们这里只说&lt;code&gt;mod&lt;/code&gt;相关配置&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# 修改的话,最好Master和Caves两者同步修改,这里以Master为例&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cd Master&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;vim ./modoverrides.lua&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</description>
-      
-      
-      
-      <content:encoded><![CDATA[<p>我们来讲讲,已经启动的服务器,怎么配置mod</p><h1 id="一-暂停饥荒服务"><a href="#一-暂停饥荒服务" class="headerlink" title="一.暂停饥荒服务"></a>一.暂停饥荒服务</h1><p>通过<code>netstat</code>和<code>kill</code>把服务器暂停先.</p><h1 id="二-解析各个文件夹"><a href="#二-解析各个文件夹" class="headerlink" title="二.解析各个文件夹"></a>二.解析各个文件夹</h1><h2 id="1-dstsave"><a href="#1-dstsave" class="headerlink" title="1.dstsave"></a>1.<code>dstsave</code></h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /home/dstsave/dst/World1</span><br><span class="line">ls</span><br></pre></td></tr></table></figure><p>里面包含两个两个文件夹<code>Master``Caves</code></p><p>前面说过,<code>Master</code>为主世界,<code>Caves</code>为洞穴</p><p>实际上两个文件夹里的内容都差不多,我们这里只说<code>mod</code>相关配置</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 修改的话,最好Master和Caves两者同步修改,这里以Master为例</span><br><span class="line">cd Master</span><br><span class="line">vim ./modoverrides.lua</span><br></pre></td></tr></table></figure><p><code>modoverrides.lua</code>实际上就是所有的<code>mod</code>配置信息。</p><p>要开关<code>mod</code>或者修改<code>mod</code>的<code>options</code>就在这个文件里修改。</p><p>开关见<code>enable</code></p><h3 id="问题：里面都是worker-数字，我怎么知道哪个数字是哪个mod"><a href="#问题：里面都是worker-数字，我怎么知道哪个数字是哪个mod" class="headerlink" title="问题：里面都是worker-数字，我怎么知道哪个数字是哪个mod"></a>问题：里面都是<code>worker-数字</code>，我怎么知道哪个数字是哪个mod</h3><p>如果你的所有的<code>mod</code>都是从<code>steam</code>创意工坊下载的，我们可以通过分享按钮查看id</p><p>例如：</p><p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E9%A5%A5%E8%8D%922/1.png" alt="1.png"></p><p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E9%A5%A5%E8%8D%922/2.png" alt="2.png"></p><p>那么我们就得到所有mod和id之间的对应关系。</p><h2 id="2-dstserver"><a href="#2-dstserver" class="headerlink" title="2.dstserver"></a>2.<code>dstserver</code></h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /home/dstserver</span><br><span class="line">ls</span><br></pre></td></tr></table></figure><p>其中包含一个<code>mods</code>文件夹，其中所有的<code>mod</code>都会下载在里面</p><p><code>mods</code>中存在一个名为<code>dedicated_server_mods_setup.lua</code>的文件</p><p>如果我们需要<code>新增</code>某个mod，则需要在其中新增</p><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ServerModSetup(<span class="string">&quot;id&quot;</span>)</span><br></pre></td></tr></table></figure><p>例如：<code>ServerModSetup(&quot;362175979&quot;)</code></p><h1 id="三-修改mod"><a href="#三-修改mod" class="headerlink" title="三.修改mod"></a>三.修改mod</h1><p>经过第二步，应该就大致了解了。<br>先改<code>/home/dstsave/dst/World1/Master/modoverrides.lua</code><br>和<code>/home/dstsave/dst/World1/Caves/modoverrides.lua</code></p><p>如果是新增<code>Mod</code>，则往<code>/home/dstserver/mods/dedicated_server_mods_setup.lua</code>新增<code>ServerModSetup(&quot;id&quot;)</code></p><h1 id="四-神话书说"><a href="#四-神话书说" class="headerlink" title="四.神话书说"></a>四.神话书说</h1><p><code>神话书说</code>是个很有意思的mod，他分为<code>神话书说世界</code>和<code>神话书说人物</code></p><p>这里有个需要注意的地方，在带有<code>神话书说</code>这俩mod的世界<code>第一次</code>启动时</p><p>必须要先关闭<code>神话书说人物</code>，仅开启<code>神话书说世界</code></p><p>在<code>master_start.sh</code>启动成功后，关闭服务</p><p>再开启<code>神话书说人物</code>,再次启动<code>master_start.sh</code>,才能正常使用神话书说的人物</p><p>不然会因为顺序问题，人物加载失败，导致无法生成世界。</p>]]></content:encoded>
-      
-      
-      <category domain="http://blog.xingxiaowu.cn/categories/%E9%A5%A5%E8%8D%92/">饥荒</category>
-      
-      
-      <category domain="http://blog.xingxiaowu.cn/tags/%E9%A5%A5%E8%8D%92/">饥荒</category>
-      
-      
-      <comments>http://blog.xingxiaowu.cn/2022/10/03/%E9%A5%A5%E8%8D%92/%E6%97%A0%E6%98%9F%E7%9A%84%E9%A5%A5%E8%8D%92%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94Mod/#disqus_thread</comments>
       
     </item>
     
