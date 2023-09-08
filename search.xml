@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>无星的安全之旅（一）——Burp爆破</title>
+    <url>/2023/07/30/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94Burp%E7%88%86%E7%A0%B4/</url>
+    <content><![CDATA[<p>对于带验证码的爆破，需要对验证码进行识别</p>
+<p>可以使用<a href="https://github.com/f0ng/captcha-killer-modified">captcha-killer-modified</a>搭配<code>Burp</code>进行爆破</p>
+<p>同时推荐<a href="https://github.com/sml2h3/ddddocr"><code>ddddocr</code></a></p>
+<p>现在是2023年9月7日，<code>Pillow==9.5.0</code>当前的<code>ddddocr</code>并未对版本进行兼容</p>
+<p>我改了两个docker，有需要可以直接拉取部署</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># centos</span><br><span class="line">docker pull 329106954/ocr_server:centos</span><br><span class="line"># mac Inter芯片</span><br><span class="line">docker pull 329106954/ocr_server:mac</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>安全</category>
+      </categories>
+      <tags>
+        <tag>CTF</tag>
+        <tag>Burp</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>无星的安全之旅（三）——互联网渗透</title>
     <url>/2023/09/06/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E4%BA%92%E8%81%94%E7%BD%91%E6%B8%97%E9%80%8F/</url>
     <content><![CDATA[<p>互联网渗透的流程</p>
@@ -20,6 +39,8 @@
 <li>2.漏洞利用</li>
 <li>3.渗透后权限提升（权限维持）</li>
 </ul>
+<p>现在项目基本都是java</p>
+<p><a href="https://github.com/pyroxenites/SpringScan">SpringScan</a></p>
 <h3 id="漏洞文库："><a href="#漏洞文库：" class="headerlink" title="漏洞文库："></a>漏洞文库：</h3><p><a href="https://baizesec.github.io/bylibrary/">白阁</a></p>
 <p><a href="https://peiqi.wgpsec.org/dynamic/">佩奇</a></p>
 <h3 id="弱口令"><a href="#弱口令" class="headerlink" title="弱口令:"></a>弱口令:</h3><p>常用字典：</p>
@@ -32,7 +53,10 @@
 <p><a href="https://github.com/sml2h3/ddddocr"><code>ddddocr</code></a></p>
 <p><a href="https://github.com/sml2h3/ocr_api_server"><code>ddddocr_api_server</code></a>一键部署版</p>
 <h1 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h1><p>1.内核漏洞提权<br><a href="https://github.com/The-Z-Labs/linux-exploit-suggester">linux-exploit-suggester</a></p>
-<p>2.错误配置提权<br><a href="https://gtfobins.github.io/">gtfobins</a></p>
+<p>2.错误配置提权</p>
+<p>SUID</p>
+<p>sudo -l</p>
+<p><a href="https://gtfobins.github.io/">gtfobins</a></p>
 ]]></content>
       <categories>
         <category>安全</category>
@@ -40,25 +64,6 @@
       <tags>
         <tag>CTF</tag>
         <tag>渗透</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>无星的安全之旅（一）——Burp爆破</title>
-    <url>/2023/07/30/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94Burp%E7%88%86%E7%A0%B4/</url>
-    <content><![CDATA[<p>对于带验证码的爆破，需要对验证码进行识别</p>
-<p>可以使用<a href="https://github.com/f0ng/captcha-killer-modified">captcha-killer-modified</a>搭配<code>Burp</code>进行爆破</p>
-<p>同时推荐<a href="https://github.com/sml2h3/ddddocr"><code>ddddocr</code></a></p>
-<p>现在是2023年9月7日，<code>Pillow==9.5.0</code>当前的<code>ddddocr</code>并未对版本进行兼容</p>
-<p>我改了两个docker，有需要可以直接拉取部署</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># centos</span><br><span class="line">docker pull 329106954/ocr_server:centos</span><br><span class="line"># mac Inter芯片</span><br><span class="line">docker pull 329106954/ocr_server:mac</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>安全</category>
-      </categories>
-      <tags>
-        <tag>CTF</tag>
-        <tag>Burp</tag>
       </tags>
   </entry>
   <entry>
@@ -100,14 +105,51 @@
     <title>无星的安全之旅（四）——内网渗透</title>
     <url>/2023/09/07/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/</url>
     <content><![CDATA[<p>内网渗透的流程</p>
+<p>1.信息收集，寻找漏洞</p>
+<p>2.找到漏洞，进行注马</p>
+<p>3.获得shell</p>
+<p>4.如果需要，则提权</p>
+<p>5.查看网卡信息</p>
+<p>6.打洞</p>
+<p>7.链接并反弹shell，进行查询，寻找域管理用户，横向移动域控</p>
+<p>8.可以查询远程权限并进行远程，后面想做什么都行了，主打一个为所欲为</p>
 <h1 id="内网扫描"><a href="#内网扫描" class="headerlink" title="内网扫描"></a>内网扫描</h1><p><code>fscan</code></p>
 <p><code>nmap</code></p>
 <h1 id="内网信息收集"><a href="#内网信息收集" class="headerlink" title="内网信息收集"></a>内网信息收集</h1><p>1.当前主机用户权限 whoami&#x2F;all<br>2.当前网路配置 ipconfig&#x2F;all<br>3.当前操作系统信息 systeminfo<br>4.当前进程信息 tasklist&#x2F;svc<br>5.查看补丁 vmic qfe get Caption,Csname,Descripition,HotFiixID,InstalledOn<br>6.查看当前登陆用户 query user</p>
-<p>与环境</p>
-<p>1.域环境 net config workstation<br>2.域用户信息 net user &#x2F;domain<br>3.域用户组 net group &#x2F;domain<br>4.域控主机 net group</p>
+<p>域环境</p>
+<p>1.域环境 net config workstation</p>
+<p>2.域用户信息 net user &#x2F;domain</p>
+<p>3.域用户组 net group &#x2F;domain</p>
+<p>4.域控主机</p>
+<p>net group ‘domain controllers’ &#x2F;domain</p>
+<p>net time</p>
+<p>ipconfig(一般是dns服务器)</p>
+<p>ping 域名</p>
 <h1 id="内网钓鱼"><a href="#内网钓鱼" class="headerlink" title="内网钓鱼"></a>内网钓鱼</h1><p>钓鱼是最常用的手法，也是投入产出比最高的手段</p>
 <p>可以使用<code>Cobalt Strike</code>进行邮件钓鱼</p>
-<h1 id="打洞"><a href="#打洞" class="headerlink" title="打洞"></a>打洞</h1><p><code>frps</code></p>
+<h1 id="打洞"><a href="#打洞" class="headerlink" title="打洞"></a>打洞</h1><p><code>frps</code>唯一真神</p>
+<h1 id="漏洞检测"><a href="#漏洞检测" class="headerlink" title="漏洞检测"></a>漏洞检测</h1><p>常用的就是<code>fscan</code>和<code>Struts2漏洞检查工具</code></p>
+<p><code>Struts2</code>系列工具很多，这里提供几个</p>
+<p><a href="https://github.com/shack2/Struts2VulsTools">Struts2VulsTools</a></p>
+<p><a href="https://github.com/Vancomycin-g/Struts2Scan">Struts2Scan</a></p>
+<p>这是非常常用且必须的工具，通过已经公布的漏洞去做入侵，屡试不爽</p>
+<h1 id="docker逃逸"><a href="#docker逃逸" class="headerlink" title="docker逃逸"></a>docker逃逸</h1><p>众所周知，现在docker部署非常常见，k8s之类的层出不穷</p>
+<p>很有可能你攻击了半天拿下一个站，发现是docker部署的，啥权限都没有</p>
+<p><a href="https://xz.aliyun.com/t/12495">docker逃逸先知</a></p>
+<p>主要手段是通过挂在宿主机目录，往宿主机的目录下去放码或密钥进行登陆提权</p>
+<h1 id="查找域信息"><a href="#查找域信息" class="headerlink" title="查找域信息"></a>查找域信息</h1><p>查找域信息，并收集信息</p>
+<p>fscan找漏洞</p>
+<p>尝试通过漏洞进入域控信息</p>
+<p>如果8行</p>
+<p>那么尝试是否可以通过<code>MS14-068</code>提升当前用户权限</p>
+<p>再通过横向移动到域控</p>
+<h1 id="横向移动"><a href="#横向移动" class="headerlink" title="横向移动"></a>横向移动</h1><h1 id="权限维持"><a href="#权限维持" class="headerlink" title="权限维持"></a>权限维持</h1><ol>
+<li><p>制作隐藏用户（加$）</p>
+</li>
+<li><p>制作黄金门票</p>
+</li>
+</ol>
+<h1 id="CS上线"><a href="#CS上线" class="headerlink" title="CS上线"></a>CS上线</h1><h1 id="内网日志清除"><a href="#内网日志清除" class="headerlink" title="内网日志清除"></a>内网日志清除</h1><p>cmd <code>event.msc</code></p>
 ]]></content>
       <categories>
         <category>安全</category>
@@ -355,6 +397,30 @@
       </tags>
   </entry>
   <entry>
+    <title>无星的electron之旅（一）——创建Vue的electron项目</title>
+    <url>/2020/08/28/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84electron%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E5%88%9B%E5%BB%BAVue%E7%9A%84electron%E9%A1%B9%E7%9B%AE/</url>
+    <content><![CDATA[<h1 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h1><h2 id="1-使用脚手架正常创建项目"><a href="#1-使用脚手架正常创建项目" class="headerlink" title="1.使用脚手架正常创建项目"></a>1.使用脚手架正常创建项目</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vue create hello-world</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-集成electron"><a href="#2-集成electron" class="headerlink" title="2.集成electron"></a>2.集成electron</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vue add vue-cli-plugin-electron-builder</span><br></pre></td></tr></table></figure>
+<p>不过这一步可能大多数同学可能卡在下载electron这，因为众所周知的原因，它需要很久</p>
+<p>因此我们推荐使用国内源加速</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npx cross-env ELECTRON_MIRROR=&quot;https://npm.taobao.org/mirrors/electron/&quot; vue add vue-cli-plugin-electron-builder</span><br></pre></td></tr></table></figure>
+<p>这种方式能有效加速你的集成</p>
+<h3 id="也可以创建-npmrc文件放在项目中"><a href="#也可以创建-npmrc文件放在项目中" class="headerlink" title="也可以创建.npmrc文件放在项目中"></a>也可以创建.npmrc文件放在项目中</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># .npmrc</span><br><span class="line">electron_mirror=&quot;https://npm.taobao.org/mirrors/electron/&quot;</span><br></pre></td></tr></table></figure>
+<p>集成完毕以后</p>
+<h2 id="3-运行"><a href="#3-运行" class="headerlink" title="3.运行"></a>3.运行</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm run electron:serve</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-打包"><a href="#4-打包" class="headerlink" title="4.打包"></a>4.打包</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npx run electron:build</span><br></pre></td></tr></table></figure>
+<p>macos打包，需要忽略签名,修改electron:build</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">&quot;electron:build&quot;:&quot;npx cross-env CSC_IDENTITY_AUTO_DISCOVERY=false vue-cli-service electron:build&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>electron</category>
+      </categories>
+      <tags>
+        <tag>electron</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>无星的electron之旅（七）——electron 图标资源</title>
     <url>/2020/12/22/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84electron%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94electron%E5%9B%BE%E6%A0%87%E8%B5%84%E6%BA%90/</url>
     <content><![CDATA[<p>图标使用的地方非常多，打包生成exe的图标，运行时的图标，系统托盘的图标等等</p>
@@ -388,30 +454,6 @@
 <hr>
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://www.electron.build/icons.html#linux">打包图标</a></p>
 ]]></content>
-      <categories>
-        <category>electron</category>
-      </categories>
-      <tags>
-        <tag>electron</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>无星的electron之旅（一）——创建Vue的electron项目</title>
-    <url>/2020/08/28/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84electron%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E5%88%9B%E5%BB%BAVue%E7%9A%84electron%E9%A1%B9%E7%9B%AE/</url>
-    <content><![CDATA[<h1 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h1><h2 id="1-使用脚手架正常创建项目"><a href="#1-使用脚手架正常创建项目" class="headerlink" title="1.使用脚手架正常创建项目"></a>1.使用脚手架正常创建项目</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vue create hello-world</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-集成electron"><a href="#2-集成electron" class="headerlink" title="2.集成electron"></a>2.集成electron</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vue add vue-cli-plugin-electron-builder</span><br></pre></td></tr></table></figure>
-<p>不过这一步可能大多数同学可能卡在下载electron这，因为众所周知的原因，它需要很久</p>
-<p>因此我们推荐使用国内源加速</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npx cross-env ELECTRON_MIRROR=&quot;https://npm.taobao.org/mirrors/electron/&quot; vue add vue-cli-plugin-electron-builder</span><br></pre></td></tr></table></figure>
-<p>这种方式能有效加速你的集成</p>
-<h3 id="也可以创建-npmrc文件放在项目中"><a href="#也可以创建-npmrc文件放在项目中" class="headerlink" title="也可以创建.npmrc文件放在项目中"></a>也可以创建.npmrc文件放在项目中</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># .npmrc</span><br><span class="line">electron_mirror=&quot;https://npm.taobao.org/mirrors/electron/&quot;</span><br></pre></td></tr></table></figure>
-<p>集成完毕以后</p>
-<h2 id="3-运行"><a href="#3-运行" class="headerlink" title="3.运行"></a>3.运行</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm run electron:serve</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-打包"><a href="#4-打包" class="headerlink" title="4.打包"></a>4.打包</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npx run electron:build</span><br></pre></td></tr></table></figure>
-<p>macos打包，需要忽略签名,修改electron:build</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">&quot;electron:build&quot;:&quot;npx cross-env CSC_IDENTITY_AUTO_DISCOVERY=false vue-cli-service electron:build&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>electron</category>
       </categories>
@@ -4915,47 +4957,6 @@
       </tags>
   </entry>
   <entry>
-    <title>iOS  openssl库导入与RSA加密与签名</title>
-    <url>/2016/12/17/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/iOS%20%20openssl%E5%BA%93%E5%AF%BC%E5%85%A5%E4%B8%8ERSA%E5%8A%A0%E5%AF%86%E4%B8%8E%E7%AD%BE%E5%90%8D/</url>
-    <content><![CDATA[<p>背景：RSA加密，是一种非对称形式的加密方法。因为是支付公司，决定做自己的SDK，然后写示例代码，因此会将加密和加签都写进去方便集成者阅读。找了好天找的脑壳疼。。。不过好在最后找到了。分享出来，以免大家难以寻找。。。</p>
-<p>至于怎么生成密钥大家就自己百度一下吧。。。方法到处都能找到，我这里就不多说了。主要讲一下openssl的引入。</p>
-<p>rsa加密和签名的代码我就放在这里了。需要自取，也可以点个✨✨哟~。也是我找了好久问了好多人才找到的。（对了，还有一个签名方法在是支付宝的sdk，可以自行去支付宝开放平台下载，不过它的验签方法要输入的参数有支付宝后台的返回信息，所以没法单独拿来使用，签名完成也没法验签所以我就没用那个，有需要的也可以自己研究研究。）</p>
-<p>RSA加密:<a href="https://github.com/XingXiaoWu/RSA-demo">https://github.com/XingXiaoWu/RSA-demo</a></p>
-<p>RSA签名:<a href="https://github.com/XingXiaoWu/RSA-">https://github.com/XingXiaoWu/RSA-</a></p>
-<h3 id="不会引入openssl的童鞋继续往下看吧"><a href="#不会引入openssl的童鞋继续往下看吧" class="headerlink" title="不会引入openssl的童鞋继续往下看吧"></a>不会引入openssl的童鞋继续往下看吧</h3><p>1.首先，自己生产一对秘钥。然后将openssl导入库。</p>
-<p>ps：openssl这个库哪都有，自己生成也行，我后面给的rsa加密中也有，支付宝sdk里也有。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/ios-openssl/1.png" alt="img"></p>
-<p>这个时候运行是会报错的</p>
-<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/ios-openssl/2.png" alt="img"></p>
-<p>解决办法如下：</p>
-<p>1.如图搜索</p>
-<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/ios-openssl/3.png" alt="img"></p>
-<p>这里给大家解释一下这个要添加的地方怎么写</p>
-<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/ios-openssl/4.png" alt="img"></p>
-<p>首先添加$(SRCROOT)</p>
-<p>我们可以看见，包含rsa的openssl文件夹是4文件夹下的openssl</p>
-<p><strong>所以路径构成是：$(SRCROOT)&#x2F;项目名称1（TestDemo）&#x2F;包含的文件夹2（WXRSASignopen）&#x2F;包含的文件夹3（openssl）&#x2F;包含的文件夹4（include）</strong></p>
-<p>同理，填写你的项目的包含的路径。</p>
-<h1 id="运行一下，成功就不必看下面的了，不成功就继续往下看。"><a href="#运行一下，成功就不必看下面的了，不成功就继续往下看。" class="headerlink" title="运行一下，成功就不必看下面的了，不成功就继续往下看。"></a>运行一下，成功就不必看下面的了，不成功就继续往下看。</h1><p><em><strong>如果你使用的是支付宝sdk中的openssl文件和Untils工具类的话，可能其中的rsa.h或其他文件还会报错，这个时候可以打开报错的文件向其中添加#import即可，如果你嫌一个个添加太麻烦，可以做如下操作创建一个pch文件。</strong></em></p>
-<p>1.创建一个pch文件</p>
-<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/ios-openssl/5.png" alt="img"></p>
-<p>2.在创建的pch文件中写上#import&lt;Foundation&#x2F;Foundation.h&gt;</p>
-<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/ios-openssl/6.png" alt="img"></p>
-<p>3.复制这个$(TARGET_NAME)</p>
-<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/ios-openssl/7.png" alt="img"></p>
-<p>4.接着</p>
-<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/ios-openssl/8.png" alt="img"></p>
-<p>运行一下，一般就成功了。这样就完成了openssl库的导入。</p>
-<h2 id="libcrypto-a和libssl-a这两个-a文件别忘了导入！！！"><a href="#libcrypto-a和libssl-a这两个-a文件别忘了导入！！！" class="headerlink" title="libcrypto.a和libssl.a这两个.a文件别忘了导入！！！"></a><strong>libcrypto.a和libssl.a这两个.a文件别忘了导入！！！</strong></h2><h2 id="libcrypto-a和libssl-a这两个-a文件别忘了导入！！！-1"><a href="#libcrypto-a和libssl-a这两个-a文件别忘了导入！！！-1" class="headerlink" title="**libcrypto.a和libssl.a这两个.a文件别忘了导入！！！ **"></a>**libcrypto.a和libssl.a这两个.a文件别忘了导入！！！ **</h2><h1 id="libcrypto-a和libssl-a这两个-a文件别忘了导入！！！-2"><a href="#libcrypto-a和libssl-a这两个-a文件别忘了导入！！！-2" class="headerlink" title="**libcrypto.a和libssl.a这两个.a文件别忘了导入！！！ **"></a>**libcrypto.a和libssl.a这两个.a文件别忘了导入！！！ **</h1><p><strong>欧克，有问题的话在下方留言吧~~</strong></p>
-]]></content>
-      <categories>
-        <category>iOS</category>
-      </categories>
-      <tags>
-        <tag>iOS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>iOS封装SDK</title>
     <url>/2016/12/16/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/iOS%20%20%E5%B0%81%E8%A3%85SDK/</url>
     <content><![CDATA[<p>背景</p>
@@ -5000,6 +5001,47 @@
 <p>———我是分界线————</p>
 <p>12.26更新</p>
 <p>我知道第三方怎么封进去了，如果不暴露头文件，把#improt写进.m文件中，然后打包即可</p>
+]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>iOS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>iOS  openssl库导入与RSA加密与签名</title>
+    <url>/2016/12/17/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/iOS%20%20openssl%E5%BA%93%E5%AF%BC%E5%85%A5%E4%B8%8ERSA%E5%8A%A0%E5%AF%86%E4%B8%8E%E7%AD%BE%E5%90%8D/</url>
+    <content><![CDATA[<p>背景：RSA加密，是一种非对称形式的加密方法。因为是支付公司，决定做自己的SDK，然后写示例代码，因此会将加密和加签都写进去方便集成者阅读。找了好天找的脑壳疼。。。不过好在最后找到了。分享出来，以免大家难以寻找。。。</p>
+<p>至于怎么生成密钥大家就自己百度一下吧。。。方法到处都能找到，我这里就不多说了。主要讲一下openssl的引入。</p>
+<p>rsa加密和签名的代码我就放在这里了。需要自取，也可以点个✨✨哟~。也是我找了好久问了好多人才找到的。（对了，还有一个签名方法在是支付宝的sdk，可以自行去支付宝开放平台下载，不过它的验签方法要输入的参数有支付宝后台的返回信息，所以没法单独拿来使用，签名完成也没法验签所以我就没用那个，有需要的也可以自己研究研究。）</p>
+<p>RSA加密:<a href="https://github.com/XingXiaoWu/RSA-demo">https://github.com/XingXiaoWu/RSA-demo</a></p>
+<p>RSA签名:<a href="https://github.com/XingXiaoWu/RSA-">https://github.com/XingXiaoWu/RSA-</a></p>
+<h3 id="不会引入openssl的童鞋继续往下看吧"><a href="#不会引入openssl的童鞋继续往下看吧" class="headerlink" title="不会引入openssl的童鞋继续往下看吧"></a>不会引入openssl的童鞋继续往下看吧</h3><p>1.首先，自己生产一对秘钥。然后将openssl导入库。</p>
+<p>ps：openssl这个库哪都有，自己生成也行，我后面给的rsa加密中也有，支付宝sdk里也有。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/ios-openssl/1.png" alt="img"></p>
+<p>这个时候运行是会报错的</p>
+<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/ios-openssl/2.png" alt="img"></p>
+<p>解决办法如下：</p>
+<p>1.如图搜索</p>
+<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/ios-openssl/3.png" alt="img"></p>
+<p>这里给大家解释一下这个要添加的地方怎么写</p>
+<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/ios-openssl/4.png" alt="img"></p>
+<p>首先添加$(SRCROOT)</p>
+<p>我们可以看见，包含rsa的openssl文件夹是4文件夹下的openssl</p>
+<p><strong>所以路径构成是：$(SRCROOT)&#x2F;项目名称1（TestDemo）&#x2F;包含的文件夹2（WXRSASignopen）&#x2F;包含的文件夹3（openssl）&#x2F;包含的文件夹4（include）</strong></p>
+<p>同理，填写你的项目的包含的路径。</p>
+<h1 id="运行一下，成功就不必看下面的了，不成功就继续往下看。"><a href="#运行一下，成功就不必看下面的了，不成功就继续往下看。" class="headerlink" title="运行一下，成功就不必看下面的了，不成功就继续往下看。"></a>运行一下，成功就不必看下面的了，不成功就继续往下看。</h1><p><em><strong>如果你使用的是支付宝sdk中的openssl文件和Untils工具类的话，可能其中的rsa.h或其他文件还会报错，这个时候可以打开报错的文件向其中添加#import即可，如果你嫌一个个添加太麻烦，可以做如下操作创建一个pch文件。</strong></em></p>
+<p>1.创建一个pch文件</p>
+<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/ios-openssl/5.png" alt="img"></p>
+<p>2.在创建的pch文件中写上#import&lt;Foundation&#x2F;Foundation.h&gt;</p>
+<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/ios-openssl/6.png" alt="img"></p>
+<p>3.复制这个$(TARGET_NAME)</p>
+<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/ios-openssl/7.png" alt="img"></p>
+<p>4.接着</p>
+<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/ios-openssl/8.png" alt="img"></p>
+<p>运行一下，一般就成功了。这样就完成了openssl库的导入。</p>
+<h2 id="libcrypto-a和libssl-a这两个-a文件别忘了导入！！！"><a href="#libcrypto-a和libssl-a这两个-a文件别忘了导入！！！" class="headerlink" title="libcrypto.a和libssl.a这两个.a文件别忘了导入！！！"></a><strong>libcrypto.a和libssl.a这两个.a文件别忘了导入！！！</strong></h2><h2 id="libcrypto-a和libssl-a这两个-a文件别忘了导入！！！-1"><a href="#libcrypto-a和libssl-a这两个-a文件别忘了导入！！！-1" class="headerlink" title="**libcrypto.a和libssl.a这两个.a文件别忘了导入！！！ **"></a>**libcrypto.a和libssl.a这两个.a文件别忘了导入！！！ **</h2><h1 id="libcrypto-a和libssl-a这两个-a文件别忘了导入！！！-2"><a href="#libcrypto-a和libssl-a这两个-a文件别忘了导入！！！-2" class="headerlink" title="**libcrypto.a和libssl.a这两个.a文件别忘了导入！！！ **"></a>**libcrypto.a和libssl.a这两个.a文件别忘了导入！！！ **</h1><p><strong>欧克，有问题的话在下方留言吧~~</strong></p>
 ]]></content>
       <categories>
         <category>iOS</category>

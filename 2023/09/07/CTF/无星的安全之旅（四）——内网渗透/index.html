@@ -21,15 +21,15 @@
     var CONFIG = {"hostname":"blog.xingxiaowu.cn","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="内网渗透的流程 内网扫描fscan nmap 内网信息收集1.当前主机用户权限 whoami&#x2F;all2.当前网路配置 ipconfig&#x2F;all3.当前操作系统信息 systeminfo4.当前进程信息 tasklist&#x2F;svc5.查看补丁 vmic qfe get Caption,Csname,Descripition,HotFiixID,InstalledOn6.查">
+  <meta name="description" content="内网渗透的流程 1.信息收集，寻找漏洞 2.找到漏洞，进行注马 3.获得shell 4.如果需要，则提权 5.查看网卡信息 6.打洞 7.链接并反弹shell，进行查询，寻找域管理用户，横向移动域控 8.可以查询远程权限并进行远程，后面想做什么都行了，主打一个为所欲为 内网扫描">
 <meta property="og:type" content="article">
 <meta property="og:title" content="无星的安全之旅（四）——内网渗透">
 <meta property="og:url" content="http://blog.xingxiaowu.cn/2023/09/07/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/index.html">
 <meta property="og:site_name" content="无星的小窝">
-<meta property="og:description" content="内网渗透的流程 内网扫描fscan nmap 内网信息收集1.当前主机用户权限 whoami&#x2F;all2.当前网路配置 ipconfig&#x2F;all3.当前操作系统信息 systeminfo4.当前进程信息 tasklist&#x2F;svc5.查看补丁 vmic qfe get Caption,Csname,Descripition,HotFiixID,InstalledOn6.查">
+<meta property="og:description" content="内网渗透的流程 1.信息收集，寻找漏洞 2.找到漏洞，进行注马 3.获得shell 4.如果需要，则提权 5.查看网卡信息 6.打洞 7.链接并反弹shell，进行查询，寻找域管理用户，横向移动域控 8.可以查询远程权限并进行远程，后面想做什么都行了，主打一个为所欲为 内网扫描">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-07T02:17:00.000Z">
-<meta property="article:modified_time" content="2023-09-07T02:23:52.291Z">
+<meta property="article:modified_time" content="2023-09-07T07:57:16.037Z">
 <meta property="article:author" content="无星">
 <meta property="article:tag" content="CTF">
 <meta property="article:tag" content="渗透">
@@ -251,7 +251,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2023-09-07 10:17:00 / 修改时间：10:23:52" itemprop="dateCreated datePublished" datetime="2023-09-07T10:17:00+08:00">2023-09-07</time>
+              <time title="创建时间：2023-09-07 10:17:00 / 修改时间：15:57:16" itemprop="dateCreated datePublished" datetime="2023-09-07T10:17:00+08:00">2023-09-07</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -283,7 +283,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>353</span>
+              <span>885</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -303,14 +303,51 @@
 
       
         <p>内网渗透的流程</p>
+<p>1.信息收集，寻找漏洞</p>
+<p>2.找到漏洞，进行注马</p>
+<p>3.获得shell</p>
+<p>4.如果需要，则提权</p>
+<p>5.查看网卡信息</p>
+<p>6.打洞</p>
+<p>7.链接并反弹shell，进行查询，寻找域管理用户，横向移动域控</p>
+<p>8.可以查询远程权限并进行远程，后面想做什么都行了，主打一个为所欲为</p>
 <h1 id="内网扫描"><a href="#内网扫描" class="headerlink" title="内网扫描"></a>内网扫描</h1><p><code>fscan</code></p>
 <p><code>nmap</code></p>
 <h1 id="内网信息收集"><a href="#内网信息收集" class="headerlink" title="内网信息收集"></a>内网信息收集</h1><p>1.当前主机用户权限 whoami&#x2F;all<br>2.当前网路配置 ipconfig&#x2F;all<br>3.当前操作系统信息 systeminfo<br>4.当前进程信息 tasklist&#x2F;svc<br>5.查看补丁 vmic qfe get Caption,Csname,Descripition,HotFiixID,InstalledOn<br>6.查看当前登陆用户 query user</p>
-<p>与环境</p>
-<p>1.域环境 net config workstation<br>2.域用户信息 net user &#x2F;domain<br>3.域用户组 net group &#x2F;domain<br>4.域控主机 net group</p>
+<p>域环境</p>
+<p>1.域环境 net config workstation</p>
+<p>2.域用户信息 net user &#x2F;domain</p>
+<p>3.域用户组 net group &#x2F;domain</p>
+<p>4.域控主机</p>
+<p>net group ‘domain controllers’ &#x2F;domain</p>
+<p>net time</p>
+<p>ipconfig(一般是dns服务器)</p>
+<p>ping 域名</p>
 <h1 id="内网钓鱼"><a href="#内网钓鱼" class="headerlink" title="内网钓鱼"></a>内网钓鱼</h1><p>钓鱼是最常用的手法，也是投入产出比最高的手段</p>
 <p>可以使用<code>Cobalt Strike</code>进行邮件钓鱼</p>
-<h1 id="打洞"><a href="#打洞" class="headerlink" title="打洞"></a>打洞</h1><p><code>frps</code></p>
+<h1 id="打洞"><a href="#打洞" class="headerlink" title="打洞"></a>打洞</h1><p><code>frps</code>唯一真神</p>
+<h1 id="漏洞检测"><a href="#漏洞检测" class="headerlink" title="漏洞检测"></a>漏洞检测</h1><p>常用的就是<code>fscan</code>和<code>Struts2漏洞检查工具</code></p>
+<p><code>Struts2</code>系列工具很多，这里提供几个</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/shack2/Struts2VulsTools">Struts2VulsTools</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Vancomycin-g/Struts2Scan">Struts2Scan</a></p>
+<p>这是非常常用且必须的工具，通过已经公布的漏洞去做入侵，屡试不爽</p>
+<h1 id="docker逃逸"><a href="#docker逃逸" class="headerlink" title="docker逃逸"></a>docker逃逸</h1><p>众所周知，现在docker部署非常常见，k8s之类的层出不穷</p>
+<p>很有可能你攻击了半天拿下一个站，发现是docker部署的，啥权限都没有</p>
+<p><a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/12495">docker逃逸先知</a></p>
+<p>主要手段是通过挂在宿主机目录，往宿主机的目录下去放码或密钥进行登陆提权</p>
+<h1 id="查找域信息"><a href="#查找域信息" class="headerlink" title="查找域信息"></a>查找域信息</h1><p>查找域信息，并收集信息</p>
+<p>fscan找漏洞</p>
+<p>尝试通过漏洞进入域控信息</p>
+<p>如果8行</p>
+<p>那么尝试是否可以通过<code>MS14-068</code>提升当前用户权限</p>
+<p>再通过横向移动到域控</p>
+<h1 id="横向移动"><a href="#横向移动" class="headerlink" title="横向移动"></a>横向移动</h1><h1 id="权限维持"><a href="#权限维持" class="headerlink" title="权限维持"></a>权限维持</h1><ol>
+<li><p>制作隐藏用户（加$）</p>
+</li>
+<li><p>制作黄金门票</p>
+</li>
+</ol>
+<h1 id="CS上线"><a href="#CS上线" class="headerlink" title="CS上线"></a>CS上线</h1><h1 id="内网日志清除"><a href="#内网日志清除" class="headerlink" title="内网日志清除"></a>内网日志清除</h1><p>cmd <code>event.msc</code></p>
 
     </div>
 
@@ -413,7 +450,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%85%E7%BD%91%E6%89%AB%E6%8F%8F"><span class="nav-number">1.</span> <span class="nav-text">内网扫描</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%85%E7%BD%91%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="nav-number">2.</span> <span class="nav-text">内网信息收集</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%85%E7%BD%91%E9%92%93%E9%B1%BC"><span class="nav-number">3.</span> <span class="nav-text">内网钓鱼</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%89%93%E6%B4%9E"><span class="nav-number">4.</span> <span class="nav-text">打洞</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%85%E7%BD%91%E6%89%AB%E6%8F%8F"><span class="nav-number">1.</span> <span class="nav-text">内网扫描</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%85%E7%BD%91%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="nav-number">2.</span> <span class="nav-text">内网信息收集</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%85%E7%BD%91%E9%92%93%E9%B1%BC"><span class="nav-number">3.</span> <span class="nav-text">内网钓鱼</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%89%93%E6%B4%9E"><span class="nav-number">4.</span> <span class="nav-text">打洞</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%BC%8F%E6%B4%9E%E6%A3%80%E6%B5%8B"><span class="nav-number">5.</span> <span class="nav-text">漏洞检测</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#docker%E9%80%83%E9%80%B8"><span class="nav-number">6.</span> <span class="nav-text">docker逃逸</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE%E5%9F%9F%E4%BF%A1%E6%81%AF"><span class="nav-number">7.</span> <span class="nav-text">查找域信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8"><span class="nav-number">8.</span> <span class="nav-text">横向移动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81"><span class="nav-number">9.</span> <span class="nav-text">权限维持</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CS%E4%B8%8A%E7%BA%BF"><span class="nav-number">10.</span> <span class="nav-text">CS上线</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%85%E7%BD%91%E6%97%A5%E5%BF%97%E6%B8%85%E9%99%A4"><span class="nav-number">11.</span> <span class="nav-text">内网日志清除</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -521,13 +558,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">259k</span>
+    <span title="站点总字数">260k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:55</span>
+    <span title="站点阅读时长">3:56</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

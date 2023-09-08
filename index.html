@@ -248,7 +248,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2023-09-07 10:17:00 / 修改时间：10:23:52" itemprop="dateCreated datePublished" datetime="2023-09-07T10:17:00+08:00">2023-09-07</time>
+              <time title="创建时间：2023-09-07 10:17:00 / 修改时间：15:57:16" itemprop="dateCreated datePublished" datetime="2023-09-07T10:17:00+08:00">2023-09-07</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -273,7 +273,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>353</span>
+              <span>885</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -293,12 +293,15 @@
 
       
           <p>内网渗透的流程</p>
-<h1 id="内网扫描"><a href="#内网扫描" class="headerlink" title="内网扫描"></a>内网扫描</h1><p><code>fscan</code></p>
-<p><code>nmap</code></p>
-<h1 id="内网信息收集"><a href="#内网信息收集" class="headerlink" title="内网信息收集"></a>内网信息收集</h1><p>1.当前主机用户权限 whoami&#x2F;all<br>2.当前网路配置 ipconfig&#x2F;all<br>3.当前操作系统信息 systeminfo<br>4.当前进程信息 tasklist&#x2F;svc<br>5.查看补丁 vmic qfe get Caption,Csname,Descripition,HotFiixID,InstalledOn<br>6.查看当前登陆用户 query user</p>
-<p>与环境</p>
-<p>1.域环境 net config workstation<br>2.域用户信息 net user &#x2F;domain<br>3.域用户组 net group &#x2F;domain<br>4.域控主机 net group</p>
-<h1 id="内网钓鱼"><a href="#内网钓鱼" class="headerlink" title="内网钓鱼"></a>内网钓鱼</h1><p>钓鱼是最常用的手法，也是投入产出比最高的手段</p>
+<p>1.信息收集，寻找漏洞</p>
+<p>2.找到漏洞，进行注马</p>
+<p>3.获得shell</p>
+<p>4.如果需要，则提权</p>
+<p>5.查看网卡信息</p>
+<p>6.打洞</p>
+<p>7.链接并反弹shell，进行查询，寻找域管理用户，横向移动域控</p>
+<p>8.可以查询远程权限并进行远程，后面想做什么都行了，主打一个为所欲为</p>
+<h1 id="内网扫描"><a href="#内网扫描" class="headerlink" title="内网扫描"></a>内网扫描</h1>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2023/09/07/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/#more" rel="contents">
@@ -356,7 +359,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-07 10:23:45" itemprop="dateModified" datetime="2023-09-07T10:23:45+08:00">2023-09-07</time>
+                <time title="修改时间：2023-09-07 16:11:10" itemprop="dateModified" datetime="2023-09-07T16:11:10+08:00">2023-09-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -381,7 +384,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>387</span>
+              <span>419</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -1461,13 +1464,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">259k</span>
+    <span title="站点总字数">260k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:55</span>
+    <span title="站点阅读时长">3:56</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
