@@ -223,6 +223,224 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2017/09/22/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E5%85%AD%EF%BC%89-%E7%AC%AC%E4%B8%89%E6%96%B9App%E8%B7%B3%E8%BD%AC%EF%BC%8C%E8%8B%B9%E6%9E%9C%E5%95%86%E5%BA%97%E8%B7%B3%E8%BD%AC%EF%BC%8Cloading%E6%A1%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/09/22/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E5%85%AD%EF%BC%89-%E7%AC%AC%E4%B8%89%E6%96%B9App%E8%B7%B3%E8%BD%AC%EF%BC%8C%E8%8B%B9%E6%9E%9C%E5%95%86%E5%BA%97%E8%B7%B3%E8%BD%AC%EF%BC%8Cloading%E6%A1%86/" class="post-title-link" itemprop="url">无星的RN学习之旅（六）-第三方App跳转，苹果商店跳转，loading框</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-09-22 09:33:00" itemprop="dateCreated datePublished" datetime="2017-09-22T09:33:00+08:00">2017-09-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-08-05 22:52:50" itemprop="dateModified" datetime="2023-08-05T22:52:50+08:00">2023-08-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/react-native/" itemprop="url" rel="index"><span itemprop="name">react-native</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2017/09/22/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E5%85%AD%EF%BC%89-%E7%AC%AC%E4%B8%89%E6%96%B9App%E8%B7%B3%E8%BD%AC%EF%BC%8C%E8%8B%B9%E6%9E%9C%E5%95%86%E5%BA%97%E8%B7%B3%E8%BD%AC%EF%BC%8Cloading%E6%A1%86/" class="post-meta-item leancloud_visitors" data-flag-title="无星的RN学习之旅（六）-第三方App跳转，苹果商店跳转，loading框" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>#1.第三方App跳转<br>这是很常见的问题，第三方app跳转到本app去做一些业务操作。<br>但是这时候会发现，你跳进来，是黑色的，没有界面，没想到吧23333<br>其实这在前面说过，RN的想法很独特，是一个ctrl上放了无数个view，不停的更改view来渲染，而rn的首页view，则是在appdelegate的初始化方法里去添加的。跳转进来的处理方法里如果你不写，就不会有view添加进来。<br>所以这时候有两种方法来完成这个view的添加操作：<br>####A.在第三方跳转进来的方法里做视图加载操作，但是这会遇到一个问题。假使你使用了RN的启动页，你会发现每次跳转进来都会开启启动页。这对用户的体验明显是很不好的。<br>####B.自己创建一个UIViewCtrl，并作为根视图放进window中，在这个UIViewCtrl中做视图加载操作。这样跳转进来加载根视图的时候就会把这个RN的View给加载上去。而且根据生命周期场景复现的原则，不会再有加载第二次第三次的情况。</p>
+<p>如图</p>
+<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/RN6/1.png" alt="Appdelegate.m"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/RN6/2.png" alt="RootViewCtrl.m"></p>
+<p>另外，如果要跳到某一页面做某一操作，又不想重复跳，可以采用以下方式移除</p>
+<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/RN6/3.png" alt="第三方跳转"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#pragma mark --第三方跳转进入这里(新)</span><br><span class="line">-(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url &#123;</span><br><span class="line">//  NSLog(@&quot;url ====%@&quot;,url);</span><br><span class="line">  thirdViewController *vc = [thirdViewController sharedthirdViewController];</span><br><span class="line">  vc.url = url;</span><br><span class="line">  </span><br><span class="line">  UIViewController *topViewCtrl = self.nav.topViewController;</span><br><span class="line">  if ([topViewCtrl isKindOfClass:[thirdViewController class]]) &#123;  //判断是否在最顶层</span><br><span class="line">    [vc thirdSign];</span><br><span class="line">  &#125;else&#123;</span><br><span class="line">    [self.nav pushViewController:vc animated:YES];</span><br><span class="line">    [vc thirdSign];</span><br><span class="line">  &#125;</span><br><span class="line">  return YES;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>#2.应用升级苹果商店跳转<br>这个就很简单了啊，直接link：app在苹果商店的地址就行，至于怎么找app在苹果商店的地址，谷歌一下或百度一下都有。<br>#3.启动屏设置<br>采用了RN的启动页，你需要把原生的启动页稍作更改。把这个勾去掉</p>
+<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/RN6/4.png" alt="把这里改一下"></p>
+<p>#3.按钮点击封装防止二次点击<br>是不是有时候控件响应较慢，点击两次还以为没反应，结果却运行两次操作，感觉比较烦人。<br>这里贴出一个大佬给的方式，其实是采用定时器操作，只要有点击操作，做出事件处理，并开启定时器，在定时器时间内屏蔽其他的点击操作。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/09/22/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E5%85%AD%EF%BC%89-%E7%AC%AC%E4%B8%89%E6%96%B9App%E8%B7%B3%E8%BD%AC%EF%BC%8C%E8%8B%B9%E6%9E%9C%E5%95%86%E5%BA%97%E8%B7%B3%E8%BD%AC%EF%BC%8Cloading%E6%A1%86/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2017/09/18/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89-%E5%85%B3%E4%BA%8Ereact-navigation%E5%A4%9A%E5%B1%82%E7%BA%A7%E9%A1%B5%E9%9D%A2%E8%BF%94%E5%9B%9E%E6%97%B6%EF%BC%8C%E5%8E%BB%E6%8E%89%E9%80%90%E5%B1%82%E6%8E%A8%E5%87%BA%E5%8A%A8%E7%94%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/09/18/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89-%E5%85%B3%E4%BA%8Ereact-navigation%E5%A4%9A%E5%B1%82%E7%BA%A7%E9%A1%B5%E9%9D%A2%E8%BF%94%E5%9B%9E%E6%97%B6%EF%BC%8C%E5%8E%BB%E6%8E%89%E9%80%90%E5%B1%82%E6%8E%A8%E5%87%BA%E5%8A%A8%E7%94%BB/" class="post-title-link" itemprop="url">无星的RN学习之旅（五）-关于react-navigation多层级页面返回时，去掉逐层推出动画</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-09-18 15:19:00" itemprop="dateCreated datePublished" datetime="2017-09-18T15:19:00+08:00">2017-09-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-08-05 22:52:50" itemprop="dateModified" datetime="2023-08-05T22:52:50+08:00">2023-08-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/react-native/" itemprop="url" rel="index"><span itemprop="name">react-native</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2017/09/18/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89-%E5%85%B3%E4%BA%8Ereact-navigation%E5%A4%9A%E5%B1%82%E7%BA%A7%E9%A1%B5%E9%9D%A2%E8%BF%94%E5%9B%9E%E6%97%B6%EF%BC%8C%E5%8E%BB%E6%8E%89%E9%80%90%E5%B1%82%E6%8E%A8%E5%87%BA%E5%8A%A8%E7%94%BB/" class="post-meta-item leancloud_visitors" data-flag-title="无星的RN学习之旅（五）-关于react-navigation多层级页面返回时，去掉逐层推出动画" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>912</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>git：<a target="_blank" rel="noopener" href="https://github.com/react-community/react-navigation/issues/1493">https://github.com/react-community/react-navigation/issues/1493</a><br>来，下猛药：<br>首先找到文件：src&#x2F;views&#x2F;ScenesReducer.js<br>然后用下面的代码：<br>　　let k &#x3D; null;<br>　　let v &#x3D; null;<br>　　staleScenes.forEach(scene &#x3D;&gt; {<br>　　let {key} &#x3D; scene;<br>　　k &#x3D; key;<br>　　v &#x3D; scene;<br>　　});<br>　　newStaleScenes &#x3D; k &amp;&amp; v ? new Map([[k, v]]) : new Map();<br>　　newStaleScenes.forEach(mergeScene);<br>替换：staleScenes.forEach(mergeScene);<br>保存编译，就只有返回某页的动画了</p>
+<p>转自<a target="_blank" rel="noopener" href="http://www.cnblogs.com/lc901221/p/7543094.html">http://www.cnblogs.com/lc901221/p/7543094.html</a><br>我就是那个贴了帖子看不懂答案的傻逼，。。</p>
+<p>另外：<br>transitionConfig : () &#x3D;&gt; ({<br>                transitionSpec: {<br>                    duration: 0,<br>                    timing: Animated.timing,<br>                    easing: Easing.step0,<br>                },<br>            }),<br>去掉动画效果</p>
+<p>2018-2-23 更新<br>以上解决方案适用于1.0.0beta版<br>升级到React-navigation 1.1.1版本后可直接通过key去回退指定版本。<br>至于怎么取key&#x3D;&gt;可以在跳转时缓存页面对应key值，通过页面名去获取缓存的key值跳转。<br>注意源码中当页面层级index为0时（首页）不会back。这一块应该是有想法的，但在特定情况下会有bug，因为我们项目就遇到了–但我暂时无法用语言总结出出现的场景。</p>
+<p><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/d417f7bdc511">无星的RN学习之旅（一）-环境安装以及新建项目</a><br><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/cd0cfa602963">无星的RN学习之旅（二）-RN与原生的通信</a><br><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/ea3484f54643">无星的RN学习之旅（三）-bridge is not set.</a><br><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/cccf744bdd8d">无星的RN学习之旅（四）——通信、持久化存储、xcode打包</a><br><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/42d9c668cbb1">无星的RN学习之旅（六）-第三方App跳转，苹果商店跳转，loading框</a></p>
+
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/09/18/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89-%E5%85%B3%E4%BA%8Ereact-navigation%E5%A4%9A%E5%B1%82%E7%BA%A7%E9%A1%B5%E9%9D%A2%E8%BF%94%E5%9B%9E%E6%97%B6%EF%BC%8C%E5%8E%BB%E6%8E%89%E9%80%90%E5%B1%82%E6%8E%A8%E5%87%BA%E5%8A%A8%E7%94%BB/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2017/08/31/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/AFnetworking%E7%9A%84%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1099,227 +1317,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2017/01/17/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/Android-studio%E5%A6%82%E4%BD%95%E5%B0%86%E7%AC%AC%E4%B8%89%E6%96%B9jar%E5%8C%85%E6%89%93%E5%85%A5%E4%B8%80%E4%B8%AAjar%E5%8C%85%EF%BC%88%E4%B8%89%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/01/17/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/Android-studio%E5%A6%82%E4%BD%95%E5%B0%86%E7%AC%AC%E4%B8%89%E6%96%B9jar%E5%8C%85%E6%89%93%E5%85%A5%E4%B8%80%E4%B8%AAjar%E5%8C%85%EF%BC%88%E4%B8%89%EF%BC%89/" class="post-title-link" itemprop="url">（转载）Android studio如何将第三方jar包打入一个jar包（三）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-01-17 10:28:00" itemprop="dateCreated datePublished" datetime="2017-01-17T10:28:00+08:00">2017-01-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-08-05 22:52:50" itemprop="dateModified" datetime="2023-08-05T22:52:50+08:00">2023-08-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2017/01/17/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/Android-studio%E5%A6%82%E4%BD%95%E5%B0%86%E7%AC%AC%E4%B8%89%E6%96%B9jar%E5%8C%85%E6%89%93%E5%85%A5%E4%B8%80%E4%B8%AAjar%E5%8C%85%EF%BC%88%E4%B8%89%EF%BC%89/" class="post-meta-item leancloud_visitors" data-flag-title="（转载）Android studio如何将第三方jar包打入一个jar包（三）" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.7k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>问题：</p>
-<p>存在这么一种情况：</p>
-<p>我们要打包的android项目中已经引用了一个或多个第三方.jar文件。那么我们按上面的方法打成.jar文件，在引入到别的项目中使用中，</p>
-<p>会发现出现错误：</p>
-<p>NoClassDefFoundError</p>
-<p>定位到错误代码位置，会发现生成.jar文件的原始android项目中引用的第三方.jar文件中的类找不到。</p>
-<p>这里可以猜测，使用上述方法将android项目打成.jar文件的过程中，并没有将android项目原来引用的第三方.jar文件也一起打入到新的.jar文件中。</p>
-<p>可以测试一下，将android项目打成的.jar文件解压缩，会发现只有java代码相关文件，而没有原来android项目中引用的第三方.jar文件</p>
-<p>解决方案：</p>
-<p>1、首先 问题产生的原因就是生成.jar文件的android项目原先引用的第三方.jar文件没有被打入到 新的.jar文件中</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2017/01/17/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/Android-studio%E5%A6%82%E4%BD%95%E5%B0%86%E7%AC%AC%E4%B8%89%E6%96%B9jar%E5%8C%85%E6%89%93%E5%85%A5%E4%B8%80%E4%B8%AAjar%E5%8C%85%EF%BC%88%E4%B8%89%EF%BC%89/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2017/01/09/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/Android%20studio%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8jaraar%E5%8C%85%EF%BC%88%E4%BA%8C%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/01/09/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/Android%20studio%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8jaraar%E5%8C%85%EF%BC%88%E4%BA%8C%EF%BC%89/" class="post-title-link" itemprop="url">Android studio如何使用jar/aar包（二）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-01-09 16:47:12" itemprop="dateCreated datePublished" datetime="2017-01-09T16:47:12+08:00">2017-01-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-08-05 22:52:50" itemprop="dateModified" datetime="2023-08-05T22:52:50+08:00">2023-08-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2017/01/09/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/Android%20studio%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8jaraar%E5%8C%85%EF%BC%88%E4%BA%8C%EF%BC%89/" class="post-meta-item leancloud_visitors" data-flag-title="Android studio如何使用jar/aar包（二）" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>224</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>上一篇说到如何创建jar&#x2F;aar，这篇介绍如何使用</p>
-<h1 id="一-jar的使用"><a href="#一-jar的使用" class="headerlink" title="一 jar的使用"></a>一 jar的使用</h1><p>jar包的使用很简单，直接将jar包拷如lib目录下</p>
-<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/as-jar-arr2/1.png" alt="img"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/as-jar-arr2/2.png" alt="img"></p>
-<p>运行完之后我们试一下</p>
-<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/as-jar-arr2/3.png" alt="img"></p>
-<p>使用成功。</p>
-<p>二 aar包的使用</p>
-<p>同样先导入libs目录下</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2017/01/09/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/Android%20studio%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8jaraar%E5%8C%85%EF%BC%88%E4%BA%8C%EF%BC%89/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1391,7 +1388,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">127</span>
+          <span class="site-state-item-count">129</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1404,7 +1401,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">33</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1483,13 +1480,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">260k</span>
+    <span title="站点总字数">262k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:56</span>
+    <span title="站点阅读时长">3:58</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
