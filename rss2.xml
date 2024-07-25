@@ -45,6 +45,37 @@
     </item>
     
     <item>
+      <title>无星的前端之旅（二十九）——vCard电子名片</title>
+      <link>http://blog.xingxiaowu.cn/2024/07/05/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E4%B9%9D%EF%BC%89%E2%80%94%E2%80%94vCard/</link>
+      <guid>http://blog.xingxiaowu.cn/2024/07/05/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E4%B9%9D%EF%BC%89%E2%80%94%E2%80%94vCard/</guid>
+      <pubDate>Fri, 05 Jul 2024 10:23:00 GMT</pubDate>
+      
+      <description>&lt;h1 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h1&gt;&lt;p&gt;最近同事给我发了一张“电子名片”&lt;/p&gt;
+&lt;p&gt;照片上有一个二维码&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E5%89%8D%E7%AB%AF28/20240718155130.png&quot; alt=&quot;名片&quot;&gt;&lt;/p&gt;
+&lt;p&gt;大伙可以用微信扫这个二维码看看&lt;/p&gt;
+&lt;p&gt;看看是不是很有意思&lt;/p&gt;
+&lt;p&gt;其实非常简单&lt;/p&gt;
+&lt;p&gt;大家只要搜索&lt;code&gt;vCard&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;就能找到这个标准格式&lt;/p&gt;
+&lt;p&gt;不过标准都有点麻烦&lt;/p&gt;</description>
+      
+      
+      
+      <content:encoded><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近同事给我发了一张“电子名片”</p><p>照片上有一个二维码</p><p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E5%89%8D%E7%AB%AF28/20240718155130.png" alt="名片"></p><p>大伙可以用微信扫这个二维码看看</p><p>看看是不是很有意思</p><p>其实非常简单</p><p>大家只要搜索<code>vCard</code></p><p>就能找到这个标准格式</p><p>不过标准都有点麻烦</p><p>以下是我这个二维码的生成内容</p><p>我使用的是3.0版本</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">BEGIN:VCARD</span><br><span class="line">VERSION:3.0</span><br><span class="line">URL:https://blog.xingxiaowu.cn</span><br><span class="line">PHOTO;TYPE=PNG;VALUE=URI:https://blog.xingxiaowu.cn/images/headerPic.png</span><br><span class="line">FN;CHARSET=UTF-8:无星</span><br><span class="line">TEL;TYPE=CELL:110</span><br><span class="line">TEL;TYPE=WORK:110</span><br><span class="line">ORG;CHARSET=UTF-8:吹牛逼有限公司</span><br><span class="line">TITLE:董事长</span><br><span class="line">ADR;TYPE=WORK;UTF-8:宇宙大街11号</span><br><span class="line">EMAIL;TYPE=internet:chuiniubi@nc.com</span><br><span class="line">ID:000000001##000000001</span><br><span class="line">END:VCARD</span><br></pre></td></tr></table></figure><p>不过微信扫码有1个点要注意</p><p><a href="https://developers.weixin.qq.com/community/minihome/doc/000e26e88f4bf02d6f6fea2d25e400">微信扫描vCard格式的二维码为什么中文和URL(主页)共存就会无法成功识别?</a></p><p>答案是：URL放中文签前面</p><p>另外还有个问题，微信扫码的头像怎么添加上去？有知道的老哥可以评论区说说</p>]]></content:encoded>
+      
+      
+      <category domain="http://blog.xingxiaowu.cn/categories/%E5%89%8D%E7%AB%AF/">前端</category>
+      
+      
+      <category domain="http://blog.xingxiaowu.cn/tags/%E5%89%8D%E7%AB%AF/">前端</category>
+      
+      
+      <comments>http://blog.xingxiaowu.cn/2024/07/05/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E4%B9%9D%EF%BC%89%E2%80%94%E2%80%94vCard/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>赣银杯赛前培训</title>
       <link>http://blog.xingxiaowu.cn/2024/06/26/CTF/%E8%B5%A3%E9%93%B6%E6%9D%AF%E5%9F%B9%E8%AE%AD/</link>
       <guid>http://blog.xingxiaowu.cn/2024/06/26/CTF/%E8%B5%A3%E9%93%B6%E6%9D%AF%E5%9F%B9%E8%AE%AD/</guid>
@@ -316,35 +347,6 @@
       
       
       <comments>http://blog.xingxiaowu.cn/2024/04/17/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94md5%E7%BB%95%E8%BF%87/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>无星的前端之旅（二十八）-如何迁移npm包</title>
-      <link>http://blog.xingxiaowu.cn/2023/11/21/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E4%B9%9D%EF%BC%89%E2%80%94%E2%80%94%E5%A6%82%E4%BD%95%E8%BF%81%E7%A7%BBnpm%E5%8C%85/</link>
-      <guid>http://blog.xingxiaowu.cn/2023/11/21/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E4%B9%9D%EF%BC%89%E2%80%94%E2%80%94%E5%A6%82%E4%BD%95%E8%BF%81%E7%A7%BBnpm%E5%8C%85/</guid>
-      <pubDate>Tue, 21 Nov 2023 10:23:00 GMT</pubDate>
-      
-      <description>&lt;h1 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h1&gt;&lt;p&gt;我有一台外网电脑，还有一台内网电脑，内网的镜像源全靠人手工上传包，且平时几乎不更新，所以包的版本都很低。&lt;/p&gt;
-&lt;p&gt;我喜欢做一些简单的工具，仅自己使用，而且我喜欢用最新的版本，内部的源无法满足我的需求。&lt;/p&gt;
-&lt;p&gt;而且，我平时是使用pnpm管理。&lt;/p&gt;
-&lt;p&gt;那么接下来，我来介绍几种方式，以应对这个情况。&lt;/p&gt;
-&lt;h1 id=&quot;方式一&quot;&gt;&lt;a href=&quot;#方式一&quot; class=&quot;headerlink&quot; title=&quot;方式一&quot;&gt;&lt;/a&gt;方式一&lt;/h1&gt;&lt;p&gt;针对使用&lt;code&gt;yarn&lt;/code&gt;和&lt;code&gt;npm&lt;/code&gt;包管理器的，非常简单，整个&lt;code&gt;node_modules&lt;/code&gt;搬进去就行了。&lt;/p&gt;
-&lt;h1 id=&quot;方式二&quot;&gt;&lt;a href=&quot;#方式二&quot; class=&quot;headerlink&quot; title=&quot;方式二&quot;&gt;&lt;/a&gt;方式二&lt;/h1&gt;&lt;p&gt;使用&lt;code&gt;tar&lt;/code&gt;包&lt;/p&gt;
-&lt;p&gt;访问淘宝镜像站点&lt;code&gt;https://npmmirror.com/&lt;/code&gt;&lt;/p&gt;</description>
-      
-      
-      
-      <content:encoded><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>我有一台外网电脑，还有一台内网电脑，内网的镜像源全靠人手工上传包，且平时几乎不更新，所以包的版本都很低。</p><p>我喜欢做一些简单的工具，仅自己使用，而且我喜欢用最新的版本，内部的源无法满足我的需求。</p><p>而且，我平时是使用pnpm管理。</p><p>那么接下来，我来介绍几种方式，以应对这个情况。</p><h1 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h1><p>针对使用<code>yarn</code>和<code>npm</code>包管理器的，非常简单，整个<code>node_modules</code>搬进去就行了。</p><h1 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h1><p>使用<code>tar</code>包</p><p>访问淘宝镜像站点<code>https://npmmirror.com/</code></p><p>搜索任意包，都能在右边发现一个<code>tar</code>包下载</p><p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E5%89%8D%E7%AB%AF29/image.png" alt="如图"></p><p>点击下载，<code>pnpm add xx.tar</code>即可</p><h2 id="但是这样有个问题，这个包的依赖包怎么办？"><a href="#但是这样有个问题，这个包的依赖包怎么办？" class="headerlink" title="但是这样有个问题，这个包的依赖包怎么办？"></a>但是这样有个问题，这个包的依赖包怎么办？</h2><p>实际上，我们可以先看一下依赖包</p><p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E5%89%8D%E7%AB%AF29/2.png" alt="2"></p><p>如果包A的依赖包不多的话，先将A的依赖包全部下载，然后解压缩A包，将<code>package.json</code>中的依赖修改为<code>file:xxx</code>路径的方式，详情可见<a href="http://localhost:4000/2023/08/18/%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%97%A0%E6%98%9F%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20PlayWright%E5%86%85%E7%BD%91%E5%8D%87%E7%BA%A7/">无星的前端之旅（二十八）—— 离线安装npm库</a></p><p>那要是太多呢？咋整<br>&#x2F;&#x2F; TODO 未完待续</p>]]></content:encoded>
-      
-      
-      <category domain="http://blog.xingxiaowu.cn/categories/%E5%89%8D%E7%AB%AF/">前端</category>
-      
-      
-      <category domain="http://blog.xingxiaowu.cn/tags/%E5%89%8D%E7%AB%AF/">前端</category>
-      
-      
-      <comments>http://blog.xingxiaowu.cn/2023/11/21/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E4%B9%9D%EF%BC%89%E2%80%94%E2%80%94%E5%A6%82%E4%BD%95%E8%BF%81%E7%A7%BBnpm%E5%8C%85/#disqus_thread</comments>
       
     </item>
     

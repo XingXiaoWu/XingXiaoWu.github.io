@@ -21,23 +21,22 @@
     var CONFIG = {"hostname":"blog.xingxiaowu.cn","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="背景我有一台外网电脑，还有一台内网电脑，内网的镜像源全靠人手工上传包，且平时几乎不更新，所以包的版本都很低。 我喜欢做一些简单的工具，仅自己使用，而且我喜欢用最新的版本，内部的源无法满足我的需求。 而且，我平时是使用pnpm管理。 那么接下来，我来介绍几种方式，以应对这个情况。 方式一针对使用yarn和npm包管理器的，非常简单，整个node_modules搬进去就行了。 方式二使用tar包 访问">
+  <meta name="description" content="背景最近同事给我发了一张“电子名片” 照片上有一个二维码  大伙可以用微信扫这个二维码看看 看看是不是很有意思 其实非常简单 大家只要搜索vCard 就能找到这个标准格式 不过标准都有点麻烦">
 <meta property="og:type" content="article">
-<meta property="og:title" content="无星的前端之旅（二十八）-如何迁移npm包">
-<meta property="og:url" content="http://blog.xingxiaowu.cn/2023/11/21/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E4%B9%9D%EF%BC%89%E2%80%94%E2%80%94%E5%A6%82%E4%BD%95%E8%BF%81%E7%A7%BBnpm%E5%8C%85/index.html">
+<meta property="og:title" content="无星的前端之旅（二十九）——vCard电子名片">
+<meta property="og:url" content="http://blog.xingxiaowu.cn/2024/07/05/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E4%B9%9D%EF%BC%89%E2%80%94%E2%80%94vCard/index.html">
 <meta property="og:site_name" content="无星的小窝">
-<meta property="og:description" content="背景我有一台外网电脑，还有一台内网电脑，内网的镜像源全靠人手工上传包，且平时几乎不更新，所以包的版本都很低。 我喜欢做一些简单的工具，仅自己使用，而且我喜欢用最新的版本，内部的源无法满足我的需求。 而且，我平时是使用pnpm管理。 那么接下来，我来介绍几种方式，以应对这个情况。 方式一针对使用yarn和npm包管理器的，非常简单，整个node_modules搬进去就行了。 方式二使用tar包 访问">
+<meta property="og:description" content="背景最近同事给我发了一张“电子名片” 照片上有一个二维码  大伙可以用微信扫这个二维码看看 看看是不是很有意思 其实非常简单 大家只要搜索vCard 就能找到这个标准格式 不过标准都有点麻烦">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E5%89%8D%E7%AB%AF29/image.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E5%89%8D%E7%AB%AF29/2.png">
-<meta property="article:published_time" content="2023-11-21T10:23:00.000Z">
-<meta property="article:modified_time" content="2024-04-15T12:33:02.527Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E5%89%8D%E7%AB%AF28/20240718155130.png">
+<meta property="article:published_time" content="2024-07-05T10:23:00.000Z">
+<meta property="article:modified_time" content="2024-07-25T15:57:11.203Z">
 <meta property="article:author" content="无星">
 <meta property="article:tag" content="前端">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E5%89%8D%E7%AB%AF29/image.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E5%89%8D%E7%AB%AF28/20240718155130.png">
 
-<link rel="canonical" href="http://blog.xingxiaowu.cn/2023/11/21/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E4%B9%9D%EF%BC%89%E2%80%94%E2%80%94%E5%A6%82%E4%BD%95%E8%BF%81%E7%A7%BBnpm%E5%8C%85/">
+<link rel="canonical" href="http://blog.xingxiaowu.cn/2024/07/05/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E4%B9%9D%EF%BC%89%E2%80%94%E2%80%94vCard/">
 
 
 <script id="page-configurations">
@@ -50,7 +49,7 @@
   };
 </script>
 
-  <title>无星的前端之旅（二十八）-如何迁移npm包 | 无星的小窝</title>
+  <title>无星的前端之旅（二十九）——vCard电子名片 | 无星的小窝</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5976024V60"></script>
     <script>
@@ -229,7 +228,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2023/11/21/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E4%B9%9D%EF%BC%89%E2%80%94%E2%80%94%E5%A6%82%E4%BD%95%E8%BF%81%E7%A7%BBnpm%E5%8C%85/">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2024/07/05/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E4%B9%9D%EF%BC%89%E2%80%94%E2%80%94vCard/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/headerPic.png">
@@ -242,7 +241,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          无星的前端之旅（二十八）-如何迁移npm包
+          无星的前端之旅（二十九）——vCard电子名片
         </h1>
 
         <div class="post-meta">
@@ -252,14 +251,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2023-11-21 18:23:00" itemprop="dateCreated datePublished" datetime="2023-11-21T18:23:00+08:00">2023-11-21</time>
+              <time title="创建时间：2024-07-05 18:23:00" itemprop="dateCreated datePublished" datetime="2024-07-05T18:23:00+08:00">2024-07-05</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-04-15 20:33:02" itemprop="dateModified" datetime="2024-04-15T20:33:02+08:00">2024-04-15</time>
+                <time title="修改时间：2024-07-25 23:57:11" itemprop="dateModified" datetime="2024-07-25T23:57:11+08:00">2024-07-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -272,7 +271,7 @@
             </span>
 
           
-            <span id="/2023/11/21/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E4%B9%9D%EF%BC%89%E2%80%94%E2%80%94%E5%A6%82%E4%BD%95%E8%BF%81%E7%A7%BBnpm%E5%8C%85/" class="post-meta-item leancloud_visitors" data-flag-title="无星的前端之旅（二十八）-如何迁移npm包" title="阅读次数">
+            <span id="/2024/07/05/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E4%B9%9D%EF%BC%89%E2%80%94%E2%80%94vCard/" class="post-meta-item leancloud_visitors" data-flag-title="无星的前端之旅（二十九）——vCard电子名片" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -291,7 +290,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>420</span>
+              <span>534</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -310,20 +309,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>我有一台外网电脑，还有一台内网电脑，内网的镜像源全靠人手工上传包，且平时几乎不更新，所以包的版本都很低。</p>
-<p>我喜欢做一些简单的工具，仅自己使用，而且我喜欢用最新的版本，内部的源无法满足我的需求。</p>
-<p>而且，我平时是使用pnpm管理。</p>
-<p>那么接下来，我来介绍几种方式，以应对这个情况。</p>
-<h1 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h1><p>针对使用<code>yarn</code>和<code>npm</code>包管理器的，非常简单，整个<code>node_modules</code>搬进去就行了。</p>
-<h1 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h1><p>使用<code>tar</code>包</p>
-<p>访问淘宝镜像站点<code>https://npmmirror.com/</code></p>
-<p>搜索任意包，都能在右边发现一个<code>tar</code>包下载</p>
-<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E5%89%8D%E7%AB%AF29/image.png" alt="如图"></p>
-<p>点击下载，<code>pnpm add xx.tar</code>即可</p>
-<h2 id="但是这样有个问题，这个包的依赖包怎么办？"><a href="#但是这样有个问题，这个包的依赖包怎么办？" class="headerlink" title="但是这样有个问题，这个包的依赖包怎么办？"></a>但是这样有个问题，这个包的依赖包怎么办？</h2><p>实际上，我们可以先看一下依赖包</p>
-<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E5%89%8D%E7%AB%AF29/2.png" alt="2"></p>
-<p>如果包A的依赖包不多的话，先将A的依赖包全部下载，然后解压缩A包，将<code>package.json</code>中的依赖修改为<code>file:xxx</code>路径的方式，详情可见<a target="_blank" rel="noopener" href="http://localhost:4000/2023/08/18/%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%97%A0%E6%98%9F%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20PlayWright%E5%86%85%E7%BD%91%E5%8D%87%E7%BA%A7/">无星的前端之旅（二十八）—— 离线安装npm库</a></p>
-<p>那要是太多呢？咋整<br>&#x2F;&#x2F; TODO 未完待续</p>
+        <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近同事给我发了一张“电子名片”</p>
+<p>照片上有一个二维码</p>
+<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E5%89%8D%E7%AB%AF28/20240718155130.png" alt="名片"></p>
+<p>大伙可以用微信扫这个二维码看看</p>
+<p>看看是不是很有意思</p>
+<p>其实非常简单</p>
+<p>大家只要搜索<code>vCard</code></p>
+<p>就能找到这个标准格式</p>
+<p>不过标准都有点麻烦</p>
+<p>以下是我这个二维码的生成内容</p>
+<p>我使用的是3.0版本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">BEGIN:VCARD</span><br><span class="line">VERSION:3.0</span><br><span class="line">URL:https://blog.xingxiaowu.cn</span><br><span class="line">PHOTO;TYPE=PNG;VALUE=URI:https://blog.xingxiaowu.cn/images/headerPic.png</span><br><span class="line">FN;CHARSET=UTF-8:无星</span><br><span class="line">TEL;TYPE=CELL:110</span><br><span class="line">TEL;TYPE=WORK:110</span><br><span class="line">ORG;CHARSET=UTF-8:吹牛逼有限公司</span><br><span class="line">TITLE:董事长</span><br><span class="line">ADR;TYPE=WORK;UTF-8:宇宙大街11号</span><br><span class="line">EMAIL;TYPE=internet:chuiniubi@nc.com</span><br><span class="line">ID:000000001##000000001</span><br><span class="line">END:VCARD</span><br></pre></td></tr></table></figure>
+
+
+<p>不过微信扫码有1个点要注意</p>
+<p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/community/minihome/doc/000e26e88f4bf02d6f6fea2d25e400">微信扫描vCard格式的二维码为什么中文和URL(主页)共存就会无法成功识别?</a></p>
+<p>答案是：URL放中文签前面</p>
+<p>另外还有个问题，微信扫码的头像怎么添加上去？有知道的老哥可以评论区说说</p>
 
     </div>
 
@@ -362,12 +365,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2023/09/26/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%E5%AF%86%E7%A0%81%E5%85%A5%E9%97%A8/" rel="prev" title="无星的安全之旅（五）——密码入门">
-      <i class="fa fa-chevron-left"></i> 无星的安全之旅（五）——密码入门
+    <a href="/2024/06/26/CTF/%E8%B5%A3%E9%93%B6%E6%9D%AF%E5%9F%B9%E8%AE%AD/" rel="prev" title="赣银杯赛前培训">
+      <i class="fa fa-chevron-left"></i> 赣银杯赛前培训
     </a></div>
       <div class="post-nav-item">
-    <a href="/2024/04/17/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94md5%E7%BB%95%E8%BF%87/" rel="next" title="无星的安全之旅（七）——md5绕过">
-      无星的安全之旅（七）——md5绕过 <i class="fa fa-chevron-right"></i>
+    <a href="/2024/07/06/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E4%BA%94%EF%BC%89-%E5%BA%94%E6%80%A5/" rel="next" title="无星的渗透之旅速成篇（五）-应急">
+      无星的渗透之旅速成篇（五）-应急 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -428,7 +431,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B9%E5%BC%8F%E4%B8%80"><span class="nav-number">2.</span> <span class="nav-text">方式一</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B9%E5%BC%8F%E4%BA%8C"><span class="nav-number">3.</span> <span class="nav-text">方式二</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%86%E6%98%AF%E8%BF%99%E6%A0%B7%E6%9C%89%E4%B8%AA%E9%97%AE%E9%A2%98%EF%BC%8C%E8%BF%99%E4%B8%AA%E5%8C%85%E7%9A%84%E4%BE%9D%E8%B5%96%E5%8C%85%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F"><span class="nav-number">3.1.</span> <span class="nav-text">但是这样有个问题，这个包的依赖包怎么办？</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -444,7 +447,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">139</span>
+          <span class="site-state-item-count">140</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -539,13 +542,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">286k</span>
+    <span title="站点总字数">287k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:20</span>
+    <span title="站点阅读时长">4:21</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
@@ -759,7 +762,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'XingXiaoWu.github.io',
       owner       : 'XingXiaoWu',
       admin       : ['XingXiaoWu'],
-      id          : '7bc9c4ef6454bad0894a0d29fd16d3a2',
+      id          : 'ed694fb1f711dc9c6b8b2d2cb66b530b',
         language: 'zh-CN',
       distractionFreeMode: true
     });
