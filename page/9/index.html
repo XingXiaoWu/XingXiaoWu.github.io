@@ -223,7 +223,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2020/08/15/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84Egg%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94sequelize/">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2020/08/28/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B9%9D%EF%BC%89%E2%80%94%E2%80%94%E6%92%A4%E9%94%80%E4%B8%8E%E5%8F%8D%E6%92%A4%E9%94%80/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/headerPic.png">
@@ -237,7 +237,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/08/15/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84Egg%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94sequelize/" class="post-title-link" itemprop="url">无星的Egg之旅（三）——sequelize</a>
+            <a href="/2020/08/28/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B9%9D%EF%BC%89%E2%80%94%E2%80%94%E6%92%A4%E9%94%80%E4%B8%8E%E5%8F%8D%E6%92%A4%E9%94%80/" class="post-title-link" itemprop="url">无星的前端之旅（九）——撤销与反撤销</a>
         </h2>
 
         <div class="post-meta">
@@ -247,7 +247,101 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-08-15 11:46:18" itemprop="dateCreated datePublished" datetime="2020-08-15T11:46:18+08:00">2020-08-15</time>
+              <time title="创建时间：2020-08-28 14:32:54" itemprop="dateCreated datePublished" datetime="2020-08-28T14:32:54+08:00">2020-08-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-06 16:56:11" itemprop="dateModified" datetime="2022-09-06T16:56:11+08:00">2022-09-06</time>
+              </span>
+
+          
+            <span id="/2020/08/28/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B9%9D%EF%BC%89%E2%80%94%E2%80%94%E6%92%A4%E9%94%80%E4%B8%8E%E5%8F%8D%E6%92%A4%E9%94%80/" class="post-meta-item leancloud_visitors" data-flag-title="无星的前端之旅（九）——撤销与反撤销" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>155</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">redo() &#123;</span><br><span class="line">  // 反撤销</span><br><span class="line">  document.execCommand(&#x27;redo&#x27;, false, null);</span><br><span class="line">&#125;,</span><br><span class="line">undo() &#123;</span><br><span class="line">  //撤销</span><br><span class="line">  document.execCommand(&#x27;undo&#x27;, false, null);</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/08/28/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B9%9D%EF%BC%89%E2%80%94%E2%80%94%E6%92%A4%E9%94%80%E4%B8%8E%E5%8F%8D%E6%92%A4%E9%94%80/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2020/08/28/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84electron%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E5%88%9B%E5%BB%BAVue%E7%9A%84electron%E9%A1%B9%E7%9B%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/28/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84electron%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E5%88%9B%E5%BB%BAVue%E7%9A%84electron%E9%A1%B9%E7%9B%AE/" class="post-title-link" itemprop="url">无星的electron之旅（一）——创建Vue的electron项目</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-28 14:30:05" itemprop="dateCreated datePublished" datetime="2020-08-28T14:30:05+08:00">2020-08-28</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -262,16 +356,12 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/node/" itemprop="url" rel="index"><span itemprop="name">node</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/node/egg/" itemprop="url" rel="index"><span itemprop="name">egg</span></a>
+                  <a href="/categories/electron/" itemprop="url" rel="index"><span itemprop="name">electron</span></a>
                 </span>
             </span>
 
           
-            <span id="/2020/08/15/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84Egg%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94sequelize/" class="post-meta-item leancloud_visitors" data-flag-title="无星的Egg之旅（三）——sequelize" title="阅读次数">
+            <span id="/2020/08/28/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84electron%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E5%88%9B%E5%BB%BAVue%E7%9A%84electron%E9%A1%B9%E7%9B%AE/" class="post-meta-item leancloud_visitors" data-flag-title="无星的electron之旅（一）——创建Vue的electron项目" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -283,14 +373,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.7k</span>
+              <span>585</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -302,18 +392,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="sequelize引入"><a href="#sequelize引入" class="headerlink" title="sequelize引入"></a>sequelize引入</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm i mysql2</span><br><span class="line">npm i egg-sequelize</span><br></pre></td></tr></table></figure>
+          <h1 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h1><h2 id="1-使用脚手架正常创建项目"><a href="#1-使用脚手架正常创建项目" class="headerlink" title="1.使用脚手架正常创建项目"></a>1.使用脚手架正常创建项目</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue create hello-world</span><br></pre></td></tr></table></figure>
 
-<h1 id="sequelize配置"><a href="#sequelize配置" class="headerlink" title="sequelize配置"></a>sequelize配置</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">// 不同环境的库当然不一样,自己配置多环境的config.xx.js,我这就写个default</span><br><span class="line">// ./config/config.default.js</span><br><span class="line">// sql配置,填自己的即可</span><br><span class="line">  config.sequelize = &#123;</span><br><span class="line">    dialect: &#x27;mysql&#x27;,</span><br><span class="line">    host: &#x27;127.0.0.1&#x27;,</span><br><span class="line">    port: 3306,</span><br><span class="line">    database: &#x27;monitor&#x27;,</span><br><span class="line">    username: &#x27;root&#x27;,</span><br><span class="line">    password: &#x27;123456&#x27;,</span><br><span class="line">    define: &#123; // model的全局配置</span><br><span class="line">      timestamps: true, // 添加create,update,delete时间戳</span><br><span class="line">      paranoid: true, // 添加软删除</span><br><span class="line">      freezeTableName: true, // 防止修改表名为复数</span><br><span class="line">      underscored: true, // 使用下划线</span><br><span class="line">    &#125;,</span><br><span class="line">    timezone: &#x27;+8:00&#x27;, // 由于orm用的UTC时间，这里必须加上东八区，否则取出来的时间相差8小时</span><br><span class="line">    dialectOptions: &#123; // 让读取date类型数据时返回字符串而不是UTC时间</span><br><span class="line">      dateStrings: true,</span><br><span class="line">      typeCast(field, next) &#123;</span><br><span class="line">        if (field.type === &#x27;DATETIME&#x27;) &#123;</span><br><span class="line">          return field.string();</span><br><span class="line">        &#125;</span><br><span class="line">        return next();</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h1 id="插件配置"><a href="#插件配置" class="headerlink" title="插件配置"></a>插件配置</h1><p>开启sequelize插件</p>
-<p>./config/plugin.js</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x27;use strict&#x27;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/** @type Egg.EggPlugin */</span><br><span class="line">module.exports = &#123;</span><br><span class="line">  //  xxxxxx</span><br><span class="line">   sequelize: &#123;</span><br><span class="line">     enable: true,</span><br><span class="line">     package: &#x27;egg-sequelize&#x27;,</span><br><span class="line">   &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h1 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h1><p>和正常的sequelize相似</p>
+<h2 id="2-集成electron"><a href="#2-集成electron" class="headerlink" title="2.集成electron"></a>2.集成electron</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue add vue-cli-plugin-electron-builder</span><br></pre></td></tr></table></figure>
+<p>不过这一步可能大多数同学可能卡在下载electron这，因为众所周知的原因，它需要很久</p>
+<p>因此我们推荐使用国内源加速</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx cross-env ELECTRON_MIRROR=&quot;https://npm.taobao.org/mirrors/electron/&quot; vue add vue-cli-plugin-electron-builder</span><br></pre></td></tr></table></figure>
+<p>这种方式能有效加速你的集成</p>
+<h3 id="也可以创建-npmrc文件放在项目中"><a href="#也可以创建-npmrc文件放在项目中" class="headerlink" title="也可以创建.npmrc文件放在项目中"></a>也可以创建.npmrc文件放在项目中</h3>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/08/15/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84Egg%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94sequelize/#more" rel="contents">
+              <a class="btn" href="/2020/08/28/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84electron%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E5%88%9B%E5%BB%BAVue%E7%9A%84electron%E9%A1%B9%E7%9B%AE/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -429,6 +518,120 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/08/15/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84Egg%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E6%97%A5%E5%BF%97/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2020/08/15/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84Egg%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94sequelize/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/15/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84Egg%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94sequelize/" class="post-title-link" itemprop="url">无星的Egg之旅（三）——sequelize</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-15 11:46:18" itemprop="dateCreated datePublished" datetime="2020-08-15T11:46:18+08:00">2020-08-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-06 16:56:11" itemprop="dateModified" datetime="2022-09-06T16:56:11+08:00">2022-09-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/node/" itemprop="url" rel="index"><span itemprop="name">node</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/node/egg/" itemprop="url" rel="index"><span itemprop="name">egg</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/08/15/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84Egg%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94sequelize/" class="post-meta-item leancloud_visitors" data-flag-title="无星的Egg之旅（三）——sequelize" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="sequelize引入"><a href="#sequelize引入" class="headerlink" title="sequelize引入"></a>sequelize引入</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm i mysql2</span><br><span class="line">npm i egg-sequelize</span><br></pre></td></tr></table></figure>
+
+<h1 id="sequelize配置"><a href="#sequelize配置" class="headerlink" title="sequelize配置"></a>sequelize配置</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">// 不同环境的库当然不一样,自己配置多环境的config.xx.js,我这就写个default</span><br><span class="line">// ./config/config.default.js</span><br><span class="line">// sql配置,填自己的即可</span><br><span class="line">  config.sequelize = &#123;</span><br><span class="line">    dialect: &#x27;mysql&#x27;,</span><br><span class="line">    host: &#x27;127.0.0.1&#x27;,</span><br><span class="line">    port: 3306,</span><br><span class="line">    database: &#x27;monitor&#x27;,</span><br><span class="line">    username: &#x27;root&#x27;,</span><br><span class="line">    password: &#x27;123456&#x27;,</span><br><span class="line">    define: &#123; // model的全局配置</span><br><span class="line">      timestamps: true, // 添加create,update,delete时间戳</span><br><span class="line">      paranoid: true, // 添加软删除</span><br><span class="line">      freezeTableName: true, // 防止修改表名为复数</span><br><span class="line">      underscored: true, // 使用下划线</span><br><span class="line">    &#125;,</span><br><span class="line">    timezone: &#x27;+8:00&#x27;, // 由于orm用的UTC时间，这里必须加上东八区，否则取出来的时间相差8小时</span><br><span class="line">    dialectOptions: &#123; // 让读取date类型数据时返回字符串而不是UTC时间</span><br><span class="line">      dateStrings: true,</span><br><span class="line">      typeCast(field, next) &#123;</span><br><span class="line">        if (field.type === &#x27;DATETIME&#x27;) &#123;</span><br><span class="line">          return field.string();</span><br><span class="line">        &#125;</span><br><span class="line">        return next();</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="插件配置"><a href="#插件配置" class="headerlink" title="插件配置"></a>插件配置</h1><p>开启sequelize插件</p>
+<p>./config/plugin.js</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x27;use strict&#x27;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/** @type Egg.EggPlugin */</span><br><span class="line">module.exports = &#123;</span><br><span class="line">  //  xxxxxx</span><br><span class="line">   sequelize: &#123;</span><br><span class="line">     enable: true,</span><br><span class="line">     package: &#x27;egg-sequelize&#x27;,</span><br><span class="line">   &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h1><p>和正常的sequelize相似</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/08/15/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84Egg%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94sequelize/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1096,227 +1299,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2020/05/07/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/07/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" class="post-title-link" itemprop="url">无星的前端之旅（四）——小程序持续集成</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-05-07 16:42:00" itemprop="dateCreated datePublished" datetime="2020-05-07T16:42:00+08:00">2020-05-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-08-08 08:43:56" itemprop="dateModified" datetime="2023-08-08T08:43:56+08:00">2023-08-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2020/05/07/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" class="post-meta-item leancloud_visitors" data-flag-title="无星的前端之旅（四）——小程序持续集成" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.9k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>刚刚跑路到一家新公司。新公司的前端小改改负责开发小程序，为四十多家客户服务，而且是他们的账号主体。</p>
-<p>换句话说，一套代码，要切换多个 appid 去打包上传多个小程序账号发布。</p>
-<p>所以每次发布，同事都切来切去，麻烦的一批，疲于奔命。</p>
-<p>因此需要做一套自动部署，将开发从这个上面解放出来，让运营/实施去完成这个发布操作，开发只需要专注于代码开发即可。</p>
-<h2 id="技术选型"><a href="#技术选型" class="headerlink" title="技术选型"></a>技术选型</h2><p>这里分为两个技术选型。</p>
-<h4 id="一-小程序的支持方式选型"><a href="#一-小程序的支持方式选型" class="headerlink" title="一.小程序的支持方式选型"></a>一.小程序的支持方式选型</h4><p>小程序的官网可以看到，他们支持三种方式</p>
-<p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/devtools/cli.html">命令行 V2</a></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/05/07/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2020/04/29/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95cli%E5%B7%A5%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/29/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95cli%E5%B7%A5%E7%A8%8B/" class="post-title-link" itemprop="url">无星的前端之旅（三）——如何调试cli工程</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-04-29 16:42:00" itemprop="dateCreated datePublished" datetime="2020-04-29T16:42:00+08:00">2020-04-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-08-08 08:43:56" itemprop="dateModified" datetime="2023-08-08T08:43:56+08:00">2023-08-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2020/04/29/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95cli%E5%B7%A5%E7%A8%8B/" class="post-meta-item leancloud_visitors" data-flag-title="无星的前端之旅（三）——如何调试cli工程" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>作为前端开发工程师，希望搭建一些基础设置，cli是必不可少的一项。</p>
-<p>至于cli如何制作，文章一大堆，相信网上大家都能搜到。</p>
-<p>但是cli工具如何debug，我查了2天，都没查到。</p>
-<p>我用的开发工具是vscode。虽然我知道答案一定在<br><a target="_blank" rel="noopener" href="https://code.visualstudio.com/docs/nodejs/nodejs-debugging#_launch-configuration-attributes">VSCode调试</a>与<a target="_blank" rel="noopener" href="https://nodejs.org/en/docs/guides/debugging-getting-started/">NodeJS调试入门</a>中，但我天资愚钝，不知道如何融合起来。</p>
-<p>不过天不亡我，最终还是找到了解决方式。</p>
-<p> 不多bb，直接上代码和截图。</p>
-<h3 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h3><h4 id="1-新增vscode的launch选项卡"><a href="#1-新增vscode的launch选项卡" class="headerlink" title="1.新增vscode的launch选项卡"></a>1.新增vscode的launch选项卡</h4><p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/cli-debug/1.png" alt="1"></p>
-<p> 抄就完事了，注意端口号，是根据后续产生的端口号去填写，可以先填一个。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/04/29/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95cli%E5%B7%A5%E7%A8%8B/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1384,20 +1370,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">140</span>
+          <span class="site-state-item-count">142</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-count">39</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1479,13 +1465,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">285k</span>
+    <span title="站点总字数">290k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:19</span>
+    <span title="站点阅读时长">4:23</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
