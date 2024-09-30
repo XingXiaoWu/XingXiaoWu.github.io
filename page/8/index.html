@@ -223,6 +223,115 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2021/01/03/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84electron%E4%B9%8B%E6%97%85%EF%BC%88%E4%B9%9D%EF%BC%89%E2%80%94%E2%80%94%20JS%E6%B3%A8%E5%85%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/03/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84electron%E4%B9%8B%E6%97%85%EF%BC%88%E4%B9%9D%EF%BC%89%E2%80%94%E2%80%94%20JS%E6%B3%A8%E5%85%A5/" class="post-title-link" itemprop="url">无星的electron之旅（九）—— JS注入</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-01-03 15:32:54" itemprop="dateCreated datePublished" datetime="2021-01-03T15:32:54+08:00">2021-01-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-08-08 08:43:56" itemprop="dateModified" datetime="2023-08-08T08:43:56+08:00">2023-08-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/electron/" itemprop="url" rel="index"><span itemprop="name">electron</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/01/03/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84electron%E4%B9%8B%E6%97%85%EF%BC%88%E4%B9%9D%EF%BC%89%E2%80%94%E2%80%94%20JS%E6%B3%A8%E5%85%A5/" class="post-meta-item leancloud_visitors" data-flag-title="无星的electron之旅（九）—— JS注入" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>510</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="一、背景"><a href="#一、背景" class="headerlink" title="一、背景"></a>一、背景</h2><p>开发群中讨论，如何给electron注入js</p>
+<p>有老哥提出了使用preload.js注入</p>
+<p>我惊了，表示不信，后面仔细想了想：</p>
+<p>“通过preload.js，可以预加载一些electron主线程的变量挂在到window上，后期在render线程中可以获取到对应的变量。</p>
+<p>换句话说，preload.js中获取到的window，是后期render线程的window，那理论上确实可以做注入操作。</p>
+<p>如果我在preload.js中添加window的生命周期,渲染后通过id或者各种方式获取到对应的dom节点，理论上我应该能劫持某些按钮，也就是说注入js成功了。”</p>
+<h2 id="二、说干就干"><a href="#二、说干就干" class="headerlink" title="二、说干就干"></a>二、说干就干</h2><p>1、老规矩，vue+vue-cli-plugin-electron-builder创建项目</p>
+<p>2、background.js，直接加载<a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/01/03/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84electron%E4%B9%8B%E6%97%85%EF%BC%88%E4%B9%9D%EF%BC%89%E2%80%94%E2%80%94%20JS%E6%B3%A8%E5%85%A5/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2020/12/24/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84electron%E4%B9%8B%E6%97%85%EF%BC%88%E5%85%AB%EF%BC%89%E2%80%94%E2%80%94%20%E5%9D%90%E6%A0%87/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1203,106 +1312,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2020/09/04/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%EF%BC%89%E2%80%94%E2%80%94%E5%A4%9A%E7%8E%AF%E5%A2%83%E6%89%93%E5%8C%85+%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/04/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%EF%BC%89%E2%80%94%E2%80%94%E5%A4%9A%E7%8E%AF%E5%A2%83%E6%89%93%E5%8C%85+%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96/" class="post-title-link" itemprop="url">无星的前端之旅（十）——多环境打包+命令行参数读取</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-09-04 14:32:54" itemprop="dateCreated datePublished" datetime="2020-09-04T14:32:54+08:00">2020-09-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-06 16:56:11" itemprop="dateModified" datetime="2022-09-06T16:56:11+08:00">2022-09-06</time>
-              </span>
-
-          
-            <span id="/2020/09/04/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%EF%BC%89%E2%80%94%E2%80%94%E5%A4%9A%E7%8E%AF%E5%A2%83%E6%89%93%E5%8C%85+%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96/" class="post-meta-item leancloud_visitors" data-flag-title="无星的前端之旅（十）——多环境打包+命令行参数读取" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.3k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>多环境部署的时候总会有些参数需要写入</p>
-<p>在vue-cli3创建的项目中可以通过webpack的配置文件写入</p>
-<p>vue-cli4中没有了webpack配置文件，取而代之的事vue.config.js</p>
-<p>实际上有两种方式可以完成这一需求</p>
-<h1 id="Mode模式"><a href="#Mode模式" class="headerlink" title="Mode模式"></a><a target="_blank" rel="noopener" href="https://cli.vuejs.org/zh/guide/mode-and-env.html">Mode模式</a></h1><p>这是vue-cli4提供的能力,通过创建</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.env.环境</span><br></pre></td></tr></table></figure>
-<p>方式创建不同环境下的不同配套参数</p>
-<p>需要注意的是</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/04/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%EF%BC%89%E2%80%94%E2%80%94%E5%A4%9A%E7%8E%AF%E5%A2%83%E6%89%93%E5%8C%85+%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1374,7 +1383,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">142</span>
+          <span class="site-state-item-count">143</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1387,7 +1396,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-count">40</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1469,13 +1478,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">290k</span>
+    <span title="站点总字数">294k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:23</span>
+    <span title="站点阅读时长">4:28</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

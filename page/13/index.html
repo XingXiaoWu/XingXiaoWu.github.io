@@ -223,6 +223,111 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2017/12/02/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E4%B8%AA%E6%8E%A8-%E4%BB%80%E4%B9%88%E6%98%AF%E6%99%AE%E9%80%9A%E6%8E%A8%E9%80%81%EF%BC%9F%E4%BB%80%E4%B9%88%E6%98%AF%E9%80%8F%E4%BC%A0%E6%B6%88%E6%81%AF%EF%BC%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/12/02/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E4%B8%AA%E6%8E%A8-%E4%BB%80%E4%B9%88%E6%98%AF%E6%99%AE%E9%80%9A%E6%8E%A8%E9%80%81%EF%BC%9F%E4%BB%80%E4%B9%88%E6%98%AF%E9%80%8F%E4%BC%A0%E6%B6%88%E6%81%AF%EF%BC%9F/" class="post-title-link" itemprop="url">个推-什么是普通推送？什么是透传消息？</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-12-02 20:12:00" itemprop="dateCreated datePublished" datetime="2017-12-02T20:12:00+08:00">2017-12-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-06 16:56:11" itemprop="dateModified" datetime="2022-09-06T16:56:11+08:00">2022-09-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2017/12/02/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E4%B8%AA%E6%8E%A8-%E4%BB%80%E4%B9%88%E6%98%AF%E6%99%AE%E9%80%9A%E6%8E%A8%E9%80%81%EF%BC%9F%E4%BB%80%E4%B9%88%E6%98%AF%E9%80%8F%E4%BC%A0%E6%B6%88%E6%81%AF%EF%BC%9F/" class="post-meta-item leancloud_visitors" data-flag-title="个推-什么是普通推送？什么是透传消息？" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>371</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>其实集成个推的途中一直很坎坷，不知道到底他们的推送是个什么东西，透传，普通推送，什么情况才是正常的。这里写一下，没有代码，只是阐述正确情况下推送通道应该产生的效果。</p>
+<p>ios的消息是分两部分的  一部分是走apn的通知栏消息  另一部分是走个推通道的透传消息  这两部分是服务端推送代码里面集成个推的后端同事会设定好的  分别是两个不同的方法  如果消息下发的时候 你客户端是在后台的（也就是客户端是离线）那么会收到apn的通知  透传消息就进离线了  只有你下次在线的时候 （也就是下次应用到前台的时候）才会下发下来  如果下发的时候应用是在前台的  那这样的话客户端就直接收到透传消息了</p>
+<p>应用退到后台，或者杀进程，cid离线才会推送苹果apn，客户端才会收到apn通知栏提醒的，cid在线直接走个推通道，客户端收到个推透传消息，如果需要展示通知栏需要自己客户端定义处理解析个推透传消息</p>
+
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/12/02/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E4%B8%AA%E6%8E%A8-%E4%BB%80%E4%B9%88%E6%98%AF%E6%99%AE%E9%80%9A%E6%8E%A8%E9%80%81%EF%BC%9F%E4%BB%80%E4%B9%88%E6%98%AF%E9%80%8F%E4%BC%A0%E6%B6%88%E6%81%AF%EF%BC%9F/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2017/12/02/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/wkwebview%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1217,118 +1322,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2017/07/17/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89-RN%E4%B8%8E%E5%8E%9F%E7%94%9F%E7%9A%84%E9%80%9A%E4%BF%A1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/07/17/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89-RN%E4%B8%8E%E5%8E%9F%E7%94%9F%E7%9A%84%E9%80%9A%E4%BF%A1/" class="post-title-link" itemprop="url">无星的RN学习之旅（二）-RN与原生的通信</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-07-17 11:13:00" itemprop="dateCreated datePublished" datetime="2017-07-17T11:13:00+08:00">2017-07-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-06 16:56:11" itemprop="dateModified" datetime="2022-09-06T16:56:11+08:00">2022-09-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/react-native/" itemprop="url" rel="index"><span itemprop="name">react-native</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2017/07/17/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89-RN%E4%B8%8E%E5%8E%9F%E7%94%9F%E7%9A%84%E9%80%9A%E4%BF%A1/" class="post-meta-item leancloud_visitors" data-flag-title="无星的RN学习之旅（二）-RN与原生的通信" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.3k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>接上一篇<a target="_blank" rel="noopener" href="http://www.jianshu.com/p/d417f7bdc511">无星的RN学习之旅（一）</a>最后我给出了一个基础项目地址进行学习。<br>PS：我使用的是VSCode编译器和Xcode编译器<br>一、RN如何调用原生方法<br>1.在新建的项目中打开ios目录下的工程文件，同时使用VSCode打开项目目录。<br>  新建NSObjec对象，名字任意，我这里叫RNruniOS</p>
-<p>.h文件添加RCTBridgeModule.h头文件，RCTBridgeModule协议</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//RNruniOS.h文件</span><br><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line">#import &quot;React/RCTBridgeModule.h&quot;</span><br><span class="line">@interface RNruniOS : NSObject&lt;RCTBridgeModule&gt;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
-<p>.m文件添加RCTConvert.h头文件，并添加相应宏</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">//RNruniOS.m文件</span><br><span class="line">#import &quot;RNruniOS.h&quot;</span><br><span class="line">//RCTConvert提供了一系列辅助函数，用来接收一个JSON值并转换到原生Objective-C类型或类。</span><br><span class="line">#import &quot;React/RCTConvert.h&quot;</span><br><span class="line">@implementation RNruniOS</span><br><span class="line"></span><br><span class="line">//为了实现RCTBridgeModule协议，需要包含RCT_EXPORT_MODULE()宏。</span><br><span class="line">//这个宏也可以添加一个参数用来指定在Javascript中访问这个模块的名字。</span><br><span class="line">//如果不指定，默认就会使用这个Objective-C类的名字。</span><br><span class="line">RCT_EXPORT_MODULE()</span><br><span class="line"></span><br><span class="line">//通过RCT_EXPORT_METHOD()宏声明要给Javascript导出的方法，否则React Native不会导出任何方法。</span><br><span class="line">RCT_EXPORT_METHOD(RNiOSLog:(NSString*)msg)</span><br><span class="line">&#123;</span><br><span class="line">  NSLog(@&quot;RN调用iOS打印方法信息是%@&quot;,msg);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
-<p>2.在rn项目中的index.ios.js文件进行调用</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//RN调用iOS原生方法,定义一个变量</span><br><span class="line">var RNruniOS = NativeModules.RNruniOS;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//RN调用原生方法</span><br><span class="line"> RNruniOS.RNiOSLog(&#x27;RN调用iOS打印方法成功。&#x27;);</span><br></pre></td></tr></table></figure>
-
-<p>通过xcode进行项目编译，点击相应按钮触发事件即可看见控制台打印输出log信息。<br>该小练习github地址：<a target="_blank" rel="noopener" href="https://github.com/XingXiaoWu/RNruniOS">https://github.com/XingXiaoWu/RNruniOS</a></p>
-<p>二、回调函数CallBack的使用<br><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/d417f7bdc511">无星的RN学习之旅（一）-环境安装以及新建项目</a><br><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/ea3484f54643">无星的RN学习之旅（三）</a><br><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/cccf744bdd8d">无星的RN学习之旅（四）——通信、持久化存储、xcode打包</a><br><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/0c821a63852d">无星的RN学习之旅（五）-关于react-navigation多层级页面返回时，去掉逐层推出动画</a><br><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/42d9c668cbb1">无星的RN学习之旅（六）-第三方App跳转，苹果商店跳转，loading框</a></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2017/07/17/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89-RN%E4%B8%8E%E5%8E%9F%E7%94%9F%E7%9A%84%E9%80%9A%E4%BF%A1/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1400,7 +1393,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">142</span>
+          <span class="site-state-item-count">143</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1413,7 +1406,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-count">40</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1495,13 +1488,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">290k</span>
+    <span title="站点总字数">294k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:23</span>
+    <span title="站点阅读时长">4:28</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

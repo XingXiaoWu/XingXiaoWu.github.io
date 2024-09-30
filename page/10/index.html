@@ -223,6 +223,118 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2020/05/09/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%89%B9%E9%87%8F%E5%8F%91%E5%B8%83%E5%A6%82%E4%BD%95%E5%8E%8B%E7%BC%A9%E6%89%93%E5%8C%85%E6%97%B6%E9%97%B4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/09/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%89%B9%E9%87%8F%E5%8F%91%E5%B8%83%E5%A6%82%E4%BD%95%E5%8E%8B%E7%BC%A9%E6%89%93%E5%8C%85%E6%97%B6%E9%97%B4/" class="post-title-link" itemprop="url">无星的前端之旅（五）——小程序批量发布如何压缩打包时间</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-09 10:06:18" itemprop="dateCreated datePublished" datetime="2020-05-09T10:06:18+08:00">2020-05-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-06 16:56:11" itemprop="dateModified" datetime="2022-09-06T16:56:11+08:00">2022-09-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/05/09/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%89%B9%E9%87%8F%E5%8F%91%E5%B8%83%E5%A6%82%E4%BD%95%E5%8E%8B%E7%BC%A9%E6%89%93%E5%8C%85%E6%97%B6%E9%97%B4/" class="post-meta-item leancloud_visitors" data-flag-title="无星的前端之旅（五）——小程序批量发布如何压缩打包时间" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>其实标题起的有点大，主要是使用shell中的&amp;和wait这两个命令。</p>
+<p>运维大佬不要嘲笑。</p>
+<p><a href="http://blog.xingxiaowu.cn/2020/05/07/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/">无星的前端之旅（四）——小程序持续集成</a>前面介绍了背景，我们有一套代码要发40多个客户的小程序主体。</p>
+<p>在Jenkins中加shell去完成上传开发版这个操作。但是需要进行多参数化配置，换句话说就是40多家客户我们要打40多个包，分别上传。</p>
+<p>shell的执行方式是，前面执行完了，我们才能执行下一个命令。</p>
+<p>因此如果我们打一个包并上传的时间是1分钟，那40家就是40分钟。这谁顶得住啊。</p>
+<p>所以需要考虑如何压缩这个打包上传时间，能不能同时打包，同时上传。</p>
+<p>原本的shell如下，变量我就写中文代替了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">function npminstall()&#123;</span><br><span class="line">  echo &quot;拉依赖&quot;</span><br><span class="line">  cd 代码文件夹下</span><br><span class="line">  npm install</span><br><span class="line">&#125;</span><br><span class="line">function buildwx()&#123;</span><br><span class="line">  echo &quot;执行构建&quot;</span><br><span class="line">  # echo &#x27;环境:&#x27;$1</span><br><span class="line">  # echo &#x27;文件名:&#x27;$2</span><br><span class="line">  # echo &#x27;客户名:&#x27;$3</span><br><span class="line">  npx cross-env 环境=$1 文件名=$2 客户名=$3 node build/build.js wx</span><br><span class="line">&#125;</span><br><span class="line">function upload()&#123;</span><br><span class="line">  echo &quot;执行上传&quot;</span><br><span class="line">  # echo &#x27;文件名:&#x27;$1</span><br><span class="line">  # echo &#x27;appid:&#x27;$2</span><br><span class="line">  # echo &#x27;version:&#x27;$3</span><br><span class="line">  npx miniprogram-ci upload --pp  ./dist/$&#123;1&#125;/wx --pkp ./privatekey/private.$&#123;2&#125;.key --appid $&#123;2&#125; --uv $&#123;3&#125; -r 1 --enable-es6 true</span><br><span class="line">&#125;</span><br><span class="line">#------------------待构建配置------------------</span><br><span class="line">configs=(</span><br><span class="line">&quot;xxx客户;xxx环境;xxx文件名;xxxxappid&quot;</span><br><span class="line">&quot;xxx客户;xxx环境;xxx文件名;xxxxappid&quot;</span><br><span class="line">)</span><br><span class="line">##读取version变量</span><br><span class="line">version=‘xxx文件读取’</span><br><span class="line">#------------------执行批量构建------------------</span><br><span class="line">npminstall</span><br><span class="line">for xxx in $&#123;configs[@]&#125;;do </span><br><span class="line">客户名=`echo $&#123;xxx&#125; | awk -F &quot;;&quot; &#x27;&#123;print $1&#125;&#x27;`</span><br><span class="line">环境=`echo $&#123;xxx&#125; | awk -F &quot;;&quot; &#x27;&#123;print $2&#125;&#x27;`</span><br><span class="line">文件名=`echo $&#123;xxx&#125; | awk -F &quot;;&quot; &#x27;&#123;print $3&#125;&#x27;`</span><br><span class="line">appid=`echo $&#123;xxx&#125; | awk -F &quot;;&quot; &#x27;&#123;print $4&#125;&#x27;`</span><br><span class="line">buildwx $&#123;环境&#125; $&#123;文件名&#125; $&#123;客户名&#125;</span><br><span class="line">upload $&#123;文件名&#125; $&#123;appid&#125; $&#123;version&#125;</span><br><span class="line">echo &quot;$客户名 上传完毕&quot;</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<p>就是一个简单的for循环，根据配置信息批量打包。40多家就是40分钟。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/09/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%89%B9%E9%87%8F%E5%8F%91%E5%B8%83%E5%A6%82%E4%BD%95%E5%8E%8B%E7%BC%A9%E6%89%93%E5%8C%85%E6%97%B6%E9%97%B4/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2020/05/07/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1204,115 +1316,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2019/07/08/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Jenkins%E9%85%8D%E5%90%88FastLane%E5%AE%8C%E6%88%90%E6%89%93%E5%8C%85/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/07/08/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Jenkins%E9%85%8D%E5%90%88FastLane%E5%AE%8C%E6%88%90%E6%89%93%E5%8C%85/" class="post-title-link" itemprop="url">Jenkins配合FastLane完成打包</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-07-08 14:32:00" itemprop="dateCreated datePublished" datetime="2019-07-08T14:32:00+08:00">2019-07-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-08-08 08:43:56" itemprop="dateModified" datetime="2023-08-08T08:43:56+08:00">2023-08-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2019/07/08/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Jenkins%E9%85%8D%E5%90%88FastLane%E5%AE%8C%E6%88%90%E6%89%93%E5%8C%85/" class="post-meta-item leancloud_visitors" data-flag-title="Jenkins配合FastLane完成打包" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.4k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Jenkins配合FastLane完成打包"><a href="#Jenkins配合FastLane完成打包" class="headerlink" title="Jenkins配合FastLane完成打包"></a>Jenkins配合FastLane完成打包</h1><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/69d6e4cf90bf">FastLane的使用</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/321928ac0f28">Jenkins的安装</a></p>
-<p>我们将两者组合起来.</p>
-<p>首先说一下,ios打包用的xcbuild命令,所以必须是macos环境,这个不用多解释.</p>
-<p>所以….Jenkins所在宿主机得是mac系统的(如果有大神知道别的方式,麻烦指点一下),因为没有多余的mac机子,我就搭在了我自己的机子上.</p>
-<p>接下来我们说说怎么搞</p>
-<h2 id="启动Jenkins"><a href="#启动Jenkins" class="headerlink" title="启动Jenkins"></a>启动Jenkins</h2><p>首先,启动终端,输入</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Jenkins</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/07/08/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Jenkins%E9%85%8D%E5%90%88FastLane%E5%AE%8C%E6%88%90%E6%89%93%E5%8C%85/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1384,7 +1387,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">142</span>
+          <span class="site-state-item-count">143</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1397,7 +1400,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-count">40</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1479,13 +1482,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">290k</span>
+    <span title="站点总字数">294k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:23</span>
+    <span title="站点阅读时长">4:28</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
