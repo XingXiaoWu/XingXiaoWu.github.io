@@ -21,25 +21,20 @@
     var CONFIG = {"hostname":"blog.xingxiaowu.cn","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="背景上文我们说到了怎么更新ms-playwright 本篇我们来聊聊怎么迁移playwright的版本 可能有朋友会奇怪，这有什么难的，把node_modules跟playwright相关的库全部移进去不就行了 其实也对，但是如果我是pnpm呢 其实虽然这一篇是升级playwright，但其实更多的是想表达，如何迁移npm库到离线环境 以playwright为例，下面是我的一些探索 各种包管理工具">
+  <meta name="description" content="看了一大堆,最后这个完成度最高docker run -d -p 8082:8082 -v &#x2F;root&#x2F;dstsave:&#x2F;root&#x2F;.klei&#x2F;DoNotStarveTogether -v &#x2F;root&#x2F;dstsave&#x2F;backup:&#x2F;app&#x2F;backup -v &#x2F;root&#x2F;stea">
 <meta property="og:type" content="article">
-<meta property="og:title" content="无星的前端之旅（二十八）—— 离线安装npm库">
-<meta property="og:url" content="http://blog.xingxiaowu.cn/2023/08/18/%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%97%A0%E6%98%9F%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20PlayWright%E5%86%85%E7%BD%91%E5%8D%87%E7%BA%A7/index.html">
+<meta property="og:title" content="无星的饥荒（二）——Mod">
+<meta property="og:url" content="http://blog.xingxiaowu.cn/2022/10/03/%E9%A5%A5%E8%8D%92/%E6%97%A0%E6%98%9F%E7%9A%84%E9%A5%A5%E8%8D%92%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E4%B8%80%E9%94%AE%E8%84%9A%E6%9C%AC/index.html">
 <meta property="og:site_name" content="无星的小窝">
-<meta property="og:description" content="背景上文我们说到了怎么更新ms-playwright 本篇我们来聊聊怎么迁移playwright的版本 可能有朋友会奇怪，这有什么难的，把node_modules跟playwright相关的库全部移进去不就行了 其实也对，但是如果我是pnpm呢 其实虽然这一篇是升级playwright，但其实更多的是想表达，如何迁移npm库到离线环境 以playwright为例，下面是我的一些探索 各种包管理工具">
+<meta property="og:description" content="看了一大堆,最后这个完成度最高docker run -d -p 8082:8082 -v &#x2F;root&#x2F;dstsave:&#x2F;root&#x2F;.klei&#x2F;DoNotStarveTogether -v &#x2F;root&#x2F;dstsave&#x2F;backup:&#x2F;app&#x2F;backup -v &#x2F;root&#x2F;stea">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%87%AA%E5%8A%A8%E5%8C%965/1.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%87%AA%E5%8A%A8%E5%8C%965/2.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%87%AA%E5%8A%A8%E5%8C%965/3.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%87%AA%E5%8A%A8%E5%8C%965/4.png">
-<meta property="article:published_time" content="2023-08-18T13:06:08.000Z">
-<meta property="article:modified_time" content="2024-04-15T12:33:02.564Z">
+<meta property="article:published_time" content="2022-10-03T08:52:04.000Z">
+<meta property="article:modified_time" content="2024-10-13T10:25:20.381Z">
 <meta property="article:author" content="无星">
-<meta property="article:tag" content="PlayWright">
+<meta property="article:tag" content="饥荒">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%87%AA%E5%8A%A8%E5%8C%965/1.png">
 
-<link rel="canonical" href="http://blog.xingxiaowu.cn/2023/08/18/%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%97%A0%E6%98%9F%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20PlayWright%E5%86%85%E7%BD%91%E5%8D%87%E7%BA%A7/">
+<link rel="canonical" href="http://blog.xingxiaowu.cn/2022/10/03/%E9%A5%A5%E8%8D%92/%E6%97%A0%E6%98%9F%E7%9A%84%E9%A5%A5%E8%8D%92%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E4%B8%80%E9%94%AE%E8%84%9A%E6%9C%AC/">
 
 
 <script id="page-configurations">
@@ -52,7 +47,7 @@
   };
 </script>
 
-  <title>无星的前端之旅（二十八）—— 离线安装npm库 | 无星的小窝</title>
+  <title>无星的饥荒（二）——Mod | 无星的小窝</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5976024V60"></script>
     <script>
@@ -231,7 +226,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2023/08/18/%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%97%A0%E6%98%9F%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20PlayWright%E5%86%85%E7%BD%91%E5%8D%87%E7%BA%A7/">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2022/10/03/%E9%A5%A5%E8%8D%92/%E6%97%A0%E6%98%9F%E7%9A%84%E9%A5%A5%E8%8D%92%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E4%B8%80%E9%94%AE%E8%84%9A%E6%9C%AC/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/headerPic.png">
@@ -244,7 +239,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          无星的前端之旅（二十八）—— 离线安装npm库
+          无星的饥荒（二）——Mod
         </h1>
 
         <div class="post-meta">
@@ -254,14 +249,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2023-08-18 21:06:08" itemprop="dateCreated datePublished" datetime="2023-08-18T21:06:08+08:00">2023-08-18</time>
+              <time title="创建时间：2022-10-03 16:52:04" itemprop="dateCreated datePublished" datetime="2022-10-03T16:52:04+08:00">2022-10-03</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-04-15 20:33:02" itemprop="dateModified" datetime="2024-04-15T20:33:02+08:00">2024-04-15</time>
+                <time title="修改时间：2024-10-13 18:25:20" itemprop="dateModified" datetime="2024-10-13T18:25:20+08:00">2024-10-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -269,12 +264,12 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PlayWright/" itemprop="url" rel="index"><span itemprop="name">PlayWright</span></a>
+                  <a href="/categories/%E9%A5%A5%E8%8D%92/" itemprop="url" rel="index"><span itemprop="name">饥荒</span></a>
                 </span>
             </span>
 
           
-            <span id="/2023/08/18/%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%97%A0%E6%98%9F%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20PlayWright%E5%86%85%E7%BD%91%E5%8D%87%E7%BA%A7/" class="post-meta-item leancloud_visitors" data-flag-title="无星的前端之旅（二十八）—— 离线安装npm库" title="阅读次数">
+            <span id="/2022/10/03/%E9%A5%A5%E8%8D%92/%E6%97%A0%E6%98%9F%E7%9A%84%E9%A5%A5%E8%8D%92%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E4%B8%80%E9%94%AE%E8%84%9A%E6%9C%AC/" class="post-meta-item leancloud_visitors" data-flag-title="无星的饥荒（二）——Mod" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -293,14 +288,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.6k</span>
+              <span>573</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -312,83 +307,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>上文我们说到了怎么更新<code>ms-playwright</code></p>
-<p>本篇我们来聊聊怎么迁移<code>playwright</code>的版本</p>
-<p>可能有朋友会奇怪，这有什么难的，把<code>node_modules</code>跟<code>playwright</code>相关的库全部移进去不就行了</p>
-<p>其实也对，但是如果我是<code>pnpm</code>呢</p>
-<p>其实虽然这一篇是升级<code>playwright</code>，但其实更多的是想表达，如何迁移<code>npm</code>库到离线环境</p>
-<p>以<code>playwright</code>为例，下面是我的一些探索</p>
-<h1 id="各种包管理工具下的迁移"><a href="#各种包管理工具下的迁移" class="headerlink" title="各种包管理工具下的迁移"></a>各种包管理工具下的迁移</h1><p>运气比较好</p>
-<p>本文成于2023.8.20</p>
-<p>有老哥在2023.8.7总结了一次</p>
-<p>节省了我很大的时间</p>
-<p><a target="_blank" rel="noopener" href="https://lzw.me/a/npm-install-private-offline.html">npm 仓库私有包离线化安装方案</a></p>
-<p>其中<code>yarn</code>我没测试过，<code>npm</code>稍有不准，<code>pnpm</code>可行</p>
-<p>这其中，<code>npm</code>提到了一个库<code>npm-package-privatify</code></p>
-<hr>
-<p>ps:</p>
-<p>我估摸着作者应该是这位小哥<a target="_blank" rel="noopener" href="https://juejin.cn/post/7021097811491946503">jjjona0215</a></p>
-<p>虽然他在文中说到，不用关心解决了什么问题哈哈哈</p>
-<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%87%AA%E5%8A%A8%E5%8C%965/1.png" alt="1"></p>
-<hr>
-<p>为什么说<code>npm</code>稍有不准呢，因为<code>npm-package-privatify</code>并不会打包<code>npm</code>目标库的依赖库，作者的目标是解决私有库的问题，确实只是相似而不是同一目标，但是他给出了一些方向上的指引</p>
-<h1 id="本地库的加载"><a href="#本地库的加载" class="headerlink" title="本地库的加载"></a>本地库的加载</h1><p><a target="_blank" rel="noopener" href="https://lzw.me/a/npm-install-private-offline.html">npm 仓库私有包离线化安装方案</a>和<br><a target="_blank" rel="noopener" href="http://www.cuketest.com/zh-cn/shared/npm_offline">离线环境安装npm包</a>，<a target="_blank" rel="noopener" href="https://newsn.net/say/npm-install-offline.html">如何以tar.gz的形式离线安装npm包？</a></p>
-<p>中，我们不难发现，包管理工具是支持通过<code>tar.gz</code>或者<code>tgz</code>加载的</p>
-<p>那么我们的问题，其实变成了，如何生成<code>tar.gz</code>或者<code>tgz</code>库</p>
-<hr>
-<p>ps:</p>
-<p><code>npm-pack-all</code> 我试过了，相当不好用</p>
-<hr>
-<h1 id="压缩包的生成"><a href="#压缩包的生成" class="headerlink" title="压缩包的生成"></a>压缩包的生成</h1><p>其实这一步是最离谱的</p>
-<p>说实话，我一直认为这是个简单打包命令</p>
-<p><code>cd</code>到<code>node_modules</code>下面的库</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zcvf &lt;yourname&gt;.tar.gz &lt;yourpath&gt;</span><br></pre></td></tr></table></figure>
-
-<p>这样做确实能得到<code>tar.gz</code>包</p>
-<p>但是当你通过<code>pnpm</code>或者其他工具安装时</p>
-<p>你会发现<code>package.json</code>里的库名变成了操蛋的<code>xxx.tar.gz</code></p>
-<p>用起来各种报错</p>
-<p>那么我们还有接下来几种方案</p>
-<h2 id="方式1-使用代码生成tar-gz"><a href="#方式1-使用代码生成tar-gz" class="headerlink" title="方式1.使用代码生成tar.gz"></a>方式1.使用代码生成<code>tar.gz</code></h2><p><code>tar</code>命令不靠谱，但是我试用<code>npm-package-privatify</code>发现，它打的<code>tar.gz</code>我能正常引入</p>
-<p>关键代码如下</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs-extra&quot;</span>)</span><br><span class="line"><span class="keyword">const</span> compressing = <span class="built_in">require</span>(<span class="string">&#x27;compressing&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将文件压缩为.tar.gz</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">*</span>&#125; fileName 需要打包的npm库名</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">*</span>&#125; packagePath 待打包的路径，到node_modules即可</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">*</span>&#125; zipFileName 打包后压缩包名字</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">tarGz</span> = <span class="keyword">async</span> (<span class="params">fileName, packagePath, zipFileName</span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">await</span> compressing.<span class="property">tar</span>.<span class="title function_">compressDir</span>(</span><br><span class="line">        path.<span class="title function_">join</span>(packagePath, fileName),</span><br><span class="line">        path.<span class="title function_">join</span>(packagePath, <span class="string">`<span class="subst">$&#123;zipFileName&#125;</span>.tar`</span>)</span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">await</span> compressing.<span class="property">gzip</span>.<span class="title function_">compressFile</span>(</span><br><span class="line">        path.<span class="title function_">join</span>(packagePath, <span class="string">`<span class="subst">$&#123;zipFileName&#125;</span>.tar`</span>),</span><br><span class="line">        path.<span class="title function_">join</span>(packagePath, <span class="string">`<span class="subst">$&#123;zipFileName&#125;</span>.tar.gz`</span>)</span><br><span class="line">    )</span><br><span class="line">    fs.<span class="title function_">removeSync</span>(path.<span class="title function_">join</span>(packagePath, <span class="string">`<span class="subst">$&#123;zipFileName&#125;</span>.tar`</span>))</span><br><span class="line">    <span class="comment">// fs.removeSync(path.join(packagePath, fileName))</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>诶，就正常了</p>
-<h2 id="方式2-直接从npm仓库下载"><a href="#方式2-直接从npm仓库下载" class="headerlink" title="方式2.直接从npm仓库下载"></a>方式2.直接从<code>npm</code>仓库下载</h2><p>打开<code>package-lock.json</code>会发现</p>
-<p>我们要的库其实都是<code>tgz</code>压缩包，直接下载就行了</p>
-<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%87%AA%E5%8A%A8%E5%8C%965/2.png" alt="2"></p>
-<p>而且你会惊讶的发现，下载下来是可以通过包管理工具加载成功的</p>
-<hr>
-<p>到这里是不是以为这就完事大吉了，两种方式都可以得到压缩包</p>
-<p>NO</p>
-<p>你会发现，这个压缩包只是单纯的压缩包，它不包含任何自身所需的依赖啊我去</p>
-<p>所以我们还需要对<code>playwright</code>的依赖打包，并且修改<code>package.json</code>的依赖为<code>file</code></p>
-<p>这里所幸我需要的库仅为<code>playwright-core</code>，且这个库没有任何其他的依赖</p>
-<p>那么我需要的就是</p>
-<ul>
-<li>1.下载<code>playwright-core</code>的<code>tgz</code>包</li>
-<li>2.修改<code>playwright</code>的<code>package.json</code>的依赖为<code>file:</code>类型</li>
-<li>3.给<code>playwright</code>打包</li>
-</ul>
-<p>这里一定要注意第2点，因为一般执行<code>npm install</code>等其他命令时，都在项目根目录下执行</p>
-<p>所以依赖的<code>file:</code>一定要写准备把<code>playwright-core</code>放在什么目录安装</p>
-<p>例如，我准备把两个压缩包，都放在一个特定的文件下<code>workspace/OfflineLibrary/playwright/</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%87%AA%E5%8A%A8%E5%8C%965/3.png" alt="3.png"></p>
-<p>那么我在打包的时候，就需要写为<code>file:OfflineLibrary/playwright/playwright-core-1.37.1.tgz</code><br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%87%AA%E5%8A%A8%E5%8C%965/4.png" alt="4.png"></p>
-<p>这里我给个<code>playwright@1.37.1</code>的产物包，大伙有需要的可以试一下断网安装</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%87%AA%E5%8A%A8%E5%8C%965/playwright-1.37.1.tar.gz">playwright-1.37.1.tar.gz</a></p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%87%AA%E5%8A%A8%E5%8C%965/playwright-core-1.37.1.tgz">playwright-core-1.37.1.tgz</a></p>
-<p>在项目根目录下，新建两个文件夹<code>OfflineLibrary/playwright</code>，将两个包丢进去，然后在项目根目录下执行<code>pnpm add ./OfflineLibrary/playwright/playwright-1.37.1.tar.gz</code>就可以成功安装了。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>到此为止，我们应该知道怎么去做npm库的离线包了</p>
-<p>比如我们需要对库<code>A</code>做离线包</p>
-<ul>
-<li>1.下载<code>A</code>的所有依赖库，并打压缩包</li>
-<li>2.修改<code>A</code>的依赖项为<code>file</code>路径</li>
-<li>3.将<code>A</code>打压缩包</li>
-<li>4.将所有的依赖包丢到目标仓库进行安装</li>
-</ul>
-<p>到目前我没找到称手的工具，可能需要按这个思路自己写一个吧（摊手）</p>
-<p>如果有老哥老姐知道有写好的工具，麻烦丢一份给我，感谢</p>
-
+        <p>看了一大堆,最后这个完成度最高<br>docker run -d -p 8082:8082 -v &#x2F;root&#x2F;dstsave:&#x2F;root&#x2F;.klei&#x2F;DoNotStarveTogether -v &#x2F;root&#x2F;dstsave&#x2F;backup:&#x2F;app&#x2F;backup -v &#x2F;root&#x2F;steamcmd:&#x2F;app&#x2F;steamcmd -v &#x2F;root&#x2F;dst-dedicated-server:&#x2F;app&#x2F;dst-dedicated-server  hujinbo23&#x2F;dst-admin-go:1.2.7</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 8082:8082 -v /root/jihuang/dstsave:/root/.klei/DoNotStarveTogether -v /root/jihuang/dstsave/backup:/app/backup -v /root/jihuang/steamcmd:/app/steamcmd -v /root/jihuang/dst-dedicated-server:/app/dst-dedicated-server  hujinbo23/dst-admin-go:1.3.1</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -417,7 +337,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/PlayWright/" rel="tag"># PlayWright</a>
+              <a href="/tags/%E9%A5%A5%E8%8D%92/" rel="tag"># 饥荒</a>
           </div>
 
         
@@ -426,12 +346,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2023/08/18/%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%97%A0%E6%98%9F%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8B%E6%97%85%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20PlayWright%E5%86%85%E7%BD%91%E5%8D%87%E7%BA%A7/" rel="prev" title="无星的自动化之旅（四）—— PlayWright内网升级ms-playwright">
-      <i class="fa fa-chevron-left"></i> 无星的自动化之旅（四）—— PlayWright内网升级ms-playwright
+    <a href="/2022/10/03/%E9%A5%A5%E8%8D%92/%E6%97%A0%E6%98%9F%E7%9A%84%E9%A5%A5%E8%8D%92%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94Mod/" rel="prev" title="无星的饥荒（二）——Mod">
+      <i class="fa fa-chevron-left"></i> 无星的饥荒（二）——Mod
     </a></div>
       <div class="post-nav-item">
-    <a href="/2023/09/06/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E4%BA%92%E8%81%94%E7%BD%91%E6%B8%97%E9%80%8F/" rel="next" title="无星的安全之旅（三）——互联网渗透">
-      无星的安全之旅（三）——互联网渗透 <i class="fa fa-chevron-right"></i>
+    <a href="/2023/03/05/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84electron%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20%E8%A3%81%E5%8C%85%E4%B9%8B%E5%8E%BB%E6%8E%89%E8%AF%AD%E8%A8%80%E6%96%87%E4%BB%B6/" rel="next" title="无星的electron之旅（十四）—— 裁包之去掉语言文件">
+      无星的electron之旅（十四）—— 裁包之去掉语言文件 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -492,7 +412,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%84%E7%A7%8D%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E4%B8%8B%E7%9A%84%E8%BF%81%E7%A7%BB"><span class="nav-number">2.</span> <span class="nav-text">各种包管理工具下的迁移</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E5%BA%93%E7%9A%84%E5%8A%A0%E8%BD%BD"><span class="nav-number">3.</span> <span class="nav-text">本地库的加载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8E%8B%E7%BC%A9%E5%8C%85%E7%9A%84%E7%94%9F%E6%88%90"><span class="nav-number">4.</span> <span class="nav-text">压缩包的生成</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E5%BC%8F1-%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90tar-gz"><span class="nav-number">4.1.</span> <span class="nav-text">方式1.使用代码生成tar.gz</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E5%BC%8F2-%E7%9B%B4%E6%8E%A5%E4%BB%8Enpm%E4%BB%93%E5%BA%93%E4%B8%8B%E8%BD%BD"><span class="nav-number">4.2.</span> <span class="nav-text">方式2.直接从npm仓库下载</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -508,20 +427,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">140</span>
+          <span class="site-state-item-count">148</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-count">41</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -603,13 +522,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">287k</span>
+    <span title="站点总字数">300k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:21</span>
+    <span title="站点阅读时长">4:32</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
@@ -823,7 +742,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'XingXiaoWu.github.io',
       owner       : 'XingXiaoWu',
       admin       : ['XingXiaoWu'],
-      id          : 'b279e4f34fd7092b351658bf6d1c103e',
+      id          : '4fc781cdfcd668d3c8f6db190f015e55',
         language: 'zh-CN',
       distractionFreeMode: true
     });
