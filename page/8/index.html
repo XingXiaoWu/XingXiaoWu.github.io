@@ -223,7 +223,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2020/08/15/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84Egg%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E6%97%A5%E5%BF%97/">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2021/02/14/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E5%85%AB%EF%BC%89-Vue3+ts%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/headerPic.png">
@@ -237,7 +237,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/08/15/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84Egg%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E6%97%A5%E5%BF%97/" class="post-title-link" itemprop="url">无星的Egg之旅（二）——日志</a>
+            <a href="/2021/02/14/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E5%85%AB%EF%BC%89-Vue3+ts%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">无星的前端之旅（十八）-Vue3+ts常见问题</a>
         </h2>
 
         <div class="post-meta">
@@ -247,450 +247,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-08-15 11:46:18" itemprop="dateCreated datePublished" datetime="2020-08-15T11:46:18+08:00">2020-08-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-08-05 22:52:50" itemprop="dateModified" datetime="2023-08-05T22:52:50+08:00">2023-08-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/node/" itemprop="url" rel="index"><span itemprop="name">node</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/node/egg/" itemprop="url" rel="index"><span itemprop="name">egg</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2020/08/15/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84Egg%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E6%97%A5%E5%BF%97/" class="post-meta-item leancloud_visitors" data-flag-title="无星的Egg之旅（二）——日志" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>日志涉及的东西还是挺多的</p>
-<h1 id="一-日志格式化"><a href="#一-日志格式化" class="headerlink" title="一.日志格式化"></a>一.日志格式化</h1><p>默认是自带格式的,但保不齐自己有自定义格式的需求.因此需要修改格式.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// ./config/config.default.js</span><br><span class="line">  ......</span><br><span class="line">  config.logger = &#123;</span><br><span class="line">    dir: path.join(__dirname, &#x27;../logs&#x27;),</span><br><span class="line">    contextFormatter(meta) &#123;</span><br><span class="line">        //TODO:这里就是默认loger返回的日志格式了</span><br><span class="line">      return `$&#123;meta.date&#125; $&#123;meta.message&#125;`;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
-
-<h1 id="二-自定义存储路径"><a href="#二-自定义存储路径" class="headerlink" title="二.自定义存储路径"></a>二.自定义存储路径</h1><p>u1s1,你会发现本地运行的时候,产生的loger在项目文件夹下,但在部署的时候就找不到了.</p>
-<p>因为在egg默认的生产环境中,会在用户根目录下,新建一个叫logs的文件夹,所有日志都在里面.</p>
-<p>因此需要自定义日志地址</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// ./config/config.default.js</span><br><span class="line">  ......</span><br><span class="line">  config.logger = &#123;</span><br><span class="line">    //这里写日志地址,__dirname可以变成别的</span><br><span class="line">    //但是注意,appInfo.root在生产和开发不是一个地址,建议使用appInfo.baseDir</span><br><span class="line">    dir: path.join(__dirname, &#x27;../logs&#x27;),</span><br><span class="line">    contextFormatter(meta) &#123;</span><br><span class="line">      return `$&#123;meta.date&#125; $&#123;meta.message&#125;`;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
-
-<h1 id="三-自定义logger"><a href="#三-自定义logger" class="headerlink" title="三.自定义logger"></a>三.自定义logger</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/08/15/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84Egg%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E6%97%A5%E5%BF%97/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2020/07/27/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%85%AB%EF%BC%89%E2%80%94%E2%80%94%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%A3%B0%E7%BD%91%E6%8E%A5%E5%85%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/27/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%85%AB%EF%BC%89%E2%80%94%E2%80%94%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%A3%B0%E7%BD%91%E6%8E%A5%E5%85%A5/" class="post-title-link" itemprop="url">无星的前端之旅（八）——微信小程序声网接入</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-27 15:27:08" itemprop="dateCreated datePublished" datetime="2020-07-27T15:27:08+08:00">2020-07-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-08-05 22:52:50" itemprop="dateModified" datetime="2023-08-05T22:52:50+08:00">2023-08-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2020/07/27/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%85%AB%EF%BC%89%E2%80%94%E2%80%94%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%A3%B0%E7%BD%91%E6%8E%A5%E5%85%A5/" class="post-meta-item leancloud_visitors" data-flag-title="无星的前端之旅（八）——微信小程序声网接入" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>417</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h1><p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E5%89%8D%E7%AB%AF8/%E5%A3%B0%E7%BD%91.png" alt="流程图"></p>
-<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>房间号：房间号是基于声网appid命名空间的，同一个appid下的房间号如果存在会加入，不存在则直接创建</p>
-<p>uid:可使用下面的组件中提供的组件中的utils获取，本质是基于时间生成的各不相同，也可以根据我们的业务自定义产生，比如直接使用用户id</p>
-<h1 id="集成"><a href="#集成" class="headerlink" title="集成"></a>集成</h1><p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E5%89%8D%E7%AB%AF8/agroa.zip">组件下载地址</a><br>集成步骤可查看readme</p>
-<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><p>微信基础库 1.7.0 开始支持，低版本需做兼容处理。</p>
-<h1 id="微信需要配置域名"><a href="#微信需要配置域名" class="headerlink" title="微信需要配置域名"></a>微信需要配置域名</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/07/27/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%85%AB%EF%BC%89%E2%80%94%E2%80%94%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%A3%B0%E7%BD%91%E6%8E%A5%E5%85%A5/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2020/07/15/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/mac%E4%BD%BF%E7%94%A8brew%E5%AE%89%E8%A3%85Java8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/15/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/mac%E4%BD%BF%E7%94%A8brew%E5%AE%89%E8%A3%85Java8/" class="post-title-link" itemprop="url">mac使用brew安装Java8</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-15 23:22:00" itemprop="dateCreated datePublished" datetime="2020-07-15T23:22:00+08:00">2020-07-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-08-05 22:52:50" itemprop="dateModified" datetime="2023-08-05T22:52:50+08:00">2023-08-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/jdk/" itemprop="url" rel="index"><span itemprop="name">jdk</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2020/07/15/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/mac%E4%BD%BF%E7%94%A8brew%E5%AE%89%E8%A3%85Java8/" class="post-meta-item leancloud_visitors" data-flag-title="mac使用brew安装Java8" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.6k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>homebrew不多说，java8也不多说。<br>brew安装不上java8的例子太多了。<br>最后的做法无非这么几个，安装openjdk版本，或者安装其他的版本，或者直接去官网装。</p>
-<p>我今天就要硬装！就要用brew硬装官网版本的java8！</p>
-<h1 id="一-安装报错"><a href="#一-安装报错" class="headerlink" title="一.安装报错"></a>一.安装报错</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask install homebrew/cask-versions/java8</span><br></pre></td></tr></table></figure>
-<p>执行这个，然后肯定报错<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/brew%E8%A3%85java/1.png" alt="1.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error: Cask &#x27;java8&#x27; is unavailable: &#x27;/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-versions/Casks/java8.rb&#x27; does not exist.</span><br></pre></td></tr></table></figure>
-<p>也就是这个玩意</p>
-<h1 id="二-添加java8-rb"><a href="#二-添加java8-rb" class="headerlink" title="二.添加java8.rb"></a>二.添加java8.rb</h1><p>注意到上面报错的地址了没，说的是你文件夹下没有java8.rb这个文件</p>
-<p>让我们打开<a target="_blank" rel="noopener" href="https://github.com/Homebrew/homebrew-cask-versions/issues/7253#issuecomment-484590833">github之这个老姐删掉了java8.rb</a></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/07/15/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/mac%E4%BD%BF%E7%94%A8brew%E5%AE%89%E8%A3%85Java8/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2020/07/13/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84Egg%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E8%B7%A8%E5%9F%9F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/13/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84Egg%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E8%B7%A8%E5%9F%9F/" class="post-title-link" itemprop="url">无星的Egg之旅（一）——跨域</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-13 15:52:04" itemprop="dateCreated datePublished" datetime="2020-07-13T15:52:04+08:00">2020-07-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-08-05 22:52:50" itemprop="dateModified" datetime="2023-08-05T22:52:50+08:00">2023-08-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/node/" itemprop="url" rel="index"><span itemprop="name">node</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/node/egg/" itemprop="url" rel="index"><span itemprop="name">egg</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2020/07/13/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84Egg%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E8%B7%A8%E5%9F%9F/" class="post-meta-item leancloud_visitors" data-flag-title="无星的Egg之旅（一）——跨域" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.9k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>先说点老生常谈的问题</p>
-<h1 id="啥是跨域"><a href="#啥是跨域" class="headerlink" title="啥是跨域"></a>啥是跨域</h1><h2 id="1-同源策略"><a href="#1-同源策略" class="headerlink" title="1.同源策略"></a>1.同源策略</h2><p>要了解跨域，先要说说同源策略。同源策略是由 Netscape 公司提出的一个著名的安全策略，所有支持 JavaScript 的浏览器都会使用这个策略。所谓同源是指，域名，协议，端口相同。当页面在执行一个脚本时会检查访问的资源是否同源，如果非同源，那么在请求数据时，浏览器会在控制台中报一个异常，提示拒绝访问。</p>
-<p>同源策略一般又分为以下两种：</p>
-<p>DOM同源策略：禁止对不同源页面DOM进行操作。这里主要场景是iframe跨域的情况，不同域名的iframe是限制互相访问的。XmlHttpRequest同源策略：禁止使用XHR对象向不同源的服务器地址发起HTTP请求。</p>
-<h2 id="2-什么是跨域？"><a href="#2-什么是跨域？" class="headerlink" title="2.什么是跨域？"></a>2.什么是跨域？</h2><p>跨域，指的是从一个域名去请求另外一个域名的资源。即跨域名请求！跨域时，浏览器不能执行其他域名网站的脚本，是由浏览器的同源策略造成的，是浏览器施加的安全限制。</p>
-<p>跨域的严格一点来说就是只要协议，域名，端口有任何一个的不同，就被当作是跨域。</p>
-<h2 id="好了，我们得出结论：1-跨域只在浏览器中会出现2-协议，域名，端口任一不同就会出现跨域"><a href="#好了，我们得出结论：1-跨域只在浏览器中会出现2-协议，域名，端口任一不同就会出现跨域" class="headerlink" title="好了，我们得出结论：1.跨域只在浏览器中会出现2.协议，域名，端口任一不同就会出现跨域"></a>好了，我们得出结论：1.跨域只在浏览器中会出现2.协议，域名，端口任一不同就会出现跨域</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/07/13/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84Egg%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E8%B7%A8%E5%9F%9F/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2020/07/01/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94%20PC%E7%AB%AFWeb%E9%94%99%E8%AF%AF%E6%97%A5%E5%BF%97%E6%94%B6%E9%9B%861/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/01/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94%20PC%E7%AB%AFWeb%E9%94%99%E8%AF%AF%E6%97%A5%E5%BF%97%E6%94%B6%E9%9B%861/" class="post-title-link" itemprop="url">无星的前端之旅（七）—— PC端Web错误日志收集1</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-01 16:42:00" itemprop="dateCreated datePublished" datetime="2020-07-01T16:42:00+08:00">2020-07-01</time>
+              <time title="创建时间：2021-02-14 16:54:00" itemprop="dateCreated datePublished" datetime="2021-02-14T16:54:00+08:00">2021-02-14</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -710,7 +267,7 @@
             </span>
 
           
-            <span id="/2020/07/01/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94%20PC%E7%AB%AFWeb%E9%94%99%E8%AF%AF%E6%97%A5%E5%BF%97%E6%94%B6%E9%9B%861/" class="post-meta-item leancloud_visitors" data-flag-title="无星的前端之旅（七）—— PC端Web错误日志收集1" title="阅读次数">
+            <span id="/2021/02/14/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E5%85%AB%EF%BC%89-Vue3+ts%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" class="post-meta-item leancloud_visitors" data-flag-title="无星的前端之旅（十八）-Vue3+ts常见问题" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -722,7 +279,444 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.4k</span>
+              <span>5.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>第一次用Vue3+ts，采用了eslint（aribnb），遇到了一些问题，又不想用经常性使用any，只能逼迫自己解决问题。</p>
+<p>本文只是记录一些自己遇到的检测问题</p>
+<h1 id="1-使用less并导出变量到ts使用，但是ts报错找不到"><a href="#1-使用less并导出变量到ts使用，但是ts报错找不到" class="headerlink" title="1.使用less并导出变量到ts使用，但是ts报错找不到"></a>1.使用less并导出变量到ts使用，但是ts报错找不到</h1><p>报错内容：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Cannot</span> find <span class="variable language_">module</span> <span class="string">&#x27;xxx.less&#x27;</span> or its corresponding type declarations.</span><br></pre></td></tr></table></figure>
+<p>解决方法：</p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903560056930311">CSS in Typescript</a></p>
+<h1 id="2-setup中获取proxy，但提示可能为null"><a href="#2-setup中获取proxy，但提示可能为null" class="headerlink" title="2.setup中获取proxy，但提示可能为null"></a>2.setup中获取proxy，但提示可能为null</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; proxy &#125; = <span class="title function_">getCurrentInstance</span>();</span><br></pre></td></tr></table></figure>
+<p>提示报错内容：</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/02/14/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E5%85%AB%EF%BC%89-Vue3+ts%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2021/02/13/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E4%B8%83%EF%BC%89-typescript%E5%88%9D%E6%8E%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/13/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E4%B8%83%EF%BC%89-typescript%E5%88%9D%E6%8E%A2/" class="post-title-link" itemprop="url">无星的前端之旅（十七）-typescript初探</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-02-13 14:50:00" itemprop="dateCreated datePublished" datetime="2021-02-13T14:50:00+08:00">2021-02-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-08-05 22:52:50" itemprop="dateModified" datetime="2023-08-05T22:52:50+08:00">2023-08-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/02/13/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E4%B8%83%EF%BC%89-typescript%E5%88%9D%E6%8E%A2/" class="post-meta-item leancloud_visitors" data-flag-title="无星的前端之旅（十七）-typescript初探" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>之前干iOS的，写过一段时间swift，所以从js转到ts对我其实影响不太大。</p>
+<p>只是有些知识点比较乱，没有串起来过。</p>
+<p>首先我们需要上<a target="_blank" rel="noopener" href="https://www.typescriptlang.org/zh/">typescript的官方文档</a>阅读一哈文档</p>
+<p>中文网很久没有更新了，不过github有老哥一直在翻译<a target="_blank" rel="noopener" href="https://github.com/zhongsp/TypeScript">zhongsp&#x2F;TypeScript</a></p>
+<p>实际上现在看官网也有中文语言这个选项了，但是翻译完成的文章不太多，今后应该会越来越多。</p>
+<p>那么接下来就是把知识点串起来了</p>
+<p>以下都是个人观点，如果有不对，望大牛指点</p>
+<h1 id="1-要不要全局安装typescript"><a href="#1-要不要全局安装typescript" class="headerlink" title="1.要不要全局安装typescript"></a>1.要不要全局安装typescript</h1><p>个人觉得不要，typescript也是有版本的，版本随着项目走，项目去安装typescript即可，完全没有必要全局安装。</p>
+<h1 id="2-tsc命令"><a href="#2-tsc命令" class="headerlink" title="2.tsc命令"></a>2.tsc命令</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/02/13/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E4%B8%83%EF%BC%89-typescript%E5%88%9D%E6%8E%A2/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2021/02/04/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/04/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/" class="post-title-link" itemprop="url">无星的前端之旅（十六）——移动端调试技巧</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-02-04 15:34:00" itemprop="dateCreated datePublished" datetime="2021-02-04T15:34:00+08:00">2021-02-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-12-17 21:51:07" itemprop="dateModified" datetime="2023-12-17T21:51:07+08:00">2023-12-17</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/02/04/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/" class="post-meta-item leancloud_visitors" data-flag-title="无星的前端之旅（十六）——移动端调试技巧" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>常见的需求，开发移动端h5，在移动端浏览器或者移动端app上渲染。</p>
+<p>前端不知道怎么在移动端调试，移动端不知道怎么调试网页。</p>
+<p>经常出了问题不知道是找移动端解决还是找前端解决。</p>
+<p>好了，我们举个例子：</p>
+<p>公司小改改写了个页面，要在app的webview里加载，本地调试杠杠的，自己手机杠杠的，但是一上特意准备的测试机，就白屏了。</p>
+<p>我号称是公司移动端里最会写前端的，前端里最会写移动端的。只能露一手了[LetMeSee]</p>
+<p>如果你是前端，可以找个客户端，按此方法操作打开调试控制台，由你来调试网页上的问题</p>
+<p>如果你是个移动端，你就可以按照这个方法，为前端同学准备好调试环境，剩下的网页调试工作交给他们</p>
+<h1 id="如何查找问题"><a href="#如何查找问题" class="headerlink" title="如何查找问题"></a>如何查找问题</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/02/04/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2021/02/04/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94babel%E5%88%9D%E6%8E%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/04/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94babel%E5%88%9D%E6%8E%A2/" class="post-title-link" itemprop="url">无星的前端之旅（十五）——babel初探</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-02-04 14:33:00" itemprop="dateCreated datePublished" datetime="2021-02-04T14:33:00+08:00">2021-02-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-08-05 22:52:50" itemprop="dateModified" datetime="2023-08-05T22:52:50+08:00">2023-08-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/02/04/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94babel%E5%88%9D%E6%8E%A2/" class="post-meta-item leancloud_visitors" data-flag-title="无星的前端之旅（十五）——babel初探" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>其实很早我就知道，babel会帮助我们做一件事，就是把高版本的ES语法，转换为低版本的ES语法，以确保在低版本浏览器上能正确运行。</p>
+<p>但是一直我都不知道怎么去操纵它，只知道需要一堆配置，配合webpack可以做这件事（甚至我一度认为必须使用webpack才能做这件事）。</p>
+<h1 id="集成-基本就是抄文档"><a href="#集成-基本就是抄文档" class="headerlink" title="集成(基本就是抄文档)"></a>集成(基本就是抄文档)</h1><p>其实如果用百度搜索，集成的东西有各种es版本的依赖，配置文件有js，rc，json文件，乱七八糟什么都有。</p>
+<p>其实这是历史原因。但现在已经2021年了，咱们就直接按<a target="_blank" rel="noopener" href="https://www.babeljs.cn/">官网</a>说的来。</p>
+<h2 id="1-下载依赖包"><a href="#1-下载依赖包" class="headerlink" title="1.下载依赖包"></a>1.下载依赖包</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev @babel/core @babel/cli @babel/preset-env</span><br><span class="line">npm install --save @babel/polyfill</span><br></pre></td></tr></table></figure>
+<p>当然，我个人认为，如果不需要兼容IE的话，应该不需要下载polyfill了</p>
+<h2 id="2-添加依赖文件"><a href="#2-添加依赖文件" class="headerlink" title="2.添加依赖文件"></a>2.添加依赖文件</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/02/04/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94babel%E5%88%9D%E6%8E%A2/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2021/02/03/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E6%97%A0%E6%98%9F%E7%9A%84nginx%E9%85%8D%E7%BD%AE%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94Vue%20router%20history%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/03/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E6%97%A0%E6%98%9F%E7%9A%84nginx%E9%85%8D%E7%BD%AE%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94Vue%20router%20history%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">无星的nginx配置学习（二）——Vue router history配置引发的思考</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-02-03 13:52:00" itemprop="dateCreated datePublished" datetime="2021-02-03T13:52:00+08:00">2021-02-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-08-05 22:52:50" itemprop="dateModified" datetime="2023-08-05T22:52:50+08:00">2023-08-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nginx/" itemprop="url" rel="index"><span itemprop="name">nginx</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/02/03/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E6%97%A0%E6%98%9F%E7%9A%84nginx%E9%85%8D%E7%BD%AE%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94Vue%20router%20history%E9%85%8D%E7%BD%AE/" class="post-meta-item leancloud_visitors" data-flag-title="无星的nginx配置学习（二）——Vue router history配置引发的思考" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -741,16 +735,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>线上报错，啥也不知道，无法复现束手无策，客户开喷，研发背锅</p>
-<p>这种事情，u1s1，大家都遇到过吧</p>
-<p>解决方式就是有个日志收集上报的地方去查，查什么时候，什么时间，什么环境，出了什么错误，在某些程度能不那么被动</p>
-<h1 id="选型"><a href="#选型" class="headerlink" title="选型"></a>选型</h1><p>是不是以为我是要说用哪家，实际上是准备自己写。。</p>
-<p>免费的不放心，付费的买不起<br>但这里还是列出几家<br><a target="_blank" rel="noopener" href="https://www.fundebug.com/">fundebug</a><br><a target="_blank" rel="noopener" href="https://sentry.io/welcome/">sentry</a></p>
-<h1 id="怎么做？"><a href="#怎么做？" class="headerlink" title="怎么做？"></a>怎么做？</h1><p>1.了解需要采集的指标<br>2.收集的方式<br>3.上报的方式<br>4.上报的时机<br>5.如何解析<br>6.告警</p>
-<h2 id="1-了解需要采集的数据指标"><a href="#1-了解需要采集的数据指标" class="headerlink" title="1.了解需要采集的数据指标"></a>1.了解需要采集的数据指标</h2>
+          <h1 id="啥是History模式"><a href="#啥是History模式" class="headerlink" title="啥是History模式"></a>啥是History模式</h1><p><a target="_blank" rel="noopener" href="https://router.vuejs.org/zh/guide/essentials/history-mode.html">文档</a></p>
+<h1 id="nginx配置"><a href="#nginx配置" class="headerlink" title="nginx配置"></a>nginx配置</h1><h3 id="前提：假设把打包后的文件放在根目录下（这个前提很重要-）"><a href="#前提：假设把打包后的文件放在根目录下（这个前提很重要-）" class="headerlink" title="前提：假设把打包后的文件放在根目录下（这个前提很重要!!!）"></a>前提：假设把打包后的文件放在根目录下（这个前提很重要!!!）</h3><p>从文档可以看到，nginx配置内容为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># nginx</span><br><span class="line">location / &#123;</span><br><span class="line">  try_files $uri $uri/ /index.html;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>实际上这是什么意思呢？</p>
+<p>根据以上前提</p>
+<p>我们如果把对应文件放到根目录下，差不多是这个意思</p>
+<h2 id="1-把dist包内容放到根路径下"><a href="#1-把dist包内容放到根路径下" class="headerlink" title="1.把dist包内容放到根路径下"></a>1.把dist包内容放到根路径下</h2>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/07/01/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94%20PC%E7%AB%AFWeb%E9%94%99%E8%AF%AF%E6%97%A5%E5%BF%97%E6%94%B6%E9%9B%861/#more" rel="contents">
+              <a class="btn" href="/2021/02/03/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E6%97%A0%E6%98%9F%E7%9A%84nginx%E9%85%8D%E7%BD%AE%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94Vue%20router%20history%E9%85%8D%E7%BD%AE/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -774,7 +768,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2020/06/07/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94%20Vue%E5%BC%95%E5%85%A5Storybook%EF%BC%88%E4%B8%80%EF%BC%89/">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2021/01/14/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E6%97%A0%E6%98%9F%E7%9A%84nginx%E9%85%8D%E7%BD%AE%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89-%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/headerPic.png">
@@ -788,7 +782,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/06/07/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94%20Vue%E5%BC%95%E5%85%A5Storybook%EF%BC%88%E4%B8%80%EF%BC%89/" class="post-title-link" itemprop="url">无星的前端之旅（六）—— Vue引入Storybook（一）</a>
+            <a href="/2021/01/14/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E6%97%A0%E6%98%9F%E7%9A%84nginx%E9%85%8D%E7%BD%AE%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89-%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">无星的nginx配置学习（一）-基础配置</a>
         </h2>
 
         <div class="post-meta">
@@ -798,107 +792,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-06-07 19:08:30" itemprop="dateCreated datePublished" datetime="2020-06-07T19:08:30+08:00">2020-06-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-08-05 22:52:50" itemprop="dateModified" datetime="2023-08-05T22:52:50+08:00">2023-08-05</time>
-              </span>
-
-          
-            <span id="/2020/06/07/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94%20Vue%E5%BC%95%E5%85%A5Storybook%EF%BC%88%E4%B8%80%EF%BC%89/" class="post-meta-item leancloud_visitors" data-flag-title="无星的前端之旅（六）—— Vue引入Storybook（一）" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.6k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="为什么要引入"><a href="#为什么要引入" class="headerlink" title="为什么要引入"></a>为什么要引入</h3><p>一开始我想的是，可能多人多项目开发，把组件展示出来，避免重复造轮子</p>
-<p>但后来想想，好像除了展示，没什么其他用处</p>
-<p>两个项目如果要用同一个样式的组件，如果没有单独抽出组件库，还是得复制粘贴，用处不大</p>
-<p>只能说做组件库的同学用这个比较好用。</p>
-<p>还有一个自动化测试的好处（不过我从来没写过测试，暂时还无法体会这个好处）</p>
-<p>还有其他用处的话，麻烦老哥们留言区告诉我</p>
-<h3 id="如何引入"><a href="#如何引入" class="headerlink" title="如何引入"></a>如何引入</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd 项目目录下</span><br><span class="line">npx -p @storybook/cli sb init</span><br></pre></td></tr></table></figure>
-<p>会拉一些依赖，并新建两个文件夹</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/06/07/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94%20Vue%E5%BC%95%E5%85%A5Storybook%EF%BC%88%E4%B8%80%EF%BC%89/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2020/05/09/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%89%B9%E9%87%8F%E5%8F%91%E5%B8%83%E5%A6%82%E4%BD%95%E5%8E%8B%E7%BC%A9%E6%89%93%E5%8C%85%E6%97%B6%E9%97%B4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/09/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%89%B9%E9%87%8F%E5%8F%91%E5%B8%83%E5%A6%82%E4%BD%95%E5%8E%8B%E7%BC%A9%E6%89%93%E5%8C%85%E6%97%B6%E9%97%B4/" class="post-title-link" itemprop="url">无星的前端之旅（五）——小程序批量发布如何压缩打包时间</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-05-09 10:06:18" itemprop="dateCreated datePublished" datetime="2020-05-09T10:06:18+08:00">2020-05-09</time>
+              <time title="创建时间：2021-01-14 15:48:00" itemprop="dateCreated datePublished" datetime="2021-01-14T15:48:00+08:00">2021-01-14</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -913,12 +807,12 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                  <a href="/categories/nginx/" itemprop="url" rel="index"><span itemprop="name">nginx</span></a>
                 </span>
             </span>
 
           
-            <span id="/2020/05/09/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%89%B9%E9%87%8F%E5%8F%91%E5%B8%83%E5%A6%82%E4%BD%95%E5%8E%8B%E7%BC%A9%E6%89%93%E5%8C%85%E6%97%B6%E9%97%B4/" class="post-meta-item leancloud_visitors" data-flag-title="无星的前端之旅（五）——小程序批量发布如何压缩打包时间" title="阅读次数">
+            <span id="/2021/01/14/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E6%97%A0%E6%98%9F%E7%9A%84nginx%E9%85%8D%E7%BD%AE%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89-%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/" class="post-meta-item leancloud_visitors" data-flag-title="无星的nginx配置学习（一）-基础配置" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -930,119 +824,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>其实标题起的有点大，主要是使用shell中的&amp;和wait这两个命令。</p>
-<p>运维大佬不要嘲笑。</p>
-<p><a href="http://blog.xingxiaowu.cn/2020/05/07/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/">无星的前端之旅（四）——小程序持续集成</a>前面介绍了背景，我们有一套代码要发40多个客户的小程序主体。</p>
-<p>在Jenkins中加shell去完成上传开发版这个操作。但是需要进行多参数化配置，换句话说就是40多家客户我们要打40多个包，分别上传。</p>
-<p>shell的执行方式是，前面执行完了，我们才能执行下一个命令。</p>
-<p>因此如果我们打一个包并上传的时间是1分钟，那40家就是40分钟。这谁顶得住啊。</p>
-<p>所以需要考虑如何压缩这个打包上传时间，能不能同时打包，同时上传。</p>
-<p>原本的shell如下，变量我就写中文代替了</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">function npminstall()&#123;</span><br><span class="line">  echo &quot;拉依赖&quot;</span><br><span class="line">  cd 代码文件夹下</span><br><span class="line">  npm install</span><br><span class="line">&#125;</span><br><span class="line">function buildwx()&#123;</span><br><span class="line">  echo &quot;执行构建&quot;</span><br><span class="line">  # echo &#x27;环境:&#x27;$1</span><br><span class="line">  # echo &#x27;文件名:&#x27;$2</span><br><span class="line">  # echo &#x27;客户名:&#x27;$3</span><br><span class="line">  npx cross-env 环境=$1 文件名=$2 客户名=$3 node build/build.js wx</span><br><span class="line">&#125;</span><br><span class="line">function upload()&#123;</span><br><span class="line">  echo &quot;执行上传&quot;</span><br><span class="line">  # echo &#x27;文件名:&#x27;$1</span><br><span class="line">  # echo &#x27;appid:&#x27;$2</span><br><span class="line">  # echo &#x27;version:&#x27;$3</span><br><span class="line">  npx miniprogram-ci upload --pp  ./dist/$&#123;1&#125;/wx --pkp ./privatekey/private.$&#123;2&#125;.key --appid $&#123;2&#125; --uv $&#123;3&#125; -r 1 --enable-es6 true</span><br><span class="line">&#125;</span><br><span class="line">#------------------待构建配置------------------</span><br><span class="line">configs=(</span><br><span class="line">&quot;xxx客户;xxx环境;xxx文件名;xxxxappid&quot;</span><br><span class="line">&quot;xxx客户;xxx环境;xxx文件名;xxxxappid&quot;</span><br><span class="line">)</span><br><span class="line">##读取version变量</span><br><span class="line">version=‘xxx文件读取’</span><br><span class="line">#------------------执行批量构建------------------</span><br><span class="line">npminstall</span><br><span class="line">for xxx in $&#123;configs[@]&#125;;do </span><br><span class="line">客户名=`echo $&#123;xxx&#125; | awk -F &quot;;&quot; &#x27;&#123;print $1&#125;&#x27;`</span><br><span class="line">环境=`echo $&#123;xxx&#125; | awk -F &quot;;&quot; &#x27;&#123;print $2&#125;&#x27;`</span><br><span class="line">文件名=`echo $&#123;xxx&#125; | awk -F &quot;;&quot; &#x27;&#123;print $3&#125;&#x27;`</span><br><span class="line">appid=`echo $&#123;xxx&#125; | awk -F &quot;;&quot; &#x27;&#123;print $4&#125;&#x27;`</span><br><span class="line">buildwx $&#123;环境&#125; $&#123;文件名&#125; $&#123;客户名&#125;</span><br><span class="line">upload $&#123;文件名&#125; $&#123;appid&#125; $&#123;version&#125;</span><br><span class="line">echo &quot;$客户名 上传完毕&quot;</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-
-<p>就是一个简单的for循环，根据配置信息批量打包。40多家就是40分钟。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/05/09/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%89%B9%E9%87%8F%E5%8F%91%E5%B8%83%E5%A6%82%E4%BD%95%E5%8E%8B%E7%BC%A9%E6%89%93%E5%8C%85%E6%97%B6%E9%97%B4/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2020/05/07/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/07/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" class="post-title-link" itemprop="url">无星的前端之旅（四）——小程序持续集成</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-05-07 16:42:00" itemprop="dateCreated datePublished" datetime="2020-05-07T16:42:00+08:00">2020-05-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-08-05 22:52:50" itemprop="dateModified" datetime="2023-08-05T22:52:50+08:00">2023-08-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2020/05/07/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" class="post-meta-item leancloud_visitors" data-flag-title="无星的前端之旅（四）——小程序持续集成" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3k</span>
+              <span>3.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -1061,16 +843,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>刚刚跑路到一家新公司。新公司的前端小改改负责开发小程序，为四十多家客户服务，而且是他们的账号主体。</p>
-<p>换句话说，一套代码，要切换多个 appid 去打包上传多个小程序账号发布。</p>
-<p>所以每次发布，同事都切来切去，麻烦的一批，疲于奔命。</p>
-<p>因此需要做一套自动部署，将开发从这个上面解放出来，让运营&#x2F;实施去完成这个发布操作，开发只需要专注于代码开发即可。</p>
-<h2 id="技术选型"><a href="#技术选型" class="headerlink" title="技术选型"></a>技术选型</h2><p>这里分为两个技术选型。</p>
-<h4 id="一-小程序的支持方式选型"><a href="#一-小程序的支持方式选型" class="headerlink" title="一.小程序的支持方式选型"></a>一.小程序的支持方式选型</h4><p>小程序的官网可以看到，他们支持三种方式</p>
-<p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/devtools/cli.html">命令行 V2</a></p>
+          <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>有个静态项目需要本地跑起来调试。这个项目还是前后端不分离的。</p>
+<p>接口有发布好的开发环境。不想跑java，想直接跑前端调试。</p>
+<p>所以用nginx</p>
+<h1 id="nginx安装"><a href="#nginx安装" class="headerlink" title="nginx安装"></a>nginx安装</h1><p>我是mac，brew是什么就不多说了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装</span></span><br><span class="line">brew install nginx</span><br><span class="line"><span class="comment"># 查看信息</span></span><br><span class="line">brew info nginx</span><br></pre></td></tr></table></figure>
+
+<h1 id="打开配置文件nginx-conf"><a href="#打开配置文件nginx-conf" class="headerlink" title="打开配置文件nginx.conf"></a>打开配置文件nginx.conf</h1><p>brew info命令会输出conf的地址，请仔细查看。</p>
+<p>不要怕改错，同文件夹下有个default，随时可以用默认配置覆盖</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/05/07/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/#more" rel="contents">
+              <a class="btn" href="/2021/01/14/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E6%97%A0%E6%98%9F%E7%9A%84nginx%E9%85%8D%E7%BD%AE%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89-%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1094,7 +877,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2020/04/29/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95cli%E5%B7%A5%E7%A8%8B/">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2021/01/13/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E5%B7%A7%E7%94%A8plop%E7%94%9F%E6%88%90%E6%A8%A1%E6%9D%BF%E8%BF%9B%E8%A1%8C%E5%81%B7%E6%87%92/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/headerPic.png">
@@ -1108,7 +891,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/04/29/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95cli%E5%B7%A5%E7%A8%8B/" class="post-title-link" itemprop="url">无星的前端之旅（三）——如何调试cli工程</a>
+            <a href="/2021/01/13/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E5%B7%A7%E7%94%A8plop%E7%94%9F%E6%88%90%E6%A8%A1%E6%9D%BF%E8%BF%9B%E8%A1%8C%E5%81%B7%E6%87%92/" class="post-title-link" itemprop="url">无星的前端之旅（十四）——巧用plop生成模板进行偷懒</a>
         </h2>
 
         <div class="post-meta">
@@ -1118,7 +901,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-04-29 16:42:00" itemprop="dateCreated datePublished" datetime="2020-04-29T16:42:00+08:00">2020-04-29</time>
+              <time title="创建时间：2021-01-13 11:38:00" itemprop="dateCreated datePublished" datetime="2021-01-13T11:38:00+08:00">2021-01-13</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -1138,7 +921,7 @@
             </span>
 
           
-            <span id="/2020/04/29/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95cli%E5%B7%A5%E7%A8%8B/" class="post-meta-item leancloud_visitors" data-flag-title="无星的前端之旅（三）——如何调试cli工程" title="阅读次数">
+            <span id="/2021/01/13/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E5%B7%A7%E7%94%A8plop%E7%94%9F%E6%88%90%E6%A8%A1%E6%9D%BF%E8%BF%9B%E8%A1%8C%E5%81%B7%E6%87%92/" class="post-meta-item leancloud_visitors" data-flag-title="无星的前端之旅（十四）——巧用plop生成模板进行偷懒" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -1150,14 +933,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.3k</span>
+              <span>3.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -1169,17 +952,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>作为前端开发工程师，希望搭建一些基础设置，cli是必不可少的一项。</p>
-<p>至于cli如何制作，文章一大堆，相信网上大家都能搜到。</p>
-<p>但是cli工具如何debug，我查了2天，都没查到。</p>
-<p>我用的开发工具是vscode。虽然我知道答案一定在<br><a target="_blank" rel="noopener" href="https://code.visualstudio.com/docs/nodejs/nodejs-debugging#_launch-configuration-attributes">VSCode调试</a>与<a target="_blank" rel="noopener" href="https://nodejs.org/en/docs/guides/debugging-getting-started/">NodeJS调试入门</a>中，但我天资愚钝，不知道如何融合起来。</p>
-<p>不过天不亡我，最终还是找到了解决方式。</p>
-<p> 不多bb，直接上代码和截图。</p>
-<h3 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h3><h4 id="1-新增vscode的launch选项卡"><a href="#1-新增vscode的launch选项卡" class="headerlink" title="1.新增vscode的launch选项卡"></a>1.新增vscode的launch选项卡</h4><p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/cli-debug/1.png" alt="1"></p>
-<p> 抄就完事了，注意端口号，是根据后续产生的端口号去填写，可以先填一个。</p>
+          <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>在开发过程中，总会有一些模板代码需要编写，比如我是写vue的，vue2中的各种namespace，vue3中的各种引入。几乎是每个vue文件都需要的。</p>
+<p>每次写都累的一批，也毫无技术含量。纯体力活，但还不得不做。</p>
+<p>这时候大伙可能会用各自习惯的编辑器去编写各式各样的代码块来减轻工作量。</p>
+<p>但是团队中编辑器并非统一的，众所周知，前端不仅语言众多，开发工具也多的一批，也没有什么好的跨编辑器跨机子的代码块存储方式（大厂统一云编辑器的往后稍稍，不包含你们）</p>
+<p>这个时候就发现了plop（在跟着<a target="_blank" rel="noopener" href="https://juejin.cn/user/518625216445533">花裤衩</a>手摸手学习<a target="_blank" rel="noopener" href="https://github.com/PanJiaChen/vue-element-admin">vue-element-admin</a>的时候学到的）。</p>
+<h1 id="Plop解决了什么问题？"><a href="#Plop解决了什么问题？" class="headerlink" title="Plop解决了什么问题？"></a>Plop解决了什么问题？</h1><p>解决了上述的同一个项目跨编辑器跨机器编写前端代码块的问题。</p>
+<h1 id="如何集成"><a href="#如何集成" class="headerlink" title="如何集成"></a>如何集成</h1><h2 id="一、集成plop到项目中"><a href="#一、集成plop到项目中" class="headerlink" title="一、集成plop到项目中"></a>一、集成plop到项目中</h2>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/04/29/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95cli%E5%B7%A5%E7%A8%8B/#more" rel="contents">
+              <a class="btn" href="/2021/01/13/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E5%B7%A7%E7%94%A8plop%E7%94%9F%E6%88%90%E6%A8%A1%E6%9D%BF%E8%BF%9B%E8%A1%8C%E5%81%B7%E6%87%92/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1203,7 +985,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2020/02/15/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E8%8B%B9%E6%9E%9C%E5%8D%A1%E9%AA%8C%E8%AF%81%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%8C%E7%BB%88%E4%BA%8E%E2%84%A2%E8%A7%A3%E5%86%B3%E4%BA%86/">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2021/01/13/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94require.context%E5%92%8Cvuex%E6%8C%81%E4%B9%85%E5%8C%96/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/headerPic.png">
@@ -1217,7 +999,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/02/15/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E8%8B%B9%E6%9E%9C%E5%8D%A1%E9%AA%8C%E8%AF%81%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%8C%E7%BB%88%E4%BA%8E%E2%84%A2%E8%A7%A3%E5%86%B3%E4%BA%86/" class="post-title-link" itemprop="url">苹果卡验证的问题，终于™解决了</a>
+            <a href="/2021/01/13/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94require.context%E5%92%8Cvuex%E6%8C%81%E4%B9%85%E5%8C%96/" class="post-title-link" itemprop="url">无星的前端之旅（十三）——require.context和vuex持久化</a>
         </h2>
 
         <div class="post-meta">
@@ -1227,7 +1009,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-02-15 00:55:00" itemprop="dateCreated datePublished" datetime="2020-02-15T00:55:00+08:00">2020-02-15</time>
+              <time title="创建时间：2021-01-13 11:37:00" itemprop="dateCreated datePublished" datetime="2021-01-13T11:37:00+08:00">2021-01-13</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -1242,12 +1024,12 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
                 </span>
             </span>
 
           
-            <span id="/2020/02/15/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E8%8B%B9%E6%9E%9C%E5%8D%A1%E9%AA%8C%E8%AF%81%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%8C%E7%BB%88%E4%BA%8E%E2%84%A2%E8%A7%A3%E5%86%B3%E4%BA%86/" class="post-meta-item leancloud_visitors" data-flag-title="苹果卡验证的问题，终于™解决了" title="阅读次数">
+            <span id="/2021/01/13/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94require.context%E5%92%8Cvuex%E6%8C%81%E4%B9%85%E5%8C%96/" class="post-meta-item leancloud_visitors" data-flag-title="无星的前端之旅（十三）——require.context和vuex持久化" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -1259,7 +1041,115 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>804</span>
+              <span>5.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>有些component需要全局注册的，但是在main.js中全局注册又太麻烦了。</p>
+<p>store采用modules方式分包，使用的时候也要手动注册。</p>
+<p>store刷新丢失，需要持久化。</p>
+<p>这时候解决前两个问题，可以使用<a target="_blank" rel="noopener" href="https://webpack.js.org/guides/dependency-management/#requirecontext">require.context</a></p>
+<p>解决最后一个问题可以使用<a target="_blank" rel="noopener" href="https://github.com/robinvdvleuten/vuex-persistedstate">vuex-persistedstate</a></p>
+<h1 id="require-context"><a href="#require-context" class="headerlink" title="require.context"></a>require.context</h1><h2 id="1-require-context是什么？"><a href="#1-require-context是什么？" class="headerlink" title="1.require.context是什么？"></a>1.require.context是什么？</h2><p>Vue内置了webpack的部分配置，这个咱们就不多说了。</p>
+<p>require.context是webpack的api。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/01/13/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94require.context%E5%92%8Cvuex%E6%8C%81%E4%B9%85%E5%8C%96/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2021/01/03/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84electron%E4%B9%8B%E6%97%85%EF%BC%88%E4%B9%9D%EF%BC%89%E2%80%94%E2%80%94%20JS%E6%B3%A8%E5%85%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/03/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84electron%E4%B9%8B%E6%97%85%EF%BC%88%E4%B9%9D%EF%BC%89%E2%80%94%E2%80%94%20JS%E6%B3%A8%E5%85%A5/" class="post-title-link" itemprop="url">无星的electron之旅（九）—— JS注入</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-01-03 15:32:54" itemprop="dateCreated datePublished" datetime="2021-01-03T15:32:54+08:00">2021-01-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-08-05 22:52:50" itemprop="dateModified" datetime="2023-08-05T22:52:50+08:00">2023-08-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/electron/" itemprop="url" rel="index"><span itemprop="name">electron</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/01/03/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84electron%E4%B9%8B%E6%97%85%EF%BC%88%E4%B9%9D%EF%BC%89%E2%80%94%E2%80%94%20JS%E6%B3%A8%E5%85%A5/" class="post-meta-item leancloud_visitors" data-flag-title="无星的electron之旅（九）—— JS注入" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>510</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -1278,17 +1168,125 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>有一说一，在国内上传app到App Store，用transport上传，我打赌你肯定见过这个页面，这个正在验证能卡几个钟头。</p>
-<p>“正在验证App-正在通过App Store进行认证…”</p>
-<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%8B%B9%E6%9E%9C%E5%8D%A1%E9%AA%8C%E8%AF%81%E7%9A%84%E9%97%AE%E9%A2%98/1.png" alt="1.png"></p>
-<h3 id="终于在stackoverflow这里找到了答案（不是最高票那个）。"><a href="#终于在stackoverflow这里找到了答案（不是最高票那个）。" class="headerlink" title="终于在stackoverflow这里找到了答案（不是最高票那个）。"></a>终于在<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/22443425/application-loader-stuck-at-authenticating-with-the-itunes-store-when-uploadin/59261475#59261475">stackoverflow</a>这里找到了答案（不是最高票那个）。</h3><p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%8B%B9%E6%9E%9C%E5%8D%A1%E9%AA%8C%E8%AF%81%E7%9A%84%E9%97%AE%E9%A2%98/2.png" alt="2.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%8B%B9%E6%9E%9C%E5%8D%A1%E9%AA%8C%E8%AF%81%E7%9A%84%E9%97%AE%E9%A2%98/3.png" alt="3.png"></p>
-<p>真的🐂🍺。</p>
-<p>所以你要做的操作就是</p>
-<h3 id="1-删除该缓存文件夹（删之前你可以看看是多大，我这是2-5M）"><a href="#1-删除该缓存文件夹（删之前你可以看看是多大，我这是2-5M）" class="headerlink" title="1.删除该缓存文件夹（删之前你可以看看是多大，我这是2.5M）"></a>1.删除该缓存文件夹（删之前你可以看看是多大，我这是2.5M）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Users/your_user_name/Library/Caches/com.apple.amp.itmstransporter/</span><br></pre></td></tr></table></figure>
+          <h2 id="一、背景"><a href="#一、背景" class="headerlink" title="一、背景"></a>一、背景</h2><p>开发群中讨论，如何给electron注入js</p>
+<p>有老哥提出了使用preload.js注入</p>
+<p>我惊了，表示不信，后面仔细想了想：</p>
+<p>“通过preload.js，可以预加载一些electron主线程的变量挂在到window上，后期在render线程中可以获取到对应的变量。</p>
+<p>换句话说，preload.js中获取到的window，是后期render线程的window，那理论上确实可以做注入操作。</p>
+<p>如果我在preload.js中添加window的生命周期,渲染后通过id或者各种方式获取到对应的dom节点，理论上我应该能劫持某些按钮，也就是说注入js成功了。”</p>
+<h2 id="二、说干就干"><a href="#二、说干就干" class="headerlink" title="二、说干就干"></a>二、说干就干</h2><p>1、老规矩，vue+vue-cli-plugin-electron-builder创建项目</p>
+<p>2、background.js，直接加载<a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a></p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/02/15/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E8%8B%B9%E6%9E%9C%E5%8D%A1%E9%AA%8C%E8%AF%81%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%8C%E7%BB%88%E4%BA%8E%E2%84%A2%E8%A7%A3%E5%86%B3%E4%BA%86/#more" rel="contents">
+              <a class="btn" href="/2021/01/03/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84electron%E4%B9%8B%E6%97%85%EF%BC%88%E4%B9%9D%EF%BC%89%E2%80%94%E2%80%94%20JS%E6%B3%A8%E5%85%A5/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2020/12/24/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84electron%E4%B9%8B%E6%97%85%EF%BC%88%E5%85%AB%EF%BC%89%E2%80%94%E2%80%94%20%E5%9D%90%E6%A0%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/24/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84electron%E4%B9%8B%E6%97%85%EF%BC%88%E5%85%AB%EF%BC%89%E2%80%94%E2%80%94%20%E5%9D%90%E6%A0%87/" class="post-title-link" itemprop="url">无星的electron之旅（八）—— 坐标</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-12-24 16:32:54" itemprop="dateCreated datePublished" datetime="2020-12-24T16:32:54+08:00">2020-12-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-08-05 22:52:50" itemprop="dateModified" datetime="2023-08-05T22:52:50+08:00">2023-08-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/electron/" itemprop="url" rel="index"><span itemprop="name">electron</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/12/24/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84electron%E4%B9%8B%E6%97%85%EF%BC%88%E5%85%AB%EF%BC%89%E2%80%94%E2%80%94%20%E5%9D%90%E6%A0%87/" class="post-meta-item leancloud_visitors" data-flag-title="无星的electron之旅（八）—— 坐标" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>964</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="一、背景"><a href="#一、背景" class="headerlink" title="一、背景"></a>一、背景</h2><p>希望窗口从某些固定区域弹出，比如右下角（如果有自定义弹窗需求，这就很常见了）</p>
+<h2 id="二、如何修改弹出位置"><a href="#二、如何修改弹出位置" class="headerlink" title="二、如何修改弹出位置"></a>二、如何修改弹出位置</h2><p>其实非常简单</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">const newWindow = new BrowserWindow(&#123;</span><br><span class="line">    x: 400,</span><br><span class="line">    y: 400,</span><br><span class="line">    width: 400,</span><br><span class="line">    height: 600,</span><br><span class="line">    frame: false,</span><br><span class="line">    webPreferences: &#123;</span><br><span class="line">      webSecurity: false,</span><br><span class="line">      nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION,</span><br><span class="line">      enableRemoteModule: true,</span><br><span class="line">      preload: path.join(__dirname, &#x27;preload.js&#x27;),</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+<p>关键就是这个x，y了</p>
+<h3 id="1-屏幕上的坐标轴"><a href="#1-屏幕上的坐标轴" class="headerlink" title="1.屏幕上的坐标轴"></a>1.屏幕上的坐标轴</h3><p>在屏幕上的坐标轴长这样</p>
+<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/electron8/1.png" alt="1"></p>
+<p>把你的鼠标放到屏幕四个角落，打印一下就可以验证了</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/12/24/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84electron%E4%B9%8B%E6%97%85%EF%BC%88%E5%85%AB%EF%BC%89%E2%80%94%E2%80%94%20%E5%9D%90%E6%A0%87/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1311,7 +1309,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1379,20 +1377,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">129</span>
+          <span class="site-state-item-count">151</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-count">42</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1437,6 +1435,9 @@
           <a href="http://xiaoqiuxx.xyz/" title="http:&#x2F;&#x2F;xiaoqiuxx.xyz&#x2F;" rel="noopener" target="_blank">xiaoqiuxx's Blog</a>
         </li>
         <li class="links-of-blogroll-item">
+          <a href="https://www.hyhforever.top/" title="https:&#x2F;&#x2F;www.hyhforever.top&#x2F;" rel="noopener" target="_blank">HYH's blog</a>
+        </li>
+        <li class="links-of-blogroll-item">
           <a href="https://www.v2rayfree.eu.org/" title="https:&#x2F;&#x2F;www.v2rayfree.eu.org&#x2F;" rel="noopener" target="_blank">应急链接</a>
         </li>
     </ul>
@@ -1461,7 +1462,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -1471,13 +1472,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">262k</span>
+    <span title="站点总字数">306k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:58</span>
+    <span title="站点阅读时长">4:38</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
