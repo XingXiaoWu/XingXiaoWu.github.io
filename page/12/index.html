@@ -223,6 +223,572 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2019/07/08/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Jenkins%E9%85%8D%E5%90%88FastLane%E5%AE%8C%E6%88%90%E6%89%93%E5%8C%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/07/08/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Jenkins%E9%85%8D%E5%90%88FastLane%E5%AE%8C%E6%88%90%E6%89%93%E5%8C%85/" class="post-title-link" itemprop="url">Jenkins配合FastLane完成打包</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-07-08 14:32:00" itemprop="dateCreated datePublished" datetime="2019-07-08T14:32:00+08:00">2019-07-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-04-15 20:33:02" itemprop="dateModified" datetime="2024-04-15T20:33:02+08:00">2024-04-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/07/08/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Jenkins%E9%85%8D%E5%90%88FastLane%E5%AE%8C%E6%88%90%E6%89%93%E5%8C%85/" class="post-meta-item leancloud_visitors" data-flag-title="Jenkins配合FastLane完成打包" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Jenkins配合FastLane完成打包"><a href="#Jenkins配合FastLane完成打包" class="headerlink" title="Jenkins配合FastLane完成打包"></a>Jenkins配合FastLane完成打包</h1><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/69d6e4cf90bf">FastLane的使用</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/321928ac0f28">Jenkins的安装</a></p>
+<p>我们将两者组合起来.</p>
+<p>首先说一下,ios打包用的xcbuild命令,所以必须是macos环境,这个不用多解释.</p>
+<p>所以….Jenkins所在宿主机得是mac系统的(如果有大神知道别的方式,麻烦指点一下),因为没有多余的mac机子,我就搭在了我自己的机子上.</p>
+<p>接下来我们说说怎么搞</p>
+<h2 id="启动Jenkins"><a href="#启动Jenkins" class="headerlink" title="启动Jenkins"></a>启动Jenkins</h2><p>首先,启动终端,输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Jenkins</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/07/08/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Jenkins%E9%85%8D%E5%90%88FastLane%E5%AE%8C%E6%88%90%E6%89%93%E5%8C%85/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2019/07/08/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/FastLane-ios%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85%E6%95%88%E7%8E%87%E7%A5%9E%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/07/08/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/FastLane-ios%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85%E6%95%88%E7%8E%87%E7%A5%9E%E5%99%A8/" class="post-title-link" itemprop="url">FastLane-ios自动打包效率神器</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-07-08 13:13:32" itemprop="dateCreated datePublished" datetime="2019-07-08T13:13:32+08:00">2019-07-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-04-15 20:33:02" itemprop="dateModified" datetime="2024-04-15T20:33:02+08:00">2024-04-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/07/08/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/FastLane-ios%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85%E6%95%88%E7%8E%87%E7%A5%9E%E5%99%A8/" class="post-meta-item leancloud_visitors" data-flag-title="FastLane-ios自动打包效率神器" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="FastLane-ios自动打包效率神器"><a href="#FastLane-ios自动打包效率神器" class="headerlink" title="FastLane-ios自动打包效率神器"></a>FastLane-ios自动打包效率神器</h1><p>背景: 不想每次测试都喊我打包,很累的,所以开始寻找,有你的世界在哪里</p>
+<h2 id="一-安装fastlane"><a href="#一-安装fastlane" class="headerlink" title="一.安装fastlane"></a>一.安装fastlane</h2><h3 id="1-换ruby源"><a href="#1-换ruby源" class="headerlink" title="1.换ruby源"></a>1.换ruby源</h3><p>多话不说,墙,换成国内镜像源</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/</span><br><span class="line">$ gem sources -l</span><br><span class="line">https://gems.ruby-china.com</span><br><span class="line"># 确保只有 gems.ruby-china.com</span><br></pre></td></tr></table></figure>
+<h3 id="2-开始用gem安装-不建议使用brew-cask安装"><a href="#2-开始用gem安装-不建议使用brew-cask安装" class="headerlink" title="2.开始用gem安装(不建议使用brew cask安装)"></a>2.开始用gem安装(不建议使用brew cask安装)</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gem install fastlane -NV</span><br></pre></td></tr></table></figure>
+<p>耐心等待,等装完</p>
+<h2 id="二-为项目配置fastlane"><a href="#二-为项目配置fastlane" class="headerlink" title="二.为项目配置fastlane"></a>二.为项目配置fastlane</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/07/08/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/FastLane-ios%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85%E6%95%88%E7%8E%87%E7%A5%9E%E5%99%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2019/06/27/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/iOS%E5%86%85%E6%B5%8B%E5%88%86%E5%8F%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/06/27/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/iOS%E5%86%85%E6%B5%8B%E5%88%86%E5%8F%91/" class="post-title-link" itemprop="url">iOS内测分发</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-06-27 22:41:00" itemprop="dateCreated datePublished" datetime="2019-06-27T22:41:00+08:00">2019-06-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-04-15 20:33:02" itemprop="dateModified" datetime="2024-04-15T20:33:02+08:00">2024-04-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/06/27/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/iOS%E5%86%85%E6%B5%8B%E5%88%86%E5%8F%91/" class="post-meta-item leancloud_visitors" data-flag-title="iOS内测分发" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="iOS内测分发"><a href="#iOS内测分发" class="headerlink" title="iOS内测分发"></a>iOS内测分发</h1><h5 id="2019-12-10更新"><a href="#2019-12-10更新" class="headerlink" title="2019-12-10更新"></a>2019-12-10更新</h5><p>gitee似乎不让下载了。可以考虑放到别的带https的地方，比如腾讯云的对象存储桶，github等等，反正有https就行，方法不变。</p>
+<h5 id="2019-11-15更新"><a href="#2019-11-15更新" class="headerlink" title="2019-11-15更新"></a>2019-11-15更新</h5><p>不要再问android怎么搞了。。。直接apk往仓库一丢，网页给个链接，点一下不就完事了，比iOS省事多了</p>
+<h3 id="背景"><a href="#背景" class="headerlink" title="背景:"></a>背景:</h3><p>我写博客一般都会写背景,因为我觉得光写某个技术点没有意义,技术最终都是为业务服务,因此我喜欢交代自己的使用场景,基于什么原因,我做过哪些常识,为什么最终这么做,这么做能解决我的什么问题….</p>
+<p>我们是一个小业务部,而且是传统行业转型互联网,业务部内还处于”史前洪荒”的状况,各种现在流行的东西都没有使用,移动端更是如此,开发迭代出的app都是靠微信&#x2F;内部邮件转发来转发去,iOS更难受,由于ipa包不能像Android一样,随下随装,”必须”依赖电脑用iTools或类似的工具去安装ipa包,很是繁琐.</p>
+<p>说到这里肯定就有人提到:”为啥不用蒲公英(fir)等内测分发平台?”</p>
+<p>说实话我第一反应也是盯上了这些,但是要实名信息注册啊QAQ,企业要传营业执照,个人要传身份证信息,作为一个较为保守且不想这么兴师动众的人,我选择了放弃使用这些平台.那么没办法了,只能自己写了.那么接下来,我会告诉你,他们是怎么把ipa包,转成一个二维码让你能够下载的(都是猜的).当然,有企业账号自己做企业分发,也可以用我这个方式</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/06/27/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/iOS%E5%86%85%E6%B5%8B%E5%88%86%E5%8F%91/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2019/04/28/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Jenkins%E5%AE%89%E8%A3%85-2019/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/04/28/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Jenkins%E5%AE%89%E8%A3%85-2019/" class="post-title-link" itemprop="url">Jenkins安装-2019</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-04-28 13:39:00" itemprop="dateCreated datePublished" datetime="2019-04-28T13:39:00+08:00">2019-04-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-04-15 20:33:02" itemprop="dateModified" datetime="2024-04-15T20:33:02+08:00">2024-04-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/04/28/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Jenkins%E5%AE%89%E8%A3%85-2019/" class="post-meta-item leancloud_visitors" data-flag-title="Jenkins安装-2019" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="本文写于2019-4-28-应该是最新安装教程了"><a href="#本文写于2019-4-28-应该是最新安装教程了" class="headerlink" title="本文写于2019-4-28,应该是最新安装教程了"></a>本文写于2019-4-28,应该是最新安装教程了</h1><h2 id="一-安装Java"><a href="#一-安装Java" class="headerlink" title="一.安装Java"></a>一.安装Java</h2><p><strong>声明,我不是干安卓开发或者后台开发的,我以下安装的这些版本的java会不会对后台或者安卓项目产生影响我一概不知,我只是为了安装Jenkins而加入一个java8而已,不习惯的同学可以自行去<a target="_blank" rel="noopener" href="https://www.oracle.com/technetwork/java/javase/downloads/index.html">Orcale</a>的官网下载java8</strong></p>
+<h3 id="1-安装sdkman"><a href="#1-安装sdkman" class="headerlink" title="1.安装sdkman"></a>1.安装sdkman</h3><p>使用brew安装Jenkins的时候,如果你没有安装java8肯定会报错要求你安装java1.8版本(我试过装java11不行),所以不要挣扎了,装java8吧</p>
+<p>这时候你肯定想用brew安装java,你会发现只有java6和java11,java8的安装包被删了</p>
+<p>你肯定搜到过下面两个命令:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew tap caskroom/versions</span><br><span class="line">brew cask install java8</span><br></pre></td></tr></table></figure>
+<p>放弃吧.不行的</p>
+<p>这里我推荐另外一个安装工具:<a target="_blank" rel="noopener" href="https://sdkman.io/">SDKMAN</a></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/04/28/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Jenkins%E5%AE%89%E8%A3%85-2019/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2019/04/23/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/RN%E5%88%86%E4%BA%AB%E4%BA%8C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/04/23/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/RN%E5%88%86%E4%BA%AB%E4%BA%8C/" class="post-title-link" itemprop="url">RN分享二</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-04-23 15:48:00" itemprop="dateCreated datePublished" datetime="2019-04-23T15:48:00+08:00">2019-04-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-04-15 20:33:02" itemprop="dateModified" datetime="2024-04-15T20:33:02+08:00">2024-04-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/react-native/" itemprop="url" rel="index"><span itemprop="name">react-native</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/04/23/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/RN%E5%88%86%E4%BA%AB%E4%BA%8C/" class="post-meta-item leancloud_visitors" data-flag-title="RN分享二" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="常用三方库"><a href="#常用三方库" class="headerlink" title="常用三方库"></a>常用三方库</h1><h2 id="一-如何引入三方库"><a href="#一-如何引入三方库" class="headerlink" title="一. 如何引入三方库"></a>一. 如何引入三方库</h2><p>上次分享我们讲到我们使用npm或者yarn进行管理</p>
+<p>我们建议使用yarn进行管理,原因上节课也说过了,有下面几点</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1.Yarn是由Facebook、Google、Exponent 和 Tilde 联合推出了一个新的 JS 包管理工具 ,我们写的RN是Facebook开源的,我们当然要用匹配的东西</span><br><span class="line">2.npm很慢,因为是安装完一个package再安装下一个;yarn是并行安装,并且会生成离线库,安装过的库第二次安装都是从缓存的离线库读取,速度很快</span><br><span class="line">3.yarn安装版本统一.存在yarn.lock文件去管理每个库的版本统一</span><br><span class="line">4.yarn能对多注册来源进行处理：所有的依赖包，不管他被不同的库间接关联引用多少次，安装这个包时，只会从一个注册来源去装，要么是 npm 要么是 bower, 防止出现混乱不一致。</span><br><span class="line">5.…………</span><br></pre></td></tr></table></figure>
+<h3 id="1-常用命令符"><a href="#1-常用命令符" class="headerlink" title="1.常用命令符"></a>1.常用命令符</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#xxxx代表库名</span><br><span class="line">#1.安装package.json中已经存在的库</span><br><span class="line">yarn</span><br><span class="line">#2.新增一个库</span><br><span class="line">yarn add xxxx</span><br><span class="line">#3.新增一个库到开发依赖</span><br><span class="line">yarn add xxxx --dev</span><br><span class="line">#4.移除一个库</span><br><span class="line">yarn remove xxxx</span><br></pre></td></tr></table></figure>
+<p>附赠一个<a href="https://yarn.bootcss.com/" target="_blank">yarn的中文社区文档</a></p>
+<h3 id="二-常用三方库列表"><a href="#二-常用三方库列表" class="headerlink" title="二.常用三方库列表"></a>二.常用三方库列表</h3><table>
+<thead>
+<tr>
+<th>三方库名称</th>
+<th align="center">描述</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://reactnavigation.org/zh-Hans/" target="_blank">react-navigation</a></td>
+<td align="center">是RN上较为优秀的路由管理库,几乎可以说是项目必备的路由管理框架</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="http://momentjs.cn/" target="_blank">moment</a></td>
+<td align="center">一个前端应该非常熟悉的时间库,用于前端的时间解析之类的</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://cn.eslint.org/" target="_blank">ESLint</a></td>
+<td align="center">一个前端应该非常熟悉格式规范库,用于规范代码编写</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://cn.mobx.js.org/" target="_blank">mobx</a></td>
+<td align="center">一个状态管理库,用于应用内部状态的统一管理</td>
+<td></td>
+</tr>
+</tbody></table>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/04/23/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/RN%E5%88%86%E4%BA%AB%E4%BA%8C/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2019/04/23/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/React-Native-%E5%88%86%E4%BA%AB%E4%BA%8C%E4%B9%8BReact-Navigation/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -757,552 +1323,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2018/11/10/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%EF%BC%89-%E4%B8%80%E4%BB%BD%E4%B8%8D%E5%A4%AA%E4%B8%A5%E8%B0%A8%E7%9A%84%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/11/10/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%EF%BC%89-%E4%B8%80%E4%BB%BD%E4%B8%8D%E5%A4%AA%E4%B8%A5%E8%B0%A8%E7%9A%84%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">无星的RN学习之旅（十）-一份不太严谨的入门教程</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-11-10 18:21:00" itemprop="dateCreated datePublished" datetime="2018-11-10T18:21:00+08:00">2018-11-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-04-15 20:33:02" itemprop="dateModified" datetime="2024-04-15T20:33:02+08:00">2024-04-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/react-native/" itemprop="url" rel="index"><span itemprop="name">react-native</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2018/11/10/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%EF%BC%89-%E4%B8%80%E4%BB%BD%E4%B8%8D%E5%A4%AA%E4%B8%A5%E8%B0%A8%E7%9A%84%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/" class="post-meta-item leancloud_visitors" data-flag-title="无星的RN学习之旅（十）-一份不太严谨的入门教程" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>8.4k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>8 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>菜鸡，半个iOS开发，js了解不深入，见解不一定正确，有错指出，意会一下这个意思就行了，大牛就没必要看了、、、</p>
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>以下所有是基于mac的，Windows老哥只能参考着看了</p>
-<p>cmd &#x3D; ctrl ， option &#x3D; alt</p>
-<h2 id="一、环境安装"><a href="#一、环境安装" class="headerlink" title="一、环境安装"></a>一、环境安装</h2><p>其实官方的环境安装教程很简单，但也不排除有老哥看不懂，所以还是再赘述一下，下面是mac的傻瓜式环境安装教程（安装好了的不用看，windows老哥挑着看）</p>
-<p>打开终端，我们开始了</p>
-<h3 id="1-开启任意来源"><a href="#1-开启任意来源" class="headerlink" title="1.开启任意来源"></a>1.开启任意来源</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo spctl --master-disable</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2018/11/10/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%EF%BC%89-%E4%B8%80%E4%BB%BD%E4%B8%8D%E5%A4%AA%E4%B8%A5%E8%B0%A8%E7%9A%84%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2018/11/10/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%B9%9D%EF%BC%89-ESLint%E5%BC%95%E5%85%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/11/10/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%B9%9D%EF%BC%89-ESLint%E5%BC%95%E5%85%A5/" class="post-title-link" itemprop="url">无星的RN学习之旅（九）-ESLint引入</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-11-10 15:48:00" itemprop="dateCreated datePublished" datetime="2018-11-10T15:48:00+08:00">2018-11-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-04-15 20:33:02" itemprop="dateModified" datetime="2024-04-15T20:33:02+08:00">2024-04-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/react-native/" itemprop="url" rel="index"><span itemprop="name">react-native</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2018/11/10/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%B9%9D%EF%BC%89-ESLint%E5%BC%95%E5%85%A5/" class="post-meta-item leancloud_visitors" data-flag-title="无星的RN学习之旅（九）-ESLint引入" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.6k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>这篇是写给原生老哥们看的，毕竟如果是做js的老哥肯定是不用说了。。。</p>
-<h3 id="背景：大家代码写的格式都不一样，希望统一起来，所以引入ESLint"><a href="#背景：大家代码写的格式都不一样，希望统一起来，所以引入ESLint" class="headerlink" title="背景：大家代码写的格式都不一样，希望统一起来，所以引入ESLint"></a>背景：大家代码写的格式都不一样，希望统一起来，所以引入ESLint</h3><p>这东西是啥应该不用我多说，至于怎么引入，说实话，看了官网教程，也看了各种博客，反正最后我是搞得一团糟。。。。万幸最后引入还是成功了。</p>
-<p>我是打算每个项目的标准都不同（因为有的是rn，有的是h5），所以我都是局部引入，没有全局引入。所以我接下来说的都是局部引入，会让你卸掉全局的，想全局引入的同学自己注意一小下，有些步骤就不要照做了。 目前airbnb的标准是最受推崇的，我就引入它了</p>
-<h3 id="环境和工具：Mac，webstrom，npm，yarn"><a href="#环境和工具：Mac，webstrom，npm，yarn" class="headerlink" title="环境和工具：Mac，webstrom，npm，yarn"></a>环境和工具：Mac，webstrom，npm，yarn</h3><h3 id="一、检查本地是否全局安装过相关的包"><a href="#一、检查本地是否全局安装过相关的包" class="headerlink" title="一、检查本地是否全局安装过相关的包"></a>一、检查本地是否全局安装过相关的包</h3><p>打开终端</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm ls -g --depth 0</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-
-<p>看看全局是否安装过ESLint相关的包，如果有，卸载掉。</p>
-<h3 id="二、进入项目根目录"><a href="#二、进入项目根目录" class="headerlink" title="二、进入项目根目录"></a>二、进入项目根目录</h3>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2018/11/10/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%B9%9D%EF%BC%89-ESLint%E5%BC%95%E5%85%A5/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2018/08/25/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/mock%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B-%E5%9B%BE%E6%96%87%E7%89%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/08/25/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/mock%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B-%E5%9B%BE%E6%96%87%E7%89%88/" class="post-title-link" itemprop="url">mock入门教程-图文版</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-08-25 22:24:00" itemprop="dateCreated datePublished" datetime="2018-08-25T22:24:00+08:00">2018-08-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-04-15 20:33:02" itemprop="dateModified" datetime="2024-04-15T20:33:02+08:00">2024-04-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2018/08/25/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/mock%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B-%E5%9B%BE%E6%96%87%E7%89%88/" class="post-meta-item leancloud_visitors" data-flag-title="mock入门教程-图文版" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>背景：相信经常有这种情况，后端定义好了接口文档，但是还没开发，这时候前端或者客户端就无法进行联调，只能通过自己伪造数据进行开发。</p>
-<p>###伪造数据这个过程，就叫做mock<br>但是总是因为各种各样的情况，不能总拿死数据来开发，需要一些随机数据，这样才能更好的覆盖整个用例的可能性<br>mock的方法其实很多：<br>本地写死返回值，抓包工具断点篡改返回值，本地结果替换等等。<br>这次介绍的是使用mock这个开源项目进行随机返回值的替换<br>###<a target="_blank" rel="noopener" href="http://mockjs.com/">Mock.js</a>虽然名字是js，不过可不限于前端哟<br>###部署的方式很多，比如部署专门的服务器，或者本地部署等等<br>但是我比较菜，也比较懒，我就直接用别人部署好的服务器进行使用，其他的部署方式就需要各位老哥自行学习了。</p>
-<p>先介绍一个网站<br>###<a target="_blank" rel="noopener" href="https://www.easy-mock.com/">Easy Mock</a></p>
-<p>登录进去以后，创建你的第一个项目<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/mock/1.png" alt="mock首页"><br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/mock/2.png" alt="初始化的填写"><br>创建完毕以后就会有一个项目出现在你的首页了，点击该项目</p>
-<p>例如我这里创建了一个wx项目，点进去就可以看到<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/mock/3.png" alt="配置"></p>
-<p>正常在开发过程中，肯定是有正式环境、开发环境这种区分的，除了域名不一样，后面的接口拼接都是一样的，在这里也是一样的。只需要将你某个环境下的域名或者ip替换成图中的baseURL即可，至于怎么替换，在接下来会讲到。</p>
-<p>###我们举个例子来理解一下。<br>我们的域名为：<a target="_blank" rel="noopener" href="http://www.baidu.com/">http://www.baidu.com</a><br>有一个获取版本号的接口为：<a target="_blank" rel="noopener" href="http://www.baidu.com/common/version/ios">http://www.baidu.com/common/version/ios</a><br>还有一个获取helloworld的接口为：<a target="_blank" rel="noopener" href="http://www.baidu.com/helloworld">http://www.baidu.com/helloworld</a><br>可以看到，所有的请求的baseurl都是<a target="_blank" rel="noopener" href="http://www.baidu.com,接口只是在后面拼接.我们先到easymock上建立获取版本号的接口./">http://www.baidu.com，接口只是在后面拼接。我们先到easymock上建立获取版本号的接口。</a></p>
-<p>####点击创建接口<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/mock/4.png" alt="如图"><br>具体的返回值的语法规则这里就不说了，直接在官网能查到，没有写的必要<br><a target="_blank" rel="noopener" href="https://github.com/nuysoft/Mock/wiki/Syntax-Specification">语法规范</a><br>这样我们就得到了一个mock接口<br>###接下来就是替换域名的操作了<br>我们需要用到的工具是Charles<br>因为Charles可以对子集全部代理，所以这里我们选择charles，当然，如果你可以配置node服务进行跨域也是ok的，方式有多种，目的都是一个，替换baseURL<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/mock/5.png" alt="Charles配置"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/mock/6.png" alt="image.png"><br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/mock/7.png" alt="通配符"><br>注意需要使用通配符，至于啥叫通配符就百度一下吧~~<br>ok，至此，Charles配置完毕，让我们看看效果。<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/mock/8.png" alt="网络请求"><br>如图，我写了一个网络请求，地址是<a target="_blank" rel="noopener" href="http://www.baidu.com/common/version/ios">http://www.baidu.com/common/version/ios</a><br>在抓包中得到了什么呢<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/mock/9.png" alt="地址被替换成了mock地址"></p>
-<p>###结束语<br>其实很简单，不过各位该锤后台的还是要锤，毕竟前台后台，相爱相杀，hhhh</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2018/08/25/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/mock%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B-%E5%9B%BE%E6%96%87%E7%89%88/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2018/08/12/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E4%B8%AA%E6%8E%A8-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%8E%A8%E9%80%81%E6%B5%8B%E8%AF%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/08/12/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E4%B8%AA%E6%8E%A8-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%8E%A8%E9%80%81%E6%B5%8B%E8%AF%95/" class="post-title-link" itemprop="url">个推-开发环境推送测试</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-08-12 12:26:00" itemprop="dateCreated datePublished" datetime="2018-08-12T12:26:00+08:00">2018-08-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-04-15 20:33:02" itemprop="dateModified" datetime="2024-04-15T20:33:02+08:00">2024-04-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2018/08/12/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E4%B8%AA%E6%8E%A8-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%8E%A8%E9%80%81%E6%B5%8B%E8%AF%95/" class="post-meta-item leancloud_visitors" data-flag-title="个推-开发环境推送测试" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>410</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>没有用过其他推送，不过应该都是大同小异的，可以参考参考。<br>应该有不少老哥接了推送，都存在这么一种情况。推送平台只能放一个P12，肯定要放生产的，那我开发怎么测？难道真的要打包上架去TestFlight再测？那这个风险和耗时有点太大了。</p>
-<p>###Xcode手动管理证书要是不会配置记得用自动证书管理<br>###其实我们只要转变一下思路就好了。创建一个测试应用即可。（读懂了这句话的老哥就不用继续往下看了）<br>不过如果你要是想给特定用户推送不知道怎么做的话，推荐看：<br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/2fa7d0c28640">个推-iOS特定人群推送</a><br>####准备好推送证书的p12文件<br>推送证书的申请乱七八糟我就不说了，网上图文教程一大堆。<br>接下来，推送证书分两份，这个应该也不用多说了，如果这个都不知道的开发者那就有点不太称职了。。。<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E4%B8%AA%E6%8E%A8-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%8E%A8%E9%80%81%E6%B5%8B%E8%AF%95/%E4%B8%AA%E6%8E%A8%E5%AE%98%E7%BD%91.png" alt="钥匙串截图"><br>导出P12文件并设置密码（怎么导出也不多说了）<br>这时候我们得到了两份推送证书的P12文件，一份开发环境一份生产环境。<br>####打开个推官网<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E4%B8%AA%E6%8E%A8-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%8E%A8%E9%80%81%E6%B5%8B%E8%AF%95/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83p12.png" alt="个推官网"><br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E4%B8%AA%E6%8E%A8-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%8E%A8%E9%80%81%E6%B5%8B%E8%AF%95/%E9%92%A5%E5%8C%99%E4%B8%B2%E6%88%AA%E5%9B%BE.png" alt="放开发环境的p12"><br>剩下的和正式环境的推送一模一样了。</p>
-
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2018/08/12/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E4%B8%AA%E6%8E%A8-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%8E%A8%E9%80%81%E6%B5%8B%E8%AF%95/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2018/08/12/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E4%B8%AA%E6%8E%A8-iOS%E7%89%B9%E5%AE%9A%E4%BA%BA%E7%BE%A4%E6%8E%A8%E9%80%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/08/12/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E4%B8%AA%E6%8E%A8-iOS%E7%89%B9%E5%AE%9A%E4%BA%BA%E7%BE%A4%E6%8E%A8%E9%80%81/" class="post-title-link" itemprop="url">个推-iOS特定人群推送</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-08-12 12:12:00" itemprop="dateCreated datePublished" datetime="2018-08-12T12:12:00+08:00">2018-08-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-04-15 20:33:02" itemprop="dateModified" datetime="2024-04-15T20:33:02+08:00">2024-04-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2018/08/12/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E4%B8%AA%E6%8E%A8-iOS%E7%89%B9%E5%AE%9A%E4%BA%BA%E7%BE%A4%E6%8E%A8%E9%80%81/" class="post-meta-item leancloud_visitors" data-flag-title="个推-iOS特定人群推送" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>630</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>推送嘛，集成或更新的时候肯定要各种测试，但又不可能给所有线上用户集体推送。<br>这时候这个测试需求就暴露出来了。<br>其实非常简单</p>
-<p>###不过测试前，需要确定你的客户端能和个推平台放置的p12对应的上。<br>####如何看能否对应的上？<br>#####获取token<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E4%B8%AA%E6%8E%A8-iOS%E7%89%B9%E5%AE%9A%E4%BA%BA%E7%BE%A4%E6%8E%A8%E9%80%81/token%E7%BB%91%E5%AE%9A.png" alt="token绑定"><br>打开xcode，搜索这个方法：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken</span><br></pre></td></tr></table></figure>
-<p>搜到了是不是，接下来运行起来，得到这个token，复制一下。<br>#####打开个推官网<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E4%B8%AA%E6%8E%A8-iOS%E7%89%B9%E5%AE%9A%E4%BA%BA%E7%BE%A4%E6%8E%A8%E9%80%81/%E4%B8%AA%E6%8E%A8%E5%AE%98%E7%BD%91.png" alt="个推官网"><br>#####打开应用配置，拉到最下面<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E4%B8%AA%E6%8E%A8-iOS%E7%89%B9%E5%AE%9A%E4%BA%BA%E7%BE%A4%E6%8E%A8%E9%80%81/%E6%B5%8B%E8%AF%95%E4%B8%80%E4%B8%8B.png" alt="测试一下"><br>#####点击测试一下<br>然后把你刚刚获得的token复制上去，监测一下看是否成功。如果成功会弹出提示，并且对应的设备会收到一条测试推送消息（走的是苹果的apns通道）</p>
-<p>###如果是不成功，那么我猜大概率是证书环境没匹配上，你放的是生产环境但你客户端是开发环境，这时候怎么办？也有办法，看下面这篇。</p>
-<p>好了好了，上面的准备工作已经做好，进入正题<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E4%B8%AA%E6%8E%A8-iOS%E7%89%B9%E5%AE%9A%E4%BA%BA%E7%BE%A4%E6%8E%A8%E9%80%81/%E8%BF%94%E5%9B%9E%E6%B3%A8%E5%86%8C%E7%9A%84cid.png" alt="返回注册的cid"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (void)GeTuiSdkDidRegisterClient:(NSString *)clientId</span><br></pre></td></tr></table></figure>
-<p>这里拿到cid<br>然后，新建一个txt文件（mac端的同学，还是拜托windows的同学新建给你吧，别问我为什么。。。因为字符集不一样啊我日）</p>
-<p>然后把cid放到txt文件里<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E4%B8%AA%E6%8E%A8-iOS%E7%89%B9%E5%AE%9A%E4%BA%BA%E7%BE%A4%E6%8E%A8%E9%80%81/%E5%83%8F%E8%BF%99%E6%A0%B7.png" alt="像这样"></p>
-<p>打开个推官网，创建推送<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E4%B8%AA%E6%8E%A8-iOS%E7%89%B9%E5%AE%9A%E4%BA%BA%E7%BE%A4%E6%8E%A8%E9%80%81/%E6%8A%8A%E4%BD%A0%E7%9A%84txt%E6%96%87%E4%BB%B6%E6%94%BE%E4%B8%8A%E5%8E%BB.png" alt="把你的txt文件放上去"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2018/08/12/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E4%B8%AA%E6%8E%A8-iOS%E7%89%B9%E5%AE%9A%E4%BA%BA%E7%BE%A4%E6%8E%A8%E9%80%81/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1370,7 +1394,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">148</span>
+          <span class="site-state-item-count">153</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1383,7 +1407,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-count">42</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1465,13 +1489,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">300k</span>
+    <span title="站点总字数">303k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:32</span>
+    <span title="站点阅读时长">4:35</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
