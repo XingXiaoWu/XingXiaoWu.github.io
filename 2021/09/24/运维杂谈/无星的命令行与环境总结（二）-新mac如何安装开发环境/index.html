@@ -420,10 +420,10 @@
 <h1 id="预备环境安装"><a href="#预备环境安装" class="headerlink" title="预备环境安装"></a>预备环境安装</h1><p>在安装完上述软件以后，我们来安装一些mac上的通用环境</p>
 <h2 id="oh-my-zsh（git安装好以后操作）"><a href="#oh-my-zsh（git安装好以后操作）" class="headerlink" title="oh-my-zsh（git安装好以后操作）"></a>oh-my-zsh（git安装好以后操作）</h2><p>打开iterm2</p>
 <p>所有命令从上到下依次执行</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># 执行终端翻墙，见文章上方介绍的终端翻墙命令</span><br><span class="line">export http_proxy=http://127.0.0.1:1087;export https_proxy=http://127.0.0.1:1087;</span><br><span class="line"></span><br><span class="line">sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;</span><br><span class="line"></span><br><span class="line"># 安装zsh插件</span><br><span class="line">cd ~/.oh-my-zsh/custom/plugins</span><br><span class="line"># 高亮插件</span><br><span class="line">git clone https://github.com/zsh-users/zsh-syntax-highlighting.git</span><br><span class="line"></span><br><span class="line">echo &quot;source $&#123;(q-)PWD&#125;/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh&quot; &gt;&gt; $&#123;ZDOTDIR:-$HOME&#125;/.zshrc</span><br><span class="line"></span><br><span class="line">source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh</span><br><span class="line"></span><br><span class="line"># 自动补全插件</span><br><span class="line">git clone https://github.com/zsh-users/zsh-autosuggestions $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 执行终端翻墙，见文章上方介绍的终端翻墙命令</span></span><br><span class="line"><span class="built_in">export</span> http_proxy=http://127.0.0.1:1087;<span class="built_in">export</span> https_proxy=http://127.0.0.1:1087;</span><br><span class="line"></span><br><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装zsh插件</span></span><br><span class="line"><span class="built_in">cd</span> ~/.oh-my-zsh/custom/plugins</span><br><span class="line"><span class="comment"># 高亮插件</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-syntax-highlighting.git</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;source <span class="variable">$&#123;(q-)PWD&#125;</span>/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh&quot;</span> &gt;&gt; <span class="variable">$&#123;ZDOTDIR:-<span class="variable">$HOME</span>&#125;</span>/.zshrc</span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 自动补全插件</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure>
 
 <p>安装完毕以后</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ~</span><br><span class="line"></span><br><span class="line">open -e ~/.zshrc</span><br></pre></td></tr></table></figure>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line"></span><br><span class="line">open -e ~/.zshrc</span><br></pre></td></tr></table></figure>
 
 <p>会弹出一个文本编辑</p>
 <p>搜索plugin找到</p>
@@ -437,7 +437,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.zshrc</span><br></pre></td></tr></table></figure>
 
 <h2 id="brew"><a href="#brew" class="headerlink" title="brew"></a>brew</h2><p>homebrew是mac上的包管理器，能非常方便的管理我们的各种环境和路径依赖</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 执行终端翻墙，见文章上方介绍的终端翻墙命令</span><br><span class="line">export http_proxy=http://127.0.0.1:1087;export https_proxy=http://127.0.0.1:1087;</span><br><span class="line"></span><br><span class="line">/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 执行终端翻墙，见文章上方介绍的终端翻墙命令</span></span><br><span class="line"><span class="built_in">export</span> http_proxy=http://127.0.0.1:1087;<span class="built_in">export</span> https_proxy=http://127.0.0.1:1087;</span><br><span class="line"></span><br><span class="line">/bin/bash -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
 
 <p>中途出现需要输入密码的地方，填写开机密码，输入过程不会有显示，这是linux的机制，写完了回车就行</p>
 <p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8E%E7%8E%AF%E5%A2%832/20.png" alt="20.png"></p>
@@ -463,9 +463,9 @@
 <hr>
 <h1 id="iOS环境安装"><a href="#iOS环境安装" class="headerlink" title="iOS环境安装"></a>iOS环境安装</h1><p>iOS其实没啥要装的</p>
 <p>Xcode安装完毕</p>
-<h2 id="命令行工具安装"><a href="#命令行工具安装" class="headerlink" title="命令行工具安装"></a>命令行工具安装</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo xcode-select --install</span><br></pre></td></tr></table></figure>
+<h2 id="命令行工具安装"><a href="#命令行工具安装" class="headerlink" title="命令行工具安装"></a>命令行工具安装</h2><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> xcode-select --install</span><br></pre></td></tr></table></figure>
 
-<h2 id="cocoapods安装"><a href="#cocoapods安装" class="headerlink" title="cocoapods安装"></a>cocoapods安装</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export http_proxy=http://127.0.0.1:1087;export https_proxy=http://127.0.0.1:1087;</span><br><span class="line"></span><br><span class="line">brew install cocoapods</span><br></pre></td></tr></table></figure>
+<h2 id="cocoapods安装"><a href="#cocoapods安装" class="headerlink" title="cocoapods安装"></a>cocoapods安装</h2><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> http_proxy=http://127.0.0.1:1087;<span class="built_in">export</span> https_proxy=http://127.0.0.1:1087;</span><br><span class="line"></span><br><span class="line">brew install cocoapods</span><br></pre></td></tr></table></figure>
 
 <p>如果遇到<code>pod install</code>下载不下来</p>
 <p>可以先执行</p>
@@ -485,7 +485,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.zshrc</span><br></pre></td></tr></table></figure>
 
 <p>安卓环境安装完毕</p>
-<h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h2 id="安装nvm"><a href="#安装nvm" class="headerlink" title="安装nvm"></a>安装nvm</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 执行终端翻墙，见文章上方介绍的终端翻墙命令</span><br><span class="line">export http_proxy=http://127.0.0.1:1087;export https_proxy=http://127.0.0.1:1087;</span><br><span class="line"></span><br><span class="line">brew install nvm</span><br></pre></td></tr></table></figure>
+<h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h2 id="安装nvm"><a href="#安装nvm" class="headerlink" title="安装nvm"></a>安装nvm</h2><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 执行终端翻墙，见文章上方介绍的终端翻墙命令</span></span><br><span class="line"><span class="built_in">export</span> http_proxy=http://127.0.0.1:1087;<span class="built_in">export</span> https_proxy=http://127.0.0.1:1087;</span><br><span class="line"></span><br><span class="line">brew install nvm</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open -e ~/.zshrc</span><br></pre></td></tr></table></figure>
 
@@ -495,12 +495,12 @@
 <p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8E%E7%8E%AF%E5%A2%832/22.png" alt="22.png"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.zshrc</span><br></pre></td></tr></table></figure>
 
-<h2 id="安装node"><a href="#安装node" class="headerlink" title="安装node"></a>安装node</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">nvm ls-remote</span><br><span class="line"># 打印输出后面跟着lts的表示稳定版本</span><br><span class="line"># m1用户只能安装15以上版本，其余用户自行安装对应版本</span><br><span class="line">nvm install v15.14.0</span><br><span class="line"></span><br><span class="line">npm install npm -g --registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<h2 id="安装node"><a href="#安装node" class="headerlink" title="安装node"></a>安装node</h2><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">nvm ls-remote</span><br><span class="line"><span class="comment"># 打印输出后面跟着lts的表示稳定版本</span></span><br><span class="line"><span class="comment"># m1用户只能安装15以上版本，其余用户自行安装对应版本</span></span><br><span class="line">nvm install v15.14.0</span><br><span class="line"></span><br><span class="line">npm install npm -g --registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
 
-<h2 id="安装nrm并切换淘宝源"><a href="#安装nrm并切换淘宝源" class="headerlink" title="安装nrm并切换淘宝源"></a>安装nrm并切换淘宝源</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install nrm -g --registry https://registry.npm.taobao.org</span><br><span class="line"></span><br><span class="line">nrm use taobao</span><br></pre></td></tr></table></figure>
+<h2 id="安装nrm并切换淘宝源"><a href="#安装nrm并切换淘宝源" class="headerlink" title="安装nrm并切换淘宝源"></a>安装nrm并切换淘宝源</h2><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install nrm -g --registry https://registry.npm.taobao.org</span><br><span class="line"></span><br><span class="line">nrm use taobao</span><br></pre></td></tr></table></figure>
 
 <h2 id="Vscode配置"><a href="#Vscode配置" class="headerlink" title="Vscode配置"></a>Vscode配置</h2><p>必备插件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># 正则</span><br><span class="line">any-rule</span><br><span class="line"># 自动修改标签</span><br><span class="line">Auto Rename Tag</span><br><span class="line"># 括号带颜色</span><br><span class="line">Bracket Pair Colorizer 2</span><br><span class="line"># Chinese</span><br><span class="line">Chinese</span><br><span class="line"># 颜色高亮</span><br><span class="line">Color Highlight</span><br><span class="line"># ESLint</span><br><span class="line">ESlint</span><br><span class="line"># Git插件</span><br><span class="line">GitLens — Git supercharged</span><br><span class="line"># 路径补充</span><br><span class="line">Path Intellisense</span><br><span class="line"># 主题</span><br><span class="line">vscode-icons</span><br></pre></td></tr></table></figure>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 正则</span></span><br><span class="line">any-rule</span><br><span class="line"><span class="comment"># 自动修改标签</span></span><br><span class="line">Auto Rename Tag</span><br><span class="line"><span class="comment"># 括号带颜色</span></span><br><span class="line">Bracket Pair Colorizer 2</span><br><span class="line"><span class="comment"># Chinese</span></span><br><span class="line">Chinese</span><br><span class="line"><span class="comment"># 颜色高亮</span></span><br><span class="line">Color Highlight</span><br><span class="line"><span class="comment"># ESLint</span></span><br><span class="line">ESlint</span><br><span class="line"><span class="comment"># Git插件</span></span><br><span class="line">GitLens — Git supercharged</span><br><span class="line"><span class="comment"># 路径补充</span></span><br><span class="line">Path Intellisense</span><br><span class="line"><span class="comment"># 主题</span></span><br><span class="line">vscode-icons</span><br></pre></td></tr></table></figure>
 
 <p>如果是vue同学，再加两个</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Vetur</span><br><span class="line">vue-helper</span><br></pre></td></tr></table></figure>
@@ -516,19 +516,19 @@
 <p>再安装Android的开发环境</p>
 <p>再安装web的开发环境</p>
 <p>然后</p>
-<h2 id="watchman"><a href="#watchman" class="headerlink" title="watchman"></a>watchman</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 执行终端翻墙，见文章上方介绍的终端翻墙命令</span><br><span class="line">export http_proxy=http://127.0.0.1:1087;export https_proxy=http://127.0.0.1:1087;</span><br><span class="line"></span><br><span class="line">brew install watchman</span><br><span class="line"></span><br><span class="line">npm i yarn -g</span><br></pre></td></tr></table></figure>
+<h2 id="watchman"><a href="#watchman" class="headerlink" title="watchman"></a>watchman</h2><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 执行终端翻墙，见文章上方介绍的终端翻墙命令</span></span><br><span class="line"><span class="built_in">export</span> http_proxy=http://127.0.0.1:1087;<span class="built_in">export</span> https_proxy=http://127.0.0.1:1087;</span><br><span class="line"></span><br><span class="line">brew install watchman</span><br><span class="line"></span><br><span class="line">npm i yarn -g</span><br></pre></td></tr></table></figure>
 
 <p>react-native 环境安装完毕</p>
 <h1 id="java"><a href="#java" class="headerlink" title="java"></a>java</h1><p>就装个jdk</p>
 <p>对jdk版本无要求的，可以安装openjdk版本的</p>
 <p>例如安装jdk8</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 执行终端翻墙，见文章上方介绍的终端翻墙命令</span><br><span class="line">export http_proxy=http://127.0.0.1:1087;export https_proxy=http://127.0.0.1:1087;</span><br><span class="line"></span><br><span class="line">brew install homebrew/cask-versions/adoptopenjdk8</span><br></pre></td></tr></table></figure>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 执行终端翻墙，见文章上方介绍的终端翻墙命令</span></span><br><span class="line"><span class="built_in">export</span> http_proxy=http://127.0.0.1:1087;<span class="built_in">export</span> https_proxy=http://127.0.0.1:1087;</span><br><span class="line"></span><br><span class="line">brew install homebrew/cask-versions/adoptopenjdk8</span><br></pre></td></tr></table></figure>
 
 <p>如果需要安装oracle版本的，可以参考<a target="_blank" rel="noopener" href="https://juejin.cn/post/6850418118095798285">mac使用brew安装Java8</a></p>
 <p>当然，直接下安装包安装也是ojbk的</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 执行终端翻墙，见文章上方介绍的终端翻墙命令</span><br><span class="line">export http_proxy=http://127.0.0.1:1087;export https_proxy=http://127.0.0.1:1087;</span><br><span class="line"></span><br><span class="line">brew install maven</span><br></pre></td></tr></table></figure>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 执行终端翻墙，见文章上方介绍的终端翻墙命令</span></span><br><span class="line"><span class="built_in">export</span> http_proxy=http://127.0.0.1:1087;<span class="built_in">export</span> https_proxy=http://127.0.0.1:1087;</span><br><span class="line"></span><br><span class="line">brew install maven</span><br></pre></td></tr></table></figure>
 <p>java环境安装完毕</p>
-<h1 id="go"><a href="#go" class="headerlink" title="go"></a>go</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 执行终端翻墙，见文章上方介绍的终端翻墙命令</span><br><span class="line">export http_proxy=http://127.0.0.1:1087;export https_proxy=http://127.0.0.1:1087;</span><br><span class="line"></span><br><span class="line">brew install go</span><br></pre></td></tr></table></figure>
+<h1 id="go"><a href="#go" class="headerlink" title="go"></a>go</h1><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 执行终端翻墙，见文章上方介绍的终端翻墙命令</span></span><br><span class="line"><span class="built_in">export</span> http_proxy=http://127.0.0.1:1087;<span class="built_in">export</span> https_proxy=http://127.0.0.1:1087;</span><br><span class="line"></span><br><span class="line">brew install go</span><br></pre></td></tr></table></figure>
 
 <p>go就装好了</p>
 <hr>
@@ -655,7 +655,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">153</span>
+          <span class="site-state-item-count">158</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -668,7 +668,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">45</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -740,7 +740,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -750,13 +750,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">303k</span>
+    <span title="站点总字数">322k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:35</span>
+    <span title="站点阅读时长">4:52</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

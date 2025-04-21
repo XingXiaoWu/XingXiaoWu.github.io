@@ -301,7 +301,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="方式一-docker安装"><a href="#方式一-docker安装" class="headerlink" title="方式一 docker安装"></a>方式一 docker安装</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 设置docker加速</span><br><span class="line">vim /etc/docker/daemon.json</span><br><span class="line"># 填写内容</span><br><span class="line">&#123;&quot;registry-mirrors&quot;: [&quot;https://dockerproxy.cn&quot;]&#125;</span><br><span class="line"># 重启docker</span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker</span><br><span class="line"></span><br><span class="line"># 安装clash镜像</span><br><span class="line">docker run -d --name=clash -v &quot;$PWD/clash:/root/.config/clash/&quot; -p &quot;7890:7890&quot; -p &quot;7891:7891&quot; -p &quot;9090:9090&quot; --restart=unless-stopped dreamacro/clash</span><br></pre></td></tr></table></figure>
+        <h1 id="方式一-docker安装"><a href="#方式一-docker安装" class="headerlink" title="方式一 docker安装"></a>方式一 docker安装</h1><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置docker加速</span></span><br><span class="line">vim /etc/docker/daemon.json</span><br><span class="line"><span class="comment"># 填写内容</span></span><br><span class="line">&#123;<span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;https://dockerproxy.cn&quot;</span>]&#125;</span><br><span class="line"><span class="comment"># 重启docker</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl daemon-reload</span><br><span class="line"><span class="built_in">sudo</span> systemctl restart docker</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装clash镜像</span></span><br><span class="line">docker run -d --name=clash -v <span class="string">&quot;<span class="variable">$PWD</span>/clash:/root/.config/clash/&quot;</span> -p <span class="string">&quot;7890:7890&quot;</span> -p <span class="string">&quot;7891:7891&quot;</span> -p <span class="string">&quot;9090:9090&quot;</span> --restart=unless-stopped dreamacro/clash</span><br></pre></td></tr></table></figure>
 
 <p>镜像安装完成,就会在当前目录下生成clash文件夹，打开文件夹，将文件夹下的config.yaml 替换成上面我们从机场购买的配置,就好了</p>
 
@@ -424,7 +424,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">153</span>
+          <span class="site-state-item-count">158</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -437,7 +437,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">45</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -509,7 +509,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -519,13 +519,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">303k</span>
+    <span title="站点总字数">322k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:35</span>
+    <span title="站点阅读时长">4:52</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

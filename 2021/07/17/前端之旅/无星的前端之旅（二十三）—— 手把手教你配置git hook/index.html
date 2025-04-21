@@ -369,12 +369,15 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@commitlint/cli</span><br><span class="line">@commitlint/config-conventional</span><br></pre></td></tr></table></figure>
 <p>如果需要达成上述需求，我们可以这么做</p>
 <ul>
-<li><p>根目录下新建<code>commitlint.config.js</code>文件</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">extends</span>: [<span class="string">&#x27;@commitlint/config-conventional&#x27;</span>],</span><br><span class="line">  <span class="attr">rules</span>: &#123;</span><br><span class="line">    <span class="string">&#x27;type-enum&#x27;</span>: [</span><br><span class="line">      <span class="number">2</span>,</span><br><span class="line">      <span class="string">&#x27;always&#x27;</span>,</span><br><span class="line">      [<span class="string">&#x27;feat&#x27;</span>, <span class="string">&#x27;fix&#x27;</span>, <span class="string">&#x27;docs&#x27;</span>, <span class="string">&#x27;style&#x27;</span>, <span class="string">&#x27;refactor&#x27;</span>, <span class="string">&#x27;perf&#x27;</span>, <span class="string">&#x27;test&#x27;</span>, <span class="string">&#x27;build&#x27;</span>, <span class="string">&#x27;ci&#x27;</span>, <span class="string">&#x27;revert&#x27;</span>, <span class="string">&#x27;types&#x27;</span>],</span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>commit-msg内容</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">. <span class="string">&quot;<span class="subst">$(dirname <span class="string">&quot;<span class="variable">$0</span>&quot;</span>)</span>/_/husky.sh&quot;</span></span><br><span class="line"></span><br><span class="line">npx commitlint --edit <span class="variable">$1</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li>根目录下新建<code>commitlint.config.js</code>文件</li>
 </ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">extends</span>: [<span class="string">&#x27;@commitlint/config-conventional&#x27;</span>],</span><br><span class="line">  <span class="attr">rules</span>: &#123;</span><br><span class="line">    <span class="string">&#x27;type-enum&#x27;</span>: [</span><br><span class="line">      <span class="number">2</span>,</span><br><span class="line">      <span class="string">&#x27;always&#x27;</span>,</span><br><span class="line">      [<span class="string">&#x27;feat&#x27;</span>, <span class="string">&#x27;fix&#x27;</span>, <span class="string">&#x27;docs&#x27;</span>, <span class="string">&#x27;style&#x27;</span>, <span class="string">&#x27;refactor&#x27;</span>, <span class="string">&#x27;perf&#x27;</span>, <span class="string">&#x27;test&#x27;</span>, <span class="string">&#x27;build&#x27;</span>, <span class="string">&#x27;ci&#x27;</span>, <span class="string">&#x27;revert&#x27;</span>, <span class="string">&#x27;types&#x27;</span>],</span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>commit-msg内容</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">. <span class="string">&quot;<span class="subst">$(dirname <span class="string">&quot;<span class="variable">$0</span>&quot;</span>)</span>/_/husky.sh&quot;</span></span><br><span class="line"></span><br><span class="line">npx commitlint --edit <span class="variable">$1</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <h1 id="Done"><a href="#Done" class="headerlink" title="Done"></a>Done</h1>
     </div>
 
@@ -496,7 +499,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">153</span>
+          <span class="site-state-item-count">158</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -509,7 +512,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">45</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -581,7 +584,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -591,13 +594,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">303k</span>
+    <span title="站点总字数">322k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:35</span>
+    <span title="站点阅读时长">4:52</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

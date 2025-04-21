@@ -313,7 +313,7 @@
 <p>同时推荐<a target="_blank" rel="noopener" href="https://github.com/sml2h3/ddddocr"><code>ddddocr</code></a></p>
 <p>现在是2023年9月7日，<code>Pillow==9.5.0</code>当前的<code>ddddocr</code>并未对版本进行兼容</p>
 <p>我改了两个docker，有需要可以直接拉取部署</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># centos</span><br><span class="line">docker pull 329106954/ocr_server:centos</span><br><span class="line"># mac Inter芯片</span><br><span class="line">docker pull 329106954/ocr_server:mac</span><br><span class="line"></span><br><span class="line"># 启动</span><br><span class="line">docker run -d -p 9898:9898 --name ddddocr 329106954/ocr_server</span><br></pre></td></tr></table></figure>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># centos</span></span><br><span class="line">docker pull 329106954/ocr_server:centos</span><br><span class="line"><span class="comment"># mac Inter芯片</span></span><br><span class="line">docker pull 329106954/ocr_server:mac</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动</span></span><br><span class="line">docker run -d -p 9898:9898 --name ddddocr 329106954/ocr_server</span><br></pre></td></tr></table></figure>
 
 <p>验证码填写</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">POST /ocr/b64/text HTTP/1.1</span><br><span class="line">Authorization:Basic f0ngauth</span><br><span class="line">User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:97.0) Gecko/20100101 Firefox/97.0</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Connection: keep-alive</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">Content-Type: raw</span><br><span class="line">Content-Length: 8332</span><br><span class="line"></span><br><span class="line">&lt;@BASE64&gt;&lt;@IMG_RAW&gt;&lt;/@IMG_RAW&gt;&lt;/@BASE64&gt;</span><br></pre></td></tr></table></figure>
@@ -437,7 +437,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">153</span>
+          <span class="site-state-item-count">158</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -450,7 +450,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">45</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -522,7 +522,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -532,13 +532,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">303k</span>
+    <span title="站点总字数">322k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:35</span>
+    <span title="站点阅读时长">4:52</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

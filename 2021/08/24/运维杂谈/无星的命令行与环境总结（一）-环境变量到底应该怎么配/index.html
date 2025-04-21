@@ -331,16 +331,16 @@
 <blockquote>
 <p>当然，如果有同学不知道自己当前是什么<code>SHELL环境</code>，可以使用以下命令查看</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo $SHELL</span><br></pre></td></tr></table></figure>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$SHELL</span></span><br></pre></td></tr></table></figure>
 
 <p>而老款mac安装新系统用到现在，如果没有修改过zsh，也会提示你切换</p>
 <p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8E%E7%8E%AF%E5%A2%831/2.png" alt="2.png"></p>
 <p>所以在这里我们看到有命令提示，建议切换为zsh</p>
 <p>切换命令</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chsh -s /bin/zsh</span><br></pre></td></tr></table></figure>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chsh -s /bin/zsh</span><br></pre></td></tr></table></figure>
 
 <p>那么怎么查看本机有哪些<code>SHELL</code>呢</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/shells</span><br></pre></td></tr></table></figure>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> /etc/shells</span><br></pre></td></tr></table></figure>
 
 <h1 id="环境变量的配置文件"><a href="#环境变量的配置文件" class="headerlink" title="环境变量的配置文件"></a>环境变量的配置文件</h1><p>那么接下来，我们来了解一下环境变量配置文件</p>
 <h2 id="什么是环境变量的配置文件？"><a href="#什么是环境变量的配置文件？" class="headerlink" title="什么是环境变量的配置文件？"></a>什么是环境变量的配置文件？</h2><p>我觉得摆概念，有些不太好理解，所以我想从作用来说。</p>
@@ -388,13 +388,13 @@
 <h3 id="没有文件"><a href="#没有文件" class="headerlink" title="没有文件"></a>没有文件</h3><p>什么？</p>
 <p>你没有这些文件怎么办？</p>
 <p>简单，手动创建一个即可</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ~</span><br><span class="line"># 手动创建文件</span><br><span class="line">touch .bash_profile</span><br></pre></td></tr></table></figure>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line"><span class="comment"># 手动创建文件</span></span><br><span class="line"><span class="built_in">touch</span> .bash_profile</span><br></pre></td></tr></table></figure>
 
 <p>这不就有了么</p>
 <p>创建好以后终端会主动去读，不需要做什么额外的操作</p>
 <h1 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h1><p>刚刚说完了环境变量配置文件，那么现在来说说环境变量</p>
 <h2 id="什么是环境变量"><a href="#什么是环境变量" class="headerlink" title="什么是环境变量"></a>什么是环境变量</h2><p>我们可以通过如下命令来查看当前的环境变量</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo $PATH</span><br></pre></td></tr></table></figure>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
 
 <p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8E%E7%8E%AF%E5%A2%831/6.png" alt="6.png"></p>
 <p>其实就是提前注入了一些<code>path</code>，让我们可以快速执行某些可执行文件，免得每次都得找到具体路径。</p>
@@ -411,18 +411,18 @@
 <p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8E%E7%8E%AF%E5%A2%831/5.png" alt="5.png"></p>
 <p>答案当然是，可行。</p>
 <p>也就是说，配置好以后的效果：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">flutter -v</span><br><span class="line"># 等价于</span><br><span class="line">/Users/xing.wu/Documents/environment/flutter/bin/flutter -v</span><br></pre></td></tr></table></figure>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">flutter -v</span><br><span class="line"><span class="comment"># 等价于</span></span><br><span class="line">/Users/xing.wu/Documents/environment/flutter/bin/flutter -v</span><br></pre></td></tr></table></figure>
 <p>因为所谓的配置环境变量，就是将<code>flutter</code>前面的路径，配置到默认的shell的path中。</p>
 <p>即将<br><code>/Users/xing.wu/Documents/environment/flutter/bin/</code><br>配置到<code>path</code>中</p>
 <h3 id="配置方法"><a href="#配置方法" class="headerlink" title="配置方法"></a>配置方法</h3><p>找到环境变量配置文件，在其中添加</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=/Users/xing.wu/Documents/environment/flutter/bin:$PATH</span><br></pre></td></tr></table></figure>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=/Users/xing.wu/Documents/environment/flutter/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
 
 <p>换而言之，其他的环境变量配置，在没有特殊命令的情况下，都可以通过这种方式配置</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=xxxx:$PATH</span><br></pre></td></tr></table></figure>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=xxxx:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
 
 <p>改完以后，可以选择重新打开一个新的终端，或者使用<code>source</code>命令来读取环境配置文件</p>
 <p><code>source</code>命令是一个内置的shell命令,用于从当前shell会话中的文件读取和执行命令</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 其他环境变量文件自行修改哈</span><br><span class="line">source ~/.zshrc</span><br></pre></td></tr></table></figure>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 其他环境变量文件自行修改哈</span></span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
 
 <h2 id="例子二：npm全局安装的包"><a href="#例子二：npm全局安装的包" class="headerlink" title="例子二：npm全局安装的包"></a>例子二：npm全局安装的包</h2><p>我这里是使用<code>nvm</code>安装的node环境，所以我加到path里的路径会带上<code>nvm</code></p>
 <p>1.首先，我们看下我全局安装了哪些包</p>
@@ -565,7 +565,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">153</span>
+          <span class="site-state-item-count">158</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -578,7 +578,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">45</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -650,7 +650,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -660,13 +660,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">303k</span>
+    <span title="站点总字数">322k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:35</span>
+    <span title="站点阅读时长">4:52</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
