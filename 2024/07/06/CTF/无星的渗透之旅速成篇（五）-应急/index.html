@@ -29,7 +29,7 @@
 <meta property="og:description" content="1.有提示看提示,没提示看网络连接看网络进程 1netstat -antup  2.看用户1cat &#x2F;etc&#x2F;passwd  3.看定时任务12crontab -lcrontab -u 用户  4.查看某个时间段文件改动内容123find &#x2F; -type f -newermt &quot;2021-08-20 00:00&quot; -a -not -newermt &quot;2021-08-2">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-07-06T12:09:00.000Z">
-<meta property="article:modified_time" content="2024-07-18T03:06:50.985Z">
+<meta property="article:modified_time" content="2024-12-17T03:02:50.818Z">
 <meta property="article:author" content="无星">
 <meta property="article:tag" content="应急">
 <meta name="twitter:card" content="summary">
@@ -256,7 +256,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-07-18 11:06:50" itemprop="dateModified" datetime="2024-07-18T11:06:50+08:00">2024-07-18</time>
+                <time title="修改时间：2024-12-17 11:02:50" itemprop="dateModified" datetime="2024-12-17T11:02:50+08:00">2024-12-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -288,7 +288,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>5.1k</span>
+              <span>5.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -319,6 +319,29 @@
 <h1 id="5-查看报错邮件"><a href="#5-查看报错邮件" class="headerlink" title="5.查看报错邮件"></a>5.查看报错邮件</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> -lth /var/spool/mail/</span><br></pre></td></tr></table></figure>
 
 <h1 id="6-命令篡改"><a href="#6-命令篡改" class="headerlink" title="6.命令篡改"></a>6.命令篡改</h1><p>可以使用busybox</p>
+<h1 id="7-假设已经发现了后门文件"><a href="#7-假设已经发现了后门文件" class="headerlink" title="7.假设已经发现了后门文件"></a>7.假设已经发现了后门文件</h1><p>假设你已经发现了</p>
+<p>有一个后门文件</p>
+<p>但是你删除了这个文件</p>
+<p>重新ls</p>
+<p>文件又被生成了</p>
+<p>如果知道是哪个进程在创建,直接kill</p>
+<p>如果不知道</p>
+<p>那么接下来你有几个方式可以应对</p>
+<p>假设这个后门文件是 <code>a.sh</code></p>
+<h2 id="7-1-修改权限"><a href="#7-1-修改权限" class="headerlink" title="7.1 修改权限"></a>7.1 修改权限</h2><p>你可以修改该目录的权限，阻止程序在其中创建文件。</p>
+<p>假设文件<code> a.sh</code> 是在 <code>/path/to/directory/</code> 目录下创建的，你可以尝试以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> a-w /path/to/directory</span><br></pre></td></tr></table></figure>
+
+<p>这将移除该目录的写权限，程序将无法在该目录下创建新文件。</p>
+<h2 id="7-2-使用-chattr-命令"><a href="#7-2-使用-chattr-命令" class="headerlink" title="7.2 使用 chattr 命令"></a>7.2 使用 chattr 命令</h2><p>如果你是在一个支持 <code>chattr</code> 的文件系统上，你可以使 <code>a.sh</code> 文件不可更改。你可以尝试：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> -f /path/to/directory/a.sh &amp;&amp; <span class="built_in">touch</span> /path/to/directory/a.sh &amp;&amp; chattr +i /path/to/directory/a.sh</span><br></pre></td></tr></table></figure>
+<p>注意一定要&amp;&amp;连起来，否则还是会被生成覆盖</p>
+<p>解读一下:先删除这个文件，然后touch 创建这个文件，最后chattr +i 锁定这个文件不可删除或修改</p>
+<h2 id="7-3-使用-find-命令和-prune-选项"><a href="#7-3-使用-find-命令和-prune-选项" class="headerlink" title="7.3 使用 find 命令和 prune 选项"></a>7.3 使用 find 命令和 prune 选项</h2><p>你可以使用 <code>find</code> 命令来监控文件的创建和在文件创建时删除它。如果你在一个 bash 脚本中使用，可以设置一个循环来监控：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="literal">true</span>; <span class="keyword">do</span></span><br><span class="line">  find /path/to/directory -name <span class="string">&#x27;a.sh&#x27;</span> -<span class="built_in">exec</span> <span class="built_in">rm</span> -f &#123;&#125; \;</span><br><span class="line">  <span class="built_in">sleep</span> 1</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<h2 id="7-4-创建一个同名文件夹"><a href="#7-4-创建一个同名文件夹" class="headerlink" title="7.4 创建一个同名文件夹"></a>7.4 创建一个同名文件夹</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> -f /path/to/directory/a.sh &amp;&amp; <span class="built_in">mkdir</span> /path/to/directory/a.sh</span><br></pre></td></tr></table></figure>
+
+
 <h1 id="一些sh"><a href="#一些sh" class="headerlink" title="一些sh"></a>一些sh</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看系统日志，/var/log/message    secure    auth.log</span></span><br><span class="line"><span class="comment">#搜索所有ssh登录成功的主机</span></span><br><span class="line"><span class="built_in">cat</span> /var/log/auth.log |grep <span class="string">&quot;Accepted&quot;</span></span><br><span class="line"><span class="comment">#搜索所有ssh登录失败的主机</span></span><br><span class="line"><span class="built_in">cat</span> /var/log/auth.log |grep <span class="string">&quot;Failed&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#统计ssh登录成功的ip的登录次数</span></span><br><span class="line"><span class="built_in">cat</span> /var/log/auth.log |grep <span class="string">&quot;Accepted&quot;</span>|grep -o -E <span class="string">&quot;[0-9]&#123;1,3&#125;\.[0-9]&#123;1,3&#125;\.[0-9]&#123;1,3&#125;\.[0-9]&#123;1,3&#125;&quot;</span>|<span class="built_in">sort</span> -n |<span class="built_in">uniq</span> -c|<span class="built_in">sort</span> -nr</span><br><span class="line"><span class="comment">#统计ip次数</span></span><br><span class="line"><span class="built_in">cat</span> /var/log/apache2/access.log|<span class="built_in">cut</span> -d <span class="string">&quot; &quot;</span> -f 1|<span class="built_in">sort</span>|<span class="built_in">uniq</span> -c |<span class="built_in">sort</span> -nr</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
@@ -573,7 +596,7 @@ b.访问主页时即可连接shell
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E6%9C%89%E6%8F%90%E7%A4%BA%E7%9C%8B%E6%8F%90%E7%A4%BA-%E6%B2%A1%E6%8F%90%E7%A4%BA%E7%9C%8B%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.</span> <span class="nav-text">1.有提示看提示,没提示看网络连接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E7%9C%8B%E7%94%A8%E6%88%B7"><span class="nav-number">2.</span> <span class="nav-text">2.看用户</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E7%9C%8B%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1"><span class="nav-number">3.</span> <span class="nav-text">3.看定时任务</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E6%9F%A5%E7%9C%8B%E6%9F%90%E4%B8%AA%E6%97%B6%E9%97%B4%E6%AE%B5%E6%96%87%E4%BB%B6%E6%94%B9%E5%8A%A8%E5%86%85%E5%AE%B9"><span class="nav-number">4.</span> <span class="nav-text">4.查看某个时间段文件改动内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E6%9F%A5%E7%9C%8B%E6%8A%A5%E9%94%99%E9%82%AE%E4%BB%B6"><span class="nav-number">5.</span> <span class="nav-text">5.查看报错邮件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E5%91%BD%E4%BB%A4%E7%AF%A1%E6%94%B9"><span class="nav-number">6.</span> <span class="nav-text">6.命令篡改</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E4%BA%9Bsh"><span class="nav-number">7.</span> <span class="nav-text">一些sh</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B5%A3%E9%93%B6%E6%9D%AF%E5%86%B3%E8%B5%9B%E8%B5%9B%E5%89%8D%E5%9F%B9%E8%AE%AD"><span class="nav-number">8.</span> <span class="nav-text">赣银杯决赛赛前培训</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83"><span class="nav-number">9.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E5%B7%A5%E5%85%B7%E5%8C%85"><span class="nav-number">10.</span> <span class="nav-text">一些工具包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#kali"><span class="nav-number">11.</span> <span class="nav-text">kali</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#win11"><span class="nav-number">12.</span> <span class="nav-text">win11</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AF%94%E8%B5%9B%E5%BD%A2%E5%BC%8F"><span class="nav-number">13.</span> <span class="nav-text">比赛形式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E7%BB%B4%E8%B5%9B"><span class="nav-number">13.1.</span> <span class="nav-text">运维赛</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%97%E9%80%8F%E8%B5%9B"><span class="nav-number">13.2.</span> <span class="nav-text">渗透赛</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94"><span class="nav-number">14.</span> <span class="nav-text">应急响应</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#linux%E8%BF%9B%E7%A8%8B%E6%8E%92%E6%9F%A5"><span class="nav-number">14.1.</span> <span class="nav-text">linux进程排查</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux%E7%94%A8%E6%88%B7%E6%8E%92%E6%9F%A5"><span class="nav-number">14.2.</span> <span class="nav-text">linux用户排查</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux%E6%8C%81%E4%B9%85%E5%8C%96%E6%8E%92%E6%9F%A5"><span class="nav-number">14.3.</span> <span class="nav-text">linux持久化排查</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90"><span class="nav-number">14.4.</span> <span class="nav-text">linux日志分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7"><span class="nav-number">14.5.</span> <span class="nav-text">工具</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95"><span class="nav-number">15.</span> <span class="nav-text">渗透测试</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="nav-number">15.1.</span> <span class="nav-text">信息收集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E7%B1%BB"><span class="nav-number">15.1.1.</span> <span class="nav-text">分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F%E3%80%90-%E4%B8%BB%E6%9C%BA%E6%8E%A2%E6%B5%8B%E3%80%91"><span class="nav-number">15.1.2.</span> <span class="nav-text">端口扫描【+主机探测】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%8F%E6%84%9F%E6%96%87%E4%BB%B6%E6%8E%A2%E6%B5%8B"><span class="nav-number">15.1.3.</span> <span class="nav-text">敏感文件探测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8"><span class="nav-number">15.1.4.</span> <span class="nav-text">漏洞利用</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E6%9C%89%E6%8F%90%E7%A4%BA%E7%9C%8B%E6%8F%90%E7%A4%BA-%E6%B2%A1%E6%8F%90%E7%A4%BA%E7%9C%8B%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.</span> <span class="nav-text">1.有提示看提示,没提示看网络连接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E7%9C%8B%E7%94%A8%E6%88%B7"><span class="nav-number">2.</span> <span class="nav-text">2.看用户</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E7%9C%8B%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1"><span class="nav-number">3.</span> <span class="nav-text">3.看定时任务</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E6%9F%A5%E7%9C%8B%E6%9F%90%E4%B8%AA%E6%97%B6%E9%97%B4%E6%AE%B5%E6%96%87%E4%BB%B6%E6%94%B9%E5%8A%A8%E5%86%85%E5%AE%B9"><span class="nav-number">4.</span> <span class="nav-text">4.查看某个时间段文件改动内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E6%9F%A5%E7%9C%8B%E6%8A%A5%E9%94%99%E9%82%AE%E4%BB%B6"><span class="nav-number">5.</span> <span class="nav-text">5.查看报错邮件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E5%91%BD%E4%BB%A4%E7%AF%A1%E6%94%B9"><span class="nav-number">6.</span> <span class="nav-text">6.命令篡改</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-%E5%81%87%E8%AE%BE%E5%B7%B2%E7%BB%8F%E5%8F%91%E7%8E%B0%E4%BA%86%E5%90%8E%E9%97%A8%E6%96%87%E4%BB%B6"><span class="nav-number">7.</span> <span class="nav-text">7.假设已经发现了后门文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#7-1-%E4%BF%AE%E6%94%B9%E6%9D%83%E9%99%90"><span class="nav-number">7.1.</span> <span class="nav-text">7.1 修改权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-2-%E4%BD%BF%E7%94%A8-chattr-%E5%91%BD%E4%BB%A4"><span class="nav-number">7.2.</span> <span class="nav-text">7.2 使用 chattr 命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-3-%E4%BD%BF%E7%94%A8-find-%E5%91%BD%E4%BB%A4%E5%92%8C-prune-%E9%80%89%E9%A1%B9"><span class="nav-number">7.3.</span> <span class="nav-text">7.3 使用 find 命令和 prune 选项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-4-%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%90%8C%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="nav-number">7.4.</span> <span class="nav-text">7.4 创建一个同名文件夹</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E4%BA%9Bsh"><span class="nav-number">8.</span> <span class="nav-text">一些sh</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B5%A3%E9%93%B6%E6%9D%AF%E5%86%B3%E8%B5%9B%E8%B5%9B%E5%89%8D%E5%9F%B9%E8%AE%AD"><span class="nav-number">9.</span> <span class="nav-text">赣银杯决赛赛前培训</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83"><span class="nav-number">10.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E5%B7%A5%E5%85%B7%E5%8C%85"><span class="nav-number">11.</span> <span class="nav-text">一些工具包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#kali"><span class="nav-number">12.</span> <span class="nav-text">kali</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#win11"><span class="nav-number">13.</span> <span class="nav-text">win11</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AF%94%E8%B5%9B%E5%BD%A2%E5%BC%8F"><span class="nav-number">14.</span> <span class="nav-text">比赛形式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E7%BB%B4%E8%B5%9B"><span class="nav-number">14.1.</span> <span class="nav-text">运维赛</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%97%E9%80%8F%E8%B5%9B"><span class="nav-number">14.2.</span> <span class="nav-text">渗透赛</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94"><span class="nav-number">15.</span> <span class="nav-text">应急响应</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#linux%E8%BF%9B%E7%A8%8B%E6%8E%92%E6%9F%A5"><span class="nav-number">15.1.</span> <span class="nav-text">linux进程排查</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux%E7%94%A8%E6%88%B7%E6%8E%92%E6%9F%A5"><span class="nav-number">15.2.</span> <span class="nav-text">linux用户排查</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux%E6%8C%81%E4%B9%85%E5%8C%96%E6%8E%92%E6%9F%A5"><span class="nav-number">15.3.</span> <span class="nav-text">linux持久化排查</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90"><span class="nav-number">15.4.</span> <span class="nav-text">linux日志分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7"><span class="nav-number">15.5.</span> <span class="nav-text">工具</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95"><span class="nav-number">16.</span> <span class="nav-text">渗透测试</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="nav-number">16.1.</span> <span class="nav-text">信息收集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E7%B1%BB"><span class="nav-number">16.1.1.</span> <span class="nav-text">分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F%E3%80%90-%E4%B8%BB%E6%9C%BA%E6%8E%A2%E6%B5%8B%E3%80%91"><span class="nav-number">16.1.2.</span> <span class="nav-text">端口扫描【+主机探测】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%8F%E6%84%9F%E6%96%87%E4%BB%B6%E6%8E%A2%E6%B5%8B"><span class="nav-number">16.1.3.</span> <span class="nav-text">敏感文件探测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8"><span class="nav-number">16.1.4.</span> <span class="nav-text">漏洞利用</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -589,20 +612,20 @@ b.访问主页时即可连接shell
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">143</span>
+          <span class="site-state-item-count">155</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-count">44</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -674,7 +697,7 @@ b.访问主页时即可连接shell
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -684,13 +707,13 @@ b.访问主页时即可连接shell
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">294k</span>
+    <span title="站点总字数">317k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:28</span>
+    <span title="站点阅读时长">4:48</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
