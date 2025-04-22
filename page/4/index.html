@@ -119,7 +119,7 @@
       <h1 class="site-title">无星的小窝</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
-      <p class="site-subtitle" itemprop="description">估计也么的人看</p>
+      <p class="site-subtitle" itemprop="description">技术为辅,业务为主</p>
   </div>
 
   <div class="site-nav-right">
@@ -331,6 +331,115 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2023/08/18/%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%97%A0%E6%98%9F%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20PlayWright%E5%86%85%E7%BD%91%E5%8D%87%E7%BA%A7playwright%E7%89%88%E6%9C%AC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/08/18/%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%97%A0%E6%98%9F%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20PlayWright%E5%86%85%E7%BD%91%E5%8D%87%E7%BA%A7playwright%E7%89%88%E6%9C%AC/" class="post-title-link" itemprop="url">无星的前端之旅（二十八）—— 离线安装npm库</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-08-18 21:06:08" itemprop="dateCreated datePublished" datetime="2023-08-18T21:06:08+08:00">2023-08-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-09-29 09:37:25" itemprop="dateModified" datetime="2024-09-29T09:37:25+08:00">2024-09-29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PlayWright/" itemprop="url" rel="index"><span itemprop="name">PlayWright</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2023/08/18/%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%97%A0%E6%98%9F%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20PlayWright%E5%86%85%E7%BD%91%E5%8D%87%E7%BA%A7playwright%E7%89%88%E6%9C%AC/" class="post-meta-item leancloud_visitors" data-flag-title="无星的前端之旅（二十八）—— 离线安装npm库" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>上文我们说到了怎么更新<code>ms-playwright</code></p>
+<p>本篇我们来聊聊怎么迁移<code>playwright</code>的版本</p>
+<p>可能有朋友会奇怪，这有什么难的，把<code>node_modules</code>跟<code>playwright</code>相关的库全部移进去不就行了</p>
+<p>其实也对，但是如果我是<code>pnpm</code>呢</p>
+<p>其实虽然这一篇是升级<code>playwright</code>，但其实更多的是想表达，如何迁移<code>npm</code>库到离线环境</p>
+<p>以<code>playwright</code>为例，下面是我的一些探索</p>
+<h1 id="各种包管理工具下的迁移"><a href="#各种包管理工具下的迁移" class="headerlink" title="各种包管理工具下的迁移"></a>各种包管理工具下的迁移</h1><p>运气比较好</p>
+<p>本文成于2023.8.20</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/08/18/%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%97%A0%E6%98%9F%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20PlayWright%E5%86%85%E7%BD%91%E5%8D%87%E7%BA%A7playwright%E7%89%88%E6%9C%AC/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2023/08/18/%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%97%A0%E6%98%9F%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8B%E6%97%85%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20PlayWright%E5%86%85%E7%BD%91%E5%8D%87%E7%BA%A7ms-playwright/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -442,7 +551,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2023/08/18/%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%97%A0%E6%98%9F%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20PlayWright%E5%86%85%E7%BD%91%E5%8D%87%E7%BA%A7playwright%E7%89%88%E6%9C%AC/">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2023/07/30/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/headerPic.png">
@@ -456,7 +565,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/08/18/%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%97%A0%E6%98%9F%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20PlayWright%E5%86%85%E7%BD%91%E5%8D%87%E7%BA%A7playwright%E7%89%88%E6%9C%AC/" class="post-title-link" itemprop="url">无星的前端之旅（二十八）—— 离线安装npm库</a>
+            <a href="/2023/07/30/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" class="post-title-link" itemprop="url">无星的安全之旅（二）——文件上传</a>
         </h2>
 
         <div class="post-meta">
@@ -466,14 +575,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2023-08-18 21:06:08" itemprop="dateCreated datePublished" datetime="2023-08-18T21:06:08+08:00">2023-08-18</time>
+              <time title="创建时间：2023-07-30 20:17:00" itemprop="dateCreated datePublished" datetime="2023-07-30T20:17:00+08:00">2023-07-30</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-09-29 09:37:25" itemprop="dateModified" datetime="2024-09-29T09:37:25+08:00">2024-09-29</time>
+                <time title="修改时间：2024-06-27 21:21:38" itemprop="dateModified" datetime="2024-06-27T21:21:38+08:00">2024-06-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -481,12 +590,12 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PlayWright/" itemprop="url" rel="index"><span itemprop="name">PlayWright</span></a>
+                  <a href="/categories/%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">安全</span></a>
                 </span>
             </span>
 
           
-            <span id="/2023/08/18/%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%97%A0%E6%98%9F%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20PlayWright%E5%86%85%E7%BD%91%E5%8D%87%E7%BA%A7playwright%E7%89%88%E6%9C%AC/" class="post-meta-item leancloud_visitors" data-flag-title="无星的前端之旅（二十八）—— 离线安装npm库" title="阅读次数">
+            <span id="/2023/07/30/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" class="post-meta-item leancloud_visitors" data-flag-title="无星的安全之旅（二）——文件上传" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -498,14 +607,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.6k</span>
+              <span>733</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -517,17 +626,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>上文我们说到了怎么更新<code>ms-playwright</code></p>
-<p>本篇我们来聊聊怎么迁移<code>playwright</code>的版本</p>
-<p>可能有朋友会奇怪，这有什么难的，把<code>node_modules</code>跟<code>playwright</code>相关的库全部移进去不就行了</p>
-<p>其实也对，但是如果我是<code>pnpm</code>呢</p>
-<p>其实虽然这一篇是升级<code>playwright</code>，但其实更多的是想表达，如何迁移<code>npm</code>库到离线环境</p>
-<p>以<code>playwright</code>为例，下面是我的一些探索</p>
-<h1 id="各种包管理工具下的迁移"><a href="#各种包管理工具下的迁移" class="headerlink" title="各种包管理工具下的迁移"></a>各种包管理工具下的迁移</h1><p>运气比较好</p>
-<p>本文成于2023.8.20</p>
+          <p>文件上传是个经典问题</p>
+<p>推荐靶场：<a target="_blank" rel="noopener" href="https://github.com/c0ny1/upload-labs">upload-labs</a></p>
+<p>我们可以在这个靶场中进行文件上传绕过的练习</p>
+<p>先说<code>webshell</code>，我们写个一句话木马先</p>
+<p>这里留个大哥若干年前的总结 <a target="_blank" rel="noopener" href="https://www.webshell.cc/2265.html">webshell一句话木马大全</a></p>
+<p>接下来我们聊聊文件上传的漏洞</p>
+<h1 id="一-啥防护没有"><a href="#一-啥防护没有" class="headerlink" title="一.啥防护没有"></a>一.啥防护没有</h1><p>直接一句话木马上传就完事了</p>
+<h1 id="二-前端文件后缀判断"><a href="#二-前端文件后缀判断" class="headerlink" title="二.前端文件后缀判断"></a>二.前端文件后缀判断</h1><p>打开开发者工具，提交文件，看是否存在网络请求</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2023/08/18/%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%97%A0%E6%98%9F%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20PlayWright%E5%86%85%E7%BD%91%E5%8D%87%E7%BA%A7playwright%E7%89%88%E6%9C%AC/#more" rel="contents">
+              <a class="btn" href="/2023/07/30/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -639,115 +748,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2023/07/30/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94Burp%E7%88%86%E7%A0%B4/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2023/07/30/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/07/30/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" class="post-title-link" itemprop="url">无星的安全之旅（二）——文件上传</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-07-30 20:17:00" itemprop="dateCreated datePublished" datetime="2023-07-30T20:17:00+08:00">2023-07-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-06-27 21:21:38" itemprop="dateModified" datetime="2024-06-27T21:21:38+08:00">2024-06-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">安全</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2023/07/30/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" class="post-meta-item leancloud_visitors" data-flag-title="无星的安全之旅（二）——文件上传" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>733</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>文件上传是个经典问题</p>
-<p>推荐靶场：<a target="_blank" rel="noopener" href="https://github.com/c0ny1/upload-labs">upload-labs</a></p>
-<p>我们可以在这个靶场中进行文件上传绕过的练习</p>
-<p>先说<code>webshell</code>，我们写个一句话木马先</p>
-<p>这里留个大哥若干年前的总结 <a target="_blank" rel="noopener" href="https://www.webshell.cc/2265.html">webshell一句话木马大全</a></p>
-<p>接下来我们聊聊文件上传的漏洞</p>
-<h1 id="一-啥防护没有"><a href="#一-啥防护没有" class="headerlink" title="一.啥防护没有"></a>一.啥防护没有</h1><p>直接一句话木马上传就完事了</p>
-<h1 id="二-前端文件后缀判断"><a href="#二-前端文件后缀判断" class="headerlink" title="二.前端文件后缀判断"></a>二.前端文件后缀判断</h1><p>打开开发者工具，提交文件，看是否存在网络请求</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/07/30/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -991,6 +991,114 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2023/03/17/%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%97%A0%E6%98%9F%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94PlayWright%E6%8F%90%E4%BA%A4%E9%80%89%E6%8B%A9%E6%96%87%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/03/17/%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%97%A0%E6%98%9F%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94PlayWright%E6%8F%90%E4%BA%A4%E9%80%89%E6%8B%A9%E6%96%87%E4%BB%B6/" class="post-title-link" itemprop="url">无星的自动化之旅（三）——PlayWright配置项和常见问题</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-03-17 15:27:08" itemprop="dateCreated datePublished" datetime="2023-03-17T15:27:08+08:00">2023-03-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-04-15 20:33:02" itemprop="dateModified" datetime="2024-04-15T20:33:02+08:00">2024-04-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PlayWright/" itemprop="url" rel="index"><span itemprop="name">PlayWright</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2023/03/17/%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%97%A0%E6%98%9F%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94PlayWright%E6%8F%90%E4%BA%A4%E9%80%89%E6%8B%A9%E6%96%87%E4%BB%B6/" class="post-meta-item leancloud_visitors" data-flag-title="无星的自动化之旅（三）——PlayWright配置项和常见问题" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>这次我们来聊一聊<code>playwright</code>的一些配置项</p>
+<h1 id="一、登录保存数据"><a href="#一、登录保存数据" class="headerlink" title="一、登录保存数据"></a>一、登录保存数据</h1><p>网站每次都要登录，很烦，没必要</p>
+<p>所以我们登录之后，可以把<code>cookie</code>或者<code>session</code>什么的保存起来</p>
+<p>下次登录再把数据注入</p>
+<p>这样就不用再登录了</p>
+<h2 id="1-先正常登录"><a href="#1-先正常登录" class="headerlink" title="1.先正常登录"></a>1.先正常登录</h2><p>就写代码登录</p>
+<h2 id="2-保存数据"><a href="#2-保存数据" class="headerlink" title="2.保存数据"></a>2.保存数据</h2><p>通过<code>context.storageState</code>保存数据到本地文件<br>例如：</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/03/17/%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%97%A0%E6%98%9F%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94PlayWright%E6%8F%90%E4%BA%A4%E9%80%89%E6%8B%A9%E6%96%87%E4%BB%B6/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2023/03/17/%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%97%A0%E6%98%9F%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94PlayWright%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1077,114 +1185,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2023/03/17/%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%97%A0%E6%98%9F%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94PlayWright%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2023/03/17/%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%97%A0%E6%98%9F%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94PlayWright%E6%8F%90%E4%BA%A4%E9%80%89%E6%8B%A9%E6%96%87%E4%BB%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/03/17/%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%97%A0%E6%98%9F%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94PlayWright%E6%8F%90%E4%BA%A4%E9%80%89%E6%8B%A9%E6%96%87%E4%BB%B6/" class="post-title-link" itemprop="url">无星的自动化之旅（三）——PlayWright配置项和常见问题</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-03-17 15:27:08" itemprop="dateCreated datePublished" datetime="2023-03-17T15:27:08+08:00">2023-03-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-04-15 20:33:02" itemprop="dateModified" datetime="2024-04-15T20:33:02+08:00">2024-04-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PlayWright/" itemprop="url" rel="index"><span itemprop="name">PlayWright</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2023/03/17/%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%97%A0%E6%98%9F%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94PlayWright%E6%8F%90%E4%BA%A4%E9%80%89%E6%8B%A9%E6%96%87%E4%BB%B6/" class="post-meta-item leancloud_visitors" data-flag-title="无星的自动化之旅（三）——PlayWright配置项和常见问题" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.8k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>这次我们来聊一聊<code>playwright</code>的一些配置项</p>
-<h1 id="一、登录保存数据"><a href="#一、登录保存数据" class="headerlink" title="一、登录保存数据"></a>一、登录保存数据</h1><p>网站每次都要登录，很烦，没必要</p>
-<p>所以我们登录之后，可以把<code>cookie</code>或者<code>session</code>什么的保存起来</p>
-<p>下次登录再把数据注入</p>
-<p>这样就不用再登录了</p>
-<h2 id="1-先正常登录"><a href="#1-先正常登录" class="headerlink" title="1.先正常登录"></a>1.先正常登录</h2><p>就写代码登录</p>
-<h2 id="2-保存数据"><a href="#2-保存数据" class="headerlink" title="2.保存数据"></a>2.保存数据</h2><p>通过<code>context.storageState</code>保存数据到本地文件<br>例如：</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/03/17/%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%97%A0%E6%98%9F%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94PlayWright%E6%8F%90%E4%BA%A4%E9%80%89%E6%8B%A9%E6%96%87%E4%BB%B6/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
