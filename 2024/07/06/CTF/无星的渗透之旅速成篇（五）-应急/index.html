@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.2">
+<meta name="generator" content="Hexo 7.0.0-rc2">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -21,15 +21,15 @@
     var CONFIG = {"hostname":"blog.xingxiaowu.cn","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="1.有提示看提示,没提示看网络连接看网络进程 1netstat -antup  2.看用户1cat &#x2F;etc&#x2F;passwd  3.看定时任务12crontab -lcrontab -u 用户  4.查看某个时间段文件改动内容123find &#x2F; -type f -newermt &quot;2021-08-20 00:00&quot; -a -not -newermt &quot;2021-08-2">
+  <meta name="description" content="1.有提示看提示,没提示看网络连接看网络进程 1netstat -antup  看系统进程 1ps aux   2.看用户1cat &#x2F;etc&#x2F;passwd  3.看定时任务12crontab -lcrontab -u 用户  4.查看某个时间段文件改动内容">
 <meta property="og:type" content="article">
 <meta property="og:title" content="无星的渗透之旅速成篇（五）-应急">
 <meta property="og:url" content="http://blog.xingxiaowu.cn/2024/07/06/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E4%BA%94%EF%BC%89-%E5%BA%94%E6%80%A5/index.html">
 <meta property="og:site_name" content="无星的小窝">
-<meta property="og:description" content="1.有提示看提示,没提示看网络连接看网络进程 1netstat -antup  2.看用户1cat &#x2F;etc&#x2F;passwd  3.看定时任务12crontab -lcrontab -u 用户  4.查看某个时间段文件改动内容123find &#x2F; -type f -newermt &quot;2021-08-20 00:00&quot; -a -not -newermt &quot;2021-08-2">
+<meta property="og:description" content="1.有提示看提示,没提示看网络连接看网络进程 1netstat -antup  看系统进程 1ps aux   2.看用户1cat &#x2F;etc&#x2F;passwd  3.看定时任务12crontab -lcrontab -u 用户  4.查看某个时间段文件改动内容">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-07-06T12:09:00.000Z">
-<meta property="article:modified_time" content="2024-12-17T03:02:50.818Z">
+<meta property="article:modified_time" content="2025-04-27T01:11:26.033Z">
 <meta property="article:author" content="无星">
 <meta property="article:tag" content="应急">
 <meta name="twitter:card" content="summary">
@@ -121,7 +121,7 @@
       <h1 class="site-title">无星的小窝</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
-      <p class="site-subtitle" itemprop="description">估计也么的人看</p>
+      <p class="site-subtitle" itemprop="description">技术为辅,业务为主</p>
   </div>
 
   <div class="site-nav-right">
@@ -256,7 +256,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-12-17 11:02:50" itemprop="dateModified" datetime="2024-12-17T11:02:50+08:00">2024-12-17</time>
+                <time title="修改时间：2025-04-27 09:11:26" itemprop="dateModified" datetime="2025-04-27T09:11:26+08:00">2025-04-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -288,14 +288,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>5.8k</span>
+              <span>6.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
+              <span>6 分钟</span>
             </span>
 
         </div>
@@ -309,6 +309,10 @@
       
         <h1 id="1-有提示看提示-没提示看网络连接"><a href="#1-有提示看提示-没提示看网络连接" class="headerlink" title="1.有提示看提示,没提示看网络连接"></a>1.有提示看提示,没提示看网络连接</h1><p>看网络进程</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -antup</span><br></pre></td></tr></table></figure>
+
+<p>看系统进程</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux</span><br></pre></td></tr></table></figure>
+
 
 <h1 id="2-看用户"><a href="#2-看用户" class="headerlink" title="2.看用户"></a>2.看用户</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/passwd</span><br></pre></td></tr></table></figure>
 
@@ -330,11 +334,11 @@
 <p>假设这个后门文件是 <code>a.sh</code></p>
 <h2 id="7-1-修改权限"><a href="#7-1-修改权限" class="headerlink" title="7.1 修改权限"></a>7.1 修改权限</h2><p>你可以修改该目录的权限，阻止程序在其中创建文件。</p>
 <p>假设文件<code> a.sh</code> 是在 <code>/path/to/directory/</code> 目录下创建的，你可以尝试以下命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> a-w /path/to/directory</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> -rf /path/to/directory/a.sh &amp;&amp; <span class="built_in">chmod</span> a-w /path/to/directory</span><br></pre></td></tr></table></figure>
 
 <p>这将移除该目录的写权限，程序将无法在该目录下创建新文件。</p>
 <h2 id="7-2-使用-chattr-命令"><a href="#7-2-使用-chattr-命令" class="headerlink" title="7.2 使用 chattr 命令"></a>7.2 使用 chattr 命令</h2><p>如果你是在一个支持 <code>chattr</code> 的文件系统上，你可以使 <code>a.sh</code> 文件不可更改。你可以尝试：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> -f /path/to/directory/a.sh &amp;&amp; <span class="built_in">touch</span> /path/to/directory/a.sh &amp;&amp; chattr +i /path/to/directory/a.sh</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> -rf /path/to/directory/a.sh &amp;&amp; <span class="built_in">touch</span> /path/to/directory/a.sh &amp;&amp; chattr +i /path/to/directory/a.sh</span><br></pre></td></tr></table></figure>
 <p>注意一定要&amp;&amp;连起来，否则还是会被生成覆盖</p>
 <p>解读一下:先删除这个文件，然后touch 创建这个文件，最后chattr +i 锁定这个文件不可删除或修改</p>
 <h2 id="7-3-使用-find-命令和-prune-选项"><a href="#7-3-使用-find-命令和-prune-选项" class="headerlink" title="7.3 使用 find 命令和 prune 选项"></a>7.3 使用 find 命令和 prune 选项</h2><p>你可以使用 <code>find</code> 命令来监控文件的创建和在文件创建时删除它。如果你在一个 bash 脚本中使用，可以设置一个循环来监控：</p>
@@ -370,7 +374,7 @@
 <p>登录机器，分析攻击者行为，怎么进来、做了什么更改</p>
 <p>对环境进行修复【攻击者留下的后门、源码本身就存在的漏洞】</p>
 <p>机器一轮一轮地进行检测</p>
-<p>成功加固，得到相应分输【不需要额外提交东西】</p>
+<p>成功加固，得到相应分数【不需要额外提交东西】</p>
 <h2 id="渗透赛"><a href="#渗透赛" class="headerlink" title="渗透赛"></a>渗透赛</h2><p>一台正常的机器【含有漏洞】</p>
 <p>扮演攻击者，从主机发现-&gt;漏洞利用-&gt;获取权限-&gt;权限提升-&gt;获取到flag文件</p>
 <p>flag{xxxxxxx}</p>
@@ -380,7 +384,7 @@
 <li>1.webshell</li>
 <li>2.写了私钥文件</li>
 <li>3.httpd.conf   conf.d</li>
-<li>4.ls -&gt;  alias ls=”ls&gt;/dev/null”</li>
+<li>4.ls -&gt;  alias ls&#x3D;”ls&gt;&#x2F;dev&#x2F;null”</li>
 <li>5.ps-&gt;ps_bak</li>
 </ul>
 </li>
@@ -390,8 +394,8 @@
 * 2.ls -altS /usr/sbin |
 * 3.head -30
 * 4.find   -newermt 2024-01-03   not newermt  找某个时间范围内的
-* 5.find / -mtime 7 –exec ls –l &#123;&#125; \;            找7内修改的
-* 6.find / -perm –u=s –type f 2&gt;/dev/null    找suid
+* 5.find / -mtime 7 –exec ls –l &#123;&#125; \;			找7内修改的
+* 6.find / -perm –u=s –type f 2&gt;/dev/null	找suid
 * 7.find / -name “.*” –mtime7 –exec –l &#123;&#125; \;    查找隐藏文件
 * 8.ls直接反弹shell，目标机器ls拷出来，和自己linux机器中的ls进行比对
 * 9.md5sum ls
@@ -422,27 +426,27 @@
 </code></pre>
 <h2 id="linux日志分析"><a href="#linux日志分析" class="headerlink" title="linux日志分析"></a>linux日志分析</h2><ul>
 <li>1.web服务日志<ul>
-<li>a.apache  nginx    cd /var/log/nginx/access.log</li>
+<li>a.apache  nginx    cd &#x2F;var&#x2F;log&#x2F;nginx&#x2F;access.log</li>
 </ul>
 </li>
 <li>2.登录日志<ul>
-<li>a./var/log/auth.log</li>
-<li>b./var/log/secure</li>
-<li>c./var/log/wtmp</li>
+<li>a.&#x2F;var&#x2F;log&#x2F;auth.log</li>
+<li>b.&#x2F;var&#x2F;log&#x2F;secure</li>
+<li>c.&#x2F;var&#x2F;log&#x2F;wtmp</li>
 <li>d.排查一下日志里面有没有脚本</li>
 </ul>
 </li>
 <li>3.应用日志<ul>
-<li>a./var/log/messages：内核及公共消息日志</li>
-<li>b.➢ /var/log/cron：计划任务日志</li>
-<li>c.➢ /var/log/dmesg：系统引导日志</li>
-<li>d.➢ /var/log/maillog：邮件系统日志</li>
-<li>e.➢ /var/log/lastlog：用户登录日志</li>
-<li>f.➢ /var/log/boot.log：记录系统在引导过程中发生的时间</li>
-<li>g.➢ /var/log/secure：用户验证相关的安全性事件</li>
-<li>h.➢ /var/log/wtmp：当前登录用户详细信息</li>
-<li>i.➢ /var/log/btmp：记录失败的的记录</li>
-<li>j.➢ /var/run/utmp：用户登录、注销及系统开、关等事件；</li>
+<li>a.&#x2F;var&#x2F;log&#x2F;messages：内核及公共消息日志</li>
+<li>b.➢ &#x2F;var&#x2F;log&#x2F;cron：计划任务日志</li>
+<li>c.➢ &#x2F;var&#x2F;log&#x2F;dmesg：系统引导日志</li>
+<li>d.➢ &#x2F;var&#x2F;log&#x2F;maillog：邮件系统日志</li>
+<li>e.➢ &#x2F;var&#x2F;log&#x2F;lastlog：用户登录日志</li>
+<li>f.➢ &#x2F;var&#x2F;log&#x2F;boot.log：记录系统在引导过程中发生的时间</li>
+<li>g.➢ &#x2F;var&#x2F;log&#x2F;secure：用户验证相关的安全性事件</li>
+<li>h.➢ &#x2F;var&#x2F;log&#x2F;wtmp：当前登录用户详细信息</li>
+<li>i.➢ &#x2F;var&#x2F;log&#x2F;btmp：记录失败的的记录</li>
+<li>j.➢ &#x2F;var&#x2F;run&#x2F;utmp：用户登录、注销及系统开、关等事件；</li>
 </ul>
 </li>
 </ul>
@@ -491,7 +495,7 @@ b.访问主页时即可连接shell
 2.find 找一下有没有suid提权
 3.直接上传linux信息收集工具
 </code></pre>
-<p>有没有私钥登录，有没有其他用户，有没有其他敏感文件/tmp<br>检查crontabs有没有定时任务，内核提权</p>
+<p>有没有私钥登录，有没有其他用户，有没有其他敏感文件&#x2F;tmp<br>检查crontabs有没有定时任务，内核提权</p>
 
     </div>
 
@@ -612,20 +616,20 @@ b.访问主页时即可连接shell
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">155</span>
+          <span class="site-state-item-count">163</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-count">47</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -707,13 +711,13 @@ b.访问主页时即可连接shell
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">317k</span>
+    <span title="站点总字数">334k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:48</span>
+    <span title="站点阅读时长">5:04</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

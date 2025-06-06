@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.2">
+<meta name="generator" content="Hexo 7.0.0-rc2">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -130,7 +130,7 @@
       <h1 class="site-title">无星的小窝</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
-      <p class="site-subtitle" itemprop="description">估计也么的人看</p>
+      <p class="site-subtitle" itemprop="description">技术为辅,业务为主</p>
   </div>
 
   <div class="site-nav-right">
@@ -333,12 +333,12 @@
 <p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/ios-openssl/4.png" alt="img"></p>
 <p>首先添加$(SRCROOT)</p>
 <p>我们可以看见，包含rsa的openssl文件夹是4文件夹下的openssl</p>
-<p><strong>所以路径构成是：$(SRCROOT)/项目名称1（TestDemo）/包含的文件夹2（WXRSASignopen）/包含的文件夹3（openssl）/包含的文件夹4（include）</strong></p>
+<p><strong>所以路径构成是：$(SRCROOT)&#x2F;项目名称1（TestDemo）&#x2F;包含的文件夹2（WXRSASignopen）&#x2F;包含的文件夹3（openssl）&#x2F;包含的文件夹4（include）</strong></p>
 <p>同理，填写你的项目的包含的路径。</p>
 <h1 id="运行一下，成功就不必看下面的了，不成功就继续往下看。"><a href="#运行一下，成功就不必看下面的了，不成功就继续往下看。" class="headerlink" title="运行一下，成功就不必看下面的了，不成功就继续往下看。"></a>运行一下，成功就不必看下面的了，不成功就继续往下看。</h1><p><em><strong>如果你使用的是支付宝sdk中的openssl文件和Untils工具类的话，可能其中的rsa.h或其他文件还会报错，这个时候可以打开报错的文件向其中添加#import即可，如果你嫌一个个添加太麻烦，可以做如下操作创建一个pch文件。</strong></em></p>
 <p>1.创建一个pch文件</p>
 <p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/ios-openssl/5.png" alt="img"></p>
-<p>2.在创建的pch文件中写上#import&lt;Foundation/Foundation.h&gt;</p>
+<p>2.在创建的pch文件中写上#import&lt;Foundation&#x2F;Foundation.h&gt;</p>
 <p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/ios-openssl/6.png" alt="img"></p>
 <p>3.复制这个$(TARGET_NAME)</p>
 <p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/ios-openssl/7.png" alt="img"></p>
@@ -466,20 +466,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">155</span>
+          <span class="site-state-item-count">163</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-count">47</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -561,13 +561,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">317k</span>
+    <span title="站点总字数">334k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:48</span>
+    <span title="站点阅读时长">5:04</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

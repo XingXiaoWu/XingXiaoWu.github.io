@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.2">
+<meta name="generator" content="Hexo 7.0.0-rc2">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -21,12 +21,12 @@
     var CONFIG = {"hostname":"blog.xingxiaowu.cn","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="啥是History模式文档 nginx配置前提：假设把打包后的文件放在根目录下（这个前提很重要!!!）从文档可以看到，nginx配置内容为 1234# nginxlocation &#x2F; &amp;#123;  try_files $uri $uri&#x2F; &#x2F;index.html;&amp;#125; 实际上这是什么意思呢？ 根据以上前提 我们如果把对应文件放到根目录下，差不多是这个意思 1.把dist包内容放到根路径下">
+  <meta name="description" content="啥是History模式文档 nginx配置前提：假设把打包后的文件放在根目录下（这个前提很重要!!!）从文档可以看到，nginx配置内容为 1234# nginxlocation &#x2F; &#123;  try_files $uri $uri&#x2F; &#x2F;index.html;&#125; 实际上这是什么意思呢？ 根据以上前提 我们如果把对应文件放到根目录下，差不多是这个意思 1.把dist包内容放到根路径下">
 <meta property="og:type" content="article">
 <meta property="og:title" content="无星的nginx配置学习（二）——Vue router history配置引发的思考">
 <meta property="og:url" content="http://blog.xingxiaowu.cn/2021/02/03/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E6%97%A0%E6%98%9F%E7%9A%84nginx%E9%85%8D%E7%BD%AE%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94Vue%20router%20history%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="无星的小窝">
-<meta property="og:description" content="啥是History模式文档 nginx配置前提：假设把打包后的文件放在根目录下（这个前提很重要!!!）从文档可以看到，nginx配置内容为 1234# nginxlocation &#x2F; &amp;#123;  try_files $uri $uri&#x2F; &#x2F;index.html;&amp;#125; 实际上这是什么意思呢？ 根据以上前提 我们如果把对应文件放到根目录下，差不多是这个意思 1.把dist包内容放到根路径下">
+<meta property="og:description" content="啥是History模式文档 nginx配置前提：假设把打包后的文件放在根目录下（这个前提很重要!!!）从文档可以看到，nginx配置内容为 1234# nginxlocation &#x2F; &#123;  try_files $uri $uri&#x2F; &#x2F;index.html;&#125; 实际上这是什么意思呢？ 根据以上前提 我们如果把对应文件放到根目录下，差不多是这个意思 1.把dist包内容放到根路径下">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/nginx2/1.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/nginx2/q1n.png">
@@ -130,7 +130,7 @@
       <h1 class="site-title">无星的小窝</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
-      <p class="site-subtitle" itemprop="description">估计也么的人看</p>
+      <p class="site-subtitle" itemprop="description">技术为辅,业务为主</p>
   </div>
 
   <div class="site-nav-right">
@@ -297,14 +297,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.6k</span>
+              <span>2.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -326,17 +326,17 @@
 <p>大概长这样<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/nginx2/1.png" alt="1"></p>
 <h2 id="2-nginx构造server"><a href="#2-nginx构造server" class="headerlink" title="2.nginx构造server"></a>2.nginx构造server</h2><p>文档只有一个location的配置，并且写了前提是放在根路径，所以这个前提很重要，我们需要先构造这么一个前提，需要把上面的Nginx文件夹设置为根路径</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">       listen 8899;</span><br><span class="line">       server_name localhost;</span><br><span class="line">       root  /Users/xing.wu/Desktop/Nginx;</span><br><span class="line">       # 下面写location</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<p>构造这样一个server，使localhost:8899默认指向为 /Users/xing.wu/Desktop/Nginx 这个路径</p>
+<p>构造这样一个server，使localhost:8899默认指向为 &#x2F;Users&#x2F;xing.wu&#x2F;Desktop&#x2F;Nginx 这个路径</p>
 <p>这样，Nginx文件夹就默认变成了域名下的根路径</p>
 <h2 id="3-补上location"><a href="#3-补上location" class="headerlink" title="3.补上location"></a>3.补上location</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen 8899;</span><br><span class="line">        server_name localhost;</span><br><span class="line">        root  /Users/xing.wu/Desktop/Nginx;</span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">            try_files $uri $uri/ /index.html;</span><br><span class="line">            index index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>完整的配置就出来了，接着我们再来解析一下这个配置</p>
-<p><a target="_blank" rel="noopener" href="http://nginx.org/en/docs/http/ngx_http_core_module.html#try_files">try_files</a>：按指定顺序检查文件是否存在，并使用找到的第一个文件进行请求处理；该处理在当前上下文中执行。文件的路径是file根据根和别名指令从参数 构造的 。可以通过在名称末尾指定斜杠（例如“ $uri/”）来检查目录的存在。如果未找到任何文件，则进行内部重定向到uri最后一个参数中指定的文件 。</p>
+<p><a target="_blank" rel="noopener" href="http://nginx.org/en/docs/http/ngx_http_core_module.html#try_files">try_files</a>：按指定顺序检查文件是否存在，并使用找到的第一个文件进行请求处理；该处理在当前上下文中执行。文件的路径是file根据根和别名指令从参数 构造的 。可以通过在名称末尾指定斜杠（例如“ $uri&#x2F;”）来检查目录的存在。如果未找到任何文件，则进行内部重定向到uri最后一个参数中指定的文件 。</p>
 <p>$uri：这个变量指当前的请求URI，不包括任何参数(见$args)。这个变量反映任何内部重定向或index模块所做的修改。注意，这和$request_uri不同，因$request_uri是浏览器发起的不做任何修改的原生URI。不包括协议及主机名。</p>
-<p>$uri/：参考上面的try_files</p>
+<p>$uri&#x2F;：参考上面的try_files</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 访问</span><br><span class="line">http://localhost:8899</span><br><span class="line"># 或</span><br><span class="line">http://localhost:8899/index.html</span><br><span class="line"></span><br><span class="line"># 实际访问的文件都是</span><br><span class="line">/Users/xing.wu/Desktop/Nginx/index.html</span><br></pre></td></tr></table></figure>
 
 <p>然后访问对应的js去渲染页面</p>
-<h2 id="那么这时候我就有疑问了"><a href="#那么这时候我就有疑问了" class="headerlink" title="那么这时候我就有疑问了"></a>那么这时候我就有疑问了</h2><h1 id="疑问🤔️"><a href="#疑问🤔️" class="headerlink" title="疑问🤔️"></a>疑问🤔️</h1><h2 id="1-如果不要try-files-uri-uri-index-html-呢？"><a href="#1-如果不要try-files-uri-uri-index-html-呢？" class="headerlink" title="1.如果不要try_files $uri $uri/ /index.html;呢？"></a>1.如果不要try_files $uri $uri/ /index.html;呢？</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">try_files $uri $uri/ /index.html;</span><br></pre></td></tr></table></figure>
+<h2 id="那么这时候我就有疑问了"><a href="#那么这时候我就有疑问了" class="headerlink" title="那么这时候我就有疑问了"></a>那么这时候我就有疑问了</h2><h1 id="疑问🤔️"><a href="#疑问🤔️" class="headerlink" title="疑问🤔️"></a>疑问🤔️</h1><h2 id="1-如果不要try-files-uri-uri-index-html-呢？"><a href="#1-如果不要try-files-uri-uri-index-html-呢？" class="headerlink" title="1.如果不要try_files $uri $uri&#x2F; &#x2F;index.html;呢？"></a>1.如果不要try_files $uri $uri&#x2F; &#x2F;index.html;呢？</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">try_files $uri $uri/ /index.html;</span><br></pre></td></tr></table></figure>
 <p>的目的是为了找不到的时候匹配index.html，但是上线都会配置对应的路径和文件，怎么会发生找不到的事呢。</p>
 <p>那我干脆不要这一行</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">        # try_files $uri $uri/ /index.html;</span><br><span class="line">        index index.html index.htm;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
@@ -351,14 +351,14 @@
 <p>但是！！！！<br>当你在非根路由刷新的时候<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/nginx2/5.gif" alt="5"></p>
 <p>看见没，404了。</p>
 <p>因为当切换到</p>
-<p>localhost:8899/about</p>
+<p>localhost:8899&#x2F;about</p>
 <p>的时候，实际上希望请求的是</p>
-<p>/Users/xing.wu/Desktop/Nginx/about/index.html</p>
+<p>&#x2F;Users&#x2F;xing.wu&#x2F;Desktop&#x2F;Nginx&#x2F;about&#x2F;index.html</p>
 <p>但是很明显是没有这个文件的，所以404了（可以自己手动创建一个about文件夹放置一个index.html就可以验证了）</p>
-<h4 id="如果添加了try-files-uri-uri-index-html"><a href="#如果添加了try-files-uri-uri-index-html" class="headerlink" title="如果添加了try_files $uri $uri/ /index.html;"></a>如果添加了try_files $uri $uri/ /index.html;</h4><p>意味着寻找 /Users/xing.wu/Desktop/Nginx/about/index.html 找不到的时候</p>
-<p>会返回 /Users/xing.wu/Desktop/Nginx/index.html</p>
+<h4 id="如果添加了try-files-uri-uri-index-html"><a href="#如果添加了try-files-uri-uri-index-html" class="headerlink" title="如果添加了try_files $uri $uri&#x2F; &#x2F;index.html;"></a>如果添加了try_files $uri $uri&#x2F; &#x2F;index.html;</h4><p>意味着寻找 &#x2F;Users&#x2F;xing.wu&#x2F;Desktop&#x2F;Nginx&#x2F;about&#x2F;index.html 找不到的时候</p>
+<p>会返回 &#x2F;Users&#x2F;xing.wu&#x2F;Desktop&#x2F;Nginx&#x2F;index.html</p>
 <p>这样作为模板的index.html就被加载上了，js也正常加载了，既然能匹配到js，就可以按照vue的路由逻辑，渲染页面了</p>
-<p>加上try_files $uri $uri/ /index.html;以后的配置：<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/nginx2/6.png" alt="6"></p>
+<p>加上try_files $uri $uri&#x2F; &#x2F;index.html;以后的配置：<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/nginx2/6.png" alt="6"></p>
 <p>刷新<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/nginx2/7.gif" alt="7"></p>
 <h2 id="2-如果放在多层级路径下面呢？"><a href="#2-如果放在多层级路径下面呢？" class="headerlink" title="2.如果放在多层级路径下面呢？"></a>2.如果放在多层级路径下面呢？</h2><p>首先，vue的配置要写好再打包</p>
 <p>其次，其实nginx配置不需要太多变化</p>
@@ -366,7 +366,7 @@
 <p>那么配置可以改为</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen 8899;</span><br><span class="line">        server_name localhost;</span><br><span class="line"></span><br><span class="line">        location /hello/xing &#123;</span><br><span class="line">            root  /Users/xing.wu/Desktop/Nginx;</span><br><span class="line">            try_files $uri $uri/ /index.html;</span><br><span class="line">            index index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>同理，Nginx文件夹下，需要新建hello文件夹，hello文件夹下需新建xing文件夹，里面放置打包产物即可<br>/Users/xing.wu/Desktop/Nginx/hello/xing/ 放产物</p>
+<p>同理，Nginx文件夹下，需要新建hello文件夹，hello文件夹下需新建xing文件夹，里面放置打包产物即可<br>&#x2F;Users&#x2F;xing.wu&#x2F;Desktop&#x2F;Nginx&#x2F;hello&#x2F;xing&#x2F; 放产物</p>
 <h2 id="3-如果是多页面呢？"><a href="#3-如果是多页面呢？" class="headerlink" title="3.如果是多页面呢？"></a>3.如果是多页面呢？</h2><p>如果是多页面，那么打出来的包实际上也是多个html，就应该访问具体指定的html。</p>
 <p>毕竟使用不同模板html渲染出来的是不一样的。（使用不同html承载的vue页面之间其实也不能用vue-router跳转，得用a标签跳转，因为vue实例实际也不一样）</p>
 <p>所以多页面如果没有使用一个html模板承载多个vue页面的话，其实不存在所谓的history模式，自然也就没有这个配置可言了。</p>
@@ -493,20 +493,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">155</span>
+          <span class="site-state-item-count">163</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-count">47</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -588,13 +588,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">317k</span>
+    <span title="站点总字数">334k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:48</span>
+    <span title="站点阅读时长">5:04</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

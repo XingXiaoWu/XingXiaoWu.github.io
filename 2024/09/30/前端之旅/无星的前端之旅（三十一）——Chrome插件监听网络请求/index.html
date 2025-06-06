@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.2">
+<meta name="generator" content="Hexo 7.0.0-rc2">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -21,12 +21,12 @@
     var CONFIG = {"hostname":"blog.xingxiaowu.cn","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="背景需要监听某个网络请求 并根据body信息做出判断 将结果展示到插件页面 manifest.json1234567891011121314151617181920212223242526272829303132333435363738394041424344&amp;#123;    &quot;manifest_version&quot;: 2,    &quot;name&quot;: &quot;">
+  <meta name="description" content="背景需要监听某个网络请求 并根据body信息做出判断 将结果展示到插件页面 manifest.json1234567891011121314151617181920212223242526272829303132333435363738394041424344&#123;    &quot;manifest_version&quot;: 2,    &quot;name&quot;: &quot;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="无星的前端之旅（三十一）——Chrome插件监听网络请求">
 <meta property="og:url" content="http://blog.xingxiaowu.cn/2024/09/30/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94Chrome%E6%8F%92%E4%BB%B6%E7%9B%91%E5%90%AC%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/index.html">
 <meta property="og:site_name" content="无星的小窝">
-<meta property="og:description" content="背景需要监听某个网络请求 并根据body信息做出判断 将结果展示到插件页面 manifest.json1234567891011121314151617181920212223242526272829303132333435363738394041424344&amp;#123;    &quot;manifest_version&quot;: 2,    &quot;name&quot;: &quot;">
+<meta property="og:description" content="背景需要监听某个网络请求 并根据body信息做出判断 将结果展示到插件页面 manifest.json1234567891011121314151617181920212223242526272829303132333435363738394041424344&#123;    &quot;manifest_version&quot;: 2,    &quot;name&quot;: &quot;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-09-30T10:23:00.000Z">
 <meta property="article:modified_time" content="2024-09-30T07:14:21.551Z">
@@ -122,7 +122,7 @@
       <h1 class="site-title">无星的小窝</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
-      <p class="site-subtitle" itemprop="description">估计也么的人看</p>
+      <p class="site-subtitle" itemprop="description">技术为辅,业务为主</p>
   </div>
 
   <div class="site-nav-right">
@@ -434,20 +434,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">155</span>
+          <span class="site-state-item-count">163</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-count">47</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -529,13 +529,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">317k</span>
+    <span title="站点总字数">334k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:48</span>
+    <span title="站点阅读时长">5:04</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

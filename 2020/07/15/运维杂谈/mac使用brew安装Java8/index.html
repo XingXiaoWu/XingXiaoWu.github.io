@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.2">
+<meta name="generator" content="Hexo 7.0.0-rc2">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -21,12 +21,12 @@
     var CONFIG = {"hostname":"blog.xingxiaowu.cn","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="homebrew不多说，java8也不多说。brew安装不上java8的例子太多了。最后的做法无非这么几个，安装openjdk版本，或者安装其他的版本，或者直接去官网装。 我今天就要硬装！就要用brew硬装官网版本的java8！ 一.安装报错1brew cask install homebrew&#x2F;cask-versions&#x2F;java8 执行这个，然后肯定报错 1Error: Cask &amp;#x27;">
+  <meta name="description" content="homebrew不多说，java8也不多说。brew安装不上java8的例子太多了。最后的做法无非这么几个，安装openjdk版本，或者安装其他的版本，或者直接去官网装。 我今天就要硬装！就要用brew硬装官网版本的java8！ 一.安装报错1brew cask install homebrew&#x2F;cask-versions&#x2F;java8 执行这个，然后肯定报错 1Error: Cask &#x27;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mac使用brew安装Java8">
 <meta property="og:url" content="http://blog.xingxiaowu.cn/2020/07/15/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/mac%E4%BD%BF%E7%94%A8brew%E5%AE%89%E8%A3%85Java8/index.html">
 <meta property="og:site_name" content="无星的小窝">
-<meta property="og:description" content="homebrew不多说，java8也不多说。brew安装不上java8的例子太多了。最后的做法无非这么几个，安装openjdk版本，或者安装其他的版本，或者直接去官网装。 我今天就要硬装！就要用brew硬装官网版本的java8！ 一.安装报错1brew cask install homebrew&#x2F;cask-versions&#x2F;java8 执行这个，然后肯定报错 1Error: Cask &amp;#x27;">
+<meta property="og:description" content="homebrew不多说，java8也不多说。brew安装不上java8的例子太多了。最后的做法无非这么几个，安装openjdk版本，或者安装其他的版本，或者直接去官网装。 我今天就要硬装！就要用brew硬装官网版本的java8！ 一.安装报错1brew cask install homebrew&#x2F;cask-versions&#x2F;java8 执行这个，然后肯定报错 1Error: Cask &#x27;">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/brew%E8%A3%85java/1.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/brew%E8%A3%85java/2.png">
@@ -127,7 +127,7 @@
       <h1 class="site-title">无星的小窝</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
-      <p class="site-subtitle" itemprop="description">估计也么的人看</p>
+      <p class="site-subtitle" itemprop="description">技术为辅,业务为主</p>
   </div>
 
   <div class="site-nav-right">
@@ -336,13 +336,13 @@
 <p>我会一一告诉你这几个值哪来的</p>
 <h2 id="1-version"><a href="#1-version" class="headerlink" title="1.version"></a>1.version</h2><p>version有三个值</p>
 <h3 id="第一个是版本复制粘贴就完事了"><a href="#第一个是版本复制粘贴就完事了" class="headerlink" title="第一个是版本复制粘贴就完事了"></a>第一个是版本复制粘贴就完事了</h3><p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/brew%E8%A3%85java/2.png" alt="2.png"></p>
-<h3 id="第二个值和第三个值，bxx-xxx"><a href="#第二个值和第三个值，bxx-xxx" class="headerlink" title="第二个值和第三个值，bxx:xxx"></a>第二个值和第三个值，bxx:xxx</h3><p>还是刚刚的下载地址，F12/右键审查元素，点击蓝色圈起来的小箭头，然后再点击左边红色框起来的区域。右边的html标签就会弹出对应地址。这个地址被我用红色下划线标出来的地方，就是</p>
+<h3 id="第二个值和第三个值，bxx-xxx"><a href="#第二个值和第三个值，bxx-xxx" class="headerlink" title="第二个值和第三个值，bxx:xxx"></a>第二个值和第三个值，bxx:xxx</h3><p>还是刚刚的下载地址，F12&#x2F;右键审查元素，点击蓝色圈起来的小箭头，然后再点击左边红色框起来的区域。右边的html标签就会弹出对应地址。这个地址被我用红色下划线标出来的地方，就是</p>
 <p>bxx:xxx<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/brew%E8%A3%85java/3.png" alt="3.png"></p>
 <h2 id="2-sha256"><a href="#2-sha256" class="headerlink" title="2. sha256"></a>2. sha256</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 后面写你刚刚下载的dmg的路径</span><br><span class="line">openssl dgst -sha256 /xxx/jdk-xxx-macosx-x64.dmg</span><br></pre></td></tr></table></figure>
 
 <h3 id="3-url"><a href="#3-url" class="headerlink" title="3.url"></a>3.url</h3><p>issue中的老哥是起了一个服务器。</p>
 <p>往下翻翻你会发现删掉java8.rb的老姐说可以直接用<a target="_blank" rel="noopener" href="https://github.com/Homebrew/homebrew-cask-versions/issues/7253#issuecomment-484444232">本地路径</a>不需要起服务器</p>
-<p>是的，把url改成你下载的本地路径，前面加个file://即可</p>
+<p>是的，把url改成你下载的本地路径，前面加个file:&#x2F;&#x2F;即可</p>
 <p>例如</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url &quot;file:///Users/xingwu/Documents/tmp/jdk-#&#123;version.before_comma&#125;-macosx-x64.dmg&quot;,	</span><br></pre></td></tr></table></figure>
 <h3 id="4-pkg"><a href="#4-pkg" class="headerlink" title="4.pkg"></a>4.pkg</h3><p>双击你下载的dmg，你会发现里面写个pkg的名字</p>
@@ -474,20 +474,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">155</span>
+          <span class="site-state-item-count">163</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-count">47</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -569,13 +569,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">317k</span>
+    <span title="站点总字数">334k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:48</span>
+    <span title="站点阅读时长">5:04</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

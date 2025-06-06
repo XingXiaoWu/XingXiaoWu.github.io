@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.2">
+<meta name="generator" content="Hexo 7.0.0-rc2">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -131,7 +131,7 @@
       <h1 class="site-title">无星的小窝</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
-      <p class="site-subtitle" itemprop="description">估计也么的人看</p>
+      <p class="site-subtitle" itemprop="description">技术为辅,业务为主</p>
   </div>
 
   <div class="site-nav-right">
@@ -320,16 +320,16 @@
         <p>报错信息：bridge is not set. This is probably because you’ve “<br>            “explicitly synthesized the bridge in %@, even though it’s inherited “<br>            “from RCTEventEmitter.</p>
 <p>踩坑了。。。<br>        我相信肯定有兄弟需要从原生的OC向RN主动发起事件。而且这种场景也很多，比如集成第三方的服务，通过代理回调获取结果发送给RN等等等等。。。<br>我将我遇到的坑总结一下吧。<br>先看下官网怎么写的</p>
 <p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/RN3/1.png" alt="官网介绍1"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/RN3/2.png" alt="官网介绍2.png"><br>1.你是不是像官网一样，先写一个继承自RCTEventEmitter的对象，什么都不写，看看能不能运行？<br>答案是：并不能运行=。=你必须写实现，也就是以下这个方法</p>
+<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/RN3/2.png" alt="官网介绍2.png"><br>1.你是不是像官网一样，先写一个继承自RCTEventEmitter的对象，什么都不写，看看能不能运行？<br>答案是：并不能运行&#x3D;。&#x3D;你必须写实现，也就是以下这个方法</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//.m文件</span><br><span class="line">- (NSArray&lt;NSString *&gt; *)supportedEvents</span><br><span class="line">&#123;</span><br><span class="line">  return @[@&quot;EventReminder&quot;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>2.你在使用发送文件，也就是</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[self sendEventWithName:@&quot;消息名&quot; body:参数];</span><br></pre></td></tr></table></figure>
-<p>运行这个方法的时候有没有崩溃啊=。=<br>崩溃的提示是不是</p>
+<p>运行这个方法的时候有没有崩溃啊&#x3D;。&#x3D;<br>崩溃的提示是不是</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bridge is not set. This is probably because you&#x27;ve &quot;</span><br><span class="line">            &quot;explicitly synthesized the bridge in %@, even though it&#x27;s inherited &quot;</span><br><span class="line">            &quot;from RCTEventEmitter.</span><br></pre></td></tr></table></figure>
-<p>其实就是bridage为空。<br>这个时候你查这个报错提示是不是发现有人说在Appdelegate.m里把rootView的bridage赋给这个你创建的对象，然后你试了一下确实发出去了开始哈皮=。=</p>
-<p>这时候你会发现一个悲伤的事实，不管你在RN里怎么写监听，你都监听不到这个事件=。=<br>那么正确的解法是什么呢=。=<br>（1）必须使用单例<br>（2）必须复写alloczone<br>其实就是加这么一段代码：</p>
+<p>其实就是bridage为空。<br>这个时候你查这个报错提示是不是发现有人说在Appdelegate.m里把rootView的bridage赋给这个你创建的对象，然后你试了一下确实发出去了开始哈皮&#x3D;。&#x3D;</p>
+<p>这时候你会发现一个悲伤的事实，不管你在RN里怎么写监听，你都监听不到这个事件&#x3D;。&#x3D;<br>那么正确的解法是什么呢&#x3D;。&#x3D;<br>（1）必须使用单例<br>（2）必须复写alloczone<br>其实就是加这么一段代码：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//.m文件</span><br><span class="line">+(id)allocWithZone:(NSZone *)zone &#123;</span><br><span class="line">  static RNBridge *sharedInstance = nil;</span><br><span class="line">  static dispatch_once_t onceToken;</span><br><span class="line">  dispatch_once(&amp;onceToken, ^&#123;</span><br><span class="line">    sharedInstance = [super allocWithZone:zone];</span><br><span class="line">  &#125;);</span><br><span class="line">  return sharedInstance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在APPdelegate中就不需要将rootView的bridge赋予原生模块了。<br>用self进行发送即可<br>RN中使用NativeEventEmitter进行监听即可。<br>还有问题简书私信我，一起交流解决=。=</p>
+<p>在APPdelegate中就不需要将rootView的bridge赋予原生模块了。<br>用self进行发送即可<br>RN中使用NativeEventEmitter进行监听即可。<br>还有问题简书私信我，一起交流解决&#x3D;。&#x3D;</p>
 <h2 id="2017-12-22更新"><a href="#2017-12-22更新" class="headerlink" title="2017-12-22更新"></a>2017-12-22更新</h2><p>还是有兄弟对于iOS与RN的交互有问题，直接上代码吧。图片名会写明是在桥接类的.h还是.m文件的代码<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/RN3/3.png" alt=".h.png"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/RN3/4.png" alt=".m.png"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/RN3/5.png" alt=".m.png"></p>
@@ -460,20 +460,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">155</span>
+          <span class="site-state-item-count">163</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-count">47</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -555,13 +555,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">317k</span>
+    <span title="站点总字数">334k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:48</span>
+    <span title="站点阅读时长">5:04</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
