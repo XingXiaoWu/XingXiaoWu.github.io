@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.xingxiaowu.cn","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="背景项目中总是遇到class取名难，样式到处定义，重复颜色到处写，代码切换烦得一批 一.dart-sass，node-sass使用dart-sass，废弃node-sass 二.Vue项目中色板的使用在全局css文件中，新建一个文件，放置各种scss变量 例如： src&#x2F;styles&#x2F;variables.scss 1$moedu-background-color: #F5F7FA;  配置vue.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="无星的前端之旅（二十五）—— css的一些用法">
+<meta property="og:url" content="http://blog.xingxiaowu.cn/2021/07/17/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20css%E7%9A%84%E4%B8%80%E4%BA%9B%E7%94%A8%E6%B3%95/index.html">
+<meta property="og:site_name" content="无星的小窝">
+<meta property="og:description" content="背景项目中总是遇到class取名难，样式到处定义，重复颜色到处写，代码切换烦得一批 一.dart-sass，node-sass使用dart-sass，废弃node-sass 二.Vue项目中色板的使用在全局css文件中，新建一个文件，放置各种scss变量 例如： src&#x2F;styles&#x2F;variables.scss 1$moedu-background-color: #F5F7FA;  配置vue.">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-07-17T01:38:00.000Z">
+<meta property="article:modified_time" content="2025-10-15T14:34:21.798Z">
+<meta property="article:author" content="无星">
+<meta property="article:tag" content="vue">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="css">
+<meta property="article:tag" content="sass">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://blog.xingxiaowu.cn/2021/07/17/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20css%E7%9A%84%E4%B8%80%E4%BA%9B%E7%94%A8%E6%B3%95/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>无星的前端之旅（二十五）—— css的一些用法 | 无星的小窝</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5976024V60"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-5976024V60');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?bdba6c3bda62a07f58f3cf06034704d5";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="无星的小窝" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+    <span id="forkongithub"><a target="_blank" rel="noopener" href="https://github.com/XingXiaoWu">我的GitHub</a></span>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">无星的小窝</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">技术为辅,业务为主</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-留言板">
+
+    <a href="/guestbook" rel="section"><i class="fab fa-leanpub fa-fw"></i>留言板</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/html/404.html" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2021/07/17/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20css%E7%9A%84%E4%B8%80%E4%BA%9B%E7%94%A8%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          无星的前端之旅（二十五）—— css的一些用法
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-07-17 09:38:00" itemprop="dateCreated datePublished" datetime="2021-07-17T09:38:00+08:00">2021-07-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-10-15 22:34:21" itemprop="dateModified" datetime="2025-10-15T22:34:21+08:00">2025-10-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/07/17/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20css%E7%9A%84%E4%B8%80%E4%BA%9B%E7%94%A8%E6%B3%95/" class="post-meta-item leancloud_visitors" data-flag-title="无星的前端之旅（二十五）—— css的一些用法" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>项目中总是遇到class取名难，样式到处定义，重复颜色到处写，代码切换烦得一批</p>
+<h1 id="一-dart-sass，node-sass"><a href="#一-dart-sass，node-sass" class="headerlink" title="一.dart-sass，node-sass"></a>一.dart-sass，node-sass</h1><p>使用dart-sass，废弃node-sass</p>
+<h1 id="二-Vue项目中色板的使用"><a href="#二-Vue项目中色板的使用" class="headerlink" title="二.Vue项目中色板的使用"></a>二.Vue项目中色板的使用</h1><p>在全局<code>css</code>文件中，新建一个文件，放置各种<code>scss</code>变量</p>
+<p>例如：</p>
+<p><code>src/styles/variables.scss</code></p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$moedu-background-color</span>: <span class="number">#F5F7FA</span>;</span><br></pre></td></tr></table></figure>
+
+<p>配置<code>vue.config.js</code>,将整个变量文件注入</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//vue.config.js</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="comment">// …………省略其他配置</span></span><br><span class="line">  <span class="attr">css</span>: &#123;</span><br><span class="line">    <span class="attr">loaderOptions</span>: &#123;</span><br><span class="line">      <span class="attr">scss</span>:&#123;</span><br><span class="line">        <span class="attr">additionalData</span>: <span class="string">&#x27;@import &quot;@/styles/variables.scss&quot;;&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>在任意<code>vue</code>文件中，可直接使用<code>$moedu-background-color</code>变量，无需引入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;main&quot;&gt;</span><br><span class="line">    &lt;p&gt;123&lt;p&gt;</span><br><span class="line">    &lt;p&gt;456&lt;p&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;style lang=&quot;scss&quot; scoped&gt;</span><br><span class="line">.main&#123;</span><br><span class="line">  background-color: $moedu-background-color;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="三-定义布局class"><a href="#三-定义布局class" class="headerlink" title="三.定义布局class"></a>三.定义布局class</h1><p>有的时候，页面只是为了写一些布局，需要专门定义一个<code>class</code>名，非常费事</p>
+<p>例如</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;main&quot;&gt;</span><br><span class="line">    &lt;p&gt;123&lt;p&gt;</span><br><span class="line">    &lt;p&gt;456&lt;p&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;style lang=&quot;scss&quot; scoped&gt;</span><br><span class="line">.main&#123;</span><br><span class="line">  display:flex;</span><br><span class="line">  flex:1;</span><br><span class="line">  flex-direction: column;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>如果写好一些共用的</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.flex</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.flex1</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.row</span> &#123;</span><br><span class="line">  <span class="attribute">flex-direction</span>: row;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.column</span> &#123;</span><br><span class="line">  <span class="attribute">flex-direction</span>: column;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.justify-content-center</span> &#123;</span><br><span class="line">  <span class="attribute">justify-content</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.justify-content-flex-end</span> &#123;</span><br><span class="line">  <span class="attribute">justify-content</span>: flex-end;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.justify-content-flex-start</span> &#123;</span><br><span class="line">  <span class="attribute">justify-content</span>: flex-start;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.justify-content-space-between</span> &#123;</span><br><span class="line">  <span class="attribute">justify-content</span>: space-between;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.align-items-center</span> &#123;</span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.align-items-baseline</span> &#123;</span><br><span class="line">  <span class="attribute">align-items</span>: baseline;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.align-items-flex-start</span> &#123;</span><br><span class="line">  <span class="attribute">align-items</span>: flex-start;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.align-items-flex-end</span> &#123;</span><br><span class="line">  <span class="attribute">align-items</span>: flex-end;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>则可以改成</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;flex flex1 flex-direction-column&quot;&gt;</span><br><span class="line">    &lt;p&gt;123&lt;p&gt;</span><br><span class="line">    &lt;p&gt;456&lt;p&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;style lang=&quot;scss&quot; scoped&gt;</span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="四-烦人的margin与padding"><a href="#四-烦人的margin与padding" class="headerlink" title="四.烦人的margin与padding"></a>四.烦人的margin与padding</h1><p>同上述，<code>marigin</code>与<code>padding</code>经常性要定义<code>class</code>去写，烦得一批，相同的要定义很多次</p>
+<p>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;flex flex1 flex-direction-column&quot;&gt;</span><br><span class="line">    &lt;p class=&quot;p1&quot;&gt;123&lt;p&gt;</span><br><span class="line">    &lt;p class=&quot;p2&quot;&gt;456&lt;p&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;style lang=&quot;scss&quot; scoped&gt;</span><br><span class="line">.p1&#123;</span><br><span class="line">  margin-top:20px;</span><br><span class="line">&#125;</span><br><span class="line">.p2&#123;</span><br><span class="line">  margin-top:30px;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>我们通过一些函数，生成这些东西</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 填写需要的边距</span></span><br><span class="line"><span class="variable">$margins</span>: (<span class="number">4</span>,<span class="number">8</span>,<span class="number">10</span>,<span class="number">16</span>,<span class="number">24</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">@for</span> <span class="variable">$i</span> from <span class="number">1</span> through length(<span class="variable">$margins</span>) &#123;</span><br><span class="line">  <span class="variable">$item</span>: <span class="built_in">nth</span>(<span class="variable">$margins</span>, <span class="variable">$i</span>);</span><br><span class="line">  <span class="comment">// .w#&#123;$item&#125;px &#123;</span></span><br><span class="line">  <span class="comment">//   width: #&#123;$item&#125;px;</span></span><br><span class="line">  <span class="comment">// &#125;</span></span><br><span class="line">  <span class="selector-class">.margin-</span>#&#123;<span class="variable">$item</span>&#125;&#123;</span><br><span class="line">    <span class="attribute">margin</span>: #&#123;<span class="variable">$item</span>&#125;px;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-class">.margin-left-</span>#&#123;<span class="variable">$item</span>&#125; &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: #&#123;<span class="variable">$item</span>&#125;px;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-class">.margin-top-</span>#&#123;<span class="variable">$item</span>&#125; &#123;</span><br><span class="line">    <span class="attribute">margin-top</span>: #&#123;<span class="variable">$item</span>&#125;px;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-class">.margin-bottom-</span>#&#123;<span class="variable">$item</span>&#125; &#123;</span><br><span class="line">    <span class="attribute">margin-bottom</span>: #&#123;<span class="variable">$item</span>&#125;px;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-class">.margin-right-</span>#&#123;<span class="variable">$item</span>&#125; &#123;</span><br><span class="line">    <span class="attribute">margin-right</span>: #&#123;<span class="variable">$item</span>&#125;px;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-class">.padding-</span>#&#123;<span class="variable">$item</span>&#125;&#123;</span><br><span class="line">    <span class="attribute">padding</span>: #&#123;<span class="variable">$item</span>&#125;px;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-class">.padding-left-</span>#&#123;<span class="variable">$item</span>&#125; &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: #&#123;<span class="variable">$item</span>&#125;px;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-class">.padding-top-</span>#&#123;<span class="variable">$item</span>&#125; &#123;</span><br><span class="line">    <span class="attribute">padding-top</span>: #&#123;<span class="variable">$item</span>&#125;px;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-class">.padding-bottom-</span>#&#123;<span class="variable">$item</span>&#125; &#123;</span><br><span class="line">    <span class="attribute">padding-bottom</span>: #&#123;<span class="variable">$item</span>&#125;px;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-class">.padding-right-</span>#&#123;<span class="variable">$item</span>&#125; &#123;</span><br><span class="line">    <span class="attribute">padding-right</span>: #&#123;<span class="variable">$item</span>&#125;px;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>则可以修改为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;flex flex1 flex-direction-column&quot;&gt;</span><br><span class="line">    &lt;p class=&quot;margin-top-20&quot;&gt;123&lt;p&gt;</span><br><span class="line">    &lt;p class=&quot;margin-top-30&quot;&gt;456&lt;p&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+
+<p>有点<code>tailwindcss</code>的味道</p>
+<h1 id="五-hex透明度"><a href="#五-hex透明度" class="headerlink" title="五.hex透明度"></a>五.hex透明度</h1><p>颜色大家肯定喜欢写十六进制的<code>#ff6347</code>，没有人喜欢写<code>rgb(255,99,71)</code>吧</p>
+<p>但是有时候遇到透明度要设置，看很多同学就不知道hex怎么加了，都纷纷使用<code>rgb(255,99,71,0.1)</code></p>
+<p>其实hex可以直接加透明度</p>
+<p>例如<code>rgb(255,99,71,0.1)</code>，可以直接写成<code>#ff63471A</code></p>
+<p>透明度表格如下</p>
+<table>
+<thead>
+<tr>
+<th>Alpha %</th>
+<th>Hex</th>
+<th>Num</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>100%</td>
+<td>FF</td>
+<td>255</td>
+</tr>
+<tr>
+<td>99%</td>
+<td>FC</td>
+<td>252</td>
+</tr>
+<tr>
+<td>98%</td>
+<td>FA</td>
+<td>250</td>
+</tr>
+<tr>
+<td>97%</td>
+<td>F7</td>
+<td>247</td>
+</tr>
+<tr>
+<td>96%</td>
+<td>F5</td>
+<td>245</td>
+</tr>
+<tr>
+<td>95%</td>
+<td>F2</td>
+<td>242</td>
+</tr>
+<tr>
+<td>94%</td>
+<td>F0</td>
+<td>240</td>
+</tr>
+<tr>
+<td>93%</td>
+<td>ED</td>
+<td>237</td>
+</tr>
+<tr>
+<td>92%</td>
+<td>EB</td>
+<td>235</td>
+</tr>
+<tr>
+<td>91%</td>
+<td>E8</td>
+<td>232</td>
+</tr>
+<tr>
+<td>90%</td>
+<td>E6</td>
+<td>230</td>
+</tr>
+<tr>
+<td>89%</td>
+<td>E3</td>
+<td>227</td>
+</tr>
+<tr>
+<td>88%</td>
+<td>E0</td>
+<td>224</td>
+</tr>
+<tr>
+<td>87%</td>
+<td>DE</td>
+<td>222</td>
+</tr>
+<tr>
+<td>86%</td>
+<td>DB</td>
+<td>219</td>
+</tr>
+<tr>
+<td>85%</td>
+<td>D9</td>
+<td>217</td>
+</tr>
+<tr>
+<td>84%</td>
+<td>D6</td>
+<td>214</td>
+</tr>
+<tr>
+<td>83%</td>
+<td>D4</td>
+<td>212</td>
+</tr>
+<tr>
+<td>82%</td>
+<td>D1</td>
+<td>209</td>
+</tr>
+<tr>
+<td>81%</td>
+<td>CF</td>
+<td>207</td>
+</tr>
+<tr>
+<td>80%</td>
+<td>CC</td>
+<td>204</td>
+</tr>
+<tr>
+<td>79%</td>
+<td>C9</td>
+<td>201</td>
+</tr>
+<tr>
+<td>78%</td>
+<td>C7</td>
+<td>199</td>
+</tr>
+<tr>
+<td>77%</td>
+<td>C4</td>
+<td>196</td>
+</tr>
+<tr>
+<td>76%</td>
+<td>C2</td>
+<td>194</td>
+</tr>
+<tr>
+<td>75%</td>
+<td>BF</td>
+<td>191</td>
+</tr>
+<tr>
+<td>74%</td>
+<td>BD</td>
+<td>189</td>
+</tr>
+<tr>
+<td>73%</td>
+<td>BA</td>
+<td>186</td>
+</tr>
+<tr>
+<td>72%</td>
+<td>B8</td>
+<td>184</td>
+</tr>
+<tr>
+<td>71%</td>
+<td>B5</td>
+<td>181</td>
+</tr>
+<tr>
+<td>70%</td>
+<td>B3</td>
+<td>179</td>
+</tr>
+<tr>
+<td>69%</td>
+<td>B0</td>
+<td>176</td>
+</tr>
+<tr>
+<td>68%</td>
+<td>AD</td>
+<td>173</td>
+</tr>
+<tr>
+<td>67%</td>
+<td>AB</td>
+<td>171</td>
+</tr>
+<tr>
+<td>66%</td>
+<td>A8</td>
+<td>168</td>
+</tr>
+<tr>
+<td>65%</td>
+<td>A6</td>
+<td>166</td>
+</tr>
+<tr>
+<td>64%</td>
+<td>A3</td>
+<td>163</td>
+</tr>
+<tr>
+<td>63%</td>
+<td>A1</td>
+<td>161</td>
+</tr>
+<tr>
+<td>62%</td>
+<td>9E</td>
+<td>158</td>
+</tr>
+<tr>
+<td>61%</td>
+<td>9C</td>
+<td>156</td>
+</tr>
+<tr>
+<td>60%</td>
+<td>99</td>
+<td>153</td>
+</tr>
+<tr>
+<td>59%</td>
+<td>96</td>
+<td>150</td>
+</tr>
+<tr>
+<td>58%</td>
+<td>94</td>
+<td>148</td>
+</tr>
+<tr>
+<td>57%</td>
+<td>91</td>
+<td>145</td>
+</tr>
+<tr>
+<td>56%</td>
+<td>8F</td>
+<td>143</td>
+</tr>
+<tr>
+<td>55%</td>
+<td>8C</td>
+<td>140</td>
+</tr>
+<tr>
+<td>54%</td>
+<td>8A</td>
+<td>138</td>
+</tr>
+<tr>
+<td>53%</td>
+<td>87</td>
+<td>135</td>
+</tr>
+<tr>
+<td>52%</td>
+<td>85</td>
+<td>133</td>
+</tr>
+<tr>
+<td>51%</td>
+<td>82</td>
+<td>130</td>
+</tr>
+<tr>
+<td>50%</td>
+<td>80</td>
+<td>128</td>
+</tr>
+<tr>
+<td>49%</td>
+<td>7D</td>
+<td>125</td>
+</tr>
+<tr>
+<td>48%</td>
+<td>7A</td>
+<td>122</td>
+</tr>
+<tr>
+<td>47%</td>
+<td>78</td>
+<td>120</td>
+</tr>
+<tr>
+<td>46%</td>
+<td>75</td>
+<td>117</td>
+</tr>
+<tr>
+<td>45%</td>
+<td>73</td>
+<td>115</td>
+</tr>
+<tr>
+<td>44%</td>
+<td>70</td>
+<td>112</td>
+</tr>
+<tr>
+<td>43%</td>
+<td>6E</td>
+<td>110</td>
+</tr>
+<tr>
+<td>42%</td>
+<td>6B</td>
+<td>107</td>
+</tr>
+<tr>
+<td>41%</td>
+<td>69</td>
+<td>105</td>
+</tr>
+<tr>
+<td>40%</td>
+<td>66</td>
+<td>102</td>
+</tr>
+<tr>
+<td>39%</td>
+<td>63</td>
+<td>99</td>
+</tr>
+<tr>
+<td>38%</td>
+<td>61</td>
+<td>97</td>
+</tr>
+<tr>
+<td>37%</td>
+<td>5E</td>
+<td>94</td>
+</tr>
+<tr>
+<td>36%</td>
+<td>5C</td>
+<td>92</td>
+</tr>
+<tr>
+<td>35%</td>
+<td>59</td>
+<td>89</td>
+</tr>
+<tr>
+<td>34%</td>
+<td>57</td>
+<td>87</td>
+</tr>
+<tr>
+<td>33%</td>
+<td>54</td>
+<td>84</td>
+</tr>
+<tr>
+<td>32%</td>
+<td>52</td>
+<td>82</td>
+</tr>
+<tr>
+<td>31%</td>
+<td>4F</td>
+<td>79</td>
+</tr>
+<tr>
+<td>30%</td>
+<td>4D</td>
+<td>77</td>
+</tr>
+<tr>
+<td>29%</td>
+<td>4A</td>
+<td>74</td>
+</tr>
+<tr>
+<td>28%</td>
+<td>47</td>
+<td>71</td>
+</tr>
+<tr>
+<td>27%</td>
+<td>45</td>
+<td>69</td>
+</tr>
+<tr>
+<td>26%</td>
+<td>42</td>
+<td>66</td>
+</tr>
+<tr>
+<td>25%</td>
+<td>40</td>
+<td>64</td>
+</tr>
+<tr>
+<td>24%</td>
+<td>3D</td>
+<td>61</td>
+</tr>
+<tr>
+<td>23%</td>
+<td>3B</td>
+<td>59</td>
+</tr>
+<tr>
+<td>22%</td>
+<td>38</td>
+<td>56</td>
+</tr>
+<tr>
+<td>21%</td>
+<td>36</td>
+<td>54</td>
+</tr>
+<tr>
+<td>20%</td>
+<td>33</td>
+<td>51</td>
+</tr>
+<tr>
+<td>19%</td>
+<td>30</td>
+<td>48</td>
+</tr>
+<tr>
+<td>18%</td>
+<td>2E</td>
+<td>46</td>
+</tr>
+<tr>
+<td>17%</td>
+<td>2B</td>
+<td>43</td>
+</tr>
+<tr>
+<td>16%</td>
+<td>29</td>
+<td>41</td>
+</tr>
+<tr>
+<td>15%</td>
+<td>26</td>
+<td>38</td>
+</tr>
+<tr>
+<td>14%</td>
+<td>24</td>
+<td>36</td>
+</tr>
+<tr>
+<td>13%</td>
+<td>21</td>
+<td>33</td>
+</tr>
+<tr>
+<td>12%</td>
+<td>1F</td>
+<td>31</td>
+</tr>
+<tr>
+<td>11%</td>
+<td>1C</td>
+<td>28</td>
+</tr>
+<tr>
+<td>10%</td>
+<td>1A</td>
+<td>26</td>
+</tr>
+<tr>
+<td>9%</td>
+<td>17</td>
+<td>23</td>
+</tr>
+<tr>
+<td>8%</td>
+<td>14</td>
+<td>20</td>
+</tr>
+<tr>
+<td>7%</td>
+<td>12</td>
+<td>18</td>
+</tr>
+<tr>
+<td>6%</td>
+<td>0F</td>
+<td>15</td>
+</tr>
+<tr>
+<td>5%</td>
+<td>0D</td>
+<td>13</td>
+</tr>
+<tr>
+<td>4%</td>
+<td>0A</td>
+<td>10</td>
+</tr>
+<tr>
+<td>3%</td>
+<td>08</td>
+<td>8</td>
+</tr>
+<tr>
+<td>2%</td>
+<td>05</td>
+<td>5</td>
+</tr>
+<tr>
+<td>1%</td>
+<td>03</td>
+<td>3</td>
+</tr>
+<tr>
+<td>0%</td>
+<td>00</td>
+<td>0</td>
+</tr>
+</tbody></table>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>我是阿星，阿星的阿，阿星的星！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/WechatPay.png" alt="无星 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/AliPay.png" alt="无星 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/vue/" rel="tag"># vue</a>
+              <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
+              <a href="/tags/css/" rel="tag"># css</a>
+              <a href="/tags/sass/" rel="tag"># sass</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/06/22/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E6%88%91%E6%98%AF%E6%80%8E%E4%B9%88%E5%81%9Agit%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86%E7%9A%84/" rel="prev" title="我是怎么做git分支管理的">
+      <i class="fa fa-chevron-left"></i> 我是怎么做git分支管理的
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/07/17/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E9%85%8D%E7%BD%AEgit%20hook/" rel="next" title="无星的前端之旅（二十三）—— 手把手教你配置git hook">
+      无星的前端之旅（二十三）—— 手把手教你配置git hook <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80-dart-sass%EF%BC%8Cnode-sass"><span class="nav-number">2.</span> <span class="nav-text">一.dart-sass，node-sass</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C-Vue%E9%A1%B9%E7%9B%AE%E4%B8%AD%E8%89%B2%E6%9D%BF%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">二.Vue项目中色板的使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89-%E5%AE%9A%E4%B9%89%E5%B8%83%E5%B1%80class"><span class="nav-number">4.</span> <span class="nav-text">三.定义布局class</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B-%E7%83%A6%E4%BA%BA%E7%9A%84margin%E4%B8%8Epadding"><span class="nav-number">5.</span> <span class="nav-text">四.烦人的margin与padding</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%94-hex%E9%80%8F%E6%98%8E%E5%BA%A6"><span class="nav-number">6.</span> <span class="nav-text">五.hex透明度</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="无星"
+      src="/images/headerPic.png">
+  <p class="site-author-name" itemprop="name">无星</p>
+  <div class="site-description" itemprop="description">一个么的前途的弟中弟</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">173</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/XingXiaoWu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;XingXiaoWu" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jianshu.com/u/fef7696741c8" title="简书 → https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;fef7696741c8" rel="noopener" target="_blank"><i class="fa fa-link fa-fw"></i>简书</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://juejin.cn/user/1503787636493886" title="掘金 → https:&#x2F;&#x2F;juejin.cn&#x2F;user&#x2F;1503787636493886" rel="noopener" target="_blank"><i class="fa fa-link fa-fw"></i>掘金</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.huan666.de/" title="https:&#x2F;&#x2F;blog.huan666.de&#x2F;" rel="noopener" target="_blank">焕昭君</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://aiiko.club/" title="https:&#x2F;&#x2F;aiiko.club" rel="noopener" target="_blank">爱喵日记</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.mikuchan.top/?ref=xingxiaowu.cn" title="https:&#x2F;&#x2F;www.mikuchan.top?ref&#x3D;xingxiaowu.cn" rel="noopener" target="_blank">团子的航海日志</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://dazhuang.store/webp/" title="https:&#x2F;&#x2F;dazhuang.store&#x2F;webp&#x2F;" rel="noopener" target="_blank">大壮</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.webshell.cc/" title="https:&#x2F;&#x2F;www.webshell.cc&#x2F;" rel="noopener" target="_blank">WebShell'S Blog</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.fanjunyang.zone/" title="https:&#x2F;&#x2F;blog.fanjunyang.zone&#x2F;" rel="noopener" target="_blank">俊阳的IT主页</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.sqlsec.com/" title="https:&#x2F;&#x2F;www.sqlsec.com&#x2F;" rel="noopener" target="_blank">国光</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://xiaoqiuxx.xyz/" title="http:&#x2F;&#x2F;xiaoqiuxx.xyz&#x2F;" rel="noopener" target="_blank">xiaoqiuxx's Blog</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.hyhforever.top/" title="https:&#x2F;&#x2F;www.hyhforever.top&#x2F;" rel="noopener" target="_blank">HYH's blog</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.v2rayfree.eu.org/" title="https:&#x2F;&#x2F;www.v2rayfree.eu.org&#x2F;" rel="noopener" target="_blank">应急链接</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">无星</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:22</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+<a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank" style="display:flex;flex-direction: row;align-items: center;justify-content: center; border:none; color: #999;">
+  由
+  <img src="/images/upaiyun/logo.png"/ style="width:80px;margin:0;">
+  提供CDN加速/云存储服务
+</a>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"pnwsxTh3sKr3Lb0RG3KCrFxX-gzGzoHsz","app_key":"CKxxpzPHaBUuiudduqDrkBUk","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'c06f519d5671dfd10942',
+      clientSecret: '38d97414c2b8bfec7f473f9f3458ca58fd0d25d1',
+      repo        : 'XingXiaoWu.github.io',
+      owner       : 'XingXiaoWu',
+      admin       : ['XingXiaoWu'],
+      id          : '36f71b3a2f7732430fdc7831b514ad43',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+  <style>
+    #forkongithub a{
+      background:#000;color:#fff;
+      text-decoration:none;font-family:arial,sans-serif;
+      text-align:center;font-weight:bold;padding:5px 40px;
+      font-size:1rem;line-height:2rem;position:relative;transition:0.5s;
+    }
+    #forkongithub a:hover{background:#c11;color:#fff;}
+    #forkongithub a::before,#forkongithub a::after{content:"";width:100%;display:block;position:absolute;top:1px;left:0;height:1px;background:#fff;}
+    #forkongithub a::after{bottom:1px;top:auto;}
+    @media screen and (min-width:800px){
+      #forkongithub{position:fixed;display:block;top:0;right:0;width:200px;overflow:hidden;height:200px;z-index:9999;
+    }
+    #forkongithub a{
+      width:200px;
+      position:absolute;top:60px;right:-60px;
+      transform:rotate(45deg);-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);-moz-transform:rotate(45deg);-o-transform:rotate(45deg);
+      box-shadow:4px 4px 10px rgba(0,0,0,0.8);
+    }
+  </style>
+</body>
+</html>

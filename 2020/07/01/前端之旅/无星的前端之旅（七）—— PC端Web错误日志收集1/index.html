@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.xingxiaowu.cn","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="背景线上报错，啥也不知道，无法复现束手无策，客户开喷，研发背锅 这种事情，u1s1，大家都遇到过吧 解决方式就是有个日志收集上报的地方去查，查什么时候，什么时间，什么环境，出了什么错误，在某些程度能不那么被动 选型是不是以为我是要说用哪家，实际上是准备自己写。。 免费的不放心，付费的买不起但这里还是列出几家fundebugsentry 怎么做？1.了解需要采集的指标2.收集的方式3.上报的方式4.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="无星的前端之旅（七）—— PC端Web错误日志收集1">
+<meta property="og:url" content="http://blog.xingxiaowu.cn/2020/07/01/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94%20PC%E7%AB%AFWeb%E9%94%99%E8%AF%AF%E6%97%A5%E5%BF%97%E6%94%B6%E9%9B%861/index.html">
+<meta property="og:site_name" content="无星的小窝">
+<meta property="og:description" content="背景线上报错，啥也不知道，无法复现束手无策，客户开喷，研发背锅 这种事情，u1s1，大家都遇到过吧 解决方式就是有个日志收集上报的地方去查，查什么时候，什么时间，什么环境，出了什么错误，在某些程度能不那么被动 选型是不是以为我是要说用哪家，实际上是准备自己写。。 免费的不放心，付费的买不起但这里还是列出几家fundebugsentry 怎么做？1.了解需要采集的指标2.收集的方式3.上报的方式4.">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-01T08:42:00.000Z">
+<meta property="article:modified_time" content="2025-10-15T14:34:21.798Z">
+<meta property="article:author" content="无星">
+<meta property="article:tag" content="前端">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://blog.xingxiaowu.cn/2020/07/01/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94%20PC%E7%AB%AFWeb%E9%94%99%E8%AF%AF%E6%97%A5%E5%BF%97%E6%94%B6%E9%9B%861/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>无星的前端之旅（七）—— PC端Web错误日志收集1 | 无星的小窝</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5976024V60"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-5976024V60');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?bdba6c3bda62a07f58f3cf06034704d5";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="无星的小窝" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+    <span id="forkongithub"><a target="_blank" rel="noopener" href="https://github.com/XingXiaoWu">我的GitHub</a></span>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">无星的小窝</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">技术为辅,业务为主</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-留言板">
+
+    <a href="/guestbook" rel="section"><i class="fab fa-leanpub fa-fw"></i>留言板</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/html/404.html" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2020/07/01/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94%20PC%E7%AB%AFWeb%E9%94%99%E8%AF%AF%E6%97%A5%E5%BF%97%E6%94%B6%E9%9B%861/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          无星的前端之旅（七）—— PC端Web错误日志收集1
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-01 16:42:00" itemprop="dateCreated datePublished" datetime="2020-07-01T16:42:00+08:00">2020-07-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-10-15 22:34:21" itemprop="dateModified" datetime="2025-10-15T22:34:21+08:00">2025-10-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/07/01/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94%20PC%E7%AB%AFWeb%E9%94%99%E8%AF%AF%E6%97%A5%E5%BF%97%E6%94%B6%E9%9B%861/" class="post-meta-item leancloud_visitors" data-flag-title="无星的前端之旅（七）—— PC端Web错误日志收集1" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>线上报错，啥也不知道，无法复现束手无策，客户开喷，研发背锅</p>
+<p>这种事情，u1s1，大家都遇到过吧</p>
+<p>解决方式就是有个日志收集上报的地方去查，查什么时候，什么时间，什么环境，出了什么错误，在某些程度能不那么被动</p>
+<h1 id="选型"><a href="#选型" class="headerlink" title="选型"></a>选型</h1><p>是不是以为我是要说用哪家，实际上是准备自己写。。</p>
+<p>免费的不放心，付费的买不起<br>但这里还是列出几家<br><a target="_blank" rel="noopener" href="https://www.fundebug.com/">fundebug</a><br><a target="_blank" rel="noopener" href="https://sentry.io/welcome/">sentry</a></p>
+<h1 id="怎么做？"><a href="#怎么做？" class="headerlink" title="怎么做？"></a>怎么做？</h1><p>1.了解需要采集的指标<br>2.收集的方式<br>3.上报的方式<br>4.上报的时机<br>5.如何解析<br>6.告警</p>
+<h2 id="1-了解需要采集的数据指标"><a href="#1-了解需要采集的数据指标" class="headerlink" title="1.了解需要采集的数据指标"></a>1.了解需要采集的数据指标</h2><p>这里可以参考一些付费的服务的采集指标，比如上面提到的fundebug，sentry，看看人家都收集啥。</p>
+<p>在了解以后，根据自身平台业务的需要，自行采集。</p>
+<p>比如我没有那些花里胡哨的需求，我只采集了如下信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">appId:我自己的业务数据，用来标识哪个App出了问题</span><br><span class="line">type:错误类型</span><br><span class="line">message:错误抛出的message</span><br><span class="line">stack:错误堆栈信息</span><br><span class="line">line:出错行</span><br><span class="line">column:出错列</span><br><span class="line">url:sourceMap后出错的js地址</span><br><span class="line">userAgent:用户的环境，什么浏览器，什么版本等等</span><br><span class="line">time:出错的世界</span><br></pre></td></tr></table></figure>
+<p>实际上你还可以采集更多，但我的业务只需要这些了。</p>
+<h2 id="2-收集"><a href="#2-收集" class="headerlink" title="2.收集"></a>2.收集</h2><h3 id="2-1-收集上报策略核心"><a href="#2-1-收集上报策略核心" class="headerlink" title="2.1 收集上报策略核心"></a>2.1 收集上报策略核心</h3><p>这里我引用参考文章中《自研多端错误收集平台》，贝贝的一句话作为核心思路:“差异化采集，格式化上报！”<br>在不同平台使用不同的采集方式。处理成统一的方式最后上报。<br>在我落地的表现上就是，不同平台写不同包去处理，最后统一格式上传</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vue,xxx-error-vue</span><br><span class="line">react,xxx-error-react</span><br><span class="line">wechat,xxx-error-wechat</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-错误的类型"><a href="#2-2-错误的类型" class="headerlink" title="2.2 错误的类型"></a>2.2 错误的类型</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.同步的脚本错误</span><br><span class="line">2.异步的脚本错误</span><br><span class="line">3.网络错误</span><br><span class="line">4.资源加载型错误</span><br></pre></td></tr></table></figure>
+<p>我这里只捕获1，2，3</p>
+<h3 id="2-3-收集的方式"><a href="#2-3-收集的方式" class="headerlink" title="2.3 收集的方式"></a>2.3 收集的方式</h3><h4 id="2-3-1-自动收集方式兜底"><a href="#2-3-1-自动收集方式兜底" class="headerlink" title="2.3.1 自动收集方式兜底"></a>2.3.1 自动收集方式兜底</h4><p>自动采集的方式是一定要有的。</p>
+<p>这是个兜底策略，在没能手动上报的时候去抓住一些钩子抛出来的错误。</p>
+<p>对于运行在浏览器环境的JavaScript代码来说，浏览器会抛出几个钩子</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">window.onerror = function (message, source, line, column, error) &#123;</span><br><span class="line">//错误捕获1与   window.addEventListener(&#x27;error&#x27;） 二选一即可</span><br><span class="line">&#125;</span><br><span class="line">window.addEventListener(&#x27;error&#x27;, event =&gt; &#123;</span><br><span class="line">//错误捕获2，与   window.onerror 二选一即可     </span><br><span class="line">&#125;)</span><br><span class="line">window.addEventListener(&#x27;unhandledrejection&#x27;, event =&gt; &#123;</span><br><span class="line">//错误捕获3，未实现Promise.reject()</span><br><span class="line">// 默认实现，以免控制台红色警告</span><br><span class="line">    if (process.env.NODE_ENV === &#x27;production&#x27;) &#123; event.preventDefault(); &#125;</span><br><span class="line">&#125;)</span><br><span class="line">function networkHandle(): void &#123;</span><br><span class="line">//错误捕获4，网络请求错误</span><br><span class="line">    let originSend = XMLHttpRequest.prototype.send;</span><br><span class="line">    XMLHttpRequest.prototype.send = function () &#123;</span><br><span class="line">        console.log(&#x27;send&#x27;, arguments);</span><br><span class="line">        this.addEventListener(&#x27;loadend&#x27;, () =&gt; &#123;</span><br><span class="line">            console.log(&#x27;loadend&#x27;)</span><br><span class="line">            if (this.status !== 200) &#123;</span><br><span class="line">            //网络请求挂了，捕获</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">        originSend.apply(this, arguments);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对于额外的框架提供的错误，例如vue,它有着自己的Vue.config.errorHandler机制</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Vue.config.errorHandler = function (error: Error, vm: Object, info: any) &#123;</span><br><span class="line">//错误捕获处理</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-3-2-手动上报方式"><a href="#2-3-2-手动上报方式" class="headerlink" title="2.3.2 手动上报方式"></a>2.3.2 手动上报方式</h4><p>这个方式也是一定要有的，它可以用来人为捕获一些业务&#x2F;技术错误</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function notify(error: Error): void &#123;</span><br><span class="line">//这里面就写点格式化处理和上报</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-4-2-如何进行错误格式化"><a href="#2-4-2-如何进行错误格式化" class="headerlink" title="2.4.2 如何进行错误格式化"></a>2.4.2 如何进行错误格式化</h4><p>上面也说了，核心思想是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">差异化采集，格式化上报</span><br></pre></td></tr></table></figure>
+<p>那么提到格式化，就不得不提到这个背景了。</p>
+<p>在不同浏览器不同框架上，抛出来的error不一样！</p>
+<p>比如：Vue.config.errorHandler中拿到的error是Vue处理后的信息，你无法很直观的拿到colum和line。</p>
+<p>这里就不得不提到一个库了<a target="_blank" rel="noopener" href="https://github.com/csnover/TraceKit">TraceKit</a></p>
+<p>他的作用就是，格式化error，使得不同环境下的error输出相同格式的错误！</p>
+<p>使用方式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">import * as TraceKit from &#x27;tracekit&#x27;</span><br><span class="line">function notify(error: Error): void &#123;</span><br><span class="line">    // 计算堆栈</span><br><span class="line">    let stack = TraceKit.computeStackTrace(error)</span><br><span class="line">    // stack = &#123;name:&#x27;xx&#x27;,mode:&#x27;xx&#x27;,message:&#x27;xxx&#x27;,stack:[&#123;</span><br><span class="line">    //	出错的js地址</span><br><span class="line">    //	url:&#x27;xxx&#x27;,</span><br><span class="line">    //	line:0,</span><br><span class="line">    //	column:0,</span><br><span class="line">    //&#125;,&#123;xx&#125;,&#123;xx&#125;]&#125;</span><br><span class="line">    //取第一个是因为一般第一个item中的url是真实报错的业务js</span><br><span class="line">    let tmpStack = get(stack, [&#x27;stack&#x27;, &#x27;0&#x27;])</span><br><span class="line">    // 格式化stack</span><br><span class="line">    let errorInfo: ErrorInfo = createErrorInfo(stack.name,stack.mode,stack.message,tmpStack)</span><br><span class="line">    //格式化成string</span><br><span class="line">    let result: String = formatErrorInfo(errorInfo)</span><br><span class="line">    //这是上报，原因见下面</span><br><span class="line">    let image = new Image()</span><br><span class="line">    image.src = baseUrl + result</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="3-上报的方式"><a href="#3-上报的方式" class="headerlink" title="3.上报的方式"></a>3.上报的方式</h2><p>这里我使用请求图片get请求的方式上报</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function notify(error)&#123;</span><br><span class="line">//formatErrorInfo是自定义的格式化方法，后文会写做了什么</span><br><span class="line">let result : String = formatErrorInfo(error)</span><br><span class="line">let image = new Image()</span><br><span class="line">image.src = baseUrl + result</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>为什么？</p>
+<p>1.图片请求没有跨域错误</p>
+<p>2.使用图片发送get请求，上报信息，由于浏览器对图片有缓存，同样的请求，图片只会发送一次，避免重复上报</p>
+<p>3.get请求简单</p>
+<h2 id="4-上报的时机"><a href="#4-上报的时机" class="headerlink" title="4.上报的时机"></a>4.上报的时机</h2><p>较好的方式：制定本地策略，合并请求，统一上传，节省流量也减少服务端压力。</p>
+<p>我就没那么多想法，出错就上报，直接一梭子往上怼就完事了，没到那个量级，也没那么多错误。后面也许会优化吧。</p>
+<h2 id="5-如何解析"><a href="#5-如何解析" class="headerlink" title="5.如何解析"></a>5.如何解析</h2><p>挖个坑</p>
+<h2 id="6-告警"><a href="#6-告警" class="headerlink" title="6.告警"></a>6.告警</h2><p>暂未做</p>
+<h2 id="7-可视化"><a href="#7-可视化" class="headerlink" title="7.可视化"></a>7.可视化</h2><p>我们有elk，直接把数据格式化打到elk上就可以了。</p>
+<p>但是目前没有没有想到好的方式去做sourceMap解析。</p>
+<p>曾经设想过写kibana插件去完成这个操作，但是我整了半天都没跑起来，有点难受。</p>
+<p>我的设想：<br>1.kibana提供插件的形式去调取elk的存储查询功能，这是最完美的解决方式了。<br>2.自己写页面，调取elk的查询接口。但阻塞点是elk的查询接口如何使用http调用？<br>3.自己去存错误，不用elk，但这太蠢了。不太想这么做。</p>
+<h2 id="8-写个demo？"><a href="#8-写个demo？" class="headerlink" title="8.写个demo？"></a>8.写个demo？</h2><p><del>啥时候有空啥时候补一个。。。</del></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/XingXiaoWu/errorDemo">demo</a></p>
+<h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><p><a target="_blank" rel="noopener" href="https://juejin.im/post/5ec5c4aee51d457893029189">前端早早聊-自研多端错误收集平台</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/26085642">前端异常监控系统的落地</a></p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>我是阿星，阿星的阿，阿星的星！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/WechatPay.png" alt="无星 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/AliPay.png" alt="无星 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/06/07/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94%20Vue%E5%BC%95%E5%85%A5Storybook%EF%BC%88%E4%B8%80%EF%BC%89/" rel="prev" title="无星的前端之旅（六）—— Vue引入Storybook（一）">
+      <i class="fa fa-chevron-left"></i> 无星的前端之旅（六）—— Vue引入Storybook（一）
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/07/13/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84Egg%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E8%B7%A8%E5%9F%9F/" rel="next" title="无星的Egg之旅（一）——跨域">
+      无星的Egg之旅（一）——跨域 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%80%89%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">选型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E5%81%9A%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">怎么做？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%BA%86%E8%A7%A3%E9%9C%80%E8%A6%81%E9%87%87%E9%9B%86%E7%9A%84%E6%95%B0%E6%8D%AE%E6%8C%87%E6%A0%87"><span class="nav-number">3.1.</span> <span class="nav-text">1.了解需要采集的数据指标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%94%B6%E9%9B%86"><span class="nav-number">3.2.</span> <span class="nav-text">2.收集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E6%94%B6%E9%9B%86%E4%B8%8A%E6%8A%A5%E7%AD%96%E7%95%A5%E6%A0%B8%E5%BF%83"><span class="nav-number">3.2.1.</span> <span class="nav-text">2.1 收集上报策略核心</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E9%94%99%E8%AF%AF%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="nav-number">3.2.2.</span> <span class="nav-text">2.2 错误的类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E6%94%B6%E9%9B%86%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="nav-number">3.2.3.</span> <span class="nav-text">2.3 收集的方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-1-%E8%87%AA%E5%8A%A8%E6%94%B6%E9%9B%86%E6%96%B9%E5%BC%8F%E5%85%9C%E5%BA%95"><span class="nav-number">3.2.3.1.</span> <span class="nav-text">2.3.1 自动收集方式兜底</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-2-%E6%89%8B%E5%8A%A8%E4%B8%8A%E6%8A%A5%E6%96%B9%E5%BC%8F"><span class="nav-number">3.2.3.2.</span> <span class="nav-text">2.3.2 手动上报方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-2-%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E9%94%99%E8%AF%AF%E6%A0%BC%E5%BC%8F%E5%8C%96"><span class="nav-number">3.2.3.3.</span> <span class="nav-text">2.4.2 如何进行错误格式化</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E4%B8%8A%E6%8A%A5%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="nav-number">3.3.</span> <span class="nav-text">3.上报的方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E4%B8%8A%E6%8A%A5%E7%9A%84%E6%97%B6%E6%9C%BA"><span class="nav-number">3.4.</span> <span class="nav-text">4.上报的时机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E5%A6%82%E4%BD%95%E8%A7%A3%E6%9E%90"><span class="nav-number">3.5.</span> <span class="nav-text">5.如何解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E5%91%8A%E8%AD%A6"><span class="nav-number">3.6.</span> <span class="nav-text">6.告警</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="nav-number">3.7.</span> <span class="nav-text">7.可视化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-%E5%86%99%E4%B8%AAdemo%EF%BC%9F"><span class="nav-number">3.8.</span> <span class="nav-text">8.写个demo？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0"><span class="nav-number">4.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="无星"
+      src="/images/headerPic.png">
+  <p class="site-author-name" itemprop="name">无星</p>
+  <div class="site-description" itemprop="description">一个么的前途的弟中弟</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">173</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/XingXiaoWu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;XingXiaoWu" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jianshu.com/u/fef7696741c8" title="简书 → https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;fef7696741c8" rel="noopener" target="_blank"><i class="fa fa-link fa-fw"></i>简书</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://juejin.cn/user/1503787636493886" title="掘金 → https:&#x2F;&#x2F;juejin.cn&#x2F;user&#x2F;1503787636493886" rel="noopener" target="_blank"><i class="fa fa-link fa-fw"></i>掘金</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.huan666.de/" title="https:&#x2F;&#x2F;blog.huan666.de&#x2F;" rel="noopener" target="_blank">焕昭君</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://aiiko.club/" title="https:&#x2F;&#x2F;aiiko.club" rel="noopener" target="_blank">爱喵日记</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.mikuchan.top/?ref=xingxiaowu.cn" title="https:&#x2F;&#x2F;www.mikuchan.top?ref&#x3D;xingxiaowu.cn" rel="noopener" target="_blank">团子的航海日志</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://dazhuang.store/webp/" title="https:&#x2F;&#x2F;dazhuang.store&#x2F;webp&#x2F;" rel="noopener" target="_blank">大壮</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.webshell.cc/" title="https:&#x2F;&#x2F;www.webshell.cc&#x2F;" rel="noopener" target="_blank">WebShell'S Blog</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.fanjunyang.zone/" title="https:&#x2F;&#x2F;blog.fanjunyang.zone&#x2F;" rel="noopener" target="_blank">俊阳的IT主页</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.sqlsec.com/" title="https:&#x2F;&#x2F;www.sqlsec.com&#x2F;" rel="noopener" target="_blank">国光</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://xiaoqiuxx.xyz/" title="http:&#x2F;&#x2F;xiaoqiuxx.xyz&#x2F;" rel="noopener" target="_blank">xiaoqiuxx's Blog</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.hyhforever.top/" title="https:&#x2F;&#x2F;www.hyhforever.top&#x2F;" rel="noopener" target="_blank">HYH's blog</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.v2rayfree.eu.org/" title="https:&#x2F;&#x2F;www.v2rayfree.eu.org&#x2F;" rel="noopener" target="_blank">应急链接</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">无星</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:22</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+<a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank" style="display:flex;flex-direction: row;align-items: center;justify-content: center; border:none; color: #999;">
+  由
+  <img src="/images/upaiyun/logo.png"/ style="width:80px;margin:0;">
+  提供CDN加速/云存储服务
+</a>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"pnwsxTh3sKr3Lb0RG3KCrFxX-gzGzoHsz","app_key":"CKxxpzPHaBUuiudduqDrkBUk","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'c06f519d5671dfd10942',
+      clientSecret: '38d97414c2b8bfec7f473f9f3458ca58fd0d25d1',
+      repo        : 'XingXiaoWu.github.io',
+      owner       : 'XingXiaoWu',
+      admin       : ['XingXiaoWu'],
+      id          : '356959c102f1f8b239ba1c1f15d58a0b',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+  <style>
+    #forkongithub a{
+      background:#000;color:#fff;
+      text-decoration:none;font-family:arial,sans-serif;
+      text-align:center;font-weight:bold;padding:5px 40px;
+      font-size:1rem;line-height:2rem;position:relative;transition:0.5s;
+    }
+    #forkongithub a:hover{background:#c11;color:#fff;}
+    #forkongithub a::before,#forkongithub a::after{content:"";width:100%;display:block;position:absolute;top:1px;left:0;height:1px;background:#fff;}
+    #forkongithub a::after{bottom:1px;top:auto;}
+    @media screen and (min-width:800px){
+      #forkongithub{position:fixed;display:block;top:0;right:0;width:200px;overflow:hidden;height:200px;z-index:9999;
+    }
+    #forkongithub a{
+      width:200px;
+      position:absolute;top:60px;right:-60px;
+      transform:rotate(45deg);-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);-moz-transform:rotate(45deg);-o-transform:rotate(45deg);
+      box-shadow:4px 4px 10px rgba(0,0,0,0.8);
+    }
+  </style>
+</body>
+</html>

