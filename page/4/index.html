@@ -223,6 +223,592 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2024/09/12/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%EF%BC%89%E2%80%94%E2%80%94%E6%80%8E%E4%B9%88%E5%86%99word/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/09/12/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%EF%BC%89%E2%80%94%E2%80%94%E6%80%8E%E4%B9%88%E5%86%99word/" class="post-title-link" itemprop="url">无星的前端之旅（三十）——怎么写word</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-09-12 18:23:00 / 修改时间：17:05:05" itemprop="dateCreated datePublished" datetime="2024-09-12T18:23:00+08:00">2024-09-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2024/09/12/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%EF%BC%89%E2%80%94%E2%80%94%E6%80%8E%E4%B9%88%E5%86%99word/" class="post-meta-item leancloud_visitors" data-flag-title="无星的前端之旅（三十）——怎么写word" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>有个业务要求，需要先进行一定的自动化操作</p>
+<p>将提取的信息写到Word里</p>
+<h1 id="docxtemplater"><a href="#docxtemplater" class="headerlink" title="docxtemplater"></a>docxtemplater</h1><p><a target="_blank" rel="noopener" href="https://docxtemplater.com/">docxtemplater-官网</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/open-xml-templating/docxtemplater">docxtemplater-GitHub</a></p>
+<h1 id="集成"><a href="#集成" class="headerlink" title="集成"></a>集成</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm add docxtemplater pizzip fs-extra</span><br></pre></td></tr></table></figure>
+
+<p>如果需要插入图片</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm add docxtemplater pizzip fs-extra docxtemplater-image-module-free image-size</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/09/12/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%EF%BC%89%E2%80%94%E2%80%94%E6%80%8E%E4%B9%88%E5%86%99word/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2024/08/08/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/VSCode%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E6%8F%92%E4%BB%B6%E5%B8%82%E5%9C%BA%E9%95%9C%E5%83%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/08/08/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/VSCode%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E6%8F%92%E4%BB%B6%E5%B8%82%E5%9C%BA%E9%95%9C%E5%83%8F/" class="post-title-link" itemprop="url">VSCode如何配置插件市场镜像</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-08-08 23:22:00 / 修改时间：09:24:10" itemprop="dateCreated datePublished" datetime="2024-08-08T23:22:00+08:00">2024-08-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vscode/" itemprop="url" rel="index"><span itemprop="name">vscode</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2024/08/08/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/VSCode%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E6%8F%92%E4%BB%B6%E5%B8%82%E5%9C%BA%E9%95%9C%E5%83%8F/" class="post-meta-item leancloud_visitors" data-flag-title="VSCode如何配置插件市场镜像" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>这其实是件很扯淡的事</p>
+<p>因为VSCode的插件市场</p>
+<p>一没有被墙</p>
+<p>二支持离线安装</p>
+<p>那还有这个需求吗？</p>
+<p>但确实有。。。</p>
+<p>我这里是完全的内网环境</p>
+<p>离线安装虽然可以</p>
+<p>但是多少有点麻烦。。。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/08/08/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/VSCode%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E6%8F%92%E4%BB%B6%E5%B8%82%E5%9C%BA%E9%95%9C%E5%83%8F/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2024/07/06/%E6%B8%97%E9%80%8F/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E4%BA%94%EF%BC%89-%E5%BA%94%E6%80%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/07/06/%E6%B8%97%E9%80%8F/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E4%BA%94%EF%BC%89-%E5%BA%94%E6%80%A5/" class="post-title-link" itemprop="url">无星的渗透之旅速成篇（五）-应急</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-07-06 20:09:00" itemprop="dateCreated datePublished" datetime="2024-07-06T20:09:00+08:00">2024-07-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-07-31 15:15:55" itemprop="dateModified" datetime="2025-07-31T15:15:55+08:00">2025-07-31</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">安全</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2024/07/06/%E6%B8%97%E9%80%8F/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E4%BA%94%EF%BC%89-%E5%BA%94%E6%80%A5/" class="post-meta-item leancloud_visitors" data-flag-title="无星的渗透之旅速成篇（五）-应急" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>6.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="1-有提示看提示-没提示看网络连接"><a href="#1-有提示看提示-没提示看网络连接" class="headerlink" title="1.有提示看提示,没提示看网络连接"></a>1.有提示看提示,没提示看网络连接</h1><p>看网络进程</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -antup</span><br></pre></td></tr></table></figure>
+
+<p>看系统进程</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="2-看用户"><a href="#2-看用户" class="headerlink" title="2.看用户"></a>2.看用户</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/passwd</span><br></pre></td></tr></table></figure>
+
+<h1 id="3-看定时任务"><a href="#3-看定时任务" class="headerlink" title="3.看定时任务"></a>3.看定时任务</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">crontab -l</span><br><span class="line">crontab -u 用户</span><br></pre></td></tr></table></figure>
+
+<h1 id="4-查看某个时间段文件改动内容"><a href="#4-查看某个时间段文件改动内容" class="headerlink" title="4.查看某个时间段文件改动内容"></a>4.查看某个时间段文件改动内容</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/07/06/%E6%B8%97%E9%80%8F/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E4%BA%94%EF%BC%89-%E5%BA%94%E6%80%A5/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2024/07/05/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E4%B9%9D%EF%BC%89%E2%80%94%E2%80%94vCard/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/07/05/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E4%B9%9D%EF%BC%89%E2%80%94%E2%80%94vCard/" class="post-title-link" itemprop="url">无星的前端之旅（二十九）——vCard电子名片</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-07-05 18:23:00" itemprop="dateCreated datePublished" datetime="2024-07-05T18:23:00+08:00">2024-07-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-07-18 15:55:40" itemprop="dateModified" datetime="2024-07-18T15:55:40+08:00">2024-07-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2024/07/05/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E4%B9%9D%EF%BC%89%E2%80%94%E2%80%94vCard/" class="post-meta-item leancloud_visitors" data-flag-title="无星的前端之旅（二十九）——vCard电子名片" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>534</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近同事给我发了一张“电子名片”</p>
+<p>照片上有一个二维码</p>
+<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E5%89%8D%E7%AB%AF28/20240718155130.png" alt="名片"></p>
+<p>大伙可以用微信扫这个二维码看看</p>
+<p>看看是不是很有意思</p>
+<p>其实非常简单</p>
+<p>大家只要搜索<code>vCard</code></p>
+<p>就能找到这个标准格式</p>
+<p>不过标准都有点麻烦</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/07/05/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E4%B9%9D%EF%BC%89%E2%80%94%E2%80%94vCard/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2024/06/26/CTF/%E8%B5%A3%E9%93%B6%E6%9D%AF%E5%9F%B9%E8%AE%AD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/06/26/CTF/%E8%B5%A3%E9%93%B6%E6%9D%AF%E5%9F%B9%E8%AE%AD/" class="post-title-link" itemprop="url">赣银杯赛前培训</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-06-26 20:17:00" itemprop="dateCreated datePublished" datetime="2024-06-26T20:17:00+08:00">2024-06-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-07-05 08:52:30" itemprop="dateModified" datetime="2024-07-05T08:52:30+08:00">2024-07-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">安全</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2024/06/26/CTF/%E8%B5%A3%E9%93%B6%E6%9D%AF%E5%9F%B9%E8%AE%AD/" class="post-meta-item leancloud_visitors" data-flag-title="赣银杯赛前培训" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入"></a>SQL注入</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select password from users where id = &quot;xiaoming&quot;</span><br><span class="line"></span><br><span class="line">select password from users where id = &quot;&quot; or 1=1#&quot; </span><br><span class="line"></span><br><span class="line">information_schema</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>schemata</th>
+<th>tables</th>
+<th>columns</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>数据库名</td>
+<td>schema_name</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>表名</td>
+<td>table_schema</td>
+<td>table_name</td>
+<td></td>
+</tr>
+<tr>
+<td>字段名</td>
+<td>table_schema</td>
+<td>table_name</td>
+<td>column_name</td>
+</tr>
+</tbody></table>
+<p>nianji</p>
+<p>liuyi</p>
+<p>name</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select name from nianji.liuyi;</span><br></pre></td></tr></table></figure>
+<p>联合注入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select id,username,password from users union select 1,2,3;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>xiaoming</td>
+<td>xiaoming</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+</tbody></table>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/06/26/CTF/%E8%B5%A3%E9%93%B6%E6%9D%AF%E5%9F%B9%E8%AE%AD/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2024/06/25/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%B9%9D%EF%BC%89%E2%80%94%E2%80%94WebCheckList/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -749,597 +1335,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2024/05/07/%E6%B8%97%E9%80%8F/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E4%BA%8C%EF%BC%89-%E6%89%93%E7%82%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/05/07/%E6%B8%97%E9%80%8F/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E4%BA%8C%EF%BC%89-%E6%89%93%E7%82%B9/" class="post-title-link" itemprop="url">无星的渗透之旅速成篇（二）-打点</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-05-07 20:09:00" itemprop="dateCreated datePublished" datetime="2024-05-07T20:09:00+08:00">2024-05-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-07-31 15:15:55" itemprop="dateModified" datetime="2025-07-31T15:15:55+08:00">2025-07-31</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">安全</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2024/05/07/%E6%B8%97%E9%80%8F/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E4%BA%8C%EF%BC%89-%E6%89%93%E7%82%B9/" class="post-meta-item leancloud_visitors" data-flag-title="无星的渗透之旅速成篇（二）-打点" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.4k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>阿星还是个新人</p>
-<p>不知道正确的渗透步骤是什么</p>
-<p>这里看到一个打点步骤</p>
-<p>遂记录下来</p>
-<h1 id="打点的基本方法"><a href="#打点的基本方法" class="headerlink" title="打点的基本方法"></a>打点的基本方法</h1><p>基本方法，无非就是信息搜集–&gt;找到脆弱资产–&gt;漏洞利用→getshell，说起来是很简单的。</p>
-<p>这其中最肝的一个部分，莫过于信息搜集了，纯体力活。</p>
-<p>当然，过程可以用工具相对优化，但我依旧认为是最无脑的一个部分，就像大学生和小学生（高阶和低阶技术人员）一起用计算器（各种工具 fofa goby oneforall等）来算1w道加减乘除题（大量的资产 域名子域名 c段等）一样，其实是区分不开技术人员的水平的，很多头部的公司早就认识到了这一点，于是在大型攻防演练中，通常是派大量的人来进行资产收集，然后筛选出其中的脆弱资产后把资产给后续的利用人员来进内网快速拿分。</p>
-<p>虽然信息搜集很无脑，但是该说还是得说，这个事情一般有以下几个步骤。</p>
-<p>1、当项目经理告诉了你攻击目标的时候 →得到公司名→上企查查搜公司名→搜出来一堆公司和子公司</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/05/07/%E6%B8%97%E9%80%8F/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E4%BA%8C%EF%BC%89-%E6%89%93%E7%82%B9/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2024/04/17/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94md5%E7%BB%95%E8%BF%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/04/17/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94md5%E7%BB%95%E8%BF%87/" class="post-title-link" itemprop="url">无星的安全之旅（七）——md5绕过</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-04-17 20:17:00" itemprop="dateCreated datePublished" datetime="2024-04-17T20:17:00+08:00">2024-04-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-04-29 09:34:54" itemprop="dateModified" datetime="2024-04-29T09:34:54+08:00">2024-04-29</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">安全</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2024/04/17/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94md5%E7%BB%95%E8%BF%87/" class="post-meta-item leancloud_visitors" data-flag-title="无星的安全之旅（七）——md5绕过" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>5.5k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="md5绕过"><a href="#md5绕过" class="headerlink" title="md5绕过"></a>md5绕过</h1><p><code>php</code>的代码审计总有这种比较，记录一下</p>
-<h1 id="php中的强弱比较（和js挺像的）"><a href="#php中的强弱比较（和js挺像的）" class="headerlink" title="php中的强弱比较（和js挺像的）"></a>php中的强弱比较（和js挺像的）</h1><h2 id="强比较"><a href="#强比较" class="headerlink" title="强比较"></a>强比较</h2><p>强比较（全等比较符&#x3D;&#x3D;&#x3D;）：强比较要求比较的两个值不仅是值相等，而且类型也必须相等。只有当值和类型都相等时，才会返回 true。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$a</span> = <span class="number">5</span>;</span><br><span class="line"><span class="variable">$b</span> = <span class="string">&quot;5&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$a</span> === <span class="variable">$b</span>) &#123;</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">&quot;相等&quot;</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line"><span class="comment">// 输出这行</span></span><br><span class="line">  <span class="keyword">echo</span> <span class="string">&quot;不相等&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="php中的弱比较"><a href="#php中的弱比较" class="headerlink" title="php中的弱比较"></a>php中的弱比较</h2><p>弱比较（相等比较符&#x3D;&#x3D;）：弱比较只要求比较的两个值在转换类型后相等即可。如果两个值的类型不同，会尝试将其中一个值转换为另一个值的类型。例如：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$a</span> = <span class="number">5</span>;</span><br><span class="line"><span class="variable">$b</span> = <span class="string">&quot;5&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$a</span> == <span class="variable">$b</span>) &#123;</span><br><span class="line">  <span class="comment">//输出这行</span></span><br><span class="line">  <span class="keyword">echo</span> <span class="string">&quot;相等&quot;</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">&quot;不相等&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>上述代码中，比较结果相等，由于 $b 是字符串类型，因此 $a 将被自动转换为字符串类型后再进行比较。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/04/17/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94md5%E7%BB%95%E8%BF%87/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2023/12/17/CTF/%E6%97%A0%E6%98%9F%E7%9A%84BUU%E4%B9%8B%E6%97%85%E2%80%94%E2%80%94BUU%20BURP%20COURSE%201/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/12/17/CTF/%E6%97%A0%E6%98%9F%E7%9A%84BUU%E4%B9%8B%E6%97%85%E2%80%94%E2%80%94BUU%20BURP%20COURSE%201/" class="post-title-link" itemprop="url">无星的BUU之旅——BUU BURP COURSE 1</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-12-17 20:17:00" itemprop="dateCreated datePublished" datetime="2023-12-17T20:17:00+08:00">2023-12-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-12-17 11:02:50" itemprop="dateModified" datetime="2024-12-17T11:02:50+08:00">2024-12-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">安全</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2023/12/17/CTF/%E6%97%A0%E6%98%9F%E7%9A%84BUU%E4%B9%8B%E6%97%85%E2%80%94%E2%80%94BUU%20BURP%20COURSE%201/" class="post-meta-item leancloud_visitors" data-flag-title="无星的BUU之旅——BUU BURP COURSE 1" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>558</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>只能本地访问</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">X-Forwarded-For:127.0.0.1</span><br><span class="line"> </span><br><span class="line">X-Forwarded:127.0.0.1</span><br><span class="line"> </span><br><span class="line">Forwarded-For:127.0.0.1</span><br><span class="line"> </span><br><span class="line">Forwarded:127.0.0.1</span><br><span class="line"> </span><br><span class="line">X-Forwarded-Host:127.0.0.1</span><br><span class="line"> </span><br><span class="line">X-remote-IP:127.0.0.1</span><br><span class="line"> </span><br><span class="line">X-remote-addr:127.0.0.1</span><br><span class="line"> </span><br><span class="line">True-Client-IP:127.0.0.1</span><br><span class="line"> </span><br><span class="line">X-Client-IP:127.0.0.1</span><br><span class="line"> </span><br><span class="line">Client-IP:127.0.0.1</span><br><span class="line"> </span><br><span class="line">X-Real-IP:127.0.0.1</span><br><span class="line"> </span><br><span class="line">Ali-CDN-Real-IP:127.0.0.1</span><br><span class="line"> </span><br><span class="line">Cdn-Src-Ip:127.0.0.1</span><br><span class="line"> </span><br><span class="line">Cdn-Real-Ip:127.0.0.1</span><br><span class="line"> </span><br><span class="line">CF-Connecting-IP:127.0.0.1</span><br><span class="line"> </span><br><span class="line">X-Cluster-Client-IP:127.0.0.1</span><br><span class="line"> </span><br><span class="line">WL-Proxy-Client-IP:127.0.0.1</span><br><span class="line"> </span><br><span class="line">Proxy-Client-IP:127.0.0.1</span><br><span class="line"> </span><br><span class="line">Fastly-Client-Ip:127.0.0.1</span><br><span class="line"> </span><br><span class="line">True-Client-Ip:127.0.0.1</span><br><span class="line"></span><br><span class="line">Host: 127.0.0.1</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/12/17/CTF/%E6%97%A0%E6%98%9F%E7%9A%84BUU%E4%B9%8B%E6%97%85%E2%80%94%E2%80%94BUU%20BURP%20COURSE%201/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2023/11/21/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E5%85%AB%EF%BC%89%E2%80%94%E2%80%94%E5%A6%82%E4%BD%95%E8%BF%81%E7%A7%BBnpm%E5%8C%85/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/11/21/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E5%85%AB%EF%BC%89%E2%80%94%E2%80%94%E5%A6%82%E4%BD%95%E8%BF%81%E7%A7%BBnpm%E5%8C%85/" class="post-title-link" itemprop="url">无星的前端之旅（二十八）-如何迁移npm包</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-11-21 18:23:00" itemprop="dateCreated datePublished" datetime="2023-11-21T18:23:00+08:00">2023-11-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-07-05 08:53:14" itemprop="dateModified" datetime="2024-07-05T08:53:14+08:00">2024-07-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2023/11/21/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E5%85%AB%EF%BC%89%E2%80%94%E2%80%94%E5%A6%82%E4%BD%95%E8%BF%81%E7%A7%BBnpm%E5%8C%85/" class="post-meta-item leancloud_visitors" data-flag-title="无星的前端之旅（二十八）-如何迁移npm包" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>420</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>我有一台外网电脑，还有一台内网电脑，内网的镜像源全靠人手工上传包，且平时几乎不更新，所以包的版本都很低。</p>
-<p>我喜欢做一些简单的工具，仅自己使用，而且我喜欢用最新的版本，内部的源无法满足我的需求。</p>
-<p>而且，我平时是使用pnpm管理。</p>
-<p>那么接下来，我来介绍几种方式，以应对这个情况。</p>
-<h1 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h1><p>针对使用<code>yarn</code>和<code>npm</code>包管理器的，非常简单，整个<code>node_modules</code>搬进去就行了。</p>
-<h1 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h1><p>使用<code>tar</code>包</p>
-<p>访问淘宝镜像站点<code>https://npmmirror.com/</code></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/11/21/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E5%85%AB%EF%BC%89%E2%80%94%E2%80%94%E5%A6%82%E4%BD%95%E8%BF%81%E7%A7%BBnpm%E5%8C%85/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2023/09/26/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%E5%AF%86%E7%A0%81%E5%85%A5%E9%97%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/09/26/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%E5%AF%86%E7%A0%81%E5%85%A5%E9%97%A8/" class="post-title-link" itemprop="url">无星的安全之旅（五）——密码入门</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-09-26 10:17:00" itemprop="dateCreated datePublished" datetime="2023-09-26T10:17:00+08:00">2023-09-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-07-31 15:15:55" itemprop="dateModified" datetime="2025-07-31T15:15:55+08:00">2025-07-31</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">安全</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2023/09/26/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%E5%AF%86%E7%A0%81%E5%85%A5%E9%97%A8/" class="post-meta-item leancloud_visitors" data-flag-title="无星的安全之旅（五）——密码入门" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>密码学入门，我们介绍一些简单的密码</p>
-<h1 id="brainfuck"><a href="#brainfuck" class="headerlink" title="brainfuck"></a>brainfuck</h1><p>这是一个完备的图灵语言</p>
-<p><code>Brainfuck</code>基于这样一台机器。它具有一列初始化为0的数组（数组长度最初要求是30,000，但这个标准不是必要的）和一个初始指向第一个元素的指针。</p>
-<p>该语言总共只有8个命令，除此之外所有其他字符都会被忽略</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&lt;+-.,[]</span><br></pre></td></tr></table></figure>
-
-<p>所以看到了这八个字符组成的，就是<code>brainfuck</code></p>
-<table>
-<thead>
-<tr>
-<th>命令</th>
-<th>功能</th>
-<th>C语言</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>&gt;</td>
-<td>指针右移一个元素</td>
-<td>p++;</td>
-</tr>
-<tr>
-<td>&lt;</td>
-<td>指针左移一个元素</td>
-<td>p–;</td>
-</tr>
-<tr>
-<td>+</td>
-<td>指针当前所指元素加1</td>
-<td>*p++;</td>
-</tr>
-<tr>
-<td>-</td>
-<td>指针当前所指元素减1</td>
-<td>*p–;</td>
-</tr>
-<tr>
-<td>.</td>
-<td>输出指针所指元素对应字符</td>
-<td>putchar(*p);</td>
-</tr>
-<tr>
-<td>,</td>
-<td>输入字符的ASCII码值到指针所指元素</td>
-<td>*p&#x3D;getchar();</td>
-</tr>
-<tr>
-<td>[</td>
-<td>若指针所指元素为0，则跳转到对应</td>
-<td>‘]’处继续执行	while(*p){</td>
-</tr>
-<tr>
-<td>]</td>
-<td>若指针所指元素不为0，则跳转至对应</td>
-<td>‘[‘处继续执行	}</td>
-</tr>
-</tbody></table>
-<p>其实说那么多，也不会自己动手算，让我们上工具</p>
-<p><a target="_blank" rel="noopener" href="https://tio.run/#brainfuck#">brainfuck</a></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/09/26/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%E5%AF%86%E7%A0%81%E5%85%A5%E9%97%A8/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1407,20 +1406,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">169</span>
+          <span class="site-state-item-count">174</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-count">29</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-count">50</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1505,13 +1504,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">352k</span>
+    <span title="站点总字数">1.3m</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:20</span>
+    <span title="站点阅读时长">19:26</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
