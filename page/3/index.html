@@ -223,6 +223,442 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2025/04/15/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94pdfjs-dist%E6%80%8E%E4%B9%88%E5%BC%95%E5%85%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/04/15/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94pdfjs-dist%E6%80%8E%E4%B9%88%E5%BC%95%E5%85%A5/" class="post-title-link" itemprop="url">无星的前端之旅（三十三）——pdfjs-dist怎么引入.md</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-04-15 18:24:00" itemprop="dateCreated datePublished" datetime="2025-04-15T18:24:00+08:00">2025-04-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-10-15 22:34:21" itemprop="dateModified" datetime="2025-10-15T22:34:21+08:00">2025-10-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2025/04/15/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94pdfjs-dist%E6%80%8E%E4%B9%88%E5%BC%95%E5%85%A5/" class="post-meta-item leancloud_visitors" data-flag-title="无星的前端之旅（三十三）——pdfjs-dist怎么引入.md" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="报错引流"><a href="#报错引流" class="headerlink" title="报错引流"></a>报错引流</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error: No “GlobalWorkerOptions.workerSrc“ specified.</span><br></pre></td></tr></table></figure>
+
+<h1 id="使用框架"><a href="#使用框架" class="headerlink" title="使用框架"></a>使用框架</h1><ul>
+<li>vite</li>
+<li>pdf-js</li>
+<li>vue3</li>
+</ul>
+<h1 id="pnpm"><a href="#pnpm" class="headerlink" title="pnpm"></a>pnpm</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm add pdfjs-dist</span><br></pre></td></tr></table></figure>
+
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>页面文件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> pdfjsLib <span class="keyword">from</span> <span class="string">&#x27;pdfjs-dist&#x27;</span></span><br><span class="line"><span class="comment">// .....其他代码</span></span><br><span class="line"><span class="title function_">onMounted</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  pdfjsLib.<span class="property">GlobalWorkerOptions</span>.<span class="property">workerSrc</span> = <span class="keyword">new</span> <span class="title function_">URL</span>(</span><br><span class="line">    <span class="string">&quot;pdfjs-dist/build/pdf.worker.min.mjs&quot;</span>,</span><br><span class="line">    <span class="keyword">import</span>.<span class="property">meta</span>.<span class="property">url</span></span><br><span class="line">  ).<span class="title function_">toString</span>();</span><br><span class="line">  <span class="comment">// pdfjsLib.GlobalWorkerOptions.workerSrc = &#x27;../../node_modules/pdfjs-dist/build/pdf.worker.min.mjs&#x27;;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><code>vite.config.ts</code>新增配置</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/04/15/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94pdfjs-dist%E6%80%8E%E4%B9%88%E5%BC%95%E5%85%A5/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2025/04/15/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E4%BF%A1%E6%81%AF%E7%94%9F%E6%88%90%E4%BA%8C%E7%BB%B4%E7%A0%81%E8%AE%A9%E5%BE%AE%E4%BF%A1%E8%83%BD%E5%A4%9F%E6%89%AB%E7%A0%81%E8%AF%86%E5%88%AB%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/04/15/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E4%BF%A1%E6%81%AF%E7%94%9F%E6%88%90%E4%BA%8C%E7%BB%B4%E7%A0%81%E8%AE%A9%E5%BE%AE%E4%BF%A1%E8%83%BD%E5%A4%9F%E6%89%AB%E7%A0%81%E8%AF%86%E5%88%AB%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4/" class="post-title-link" itemprop="url">无星的前端之旅（三十二）——信息生成二维码让微信能够扫码识别复制粘贴.md</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-04-15 18:23:00" itemprop="dateCreated datePublished" datetime="2025-04-15T18:23:00+08:00">2025-04-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-10-15 22:34:21" itemprop="dateModified" datetime="2025-10-15T22:34:21+08:00">2025-10-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2025/04/15/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E4%BF%A1%E6%81%AF%E7%94%9F%E6%88%90%E4%BA%8C%E7%BB%B4%E7%A0%81%E8%AE%A9%E5%BE%AE%E4%BF%A1%E8%83%BD%E5%A4%9F%E6%89%AB%E7%A0%81%E8%AF%86%E5%88%AB%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4/" class="post-meta-item leancloud_visitors" data-flag-title="无星的前端之旅（三十二）——信息生成二维码让微信能够扫码识别复制粘贴.md" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>9.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>8 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>有一些信息需要生成二维码，让微信能够扫码识别复制粘贴</p>
+<h1 id="vue版本"><a href="#vue版本" class="headerlink" title="vue版本"></a>vue版本</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h1&gt;输入文字生成文字 logo&lt;/h1&gt;</span><br><span class="line">    &lt;input v-model=&quot;companyName&quot; type=&quot;text&quot; placeholder=&quot;请输入文字&quot;&gt;</span><br><span class="line">    &lt;button @click=&quot;generateLogo&quot;&gt;生成 logo&lt;/button&gt;</span><br><span class="line">    &lt;button @click=&quot;downloadLogo&quot;&gt;下载 logo&lt;/button&gt;</span><br><span class="line">    &lt;div id=&quot;logo&quot; ref=&quot;logoRef&quot; :style=&quot;&#123; backgroundColor: logoBgColor &#125;&quot;&gt;&#123;&#123; logoText &#125;&#125;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;h1&gt;输入信息生成二维码&lt;/h1&gt;</span><br><span class="line">    &lt;input v-model=&quot;companyName2&quot; type=&quot;text&quot; placeholder=&quot;请输入title&quot;&gt;</span><br><span class="line">    &lt;br /&gt;</span><br><span class="line">    &lt;textarea v-model=&quot;address&quot; placeholder=&quot;请输入信息&quot; cols=&quot;22&quot; rows=&quot;5&quot;&gt;&lt;/textarea&gt;</span><br><span class="line">    &lt;br /&gt;</span><br><span class="line">    &lt;button @click=&quot;generateQRCode&quot;&gt;生成二维码&lt;/button&gt;</span><br><span class="line">    &lt;div id=&quot;qrcode&quot; v-html=&quot;qrcodeHtml&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div id=&quot;companyNameDisplay&quot;&gt;&#123;&#123; companyName2 &#125;&#125;&lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script lang=&quot;ts&quot; setup&gt;</span><br><span class="line">import &#123; ref, type Ref &#125; from &#x27;vue&#x27;;</span><br><span class="line">// 假设 qrcode.min.js 已经安装并导入</span><br><span class="line">import QRCode from &#x27;qrcode-generator&#x27;;</span><br><span class="line"></span><br><span class="line">// 定义响应式变量的类型</span><br><span class="line">const companyName: Ref&lt;string&gt; = ref(&#x27;&#x27;);</span><br><span class="line">const logoText: Ref&lt;string&gt; = ref(&#x27;&#x27;);</span><br><span class="line">const logoBgColor: Ref&lt;string&gt; = ref(&#x27;&#x27;);</span><br><span class="line">const companyName2: Ref&lt;string&gt; = ref(&#x27;&#x27;);</span><br><span class="line">const address: Ref&lt;string&gt; = ref(&#x27;&#x27;);</span><br><span class="line">const qrcodeHtml: Ref&lt;string&gt; = ref(&#x27;&#x27;);</span><br><span class="line">const logoRef: Ref&lt;HTMLElement | null&gt; = ref(null);</span><br><span class="line"></span><br><span class="line">const generateLogo = () =&gt; &#123;</span><br><span class="line">  if (companyName.value.length === 4) &#123;</span><br><span class="line">    logoText.value = `$&#123;companyName.value.slice(0, 2)&#125;\n$&#123;companyName.value.slice(2)&#125;`;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    logoText.value = companyName.value;</span><br><span class="line">  &#125;</span><br><span class="line">  const randomColor = &#x27;#&#x27; + Math.floor(Math.random() * 16777215).toString(16);</span><br><span class="line">  logoBgColor.value = randomColor;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">const downloadLogo = async () =&gt; &#123;</span><br><span class="line">  const canvas = document.createElement(&#x27;canvas&#x27;);</span><br><span class="line">  const ctx = canvas.getContext(&#x27;2d&#x27;);</span><br><span class="line">  const text = logoText.value;</span><br><span class="line">  const color = logoRef.value?.style.backgroundColor || &#x27;&#x27;;</span><br><span class="line"></span><br><span class="line">  canvas.width = 2048;</span><br><span class="line">  canvas.height = 2048;</span><br><span class="line"></span><br><span class="line">  // 设置字体样式，与页面上的 logo 字体大小一致</span><br><span class="line">  if (ctx) &#123;</span><br><span class="line">    ctx.font = &#x27;748px Arial&#x27;;</span><br><span class="line">    ctx.textAlign = &#x27;center&#x27;;</span><br><span class="line">    ctx.textBaseline = &#x27;middle&#x27;;</span><br><span class="line"></span><br><span class="line">    // 清空画布</span><br><span class="line">    ctx.clearRect(0, 0, canvas.width, canvas.height);</span><br><span class="line"></span><br><span class="line">    // 绘制带圆角的背景</span><br><span class="line">    const radius = 200;</span><br><span class="line">    const x = 0;</span><br><span class="line">    const y = 0;</span><br><span class="line">    const width = 2048;</span><br><span class="line">    const height = 2048;</span><br><span class="line"></span><br><span class="line">    ctx.beginPath();</span><br><span class="line">    ctx.moveTo(x + radius, y);</span><br><span class="line">    ctx.lineTo(x + width - radius, y);</span><br><span class="line">    ctx.quadraticCurveTo(x + width, y, x + width, y + radius);</span><br><span class="line">    ctx.lineTo(x + width, y + height - radius);</span><br><span class="line">    ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);</span><br><span class="line">    ctx.lineTo(x + radius, y + height);</span><br><span class="line">    ctx.quadraticCurveTo(x, y + height, x, y + height - radius);</span><br><span class="line">    ctx.lineTo(x, y + radius);</span><br><span class="line">    ctx.quadraticCurveTo(x, y, x + radius, y);</span><br><span class="line">    ctx.closePath();</span><br><span class="line"></span><br><span class="line">    ctx.fillStyle = color;</span><br><span class="line">    ctx.fill();</span><br><span class="line"></span><br><span class="line">    // 设置文字颜色</span><br><span class="line">    ctx.fillStyle = &#x27;white&#x27;;</span><br><span class="line"></span><br><span class="line">    // 计算文字位置</span><br><span class="line">    const centerX = canvas.width / 2;</span><br><span class="line">    const centerY = canvas.height / 2;</span><br><span class="line"></span><br><span class="line">    // 绘制文字</span><br><span class="line">    if (text.includes(&#x27;\n&#x27;)) &#123;</span><br><span class="line">      const lines = text.split(&#x27;\n&#x27;);</span><br><span class="line">      const lineHeight = 748;</span><br><span class="line">      const totalHeight = lines.length * lineHeight;</span><br><span class="line">      const startY = centerY - totalHeight / 2 + lineHeight / 2;</span><br><span class="line">      lines.forEach((line, index) =&gt; &#123;</span><br><span class="line">        ctx.fillText(line, centerX, startY + index * lineHeight);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      ctx.fillText(text, centerX, centerY);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  // 创建下载链接</span><br><span class="line">  const link = document.createElement(&#x27;a&#x27;);</span><br><span class="line">  link.href = canvas.toDataURL(&#x27;image/png&#x27;);</span><br><span class="line">  link.download = companyName.value + &#x27;logo.png&#x27;;</span><br><span class="line">  link.click();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">const generateQRCode = () =&gt; &#123;</span><br><span class="line">  qrcodeHtml.value = &#x27;&#x27;;</span><br><span class="line">  if (address.value) &#123;</span><br><span class="line">    QRCode.stringToBytes = QRCode.stringToBytesFuncs[&#x27;UTF-8&#x27;];</span><br><span class="line">    const qr = QRCode(0, &#x27;L&#x27;);</span><br><span class="line">    qr.addData(address.value);</span><br><span class="line">    // qr.addData(unescape(encodeURIComponent(address)));</span><br><span class="line">    qr.make();</span><br><span class="line">    qrcodeHtml.value = qr.createImgTag(4);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">body &#123;</span><br><span class="line">  font-family: Arial, sans-serif;</span><br><span class="line">  text-align: center;</span><br><span class="line">  padding-top: 50px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#logo &#123;</span><br><span class="line">  font-size: 48px;</span><br><span class="line">  font-weight: bold;</span><br><span class="line">  margin-top: 20px;</span><br><span class="line">  padding: 10px;</span><br><span class="line">  border-radius: 20px;</span><br><span class="line">  color: white;</span><br><span class="line">  white-space: pre-line;</span><br><span class="line">  width: 200px;</span><br><span class="line">  height: 200px;</span><br><span class="line">  box-sizing: border-box;</span><br><span class="line">  display: flex;</span><br><span class="line">  justify-content: center;</span><br><span class="line">  align-items: center;</span><br><span class="line">  margin-left: auto;</span><br><span class="line">  margin-right: auto;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#qrcode &#123;</span><br><span class="line">  margin-top: 20px;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="html版本"><a href="#html版本" class="headerlink" title="html版本"></a>html版本</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;zh&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>生成文字 logo<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-tag">body</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">font-family</span>: Arial, sans-serif;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">padding-top</span>: <span class="number">50px</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-id">#logo</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">font-size</span>: <span class="number">48px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">font-weight</span>: bold;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">margin-top</span>: <span class="number">20px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">padding</span>: <span class="number">10px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">border-radius</span>: <span class="number">20px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">color</span>: white;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">white-space</span>: pre-line;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">box-sizing</span>: border-box;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">display</span>: flex;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">justify-content</span>: center;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">align-items</span>: center;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">margin-left</span>: auto;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">margin-right</span>: auto;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-id">#qrcode</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">margin-top</span>: <span class="number">20px</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 引入 qrcode.js 库 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;qrcode.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>输入文字生成文字 logo<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">id</span>=<span class="string">&quot;companyName&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;请输入文字名称&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&quot;generateLogo()&quot;</span>&gt;</span>生成 logo<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;downloadButton&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;downloadLogo()&quot;</span>&gt;</span>下载 logo<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;logo&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 新增输入框和按钮用于生成二维码 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>输入信息生成二维码<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">id</span>=<span class="string">&quot;companyName2&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;请输入title&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">id</span>=<span class="string">&quot;address&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;请输入信息&quot;</span> <span class="attr">cols</span>=<span class="string">&quot;22&quot;</span> <span class="attr">rows</span>=<span class="string">&quot;5&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&quot;generateQRCode()&quot;</span>&gt;</span>生成二维码<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;qrcode&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;companyNameDisplay&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">function</span> <span class="title function_">generateLogo</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> companyName = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;companyName&#x27;</span>).<span class="property">value</span>;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> logoElement = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;logo&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">if</span> (companyName.<span class="property">length</span> === <span class="number">4</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                logoElement.<span class="property">textContent</span> = <span class="string">`<span class="subst">$&#123;companyName.slice(<span class="number">0</span>, <span class="number">2</span>)&#125;</span>\n<span class="subst">$&#123;companyName.slice(<span class="number">2</span>)&#125;</span>`</span>;</span></span><br><span class="line"><span class="language-javascript">            &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="language-javascript">                logoElement.<span class="property">textContent</span> = companyName;</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> randomColor = <span class="string">&#x27;#&#x27;</span> + <span class="title class_">Math</span>.<span class="title function_">floor</span>(<span class="title class_">Math</span>.<span class="title function_">random</span>() * <span class="number">16777215</span>).<span class="title function_">toString</span>(<span class="number">16</span>);</span></span><br><span class="line"><span class="language-javascript">            logoElement.<span class="property">style</span>.<span class="property">backgroundColor</span> = randomColor;</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">function</span> <span class="title function_">downloadLogo</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> canvas = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;logoCanvas&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> ctx = canvas.<span class="title function_">getContext</span>(<span class="string">&#x27;2d&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> logoElement = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;logo&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> text = logoElement.<span class="property">textContent</span>;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> color = logoElement.<span class="property">style</span>.<span class="property">backgroundColor</span>;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 设置字体样式，与页面上的 logo 字体大小一致</span></span></span><br><span class="line"><span class="language-javascript">            ctx.<span class="property">font</span> = <span class="string">&#x27;748px Arial&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript">            ctx.<span class="property">textAlign</span> = <span class="string">&#x27;center&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript">            ctx.<span class="property">textBaseline</span> = <span class="string">&#x27;middle&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 清空画布</span></span></span><br><span class="line"><span class="language-javascript">            ctx.<span class="title function_">clearRect</span>(<span class="number">0</span>, <span class="number">0</span>, canvas.<span class="property">width</span>, canvas.<span class="property">height</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 绘制带圆角的背景</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> radius = <span class="number">200</span>;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> x = <span class="number">0</span>;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> y = <span class="number">0</span>;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> width = <span class="number">2048</span>;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> height = <span class="number">2048</span>;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            ctx.<span class="title function_">beginPath</span>();</span></span><br><span class="line"><span class="language-javascript">            ctx.<span class="title function_">moveTo</span>(x + radius, y);</span></span><br><span class="line"><span class="language-javascript">            ctx.<span class="title function_">lineTo</span>(x + width - radius, y);</span></span><br><span class="line"><span class="language-javascript">            ctx.<span class="title function_">quadraticCurveTo</span>(x + width, y, x + width, y + radius);</span></span><br><span class="line"><span class="language-javascript">            ctx.<span class="title function_">lineTo</span>(x + width, y + height - radius);</span></span><br><span class="line"><span class="language-javascript">            ctx.<span class="title function_">quadraticCurveTo</span>(x + width, y + height, x + width - radius, y + height);</span></span><br><span class="line"><span class="language-javascript">            ctx.<span class="title function_">lineTo</span>(x + radius, y + height);</span></span><br><span class="line"><span class="language-javascript">            ctx.<span class="title function_">quadraticCurveTo</span>(x, y + height, x, y + height - radius);</span></span><br><span class="line"><span class="language-javascript">            ctx.<span class="title function_">lineTo</span>(x, y + radius);</span></span><br><span class="line"><span class="language-javascript">            ctx.<span class="title function_">quadraticCurveTo</span>(x, y, x + radius, y);</span></span><br><span class="line"><span class="language-javascript">            ctx.<span class="title function_">closePath</span>();</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            ctx.<span class="property">fillStyle</span> = color;</span></span><br><span class="line"><span class="language-javascript">            ctx.<span class="title function_">fill</span>();</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 设置文字颜色</span></span></span><br><span class="line"><span class="language-javascript">            ctx.<span class="property">fillStyle</span> = <span class="string">&#x27;white&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 计算文字位置</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> centerX = canvas.<span class="property">width</span> / <span class="number">2</span>;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> centerY = canvas.<span class="property">height</span> / <span class="number">2</span>;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 绘制文字</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">if</span> (text.<span class="title function_">includes</span>(<span class="string">&#x27;\n&#x27;</span>)) &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">const</span> lines = text.<span class="title function_">split</span>(<span class="string">&#x27;\n&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">const</span> lineHeight = <span class="number">748</span>;</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">const</span> totalHeight = lines.<span class="property">length</span> * lineHeight;</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">const</span> startY = centerY - totalHeight / <span class="number">2</span> + lineHeight / <span class="number">2</span>;</span></span><br><span class="line"><span class="language-javascript">                lines.<span class="title function_">forEach</span>(<span class="function">(<span class="params">line, index</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">                    ctx.<span class="title function_">fillText</span>(line, centerX, startY + index * lineHeight);</span></span><br><span class="line"><span class="language-javascript">                &#125;);</span></span><br><span class="line"><span class="language-javascript">            &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="language-javascript">                ctx.<span class="title function_">fillText</span>(text, centerX, centerY);</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 创建下载链接</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> link = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;a&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">            link.<span class="property">href</span> = canvas.<span class="title function_">toDataURL</span>(<span class="string">&#x27;image/png&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">            link.<span class="property">download</span> = companyName + <span class="string">&#x27;logo.png&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript">            link.<span class="title function_">click</span>();</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">function</span> <span class="title function_">generateQRCode</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> address = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;address&#x27;</span>).<span class="property">value</span>;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> qrcodeDiv = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;qrcode&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> companyName2 = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;companyName2&#x27;</span>).<span class="property">value</span>;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> companyNameDisplay = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;companyNameDisplay&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">            qrcodeDiv.<span class="property">innerHTML</span> = <span class="string">&#x27;&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript">            companyNameDisplay.<span class="property">textContent</span> = <span class="string">&#x27;&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">if</span> (address) &#123;</span></span><br><span class="line"><span class="language-javascript">                qrcode.<span class="property">stringToBytes</span> = qrcode.<span class="property">stringToBytesFuncs</span>[<span class="string">&#x27;UTF-8&#x27;</span>];</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">const</span> qr = <span class="title function_">qrcode</span>(<span class="number">0</span>, <span class="string">&#x27;L&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">                qr.<span class="title function_">addData</span>(address);</span></span><br><span class="line"><span class="language-javascript">                <span class="comment">// qr.addData(unescape(encodeURIComponent(address)));</span></span></span><br><span class="line"><span class="language-javascript">                qr.<span class="title function_">make</span>();</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">const</span> img = qr.<span class="title function_">createImgTag</span>(<span class="number">4</span>);</span></span><br><span class="line"><span class="language-javascript">                qrcodeDiv.<span class="property">innerHTML</span> = img;</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">if</span> (companyName2) &#123;</span></span><br><span class="line"><span class="language-javascript">                companyNameDisplay.<span class="property">textContent</span> = companyName2;</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/04/15/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E4%BF%A1%E6%81%AF%E7%94%9F%E6%88%90%E4%BA%8C%E7%BB%B4%E7%A0%81%E8%AE%A9%E5%BE%AE%E4%BF%A1%E8%83%BD%E5%A4%9F%E6%89%AB%E7%A0%81%E8%AF%86%E5%88%AB%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2025/01/29/%E6%B8%97%E9%80%8F/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89-%E6%B8%97%E9%80%8F%E6%AD%A5%E9%AA%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/01/29/%E6%B8%97%E9%80%8F/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89-%E6%B8%97%E9%80%8F%E6%AD%A5%E9%AA%A4/" class="post-title-link" itemprop="url">无星的渗透之旅速成篇（十一）-渗透步骤</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-01-29 20:09:00" itemprop="dateCreated datePublished" datetime="2025-01-29T20:09:00+08:00">2025-01-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-10-15 22:34:21" itemprop="dateModified" datetime="2025-10-15T22:34:21+08:00">2025-10-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">安全</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2025/01/29/%E6%B8%97%E9%80%8F/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89-%E6%B8%97%E9%80%8F%E6%AD%A5%E9%AA%A4/" class="post-meta-item leancloud_visitors" data-flag-title="无星的渗透之旅速成篇（十一）-渗透步骤" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>54</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ol>
+<li>针对单域名靶标</li>
+</ol>
+<p>判断是否存在cdn</p>
+<p>多地ping</p>
+<ol start="2">
+<li>没有cdn</li>
+</ol>
+<p>把ip拿到fofa看下</p>
+<p>指纹里有什么</p>
+<ol start="3">
+<li>针对指纹进行漏洞扫描</li>
+</ol>
+
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/01/29/%E6%B8%97%E9%80%8F/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89-%E6%B8%97%E9%80%8F%E6%AD%A5%E9%AA%A4/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2025/01/25/CTF/%E6%8A%A5%E5%91%8A/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%8A%A5%E5%91%8A%EF%BC%88%E4%B8%80%EF%BC%89-%E5%AE%89%E5%BE%BD%E5%8C%BB%E7%A7%91%E5%A4%A7%E5%AD%A6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/01/25/CTF/%E6%8A%A5%E5%91%8A/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%8A%A5%E5%91%8A%EF%BC%88%E4%B8%80%EF%BC%89-%E5%AE%89%E5%BE%BD%E5%8C%BB%E7%A7%91%E5%A4%A7%E5%AD%A6/" class="post-title-link" itemprop="url">无星的渗透报告（一）-安徽医科大学弱密码</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-01-25 20:09:00" itemprop="dateCreated datePublished" datetime="2025-01-25T20:09:00+08:00">2025-01-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-10-15 22:34:21" itemprop="dateModified" datetime="2025-10-15T22:34:21+08:00">2025-10-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">安全</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2025/01/25/CTF/%E6%8A%A5%E5%91%8A/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%8A%A5%E5%91%8A%EF%BC%88%E4%B8%80%EF%BC%89-%E5%AE%89%E5%BE%BD%E5%8C%BB%E7%A7%91%E5%A4%A7%E5%AD%A6/" class="post-meta-item leancloud_visitors" data-flag-title="无星的渗透报告（一）-安徽医科大学弱密码" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>312</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          想看吗?猜猜密码是多少.
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/01/25/CTF/%E6%8A%A5%E5%91%8A/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%8A%A5%E5%91%8A%EF%BC%88%E4%B8%80%EF%BC%89-%E5%AE%89%E5%BE%BD%E5%8C%BB%E7%A7%91%E5%A4%A7%E5%AD%A6/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2025/01/25/%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%97%A0%E6%98%9F%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8B%E6%97%85%EF%BC%88%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94PlayWright%E5%B0%81%E8%A3%85%E7%9A%84%E4%BB%A3%E7%A0%81%E5%9D%97%E5%90%88%E9%9B%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -864,436 +1300,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2024/10/13/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E6%97%A0%E6%98%9F%E7%9A%84docker%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89-%20%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/10/13/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E6%97%A0%E6%98%9F%E7%9A%84docker%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89-%20%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/" class="post-title-link" itemprop="url">无星的docker学习（一）- 环境准备</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-10-13 09:38:00" itemprop="dateCreated datePublished" datetime="2024-10-13T09:38:00+08:00">2024-10-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-10-15 22:34:21" itemprop="dateModified" datetime="2025-10-15T22:34:21+08:00">2025-10-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2024/10/13/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E6%97%A0%E6%98%9F%E7%9A%84docker%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89-%20%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/" class="post-meta-item leancloud_visitors" data-flag-title="无星的docker学习（一）- 环境准备" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.5k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Centos"><a href="#Centos" class="headerlink" title="Centos"></a>Centos</h1><h2 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yum check-update</span><br><span class="line"><span class="built_in">sudo</span> yum install -y yum-utils</span><br><span class="line">yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br><span class="line"><span class="comment">#sudo yum install docker -y</span></span><br><span class="line"><span class="built_in">sudo</span> yum install -y docker-ce</span><br><span class="line"><span class="built_in">sudo</span> systemctl start docker</span><br><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> docker</span><br><span class="line">docker --version</span><br></pre></td></tr></table></figure>
-
-<h2 id="设置镜像"><a href="#设置镜像" class="headerlink" title="设置镜像"></a>设置镜像</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 不存在就创建</span></span><br><span class="line">vim /etc/docker/daemon.json</span><br><span class="line"><span class="comment"># 设置内容</span></span><br><span class="line">&#123;<span class="string">&quot;registry-mirrors&quot;</span>: [</span><br><span class="line"><span class="string">&quot;https://docker.m.daocloud.io&quot;</span>,</span><br><span class="line"><span class="string">&quot;https://a.ussh.net&quot;</span>,</span><br><span class="line">]&#125;</span><br><span class="line"><span class="comment">#重载systemd管理守护进程配置文件</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl daemon-reload </span><br><span class="line"><span class="comment">#重启 Docker 服务</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl restart docker </span><br></pre></td></tr></table></figure>
-<h3 id="一些镜像地址"><a href="#一些镜像地址" class="headerlink" title="一些镜像地址:"></a>一些镜像地址:</h3><p><a target="_blank" rel="noopener" href="https://dockerproxy.cn/">https://dockerproxy.cn/</a></p>
-<h1 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># dstserver 是容器名字</span></span><br><span class="line">docker logs -f dstserver</span><br></pre></td></tr></table></figure>
-<h1 id="我常用的一些docker"><a href="#我常用的一些docker" class="headerlink" title="我常用的一些docker"></a>我常用的一些docker</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/10/13/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E6%97%A0%E6%98%9F%E7%9A%84docker%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89-%20%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2024/10/07/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Linux%E5%BC%80%E5%90%AFClash/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/10/07/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Linux%E5%BC%80%E5%90%AFClash/" class="post-title-link" itemprop="url">Linux开启Clash</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-10-07 15:48:00" itemprop="dateCreated datePublished" datetime="2024-10-07T15:48:00+08:00">2024-10-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-10-15 22:34:21" itemprop="dateModified" datetime="2025-10-15T22:34:21+08:00">2025-10-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/clash/" itemprop="url" rel="index"><span itemprop="name">clash</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2024/10/07/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Linux%E5%BC%80%E5%90%AFClash/" class="post-meta-item leancloud_visitors" data-flag-title="Linux开启Clash" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>456</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="方式一-docker安装"><a href="#方式一-docker安装" class="headerlink" title="方式一 docker安装"></a>方式一 docker安装</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 设置docker加速</span><br><span class="line">vim /etc/docker/daemon.json</span><br><span class="line"># 填写内容</span><br><span class="line">&#123;&quot;registry-mirrors&quot;: [&quot;https://dockerproxy.cn&quot;]&#125;</span><br><span class="line"># 重启docker</span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker</span><br><span class="line"></span><br><span class="line"># 安装clash镜像</span><br><span class="line">docker run -d --name=clash -v &quot;$PWD/clash:/root/.config/clash/&quot; -p &quot;7890:7890&quot; -p &quot;7891:7891&quot; -p &quot;9090:9090&quot; --restart=unless-stopped dreamacro/clash</span><br></pre></td></tr></table></figure>
-
-<p>镜像安装完成,就会在当前目录下生成clash文件夹，打开文件夹，将文件夹下的config.yaml 替换成上面我们从机场购买的配置,就好了</p>
-
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/10/07/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Linux%E5%BC%80%E5%90%AFClash/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2024/09/30/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94Chrome%E6%8F%92%E4%BB%B6%E7%9B%91%E5%90%AC%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/09/30/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94Chrome%E6%8F%92%E4%BB%B6%E7%9B%91%E5%90%AC%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/" class="post-title-link" itemprop="url">无星的前端之旅（三十一）——Chrome插件监听网络请求</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-09-30 18:23:00" itemprop="dateCreated datePublished" datetime="2024-09-30T18:23:00+08:00">2024-09-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-10-15 22:34:21" itemprop="dateModified" datetime="2025-10-15T22:34:21+08:00">2025-10-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2024/09/30/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94Chrome%E6%8F%92%E4%BB%B6%E7%9B%91%E5%90%AC%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/" class="post-meta-item leancloud_visitors" data-flag-title="无星的前端之旅（三十一）——Chrome插件监听网络请求" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>4.7k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>需要监听某个网络请求</p>
-<p>并根据body信息做出判断</p>
-<p>将结果展示到插件页面</p>
-<h1 id="manifest-json"><a href="#manifest-json" class="headerlink" title="manifest.json"></a>manifest.json</h1><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;manifest_version&quot;</span><span class="punctuation">:</span> <span class="number">2</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xxx&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0.0.1&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xxx&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;permissions&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;contextMenus&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;cookies&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;storage&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;history&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;webRequest&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;webRequestBlocking&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;*://*/*&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;http://www.baidu.com/*&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;tabs&quot;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">&quot;content_scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;matches&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">                <span class="string">&quot;http://www.baidu.com/*&quot;</span></span><br><span class="line">            <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;js&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">                <span class="string">&quot;content.js&quot;</span></span><br><span class="line">            <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;run_at&quot;</span><span class="punctuation">:</span> <span class="string">&quot;document_start&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;all_frames&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;browser_action&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;default_title&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xxx&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;default_popup&quot;</span><span class="punctuation">:</span> <span class="string">&quot;popup.html&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;icons&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;16&quot;</span><span class="punctuation">:</span> <span class="string">&quot;icons/icon.png&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;32&quot;</span><span class="punctuation">:</span> <span class="string">&quot;icons/icon.png&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;48&quot;</span><span class="punctuation">:</span> <span class="string">&quot;icons/icon.png&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;128&quot;</span><span class="punctuation">:</span> <span class="string">&quot;icons/icon.png&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;web_accessible_resources&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;injected.js&quot;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h1 id="injected-js"><a href="#injected-js" class="headerlink" title="injected.js"></a>injected.js</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> origFetch = <span class="variable language_">window</span>.<span class="property">fetch</span>;</span><br><span class="line">    <span class="variable language_">window</span>.<span class="property">fetch</span> = <span class="keyword">async</span> <span class="keyword">function</span> (<span class="params">...args</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">origFetch</span>(...args);</span><br><span class="line">        <span class="comment">// console.log(&#x27;fetch request:&#x27;, args);</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">const</span> [url] = args</span><br><span class="line"></span><br><span class="line">        <span class="keyword">const</span> data = <span class="keyword">await</span> response</span><br><span class="line">            .<span class="title function_">clone</span>()</span><br><span class="line">            .<span class="title function_">json</span>() <span class="comment">// 此处需要根据不同数据调用不同方法</span></span><br><span class="line">            .<span class="title function_">catch</span>(<span class="function"><span class="params">err</span> =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">error</span>(err));</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 对于二进制大文件可以创建为URL(blob:开头)，供其它脚本访问</span></span><br><span class="line">        <span class="comment">//sessionStorage[&#x27;wave&#x27;] = URL.createObjectURL(data); // 插件需要添加&#x27;storage&#x27;权限</span></span><br><span class="line">        <span class="comment">// // 只监听某些地址</span></span><br><span class="line">        <span class="keyword">if</span> (url === <span class="string">&#x27;./xx/xx/xx&#x27;</span> &amp;&amp; data.<span class="property">respData</span>.<span class="property">corpOther</span>.<span class="title function_">includes</span>(<span class="string">&#x27;xxxx&#x27;</span>)) &#123;</span><br><span class="line">            <span class="variable language_">window</span>.<span class="title function_">postMessage</span>(&#123; <span class="attr">type</span>: <span class="string">&#x27;type&#x27;</span>, <span class="attr">data</span>: data.<span class="property">respData</span> &#125;, <span class="string">&#x27;*&#x27;</span>); <span class="comment">// send to content script</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> response;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)();</span><br><span class="line"><span class="comment">// 下面为xhr，需要则打开</span></span><br><span class="line">(<span class="keyword">function</span> (<span class="params">xhr</span>) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> <span class="variable constant_">XHR</span> = <span class="title class_">XMLHttpRequest</span>.<span class="property"><span class="keyword">prototype</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> open = <span class="variable constant_">XHR</span>.<span class="property">open</span>;</span><br><span class="line">    <span class="keyword">var</span> send = <span class="variable constant_">XHR</span>.<span class="property">send</span>;</span><br><span class="line"></span><br><span class="line">    <span class="variable constant_">XHR</span>.<span class="property">open</span> = <span class="keyword">function</span> (<span class="params">method, url</span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">_method</span> = method;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">_url</span> = url;</span><br><span class="line">        <span class="keyword">return</span> open.<span class="title function_">apply</span>(<span class="variable language_">this</span>, <span class="variable language_">arguments</span>);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="variable constant_">XHR</span>.<span class="property">send</span> = <span class="keyword">function</span> (<span class="params">postData</span>) &#123;</span><br><span class="line">        <span class="comment">// console.log(&#x27;xhr request:&#x27;, this._method, this._url, postData);</span></span><br><span class="line">        <span class="variable language_">this</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;load&#x27;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">            <span class="comment">// sessionStorage[&#x27;key&#x27;] = JSON.stringify(response); // 插件需要添加&#x27;storage&#x27;权限</span></span><br><span class="line">            <span class="comment">// document.cookie</span></span><br><span class="line">            <span class="comment">// localStorage[&#x27;key&#x27;]</span></span><br><span class="line">            <span class="comment">// console.log(&#x27;xhr监听完成&#x27;);</span></span><br><span class="line">            <span class="variable language_">window</span>.<span class="title function_">postMessage</span>(&#123; <span class="attr">type</span>: <span class="string">&#x27;xhr&#x27;</span>, <span class="attr">data</span>: <span class="variable language_">this</span>.<span class="property">response</span> &#125;, <span class="string">&#x27;*&#x27;</span>);  <span class="comment">// 将响应发送到 content script</span></span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">return</span> send.<span class="title function_">apply</span>(<span class="variable language_">this</span>, <span class="variable language_">arguments</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;)(<span class="title class_">XMLHttpRequest</span>);</span><br></pre></td></tr></table></figure>
-
-<h1 id="content-js"><a href="#content-js" class="headerlink" title="content.js"></a>content.js</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;编号查询插件注入成功&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// inject injected script</span></span><br><span class="line"><span class="keyword">let</span> s = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;script&#x27;</span>);</span><br><span class="line">s.<span class="property">src</span> = chrome.<span class="property">runtime</span>.<span class="title function_">getURL</span>(<span class="string">&#x27;injected.js&#x27;</span>);</span><br><span class="line">s.<span class="property">onload</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="title function_">remove</span>();</span><br><span class="line">&#125;;</span><br><span class="line">(<span class="variable language_">document</span>.<span class="property">head</span> || <span class="variable language_">document</span>.<span class="property">documentElement</span>).<span class="title function_">appendChild</span>(s);</span><br><span class="line"></span><br><span class="line"><span class="comment">// receive message from injected script</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;message&#x27;</span>, <span class="keyword">function</span> (<span class="params">e</span>) &#123;</span><br><span class="line">  <span class="comment">// 判断类型</span></span><br><span class="line">  <span class="keyword">const</span> type = e.<span class="property">data</span>.<span class="property">type</span></span><br><span class="line">  <span class="keyword">if</span> (type === <span class="string">&#x27;ocr&#x27;</span>) &#123;</span><br><span class="line">    chrome.<span class="property">storage</span>.<span class="property">local</span>.<span class="title function_">get</span>([<span class="string">&quot;result&quot;</span>], <span class="keyword">function</span> (<span class="params">result</span>) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">123</span>);</span><br><span class="line">      <span class="keyword">const</span> data = result.<span class="property">result</span> ?? <span class="string">&#x27;&#x27;</span></span><br><span class="line">      <span class="keyword">const</span> tmp = data + e.<span class="property">data</span>.<span class="property">data</span> + <span class="string">&#x27;\n&#x27;</span></span><br><span class="line">      chrome.<span class="property">storage</span>.<span class="property">local</span>.<span class="title function_">set</span>(&#123; <span class="attr">result</span>: tmp &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/09/30/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94Chrome%E6%8F%92%E4%BB%B6%E7%9B%91%E5%90%AC%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2024/09/12/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%EF%BC%89%E2%80%94%E2%80%94%E6%80%8E%E4%B9%88%E5%86%99word/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/09/12/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%EF%BC%89%E2%80%94%E2%80%94%E6%80%8E%E4%B9%88%E5%86%99word/" class="post-title-link" itemprop="url">无星的前端之旅（三十）——怎么写word</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-09-12 18:23:00" itemprop="dateCreated datePublished" datetime="2024-09-12T18:23:00+08:00">2024-09-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-10-15 22:34:21" itemprop="dateModified" datetime="2025-10-15T22:34:21+08:00">2025-10-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2024/09/12/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%EF%BC%89%E2%80%94%E2%80%94%E6%80%8E%E4%B9%88%E5%86%99word/" class="post-meta-item leancloud_visitors" data-flag-title="无星的前端之旅（三十）——怎么写word" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>有个业务要求，需要先进行一定的自动化操作</p>
-<p>将提取的信息写到Word里</p>
-<h1 id="docxtemplater"><a href="#docxtemplater" class="headerlink" title="docxtemplater"></a>docxtemplater</h1><p><a target="_blank" rel="noopener" href="https://docxtemplater.com/">docxtemplater-官网</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/open-xml-templating/docxtemplater">docxtemplater-GitHub</a></p>
-<h1 id="集成"><a href="#集成" class="headerlink" title="集成"></a>集成</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm add docxtemplater pizzip fs-extra</span><br></pre></td></tr></table></figure>
-
-<p>如果需要插入图片</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm add docxtemplater pizzip fs-extra docxtemplater-image-module-free image-size</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/09/12/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%EF%BC%89%E2%80%94%E2%80%94%E6%80%8E%E4%B9%88%E5%86%99word/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1365,20 +1371,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">173</span>
+          <span class="site-state-item-count">177</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-count">30</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-count">51</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1402,34 +1408,22 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
+          <a href="https://meowvps.com/" title="https:&#x2F;&#x2F;meowvps.com&#x2F;" rel="noopener" target="_blank">ICMP不可达喵</a>
+        </li>
+        <li class="links-of-blogroll-item">
           <a href="https://blog.huan666.de/" title="https:&#x2F;&#x2F;blog.huan666.de&#x2F;" rel="noopener" target="_blank">焕昭君</a>
         </li>
         <li class="links-of-blogroll-item">
           <a href="https://aiiko.club/" title="https:&#x2F;&#x2F;aiiko.club" rel="noopener" target="_blank">爱喵日记</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.mikuchan.top/?ref=xingxiaowu.cn" title="https:&#x2F;&#x2F;www.mikuchan.top?ref&#x3D;xingxiaowu.cn" rel="noopener" target="_blank">团子的航海日志</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://dazhuang.store/webp/" title="https:&#x2F;&#x2F;dazhuang.store&#x2F;webp&#x2F;" rel="noopener" target="_blank">大壮</a>
-        </li>
-        <li class="links-of-blogroll-item">
           <a href="https://www.webshell.cc/" title="https:&#x2F;&#x2F;www.webshell.cc&#x2F;" rel="noopener" target="_blank">WebShell'S Blog</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://blog.fanjunyang.zone/" title="https:&#x2F;&#x2F;blog.fanjunyang.zone&#x2F;" rel="noopener" target="_blank">俊阳的IT主页</a>
         </li>
         <li class="links-of-blogroll-item">
           <a href="https://www.sqlsec.com/" title="https:&#x2F;&#x2F;www.sqlsec.com&#x2F;" rel="noopener" target="_blank">国光</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://xiaoqiuxx.xyz/" title="http:&#x2F;&#x2F;xiaoqiuxx.xyz&#x2F;" rel="noopener" target="_blank">xiaoqiuxx's Blog</a>
-        </li>
-        <li class="links-of-blogroll-item">
           <a href="https://www.hyhforever.top/" title="https:&#x2F;&#x2F;www.hyhforever.top&#x2F;" rel="noopener" target="_blank">HYH's blog</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://www.v2rayfree.eu.org/" title="https:&#x2F;&#x2F;www.v2rayfree.eu.org&#x2F;" rel="noopener" target="_blank">应急链接</a>
         </li>
     </ul>
   </div>
@@ -1469,7 +1463,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">19:22</span>
+    <span title="站点阅读时长">19:29</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

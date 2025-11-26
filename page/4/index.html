@@ -223,6 +223,441 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2024/10/13/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E6%97%A0%E6%98%9F%E7%9A%84docker%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89-%20%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/10/13/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E6%97%A0%E6%98%9F%E7%9A%84docker%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89-%20%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/" class="post-title-link" itemprop="url">无星的docker学习（一）- 环境准备</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-10-13 09:38:00" itemprop="dateCreated datePublished" datetime="2024-10-13T09:38:00+08:00">2024-10-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-11-26 23:36:09" itemprop="dateModified" datetime="2025-11-26T23:36:09+08:00">2025-11-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2024/10/13/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E6%97%A0%E6%98%9F%E7%9A%84docker%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89-%20%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/" class="post-meta-item leancloud_visitors" data-flag-title="无星的docker学习（一）- 环境准备" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Centos"><a href="#Centos" class="headerlink" title="Centos"></a>Centos</h1><h2 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yum check-update</span><br><span class="line"><span class="built_in">sudo</span> yum install -y yum-utils</span><br><span class="line">yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br><span class="line"><span class="comment">#sudo yum install docker -y</span></span><br><span class="line"><span class="built_in">sudo</span> yum install -y docker-ce</span><br><span class="line"><span class="built_in">sudo</span> systemctl start docker</span><br><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> docker</span><br><span class="line">docker --version</span><br></pre></td></tr></table></figure>
+
+<h2 id="设置镜像"><a href="#设置镜像" class="headerlink" title="设置镜像"></a>设置镜像</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 不存在就创建</span></span><br><span class="line">vim /etc/docker/daemon.json</span><br><span class="line"><span class="comment"># 设置内容</span></span><br><span class="line">&#123;<span class="string">&quot;registry-mirrors&quot;</span>: [</span><br><span class="line"><span class="string">&quot;https://docker.m.daocloud.io&quot;</span>,</span><br><span class="line"><span class="string">&quot;https://a.ussh.net&quot;</span>,</span><br><span class="line">]&#125;</span><br><span class="line"><span class="comment">#重载systemd管理守护进程配置文件</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl daemon-reload </span><br><span class="line"><span class="comment">#重启 Docker 服务</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl restart docker </span><br></pre></td></tr></table></figure>
+
+<h1 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># dstserver 是容器名字</span></span><br><span class="line">docker logs -f dstserver</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="ubuntu-24-04"><a href="#ubuntu-24-04" class="headerlink" title="ubuntu 24.04"></a>ubuntu 24.04</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 卸载旧版本（可选）</span></span><br><span class="line"><span class="built_in">sudo</span> apt remove docker docker-engine docker.io containerd runc</span><br><span class="line"><span class="comment"># 更新 apt 并安装依赖</span></span><br><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line"><span class="built_in">sudo</span> apt upgrade -y</span><br><span class="line"><span class="built_in">sudo</span> apt install -y ca-certificates curl gnupg lsb-release</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> -p /etc/apt/keyrings</span><br><span class="line">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | <span class="built_in">sudo</span> gpg --dearmor -o /etc/apt/keyrings/docker.gpg</span><br><span class="line"><span class="comment"># 设置 Docker 仓库（以 Ubuntu 为例）</span></span><br><span class="line"><span class="built_in">echo</span> \</span><br><span class="line">  <span class="string">&quot;deb [arch=<span class="subst">$(dpkg --print-architecture)</span> signed-by=/etc/apt/keyrings/docker.gpg] \</span></span><br><span class="line"><span class="string">  https://download.docker.com/linux/ubuntu \</span></span><br><span class="line"><span class="string">  <span class="subst">$(lsb_release -cs)</span> stable&quot;</span> | \</span><br><span class="line">  <span class="built_in">sudo</span> <span class="built_in">tee</span> /etc/apt/sources.list.d/docker.list &gt; /dev/null</span><br><span class="line"><span class="comment"># 更新 apt 并安装 Docker</span></span><br><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line"><span class="built_in">sudo</span> apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin</span><br><span class="line"><span class="comment"># 测试</span></span><br><span class="line"><span class="built_in">sudo</span> docker run hello-world</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置国内镜像</span></span><br><span class="line"><span class="comment"># 此处以“https://docker.xuanyuan.me”镜像为例</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> -p /etc/docker</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">tee</span> /etc/docker/daemon.json &lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">&#123;</span></span><br><span class="line"><span class="string">    &quot;registry-mirrors&quot;: [</span></span><br><span class="line"><span class="string">        &quot;https://docker.xuanyuan.me&quot;</span></span><br><span class="line"><span class="string">    ]</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl daemon-reload</span><br><span class="line"><span class="built_in">sudo</span> systemctl restart docker</span><br></pre></td></tr></table></figure>
+
+<h1 id="我常用的一些docker"><a href="#我常用的一些docker" class="headerlink" title="我常用的一些docker"></a>我常用的一些docker</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/10/13/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E6%97%A0%E6%98%9F%E7%9A%84docker%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89-%20%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2024/10/07/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Linux%E5%BC%80%E5%90%AFClash/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/10/07/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Linux%E5%BC%80%E5%90%AFClash/" class="post-title-link" itemprop="url">Linux开启Clash</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-10-07 15:48:00" itemprop="dateCreated datePublished" datetime="2024-10-07T15:48:00+08:00">2024-10-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-10-15 22:34:21" itemprop="dateModified" datetime="2025-10-15T22:34:21+08:00">2025-10-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/clash/" itemprop="url" rel="index"><span itemprop="name">clash</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2024/10/07/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Linux%E5%BC%80%E5%90%AFClash/" class="post-meta-item leancloud_visitors" data-flag-title="Linux开启Clash" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>456</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="方式一-docker安装"><a href="#方式一-docker安装" class="headerlink" title="方式一 docker安装"></a>方式一 docker安装</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 设置docker加速</span><br><span class="line">vim /etc/docker/daemon.json</span><br><span class="line"># 填写内容</span><br><span class="line">&#123;&quot;registry-mirrors&quot;: [&quot;https://dockerproxy.cn&quot;]&#125;</span><br><span class="line"># 重启docker</span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker</span><br><span class="line"></span><br><span class="line"># 安装clash镜像</span><br><span class="line">docker run -d --name=clash -v &quot;$PWD/clash:/root/.config/clash/&quot; -p &quot;7890:7890&quot; -p &quot;7891:7891&quot; -p &quot;9090:9090&quot; --restart=unless-stopped dreamacro/clash</span><br></pre></td></tr></table></figure>
+
+<p>镜像安装完成,就会在当前目录下生成clash文件夹，打开文件夹，将文件夹下的config.yaml 替换成上面我们从机场购买的配置,就好了</p>
+
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/10/07/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Linux%E5%BC%80%E5%90%AFClash/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2024/09/30/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94Chrome%E6%8F%92%E4%BB%B6%E7%9B%91%E5%90%AC%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/09/30/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94Chrome%E6%8F%92%E4%BB%B6%E7%9B%91%E5%90%AC%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/" class="post-title-link" itemprop="url">无星的前端之旅（三十一）——Chrome插件监听网络请求</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-09-30 18:23:00" itemprop="dateCreated datePublished" datetime="2024-09-30T18:23:00+08:00">2024-09-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-10-15 22:34:21" itemprop="dateModified" datetime="2025-10-15T22:34:21+08:00">2025-10-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2024/09/30/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94Chrome%E6%8F%92%E4%BB%B6%E7%9B%91%E5%90%AC%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/" class="post-meta-item leancloud_visitors" data-flag-title="无星的前端之旅（三十一）——Chrome插件监听网络请求" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>需要监听某个网络请求</p>
+<p>并根据body信息做出判断</p>
+<p>将结果展示到插件页面</p>
+<h1 id="manifest-json"><a href="#manifest-json" class="headerlink" title="manifest.json"></a>manifest.json</h1><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;manifest_version&quot;</span><span class="punctuation">:</span> <span class="number">2</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xxx&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0.0.1&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xxx&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;permissions&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;contextMenus&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;cookies&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;storage&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;history&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;webRequest&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;webRequestBlocking&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;*://*/*&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;http://www.baidu.com/*&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;tabs&quot;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">&quot;content_scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;matches&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">                <span class="string">&quot;http://www.baidu.com/*&quot;</span></span><br><span class="line">            <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;js&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">                <span class="string">&quot;content.js&quot;</span></span><br><span class="line">            <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;run_at&quot;</span><span class="punctuation">:</span> <span class="string">&quot;document_start&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;all_frames&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;browser_action&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;default_title&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xxx&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;default_popup&quot;</span><span class="punctuation">:</span> <span class="string">&quot;popup.html&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;icons&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;16&quot;</span><span class="punctuation">:</span> <span class="string">&quot;icons/icon.png&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;32&quot;</span><span class="punctuation">:</span> <span class="string">&quot;icons/icon.png&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;48&quot;</span><span class="punctuation">:</span> <span class="string">&quot;icons/icon.png&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;128&quot;</span><span class="punctuation">:</span> <span class="string">&quot;icons/icon.png&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;web_accessible_resources&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;injected.js&quot;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="injected-js"><a href="#injected-js" class="headerlink" title="injected.js"></a>injected.js</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> origFetch = <span class="variable language_">window</span>.<span class="property">fetch</span>;</span><br><span class="line">    <span class="variable language_">window</span>.<span class="property">fetch</span> = <span class="keyword">async</span> <span class="keyword">function</span> (<span class="params">...args</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">origFetch</span>(...args);</span><br><span class="line">        <span class="comment">// console.log(&#x27;fetch request:&#x27;, args);</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">const</span> [url] = args</span><br><span class="line"></span><br><span class="line">        <span class="keyword">const</span> data = <span class="keyword">await</span> response</span><br><span class="line">            .<span class="title function_">clone</span>()</span><br><span class="line">            .<span class="title function_">json</span>() <span class="comment">// 此处需要根据不同数据调用不同方法</span></span><br><span class="line">            .<span class="title function_">catch</span>(<span class="function"><span class="params">err</span> =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">error</span>(err));</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 对于二进制大文件可以创建为URL(blob:开头)，供其它脚本访问</span></span><br><span class="line">        <span class="comment">//sessionStorage[&#x27;wave&#x27;] = URL.createObjectURL(data); // 插件需要添加&#x27;storage&#x27;权限</span></span><br><span class="line">        <span class="comment">// // 只监听某些地址</span></span><br><span class="line">        <span class="keyword">if</span> (url === <span class="string">&#x27;./xx/xx/xx&#x27;</span> &amp;&amp; data.<span class="property">respData</span>.<span class="property">corpOther</span>.<span class="title function_">includes</span>(<span class="string">&#x27;xxxx&#x27;</span>)) &#123;</span><br><span class="line">            <span class="variable language_">window</span>.<span class="title function_">postMessage</span>(&#123; <span class="attr">type</span>: <span class="string">&#x27;type&#x27;</span>, <span class="attr">data</span>: data.<span class="property">respData</span> &#125;, <span class="string">&#x27;*&#x27;</span>); <span class="comment">// send to content script</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> response;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)();</span><br><span class="line"><span class="comment">// 下面为xhr，需要则打开</span></span><br><span class="line">(<span class="keyword">function</span> (<span class="params">xhr</span>) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> <span class="variable constant_">XHR</span> = <span class="title class_">XMLHttpRequest</span>.<span class="property"><span class="keyword">prototype</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> open = <span class="variable constant_">XHR</span>.<span class="property">open</span>;</span><br><span class="line">    <span class="keyword">var</span> send = <span class="variable constant_">XHR</span>.<span class="property">send</span>;</span><br><span class="line"></span><br><span class="line">    <span class="variable constant_">XHR</span>.<span class="property">open</span> = <span class="keyword">function</span> (<span class="params">method, url</span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">_method</span> = method;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">_url</span> = url;</span><br><span class="line">        <span class="keyword">return</span> open.<span class="title function_">apply</span>(<span class="variable language_">this</span>, <span class="variable language_">arguments</span>);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="variable constant_">XHR</span>.<span class="property">send</span> = <span class="keyword">function</span> (<span class="params">postData</span>) &#123;</span><br><span class="line">        <span class="comment">// console.log(&#x27;xhr request:&#x27;, this._method, this._url, postData);</span></span><br><span class="line">        <span class="variable language_">this</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;load&#x27;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">            <span class="comment">// sessionStorage[&#x27;key&#x27;] = JSON.stringify(response); // 插件需要添加&#x27;storage&#x27;权限</span></span><br><span class="line">            <span class="comment">// document.cookie</span></span><br><span class="line">            <span class="comment">// localStorage[&#x27;key&#x27;]</span></span><br><span class="line">            <span class="comment">// console.log(&#x27;xhr监听完成&#x27;);</span></span><br><span class="line">            <span class="variable language_">window</span>.<span class="title function_">postMessage</span>(&#123; <span class="attr">type</span>: <span class="string">&#x27;xhr&#x27;</span>, <span class="attr">data</span>: <span class="variable language_">this</span>.<span class="property">response</span> &#125;, <span class="string">&#x27;*&#x27;</span>);  <span class="comment">// 将响应发送到 content script</span></span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">return</span> send.<span class="title function_">apply</span>(<span class="variable language_">this</span>, <span class="variable language_">arguments</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;)(<span class="title class_">XMLHttpRequest</span>);</span><br></pre></td></tr></table></figure>
+
+<h1 id="content-js"><a href="#content-js" class="headerlink" title="content.js"></a>content.js</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;编号查询插件注入成功&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// inject injected script</span></span><br><span class="line"><span class="keyword">let</span> s = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;script&#x27;</span>);</span><br><span class="line">s.<span class="property">src</span> = chrome.<span class="property">runtime</span>.<span class="title function_">getURL</span>(<span class="string">&#x27;injected.js&#x27;</span>);</span><br><span class="line">s.<span class="property">onload</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="title function_">remove</span>();</span><br><span class="line">&#125;;</span><br><span class="line">(<span class="variable language_">document</span>.<span class="property">head</span> || <span class="variable language_">document</span>.<span class="property">documentElement</span>).<span class="title function_">appendChild</span>(s);</span><br><span class="line"></span><br><span class="line"><span class="comment">// receive message from injected script</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;message&#x27;</span>, <span class="keyword">function</span> (<span class="params">e</span>) &#123;</span><br><span class="line">  <span class="comment">// 判断类型</span></span><br><span class="line">  <span class="keyword">const</span> type = e.<span class="property">data</span>.<span class="property">type</span></span><br><span class="line">  <span class="keyword">if</span> (type === <span class="string">&#x27;ocr&#x27;</span>) &#123;</span><br><span class="line">    chrome.<span class="property">storage</span>.<span class="property">local</span>.<span class="title function_">get</span>([<span class="string">&quot;result&quot;</span>], <span class="keyword">function</span> (<span class="params">result</span>) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">123</span>);</span><br><span class="line">      <span class="keyword">const</span> data = result.<span class="property">result</span> ?? <span class="string">&#x27;&#x27;</span></span><br><span class="line">      <span class="keyword">const</span> tmp = data + e.<span class="property">data</span>.<span class="property">data</span> + <span class="string">&#x27;\n&#x27;</span></span><br><span class="line">      chrome.<span class="property">storage</span>.<span class="property">local</span>.<span class="title function_">set</span>(&#123; <span class="attr">result</span>: tmp &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/09/30/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94Chrome%E6%8F%92%E4%BB%B6%E7%9B%91%E5%90%AC%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2024/09/12/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%EF%BC%89%E2%80%94%E2%80%94%E6%80%8E%E4%B9%88%E5%86%99word/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/09/12/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%EF%BC%89%E2%80%94%E2%80%94%E6%80%8E%E4%B9%88%E5%86%99word/" class="post-title-link" itemprop="url">无星的前端之旅（三十）——怎么写word</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-09-12 18:23:00" itemprop="dateCreated datePublished" datetime="2024-09-12T18:23:00+08:00">2024-09-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-10-15 22:34:21" itemprop="dateModified" datetime="2025-10-15T22:34:21+08:00">2025-10-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2024/09/12/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%EF%BC%89%E2%80%94%E2%80%94%E6%80%8E%E4%B9%88%E5%86%99word/" class="post-meta-item leancloud_visitors" data-flag-title="无星的前端之旅（三十）——怎么写word" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>有个业务要求，需要先进行一定的自动化操作</p>
+<p>将提取的信息写到Word里</p>
+<h1 id="docxtemplater"><a href="#docxtemplater" class="headerlink" title="docxtemplater"></a>docxtemplater</h1><p><a target="_blank" rel="noopener" href="https://docxtemplater.com/">docxtemplater-官网</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/open-xml-templating/docxtemplater">docxtemplater-GitHub</a></p>
+<h1 id="集成"><a href="#集成" class="headerlink" title="集成"></a>集成</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm add docxtemplater pizzip fs-extra</span><br></pre></td></tr></table></figure>
+
+<p>如果需要插入图片</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm add docxtemplater pizzip fs-extra docxtemplater-image-module-free image-size</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/09/12/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%EF%BC%89%E2%80%94%E2%80%94%E6%80%8E%E4%B9%88%E5%86%99word/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2024/08/08/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/VSCode%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E6%8F%92%E4%BB%B6%E5%B8%82%E5%9C%BA%E9%95%9C%E5%83%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -906,448 +1341,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2024/05/25/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Clash%E4%BB%A3%E7%90%86%E6%B8%B8%E6%88%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/05/25/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Clash%E4%BB%A3%E7%90%86%E6%B8%B8%E6%88%8F/" class="post-title-link" itemprop="url">Clash代理游戏</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-05-25 15:48:00" itemprop="dateCreated datePublished" datetime="2024-05-25T15:48:00+08:00">2024-05-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-10-15 22:34:21" itemprop="dateModified" datetime="2025-10-15T22:34:21+08:00">2025-10-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/clash/" itemprop="url" rel="index"><span itemprop="name">clash</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2024/05/25/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Clash%E4%BB%A3%E7%90%86%E6%B8%B8%E6%88%8F/" class="post-meta-item leancloud_visitors" data-flag-title="Clash代理游戏" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>481</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>最近想玩鹅鸭杀</p>
-<p>苦于没钱买加速器</p>
-<p>但是干程序员的</p>
-<p>梯子都有</p>
-<p>梯子为什么不能加速呢？</p>
-<p>我使用的是Clash_for_windows</p>
-<p>查了一下</p>
-<p>确实可以</p>
-<p>下面是步骤教学</p>
-<h1 id="1-下载TUN插件"><a href="#1-下载TUN插件" class="headerlink" title="1.下载TUN插件"></a>1.下载TUN插件</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/05/25/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Clash%E4%BB%A3%E7%90%86%E6%B8%B8%E6%88%8F/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2024/05/20/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E5%85%AB%EF%BC%89%E2%80%94%E2%80%94%E5%9B%BE%E7%89%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/05/20/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E5%85%AB%EF%BC%89%E2%80%94%E2%80%94%E5%9B%BE%E7%89%87/" class="post-title-link" itemprop="url">无星的安全之旅（八）——图片</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-05-20 20:17:00" itemprop="dateCreated datePublished" datetime="2024-05-20T20:17:00+08:00">2024-05-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-10-15 22:34:21" itemprop="dateModified" datetime="2025-10-15T22:34:21+08:00">2025-10-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">安全</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2024/05/20/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E5%85%AB%EF%BC%89%E2%80%94%E2%80%94%E5%9B%BE%E7%89%87/" class="post-meta-item leancloud_visitors" data-flag-title="无星的安全之旅（八）——图片" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>98</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>实不相瞒，看到图片我就头痛</p>
-<p>现在看到图片</p>
-<p>我上去第一件事</p>
-<p>你这玩意是不是塞了什么小玩具</p>
-<h1 id="打开kali"><a href="#打开kali" class="headerlink" title="打开kali"></a>打开kali</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">binwalk ~/1.png</span><br></pre></td></tr></table></figure>
-
-<p>康康里面是不是塞了什么</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">binwalk ~/1.png -e</span><br></pre></td></tr></table></figure>
-
-<p>分离图片</p>
-<p>剩下的再看</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/05/20/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E5%85%AB%EF%BC%89%E2%80%94%E2%80%94%E5%9B%BE%E7%89%87/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2024/05/07/%E6%B8%97%E9%80%8F/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E4%B8%80%EF%BC%89-https%E6%8A%93%E5%8C%85/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/05/07/%E6%B8%97%E9%80%8F/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E4%B8%80%EF%BC%89-https%E6%8A%93%E5%8C%85/" class="post-title-link" itemprop="url">无星的渗透之旅速成篇（一）-https抓包</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-05-07 20:09:00" itemprop="dateCreated datePublished" datetime="2024-05-07T20:09:00+08:00">2024-05-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-10-15 22:34:21" itemprop="dateModified" datetime="2025-10-15T22:34:21+08:00">2025-10-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">安全</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2024/05/07/%E6%B8%97%E9%80%8F/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E4%B8%80%EF%BC%89-https%E6%8A%93%E5%8C%85/" class="post-meta-item leancloud_visitors" data-flag-title="无星的渗透之旅速成篇（一）-https抓包" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.6k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>抓包很常见，以前做开发的时候也经常用</p>
-<p>无论是<code>charles</code>还是<code>finddler</code>等等</p>
-<p>你是否遇到过<code>https</code>一篇红和<code>unkown</code>的情况？</p>
-<p>2024年了，都是<code>https</code>了把，<code>http</code>屈指可数</p>
-<p>那么我们如何抓包<code>https</code>呢</p>
-<h1 id="证书"><a href="#证书" class="headerlink" title="证书"></a>证书</h1><p>其实说白了，证书才是关键</p>
-<p>我们抓包的本质，是将网络请求代理到某个软件上</p>
-<p>换句话说，自己当“中间人”</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/05/07/%E6%B8%97%E9%80%8F/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E4%B8%80%EF%BC%89-https%E6%8A%93%E5%8C%85/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2024/05/07/%E6%B8%97%E9%80%8F/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E4%BA%8C%EF%BC%89-%E6%89%93%E7%82%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/05/07/%E6%B8%97%E9%80%8F/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E4%BA%8C%EF%BC%89-%E6%89%93%E7%82%B9/" class="post-title-link" itemprop="url">无星的渗透之旅速成篇（二）-打点</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-05-07 20:09:00" itemprop="dateCreated datePublished" datetime="2024-05-07T20:09:00+08:00">2024-05-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-10-15 22:34:21" itemprop="dateModified" datetime="2025-10-15T22:34:21+08:00">2025-10-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">安全</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2024/05/07/%E6%B8%97%E9%80%8F/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E4%BA%8C%EF%BC%89-%E6%89%93%E7%82%B9/" class="post-meta-item leancloud_visitors" data-flag-title="无星的渗透之旅速成篇（二）-打点" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.4k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>阿星还是个新人</p>
-<p>不知道正确的渗透步骤是什么</p>
-<p>这里看到一个打点步骤</p>
-<p>遂记录下来</p>
-<h1 id="打点的基本方法"><a href="#打点的基本方法" class="headerlink" title="打点的基本方法"></a>打点的基本方法</h1><p>基本方法，无非就是信息搜集–&gt;找到脆弱资产–&gt;漏洞利用→getshell，说起来是很简单的。</p>
-<p>这其中最肝的一个部分，莫过于信息搜集了，纯体力活。</p>
-<p>当然，过程可以用工具相对优化，但我依旧认为是最无脑的一个部分，就像大学生和小学生（高阶和低阶技术人员）一起用计算器（各种工具 fofa goby oneforall等）来算1w道加减乘除题（大量的资产 域名子域名 c段等）一样，其实是区分不开技术人员的水平的，很多头部的公司早就认识到了这一点，于是在大型攻防演练中，通常是派大量的人来进行资产收集，然后筛选出其中的脆弱资产后把资产给后续的利用人员来进内网快速拿分。</p>
-<p>虽然信息搜集很无脑，但是该说还是得说，这个事情一般有以下几个步骤。</p>
-<p>1、当项目经理告诉了你攻击目标的时候 →得到公司名→上企查查搜公司名→搜出来一堆公司和子公司</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/05/07/%E6%B8%97%E9%80%8F/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E4%BA%8C%EF%BC%89-%E6%89%93%E7%82%B9/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1419,20 +1412,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">173</span>
+          <span class="site-state-item-count">177</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-count">30</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-count">51</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1456,34 +1449,22 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
+          <a href="https://meowvps.com/" title="https:&#x2F;&#x2F;meowvps.com&#x2F;" rel="noopener" target="_blank">ICMP不可达喵</a>
+        </li>
+        <li class="links-of-blogroll-item">
           <a href="https://blog.huan666.de/" title="https:&#x2F;&#x2F;blog.huan666.de&#x2F;" rel="noopener" target="_blank">焕昭君</a>
         </li>
         <li class="links-of-blogroll-item">
           <a href="https://aiiko.club/" title="https:&#x2F;&#x2F;aiiko.club" rel="noopener" target="_blank">爱喵日记</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.mikuchan.top/?ref=xingxiaowu.cn" title="https:&#x2F;&#x2F;www.mikuchan.top?ref&#x3D;xingxiaowu.cn" rel="noopener" target="_blank">团子的航海日志</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://dazhuang.store/webp/" title="https:&#x2F;&#x2F;dazhuang.store&#x2F;webp&#x2F;" rel="noopener" target="_blank">大壮</a>
-        </li>
-        <li class="links-of-blogroll-item">
           <a href="https://www.webshell.cc/" title="https:&#x2F;&#x2F;www.webshell.cc&#x2F;" rel="noopener" target="_blank">WebShell'S Blog</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://blog.fanjunyang.zone/" title="https:&#x2F;&#x2F;blog.fanjunyang.zone&#x2F;" rel="noopener" target="_blank">俊阳的IT主页</a>
         </li>
         <li class="links-of-blogroll-item">
           <a href="https://www.sqlsec.com/" title="https:&#x2F;&#x2F;www.sqlsec.com&#x2F;" rel="noopener" target="_blank">国光</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://xiaoqiuxx.xyz/" title="http:&#x2F;&#x2F;xiaoqiuxx.xyz&#x2F;" rel="noopener" target="_blank">xiaoqiuxx's Blog</a>
-        </li>
-        <li class="links-of-blogroll-item">
           <a href="https://www.hyhforever.top/" title="https:&#x2F;&#x2F;www.hyhforever.top&#x2F;" rel="noopener" target="_blank">HYH's blog</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://www.v2rayfree.eu.org/" title="https:&#x2F;&#x2F;www.v2rayfree.eu.org&#x2F;" rel="noopener" target="_blank">应急链接</a>
         </li>
     </ul>
   </div>
@@ -1523,7 +1504,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">19:22</span>
+    <span title="站点阅读时长">19:29</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

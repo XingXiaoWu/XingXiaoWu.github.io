@@ -223,6 +223,443 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2021/07/17/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E9%85%8D%E7%BD%AEgit%20hook/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/07/17/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E9%85%8D%E7%BD%AEgit%20hook/" class="post-title-link" itemprop="url">无星的前端之旅（二十三）—— 手把手教你配置git hook</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-07-17 09:38:00" itemprop="dateCreated datePublished" datetime="2021-07-17T09:38:00+08:00">2021-07-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-10-15 22:34:21" itemprop="dateModified" datetime="2025-10-15T22:34:21+08:00">2025-10-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/07/17/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E9%85%8D%E7%BD%AEgit%20hook/" class="post-meta-item leancloud_visitors" data-flag-title="无星的前端之旅（二十三）—— 手把手教你配置git hook" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>要求对<code>git</code>的<code>message</code>做限制，要求要以</p>
+<p><code>[&#39;feat&#39;, &#39;fix&#39;, &#39;docs&#39;, &#39;style&#39;, &#39;refactor&#39;, &#39;perf&#39;, &#39;test&#39;, &#39;build&#39;, &#39;ci&#39;, &#39;revert&#39;, &#39;types&#39;]</code>:</p>
+<p>做开头标记</p>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p><code>git</code>存在<code>hook</code>，在每个步骤后面都会执行对应的🪝</p>
+<p>因此我们可以考虑通过<code>git hook</code>去完成这项校验</p>
+<p>实际上，在平时的开发过程中，就已经有于此相关的内容了，就是不知道同学们留意到没有</p>
+<h1 id="举个🌰"><a href="#举个🌰" class="headerlink" title="举个🌰"></a>举个🌰</h1><p>比如在<code>Vue</code>项目中，如果在创建项目中，选择了<code>eslint</code>，并选择了保存并格式化</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/07/17/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E9%85%8D%E7%BD%AEgit%20hook/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2021/07/17/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20css%E7%9A%84%E4%B8%80%E4%BA%9B%E7%94%A8%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/07/17/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20css%E7%9A%84%E4%B8%80%E4%BA%9B%E7%94%A8%E6%B3%95/" class="post-title-link" itemprop="url">无星的前端之旅（二十五）—— css的一些用法</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-07-17 09:38:00" itemprop="dateCreated datePublished" datetime="2021-07-17T09:38:00+08:00">2021-07-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-10-15 22:34:21" itemprop="dateModified" datetime="2025-10-15T22:34:21+08:00">2025-10-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/07/17/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20css%E7%9A%84%E4%B8%80%E4%BA%9B%E7%94%A8%E6%B3%95/" class="post-meta-item leancloud_visitors" data-flag-title="无星的前端之旅（二十五）—— css的一些用法" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>项目中总是遇到class取名难，样式到处定义，重复颜色到处写，代码切换烦得一批</p>
+<h1 id="一-dart-sass，node-sass"><a href="#一-dart-sass，node-sass" class="headerlink" title="一.dart-sass，node-sass"></a>一.dart-sass，node-sass</h1><p>使用dart-sass，废弃node-sass</p>
+<h1 id="二-Vue项目中色板的使用"><a href="#二-Vue项目中色板的使用" class="headerlink" title="二.Vue项目中色板的使用"></a>二.Vue项目中色板的使用</h1><p>在全局<code>css</code>文件中，新建一个文件，放置各种<code>scss</code>变量</p>
+<p>例如：</p>
+<p><code>src/styles/variables.scss</code></p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$moedu-background-color</span>: <span class="number">#F5F7FA</span>;</span><br></pre></td></tr></table></figure>
+
+<p>配置<code>vue.config.js</code>,将整个变量文件注入</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/07/17/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20css%E7%9A%84%E4%B8%80%E4%BA%9B%E7%94%A8%E6%B3%95/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2021/06/22/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E6%88%91%E6%98%AF%E6%80%8E%E4%B9%88%E5%81%9Agit%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86%E7%9A%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/06/22/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E6%88%91%E6%98%AF%E6%80%8E%E4%B9%88%E5%81%9Agit%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86%E7%9A%84/" class="post-title-link" itemprop="url">我是怎么做git分支管理的</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-06-22 14:12:00" itemprop="dateCreated datePublished" datetime="2021-06-22T14:12:00+08:00">2021-06-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-10-15 22:34:21" itemprop="dateModified" datetime="2025-10-15T22:34:21+08:00">2025-10-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/06/22/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E6%88%91%E6%98%AF%E6%80%8E%E4%B9%88%E5%81%9Agit%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86%E7%9A%84/" class="post-meta-item leancloud_visitors" data-flag-title="我是怎么做git分支管理的" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>git分支管理模型挺多的，各种概念配图花里胡哨，对于初学者来说，看起来会比较累，可能理解不了。</p>
+<p>我这里描述一下我个人是如何做分支管理的，有更好的方式或者建议欢迎评论区交流。</p>
+<h1 id="常驻分支"><a href="#常驻分支" class="headerlink" title="常驻分支"></a>常驻分支</h1><h2 id="保持三个常驻分支对应三个环境"><a href="#保持三个常驻分支对应三个环境" class="headerlink" title="保持三个常驻分支对应三个环境"></a>保持三个常驻分支对应三个环境</h2><ul>
+<li>master —— 生产</li>
+<li>develop —— 开发</li>
+<li>beta  —— 测试</li>
+</ul>
+<p>一般情况下，各个公司都会有着不同的几个环境用于各项研发工作</p>
+<p>名称大同小异，我这里截取几个比较常见的环境名称，分别对应生产，测试，开发</p>
+<p>各位有几个环境，一般可以对应几个常驻分支</p>
+<h1 id="保护分支"><a href="#保护分支" class="headerlink" title="保护分支"></a>保护分支</h1><p>master</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/06/22/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E6%88%91%E6%98%AF%E6%80%8E%E4%B9%88%E5%81%9Agit%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86%E7%9A%84/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2021/06/15/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E8%A1%A8%E5%8D%95%E5%B0%81%E8%A3%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/06/15/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E8%A1%A8%E5%8D%95%E5%B0%81%E8%A3%85/" class="post-title-link" itemprop="url">无星的前端之旅（二十一）—— 表单封装</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-06-15 15:23:00" itemprop="dateCreated datePublished" datetime="2021-06-15T15:23:00+08:00">2021-06-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-10-15 22:34:21" itemprop="dateModified" datetime="2025-10-15T22:34:21+08:00">2025-10-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/06/15/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E8%A1%A8%E5%8D%95%E5%B0%81%E8%A3%85/" class="post-meta-item leancloud_visitors" data-flag-title="无星的前端之旅（二十一）—— 表单封装" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>16k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>14 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>我们做的是后台类型的管理系统，因此相对应的表单就会很多。</p>
+<p>相信做过类似项目的老哥懂得都懂。</p>
+<p>因此我们希望能够通过一些相对简单的配置方式生成表单，不再需要写一大堆的组件。</p>
+<p>尽量通过数据驱动。</p>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>不管是哪个平台，思路都是相通的。</p>
+<h2 id="1-基于UI框架封装"><a href="#1-基于UI框架封装" class="headerlink" title="1.基于UI框架封装"></a>1.基于UI框架封装</h2><p>react我们基于antd封装。</p>
+<p>vue我们基于element封装。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/06/15/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E8%A1%A8%E5%8D%95%E5%B0%81%E8%A3%85/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2021/05/19/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/element-plus%E5%A6%82%E4%BD%95%E8%B7%91%E8%B5%B7%E6%9D%A5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -879,435 +1316,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2021/03/29/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E4%B9%9D%EF%BC%89-%E4%B8%B4%E6%97%B6%E4%BF%AE%E6%94%B9npm%E5%BA%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/29/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E4%B9%9D%EF%BC%89-%E4%B8%B4%E6%97%B6%E4%BF%AE%E6%94%B9npm%E5%BA%93/" class="post-title-link" itemprop="url">无星的前端之旅（十九）-临时修改npm库</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-03-29 16:50:00" itemprop="dateCreated datePublished" datetime="2021-03-29T16:50:00+08:00">2021-03-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-10-15 22:34:21" itemprop="dateModified" datetime="2025-10-15T22:34:21+08:00">2025-10-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2021/03/29/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E4%B9%9D%EF%BC%89-%E4%B8%B4%E6%97%B6%E4%BF%AE%E6%94%B9npm%E5%BA%93/" class="post-meta-item leancloud_visitors" data-flag-title="无星的前端之旅（十九）-临时修改npm库" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>673</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>在开发过程中，偶尔会遇到一些问题，需要通过修改三方库才能解决。</p>
-<p>一般遇到这种情况，我们会采取以下方式解决：</p>
-<h3 id="1-fork一份并修改，package-json指向fork的地址。"><a href="#1-fork一份并修改，package-json指向fork的地址。" class="headerlink" title="1.fork一份并修改，package.json指向fork的地址。"></a>1.fork一份并修改，package.json指向fork的地址。</h3><h3 id="2-写一个shell脚本，在拉完包后执行脚本替换。"><a href="#2-写一个shell脚本，在拉完包后执行脚本替换。" class="headerlink" title="2.写一个shell脚本，在拉完包后执行脚本替换。"></a>2.写一个shell脚本，在拉完包后执行脚本替换。</h3><p>第一个方法太重了，并且在主库的更新合并上比较麻烦，需要手动去合并。</p>
-<p>第二个方法需要写shell脚本，投入产出比不高，还经常忘记执行。</p>
-<p>但自从发现了如下方法，临时修改npm包再也不是事了</p>
-<h1 id="使用patch-package和postinstall-postinstall"><a href="#使用patch-package和postinstall-postinstall" class="headerlink" title="使用patch-package和postinstall-postinstall"></a>使用<code>patch-package</code>和<code>postinstall-postinstall</code></h1><h2 id="1-集成"><a href="#1-集成" class="headerlink" title="1.集成"></a>1.集成</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/03/29/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E4%B9%9D%EF%BC%89-%E4%B8%B4%E6%97%B6%E4%BF%AE%E6%94%B9npm%E5%BA%93/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2021/03/20/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%BE%AE%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94qiankun%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/20/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%BE%AE%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94qiankun%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/" class="post-title-link" itemprop="url">无星的微前端之旅（五）——qiankun遇到的一些坑</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-03-20 23:14:08" itemprop="dateCreated datePublished" datetime="2021-03-20T23:14:08+08:00">2021-03-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-10-15 22:34:21" itemprop="dateModified" datetime="2025-10-15T22:34:21+08:00">2025-10-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%BE%AE%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">微前端</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2021/03/20/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%BE%AE%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94qiankun%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/" class="post-meta-item leancloud_visitors" data-flag-title="无星的微前端之旅（五）——qiankun遇到的一些坑" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>608</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Vue3的router问题"><a href="#Vue3的router问题" class="headerlink" title="Vue3的router问题"></a>Vue3的router问题</h1><p>其实严格来说，这不是qiankun的问题，是vue-router4.x的问题。</p>
-<p>解决方案：history模式使用<code>window.history</code>跳转，hash模式主应用添加<code>hashchange</code>事件发送</p>
-<p>详情见<a target="_blank" rel="noopener" href="https://github.com/umijs/qiankun/issues/1280">issues1280</a></p>
-<h1 id="旧的jq项目改造，发现属性和方法丢失"><a href="#旧的jq项目改造，发现属性和方法丢失" class="headerlink" title="旧的jq项目改造，发现属性和方法丢失"></a>旧的jq项目改造，发现属性和方法丢失</h1><p>子应用包含多个script，其中有些是公共方法，其他js使用的时候提示找不到方法</p>
-<p>解决方案：需要显式挂载到window</p>
-<p>详情见<a target="_blank" rel="noopener" href="https://github.com/umijs/qiankun/issues/1272">issues1272</a></p>
-<h1 id="qiankun添加的div撑不满外部盒子"><a href="#qiankun添加的div撑不满外部盒子" class="headerlink" title="qiankun添加的div撑不满外部盒子"></a>qiankun添加的div撑不满外部盒子</h1><p>使用css选择器为qiankun添加的div加样式</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/03/20/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%BE%AE%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94qiankun%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2021/03/20/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%BE%AE%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94qiankun%E7%BA%BF%E4%B8%8A%E6%9C%8D%E5%8A%A1%E4%BB%A3%E7%90%86%E5%88%B0%E6%9C%AC%E5%9C%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/20/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%BE%AE%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94qiankun%E7%BA%BF%E4%B8%8A%E6%9C%8D%E5%8A%A1%E4%BB%A3%E7%90%86%E5%88%B0%E6%9C%AC%E5%9C%B0/" class="post-title-link" itemprop="url">无星的微前端之旅（四）——qiankun线上服务代理到本地</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-03-20 20:14:08" itemprop="dateCreated datePublished" datetime="2021-03-20T20:14:08+08:00">2021-03-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-10-15 22:34:21" itemprop="dateModified" datetime="2025-10-15T22:34:21+08:00">2025-10-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%BE%AE%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">微前端</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2021/03/20/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%BE%AE%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94qiankun%E7%BA%BF%E4%B8%8A%E6%9C%8D%E5%8A%A1%E4%BB%A3%E7%90%86%E5%88%B0%E6%9C%AC%E5%9C%B0/" class="post-meta-item leancloud_visitors" data-flag-title="无星的微前端之旅（四）——qiankun线上服务代理到本地" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3.8k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>这个方式其实是我在上家公司的时候体验过，觉得确实很有意思。</p>
-<p>所以这里来逆推一下实现方式。</p>
-<h1 id="解决了什么痛点"><a href="#解决了什么痛点" class="headerlink" title="解决了什么痛点"></a>解决了什么痛点</h1><h2 id="1-开发一个模块，需要启动2-3个项目"><a href="#1-开发一个模块，需要启动2-3个项目" class="headerlink" title="1.开发一个模块，需要启动2-3个项目"></a>1.开发一个模块，需要启动2-3个项目</h2><p>在微前端的开发过程中，如果我们要在主应用中看效果，我们至少需要启动一个主应用，和一个待开发模块，如果项目具有登陆机制，我们还需要启动一个登陆模块。</p>
-<p>换句话说，为了开发一个模块，我们需要至少启动三个项目。</p>
-<h2 id="2-数据耦合的情况下，无法单独启动项目调试"><a href="#2-数据耦合的情况下，无法单独启动项目调试" class="headerlink" title="2.数据耦合的情况下，无法单独启动项目调试"></a>2.数据耦合的情况下，无法单独启动项目调试</h2><h2 id="3-特定环境下出现的bug"><a href="#3-特定环境下出现的bug" class="headerlink" title="3.特定环境下出现的bug"></a>3.特定环境下出现的bug</h2><p>可能某些bug依赖特定的数据，在测试环境出现了但在本地运行或开发环境运行正常。</p>
-<h1 id="如何解决"><a href="#如何解决" class="headerlink" title="如何解决"></a>如何解决</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/03/20/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%BE%AE%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94qiankun%E7%BA%BF%E4%B8%8A%E6%9C%8D%E5%8A%A1%E4%BB%A3%E7%90%86%E5%88%B0%E6%9C%AC%E5%9C%B0/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2021/03/20/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%BE%AE%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94qiankun%E6%94%B9%E9%80%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/20/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%BE%AE%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94qiankun%E6%94%B9%E9%80%A0/" class="post-title-link" itemprop="url">无星的微前端之旅（三）——qiankun改造</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-03-20 19:14:08" itemprop="dateCreated datePublished" datetime="2021-03-20T19:14:08+08:00">2021-03-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-10-15 22:34:21" itemprop="dateModified" datetime="2025-10-15T22:34:21+08:00">2025-10-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%BE%AE%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">微前端</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2021/03/20/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%BE%AE%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94qiankun%E6%94%B9%E9%80%A0/" class="post-meta-item leancloud_visitors" data-flag-title="无星的微前端之旅（三）——qiankun改造" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>10k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>9 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="微前端改造"><a href="#微前端改造" class="headerlink" title="微前端改造"></a>微前端改造</h1><p>这里以Vue3为例子，主应用和子应用均使用vue3</p>
-<p>路由的话，建议主应用和子应用使用相同模式，即均为history或者均为hash</p>
-<p>以下先使用为history模式讲解，最后会写如何使用hash模式。</p>
-<hr>
-<h1 id="History模式"><a href="#History模式" class="headerlink" title="History模式"></a>History模式</h1><h1 id="主应用改造"><a href="#主应用改造" class="headerlink" title="主应用改造"></a>主应用改造</h1><p>一般情况下，我们会将带导航的<code>layout</code>的部分，直接放在主应用中。当然不是说不能拆，是能拆的，因为导航的<code>layout</code>明显是个路由不敏感部分，完全可以拆解为单独的子应用。</p>
-<h2 id="1-添加qiankun"><a href="#1-添加qiankun" class="headerlink" title="1.添加qiankun"></a>1.添加qiankun</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add qiankun</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/03/20/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%BE%AE%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94qiankun%E6%94%B9%E9%80%A0/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1379,20 +1387,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">173</span>
+          <span class="site-state-item-count">177</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-count">30</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-count">51</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1416,34 +1424,22 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
+          <a href="https://meowvps.com/" title="https:&#x2F;&#x2F;meowvps.com&#x2F;" rel="noopener" target="_blank">ICMP不可达喵</a>
+        </li>
+        <li class="links-of-blogroll-item">
           <a href="https://blog.huan666.de/" title="https:&#x2F;&#x2F;blog.huan666.de&#x2F;" rel="noopener" target="_blank">焕昭君</a>
         </li>
         <li class="links-of-blogroll-item">
           <a href="https://aiiko.club/" title="https:&#x2F;&#x2F;aiiko.club" rel="noopener" target="_blank">爱喵日记</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.mikuchan.top/?ref=xingxiaowu.cn" title="https:&#x2F;&#x2F;www.mikuchan.top?ref&#x3D;xingxiaowu.cn" rel="noopener" target="_blank">团子的航海日志</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://dazhuang.store/webp/" title="https:&#x2F;&#x2F;dazhuang.store&#x2F;webp&#x2F;" rel="noopener" target="_blank">大壮</a>
-        </li>
-        <li class="links-of-blogroll-item">
           <a href="https://www.webshell.cc/" title="https:&#x2F;&#x2F;www.webshell.cc&#x2F;" rel="noopener" target="_blank">WebShell'S Blog</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://blog.fanjunyang.zone/" title="https:&#x2F;&#x2F;blog.fanjunyang.zone&#x2F;" rel="noopener" target="_blank">俊阳的IT主页</a>
         </li>
         <li class="links-of-blogroll-item">
           <a href="https://www.sqlsec.com/" title="https:&#x2F;&#x2F;www.sqlsec.com&#x2F;" rel="noopener" target="_blank">国光</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://xiaoqiuxx.xyz/" title="http:&#x2F;&#x2F;xiaoqiuxx.xyz&#x2F;" rel="noopener" target="_blank">xiaoqiuxx's Blog</a>
-        </li>
-        <li class="links-of-blogroll-item">
           <a href="https://www.hyhforever.top/" title="https:&#x2F;&#x2F;www.hyhforever.top&#x2F;" rel="noopener" target="_blank">HYH's blog</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://www.v2rayfree.eu.org/" title="https:&#x2F;&#x2F;www.v2rayfree.eu.org&#x2F;" rel="noopener" target="_blank">应急链接</a>
         </li>
     </ul>
   </div>
@@ -1483,7 +1479,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">19:22</span>
+    <span title="站点阅读时长">19:29</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

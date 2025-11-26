@@ -223,6 +223,432 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2019/04/06/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/Swift-ObjectMapper%E5%85%A5%E9%97%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/04/06/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/Swift-ObjectMapper%E5%85%A5%E9%97%A8/" class="post-title-link" itemprop="url">Swift-ObjectMapper入门</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-04-06 20:28:00" itemprop="dateCreated datePublished" datetime="2019-04-06T20:28:00+08:00">2019-04-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-10-15 22:34:21" itemprop="dateModified" datetime="2025-10-15T22:34:21+08:00">2025-10-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/04/06/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/Swift-ObjectMapper%E5%85%A5%E9%97%A8/" class="post-meta-item leancloud_visitors" data-flag-title="Swift-ObjectMapper入门" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>突然很想学swift…不怕死的我在完全没用过的情况下决定通过重构公司的古老项目来完成这段学习之旅….<br>model转json或者json转model是很常见的需求….所以这就是为什么我要用ObjectMapper了…(其实是我把# <a target="_blank" rel="noopener" href="http://tangplin.github.io/swiftyjson/" title="SwiftyJSON介绍">SwiftyJSON</a><br>的star数错了..我可能会趁用的还不多改成SwiftyJSON,毕竟ObjectMapper实在查不到什么资料不是吗…)</p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import UIKit</span><br><span class="line">import ObjectMapper</span><br><span class="line"></span><br><span class="line">class BaseModel: Mappable &#123;</span><br><span class="line">    //定义属性</span><br><span class="line">    var name : String? = &quot;wuxing&quot;    </span><br><span class="line">    init() &#123;</span><br><span class="line">//为什么要写这个init,原因很简单,总有些时候你仅仅想初始化一个model,而非通过外部传入数据初始化</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    required init?(map: Map) &#123;</span><br><span class="line">        //重写ObjectMapper的init</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    func mapping(map: Map) &#123;</span><br><span class="line">        //转换规则</span><br><span class="line">        name &lt;- map[&quot;name&quot;]</span><br><span class="line">    &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>如图,基本已经写得很清楚了emm</p>
+<h3 id="规则转换"><a href="#规则转换" class="headerlink" title="规则转换"></a>规则转换</h3><p>有些时候,有的值是int或者bool,你会发现死活转换不出来…这时候就要自己写转换规则了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import UIKit</span><br><span class="line">import ObjectMapper</span><br><span class="line"></span><br><span class="line">class BaseModel: Mappable &#123;</span><br><span class="line">    var man : Bool? = true</span><br><span class="line"></span><br><span class="line">    var age : Int? = 21</span><br><span class="line">    init() &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    required init?(map: Map) &#123;</span><br><span class="line">        print(&quot;BaseModel初始化&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    func mapping(map: Map) &#123;</span><br><span class="line">        man &lt;- (map[&quot;man&quot;],transformBool)</span><br><span class="line"></span><br><span class="line">        age &lt;- (map[&quot;age&quot;],transformInt)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">//    转换规则</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    let transformInt = TransformOf&lt;Int, String&gt;(fromJSON: &#123; (value: String?) -&gt; Int? in</span><br><span class="line">        if let value = value &#123;</span><br><span class="line">            return Int(value)!</span><br><span class="line">        &#125;</span><br><span class="line">        return nil</span><br><span class="line">    &#125;, toJSON: &#123; (value: Int?) -&gt; String? in</span><br><span class="line">        // transform value from Int? to String?</span><br><span class="line">        if let value = value &#123;</span><br><span class="line">            return String(value)</span><br><span class="line">        &#125;</span><br><span class="line">        return nil</span><br><span class="line">    &#125;)</span><br><span class="line">    </span><br><span class="line">    let transformBool = TransformOf&lt;Bool, String&gt;(fromJSON: &#123; (value: String?) -&gt; Bool? in</span><br><span class="line">        if let value = value &#123;</span><br><span class="line">            return (value as NSString).boolValue</span><br><span class="line">        &#125;</span><br><span class="line">        return false</span><br><span class="line">    &#125;, toJSON: &#123; (value: Bool?) -&gt; String? in</span><br><span class="line">        if let value = value &#123;</span><br><span class="line">            return String(value)</span><br><span class="line">        &#125;</span><br><span class="line">        return &quot;false&quot;</span><br><span class="line">    &#125;)</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>就这样,就能转换了.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/04/06/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/Swift-ObjectMapper%E5%85%A5%E9%97%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2019/03/20/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/iOS-%E5%AD%98%E5%82%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/03/20/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/iOS-%E5%AD%98%E5%82%A8/" class="post-title-link" itemprop="url">iOS-存储</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-03-20 13:22:00" itemprop="dateCreated datePublished" datetime="2019-03-20T13:22:00+08:00">2019-03-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-10-15 22:34:21" itemprop="dateModified" datetime="2025-10-15T22:34:21+08:00">2025-10-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/03/20/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/iOS-%E5%AD%98%E5%82%A8/" class="post-meta-item leancloud_visitors" data-flag-title="iOS-存储" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>447</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>多话8说,我就记录一个聊天记录,有空了一一证实一下</p>
+<p>##问:NSKeyedArchiver存的是什么?二进制吗?<br>###答:嗯<br><br><br>##问:NSKeyedArchiver存在哪?沙盒还是内存<br>###答:沙盒<br><br><br>##问:NSFileManager和NSKeyedArchiver 是什么关系<br>###答:NSFileManager是操作文件的，和NSkeyedArchiver没太大关系<br><br><br>##问:所以使用NSFileManager操作文件并不一定会走归档解档对吗<br>###答:是的，就好比你是人，你需要吃饭，但是你和饭是不同的<br><br><br>##问:NSKeyedArchiver归档的文件路径可指定吗?<br>###答:可以的，方法都提供了路径<br><br><br>##问:NSUserDefaults这个呢,存在内存?<br>###答:NSUserDefaults也是沙盒<br><br><br>##问:那它和NSFileManager区别在哪<br>###答:NSFileManager就是操作文件的，和他么有任何关系.如果你说NSKeyedArchiver和它有什么差别,一个序列化了,一个没序列化</p>
+<p>没了</p>
+
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/03/20/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/iOS-%E5%AD%98%E5%82%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2018/12/17/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/Cocoapods%E5%8F%91%E5%B8%83Framework/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/12/17/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/Cocoapods%E5%8F%91%E5%B8%83Framework/" class="post-title-link" itemprop="url">Cocoapods发布Framework</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-12-17 15:48:00" itemprop="dateCreated datePublished" datetime="2018-12-17T15:48:00+08:00">2018-12-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-10-15 22:34:21" itemprop="dateModified" datetime="2025-10-15T22:34:21+08:00">2025-10-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2018/12/17/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/Cocoapods%E5%8F%91%E5%B8%83Framework/" class="post-meta-item leancloud_visitors" data-flag-title="Cocoapods发布Framework" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="1-创建git仓库"><a href="#1-创建git仓库" class="headerlink" title="1.创建git仓库"></a>1.创建git仓库</h2><p>本项目由于属于商业项目，不开源，因此使用framework方式上传。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/cocoapods-fm/1.png"></p>
+<p>创建完毕以后，拉到本地</p>
+<h2 id="2-创建trunk账号"><a href="#2-创建trunk账号" class="headerlink" title="2.创建trunk账号"></a>2.创建trunk账号</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod trunk register 邮箱地址 ‘用户名’ --verbose</span><br></pre></td></tr></table></figure>
+<p>这里我用了自己的账号</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod trunk register 329106954@qq.com 无星 --verbose</span><br></pre></td></tr></table></figure>
+
+<p>需要去邮箱验证链接</p>
+<p>完成以后</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/12/17/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/Cocoapods%E5%8F%91%E5%B8%83Framework/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2018/11/11/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89-%E8%84%9A%E6%89%8B%E6%9E%B6%E7%9A%84%E8%A7%A3%E6%9E%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headerPic.png">
+      <meta itemprop="name" content="无星">
+      <meta itemprop="description" content="一个么的前途的弟中弟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无星的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/11/11/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89-%E8%84%9A%E6%89%8B%E6%9E%B6%E7%9A%84%E8%A7%A3%E6%9E%90/" class="post-title-link" itemprop="url">无星的RN学习之旅（十一）-脚手架的解析</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-11-11 15:48:00" itemprop="dateCreated datePublished" datetime="2018-11-11T15:48:00+08:00">2018-11-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-10-15 22:34:21" itemprop="dateModified" datetime="2025-10-15T22:34:21+08:00">2025-10-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/react-native/" itemprop="url" rel="index"><span itemprop="name">react-native</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2018/11/11/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89-%E8%84%9A%E6%89%8B%E6%9E%B6%E7%9A%84%E8%A7%A3%E6%9E%90/" class="post-meta-item leancloud_visitors" data-flag-title="无星的RN学习之旅（十一）-脚手架的解析" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>31</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>我搭建了一个<a target="_blank" rel="noopener" href="https://github.com/XingXiaoWu/react-native-template-wx">脚手架</a>,使用方式见readme.</p>
+<p>以后再分析。。。。</p>
+
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/11/11/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89-%E8%84%9A%E6%89%8B%E6%9E%B6%E7%9A%84%E8%A7%A3%E6%9E%90/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2018/11/10/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%EF%BC%89-%E4%B8%80%E4%BB%BD%E4%B8%8D%E5%A4%AA%E4%B8%A5%E8%B0%A8%E7%9A%84%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -872,453 +1298,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2018/07/18/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E5%85%AB%EF%BC%89-Mobx%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/07/18/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E5%85%AB%EF%BC%89-Mobx%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/" class="post-title-link" itemprop="url">无星的RN学习之旅（八）-Mobx入门到放弃</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-07-18 19:33:00" itemprop="dateCreated datePublished" datetime="2018-07-18T19:33:00+08:00">2018-07-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-10-15 22:34:21" itemprop="dateModified" datetime="2025-10-15T22:34:21+08:00">2025-10-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/react-native/" itemprop="url" rel="index"><span itemprop="name">react-native</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2018/07/18/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E5%85%AB%EF%BC%89-Mobx%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/" class="post-meta-item leancloud_visitors" data-flag-title="无星的RN学习之旅（八）-Mobx入门到放弃" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>10k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>9 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>写的都是自己的一些感受&#x3D;。&#x3D;可能都是野路子&#x3D;。&#x3D;大牛就别看了&#x3D;。&#x3D;<br>代码：<a target="_blank" rel="noopener" href="https://github.com/XingXiaoWu/mobx-/tree/master">https://github.com/XingXiaoWu/mobx-/tree/master</a><br>先声明一句话：</p>
-<p>#MobX 会对在追踪函数执行过程中读取现存的可观察属性做出反应。<br>以下所有内容基于rn0.56版本以前（即低于0.56），语法是ES6语法（可能有ES7，反正我是分不清&#x3D;。&#x3D;）<br>#一、引入Mobx<br>首先，安装yarn（别问我为什么不用npm）</p>
-<p>##1.在项目根目录下输入<br>    yarn add mobx mobx-react<br>此命令作用：引入mobx和mobx-react<br>##2.在项目根目录下继续输入(看清楚你的版本选择命令)</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//这是0.57以下的</span><br><span class="line">    yarn add babel-plugin-transform-decorators-legacy babel-preset-react-native-stage-0</span><br><span class="line">//这是0.57及以上的</span><br><span class="line">yarn add @babel/core --dev</span><br><span class="line">yarn add @babel/plugin-proposal-decorators --dev</span><br><span class="line">yarn add @babel/plugin-transform-runtime --dev</span><br><span class="line">yarn add @babel/runtime --dev</span><br></pre></td></tr></table></figure>
-<p>此命令作用：能够使用@标签</p>
-<p>##3.用IDE打开项目<br>打开.babelrc文件<br>修改为(看清楚版本)</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">//0.57以下</span><br><span class="line">&#123;</span><br><span class="line">    &quot;presets&quot;: [&quot;react-native&quot;],</span><br><span class="line">    &quot;plugins&quot;: [&quot;transform-decorators-legacy&quot;]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//0.57及以上</span><br><span class="line">&#123;</span><br><span class="line">  &quot;presets&quot;: [&quot;module:metro-react-native-babel-preset&quot;],</span><br><span class="line">  &quot;plugins&quot;: [</span><br><span class="line">    [&quot;@babel/plugin-proposal-decorators&quot;, &#123; &quot;legacy&quot;: true &#125;],</span><br><span class="line">    [&quot;@babel/transform-runtime&quot;, &#123;</span><br><span class="line">      &quot;helpers&quot;: true,</span><br><span class="line">      &quot;regenerator&quot;: false</span><br><span class="line">    &#125;]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>至此，如果没报错，环境配置完毕，可以正常使用mobx了<br>#二、mobx的常用标签<br>##1.定义observable<br>observable，顾名思义，可以被观察的，即被观察者<br>一般用于数据，几乎所有数据都可以被观察，无论是对象、数组、类。 循环数据结构、引用，都可以被观察，只要给他们打上@ observable的标签，他们都可以被观察。</p>
-<p>我写了三种导出模式，相互的优劣和使用方式还需要琢磨<br>#ThingModel&#x3D;&gt;static定义的，导出的是ThingModel这个class</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import &#123;observable&#125; from &quot;mobx&quot;</span><br><span class="line"></span><br><span class="line">export class ThingModel &#123;</span><br><span class="line">    @observable</span><br><span class="line">    static thing = &quot;我是数据1&quot;</span><br><span class="line"></span><br><span class="line">   @action</span><br><span class="line">    static setThing(value) &#123;</span><br><span class="line">        ThingModel.thing = value</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//使用</span><br><span class="line">ThingModel.thing</span><br><span class="line">ThingModel. setThing(xxx)</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2018/07/18/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E5%85%AB%EF%BC%89-Mobx%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2018/07/08/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%9D%83%E9%99%90%E5%88%A4%E6%96%AD-%E4%BD%8D%E8%BF%90%E7%AE%97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/07/08/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%9D%83%E9%99%90%E5%88%A4%E6%96%AD-%E4%BD%8D%E8%BF%90%E7%AE%97/" class="post-title-link" itemprop="url">权限判断-位运算</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-07-08 22:55:00" itemprop="dateCreated datePublished" datetime="2018-07-08T22:55:00+08:00">2018-07-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-10-15 22:34:21" itemprop="dateModified" datetime="2025-10-15T22:34:21+08:00">2025-10-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2018/07/08/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%9D%83%E9%99%90%E5%88%A4%E6%96%AD-%E4%BD%8D%E8%BF%90%E7%AE%97/" class="post-meta-item leancloud_visitors" data-flag-title="权限判断-位运算" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.7k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>角色权限判断，这应该是大部分应用都有的功能，那么如何进行权限判断？</p>
-<p>这里说下我们用的思路，可能会比较low，各位看官别笑。<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E4%BD%8D%E8%BF%90%E7%AE%97/1.jpg"></p>
-<p>打个比方，我现在有A,B,C,D四个功能。要对某个账户是否具有这些功能权限做判断。<br>我们有个list，里面存放着这个账户所有的权限。（list从哪来？当然是后台请求回来啊！）<br>A功能对应的权限是&#x3D;&gt;0,以此类推B&#x3D;&gt;1,C&#x3D;&gt;2,D&#x3D;&gt;3这样子。</p>
-<p>那么如果我有一个账号拥有所有权限，list就是【0，1，2，3】，如果没有B权限就是【0，2，3，4】这样子，相信大家都应该明白我要表达的意思了。</p>
-<p>那么要判断是否拥有某个权限，这时候肯定就会说，遍历一下list不就知道了？那如果权限比较多呢？而且你不觉得这样更low么&#x3D;。&#x3D;<br>所以这个时候，我们可以使用位运算打成这个目的:</p>
-<p>先说我们用来判断的方法：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//判断是否存在权限，permission是所有权限展示中的某个权限，只有一个&amp;，不是两个，别搞错了</span><br><span class="line">    hasPermission(permission) &#123;</span><br><span class="line">        return permission &amp; GlobalValue.authValue</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>再定义一个包含了所有权限的声明</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//所有权限列表展示</span><br><span class="line">export let Permission = &#123;</span><br><span class="line">    A: Math.pow(2, 0),   //A功能</span><br><span class="line">    B: Math.pow(2, 1),   //B功能</span><br><span class="line">    C: Math.pow(2, 2),    //C功能</span><br><span class="line">    D: Math.pow(2, 3),   //D功能</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在我们和后台请求拿到某个角色所包含的list的时候，对list做如下操作</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2018/07/08/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%9D%83%E9%99%90%E5%88%A4%E6%96%AD-%E4%BD%8D%E8%BF%90%E7%AE%97/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2018/06/13/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94iOS%E6%89%93%E5%8C%85%EF%BC%88%E5%9B%BE%E6%96%87%E6%95%99%E7%A8%8B%E7%89%88%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/06/13/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94iOS%E6%89%93%E5%8C%85%EF%BC%88%E5%9B%BE%E6%96%87%E6%95%99%E7%A8%8B%E7%89%88%EF%BC%89/" class="post-title-link" itemprop="url">无星的RN学习之旅（七）——iOS打包（图文教程版）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-06-13 17:11:00" itemprop="dateCreated datePublished" datetime="2018-06-13T17:11:00+08:00">2018-06-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-10-15 22:34:21" itemprop="dateModified" datetime="2025-10-15T22:34:21+08:00">2025-10-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/react-native/" itemprop="url" rel="index"><span itemprop="name">react-native</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2018/06/13/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94iOS%E6%89%93%E5%8C%85%EF%BC%88%E5%9B%BE%E6%96%87%E6%95%99%E7%A8%8B%E7%89%88%EF%BC%89/" class="post-meta-item leancloud_visitors" data-flag-title="无星的RN学习之旅（七）——iOS打包（图文教程版）" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.4k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>背景：rn好多前端或者安卓转的旁友对iOS的打包不太熟悉，所以写个图文教程版，目前我对应的版本是0.4+版本和0.5+版本（反正我也是随便写的，参考为主）<br>PS：账号的申请还有各种证书的申请我就不多提了，自己百度查下。。<br>###1.打开项目中iOS文件夹，新建一个名为bundle的文件夹<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/RN7/1.png" alt="如图"><br>###2.打开终端，cd到整个项目根目录<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/RN7/2.png" alt="如图中的catten目录"><br>###3.输入命令行，版本不同命令不一样哟，注意看<br>区分标准是你是否存在index.ios.js，存在肯定是老版本，用下面这个命令</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">react-native bundle --entry-file index.ios.js --bundle-output ./ios/bundle/index.ios.jsbundle --platform ios --assets-dest ./ios/bundle --dev false</span><br></pre></td></tr></table></figure>
-<p>如果你是index.js，那就是新版本啦，用下面这个命令</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">react-native bundle --entry-file index.js --bundle-output ./ios/bundle/index.jsbundle --platform ios --assets-dest ./ios/bundle --dev false</span><br></pre></td></tr></table></figure>
-<p>###4.把上面命令输入终端并按下回车<br>等待时间可能要一会<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/RN7/3.png" alt="如图"><br>###4.补，差点漏了一点注意事项<br>可能有的旁友项目中有webview承载html页面<br>这时候你命令行打出来的包可能就要注意一下了<br>如下图，我这是bundle文件夹下assets文件夹里的资源文件夹<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/RN7/4.png" alt="如图"><br>实际上我这个html有多少文件呢<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/RN7/5.png" alt="实际这么多"><br>你会发现少了东西，这时候怎么办，很简单，去你项目中把相关缺少的文件复制到assets里就行</p>
-<p>###5.打开Xcode项目<br>直接拖过去<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/RN7/6.png" alt="直接拖过去"><br>记得选下面这个哟，蓝色的物理文件夹<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/RN7/7.png" alt="选下面这个"><br>选完长这样<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/RN7/8.png" alt="选完长这样"><br>###6.这时候打开appdelegate（我改了东西，里面代码是一样的，不过我的位置不一样，你们看下就知道了）<br>把jsCodeLocation的来源换成你打的包的来源(其他人怎么打包、调试、开发我不清楚，反正我是这么做的，而且已经上架两个项目了，我确定是可用的)<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/RN7/9.png" alt="js的地址"></p>
-<p>还是老样子，index.ios.js填</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jsCodeLocation = [NSURL URLWithString:[[NSBundle mainBundle] pathForResource:@&quot;index.ios.jsbundle&quot; ofType:nil]];</span><br></pre></td></tr></table></figure>
-
-<p>index.js填</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jsCodeLocation = [NSURL URLWithString:[[NSBundle mainBundle] pathForResource:@&quot;index.jsbundle&quot; ofType:nil]];</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2018/06/13/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94iOS%E6%89%93%E5%8C%85%EF%BC%88%E5%9B%BE%E6%96%87%E6%95%99%E7%A8%8B%E7%89%88%EF%BC%89/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2018/01/20/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/iPhone%E7%9A%84%E6%8C%87%E7%BA%B9%E8%AF%86%E5%88%AB%E4%B8%8E%E9%9D%A2%E9%83%A8%E8%AF%86%E5%88%AB%EF%BC%88FaceID%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/01/20/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/iPhone%E7%9A%84%E6%8C%87%E7%BA%B9%E8%AF%86%E5%88%AB%E4%B8%8E%E9%9D%A2%E9%83%A8%E8%AF%86%E5%88%AB%EF%BC%88FaceID%EF%BC%89/" class="post-title-link" itemprop="url">iPhone的指纹识别与面部识别（FaceID）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-01-20 21:36:00" itemprop="dateCreated datePublished" datetime="2018-01-20T21:36:00+08:00">2018-01-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-10-15 22:34:21" itemprop="dateModified" datetime="2025-10-15T22:34:21+08:00">2025-10-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2018/01/20/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/iPhone%E7%9A%84%E6%8C%87%E7%BA%B9%E8%AF%86%E5%88%AB%E4%B8%8E%E9%9D%A2%E9%83%A8%E8%AF%86%E5%88%AB%EF%BC%88FaceID%EF%BC%89/" class="post-meta-item leancloud_visitors" data-flag-title="iPhone的指纹识别与面部识别（FaceID）" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>4.6k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>其实iPhone的指纹识别有很多教程，但其实有两套策略，而且好多都只写了一套，而且有的你会发现，错误码压根就试不出来啊，还以为苹果给的错误码都是瞎扯淡的。</p>
-<p>首先，需要导入苹果的安全策略库LocalAuthentication。<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/ios-faceid/1.png" alt="导入库"><br>这个库提供了指纹识别这一安全策略库公开发者们使用。<br>对于开发者来说，只需要调用几个很简单的方法便可以进行指纹识别了。至于是如何识别，这些苹果并没有公开，开发者只能获取成功或失败状态以及message。<br>###一.判断设备是否支持指纹识别</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">LAContext *context = [[LAContext alloc] init];</span><br><span class="line">  NSError *error = nil;</span><br><span class="line">  </span><br><span class="line">  // 判断设置是否支持指纹识别(iPhone5s+、iOS8+支持)</span><br><span class="line">  BOOL support = [context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&amp;error];</span><br></pre></td></tr></table></figure>
-
-<p>###但是注意了，这里的support如果为NO并不代表设备就不支持指纹识别了。<br>因为当出现：<br>1.设备支持TouchID但TouchId被锁时：LAErrorTouchIDLockout<br>2.设备支持TouchID但没有设置密码：LAErrorPasscodeNotSet（但实际上会走LAErrorTouchIDNotEnrolled）<br>3.设备支持TouchID，设置了密码，但没有设置TouchID：LAErrorTouchIDNotEnrolled<br>这几种情况统统都会报Support为NO</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">if (support) &#123;</span><br><span class="line">    return AllRight;</span><br><span class="line">  &#125;else&#123;</span><br><span class="line">    switch (error.code) &#123;</span><br><span class="line">//        没有设置指纹（没有设置密码也会走到这），但是支持指纹识别</span><br><span class="line">      case LAErrorTouchIDNotEnrolled:&#123;</span><br><span class="line">        return TouchOK;</span><br><span class="line">      &#125;</span><br><span class="line">        break;</span><br><span class="line">//        理论上是没有设置密码,至今没有尝试出什么情况下走这个,希望有试出来场景的兄弟告知一下我</span><br><span class="line">      case LAErrorPasscodeNotSet:&#123;</span><br><span class="line">        return TouchOK;</span><br><span class="line">      &#125;</span><br><span class="line">        break;</span><br><span class="line">//       在使用touchID的场景中,错误太多次（根据策略不同为5次到6次）而导致touchID被锁不可用</span><br><span class="line">      case LAErrorTouchIDLockout:&#123;</span><br><span class="line">        NSLog(@&quot;密码封锁&quot;);</span><br><span class="line">        return TouchOK;</span><br><span class="line">      &#125;</span><br><span class="line">//        设备不支持指纹识别</span><br><span class="line">      default:&#123;</span><br><span class="line">        return AllError;</span><br><span class="line">      &#125;</span><br><span class="line">        break;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>###二.指纹识别如何唤起（其实是安全策略的唤起）<br>其实整个LocalAuthentication库是一个安全策略库，我们所说的指纹只是安全策略的一种，主要为生物技术的使用。这种策略有非常多的种类，现在常用的指纹，iPhone X的face ID，没准以后还会有虹膜等更多的安全策略出现。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[authenticationContext evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics localizedReason:@&quot;通过Home键验证已有手机指纹&quot; reply:^(BOOL success, NSError * _Nullable error) &#123;</span><br><span class="line">            // 指纹识别错误调用分为以下情况,</span><br><span class="line">            // 点击取消按钮 : domain = com.apple.LocalAuthentication code = -2</span><br><span class="line">            // 点击输入密码按钮 : domain = com.apple.LocalAuthentication code = -3</span><br><span class="line">            // 输入密码重新进入指纹系统 : domain = com.apple.LocalAuthentication code = -8</span><br><span class="line">            // 指纹三次错误 : domain = com.apple.LocalAuthentication code = -1</span><br><span class="line">            // 指纹验证成功 : error = nil</span><br><span class="line">            if (error) &#123;</span><br><span class="line">                switch (error.code) &#123;</span><br><span class="line">//                        指纹识别3次失败进入这里</span><br><span class="line">                    case LAErrorAuthenticationFailed:</span><br><span class="line">                        NSLog(@&quot;验证失败&quot;);</span><br><span class="line">                        break;</span><br><span class="line">//                        指纹识别时，点击取消</span><br><span class="line">                    case LAErrorUserCancel:</span><br><span class="line">                        NSLog(@&quot;点击取消按钮&quot;);</span><br><span class="line">                        break;</span><br><span class="line">//                        指纹识别时，点击输入密码按钮</span><br><span class="line">                    case LAErrorUserFallback:</span><br><span class="line">                        NSLog(@&quot;点击输入密码按钮&quot;);</span><br><span class="line">                        break;</span><br><span class="line">//                        没有在设备上设置密码（我没试出来这一项，有试出来的兄弟评论告诉我一下）</span><br><span class="line">                    case LAErrorPasscodeNotSet:</span><br><span class="line">                        NSLog(@&quot;没有在设备上设置密码&quot;);</span><br><span class="line">                        break;</span><br><span class="line">//                        设备上TouchID不可用，例如未打开（我没试出来这一项，有试出来的兄弟评论告诉我一下）</span><br><span class="line">                    case LAErrorTouchIDNotAvailable:</span><br><span class="line">                        NSLog(@&quot;设备不支持TouchID&quot;);</span><br><span class="line">                        break;</span><br><span class="line">//                        没有设置TouchID</span><br><span class="line">                    case LAErrorTouchIDNotEnrolled:</span><br><span class="line">                        NSLog(@&quot;设备没有注册TouchID&quot;);</span><br><span class="line">                        break;</span><br><span class="line">//                        设备TouchID被锁，且只会在iOS9以上设备出现</span><br><span class="line">                    case LAErrorTouchIDLockout:</span><br><span class="line">                        NSLog(@&quot;TouchID被锁&quot;);</span><br><span class="line">                        break;</span><br><span class="line">//                        由于不可抗拒力，应用进入后台（其实很简单，你写两个测试demo，在一个启动指纹时开启另一个项目，你的指纹项目就会因为不可抗力进入后台，这时候就会走到这）</span><br><span class="line">                    case LAErrorSystemCancel:</span><br><span class="line">                        NSLog(@&quot;由于系统阻止，转入后台&quot;);</span><br><span class="line">                        break;</span><br><span class="line">                    default:</span><br><span class="line">//                        直接写失败吧，也没别的原因了，进入这里都很难了</span><br><span class="line">                        break;</span><br><span class="line">                &#125;</span><br><span class="line">                return ;</span><br><span class="line">            &#125;</span><br><span class="line">            else&#123;</span><br><span class="line">                NSLog(@&quot;识别成功&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;];</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>一般用上面写的这段代码就行了<br>接下来咱们说说策略</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/// @param policy 策略</span><br><span class="line">/// @param localizedReason 提示语</span><br><span class="line">/// @param reply Reply block 回调的代码块</span><br><span class="line">[myContext evaluatePolicy:&lt;#(LAPolicy)#&gt; localizedReason:&lt;#(nonnull NSString *)#&gt; reply:^(BOOL success, NSError * _Nullable error) &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;];</span><br></pre></td></tr></table></figure>
-<p>咱们来谈谈policy，这玩意有两个枚举值</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2018/01/20/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/iPhone%E7%9A%84%E6%8C%87%E7%BA%B9%E8%AF%86%E5%88%AB%E4%B8%8E%E9%9D%A2%E9%83%A8%E8%AF%86%E5%88%AB%EF%BC%88FaceID%EF%BC%89/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1390,20 +1369,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">173</span>
+          <span class="site-state-item-count">177</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-count">30</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-count">51</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1427,34 +1406,22 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
+          <a href="https://meowvps.com/" title="https:&#x2F;&#x2F;meowvps.com&#x2F;" rel="noopener" target="_blank">ICMP不可达喵</a>
+        </li>
+        <li class="links-of-blogroll-item">
           <a href="https://blog.huan666.de/" title="https:&#x2F;&#x2F;blog.huan666.de&#x2F;" rel="noopener" target="_blank">焕昭君</a>
         </li>
         <li class="links-of-blogroll-item">
           <a href="https://aiiko.club/" title="https:&#x2F;&#x2F;aiiko.club" rel="noopener" target="_blank">爱喵日记</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.mikuchan.top/?ref=xingxiaowu.cn" title="https:&#x2F;&#x2F;www.mikuchan.top?ref&#x3D;xingxiaowu.cn" rel="noopener" target="_blank">团子的航海日志</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://dazhuang.store/webp/" title="https:&#x2F;&#x2F;dazhuang.store&#x2F;webp&#x2F;" rel="noopener" target="_blank">大壮</a>
-        </li>
-        <li class="links-of-blogroll-item">
           <a href="https://www.webshell.cc/" title="https:&#x2F;&#x2F;www.webshell.cc&#x2F;" rel="noopener" target="_blank">WebShell'S Blog</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://blog.fanjunyang.zone/" title="https:&#x2F;&#x2F;blog.fanjunyang.zone&#x2F;" rel="noopener" target="_blank">俊阳的IT主页</a>
         </li>
         <li class="links-of-blogroll-item">
           <a href="https://www.sqlsec.com/" title="https:&#x2F;&#x2F;www.sqlsec.com&#x2F;" rel="noopener" target="_blank">国光</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://xiaoqiuxx.xyz/" title="http:&#x2F;&#x2F;xiaoqiuxx.xyz&#x2F;" rel="noopener" target="_blank">xiaoqiuxx's Blog</a>
-        </li>
-        <li class="links-of-blogroll-item">
           <a href="https://www.hyhforever.top/" title="https:&#x2F;&#x2F;www.hyhforever.top&#x2F;" rel="noopener" target="_blank">HYH's blog</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://www.v2rayfree.eu.org/" title="https:&#x2F;&#x2F;www.v2rayfree.eu.org&#x2F;" rel="noopener" target="_blank">应急链接</a>
         </li>
     </ul>
   </div>
@@ -1494,7 +1461,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">19:22</span>
+    <span title="站点阅读时长">19:29</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
