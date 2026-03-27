@@ -1,0 +1,294 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>无星的nginx配置学习（三）——一台服务器80端口映射多个网页 | 歪比巴卜</title><meta name="author" content="无星"><meta name="copyright" content="无星"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="买了一台服务器 不干别的，就放几个静态网页 分别在&#x2F;www&#x2F;wwwroot&#x2F;a &#x2F;www&#x2F;wwwroot&#x2F;b &#x2F;www&#x2F;wwwroot&#x2F;c 后面就是html和资源文件了 手里恰好也有几个闲置域名 需要配置这几个直接访问 我们假设域名的dns都配置好了 仅谈nginx配置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="无星的nginx配置学习（三）——一台服务器80端口映射多个网页">
+<meta property="og:url" content="http://blog.xingxiaowu.cn/2025/11/03/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E6%97%A0%E6%98%9F%E7%9A%84nginx%E9%85%8D%E7%BD%AE%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E4%B8%80%E5%8F%B0%E6%9C%8D%E5%8A%A1%E5%99%A880%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84%E5%A4%9A%E4%B8%AA%E7%BD%91%E9%A1%B5/index.html">
+<meta property="og:site_name" content="歪比巴卜">
+<meta property="og:description" content="买了一台服务器 不干别的，就放几个静态网页 分别在&#x2F;www&#x2F;wwwroot&#x2F;a &#x2F;www&#x2F;wwwroot&#x2F;b &#x2F;www&#x2F;wwwroot&#x2F;c 后面就是html和资源文件了 手里恰好也有几个闲置域名 需要配置这几个直接访问 我们假设域名的dns都配置好了 仅谈nginx配置">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.xingxiaowu.cn/img/cover/9.jpg">
+<meta property="article:published_time" content="2025-11-03T07:48:00.000Z">
+<meta property="article:modified_time" content="2025-11-03T06:31:39.230Z">
+<meta property="article:author" content="无星">
+<meta property="article:tag" content="nginx">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.xingxiaowu.cn/img/cover/9.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "无星的nginx配置学习（三）——一台服务器80端口映射多个网页",
+  "url": "http://blog.xingxiaowu.cn/2025/11/03/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E6%97%A0%E6%98%9F%E7%9A%84nginx%E9%85%8D%E7%BD%AE%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E4%B8%80%E5%8F%B0%E6%9C%8D%E5%8A%A1%E5%99%A880%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84%E5%A4%9A%E4%B8%AA%E7%BD%91%E9%A1%B5/",
+  "image": "http://blog.xingxiaowu.cn/img/cover/9.jpg",
+  "datePublished": "2025-11-03T07:48:00.000Z",
+  "dateModified": "2025-11-03T06:31:39.230Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "无星",
+      "url": "http://blog.xingxiaowu.cn"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/images/Avatar.jpg"><link rel="canonical" href="http://blog.xingxiaowu.cn/2025/11/03/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E6%97%A0%E6%98%9F%E7%9A%84nginx%E9%85%8D%E7%BD%AE%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E4%B8%80%E5%8F%B0%E6%9C%8D%E5%8A%A1%E5%99%A880%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84%E5%A4%9A%E4%B8%AA%E7%BD%91%E9%A1%B5/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?bdba6c3bda62a07f58f3cf06034704d5";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-5976024V60"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-5976024V60')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-5976024V60', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":150,"languages":{"author":"作者: 无星","link":"链接: ","source":"来源: 歪比巴卜","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '无星的nginx配置学习（三）——一台服务器80端口映射多个网页',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/rss2.xml" title="歪比巴卜" type="application/rss+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/Avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">183</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">54</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">33</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/cover/9.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/images/Avatar.jpg" alt="Logo"><span class="site-name">歪比巴卜</span></a><a class="nav-page-title" href="/"><span class="site-name">无星的nginx配置学习（三）——一台服务器80端口映射多个网页</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">无星的nginx配置学习（三）——一台服务器80端口映射多个网页</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-11-03T07:48:00.000Z" title="发表于 2025-11-03 15:48:00">2025-11-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-03T06:31:39.230Z" title="更新于 2025-11-03 14:31:39">2025-11-03</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/nginx/">nginx</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2025/11/03/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E6%97%A0%E6%98%9F%E7%9A%84nginx%E9%85%8D%E7%BD%AE%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E4%B8%80%E5%8F%B0%E6%9C%8D%E5%8A%A1%E5%99%A880%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84%E5%A4%9A%E4%B8%AA%E7%BD%91%E9%A1%B5/#post-comment"><span class="gitalk-comment-count"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>买了一台服务器</p>
+<p>不干别的，就放几个静态网页</p>
+<p>分别在<br>&#x2F;www&#x2F;wwwroot&#x2F;a</p>
+<p>&#x2F;www&#x2F;wwwroot&#x2F;b</p>
+<p>&#x2F;www&#x2F;wwwroot&#x2F;c</p>
+<p>后面就是html和资源文件了</p>
+<p>手里恰好也有几个闲置域名</p>
+<p>需要配置这几个直接访问</p>
+<p>我们假设域名的dns都配置好了</p>
+<p>仅谈nginx配置</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 忽略其他配置</span></span><br><span class="line"><span class="string">http</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment"># 忽略其他配置</span></span><br><span class="line"></span><br><span class="line">    <span class="string">server</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">listen</span> <span class="number">80</span><span class="string">;</span></span><br><span class="line">        <span class="string">server_name</span> <span class="string">a.com;</span></span><br><span class="line">        <span class="string">include</span> <span class="string">enable-php.conf;</span></span><br><span class="line"></span><br><span class="line">        <span class="string">location</span> <span class="string">/</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">root</span> <span class="string">/www/wwwroot/a;</span></span><br><span class="line">            <span class="string">index</span> <span class="string">index.php</span> <span class="string">index.html</span> <span class="string">index.htm</span> <span class="string">default.php</span> <span class="string">default.htm</span> <span class="string">default.html;</span></span><br><span class="line">            <span class="string">try_files</span> <span class="string">$uri</span> <span class="string">$uri/</span> <span class="string">/index.html;</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 接口路由地址转发</span></span><br><span class="line">        <span class="string">location</span> <span class="string">/api/config</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">proxy_pass</span> <span class="string">http://127.0.0.1:3001;</span></span><br><span class="line">            <span class="string">proxy_set_header</span> <span class="string">HOST</span> <span class="string">$host;</span></span><br><span class="line">            <span class="string">proxy_set_header</span> <span class="string">X-Forwarded-For</span> <span class="string">$proxy_add_x_forwarded_for;</span></span><br><span class="line">            <span class="string">proxy_set_header</span> <span class="string">X-Real-IP</span> <span class="string">$remote_addr;</span></span><br><span class="line">            <span class="string">proxy_set_header</span> <span class="string">Request-Url</span> <span class="string">$request_uri;</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="string">access_log</span> <span class="string">/www/wwwlogs/access.log;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="string">server</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">listen</span> <span class="number">80</span><span class="string">;</span></span><br><span class="line">        <span class="string">server_name</span> <span class="string">b.net;</span></span><br><span class="line">        <span class="string">include</span> <span class="string">enable-php.conf;</span></span><br><span class="line">	</span><br><span class="line">        <span class="string">location</span> <span class="string">/</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">root</span> <span class="string">/www/wwwroot/b;</span></span><br><span class="line">            <span class="string">index</span> <span class="string">index.php</span> <span class="string">index.html</span> <span class="string">index.htm</span> <span class="string">default.php</span> <span class="string">default.htm</span> <span class="string">default.html;</span></span><br><span class="line">            <span class="string">try_files</span> <span class="string">$uri</span> <span class="string">$uri/</span> <span class="string">/index.html;</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="string">access_log</span> <span class="string">/www/wwwlogs/access.log;</span></span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">    <span class="string">include</span> <span class="string">/www/server/panel/vhost/nginx/*.conf;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这样</p>
+<p><code>a.com</code>访问<code>/www/wwwroot/a/index.html</code></p>
+<p><code>b.net</code>访问 <code>/www/wwwroot/b/index.html</code></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://blog.xingxiaowu.cn">无星</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://blog.xingxiaowu.cn/2025/11/03/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E6%97%A0%E6%98%9F%E7%9A%84nginx%E9%85%8D%E7%BD%AE%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E4%B8%80%E5%8F%B0%E6%9C%8D%E5%8A%A1%E5%99%A880%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84%E5%A4%9A%E4%B8%AA%E7%BD%91%E9%A1%B5/">http://blog.xingxiaowu.cn/2025/11/03/运维杂谈/无星的nginx配置学习（三）——一台服务器80端口映射多个网页/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://blog.xingxiaowu.cn" target="_blank">歪比巴卜</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/nginx/">nginx</a></div><div class="post-share"><div class="social-share" data-image="/img/cover/9.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>V我50，Crazy</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/images/WechatPay.png" target="_blank"><img class="post-qr-code-img" src="/images/WechatPay.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/images/AliPay.png" target="_blank"><img class="post-qr-code-img" src="/images/AliPay.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2021/01/14/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E6%97%A0%E6%98%9F%E7%9A%84nginx%E9%85%8D%E7%BD%AE%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89-%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/" title="无星的nginx配置学习（一）-基础配置"><img class="cover" src="/img/cover/1.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-01-14</div><div class="info-item-2">无星的nginx配置学习（一）-基础配置</div></div><div class="info-2"><div class="info-item-1">背景有个静态项目需要本地跑起来调试。这个项目还是前后端不分离的。 接口有发布好的开发环境。不想跑java，想直接跑前端调试。 所以用nginx nginx安装我是mac，brew是什么就不多说了。 1234# 安装brew install nginx# 查看信息brew info nginx  打开配置文件nginx.confbrew info命令会输出conf的地址，请仔细查看。 不要怕改错，同文件夹下有个default，随时可以用默认配置覆盖  默认配置长下面这样 12345678910111213141516171819202122232425262728worker_processes  1;events &#123;    worker_connections  1024;&#125;http &#123;    include       mime.types;    default_type  applocation/octet-stream;    sendfile        on;    keepalive_timeout  65;    server &#...</div></div></div></a><a class="pagination-related" href="/2021/02/03/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E6%97%A0%E6%98%9F%E7%9A%84nginx%E9%85%8D%E7%BD%AE%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94Vue%20router%20history%E9%85%8D%E7%BD%AE/" title="无星的nginx配置学习（二）——Vue router history配置引发的思考"><img class="cover" src="/img/cover/3.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-03</div><div class="info-item-2">无星的nginx配置学习（二）——Vue router history配置引发的思考</div></div><div class="info-2"><div class="info-item-1">啥是History模式文档 nginx配置前提：假设把打包后的文件放在根目录下（这个前提很重要!!!）从文档可以看到，nginx配置内容为 1234# nginxlocation / &#123;  try_files $uri $uri/ /index.html;&#125; 实际上这是什么意思呢？ 根据以上前提 我们如果把对应文件放到根目录下，差不多是这个意思 1.把dist包内容放到根路径下比如我们在桌面新建一个文件夹Nginx,然后把dist包里的内容都放进来 大概长这样 2.nginx构造server文档只有一个location的配置，并且写了前提是放在根路径，所以这个前提很重要，我们需要先构造这么一个前提，需要把上面的Nginx文件夹设置为根路径 123456server &#123;       listen 8899;       server_name localhost;       root  /Users/xing.wu/Desktop/Nginx;       # 下面写location   &#125; 构造这样一个server，使localhost:...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/Avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">无星</div><div class="author-info-description">打工人</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">183</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">54</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">33</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/XingXiaoWu" target="_blank" title="Github"><i class="fab fa-github" style="color: #hdhfbb;"></i></a><a class="social-icon" href="https://juejin.cn/user/1503787636493886" target="_blank" title="掘金"><i class="fab fa-blogger" style="color: #hdhfbb;"></i></a><a class="social-icon" href="https://www.jianshu.com/u/fef7696741c8" target="_blank" title="简书"><i class="fas fa-blog" style="color: #hdhfbb;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/03/25/%E6%B8%97%E9%80%8F/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89-Yakit%E7%83%AD%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%87%A0%E4%B8%AA%E6%A8%A1%E6%9D%BF/" title="无星的渗透之旅速成篇（十六）-Yakit热加载的几个模板"><img src="/img/cover/7.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无星的渗透之旅速成篇（十六）-Yakit热加载的几个模板"/></a><div class="content"><a class="title" href="/2026/03/25/%E6%B8%97%E9%80%8F/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89-Yakit%E7%83%AD%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%87%A0%E4%B8%AA%E6%A8%A1%E6%9D%BF/" title="无星的渗透之旅速成篇（十六）-Yakit热加载的几个模板">无星的渗透之旅速成篇（十六）-Yakit热加载的几个模板</a><time datetime="2026-03-25T12:09:00.000Z" title="发表于 2026-03-25 20:09:00">2026-03-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/03/17/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Jenkins%E5%89%8D%E7%AB%AFPipeLine/" title="Jenkins前端PipeLine"><img src="/img/cover/5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Jenkins前端PipeLine"/></a><div class="content"><a class="title" href="/2026/03/17/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Jenkins%E5%89%8D%E7%AB%AFPipeLine/" title="Jenkins前端PipeLine">Jenkins前端PipeLine</a><time datetime="2026-03-17T06:32:00.000Z" title="发表于 2026-03-17 14:32:00">2026-03-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/14/%E7%A2%8E%E7%A2%8E%E5%BF%B5/AI%E6%8F%90%E7%A4%BA%E8%AF%8D/" title="一些有意思的AI提示词"><img src="/img/cover/8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="一些有意思的AI提示词"/></a><div class="content"><a class="title" href="/2026/01/14/%E7%A2%8E%E7%A2%8E%E5%BF%B5/AI%E6%8F%90%E7%A4%BA%E8%AF%8D/" title="一些有意思的AI提示词">一些有意思的AI提示词</a><time datetime="2026-01-14T05:54:00.000Z" title="发表于 2026-01-14 13:54:00">2026-01-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/12/29/%E7%A2%8E%E7%A2%8E%E5%BF%B5/AI%E4%BD%BF%E6%88%91%E8%83%BD%E5%8A%9B%E4%B8%8B%E9%99%8D/" title="AI使我能力下降"><img src="/img/cover/10.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI使我能力下降"/></a><div class="content"><a class="title" href="/2025/12/29/%E7%A2%8E%E7%A2%8E%E5%BF%B5/AI%E4%BD%BF%E6%88%91%E8%83%BD%E5%8A%9B%E4%B8%8B%E9%99%8D/" title="AI使我能力下降">AI使我能力下降</a><time datetime="2025-12-29T05:54:00.000Z" title="发表于 2025-12-29 13:54:00">2025-12-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/12/15/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8cf%E7%99%BD%E5%AB%96KV%E5%AD%98%E5%82%A8/" title="如何使用cf白嫖KV存储"><img src="/img/cover/3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如何使用cf白嫖KV存储"/></a><div class="content"><a class="title" href="/2025/12/15/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8cf%E7%99%BD%E5%AB%96KV%E5%AD%98%E5%82%A8/" title="如何使用cf白嫖KV存储">如何使用cf白嫖KV存储</a><time datetime="2025-12-15T06:12:00.000Z" title="发表于 2025-12-15 14:12:00">2025-12-15</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/cover/9.jpg);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2016 - 2026 By 无星</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div><div class="footer_custom_text">歪比巴卜</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const commentCount = n => {
+    const isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+    if (isCommentCount) {
+      isCommentCount.textContent= n
+    }
+  }
+
+  const initGitalk = (el, path) => {
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyGitalk = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+
+    const gitalk = new Gitalk({
+      clientID: 'c06f519d5671dfd10942',
+      clientSecret: '38d97414c2b8bfec7f473f9f3458ca58fd0d25d1',
+      repo: 'XingXiaoWu.github.io',
+      owner: 'XingXiaoWu',
+      admin: ['XingXiaoWu'],
+      updateCountCallback: commentCount,
+      ...option,
+      id: isShuoshuo ? path : (option && option.id) || '2e2676c6743a1cf4382a3213aef6be51'
+    })
+
+    gitalk.render('gitalk-container')
+  }
+
+  const loadGitalk = async(el, path) => {
+    if (typeof Gitalk === 'function') initGitalk(el, path)
+    else {
+      await btf.getCSS('https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.css')
+      await btf.getScript('https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.js')
+      initGitalk(el, path)
+    }
+  }
+
+  if (isShuoshuo) {
+    'Gitalk' === 'Gitalk'
+      ? window.shuoshuoComment = { loadComment: loadGitalk }
+      : window.loadOtherComment = loadGitalk
+    return
+  }
+
+  if ('Gitalk' === 'Gitalk' || !false) {
+    if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+    else loadGitalk()
+  } else {
+    window.loadOtherComment = loadGitalk
+  }
+})()</script></div><script>(() => {
+  btf.getScript('//code.tidio.co/8bedg9ebrxiovjwd7m9vzmap6dbvl0jf.js').then(() => {
+    const isChatBtn = false
+    const isChatHideShow = false
+
+    if (isChatBtn) {
+      let isShow = false
+      const close = () => {
+        window.tidioChatApi.hide()
+        isShow = false
+      }
+      
+      const open = () => {
+        window.tidioChatApi.open()
+        window.tidioChatApi.show()
+        isShow = true
+      }
+
+      const onTidioChatApiReady = () => {
+        window.tidioChatApi.hide()
+        window.tidioChatApi.on("close", close)
+      }
+      if (window.tidioChatApi) {
+        window.tidioChatApi.on("ready", onTidioChatApiReady)
+      } else {
+        document.addEventListener("tidioChat-ready", onTidioChatApiReady)
+      }
+
+      window.chatBtnFn = () => {
+        if (!window.tidioChatApi) return
+        isShow ? close() : open()
+      }
+
+      document.getElementById('chat-btn').style.display = 'block'
+
+    } else if (isChatHideShow) {
+      window.chatBtn = {
+        hide: () => window.tidioChatApi && window.tidioChatApi.hide(),
+        show: () => window.tidioChatApi && window.tidioChatApi.show()
+      }
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索一号准备就绪" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>

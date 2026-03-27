@@ -1,319 +1,183 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 7.3.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
-
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.xingxiaowu.cn","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
-
-  <meta name="description" content="有一说一，在国内上传app到App Store，用transport上传，我打赌你肯定见过这个页面，这个正在验证能卡几个钟头。 “正在验证App-正在通过App Store进行认证…”  终于在stackoverflow这里找到了答案（不是最高票那个）。  真的🐂🍺。 所以你要做的操作就是 1.删除该缓存文件夹（删之前你可以看看是多大，我这是2.5M）1&#x2F;Users&#x2F;your_user_nam">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>苹果卡验证的问题，终于™解决了 | 歪比巴卜</title><meta name="author" content="无星"><meta name="copyright" content="无星"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="有一说一，在国内上传app到App Store，用transport上传，我打赌你肯定见过这个页面，这个正在验证能卡几个钟头。 “正在验证App-正在通过App Store进行认证…”  终于在stackoverflow这里找到了答案（不是最高票那个）。  真的🐂🍺。 所以你要做的操作就是 1.删除该缓存文件夹（删之前你可以看看是多大，我这是2.5M）1&#x2F;Users&#x2F;your_user_nam">
 <meta property="og:type" content="article">
 <meta property="og:title" content="苹果卡验证的问题，终于™解决了">
 <meta property="og:url" content="http://blog.xingxiaowu.cn/2020/02/15/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E8%8B%B9%E6%9E%9C%E5%8D%A1%E9%AA%8C%E8%AF%81%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%8C%E7%BB%88%E4%BA%8E%E2%84%A2%E8%A7%A3%E5%86%B3%E4%BA%86/index.html">
-<meta property="og:site_name" content="无星的小窝">
+<meta property="og:site_name" content="歪比巴卜">
 <meta property="og:description" content="有一说一，在国内上传app到App Store，用transport上传，我打赌你肯定见过这个页面，这个正在验证能卡几个钟头。 “正在验证App-正在通过App Store进行认证…”  终于在stackoverflow这里找到了答案（不是最高票那个）。  真的🐂🍺。 所以你要做的操作就是 1.删除该缓存文件夹（删之前你可以看看是多大，我这是2.5M）1&#x2F;Users&#x2F;your_user_nam">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%8B%B9%E6%9E%9C%E5%8D%A1%E9%AA%8C%E8%AF%81%E7%9A%84%E9%97%AE%E9%A2%98/1.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%8B%B9%E6%9E%9C%E5%8D%A1%E9%AA%8C%E8%AF%81%E7%9A%84%E9%97%AE%E9%A2%98/2.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%8B%B9%E6%9E%9C%E5%8D%A1%E9%AA%8C%E8%AF%81%E7%9A%84%E9%97%AE%E9%A2%98/3.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%8B%B9%E6%9E%9C%E5%8D%A1%E9%AA%8C%E8%AF%81%E7%9A%84%E9%97%AE%E9%A2%98/5.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%8B%B9%E6%9E%9C%E5%8D%A1%E9%AA%8C%E8%AF%81%E7%9A%84%E9%97%AE%E9%A2%98/4.png">
+<meta property="og:image" content="http://blog.xingxiaowu.cn/img/cover/1.jpg">
 <meta property="article:published_time" content="2020-02-14T16:55:00.000Z">
 <meta property="article:modified_time" content="2023-08-08T00:43:56.459Z">
 <meta property="article:author" content="无星">
 <meta property="article:tag" content="iOS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%8B%B9%E6%9E%9C%E5%8D%A1%E9%AA%8C%E8%AF%81%E7%9A%84%E9%97%AE%E9%A2%98/1.png">
-
-<link rel="canonical" href="http://blog.xingxiaowu.cn/2020/02/15/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E8%8B%B9%E6%9E%9C%E5%8D%A1%E9%AA%8C%E8%AF%81%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%8C%E7%BB%88%E4%BA%8E%E2%84%A2%E8%A7%A3%E5%86%B3%E4%BA%86/">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-CN'
-  };
-</script>
-
-  <title>苹果卡验证的问题，终于™解决了 | 无星的小窝</title>
-  
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5976024V60"></script>
-    <script>
-      if (CONFIG.hostname === location.hostname) {
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-5976024V60');
-      }
-    </script>
-
-
-  <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?bdba6c3bda62a07f58f3cf06034704d5";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-<link rel="alternate" href="/rss2.xml" title="无星的小窝" type="application/rss+xml">
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
-    <span id="forkongithub"><a target="_blank" rel="noopener" href="https://github.com/XingXiaoWu">我的GitHub</a></span>
-
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">无星的小窝</h1>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-      <p class="site-subtitle" itemprop="description">技术为辅,业务为主</p>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-        <i class="fa fa-search fa-fw fa-lg"></i>
-    </div>
-  </div>
-</div>
-
-
-
-
-<nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-留言板">
-
-    <a href="/guestbook" rel="section"><i class="fab fa-leanpub fa-fw"></i>留言板</a>
-
-  </li>
-        <li class="menu-item menu-item-commonweal">
-
-    <a href="/html/404.html" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a>
-
-  </li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
-        </a>
-      </li>
-  </ul>
-</nav>
-
-
-
-  <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
-  </div>
-</div>
-
-    </div>
-  </div>
-
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content post posts-expand">
-            
-
-    
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2020/02/15/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E8%8B%B9%E6%9E%9C%E5%8D%A1%E9%AA%8C%E8%AF%81%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%8C%E7%BB%88%E4%BA%8E%E2%84%A2%E8%A7%A3%E5%86%B3%E4%BA%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          苹果卡验证的问题，终于™解决了
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-02-15 00:55:00" itemprop="dateCreated datePublished" datetime="2020-02-15T00:55:00+08:00">2020-02-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-08-08 08:43:56" itemprop="dateModified" datetime="2023-08-08T08:43:56+08:00">2023-08-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2020/02/15/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E8%8B%B9%E6%9E%9C%E5%8D%A1%E9%AA%8C%E8%AF%81%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%8C%E7%BB%88%E4%BA%8E%E2%84%A2%E8%A7%A3%E5%86%B3%E4%BA%86/" class="post-meta-item leancloud_visitors" data-flag-title="苹果卡验证的问题，终于™解决了" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>804</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+<meta name="twitter:image" content="http://blog.xingxiaowu.cn/img/cover/1.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "苹果卡验证的问题，终于™解决了",
+  "url": "http://blog.xingxiaowu.cn/2020/02/15/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E8%8B%B9%E6%9E%9C%E5%8D%A1%E9%AA%8C%E8%AF%81%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%8C%E7%BB%88%E4%BA%8E%E2%84%A2%E8%A7%A3%E5%86%B3%E4%BA%86/",
+  "image": "http://blog.xingxiaowu.cn/img/cover/1.jpg",
+  "datePublished": "2020-02-14T16:55:00.000Z",
+  "dateModified": "2023-08-08T00:43:56.459Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "无星",
+      "url": "http://blog.xingxiaowu.cn"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/images/Avatar.jpg"><link rel="canonical" href="http://blog.xingxiaowu.cn/2020/02/15/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E8%8B%B9%E6%9E%9C%E5%8D%A1%E9%AA%8C%E8%AF%81%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%8C%E7%BB%88%E4%BA%8E%E2%84%A2%E8%A7%A3%E5%86%B3%E4%BA%86/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
       
-        <p>有一说一，在国内上传app到App Store，用transport上传，我打赌你肯定见过这个页面，这个正在验证能卡几个钟头。</p>
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?bdba6c3bda62a07f58f3cf06034704d5";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-5976024V60"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-5976024V60')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-5976024V60', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":150,"languages":{"author":"作者: 无星","link":"链接: ","source":"来源: 歪比巴卜","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '苹果卡验证的问题，终于™解决了',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/rss2.xml" title="歪比巴卜" type="application/rss+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/Avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">183</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">54</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">33</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/cover/1.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/images/Avatar.jpg" alt="Logo"><span class="site-name">歪比巴卜</span></a><a class="nav-page-title" href="/"><span class="site-name">苹果卡验证的问题，终于™解决了</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">苹果卡验证的问题，终于™解决了</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-02-14T16:55:00.000Z" title="发表于 2020-02-15 00:55:00">2020-02-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-08-08T00:43:56.459Z" title="更新于 2023-08-08 08:43:56">2023-08-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/iOS/">iOS</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2020/02/15/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E8%8B%B9%E6%9E%9C%E5%8D%A1%E9%AA%8C%E8%AF%81%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%8C%E7%BB%88%E4%BA%8E%E2%84%A2%E8%A7%A3%E5%86%B3%E4%BA%86/#post-comment"><span class="gitalk-comment-count"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>有一说一，在国内上传app到App Store，用transport上传，我打赌你肯定见过这个页面，这个正在验证能卡几个钟头。</p>
 <p>“正在验证App-正在通过App Store进行认证…”</p>
 <p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%8B%B9%E6%9E%9C%E5%8D%A1%E9%AA%8C%E8%AF%81%E7%9A%84%E9%97%AE%E9%A2%98/1.png" alt="1.png"></p>
 <h3 id="终于在stackoverflow这里找到了答案（不是最高票那个）。"><a href="#终于在stackoverflow这里找到了答案（不是最高票那个）。" class="headerlink" title="终于在stackoverflow这里找到了答案（不是最高票那个）。"></a>终于在<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/22443425/application-loader-stuck-at-authenticating-with-the-itunes-store-when-uploadin/59261475#59261475">stackoverflow</a>这里找到了答案（不是最高票那个）。</h3><p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%8B%B9%E6%9E%9C%E5%8D%A1%E9%AA%8C%E8%AF%81%E7%9A%84%E9%97%AE%E9%A2%98/2.png" alt="2.png"></p>
@@ -336,472 +200,103 @@
 <p>（我目前是macOs 10.15.3 (19D76)，Xcode 11.3.1 (11C504),66M）</p>
 <h3 id="5-关掉梯子，重新打开transport上传即可"><a href="#5-关掉梯子，重新打开transport上传即可" class="headerlink" title="5.关掉梯子，重新打开transport上传即可"></a>5.关掉梯子，重新打开transport上传即可</h3><p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E8%8B%B9%E6%9E%9C%E5%8D%A1%E9%AA%8C%E8%AF%81%E7%9A%84%E9%97%AE%E9%A2%98/4.png" alt="4.png"></p>
 <p>尽情享受高速上传！</p>
-<h3 id="P-S-最后感谢来自好友大壮同学提供的梯子，不然我可能要死了"><a href="#P-S-最后感谢来自好友大壮同学提供的梯子，不然我可能要死了" class="headerlink" title="P.S:最后感谢来自好友大壮同学提供的梯子，不然我可能要死了"></a>P.S:最后感谢来自好友大壮同学提供的梯子，不然我可能要死了</h3>
-    </div>
+<h3 id="P-S-最后感谢来自好友大壮同学提供的梯子，不然我可能要死了"><a href="#P-S-最后感谢来自好友大壮同学提供的梯子，不然我可能要死了" class="headerlink" title="P.S:最后感谢来自好友大壮同学提供的梯子，不然我可能要死了"></a>P.S:最后感谢来自好友大壮同学提供的梯子，不然我可能要死了</h3></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://blog.xingxiaowu.cn">无星</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://blog.xingxiaowu.cn/2020/02/15/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E8%8B%B9%E6%9E%9C%E5%8D%A1%E9%AA%8C%E8%AF%81%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%8C%E7%BB%88%E4%BA%8E%E2%84%A2%E8%A7%A3%E5%86%B3%E4%BA%86/">http://blog.xingxiaowu.cn/2020/02/15/移动端之旅/苹果卡验证的问题，终于™解决了/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://blog.xingxiaowu.cn" target="_blank">歪比巴卜</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/iOS/">iOS</a></div><div class="post-share"><div class="social-share" data-image="/img/cover/1.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>V我50，Crazy</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/images/WechatPay.png" target="_blank"><img class="post-qr-code-img" src="/images/WechatPay.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/images/AliPay.png" target="_blank"><img class="post-qr-code-img" src="/images/AliPay.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2018/08/09/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E9%9D%99%E9%BB%98%E6%8E%A8%E9%80%81%E4%B9%8B%E4%B8%AA%E6%8E%A8iOS%E7%89%88/" title="个推--静默推送"><img class="cover" src="/img/cover/9.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2018-08-09</div><div class="info-item-2">个推--静默推送</div></div><div class="info-2"><div class="info-item-1">因为公司业务关系，希望在iOS在后台的时候能存活去做某些业务操作（其实就是流氓的后台保活&#x3D;。&#x3D;）最早是使用后台定位实现的，信心满满的去上架，结果被苹果爸爸锤的头都破了。连续被拒3次，申请打电话苹果代表也锤了我一顿，申请苹果审核申诉又被锤了一顿。想一想我真是头铁啊emmm闲话不多说，开始这篇博客的主题我们的业务其实很简单，就是后台有业务数据来了，客户端哪怕在后台也要处理。 #苹果的保活无非三种方式###1.后台播放无声音乐###2.后台定位###3.推送唤醒 ##播放音乐直接被我pass了，我觉得机审都会把我拒了。。。压根不考虑 ##后台定位正好我们的业务吐过硬扯还能和业务办公场所扯上关系，头铁就是上！通过后台定位让app保活，成功实现了。不过被🍎爸爸锤了。方案二，pass ##推送唤醒那这时候，就剩这最后一种方式了。推送分两种，本地推送和远程推送。####本地推送本地推送其实类似于一个定时器，到了触发的时候就会触发。一般有很多用来做闹钟或者提示用户签到一类的场景。不过根据我的测试，当应用在后台三分钟后，被挂起以后这个本地推送就不再继续推送了。（也不知道是不是...</div></div></div></a><a class="pagination-related" href="/2016/12/17/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/AFNetworking%E5%A6%82%E4%BD%95%E4%BC%A0%E9%80%92%E7%BB%93%E6%9E%9C/" title="AFNetworking如何传递结果"><img class="cover" src="/img/cover/5.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2016-12-17</div><div class="info-item-2">AFNetworking如何传递结果</div></div><div class="info-2"><div class="info-item-1">因为在AFNetworking中的请求结果采用block，是异步请求结果 那么如何返回结果呢？ 答案很简单：代理。 例如：   代理在哪实现，结果在哪返回。 </div></div></div></a><a class="pagination-related" href="/2018/01/20/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/iPhone%E7%9A%84%E6%8C%87%E7%BA%B9%E8%AF%86%E5%88%AB%E4%B8%8E%E9%9D%A2%E9%83%A8%E8%AF%86%E5%88%AB%EF%BC%88FaceID%EF%BC%89/" title="iPhone的指纹识别与面部识别（FaceID）"><img class="cover" src="/img/cover/10.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2018-01-20</div><div class="info-item-2">iPhone的指纹识别与面部识别（FaceID）</div></div><div class="info-2"><div class="info-item-1">其实iPhone的指纹识别有很多教程，但其实有两套策略，而且好多都只写了一套，而且有的你会发现，错误码压根就试不出来啊，还以为苹果给的错误码都是瞎扯淡的。 首先，需要导入苹果的安全策略库LocalAuthentication。这个库提供了指纹识别这一安全策略库公开发者们使用。对于开发者来说，只需要调用几个很简单的方法便可以进行指纹识别了。至于是如何识别，这些苹果并没有公开，开发者只能获取成功或失败状态以及message。###一.判断设备是否支持指纹识别 12345LAContext *context = [[LAContext alloc] init];  NSError *error = nil;    // 判断设置是否支持指纹识别(iPhone5s+、iOS8+支持)  BOOL support = [context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&amp;error];  ###但是注意了，这里的support如果为NO并不代表设备就不支持指纹识别了。因为当...</div></div></div></a><a class="pagination-related" href="/2016/12/26/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/iOS%20%20encode/" title="iOS  encode"><img class="cover" src="/img/cover/8.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2016-12-26</div><div class="info-item-2">iOS  encode</div></div><div class="info-2"><div class="info-item-1">相信大家总会碰到需要encode的时候，接着百度啊，然后发现stringByAddingPercentEscapesUsingEncoding这个方法，但是这个方法有时候无法对+等符号进行encode。那这时候咋办呢？   &#x2F;&#x2F;encode CF_EXPORT CFStringRef CFURLCreateStringByAddingPercentEscapes(CFAllocatorRef allocator, CFStringRef originalString, CFStringRef charactersToLeaveUnescaped, CFStringRef legalURLCharactersToBeEscaped, CFStringEncoding encoding); NSString encodedValue &#x3D; (NSString)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(nil,(CFStringRef)value, nil,(CFStringRef)@...</div></div></div></a><a class="pagination-related" href="/2019/11/23/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/Cocoapods-CDN%E9%97%AE%E9%A2%98/" title="Cocoapods CDN问题"><img class="cover" src="/img/cover/3.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2019-11-23</div><div class="info-item-2">Cocoapods CDN问题</div></div><div class="info-2"><div class="info-item-1">cocoapods 1.8以上，采用了CDN，目的是为了不再将索引放在本地，下载又慢，还占据本地内存。 事是个好事，但是国内有墙，cdn又是外国的地址，对国内开发者来说就很烦。 所以我们还得用以前的方式，本地下载索引。 只需要执行 1pod repo add master https://github.com/CocoaPods/Specs.git  上面那个是官方源，你也可以用国内的清华源 1pod repo add master https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git   二者任选其一即可。 如何查看成功没 1pod repo 看看有多少源就行 </div></div></div></a><a class="pagination-related" href="/2019/04/06/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/Swift-ObjectMapper%E5%85%A5%E9%97%A8/" title="Swift-ObjectMapper入门"><img class="cover" src="/img/cover/4.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2019-04-06</div><div class="info-item-2">Swift-ObjectMapper入门</div></div><div class="info-2"><div class="info-item-1">背景突然很想学swift…不怕死的我在完全没用过的情况下决定通过重构公司的古老项目来完成这段学习之旅….model转json或者json转model是很常见的需求….所以这就是为什么我要用ObjectMapper了…(其实是我把# SwiftyJSON的star数错了..我可能会趁用的还不多改成SwiftyJSON,毕竟ObjectMapper实在查不到什么资料不是吗…) 使用初始化12345678910111213141516171819import UIKitimport ObjectMapperclass BaseModel: Mappable &#123;    //定义属性    var name : String? = &quot;wuxing&quot;        init() &#123;//为什么要写这个init,原因很简单,总有些时候你仅仅想初始化一个model,而非通过外部传入数据初始化    &#125;        required init?(map: Map) &#123;        //重写ObjectMapper的init    &#1...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/Avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">无星</div><div class="author-info-description">打工人</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">183</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">54</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">33</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/XingXiaoWu" target="_blank" title="Github"><i class="fab fa-github" style="color: #hdhfbb;"></i></a><a class="social-icon" href="https://juejin.cn/user/1503787636493886" target="_blank" title="掘金"><i class="fab fa-blogger" style="color: #hdhfbb;"></i></a><a class="social-icon" href="https://www.jianshu.com/u/fef7696741c8" target="_blank" title="简书"><i class="fas fa-blog" style="color: #hdhfbb;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%88%E4%BA%8E%E5%9C%A8stackoverflow%E8%BF%99%E9%87%8C%E6%89%BE%E5%88%B0%E4%BA%86%E7%AD%94%E6%A1%88%EF%BC%88%E4%B8%8D%E6%98%AF%E6%9C%80%E9%AB%98%E7%A5%A8%E9%82%A3%E4%B8%AA%EF%BC%89%E3%80%82"><span class="toc-number">1.</span> <span class="toc-text">终于在stackoverflow这里找到了答案（不是最高票那个）。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%88%A0%E9%99%A4%E8%AF%A5%E7%BC%93%E5%AD%98%E6%96%87%E4%BB%B6%E5%A4%B9%EF%BC%88%E5%88%A0%E4%B9%8B%E5%89%8D%E4%BD%A0%E5%8F%AF%E4%BB%A5%E7%9C%8B%E7%9C%8B%E6%98%AF%E5%A4%9A%E5%A4%A7%EF%BC%8C%E6%88%91%E8%BF%99%E6%98%AF2-5M%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">1.删除该缓存文件夹（删之前你可以看看是多大，我这是2.5M）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%89%93%E5%BC%80%E6%A2%AF%E5%AD%90"><span class="toc-number">3.</span> <span class="toc-text">2.打开梯子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%BC%80%E5%90%AF%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86%EF%BC%88%E4%B8%8D%E5%BB%BA%E8%AE%AE%E7%9B%B4%E6%8E%A5%E5%8F%8C%E5%87%BB%E8%BF%90%E8%A1%8C%E5%9B%BE%E4%B8%AD%E5%9C%B0%E5%9D%80%E4%B8%8B%E7%9A%84iTMSTransporter%E8%BF%99%E4%B8%AA%E7%A8%8B%E5%BA%8F%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">3.开启终端代理（不建议直接双击运行图中地址下的iTMSTransporter这个程序）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E8%BF%90%E8%A1%8C%E5%A6%82%E4%B8%8B%E5%91%BD%E4%BB%A4"><span class="toc-number">5.</span> <span class="toc-text">4.运行如下命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%85%B3%E6%8E%89%E6%A2%AF%E5%AD%90%EF%BC%8C%E9%87%8D%E6%96%B0%E6%89%93%E5%BC%80transport%E4%B8%8A%E4%BC%A0%E5%8D%B3%E5%8F%AF"><span class="toc-number">6.</span> <span class="toc-text">5.关掉梯子，重新打开transport上传即可</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#P-S-%E6%9C%80%E5%90%8E%E6%84%9F%E8%B0%A2%E6%9D%A5%E8%87%AA%E5%A5%BD%E5%8F%8B%E5%A4%A7%E5%A3%AE%E5%90%8C%E5%AD%A6%E6%8F%90%E4%BE%9B%E7%9A%84%E6%A2%AF%E5%AD%90%EF%BC%8C%E4%B8%8D%E7%84%B6%E6%88%91%E5%8F%AF%E8%83%BD%E8%A6%81%E6%AD%BB%E4%BA%86"><span class="toc-number">7.</span> <span class="toc-text">P.S:最后感谢来自好友大壮同学提供的梯子，不然我可能要死了</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/03/25/%E6%B8%97%E9%80%8F/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89-Yakit%E7%83%AD%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%87%A0%E4%B8%AA%E6%A8%A1%E6%9D%BF/" title="无星的渗透之旅速成篇（十六）-Yakit热加载的几个模板"><img src="/img/cover/7.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无星的渗透之旅速成篇（十六）-Yakit热加载的几个模板"/></a><div class="content"><a class="title" href="/2026/03/25/%E6%B8%97%E9%80%8F/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89-Yakit%E7%83%AD%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%87%A0%E4%B8%AA%E6%A8%A1%E6%9D%BF/" title="无星的渗透之旅速成篇（十六）-Yakit热加载的几个模板">无星的渗透之旅速成篇（十六）-Yakit热加载的几个模板</a><time datetime="2026-03-25T12:09:00.000Z" title="发表于 2026-03-25 20:09:00">2026-03-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/03/17/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Jenkins%E5%89%8D%E7%AB%AFPipeLine/" title="Jenkins前端PipeLine"><img src="/img/cover/5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Jenkins前端PipeLine"/></a><div class="content"><a class="title" href="/2026/03/17/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Jenkins%E5%89%8D%E7%AB%AFPipeLine/" title="Jenkins前端PipeLine">Jenkins前端PipeLine</a><time datetime="2026-03-17T06:32:00.000Z" title="发表于 2026-03-17 14:32:00">2026-03-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/14/%E7%A2%8E%E7%A2%8E%E5%BF%B5/AI%E6%8F%90%E7%A4%BA%E8%AF%8D/" title="一些有意思的AI提示词"><img src="/img/cover/8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="一些有意思的AI提示词"/></a><div class="content"><a class="title" href="/2026/01/14/%E7%A2%8E%E7%A2%8E%E5%BF%B5/AI%E6%8F%90%E7%A4%BA%E8%AF%8D/" title="一些有意思的AI提示词">一些有意思的AI提示词</a><time datetime="2026-01-14T05:54:00.000Z" title="发表于 2026-01-14 13:54:00">2026-01-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/12/29/%E7%A2%8E%E7%A2%8E%E5%BF%B5/AI%E4%BD%BF%E6%88%91%E8%83%BD%E5%8A%9B%E4%B8%8B%E9%99%8D/" title="AI使我能力下降"><img src="/img/cover/10.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI使我能力下降"/></a><div class="content"><a class="title" href="/2025/12/29/%E7%A2%8E%E7%A2%8E%E5%BF%B5/AI%E4%BD%BF%E6%88%91%E8%83%BD%E5%8A%9B%E4%B8%8B%E9%99%8D/" title="AI使我能力下降">AI使我能力下降</a><time datetime="2025-12-29T05:54:00.000Z" title="发表于 2025-12-29 13:54:00">2025-12-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/12/15/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8cf%E7%99%BD%E5%AB%96KV%E5%AD%98%E5%82%A8/" title="如何使用cf白嫖KV存储"><img src="/img/cover/3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如何使用cf白嫖KV存储"/></a><div class="content"><a class="title" href="/2025/12/15/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8cf%E7%99%BD%E5%AB%96KV%E5%AD%98%E5%82%A8/" title="如何使用cf白嫖KV存储">如何使用cf白嫖KV存储</a><time datetime="2025-12-15T06:12:00.000Z" title="发表于 2025-12-15 14:12:00">2025-12-15</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/cover/1.jpg);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2016 - 2026 By 无星</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div><div class="footer_custom_text">歪比巴卜</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
 
-    
-    
-    
-        <div class="reward-container">
-  <div>我是阿星，阿星的阿，阿星的星！</div>
-  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
-    打赏
-  </button>
-  <div id="qr" style="display: none;">
-      
-      <div style="display: inline-block;">
-        <img src="/images/WechatPay.png" alt="无星 微信支付">
-        <p>微信支付</p>
-      </div>
-      
-      <div style="display: inline-block;">
-        <img src="/images/AliPay.png" alt="无星 支付宝">
-        <p>支付宝</p>
-      </div>
-
-  </div>
-</div>
-
-
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/iOS/" rel="tag"># iOS</a>
-          </div>
-
-        
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2019/12/31/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89-vue-%E4%BD%BF%E7%94%A8-lottie/" rel="prev" title="无星的前端之旅（二）-vue 使用 lottie">
-      <i class="fa fa-chevron-left"></i> 无星的前端之旅（二）-vue 使用 lottie
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/04/29/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95cli%E5%B7%A5%E7%A8%8B/" rel="next" title="无星的前端之旅（三）——如何调试cli工程">
-      无星的前端之旅（三）——如何调试cli工程 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
-  
-  
-  
-
-
-
-          </div>
-          
-    <div class="comments" id="gitalk-container"></div>
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
+  const commentCount = n => {
+    const isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+    if (isCommentCount) {
+      isCommentCount.textContent= n
     }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
   }
-</script>
 
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%88%E4%BA%8E%E5%9C%A8stackoverflow%E8%BF%99%E9%87%8C%E6%89%BE%E5%88%B0%E4%BA%86%E7%AD%94%E6%A1%88%EF%BC%88%E4%B8%8D%E6%98%AF%E6%9C%80%E9%AB%98%E7%A5%A8%E9%82%A3%E4%B8%AA%EF%BC%89%E3%80%82"><span class="nav-number">1.</span> <span class="nav-text">终于在stackoverflow这里找到了答案（不是最高票那个）。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%88%A0%E9%99%A4%E8%AF%A5%E7%BC%93%E5%AD%98%E6%96%87%E4%BB%B6%E5%A4%B9%EF%BC%88%E5%88%A0%E4%B9%8B%E5%89%8D%E4%BD%A0%E5%8F%AF%E4%BB%A5%E7%9C%8B%E7%9C%8B%E6%98%AF%E5%A4%9A%E5%A4%A7%EF%BC%8C%E6%88%91%E8%BF%99%E6%98%AF2-5M%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">1.删除该缓存文件夹（删之前你可以看看是多大，我这是2.5M）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%89%93%E5%BC%80%E6%A2%AF%E5%AD%90"><span class="nav-number">3.</span> <span class="nav-text">2.打开梯子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%BC%80%E5%90%AF%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86%EF%BC%88%E4%B8%8D%E5%BB%BA%E8%AE%AE%E7%9B%B4%E6%8E%A5%E5%8F%8C%E5%87%BB%E8%BF%90%E8%A1%8C%E5%9B%BE%E4%B8%AD%E5%9C%B0%E5%9D%80%E4%B8%8B%E7%9A%84iTMSTransporter%E8%BF%99%E4%B8%AA%E7%A8%8B%E5%BA%8F%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">3.开启终端代理（不建议直接双击运行图中地址下的iTMSTransporter这个程序）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E8%BF%90%E8%A1%8C%E5%A6%82%E4%B8%8B%E5%91%BD%E4%BB%A4"><span class="nav-number">5.</span> <span class="nav-text">4.运行如下命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E5%85%B3%E6%8E%89%E6%A2%AF%E5%AD%90%EF%BC%8C%E9%87%8D%E6%96%B0%E6%89%93%E5%BC%80transport%E4%B8%8A%E4%BC%A0%E5%8D%B3%E5%8F%AF"><span class="nav-number">6.</span> <span class="nav-text">5.关掉梯子，重新打开transport上传即可</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#P-S-%E6%9C%80%E5%90%8E%E6%84%9F%E8%B0%A2%E6%9D%A5%E8%87%AA%E5%A5%BD%E5%8F%8B%E5%A4%A7%E5%A3%AE%E5%90%8C%E5%AD%A6%E6%8F%90%E4%BE%9B%E7%9A%84%E6%A2%AF%E5%AD%90%EF%BC%8C%E4%B8%8D%E7%84%B6%E6%88%91%E5%8F%AF%E8%83%BD%E8%A6%81%E6%AD%BB%E4%BA%86"><span class="nav-number">7.</span> <span class="nav-text">P.S:最后感谢来自好友大壮同学提供的梯子，不然我可能要死了</span></a></li></ol></div>
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="无星"
-      src="/images/headerPic.png">
-  <p class="site-author-name" itemprop="name">无星</p>
-  <div class="site-description" itemprop="description">一个么的前途的弟中弟</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">174</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">29</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">50</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/XingXiaoWu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;XingXiaoWu" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://www.jianshu.com/u/fef7696741c8" title="简书 → https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;fef7696741c8" rel="noopener" target="_blank"><i class="fa fa-link fa-fw"></i>简书</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://juejin.cn/user/1503787636493886" title="掘金 → https:&#x2F;&#x2F;juejin.cn&#x2F;user&#x2F;1503787636493886" rel="noopener" target="_blank"><i class="fa fa-link fa-fw"></i>掘金</a>
-      </span>
-  </div>
-
-
-  <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
-      Links
-    </div>
-    <ul class="links-of-blogroll-list">
-        <li class="links-of-blogroll-item">
-          <a href="https://blog.huan666.de/" title="https:&#x2F;&#x2F;blog.huan666.de&#x2F;" rel="noopener" target="_blank">焕昭君</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://aiiko.club/" title="https:&#x2F;&#x2F;aiiko.club" rel="noopener" target="_blank">爱喵日记</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://www.mikuchan.top/?ref=xingxiaowu.cn" title="https:&#x2F;&#x2F;www.mikuchan.top?ref&#x3D;xingxiaowu.cn" rel="noopener" target="_blank">团子的航海日志</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://dazhuang.store/webp/" title="https:&#x2F;&#x2F;dazhuang.store&#x2F;webp&#x2F;" rel="noopener" target="_blank">大壮</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://www.webshell.cc/" title="https:&#x2F;&#x2F;www.webshell.cc&#x2F;" rel="noopener" target="_blank">WebShell'S Blog</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://blog.fanjunyang.zone/" title="https:&#x2F;&#x2F;blog.fanjunyang.zone&#x2F;" rel="noopener" target="_blank">俊阳的IT主页</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://www.sqlsec.com/" title="https:&#x2F;&#x2F;www.sqlsec.com&#x2F;" rel="noopener" target="_blank">国光</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="http://xiaoqiuxx.xyz/" title="http:&#x2F;&#x2F;xiaoqiuxx.xyz&#x2F;" rel="noopener" target="_blank">xiaoqiuxx's Blog</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://www.hyhforever.top/" title="https:&#x2F;&#x2F;www.hyhforever.top&#x2F;" rel="noopener" target="_blank">HYH's blog</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://www.v2rayfree.eu.org/" title="https:&#x2F;&#x2F;www.v2rayfree.eu.org&#x2F;" rel="noopener" target="_blank">应急链接</a>
-        </li>
-    </ul>
-  </div>
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2025</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">无星</span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-chart-area"></i>
-    </span>
-      <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">1.3m</span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-coffee"></i>
-    </span>
-      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">19:26</span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
-  </div>
-<a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank" style="display:flex;flex-direction: row;align-items: center;justify-content: center; border:none; color: #999;">
-  由
-  <img src="/images/upaiyun/logo.png"/ style="width:80px;margin:0;">
-  提供CDN加速/云存储服务
-</a>
-
-        
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-</div>
-
-
-
-
-
-
-<script>
-  (function() {
-    function leancloudSelector(url) {
-      url = encodeURI(url);
-      return document.getElementById(url).querySelector('.leancloud-visitors-count');
-    }
-
-    function addCount(Counter) {
-      var visitors = document.querySelector('.leancloud_visitors');
-      var url = decodeURI(visitors.id);
-      var title = visitors.dataset.flagTitle;
-
-      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
-        .then(response => response.json())
-        .then(({ results }) => {
-          if (results.length > 0) {
-            var counter = results[0];
-            leancloudSelector(url).innerText = counter.time + 1;
-            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
-              .catch(error => {
-                console.error('Failed to save visitor count', error);
-              });
-          } else {
-              Counter('post', '/classes/Counter', { title, url, time: 1 })
-                .then(response => response.json())
-                .then(() => {
-                  leancloudSelector(url).innerText = 1;
-                })
-                .catch(error => {
-                  console.error('Failed to create', error);
-                });
-          }
-        })
-        .catch(error => {
-          console.error('LeanCloud Counter Error', error);
-        });
-    }
-
-    function showTime(Counter) {
-      var visitors = document.querySelectorAll('.leancloud_visitors');
-      var entries = [...visitors].map(element => {
-        return decodeURI(element.id);
-      });
-
-      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
-        .then(response => response.json())
-        .then(({ results }) => {
-          for (let url of entries) {
-            let target = results.find(item => item.url === url);
-            leancloudSelector(url).innerText = target ? target.time : 0;
-          }
-        })
-        .catch(error => {
-          console.error('LeanCloud Counter Error', error);
-        });
-    }
-
-    let { app_id, app_key, server_url } = {"enable":true,"app_id":"pnwsxTh3sKr3Lb0RG3KCrFxX-gzGzoHsz","app_key":"CKxxpzPHaBUuiudduqDrkBUk","server_url":null,"security":false};
-    function fetchData(api_server) {
-      var Counter = (method, url, data) => {
-        return fetch(`${api_server}/1.1${url}`, {
-          method,
-          headers: {
-            'X-LC-Id'     : app_id,
-            'X-LC-Key'    : app_key,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-        });
-      };
-      if (CONFIG.page.isPost) {
-        if (CONFIG.hostname !== location.hostname) return;
-        addCount(Counter);
-      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
-        showTime(Counter);
+  const initGitalk = (el, path) => {
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyGitalk = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
       }
     }
 
-    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
-
-    if (api_server) {
-      fetchData(api_server);
-    } else {
-      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
-        .then(response => response.json())
-        .then(({ api_server }) => {
-          fetchData('https://' + api_server);
-        });
-    }
-  })();
-</script>
-
-
-      </div>
-    </footer>
-  </div>
-
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
-  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/pisces.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
-
-  
-  <script>
-    (function(){
-      var canonicalURL, curProtocol;
-      //Get the <link> tag
-      var x=document.getElementsByTagName("link");
-		//Find the last canonical URL
-		if(x.length > 0){
-			for (i=0;i<x.length;i++){
-				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
-					canonicalURL=x[i].href;
-				}
-			}
-		}
-    //Get protocol
-	    if (!canonicalURL){
-	    	curProtocol = window.location.protocol.split(':')[0];
-	    }
-	    else{
-	    	curProtocol = canonicalURL.split(':')[0];
-	    }
-      //Get current URL if the canonical URL does not exist
-	    if (!canonicalURL) canonicalURL = window.location.href;
-	    //Assign script content. Replace current URL with the canonical URL
-      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
-  </script>
-
-
-
-
-  
-<script src="/js/local-search.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID    : 'c06f519d5671dfd10942',
+    const gitalk = new Gitalk({
+      clientID: 'c06f519d5671dfd10942',
       clientSecret: '38d97414c2b8bfec7f473f9f3458ca58fd0d25d1',
-      repo        : 'XingXiaoWu.github.io',
-      owner       : 'XingXiaoWu',
-      admin       : ['XingXiaoWu'],
-      id          : '3c230a827dcac45a0c2d296c8af84dbc',
-        language: 'zh-CN',
-      distractionFreeMode: true
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
-});
-</script>
+      repo: 'XingXiaoWu.github.io',
+      owner: 'XingXiaoWu',
+      admin: ['XingXiaoWu'],
+      updateCountCallback: commentCount,
+      ...option,
+      id: isShuoshuo ? path : (option && option.id) || '46001dbf56c52d095302daa0f3028e9c'
+    })
 
-  <style>
-    #forkongithub a{
-      background:#000;color:#fff;
-      text-decoration:none;font-family:arial,sans-serif;
-      text-align:center;font-weight:bold;padding:5px 40px;
-      font-size:1rem;line-height:2rem;position:relative;transition:0.5s;
+    gitalk.render('gitalk-container')
+  }
+
+  const loadGitalk = async(el, path) => {
+    if (typeof Gitalk === 'function') initGitalk(el, path)
+    else {
+      await btf.getCSS('https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.css')
+      await btf.getScript('https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.js')
+      initGitalk(el, path)
     }
-    #forkongithub a:hover{background:#c11;color:#fff;}
-    #forkongithub a::before,#forkongithub a::after{content:"";width:100%;display:block;position:absolute;top:1px;left:0;height:1px;background:#fff;}
-    #forkongithub a::after{bottom:1px;top:auto;}
-    @media screen and (min-width:800px){
-      #forkongithub{position:fixed;display:block;top:0;right:0;width:200px;overflow:hidden;height:200px;z-index:9999;
+  }
+
+  if (isShuoshuo) {
+    'Gitalk' === 'Gitalk'
+      ? window.shuoshuoComment = { loadComment: loadGitalk }
+      : window.loadOtherComment = loadGitalk
+    return
+  }
+
+  if ('Gitalk' === 'Gitalk' || !false) {
+    if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+    else loadGitalk()
+  } else {
+    window.loadOtherComment = loadGitalk
+  }
+})()</script></div><script>(() => {
+  btf.getScript('//code.tidio.co/8bedg9ebrxiovjwd7m9vzmap6dbvl0jf.js').then(() => {
+    const isChatBtn = false
+    const isChatHideShow = false
+
+    if (isChatBtn) {
+      let isShow = false
+      const close = () => {
+        window.tidioChatApi.hide()
+        isShow = false
+      }
+      
+      const open = () => {
+        window.tidioChatApi.open()
+        window.tidioChatApi.show()
+        isShow = true
+      }
+
+      const onTidioChatApiReady = () => {
+        window.tidioChatApi.hide()
+        window.tidioChatApi.on("close", close)
+      }
+      if (window.tidioChatApi) {
+        window.tidioChatApi.on("ready", onTidioChatApiReady)
+      } else {
+        document.addEventListener("tidioChat-ready", onTidioChatApiReady)
+      }
+
+      window.chatBtnFn = () => {
+        if (!window.tidioChatApi) return
+        isShow ? close() : open()
+      }
+
+      document.getElementById('chat-btn').style.display = 'block'
+
+    } else if (isChatHideShow) {
+      window.chatBtn = {
+        hide: () => window.tidioChatApi && window.tidioChatApi.hide(),
+        show: () => window.tidioChatApi && window.tidioChatApi.show()
+      }
     }
-    #forkongithub a{
-      width:200px;
-      position:absolute;top:60px;right:-60px;
-      transform:rotate(45deg);-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);-moz-transform:rotate(45deg);-o-transform:rotate(45deg);
-      box-shadow:4px 4px 10px rgba(0,0,0,0.8);
-    }
-  </style>
-</body>
-</html>
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索一号准备就绪" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>

