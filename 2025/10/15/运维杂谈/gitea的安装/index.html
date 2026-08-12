@@ -1,0 +1,322 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>gitea的安装 | 歪比巴卜</title><meta name="author" content="无星"><meta name="copyright" content="无星"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Ubuntu 安装 gitea二进制安装1. 下载1234mkdir giteacd giteawget -O gitea https:&#x2F;&#x2F;dl.gitea.com&#x2F;gitea&#x2F;main-nightly&#x2F;gitea-main-nightly-linux-amd64chmod +x gitea  2. 注册用户12345678adduser \   --system \   --shell &#x2F;bin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gitea的安装">
+<meta property="og:url" content="http://www.xingxiaowu.cn/2025/10/15/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/gitea%E7%9A%84%E5%AE%89%E8%A3%85/index.html">
+<meta property="og:site_name" content="歪比巴卜">
+<meta property="og:description" content="Ubuntu 安装 gitea二进制安装1. 下载1234mkdir giteacd giteawget -O gitea https:&#x2F;&#x2F;dl.gitea.com&#x2F;gitea&#x2F;main-nightly&#x2F;gitea-main-nightly-linux-amd64chmod +x gitea  2. 注册用户12345678adduser \   --system \   --shell &#x2F;bin">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.xingxiaowu.cn/images/Avatar.jpg">
+<meta property="article:published_time" content="2025-10-15T05:13:32.000Z">
+<meta property="article:modified_time" content="2026-06-22T07:07:14.836Z">
+<meta property="article:author" content="无星">
+<meta property="article:tag" content="iOS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.xingxiaowu.cn/images/Avatar.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "gitea的安装",
+  "url": "http://www.xingxiaowu.cn/2025/10/15/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/gitea%E7%9A%84%E5%AE%89%E8%A3%85/",
+  "image": "http://www.xingxiaowu.cn/images/Avatar.jpg",
+  "datePublished": "2025-10-15T05:13:32.000Z",
+  "dateModified": "2026-06-22T07:07:14.836Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "无星",
+      "url": "http://www.xingxiaowu.cn"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/images/Avatar.jpg"><link rel="canonical" href="http://www.xingxiaowu.cn/2025/10/15/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/gitea%E7%9A%84%E5%AE%89%E8%A3%85/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9901724859932050"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-9901724859932050',
+  enable_page_level_ads: 'true'
+});</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?bdba6c3bda62a07f58f3cf06034704d5";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-5976024V60"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-5976024V60')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-5976024V60', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":150,"languages":{"author":"作者: 无星","link":"链接: ","source":"来源: 歪比巴卜","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'gitea的安装',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/rss2.xml" title="歪比巴卜" type="application/rss+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/Avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">198</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">58</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">38</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/images/Avatar.jpg" alt="Logo"><span class="site-name">歪比巴卜</span></a><a class="nav-page-title" href="/"><span class="site-name">gitea的安装</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">gitea的安装</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-10-15T05:13:32.000Z" title="发表于 2025-10-15 13:13:32">2025-10-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-06-22T07:07:14.836Z" title="更新于 2026-06-22 15:07:14">2026-06-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/iOS/">iOS</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2025/10/15/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/gitea%E7%9A%84%E5%AE%89%E8%A3%85/#post-comment"><span class="gitalk-comment-count"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="Ubuntu-安装-gitea"><a href="#Ubuntu-安装-gitea" class="headerlink" title="Ubuntu 安装 gitea"></a>Ubuntu 安装 gitea</h1><h1 id="二进制安装"><a href="#二进制安装" class="headerlink" title="二进制安装"></a>二进制安装</h1><h2 id="1-下载"><a href="#1-下载" class="headerlink" title="1. 下载"></a>1. 下载</h2><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> gitea</span><br><span class="line"><span class="built_in">cd</span> gitea</span><br><span class="line">wget -O gitea https://dl.gitea.com/gitea/main-nightly/gitea-main-nightly-linux-amd64</span><br><span class="line"><span class="built_in">chmod</span> +x gitea</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-注册用户"><a href="#2-注册用户" class="headerlink" title="2. 注册用户"></a>2. 注册用户</h2><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">adduser \</span><br><span class="line">   --system \</span><br><span class="line">   --shell /bin/bash \</span><br><span class="line">   --gecos <span class="string">&#x27;Git Version Control&#x27;</span> \</span><br><span class="line">   --group \</span><br><span class="line">   --disabled-password \</span><br><span class="line">   --home /home/git \</span><br><span class="line">   git</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-配置"><a href="#3-配置" class="headerlink" title="3. 配置"></a>3. 配置</h2><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /var/lib/gitea/&#123;custom,data,<span class="built_in">log</span>&#125;</span><br><span class="line"><span class="built_in">chown</span> -R git:git /var/lib/gitea/</span><br><span class="line"><span class="built_in">chmod</span> -R 750 /var/lib/gitea/</span><br><span class="line"><span class="built_in">mkdir</span> /etc/gitea</span><br><span class="line"><span class="built_in">chown</span> root:git /etc/gitea</span><br><span class="line"><span class="built_in">chmod</span> 770 /etc/gitea</span><br><span class="line"></span><br><span class="line">vim ~/.bashrc</span><br><span class="line"><span class="comment"># 添加如下环境变量</span></span><br><span class="line"><span class="built_in">export</span> GITEA_WORK_DIR=/var/lib/gitea/</span><br><span class="line"><span class="comment"># 保存退出</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 复制二进制到全局位置</span></span><br><span class="line"><span class="built_in">cp</span> gitea /usr/local/bin/gitea</span><br></pre></td></tr></table></figure>
+
+<p>配置<code>app.ini</code></p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> /etc/gitea</span><br><span class="line">vim /etc/gitea/app.ini</span><br></pre></td></tr></table></figure>
+
+<p>配置如下</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line">APP_NAME = Gitea</span><br><span class="line">RUN_USER = git</span><br><span class="line">WORK_PATH = /var/lib/gitea</span><br><span class="line">RUN_MODE = prod</span><br><span class="line"></span><br><span class="line">[database]</span><br><span class="line">DB_TYPE = sqlite3</span><br><span class="line">HOST = 127.0.0.1:3306</span><br><span class="line">NAME = gitea</span><br><span class="line">USER = gitea</span><br><span class="line">PASSWD = </span><br><span class="line">SCHEMA = </span><br><span class="line">SSL_MODE = <span class="built_in">disable</span></span><br><span class="line">PATH = /var/lib/gitea/data/gitea.db</span><br><span class="line">LOG_SQL = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">[repository]</span><br><span class="line">ROOT = /var/lib/gitea/data/gitea-repositories</span><br><span class="line"></span><br><span class="line">[server]</span><br><span class="line">SSH_DOMAIN = xxx.xxx.xxx.xxx</span><br><span class="line">DOMAIN = xxx.xxx.xxx.xxx</span><br><span class="line">HTTP_PORT = 3000</span><br><span class="line">ROOT_URL = http://xxx.xxx.xxx.xxx:3000/</span><br><span class="line">APP_DATA_PATH = /var/lib/gitea/data</span><br><span class="line">DISABLE_SSH = <span class="literal">false</span></span><br><span class="line">SSH_PORT = 22</span><br><span class="line">LFS_START_SERVER = <span class="literal">true</span></span><br><span class="line">LFS_JWT_SECRET = </span><br><span class="line">OFFLINE_MODE = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">[lfs]</span><br><span class="line">PATH = /var/lib/gitea/data/lfs</span><br><span class="line"></span><br><span class="line">[mailer]</span><br><span class="line">ENABLED = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">[service]</span><br><span class="line">REGISTER_EMAIL_CONFIRM = <span class="literal">false</span></span><br><span class="line">ENABLE_NOTIFY_MAIL = <span class="literal">false</span></span><br><span class="line">DISABLE_REGISTRATION = <span class="literal">true</span></span><br><span class="line">ALLOW_ONLY_EXTERNAL_REGISTRATION = <span class="literal">false</span></span><br><span class="line">ENABLE_CAPTCHA = <span class="literal">false</span></span><br><span class="line">REQUIRE_SIGNIN_VIEW = <span class="literal">false</span></span><br><span class="line">DEFAULT_KEEP_EMAIL_PRIVATE = <span class="literal">false</span></span><br><span class="line">DEFAULT_ALLOW_CREATE_ORGANIZATION = <span class="literal">true</span></span><br><span class="line">DEFAULT_ENABLE_TIMETRACKING = <span class="literal">true</span></span><br><span class="line">NO_REPLY_ADDRESS = noreply.localhost</span><br><span class="line"></span><br><span class="line">[openid]</span><br><span class="line">ENABLE_OPENID_SIGNIN = <span class="literal">true</span></span><br><span class="line">ENABLE_OPENID_SIGNUP = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">[cron.update_checker]</span><br><span class="line">ENABLED = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">[session]</span><br><span class="line">PROVIDER = file</span><br><span class="line"></span><br><span class="line">[<span class="built_in">log</span>]</span><br><span class="line">MODE = console</span><br><span class="line">LEVEL = info</span><br><span class="line">ROOT_PATH = /var/lib/gitea/log</span><br><span class="line"></span><br><span class="line">[repository.pull-request]</span><br><span class="line">DEFAULT_MERGE_STYLE = merge</span><br><span class="line"></span><br><span class="line">[repository.signing]</span><br><span class="line">DEFAULT_TRUST_MODEL = committer</span><br><span class="line"></span><br><span class="line">[security]</span><br><span class="line">INSTALL_LOCK = <span class="literal">true</span></span><br><span class="line">INTERNAL_TOKEN = </span><br><span class="line">PASSWORD_HASH_ALGO = </span><br><span class="line"></span><br><span class="line">[oauth2]</span><br><span class="line">JWT_SECRET = </span><br></pre></td></tr></table></figure>
+<h2 id="4-配置service"><a href="#4-配置service" class="headerlink" title="4.配置service"></a>4.配置<code>service</code></h2><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/systemd/system/gitea.service</span><br></pre></td></tr></table></figure>
+
+<p>配置如下</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Gitea (Git with a cup of tea)</span><br><span class="line">After=network.target</span><br><span class="line">After=syslog.target</span><br><span class="line"><span class="comment">###</span></span><br><span class="line"><span class="comment"># Don&#x27;t forget to add the database service dependencies</span></span><br><span class="line"><span class="comment">###</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#Wants=mysql.service</span></span><br><span class="line"><span class="comment">#After=mysql.service</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#Wants=mariadb.service</span></span><br><span class="line"><span class="comment">#After=mariadb.service</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#Wants=postgresql.service</span></span><br><span class="line"><span class="comment">#After=postgresql.service</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#Wants=memcached.service</span></span><br><span class="line"><span class="comment">#After=memcached.service</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#Wants=redis.service</span></span><br><span class="line"><span class="comment">#After=redis.service</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">###</span></span><br><span class="line"><span class="comment"># If using socket activation for main http/s</span></span><br><span class="line"><span class="comment">###</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#After=gitea.main.socket</span></span><br><span class="line"><span class="comment">#Requires=gitea.main.socket</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">###</span></span><br><span class="line"><span class="comment"># (You can also provide gitea an http fallback and/or ssh socket too)</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># An example of /etc/systemd/system/gitea.main.socket</span></span><br><span class="line"><span class="comment">###</span></span><br><span class="line"><span class="comment">##</span></span><br><span class="line"><span class="comment">## [Unit]</span></span><br><span class="line"><span class="comment">## Description=Gitea Web Socket</span></span><br><span class="line"><span class="comment">## PartOf=gitea.service</span></span><br><span class="line"><span class="comment">##</span></span><br><span class="line"><span class="comment">## [Socket]</span></span><br><span class="line"><span class="comment">## Service=gitea.service</span></span><br><span class="line"><span class="comment">## ListenStream=&lt;some_port&gt;</span></span><br><span class="line"><span class="comment">## NoDelay=true</span></span><br><span class="line"><span class="comment">##</span></span><br><span class="line"><span class="comment">## [Install]</span></span><br><span class="line"><span class="comment">## WantedBy=sockets.target</span></span><br><span class="line"><span class="comment">##</span></span><br><span class="line"><span class="comment">###</span></span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line"><span class="comment"># Uncomment the next line if you have repos with lots of files and get a HTTP 500 error because of that</span></span><br><span class="line"><span class="comment"># LimitNOFILE=524288:524288</span></span><br><span class="line">RestartSec=2s</span><br><span class="line">Type=simple</span><br><span class="line">User=git</span><br><span class="line">Group=git</span><br><span class="line">WorkingDirectory=/var/lib/gitea/</span><br><span class="line"><span class="comment"># If using Unix socket: tells systemd to create the /run/gitea folder, which will contain the gitea.sock file</span></span><br><span class="line"><span class="comment"># (manually creating /run/gitea doesn&#x27;t work, because it would not persist across reboots)</span></span><br><span class="line"><span class="comment">#RuntimeDirectory=gitea</span></span><br><span class="line">ExecStart=/usr/local/bin/gitea web --config /etc/gitea/app.ini</span><br><span class="line">Restart=always</span><br><span class="line">Environment=USER=git HOME=/home/git GITEA_WORK_DIR=/var/lib/gitea</span><br><span class="line"><span class="comment"># If you install Git to directory prefix other than default PATH (which happens</span></span><br><span class="line"><span class="comment"># for example if you install other versions of Git side-to-side with</span></span><br><span class="line"><span class="comment"># distribution version), uncomment below line and add that prefix to PATH</span></span><br><span class="line"><span class="comment"># Don&#x27;t forget to place git-lfs binary on the PATH below if you want to enable</span></span><br><span class="line"><span class="comment"># Git LFS support</span></span><br><span class="line"><span class="comment">#Environment=PATH=/path/to/git/bin:/bin:/sbin:/usr/bin:/usr/sbin</span></span><br><span class="line"><span class="comment"># If you want to bind Gitea to a port below 1024, uncomment</span></span><br><span class="line"><span class="comment"># the two values below, or use socket activation to pass Gitea its ports as above</span></span><br><span class="line"><span class="comment">###</span></span><br><span class="line"><span class="comment">#CapabilityBoundingSet=CAP_NET_BIND_SERVICE</span></span><br><span class="line"><span class="comment">#AmbientCapabilities=CAP_NET_BIND_SERVICE</span></span><br><span class="line"><span class="comment">###</span></span><br><span class="line"><span class="comment"># In some cases, when using CapabilityBoundingSet and AmbientCapabilities option, you may want to</span></span><br><span class="line"><span class="comment"># set the following value to false to allow capabilities to be applied on gitea process. The following</span></span><br><span class="line"><span class="comment"># value if set to true sandboxes gitea service and prevent any processes from running with privileges</span></span><br><span class="line"><span class="comment"># in the host user namespace.</span></span><br><span class="line"><span class="comment">###</span></span><br><span class="line"><span class="comment">#PrivateUsers=false</span></span><br><span class="line"><span class="comment">###</span></span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-启动服务"><a href="#5-启动服务" class="headerlink" title="5.启动服务"></a>5.启动服务</h2><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart gitea</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-开放服务器端口3000"><a href="#6-开放服务器端口3000" class="headerlink" title="6.开放服务器端口3000"></a>6.开放服务器端口3000</h2><h2 id="7-访问"><a href="#7-访问" class="headerlink" title="7.访问"></a>7.访问</h2><p>ip:3000</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 用户</span></span><br><span class="line">git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置地址</span></span><br><span class="line">/etc/gitea/app.ini</span><br><span class="line"></span><br><span class="line"><span class="comment"># gitea的安装目录</span></span><br><span class="line">/var/lib/gitea</span><br><span class="line"></span><br><span class="line"><span class="comment"># service启动配置</span></span><br><span class="line">/etc/systemd/system/gitea.service</span><br></pre></td></tr></table></figure>
+
+<h1 id="迁移"><a href="#迁移" class="headerlink" title="迁移"></a>迁移</h1><h2 id="1-备份"><a href="#1-备份" class="headerlink" title="1.备份"></a>1.备份</h2><p>登录老机器</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/gitea/</span><br><span class="line"></span><br><span class="line">gitea dump -c app.ini</span><br></pre></td></tr></table></figure>
+
+<p>会生成一个<code>gitea-dump-417443001.zip</code>的文件</p>
+<h2 id="2-拷贝"><a href="#2-拷贝" class="headerlink" title="2.拷贝"></a>2.拷贝</h2><p>拷贝到新机器</p>
+<p>什么手段不管，只要拷贝到新机器</p>
+<p>需要拷贝的数据如下</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># gitea的二进制程序</span></span><br><span class="line">./gitea/gitea </span><br><span class="line"><span class="comment"># 备份文件</span></span><br><span class="line">gitea-dump-417443001.zip</span><br><span class="line"><span class="comment"># gitea.service</span></span><br><span class="line">gitea.service</span><br></pre></td></tr></table></figure>
+
+<p>假设拷贝过来以后，放在<code>/root/temp文件夹下</code></p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /root/temp</span><br><span class="line"></span><br><span class="line"><span class="built_in">mkdir</span> giteabk</span><br><span class="line"><span class="comment"># 解压缩</span></span><br><span class="line">unzip gitea-dump-417443001.zip -d giteabk</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解压以后的文件</span></span><br><span class="line"><span class="comment"># app.ini  data  gitea-db.sql  repos</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-安装"><a href="#3-安装" class="headerlink" title="3.安装"></a>3.安装</h2><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">adduser \</span><br><span class="line">   --system \</span><br><span class="line">   --shell /bin/bash \</span><br><span class="line">   --gecos <span class="string">&#x27;Git Version Control&#x27;</span> \</span><br><span class="line">   --group \</span><br><span class="line">   --disabled-password \</span><br><span class="line">   --home /home/git \</span><br><span class="line">   git</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /var/lib/gitea/&#123;custom,data,<span class="built_in">log</span>&#125;</span><br><span class="line"><span class="built_in">chown</span> -R git:git /var/lib/gitea/</span><br><span class="line"><span class="built_in">chmod</span> -R 750 /var/lib/gitea/</span><br><span class="line"><span class="built_in">mkdir</span> /etc/gitea</span><br><span class="line"><span class="built_in">chown</span> root:git /etc/gitea</span><br><span class="line"><span class="built_in">chmod</span> 770 /etc/gitea</span><br><span class="line"></span><br><span class="line">vim ~/.bashrc</span><br><span class="line"><span class="comment"># 添加如下环境变量</span></span><br><span class="line"><span class="built_in">export</span> GITEA_WORK_DIR=/var/lib/gitea/</span><br><span class="line"><span class="comment"># 保存退出</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 复制二进制到全局位置</span></span><br><span class="line"><span class="built_in">cp</span> gitea /usr/local/bin/gitea</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> /etc/gitea</span><br><span class="line"><span class="built_in">cp</span> ./giteabk/app.ini /etc/gitea/app.ini</span><br><span class="line"><span class="built_in">cp</span> gitea.service /etc/systemd/system/gitea.service</span><br><span class="line"></span><br><span class="line">vim /etc/gitea/app.ini</span><br><span class="line"><span class="comment"># 自行修改其中的ip之类的数据保存</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 拷贝数据到对应位置</span></span><br><span class="line"><span class="built_in">cp</span> -r giteabk/data/* /var/lib/gitea/data/</span><br><span class="line"><span class="built_in">cp</span> -r giteabk/custom/* /var/lib/gitea/custom/</span><br><span class="line"><span class="built_in">cp</span> -r giteabk/log/* /var/lib/gitea/log/</span><br><span class="line"><span class="built_in">cp</span> -r  giteabk/repos/* /var/lib/gitea/data/repositories/</span><br><span class="line"></span><br><span class="line"><span class="comment"># sqlite3 数据库</span></span><br><span class="line">sqlite3 <span class="variable">$DATABASE_PATH</span> &lt;gitea-db.sql</span><br><span class="line"></span><br><span class="line">service gitea restart</span><br></pre></td></tr></table></figure>
+
+<p>中间如果报错，文件没有权限，该给权限就给权限，其他都好了</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://www.xingxiaowu.cn">无星</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://www.xingxiaowu.cn/2025/10/15/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/gitea%E7%9A%84%E5%AE%89%E8%A3%85/">http://www.xingxiaowu.cn/2025/10/15/运维杂谈/gitea的安装/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://www.xingxiaowu.cn" target="_blank">歪比巴卜</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/iOS/">iOS</a></div><div class="post-share"><div class="social-share" data-image="/images/Avatar.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>V我50，Crazy</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/images/WechatPay.png" target="_blank"><img class="post-qr-code-img" src="/images/WechatPay.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/images/AliPay.png" target="_blank"><img class="post-qr-code-img" src="/images/AliPay.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2018/08/12/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E4%B8%AA%E6%8E%A8-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%8E%A8%E9%80%81%E6%B5%8B%E8%AF%95/" title="个推-开发环境推送测试"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2018-08-12</div><div class="info-item-2">个推-开发环境推送测试</div></div><div class="info-2"><div class="info-item-1">没有用过其他推送，不过应该都是大同小异的，可以参考参考。应该有不少老哥接了推送，都存在这么一种情况。推送平台只能放一个P12，肯定要放生产的，那我开发怎么测？难道真的要打包上架去TestFlight再测？那这个风险和耗时有点太大了。 ###Xcode手动管理证书要是不会配置记得用自动证书管理###其实我们只要转变一下思路就好了。创建一个测试应用即可。（读懂了这句话的老哥就不用继续往下看了）不过如果你要是想给特定用户推送不知道怎么做的话，推荐看：个推-iOS特定人群推送####准备好推送证书的p12文件推送证书的申请乱七八糟我就不说了，网上图文教程一大堆。接下来，推送证书分两份，这个应该也不用多说了，如果这个都不知道的开发者那就有点不太称职了。。。导出P12文件并设置密码（怎么导出也不多说了）这时候我们得到了两份推送证书的P12文件，一份开发环境一份生产环境。####打开个推官网剩下的和正式环境的推送一模一样了。 </div></div></div></a><a class="pagination-related" href="/2016/12/17/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/AFNetworking%E5%A6%82%E4%BD%95%E4%BC%A0%E9%80%92%E7%BB%93%E6%9E%9C/" title="AFNetworking如何传递结果"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2016-12-17</div><div class="info-item-2">AFNetworking如何传递结果</div></div><div class="info-2"><div class="info-item-1">因为在AFNetworking中的请求结果采用block，是异步请求结果 那么如何返回结果呢？ 答案很简单：代理。 例如：   代理在哪实现，结果在哪返回。 </div></div></div></a><a class="pagination-related" href="/2018/01/20/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/iPhone%E7%9A%84%E6%8C%87%E7%BA%B9%E8%AF%86%E5%88%AB%E4%B8%8E%E9%9D%A2%E9%83%A8%E8%AF%86%E5%88%AB%EF%BC%88FaceID%EF%BC%89/" title="iPhone的指纹识别与面部识别（FaceID）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2018-01-20</div><div class="info-item-2">iPhone的指纹识别与面部识别（FaceID）</div></div><div class="info-2"><div class="info-item-1">其实iPhone的指纹识别有很多教程，但其实有两套策略，而且好多都只写了一套，而且有的你会发现，错误码压根就试不出来啊，还以为苹果给的错误码都是瞎扯淡的。 首先，需要导入苹果的安全策略库LocalAuthentication。这个库提供了指纹识别这一安全策略库公开发者们使用。对于开发者来说，只需要调用几个很简单的方法便可以进行指纹识别了。至于是如何识别，这些苹果并没有公开，开发者只能获取成功或失败状态以及message。###一.判断设备是否支持指纹识别 12345LAContext *context = [[LAContext alloc] init];  NSError *error = nil;    // 判断设置是否支持指纹识别(iPhone5s+、iOS8+支持)  BOOL support = [context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&amp;error];  ###但是注意了，这里的support如果为NO并不代表设备就不支持指纹识别了。因为当...</div></div></div></a><a class="pagination-related" href="/2019/04/06/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/Swift-ObjectMapper%E5%85%A5%E9%97%A8/" title="Swift-ObjectMapper入门"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2019-04-06</div><div class="info-item-2">Swift-ObjectMapper入门</div></div><div class="info-2"><div class="info-item-1">背景突然很想学swift…不怕死的我在完全没用过的情况下决定通过重构公司的古老项目来完成这段学习之旅….model转json或者json转model是很常见的需求….所以这就是为什么我要用ObjectMapper了…(其实是我把# SwiftyJSON的star数错了..我可能会趁用的还不多改成SwiftyJSON,毕竟ObjectMapper实在查不到什么资料不是吗…) 使用初始化12345678910111213141516171819import UIKitimport ObjectMapperclass BaseModel: Mappable &#123;    //定义属性    var name : String? = &quot;wuxing&quot;        init() &#123;//为什么要写这个init,原因很简单,总有些时候你仅仅想初始化一个model,而非通过外部传入数据初始化    &#125;        required init?(map: Map) &#123;        //重写ObjectMapper的init    &#1...</div></div></div></a><a class="pagination-related" href="/2016/12/12/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E5%A6%82%E4%BD%95%E9%99%90%E5%88%B6%E5%88%AB%E4%BA%BA%E4%BC%A0%E9%80%92%E7%9A%84%E5%AD%97%E5%85%B8%E7%B1%BB%E5%9E%8B%E5%8F%82%E6%95%B0%E7%9A%84key/" title="如何限制别人传递的字典类型参数的key"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2016-12-12</div><div class="info-item-2">如何限制别人传递的字典类型参数的key</div></div><div class="info-2"><div class="info-item-1">在封装SDK时，只能限制开发者传参的类型，而不能限制传递参数的内容。 例如-(void)tranwithDic:(NSDictionary *)traderInfo; 此时，要求别人传字典类型参数，别人传的key:value是什么无法做出限制。 如果你需要拿着别人传递的参数去请求服务器来返回结果，那就必须对key做出限定，那应该怎么办呢？ 答案很简单：-(void)tranwithDic:(NSObject *)traderInfo; 传递一个对象，把需要的key做成对象属性，然后在方法内部将对象转换成字典即可。 </div></div></div></a><a class="pagination-related" href="/2020/02/15/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E8%8B%B9%E6%9E%9C%E5%8D%A1%E9%AA%8C%E8%AF%81%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%8C%E7%BB%88%E4%BA%8E%E2%84%A2%E8%A7%A3%E5%86%B3%E4%BA%86/" title="苹果卡验证的问题，终于™解决了"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-02-15</div><div class="info-item-2">苹果卡验证的问题，终于™解决了</div></div><div class="info-2"><div class="info-item-1">有一说一，在国内上传app到App Store，用transport上传，我打赌你肯定见过这个页面，这个正在验证能卡几个钟头。 “正在验证App-正在通过App Store进行认证…”  终于在stackoverflow这里找到了答案（不是最高票那个）。  真的🐂🍺。 所以你要做的操作就是 1.删除该缓存文件夹（删之前你可以看看是多大，我这是2.5M）1/Users/your_user_name/Library/Caches/com.apple.amp.itmstransporter/  2.打开梯子打开梯子，原因不用我多说，国内的这个网络你懂得。 3.开启终端代理（不建议直接双击运行图中地址下的iTMSTransporter这个程序）不建议直接双击运行iTMSTransporter，原因是双击直接开了终端运行，你会发现，巨慢无比，因为没翻出去，你可能几个钟头都下不完。 这里建议，打开梯子以后，开启终端代理。 如果你开的是🛫，先开全局，再建议看下有没有一个叫“一键复制终端代理命令”的按钮，点一下，然后复制到终端运行一下，这样就开启了终端代理。 你可以通过以下命令测试你当前的...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/Avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">无星</div><div class="author-info-description">打工人</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">198</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">58</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">38</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/XingXiaoWu"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/XingXiaoWu" target="_blank" title="Github"><i class="fab fa-github" style="color: #hdhfbb;"></i></a><a class="social-icon" href="https://juejin.cn/user/1503787636493886" target="_blank" title="掘金"><i class="fab fa-blogger" style="color: #hdhfbb;"></i></a><a class="social-icon" href="https://www.jianshu.com/u/fef7696741c8" target="_blank" title="简书"><i class="fas fa-blog" style="color: #hdhfbb;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">你有没有好好吃饭</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Ubuntu-%E5%AE%89%E8%A3%85-gitea"><span class="toc-number">1.</span> <span class="toc-text">Ubuntu 安装 gitea</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%AE%89%E8%A3%85"><span class="toc-number">2.</span> <span class="toc-text">二进制安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%B8%8B%E8%BD%BD"><span class="toc-number">2.1.</span> <span class="toc-text">1. 下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%B3%A8%E5%86%8C%E7%94%A8%E6%88%B7"><span class="toc-number">2.2.</span> <span class="toc-text">2. 注册用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%85%8D%E7%BD%AE"><span class="toc-number">2.3.</span> <span class="toc-text">3. 配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E9%85%8D%E7%BD%AEservice"><span class="toc-number">2.4.</span> <span class="toc-text">4.配置service</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1"><span class="toc-number">2.5.</span> <span class="toc-text">5.启动服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%BC%80%E6%94%BE%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E5%8F%A33000"><span class="toc-number">2.6.</span> <span class="toc-text">6.开放服务器端口3000</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E8%AE%BF%E9%97%AE"><span class="toc-number">2.7.</span> <span class="toc-text">7.访问</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">2.8.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%81%E7%A7%BB"><span class="toc-number">3.</span> <span class="toc-text">迁移</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%A4%87%E4%BB%BD"><span class="toc-number">3.1.</span> <span class="toc-text">1.备份</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%8B%B7%E8%B4%9D"><span class="toc-number">3.2.</span> <span class="toc-text">2.拷贝</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%AE%89%E8%A3%85"><span class="toc-number">3.3.</span> <span class="toc-text">3.安装</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/29/AI/%E7%A0%B4%E9%99%90%E6%8F%90%E7%A4%BA%E8%AF%8D/" title="破限提示词">破限提示词</a><time datetime="2026-07-29T12:09:00.000Z" title="发表于 2026-07-29 20:09:00">2026-07-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/02/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/1Panel/" title="1Panel">1Panel</a><time datetime="2026-07-02T06:12:00.000Z" title="发表于 2026-07-02 14:12:00">2026-07-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/06/24/AI/MCP/" title="MCP">MCP</a><time datetime="2026-06-24T07:27:08.000Z" title="发表于 2026-06-24 15:27:08">2026-06-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/06/03/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Jenkins%E6%90%AD%E9%85%8DGitea%E6%8B%89%E5%8F%96%E9%A1%B9%E7%9B%AE/" title="Jenkins搭配Gitea拉取项目">Jenkins搭配Gitea拉取项目</a><time datetime="2026-06-03T06:32:00.000Z" title="发表于 2026-06-03 14:32:00">2026-06-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/05/15/CTF/%E6%8A%A5%E5%91%8A/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%8A%A5%E5%91%8A%EF%BC%88%E4%B8%89%EF%BC%89-%E6%9F%90%E5%AE%812/" title="无星的渗透报告（三）-某宁2"><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/报告/一/1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无星的渗透报告（三）-某宁2"/></a><div class="content"><a class="title" href="/2026/05/15/CTF/%E6%8A%A5%E5%91%8A/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%8A%A5%E5%91%8A%EF%BC%88%E4%B8%89%EF%BC%89-%E6%9F%90%E5%AE%812/" title="无星的渗透报告（三）-某宁2">无星的渗透报告（三）-某宁2</a><time datetime="2026-05-15T12:09:00.000Z" title="发表于 2026-05-15 20:09:00">2026-05-15</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2016 - 2026 By 无星</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span><span class="footer-separator">备案号 | </span><a href="https://beian.miit.gov.cn/" target="_blank">赣ICP备2026018933号-1</a></div><div class="footer_custom_text">歪比巴卜</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const commentCount = n => {
+    const isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+    if (isCommentCount) {
+      isCommentCount.textContent= n
+    }
+  }
+
+  const initGitalk = (el, path) => {
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyGitalk = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+
+    const gitalk = new Gitalk({
+      clientID: 'c06f519d5671dfd10942',
+      clientSecret: '38d97414c2b8bfec7f473f9f3458ca58fd0d25d1',
+      repo: 'XingXiaoWu.github.io',
+      owner: 'XingXiaoWu',
+      admin: ['XingXiaoWu'],
+      updateCountCallback: commentCount,
+      ...option,
+      id: isShuoshuo ? path : (option && option.id) || '668e14caf04938349de830c083afa82d'
+    })
+
+    gitalk.render('gitalk-container')
+  }
+
+  const loadGitalk = async(el, path) => {
+    if (typeof Gitalk === 'function') initGitalk(el, path)
+    else {
+      await btf.getCSS('https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.css')
+      await btf.getScript('https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.js')
+      initGitalk(el, path)
+    }
+  }
+
+  if (isShuoshuo) {
+    'Gitalk' === 'Gitalk'
+      ? window.shuoshuoComment = { loadComment: loadGitalk }
+      : window.loadOtherComment = loadGitalk
+    return
+  }
+
+  if ('Gitalk' === 'Gitalk' || !false) {
+    if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+    else loadGitalk()
+  } else {
+    window.loadOtherComment = loadGitalk
+  }
+})()</script></div><script>(() => {
+  btf.getScript('//code.tidio.co/8bedg9ebrxiovjwd7m9vzmap6dbvl0jf.js').then(() => {
+    const isChatBtn = false
+    const isChatHideShow = false
+
+    if (isChatBtn) {
+      let isShow = false
+      const close = () => {
+        window.tidioChatApi.hide()
+        isShow = false
+      }
+      
+      const open = () => {
+        window.tidioChatApi.open()
+        window.tidioChatApi.show()
+        isShow = true
+      }
+
+      const onTidioChatApiReady = () => {
+        window.tidioChatApi.hide()
+        window.tidioChatApi.on("close", close)
+      }
+      if (window.tidioChatApi) {
+        window.tidioChatApi.on("ready", onTidioChatApiReady)
+      } else {
+        document.addEventListener("tidioChat-ready", onTidioChatApiReady)
+      }
+
+      window.chatBtnFn = () => {
+        if (!window.tidioChatApi) return
+        isShow ? close() : open()
+      }
+
+      document.getElementById('chat-btn').style.display = 'block'
+
+    } else if (isChatHideShow) {
+      window.chatBtn = {
+        hide: () => window.tidioChatApi && window.tidioChatApi.hide(),
+        show: () => window.tidioChatApi && window.tidioChatApi.show()
+      }
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索一号准备就绪" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>

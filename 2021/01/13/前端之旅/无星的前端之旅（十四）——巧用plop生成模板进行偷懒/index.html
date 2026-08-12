@@ -1,0 +1,308 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>无星的前端之旅（十四）——巧用plop生成模板进行偷懒 | 歪比巴卜</title><meta name="author" content="无星"><meta name="copyright" content="无星"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="背景在开发过程中，总会有一些模板代码需要编写，比如我是写vue的，vue2中的各种namespace，vue3中的各种引入。几乎是每个vue文件都需要的。 每次写都累的一批，也毫无技术含量。纯体力活，但还不得不做。 这时候大伙可能会用各自习惯的编辑器去编写各式各样的代码块来减轻工作量。 但是团队中编辑器并非统一的，众所周知，前端不仅语言众多，开发工具也多的一批，也没有什么好的跨编辑器跨机子的代码块">
+<meta property="og:type" content="article">
+<meta property="og:title" content="无星的前端之旅（十四）——巧用plop生成模板进行偷懒">
+<meta property="og:url" content="http://www.xingxiaowu.cn/2021/01/13/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E5%B7%A7%E7%94%A8plop%E7%94%9F%E6%88%90%E6%A8%A1%E6%9D%BF%E8%BF%9B%E8%A1%8C%E5%81%B7%E6%87%92/index.html">
+<meta property="og:site_name" content="歪比巴卜">
+<meta property="og:description" content="背景在开发过程中，总会有一些模板代码需要编写，比如我是写vue的，vue2中的各种namespace，vue3中的各种引入。几乎是每个vue文件都需要的。 每次写都累的一批，也毫无技术含量。纯体力活，但还不得不做。 这时候大伙可能会用各自习惯的编辑器去编写各式各样的代码块来减轻工作量。 但是团队中编辑器并非统一的，众所周知，前端不仅语言众多，开发工具也多的一批，也没有什么好的跨编辑器跨机子的代码块">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.xingxiaowu.cn/images/Avatar.jpg">
+<meta property="article:published_time" content="2021-01-13T03:38:00.000Z">
+<meta property="article:modified_time" content="2026-06-22T07:07:14.742Z">
+<meta property="article:author" content="无星">
+<meta property="article:tag" content="前端">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.xingxiaowu.cn/images/Avatar.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "无星的前端之旅（十四）——巧用plop生成模板进行偷懒",
+  "url": "http://www.xingxiaowu.cn/2021/01/13/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E5%B7%A7%E7%94%A8plop%E7%94%9F%E6%88%90%E6%A8%A1%E6%9D%BF%E8%BF%9B%E8%A1%8C%E5%81%B7%E6%87%92/",
+  "image": "http://www.xingxiaowu.cn/images/Avatar.jpg",
+  "datePublished": "2021-01-13T03:38:00.000Z",
+  "dateModified": "2026-06-22T07:07:14.742Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "无星",
+      "url": "http://www.xingxiaowu.cn"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/images/Avatar.jpg"><link rel="canonical" href="http://www.xingxiaowu.cn/2021/01/13/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E5%B7%A7%E7%94%A8plop%E7%94%9F%E6%88%90%E6%A8%A1%E6%9D%BF%E8%BF%9B%E8%A1%8C%E5%81%B7%E6%87%92/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9901724859932050"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-9901724859932050',
+  enable_page_level_ads: 'true'
+});</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?bdba6c3bda62a07f58f3cf06034704d5";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-5976024V60"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-5976024V60')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-5976024V60', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":150,"languages":{"author":"作者: 无星","link":"链接: ","source":"来源: 歪比巴卜","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '无星的前端之旅（十四）——巧用plop生成模板进行偷懒',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/rss2.xml" title="歪比巴卜" type="application/rss+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/Avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">198</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">58</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">38</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/images/Avatar.jpg" alt="Logo"><span class="site-name">歪比巴卜</span></a><a class="nav-page-title" href="/"><span class="site-name">无星的前端之旅（十四）——巧用plop生成模板进行偷懒</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">无星的前端之旅（十四）——巧用plop生成模板进行偷懒</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-01-13T03:38:00.000Z" title="发表于 2021-01-13 11:38:00">2021-01-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-06-22T07:07:14.742Z" title="更新于 2026-06-22 15:07:14">2026-06-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2021/01/13/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E5%B7%A7%E7%94%A8plop%E7%94%9F%E6%88%90%E6%A8%A1%E6%9D%BF%E8%BF%9B%E8%A1%8C%E5%81%B7%E6%87%92/#post-comment"><span class="gitalk-comment-count"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>在开发过程中，总会有一些模板代码需要编写，比如我是写vue的，vue2中的各种namespace，vue3中的各种引入。几乎是每个vue文件都需要的。</p>
+<p>每次写都累的一批，也毫无技术含量。纯体力活，但还不得不做。</p>
+<p>这时候大伙可能会用各自习惯的编辑器去编写各式各样的代码块来减轻工作量。</p>
+<p>但是团队中编辑器并非统一的，众所周知，前端不仅语言众多，开发工具也多的一批，也没有什么好的跨编辑器跨机子的代码块存储方式（大厂统一云编辑器的往后稍稍，不包含你们）</p>
+<p>这个时候就发现了plop（在跟着<a target="_blank" rel="noopener" href="https://juejin.cn/user/518625216445533">花裤衩</a>手摸手学习<a target="_blank" rel="noopener" href="https://github.com/PanJiaChen/vue-element-admin">vue-element-admin</a>的时候学到的）。</p>
+<h1 id="Plop解决了什么问题？"><a href="#Plop解决了什么问题？" class="headerlink" title="Plop解决了什么问题？"></a>Plop解决了什么问题？</h1><p>解决了上述的同一个项目跨编辑器跨机器编写前端代码块的问题。</p>
+<h1 id="如何集成"><a href="#如何集成" class="headerlink" title="如何集成"></a>如何集成</h1><h2 id="一、集成plop到项目中"><a href="#一、集成plop到项目中" class="headerlink" title="一、集成plop到项目中"></a>一、集成plop到项目中</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i plop -D</span><br></pre></td></tr></table></figure>
+
+<h2 id="二、根目录下新建一个文件夹放置模板和脚本命令（这里只举个例子）"><a href="#二、根目录下新建一个文件夹放置模板和脚本命令（这里只举个例子）" class="headerlink" title="二、根目录下新建一个文件夹放置模板和脚本命令（这里只举个例子）"></a>二、根目录下新建一个文件夹放置模板和脚本命令（这里只举个例子）</h2><figure class="highlight hbs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="language-xml"><span class="comment">&lt;!-- plop-templates/views/index.hbs --&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span><span class="template-tag">&#123;&#123;#<span class="name"><span class="built_in">if</span></span> template&#125;&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;</span></span></span><span class="template-variable">&#123;&#123;<span class="name">lowerCase</span> name&#125;&#125;</span><span class="language-xml"><span class="tag"><span class="string">-main&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    </span><span class="template-variable">&#123;&#123; <span class="name">properCase</span> name &#125;&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span><span class="template-tag">&#123;&#123;/<span class="name"><span class="built_in">if</span></span>&#125;&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span><span class="template-tag">&#123;&#123;#<span class="name"><span class="built_in">if</span></span> script&#125;&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  <span class="attr">name</span>: <span class="string">&#x27;</span></span></span><span class="template-variable">&#123;&#123; <span class="name">properCase</span> name &#125;&#125;</span><span class="language-xml">&#x27;,</span></span><br><span class="line"><span class="language-xml">  components: &#123;</span></span><br><span class="line"><span class="language-xml">  &#125;,</span></span><br><span class="line"><span class="language-xml">  props: &#123;</span></span><br><span class="line"><span class="language-xml">  &#125;,</span></span><br><span class="line"><span class="language-xml">  data: () =&gt; (&#123;</span></span><br><span class="line"><span class="language-xml">  &#125;),</span></span><br><span class="line"><span class="language-xml">  computed: &#123;&#125;,</span></span><br><span class="line"><span class="language-xml">  watch: &#123;&#125;,</span></span><br><span class="line"><span class="language-xml">  created() &#123;&#125;,</span></span><br><span class="line"><span class="language-xml">  mounted() &#123;&#125;,</span></span><br><span class="line"><span class="language-xml">  beforeCreate() &#123;&#125;, // 生命周期 - 创建之前</span></span><br><span class="line"><span class="language-xml">  beforeMount() &#123;&#125;, // 生命周期 - 挂载之前</span></span><br><span class="line"><span class="language-xml">  beforeUpdate() &#123;&#125;, // 生命周期 - 更新之前</span></span><br><span class="line"><span class="language-xml">  updated() &#123;&#125;, // 生命周期 - 更新之后</span></span><br><span class="line"><span class="language-xml">  beforeDestroy() &#123;&#125;, // 生命周期 - 销毁之前</span></span><br><span class="line"><span class="language-xml">  destroyed() &#123;&#125;, // 生命周期 - 销毁完成</span></span><br><span class="line"><span class="language-xml">  activated() &#123;&#125;,</span></span><br><span class="line"><span class="language-xml">  methods: &#123;&#125;,</span></span><br><span class="line"><span class="language-xml">&#125;;</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span><span class="template-tag">&#123;&#123;/<span class="name"><span class="built_in">if</span></span>&#125;&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span><span class="template-tag">&#123;&#123;#<span class="name"><span class="built_in">if</span></span> style&#125;&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">style</span> <span class="attr">lang</span>=<span class="string">&quot;less&quot;</span> <span class="attr">scoped</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">.</span><span class="template-variable">&#123;&#123;<span class="name">lowerCase</span> name&#125;&#125;</span><span class="language-xml"><span class="language-css">-<span class="selector-tag">main</span>&#123;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">&#125;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span><span class="template-tag">&#123;&#123;/<span class="name"><span class="built_in">if</span></span>&#125;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// plop-templates/views/prompt.js</span></span><br><span class="line"><span class="keyword">const</span> &#123; notEmpty &#125; = <span class="built_in">require</span>(<span class="string">&#x27;../utils.js&#x27;</span>);</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">description</span>: <span class="string">&#x27;新建一个页面&#x27;</span>,</span><br><span class="line">  <span class="attr">prompts</span>: [&#123;</span><br><span class="line">    <span class="attr">type</span>: <span class="string">&#x27;input&#x27;</span>,</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;name&#x27;</span>,</span><br><span class="line">    <span class="attr">message</span>: <span class="string">&#x27;页面名称&#x27;</span>,</span><br><span class="line">    <span class="attr">validate</span>: <span class="title function_">notEmpty</span>(<span class="string">&#x27;name&#x27;</span>),</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">type</span>: <span class="string">&#x27;checkbox&#x27;</span>,</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;blocks&#x27;</span>,</span><br><span class="line">    <span class="attr">message</span>: <span class="string">&#x27;需要包含什么:&#x27;</span>,</span><br><span class="line">    <span class="attr">choices</span>: [&#123;</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&#x27;&lt;template&gt;&#x27;</span>,</span><br><span class="line">      <span class="attr">value</span>: <span class="string">&#x27;template&#x27;</span>,</span><br><span class="line">      <span class="attr">checked</span>: <span class="literal">true</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&#x27;&lt;script&gt;&#x27;</span>,</span><br><span class="line">      <span class="attr">value</span>: <span class="string">&#x27;script&#x27;</span>,</span><br><span class="line">      <span class="attr">checked</span>: <span class="literal">true</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&#x27;style&#x27;</span>,</span><br><span class="line">      <span class="attr">value</span>: <span class="string">&#x27;style&#x27;</span>,</span><br><span class="line">      <span class="attr">checked</span>: <span class="literal">true</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    ],</span><br><span class="line">    <span class="title function_">validate</span>(<span class="params">value</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (value.<span class="title function_">indexOf</span>(<span class="string">&#x27;script&#x27;</span>) === -<span class="number">1</span> &amp;&amp; value.<span class="title function_">indexOf</span>(<span class="string">&#x27;template&#x27;</span>) === -<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27; &lt;template&gt; 和 &lt;script&gt; 是必须的.&#x27;</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">actions</span>: <span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> name = <span class="string">&#x27;&#123;&#123;properCase name&#125;&#125;&#x27;</span>;</span><br><span class="line">    <span class="keyword">const</span> actions = [&#123;</span><br><span class="line">      <span class="attr">type</span>: <span class="string">&#x27;add&#x27;</span>,</span><br><span class="line">      <span class="attr">path</span>: <span class="string">`src/views/<span class="subst">$&#123;name&#125;</span>/index.vue`</span>,</span><br><span class="line">      <span class="attr">templateFile</span>: <span class="string">&#x27;plop-templates/view/index.hbs&#x27;</span>,</span><br><span class="line">      <span class="attr">data</span>: &#123;</span><br><span class="line">        name,</span><br><span class="line">        <span class="attr">template</span>: data.<span class="property">blocks</span>.<span class="title function_">includes</span>(<span class="string">&#x27;template&#x27;</span>),</span><br><span class="line">        <span class="attr">script</span>: data.<span class="property">blocks</span>.<span class="title function_">includes</span>(<span class="string">&#x27;script&#x27;</span>),</span><br><span class="line">        <span class="attr">style</span>: data.<span class="property">blocks</span>.<span class="title function_">includes</span>(<span class="string">&#x27;style&#x27;</span>),</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;];</span><br><span class="line">    <span class="keyword">return</span> actions;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>目录结构如图</p>
+<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E5%89%8D%E7%AB%AF14/1.png" alt="1.png"></p>
+<h2 id="三、根目录创建plop-js"><a href="#三、根目录创建plop-js" class="headerlink" title="三、根目录创建plop.js"></a>三、根目录创建plop.js</h2><p>这个是plop会读取的配置文件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// plopfile.js</span></span><br><span class="line"><span class="keyword">const</span> viewGenerator = <span class="built_in">require</span>(<span class="string">&#x27;./plop-templates/view/prompt&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> componentGenerator = <span class="built_in">require</span>(<span class="string">&#x27;./plop-templates/component/prompt&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> storeGenerator = <span class="built_in">require</span>(<span class="string">&#x27;./plop-templates/store/prompt&#x27;</span>);</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = <span class="function">(<span class="params">plop</span>) =&gt;</span> &#123;</span><br><span class="line">  plop.<span class="title function_">setGenerator</span>(<span class="string">&#x27;view&#x27;</span>, viewGenerator);</span><br><span class="line">  plop.<span class="title function_">setGenerator</span>(<span class="string">&#x27;component&#x27;</span>, componentGenerator);</span><br><span class="line">  plop.<span class="title function_">setGenerator</span>(<span class="string">&#x27;store&#x27;</span>, storeGenerator);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、如何添加命令方便使用"><a href="#四、如何添加命令方便使用" class="headerlink" title="四、如何添加命令方便使用"></a>四、如何添加命令方便使用</h2><p>在package.json 添加 script脚本</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;new&quot;</span><span class="punctuation">:</span> <span class="string">&quot;plop&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="五、如何使用"><a href="#五、如何使用" class="headerlink" title="五、如何使用"></a>五、如何使用</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run <span class="keyword">new</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h1><p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E5%89%8D%E7%AB%AF14/2.gif" alt="2.gif"></p>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>我提供两套我自己使用的模板，分别是vue2和vue3的</p>
+<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E5%89%8D%E7%AB%AF14/vue2.zip">vue2.zip</a></p>
+<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E5%89%8D%E7%AB%AF14/vue3.zip">vue3.zip</a></p>
+<p>注意：store是采用了module是分开自注册的，如果有兴趣，可以看这篇<br><a target="_blank" rel="noopener" href="http://blog.xingxiaowu.cn/2021/01/13/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94require.context%E5%92%8Cvuex%E6%8C%81%E4%B9%85%E5%8C%96/">无星的前端之旅（十三）——require.context和vuex持久化</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://www.xingxiaowu.cn">无星</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://www.xingxiaowu.cn/2021/01/13/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E5%B7%A7%E7%94%A8plop%E7%94%9F%E6%88%90%E6%A8%A1%E6%9D%BF%E8%BF%9B%E8%A1%8C%E5%81%B7%E6%87%92/">http://www.xingxiaowu.cn/2021/01/13/前端之旅/无星的前端之旅（十四）——巧用plop生成模板进行偷懒/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://www.xingxiaowu.cn" target="_blank">歪比巴卜</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%89%8D%E7%AB%AF/">前端</a></div><div class="post-share"><div class="social-share" data-image="/images/Avatar.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>V我50，Crazy</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/images/WechatPay.png" target="_blank"><img class="post-qr-code-img" src="/images/WechatPay.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/images/AliPay.png" target="_blank"><img class="post-qr-code-img" src="/images/AliPay.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2021/11/02/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94css%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F%E7%9A%84%E5%8D%95%E4%BD%8D/" title="无星的前端之旅（二十六）——css乱七八糟的单位"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-02</div><div class="info-item-2">无星的前端之旅（二十六）——css乱七八糟的单位</div></div><div class="info-2"><div class="info-item-1">背景因为要适配的设备有点多，经常性出现适配问题，单位又多的一批，烦死了 所以我决定从头来看，这些单位到底代表什么，和分辨率， 到底是个什么关系 我先放个移动端的iphone 设备表在这，再来分析    手机设备型号 屏幕尺寸 分辨率点数 设备像素比(DPR) 分辨率像素 屏幕比例    iPhone SE 4.0英寸 320x568 @2x 640x1136 16:9   iPhone 6&#x2F;6s&#x2F;7&#x2F;8&#x2F;SE 2 4.7英寸 375x667 @2x 750x1334 16:9   iPhone 6p&#x2F;7p&#x2F;8p 5.5英寸 414x736 @3x 1242x2208 16:9   iPhone XR&#x2F;11 6.1英寸 414x896 @2x 828x1792 19.5:9   iPhone X&#x2F;XS&#x2F;11 Pro 5.8英寸 375x812 @3x 1125x2436 19.5:9   iPhone XS Max&#x2F;11 Pro Max 6.5英寸 414x896 @3x 1242x...</div></div></div></a><a class="pagination-related" href="/2021/04/28/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%EF%BC%89-element-plus%E7%BB%99select%E6%B7%BB%E5%8A%A0loadMore/" title="无星的前端之旅（二十）-element-plus给el-select添加上拉加载"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-04-28</div><div class="info-item-2">无星的前端之旅（二十）-element-plus给el-select添加上拉加载</div></div><div class="info-2"><div class="info-item-1">背景element-plus中，el-select中可选项达到了500条，页面跳转销毁时导致异常卡顿（vue3.0.0版本，3.0.11版本有很大改善，建议升级） 因此需要进行分页操作。初步设想时当select中的options滚动到最底部的时候，触发加载更多，获取更多的可选项。 实现方式打算通过指令实现，这样添加就很方便，预期一个指令 1v-loadmore=&quot;loadMore&quot;  搜一下正常情况下，我们碰到的100个需求，99个都已经有人实现过了，所以我们就只需要搜一哈，就能找到答案。  果不其然，答案异常的多，只不过都是element-ui的，不过改动不多，应该问题不大，让我们来试一试。 开始踩坑1.附上随处可搜的代码我就不贴从哪抄的了，因为随处可以搜到 12345678910111213Vue.directive(&#x27;loadMore&#x27;, &#123;  bind(el, binding) &#123;    // 获取element-ui定义好的scroll盒子    const SELECTWRAP_DOM = el.queryS...</div></div></div></a><a class="pagination-related" href="/2021/07/20/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94Vue%E7%9A%84%E7%BB%84%E4%BB%B6npm%E5%B0%81%E8%A3%85/" title="无星的前端之旅（二十四）——Vue的组件npm封装"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-07-20</div><div class="info-item-2">无星的前端之旅（二十四）——Vue的组件npm封装</div></div><div class="info-2"><div class="info-item-1">背景很早就有这种需求，项目里封装好了组件，但是不知道怎么丢到npm库里 直接写vue文件丢到npm上，项目里好像也能直接用，但总觉的怪怪的 因为别人的库都是最后打包出来的js，不是vue文件 怎奈何一致不知道正规的的做法，webpack也不会用，babel也不懂，js也不精通，只能打打酱油， TODO：未完待续。。。 </div></div></div></a><a class="pagination-related" href="/2021/01/13/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94require.context%E5%92%8Cvuex%E6%8C%81%E4%B9%85%E5%8C%96/" title="无星的前端之旅（十三）——require.context和vuex持久化"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-01-13</div><div class="info-item-2">无星的前端之旅（十三）——require.context和vuex持久化</div></div><div class="info-2"><div class="info-item-1">背景有些component需要全局注册的，但是在main.js中全局注册又太麻烦了。 store采用modules方式分包，使用的时候也要手动注册。 store刷新丢失，需要持久化。 这时候解决前两个问题，可以使用require.context 解决最后一个问题可以使用vuex-persistedstate require.context1.require.context是什么？Vue内置了webpack的部分配置，这个咱们就不多说了。 require.context是webpack的api。 2.require.context能干什么？通过执行require.context()函数可以获取一个特定的上下文，主要用来实现自动化导入模块。 它允许您传递要搜索的目录，指示是否也应搜索子目录的标志以及用于匹配文件的正则表达式，然后自动导入，使得不需要每次显式的调用import导入模块。 require.context()在构建时，webpack在代码中进行解析。 全局自动注册component新建一个放置全局组件的文件夹，例如：components 在components文件夹下新建一...</div></div></div></a><a class="pagination-related" href="/2020/06/07/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94%20Vue%E5%BC%95%E5%85%A5Storybook%EF%BC%88%E4%B8%80%EF%BC%89/" title="无星的前端之旅（六）—— Vue引入Storybook（一）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-06-07</div><div class="info-item-2">无星的前端之旅（六）—— Vue引入Storybook（一）</div></div><div class="info-2"><div class="info-item-1">为什么要引入一开始我想的是，可能多人多项目开发，把组件展示出来，避免重复造轮子 但后来想想，好像除了展示，没什么其他用处 两个项目如果要用同一个样式的组件，如果没有单独抽出组件库，还是得复制粘贴，用处不大 只能说做组件库的同学用这个比较好用。 还有一个自动化测试的好处（不过我从来没写过测试，暂时还无法体会这个好处） 还有其他用处的话，麻烦老哥们留言区告诉我 如何引入12cd 项目目录下npx -p @storybook/cli sb init 会拉一些依赖，并新建两个文件夹 12.storybookstories/xxx 启动 1npm run storybook  一些问题1.项目中有alias重命名了目录怎么办？例如： 1234567891011//vue.config.jsmodule.exports = &#123;//省略....configureWebpack: &#123;    resolve: &#123;      alias: &#123;        &#x27;@&#x27;: resolve(&#x27;src&#x27;),      &#125;...</div></div></div></a><a class="pagination-related" href="/2024/09/30/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94Chrome%E6%8F%92%E4%BB%B6%E7%9B%91%E5%90%AC%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/" title="无星的前端之旅（三十一）——Chrome插件监听网络请求"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-09-30</div><div class="info-item-2">无星的前端之旅（三十一）——Chrome插件监听网络请求</div></div><div class="info-2"><div class="info-item-1">背景需要监听某个网络请求 并根据body信息做出判断 将结果展示到插件页面 manifest.json1234567891011121314151617181920212223242526272829303132333435363738394041424344&#123;    &quot;manifest_version&quot;: 2,    &quot;name&quot;: &quot;xxx&quot;,    &quot;version&quot;: &quot;0.0.1&quot;,    &quot;description&quot;: &quot;xxx&quot;,    &quot;permissions&quot;: [        &quot;contextMenus&quot;,        &quot;cookies&quot;,        &quot;storage&quot;,        &quot;history&quot;,        &quot;webRequest&quot;,        &quot;webRequ...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/Avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">无星</div><div class="author-info-description">打工人</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">198</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">58</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">38</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/XingXiaoWu"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/XingXiaoWu" target="_blank" title="Github"><i class="fab fa-github" style="color: #hdhfbb;"></i></a><a class="social-icon" href="https://juejin.cn/user/1503787636493886" target="_blank" title="掘金"><i class="fab fa-blogger" style="color: #hdhfbb;"></i></a><a class="social-icon" href="https://www.jianshu.com/u/fef7696741c8" target="_blank" title="简书"><i class="fas fa-blog" style="color: #hdhfbb;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">你有没有好好吃饭</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Plop%E8%A7%A3%E5%86%B3%E4%BA%86%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">Plop解决了什么问题？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E9%9B%86%E6%88%90"><span class="toc-number">3.</span> <span class="toc-text">如何集成</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E9%9B%86%E6%88%90plop%E5%88%B0%E9%A1%B9%E7%9B%AE%E4%B8%AD"><span class="toc-number">3.1.</span> <span class="toc-text">一、集成plop到项目中</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%A0%B9%E7%9B%AE%E5%BD%95%E4%B8%8B%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9%E6%94%BE%E7%BD%AE%E6%A8%A1%E6%9D%BF%E5%92%8C%E8%84%9A%E6%9C%AC%E5%91%BD%E4%BB%A4%EF%BC%88%E8%BF%99%E9%87%8C%E5%8F%AA%E4%B8%BE%E4%B8%AA%E4%BE%8B%E5%AD%90%EF%BC%89"><span class="toc-number">3.2.</span> <span class="toc-text">二、根目录下新建一个文件夹放置模板和脚本命令（这里只举个例子）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%A0%B9%E7%9B%AE%E5%BD%95%E5%88%9B%E5%BB%BAplop-js"><span class="toc-number">3.3.</span> <span class="toc-text">三、根目录创建plop.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E5%91%BD%E4%BB%A4%E6%96%B9%E4%BE%BF%E4%BD%BF%E7%94%A8"><span class="toc-number">3.4.</span> <span class="toc-text">四、如何添加命令方便使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8"><span class="toc-number">3.5.</span> <span class="toc-text">五、如何使用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%88%E6%9E%9C%E5%9B%BE"><span class="toc-number">4.</span> <span class="toc-text">效果图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%80%E5%90%8E"><span class="toc-number">5.</span> <span class="toc-text">最后</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/29/AI/%E7%A0%B4%E9%99%90%E6%8F%90%E7%A4%BA%E8%AF%8D/" title="破限提示词">破限提示词</a><time datetime="2026-07-29T12:09:00.000Z" title="发表于 2026-07-29 20:09:00">2026-07-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/02/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/1Panel/" title="1Panel">1Panel</a><time datetime="2026-07-02T06:12:00.000Z" title="发表于 2026-07-02 14:12:00">2026-07-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/06/24/AI/MCP/" title="MCP">MCP</a><time datetime="2026-06-24T07:27:08.000Z" title="发表于 2026-06-24 15:27:08">2026-06-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/06/03/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Jenkins%E6%90%AD%E9%85%8DGitea%E6%8B%89%E5%8F%96%E9%A1%B9%E7%9B%AE/" title="Jenkins搭配Gitea拉取项目">Jenkins搭配Gitea拉取项目</a><time datetime="2026-06-03T06:32:00.000Z" title="发表于 2026-06-03 14:32:00">2026-06-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/05/15/CTF/%E6%8A%A5%E5%91%8A/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%8A%A5%E5%91%8A%EF%BC%88%E4%B8%89%EF%BC%89-%E6%9F%90%E5%AE%812/" title="无星的渗透报告（三）-某宁2"><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/报告/一/1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无星的渗透报告（三）-某宁2"/></a><div class="content"><a class="title" href="/2026/05/15/CTF/%E6%8A%A5%E5%91%8A/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%8A%A5%E5%91%8A%EF%BC%88%E4%B8%89%EF%BC%89-%E6%9F%90%E5%AE%812/" title="无星的渗透报告（三）-某宁2">无星的渗透报告（三）-某宁2</a><time datetime="2026-05-15T12:09:00.000Z" title="发表于 2026-05-15 20:09:00">2026-05-15</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2016 - 2026 By 无星</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span><span class="footer-separator">备案号 | </span><a href="https://beian.miit.gov.cn/" target="_blank">赣ICP备2026018933号-1</a></div><div class="footer_custom_text">歪比巴卜</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const commentCount = n => {
+    const isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+    if (isCommentCount) {
+      isCommentCount.textContent= n
+    }
+  }
+
+  const initGitalk = (el, path) => {
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyGitalk = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+
+    const gitalk = new Gitalk({
+      clientID: 'c06f519d5671dfd10942',
+      clientSecret: '38d97414c2b8bfec7f473f9f3458ca58fd0d25d1',
+      repo: 'XingXiaoWu.github.io',
+      owner: 'XingXiaoWu',
+      admin: ['XingXiaoWu'],
+      updateCountCallback: commentCount,
+      ...option,
+      id: isShuoshuo ? path : (option && option.id) || 'f59b844034d1e0f356effed9da2ecfc7'
+    })
+
+    gitalk.render('gitalk-container')
+  }
+
+  const loadGitalk = async(el, path) => {
+    if (typeof Gitalk === 'function') initGitalk(el, path)
+    else {
+      await btf.getCSS('https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.css')
+      await btf.getScript('https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.js')
+      initGitalk(el, path)
+    }
+  }
+
+  if (isShuoshuo) {
+    'Gitalk' === 'Gitalk'
+      ? window.shuoshuoComment = { loadComment: loadGitalk }
+      : window.loadOtherComment = loadGitalk
+    return
+  }
+
+  if ('Gitalk' === 'Gitalk' || !false) {
+    if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+    else loadGitalk()
+  } else {
+    window.loadOtherComment = loadGitalk
+  }
+})()</script></div><script>(() => {
+  btf.getScript('//code.tidio.co/8bedg9ebrxiovjwd7m9vzmap6dbvl0jf.js').then(() => {
+    const isChatBtn = false
+    const isChatHideShow = false
+
+    if (isChatBtn) {
+      let isShow = false
+      const close = () => {
+        window.tidioChatApi.hide()
+        isShow = false
+      }
+      
+      const open = () => {
+        window.tidioChatApi.open()
+        window.tidioChatApi.show()
+        isShow = true
+      }
+
+      const onTidioChatApiReady = () => {
+        window.tidioChatApi.hide()
+        window.tidioChatApi.on("close", close)
+      }
+      if (window.tidioChatApi) {
+        window.tidioChatApi.on("ready", onTidioChatApiReady)
+      } else {
+        document.addEventListener("tidioChat-ready", onTidioChatApiReady)
+      }
+
+      window.chatBtnFn = () => {
+        if (!window.tidioChatApi) return
+        isShow ? close() : open()
+      }
+
+      document.getElementById('chat-btn').style.display = 'block'
+
+    } else if (isChatHideShow) {
+      window.chatBtn = {
+        hide: () => window.tidioChatApi && window.tidioChatApi.hide(),
+        show: () => window.tidioChatApi && window.tidioChatApi.show()
+      }
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索一号准备就绪" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>
