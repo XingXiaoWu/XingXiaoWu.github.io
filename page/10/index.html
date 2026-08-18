@@ -1,0 +1,460 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>歪比巴卜 - 技术为辅,业务为主</title><meta name="author" content="无星"><meta name="copyright" content="无星"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="打工人">
+<meta property="og:type" content="website">
+<meta property="og:title" content="歪比巴卜">
+<meta property="og:url" content="http://www.xingxiaowu.cn/page/10/index.html">
+<meta property="og:site_name" content="歪比巴卜">
+<meta property="og:description" content="打工人">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.xingxiaowu.cn/images/Avatar.jpg">
+<meta property="article:author" content="无星">
+<meta property="article:tag" content="无星,歪比巴卜,阿巴阿巴">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.xingxiaowu.cn/images/Avatar.jpg"><script type="application/ld+json"></script><link rel="shortcut icon" href="/images/Avatar.jpg"><link rel="canonical" href="http://www.xingxiaowu.cn/page/10/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9901724859932050"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-9901724859932050',
+  enable_page_level_ads: 'true'
+});</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?bdba6c3bda62a07f58f3cf06034704d5";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-5976024V60"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-5976024V60')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-5976024V60', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":150,"languages":{"author":"作者: 无星","link":"链接: ","source":"来源: 歪比巴卜","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '歪比巴卜',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/rss2.xml" title="歪比巴卜" type="application/rss+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/Avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">198</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">58</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">38</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/images/Avatar.jpg" alt="Logo"><span class="site-name">歪比巴卜</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">歪比巴卜</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/XingXiaoWu" target="_blank" title="Github"><i class="fab fa-github" style="color: #hdhfbb;"></i></a><a class="social-icon" href="https://juejin.cn/user/1503787636493886" target="_blank" title="掘金"><i class="fab fa-blogger" style="color: #hdhfbb;"></i></a><a class="social-icon" href="https://www.jianshu.com/u/fef7696741c8" target="_blank" title="简书"><i class="fas fa-blog" style="color: #hdhfbb;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/03/02/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84electron%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E5%A6%82%E4%BD%95%E5%83%8F%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%80%E6%A0%B7%E5%88%B6%E4%BD%9C%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/" title="无星的electron之旅（十二）—— 如何像浏览器一样制作右键菜单">无星的electron之旅（十二）—— 如何像浏览器一样制作右键菜单</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-03-02T15:32:54.000Z" title="发表于 2022-03-02 23:32:54">2022-03-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/electron/">electron</a></span></div><div class="content">一、背景接了个小需求，已有网站，做了个electron的壳，需要添加右键菜单1.复制图片为base642.另存为图片3.复制图片地址 二、首先需要添加右键菜单1.主线程 background.js添加右键菜单内容12345678910111213141516171819202122232425262728// background.js///////////const rightMenu = initRightMenu();function initRightMenu() &#123;  const rightTemplate = [    &#123;      label: &quot;复制图片为base64&quot;,      click: () =&gt; &#123;        console.log(&quot;复制图片为base64&quot;);      &#125;,    &#125;,    &#123;      label: &quot;另存为图片&quot;,      click: () =&gt; &#123;        consol...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/02/21/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84electron%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E9%98%BF%E6%98%9F%E7%9A%84electron%E6%89%93%E5%8C%85%E9%A1%B5%E9%9D%A2/" title="无星的electron之旅（十一）—— 阿星的electron打包页面">无星的electron之旅（十一）—— 阿星的electron打包页面</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-02-21T14:32:54.000Z" title="发表于 2022-02-21 22:32:54">2022-02-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/electron/">electron</a></span></div><div class="content">一、背景因为用的是mac，发现有些网站不提供mac的应用版，所以很不爽，想自己打包 其实也有些企业做好了网站，想套个壳直接做成应用 因此我用我毕生功力，做了个打包页面，快速产壳 二、地址阿星的打包页面 依次输入我需要的参数 例如: 12345678客户端需要打包的url地址: https://www.bilibili.com/客户端名称: bilibili客户端appid: com.bilibili.app接收应用程序的邮箱: 329106954@qq.com 然后选择需要打包的平台 然后就可以前往查看构建进度    然后安装即可 三、Feature1.当前electron包体过大，无法通过邮件发送后续想换个别的框架，例如tauri来缩小包体，通过邮件发送，避免国内github下载缓慢的问题 2.目前应用图标不支持自定义主要是没钱买服务器或者图床，要是有老哥有免费的图床分享一下也是极好的 目前的图标是我随便找的&#x3D;。&#x3D;如有侵权，请联系我删除 3.添加更多的自定义配置参考文章无 </div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/02/15/%E5%85%9A%E5%91%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%97%A0%E6%98%9F%E7%9A%84%E5%85%9A%E5%91%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89/" title="无星的党员学习笔记（四）—— 列强侵华引发了什么变化">无星的党员学习笔记（四）—— 列强侵华引发了什么变化</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-02-15T09:42:00.000Z" title="发表于 2022-02-15 17:42:00">2022-02-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%85%9A%E5%91%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">党员学习笔记</a></span></div><div class="content">最近在读党史，记录一些随笔。 外国资本主义的入侵，打断了中国社会的正常发展历程。由此派生的社会矛盾，阶级关系和革命性质逐渐发生了深刻的变化。 在外国资本主义入侵之前，我国是一个独立的以农业经济为基础的封建君主制国家，而社会内部的商品经济发展已经孕育着资本主义生产关系萌芽。假如没有西方资本主义的入侵，我国也许也会和西方国家一样，缓慢发展到资本主义社会。 但是因为西方列强的侵略，打断了中国的自然发展道路。西方列强的侵略目的，不是把中国变成资本主义国家，而是希望把中国变成单纯的商品市场和原料基地。由于资本主义的入侵，我国的资本主义也得到了加速发展，但是传统的农业经济仍是中国的主要经济形式，“封建社会中占主导地位的自给自足的自然经济虽然逐渐遭到破坏，但是封建的土地关系，即封建剥削制度的根基——地主阶级对农民的剥削，不但依旧保持着，而且同官僚买办资本和高利贷的剥削结合在了一起，在中国的社会经济生活中仍占明显优势”。这一点在后续的革命中非常重要，也是为什么我党的革命能成功。 另一方面不少仁人志士围绕挽救民族危亡和改革中国社会，开展了一系列的革命行动。 </div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/01/07/%E5%85%9A%E5%91%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%97%A0%E6%98%9F%E7%9A%84%E5%85%9A%E5%91%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/" title="无星的党员学习笔记（三）—— 西方侵略">无星的党员学习笔记（三）—— 西方侵略</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-01-07T13:32:00.000Z" title="发表于 2022-01-07 21:32:00">2022-01-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%85%9A%E5%91%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">党员学习笔记</a></span></div><div class="content">最近在读党史，记录一些随笔。 西方列强通过一次又一次的对华侵略战争，签订了一系列的不平等条约。西方列强在中国的活动，是以享受条约所赋予的特权为基本特征的。它们通过不平等条约，在中国取得了许多重要的特权。如设立港口“租界”，开设矿场，修筑铁路，建立银行等。它们控制着通商口岸，海关，对外贸易，交通运输。大量的倾销它们的商品，把中国变成它们的销售市场和榨取原料的基地。 实际上我们可以看到，所有的殖民地，资本主义国家对他们的态度都是一样的，要么变成某一单一原料的生产基地，要么变成产品倾销地，或二者皆有。反过来想想现在，大多数的发展中国家，有很多都是单一的原料生产国，巴西，菲律宾，厄瓜多尔等等。现有的西方发达国家，限制发展中国家们的发展，只希望它们成为单一的原料生产国，而加工等作业停留在本国，以及其便宜的原材料进口，然后对外输出商品。 在19世纪末，世界资本主义开始进入帝国主义阶段，垄断代替自由竞争模式。甲午战争后，资本输出成为帝国主义侵华的特殊手段。除在华投资建厂外，对中国的贷款成为帝国主义控制中国财政，争夺“势力范围“和左右中国政局的工具。除经济侵略之外，还有文化侵略，以传教为中心，不...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/01/06/%E5%85%9A%E5%91%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%97%A0%E6%98%9F%E7%9A%84%E5%85%9A%E5%91%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/" title="无星的党员学习笔记（二）——为什么西方列强要用战争的方式侵略中国">无星的党员学习笔记（二）——为什么西方列强要用战争的方式侵略中国</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-01-06T12:11:00.000Z" title="发表于 2022-01-06 20:11:00">2022-01-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%85%9A%E5%91%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">党员学习笔记</a></span></div><div class="content">最近在读党史，记录一些随笔。 前面我们解释了为什么西方的资本主义国家想要进入中国市场。但是为什么不通过贸易的方式和平进入，而要发动鸦片战争？ 带着这个问题，我继续阅读着党史。 西方资本主义国家也曾希望通过商品贸易进入中国，但是当时的中国还处于封建社会，由清政府统治。清政府采取闭关锁国的策略，认为自己是“天朝上国”，物资充沛，自给自足。而确实，当时的中国是小农经济社会，商品并未完全自由流通。因此西方的商品，无法进入中国，反倒是中国的茶叶丝绸瓷器，在国外很受欢迎，这样就形成了贸易逆差。对西方而言，不仅赚不到钱，反而不断向中国送钱。 所以西方想出了一个恶毒的点子，贩卖鸦片。（我的评价是：西方🐶真的畜生。）因为鸦片具有成瘾性，可以源源不断的带来收益。 幸而有识之士的出现，1839年林则徐虎门销烟，开启了全面禁烟的时代。 但是彼时我国无论是经济政治还是军事文化，全面滞后于世界。落后就要挨打，虎门销烟后，列强就打算用大炮轰开我国的大门，获得贸易权。1840年第一次鸦片战争，就这样发生了。1842年，英军直逼南京城下，迫使清政府屈服，订立了中国近代史上第一个丧权辱国的不平等条约——中英《南京...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2021/12/15/%E5%85%9A%E5%91%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%97%A0%E6%98%9F%E7%9A%84%E5%85%9A%E5%91%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" title="无星的党员学习笔记（一）——为什么西方列强要侵略中国">无星的党员学习笔记（一）——为什么西方列强要侵略中国</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-12-15T11:41:00.000Z" title="发表于 2021-12-15 19:41:00">2021-12-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%85%9A%E5%91%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">党员学习笔记</a></span></div><div class="content">最近在读党史，记录一些随笔。 中国的近代史，自鸦片战争始。那么到底为什么，鸦片战争会爆发，列强为什么会侵略中国。书中给了我一些启发。 中国曾经是一个历史悠久的东方大国，但是在近代，却落伍了。西方国家率先爆发了资产阶级革命，并相继完成了工业革命，在新的生产方式下，资产阶级经过血与火的原始积累与殖民掠夺，开始了它的发展。”在它不到一百年的统治中所创造的生产力，比过去的一些世代所创造的生产力还要强大。”————《共产党宣言》。无论是对自然的征服，对机器的采用，对化学的应用等，这个时代的资产阶级，都走在了时代的前列。 那么具有如此之高生产力的资产阶级，为什么还会向外殖民侵略呢？其实列宁的《俄国资本主义的发展》早就揭示了：“资本主义如果不经常扩大其统治范围，如果不开发新的地方并把非资本主义的古老国家，卷入世界经济的漩涡，他就不能存在与发展。” 当然，这是结果，那我们要想想为什么列宁会总结出这样一句话。其实很简单，因为生成力高，制作商品成品非常快，作为资本家，产品积压的也就越多，但是市场就那么多，如果没有足够的市场来消化这些商品，那么资本家的钱就会囤积在商品上，无法得到资金的回流和扩大再生产...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2021/11/02/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94css%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F%E7%9A%84%E5%8D%95%E4%BD%8D/" title="无星的前端之旅（二十六）——css乱七八糟的单位">无星的前端之旅（二十六）——css乱七八糟的单位</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-11-02T09:20:00.000Z" title="发表于 2021-11-02 17:20:00">2021-11-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/css/">css</a></span></div><div class="content">背景因为要适配的设备有点多，经常性出现适配问题，单位又多的一批，烦死了 所以我决定从头来看，这些单位到底代表什么，和分辨率， 到底是个什么关系 我先放个移动端的iphone 设备表在这，再来分析    手机设备型号 屏幕尺寸 分辨率点数 设备像素比(DPR) 分辨率像素 屏幕比例    iPhone SE 4.0英寸 320x568 @2x 640x1136 16:9   iPhone 6&#x2F;6s&#x2F;7&#x2F;8&#x2F;SE 2 4.7英寸 375x667 @2x 750x1334 16:9   iPhone 6p&#x2F;7p&#x2F;8p 5.5英寸 414x736 @3x 1242x2208 16:9   iPhone XR&#x2F;11 6.1英寸 414x896 @2x 828x1792 19.5:9   iPhone X&#x2F;XS&#x2F;11 Pro 5.8英寸 375x812 @3x 1125x2436 19.5:9   iPhone XS Max&#x2F;11 Pro Max 6.5英寸 414x896 @3x 1242x...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2021/09/24/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E6%97%A0%E6%98%9F%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8E%E7%8E%AF%E5%A2%83%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89-%E6%96%B0mac%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" title="无星的命令行与环境总结（二）-新mac如何安装开发环境(web,iOS,Android,flutter,react-native,java,go)">无星的命令行与环境总结（二）-新mac如何安装开发环境(web,iOS,Android,flutter,react-native,java,go)</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-09-24T01:38:00.000Z" title="发表于 2021-09-24 09:38:00">2021-09-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/shell/">shell</a></span></div><div class="content">我看谁还不会装环境！ 背景最近新来的同事有点多，为了统一大家的开发环境和工具 专门写了环境安装文档，以供使用 所有命令，均在iterm2中输入 Mac常用信息介绍有mac使用经验的用户可以跳过这一节 以前使用Windows的同学可以先看这一节 键盘Windows 上常用的ctrl键，在mac上使用command键代替（简称cmd键）  在部分外接键盘上，是win键 安装包下载可以从AppStore下载 也可以从网页下载 分盘mac上默认标准只有一个盘，不会有分盘的概念 Windows的我的电脑 mac上为finder（访达）  从网页下载安装包格式 dmg pkg zip  从网页下载的安装包会有这三种格式 dmg格式双击安装 以企业微信为例子  鼠标左键按住软件，拖到右边的文件夹中  pkg文件双击以后，无脑下一步即可 zip文件类似windows的绿色软件 解压缩以后，将得到的应用程序拖动到finder文件夹中，应用程序文件夹下即可  软件无法打开  遇到这种类型的弹窗，第一个选择好，第二个选择取消   添加finder默认可选件夹  常用软件安装除了各自常用的开发软件，比如...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2021/08/24/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E6%97%A0%E6%98%9F%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8E%E7%8E%AF%E5%A2%83%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%88%B0%E5%BA%95%E5%BA%94%E8%AF%A5%E6%80%8E%E4%B9%88%E9%85%8D/" title="无星的命令行与环境总结（一）-- 环境变量到底应该怎么配">无星的命令行与环境总结（一）-- 环境变量到底应该怎么配</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-08-24T01:38:00.000Z" title="发表于 2021-08-24 09:38:00">2021-08-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/shell/">shell</a></span></div><div class="content">背景可能很多同学，看到环境变量就头痛，不知道怎么配，也不知道改什么 一旦要配置环境变量，就是上网到处翻，乱复制，出错了也不知道怎么排查 所以我打算就我的知识范畴，总结一下我在工作过程中，常用的环境配置和命令 如有不对，大佬们在评论区轻喷 我是用的是Mac，以下介绍大部分依据Mac和Linux，Windows老哥仅供参考 SHELL环境介绍首先我们需要介绍一下SHELL环境 我们打开“终端”出现的黑框框里面的环境（也有的同学使用iterm2或者别的终端工具），管它叫SHELL环境  SHELL环境有很多种，比较常见的是bash和zsh bash和zsh在早期的Mac中，默认的shell环境为bash 现在的新款mac中，默认的shell环境为zsh  当然，如果有同学不知道自己当前是什么SHELL环境，可以使用以下命令查看  1echo $SHELL  而老款mac安装新系统用到现在，如果没有修改过zsh，也会提示你切换  所以在这里我们看到有命令提示，建议切换为zsh 切换命令 1chsh -s /bin/zsh  那么怎么查看本机有哪些SHELL呢 1cat /etc/she...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2021/07/21/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/iOS%E9%87%8D%E6%96%B0%E5%BC%80%E5%A7%8B/" title="iOS重新开始">iOS重新开始</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-07-21T01:41:00.000Z" title="发表于 2021-07-21 09:41:00">2021-07-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/iOS/">iOS</a></span></div><div class="content">重新添加rootview12345678910111213141516// SceneDelegate.swift    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) &#123;        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.        // This delegate does not imply the connecting scene or sessio...</div></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/9/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/#content-inner">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/#content-inner">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/#content-inner">20</a><a class="extend next" rel="next" href="/page/11/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/Avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">无星</div><div class="author-info-description">打工人</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">198</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">58</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">38</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/XingXiaoWu"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/XingXiaoWu" target="_blank" title="Github"><i class="fab fa-github" style="color: #hdhfbb;"></i></a><a class="social-icon" href="https://juejin.cn/user/1503787636493886" target="_blank" title="掘金"><i class="fab fa-blogger" style="color: #hdhfbb;"></i></a><a class="social-icon" href="https://www.jianshu.com/u/fef7696741c8" target="_blank" title="简书"><i class="fas fa-blog" style="color: #hdhfbb;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">你有没有好好吃饭</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/29/AI/%E7%A0%B4%E9%99%90%E6%8F%90%E7%A4%BA%E8%AF%8D/" title="破限提示词">破限提示词</a><time datetime="2026-07-29T12:09:00.000Z" title="发表于 2026-07-29 20:09:00">2026-07-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/02/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/1Panel/" title="1Panel">1Panel</a><time datetime="2026-07-02T06:12:00.000Z" title="发表于 2026-07-02 14:12:00">2026-07-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/06/24/AI/MCP/" title="MCP">MCP</a><time datetime="2026-06-24T07:27:08.000Z" title="发表于 2026-06-24 15:27:08">2026-06-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/06/03/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Jenkins%E6%90%AD%E9%85%8DGitea%E6%8B%89%E5%8F%96%E9%A1%B9%E7%9B%AE/" title="Jenkins搭配Gitea拉取项目">Jenkins搭配Gitea拉取项目</a><time datetime="2026-06-03T06:32:00.000Z" title="发表于 2026-06-03 14:32:00">2026-06-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/05/15/CTF/%E6%8A%A5%E5%91%8A/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%8A%A5%E5%91%8A%EF%BC%88%E4%BA%8C%EF%BC%89-%E6%9F%90%E5%AE%81/" title="无星的渗透报告（二）-某宁"><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/报告/一/1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无星的渗透报告（二）-某宁"/></a><div class="content"><a class="title" href="/2026/05/15/CTF/%E6%8A%A5%E5%91%8A/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%8A%A5%E5%91%8A%EF%BC%88%E4%BA%8C%EF%BC%89-%E6%9F%90%E5%AE%81/" title="无星的渗透报告（二）-某宁">无星的渗透报告（二）-某宁</a><time datetime="2026-05-15T12:09:00.000Z" title="发表于 2026-05-15 20:09:00">2026-05-15</time></div></div></div></div><div class="card-widget" id="card-newest-comments"><div class="item-headline"><i class="fas fa-comment-dots"></i><span>最新评论</span></div><div class="aside-list"><span>加载中...</span></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+      <i class="fas fa-angle-right"></i></a>
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1Panel/"><span class="card-category-list-name">1Panel</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/AI/"><span class="card-category-list-name">AI</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Android/"><span class="card-category-list-name">Android</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CloudFlare/"><span class="card-category-list-name">CloudFlare</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Jenkins/"><span class="card-category-list-name">Jenkins</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/PlayWright/"><span class="card-category-list-name">PlayWright</span><span class="card-category-list-count">7</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Postman/"><span class="card-category-list-name">Postman</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Vue/"><span class="card-category-list-name">Vue</span><span class="card-category-list-count">1</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/" style="font-size: 1.14em; color: #999b9d">碎碎念</a> <a href="/tags/chrome%E6%8F%92%E4%BB%B6/" style="font-size: 1.1em; color: #999">chrome插件</a> <a href="/tags/clash/" style="font-size: 1.18em; color: #999ca1">clash</a> <a href="/tags/%E5%B0%8F%E9%B8%A1/" style="font-size: 1.1em; color: #999">小鸡</a> <a href="/tags/Burp/" style="font-size: 1.14em; color: #999b9d">Burp</a> <a href="/tags/sass/" style="font-size: 1.1em; color: #999">sass</a> <a href="/tags/typescript/" style="font-size: 1.22em; color: #999ea4">typescript</a> <a href="/tags/AI/" style="font-size: 1.18em; color: #999ca1">AI</a> <a href="/tags/1Panel/" style="font-size: 1.1em; color: #999">1Panel</a> <a href="/tags/ntp/" style="font-size: 1.1em; color: #999">ntp</a> <a href="/tags/PlayWright/" style="font-size: 1.34em; color: #99a3b0">PlayWright</a> <a href="/tags/verdaccio/" style="font-size: 1.1em; color: #999">verdaccio</a> <a href="/tags/jdk/" style="font-size: 1.1em; color: #999">jdk</a> <a href="/tags/react/" style="font-size: 1.1em; color: #999">react</a> <a href="/tags/docx/" style="font-size: 1.1em; color: #999">docx</a> <a href="/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/" style="font-size: 1.3em; color: #99a1ac">微前端</a> <a href="/tags/vscode/" style="font-size: 1.1em; color: #999">vscode</a> <a href="/tags/docker/" style="font-size: 1.18em; color: #999ca1">docker</a> <a href="/tags/iOS/" style="font-size: 1.5em; color: #99a9bf">iOS</a> <a href="/tags/doc/" style="font-size: 1.1em; color: #999">doc</a> <a href="/tags/css/" style="font-size: 1.14em; color: #999b9d">css</a> <a href="/tags/pdf-js/" style="font-size: 1.1em; color: #999">pdf-js</a> <a href="/tags/Vue/" style="font-size: 1.1em; color: #999">Vue</a> <a href="/tags/%E5%AF%86%E7%A0%81/" style="font-size: 1.1em; color: #999">密码</a> <a href="/tags/nginx/" style="font-size: 1.18em; color: #999ca1">nginx</a> <a href="/tags/word/" style="font-size: 1.1em; color: #999">word</a> <a href="/tags/%E6%B8%97%E9%80%8F/" style="font-size: 1.46em; color: #99a7bb">渗透</a> <a href="/tags/%E5%BA%94%E6%80%A5/" style="font-size: 1.1em; color: #999">应急</a> <a href="/tags/flutter/" style="font-size: 1.18em; color: #999ca1">flutter</a> <a href="/tags/Postman/" style="font-size: 1.1em; color: #999">Postman</a> <a href="/tags/CloudFlare/" style="font-size: 1.14em; color: #999b9d">CloudFlare</a> <a href="/tags/react-native/" style="font-size: 1.42em; color: #99a6b7">react-native</a> <a href="/tags/%E6%8A%A5%E5%91%8A/" style="font-size: 1.26em; color: #999fa8">报告</a> <a href="/tags/egg/" style="font-size: 1.18em; color: #999ca1">egg</a> <a href="/tags/shell/" style="font-size: 1.14em; color: #999b9d">shell</a> <a href="/tags/%E9%92%93%E9%B1%BC/" style="font-size: 1.1em; color: #999">钓鱼</a> <a href="/tags/python/" style="font-size: 1.1em; color: #999">python</a> <a href="/tags/%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5/" style="font-size: 1.18em; color: #999ca1">命令速查</a> <a href="/tags/BuuCTF/" style="font-size: 1.1em; color: #999">BuuCTF</a> <a href="/tags/vue/" style="font-size: 1.38em; color: #99a4b4">vue</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      <a class="card-more-btn" href="/archives/"
+            title="查看更多">
+            <i class="fas fa-angle-right"></i>
+          </a>
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/07/">
+            <span class="card-archive-list-date">
+              七月 2026
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/06/">
+            <span class="card-archive-list-date">
+              六月 2026
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/05/">
+            <span class="card-archive-list-date">
+              五月 2026
+            </span>
+            <span class="card-archive-list-count">7</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/04/">
+            <span class="card-archive-list-date">
+              四月 2026
+            </span>
+            <span class="card-archive-list-count">4</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/03/">
+            <span class="card-archive-list-date">
+              三月 2026
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/01/">
+            <span class="card-archive-list-date">
+              一月 2026
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/12/">
+            <span class="card-archive-list-date">
+              十二月 2025
+            </span>
+            <span class="card-archive-list-count">3</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/11/">
+            <span class="card-archive-list-date">
+              十一月 2025
+            </span>
+            <span class="card-archive-list-count">3</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">198</div></div><div class="webinfo-item"><div class="item-name">运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2016-12-12T02:23:12.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-08-18T06:38:24.538Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2016 - 2026 By 无星</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span><span class="footer-separator">备案号 | </span><a href="https://beian.miit.gov.cn/" target="_blank">赣ICP备2026018933号-1</a></div><div class="footer_custom_text">歪比巴卜</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"><script>window.typedJSFn = {
+  init: str => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, null))
+  },
+  run: subtitleType => {
+    if (true) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        btf.getScript('https://cdn.jsdelivr.net/npm/typed.js@3.0.0/dist/typed.umd.min.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  },
+  processSubtitle: (content, extraContents = []) => {
+    if (true) {
+      const sub = ["事已至此，先吃饭吧","歪比巴卜","阿巴阿巴"].slice()
+
+      if (extraContents.length > 0) {
+        sub.unshift(...extraContents)
+      }
+
+      if (typeof content === 'string') {
+        sub.unshift(content)
+      } else if (Array.isArray(content)) {
+        sub.unshift(...content)
+      }
+
+      sub.length > 0 && typedJSFn.init(sub)
+    } else {
+      document.getElementById('subtitle').textContent = typeof content === 'string' ? content :
+        (Array.isArray(content) && content.length > 0 ? content[0] : '')
+    }
+  }
+}
+btf.addGlobalFn('pjaxSendOnce', () => { typed.destroy() }, 'typedDestroy')
+</script><script>function subtitleType () {
+  typedJSFn.processSubtitle(["事已至此，先吃饭吧","歪比巴卜","阿巴阿巴"])
+}
+typedJSFn.run(subtitleType)</script></div><script>window.newestComments = {
+  changeContent: content => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<code>.*?<\/code>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g, "") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0, 150) + '...'
+    }
+    return content
+  },
+
+  generateHtml: (array, ele) => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class="aside-list-item">'
+
+        if (true && array[i].avatar) {
+          const imgAttr = 'src'
+          const lazyloadNative = ''
+          result += `<a href="${array[i].url}" class="thumbnail"><img ${imgAttr}="${array[i].avatar}" alt="${array[i].nick}" ${lazyloadNative}></a>`
+        }
+
+        result += `<div class="content">
+        <a class="comment" href="${array[i].url}" title="${array[i].content}">${array[i].content}</a>
+        <div class="name"><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '暂无评论'
+    }
+
+    ele.innerHTML = result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh(ele)
+  },
+
+  newestCommentInit: (name, getComment) => {
+    const $dom = document.querySelector('#card-newest-comments .aside-list')
+    if ($dom) {
+      const data = btf.saveToLocal.get(name)
+      if (data) {
+        newestComments.generateHtml(JSON.parse(data), $dom)
+      } else {
+        getComment($dom)
+      }
+    }
+  },
+
+  run: (name, getComment) => {
+    newestComments.newestCommentInit(name, getComment)
+    btf.addGlobalFn('pjaxComplete', () => newestComments.newestCommentInit(name, getComment), name)
+  }
+}</script><script>window.addEventListener('load', () => {
+  const keyName = 'github-newest-comments'
+  const { changeContent, generateHtml, run } = window.newestComments
+
+  const findTrueUrl = (array, ele) => {
+    Promise.all(array.map(item =>
+      fetch(item.url).then(resp => resp.json()).then(data => {
+        let urlArray = data.body ? data.body.match(/(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?/ig) : []
+        if (!Array.isArray(urlArray) || urlArray.length === 0) {
+          urlArray = [`${data.html_url}`]
+        }
+        if (data.user.login === 'utterances-bot') {
+          return urlArray.pop()
+        } else {
+          return urlArray.shift()
+        }
+      })
+    )).then(res => {
+        array = array.map((i,index)=> {
+          return {
+            ...i,
+            url: res[index]
+          }
+        })
+
+        btf.saveToLocal.set(keyName, JSON.stringify(array), 10/(60*24))
+        generateHtml(array, ele)
+    });
+  }
+
+  const getComment = ele => {
+    fetch('https://api.github.com/repos/XingXiaoWu/XingXiaoWu.github.io/issues/comments?sort=updated&direction=desc&per_page=6&page=1',{
+      "headers": {
+        Accept: 'application/vnd.github.v3.html+json'
+      }
+    })
+      .then(response => response.json())
+      .then(data => {
+        const githubArray = data.map(item => {
+          return {
+            'avatar': item.user.avatar_url,
+            'content': changeContent(item.body_html || item.body),
+            'nick': item.user.login,
+            'url': item.issue_url,
+            'date': item.updated_at
+          }
+        })
+        findTrueUrl(githubArray, ele)
+      }).catch(e => {
+        console.error(e)
+        ele.textContent= "无法获取评论，请确认相关配置是否正确"
+      })
+  }
+  run(keyName, getComment)
+})</script><script>(() => {
+  btf.getScript('//code.tidio.co/.js').then(() => {
+    const isChatBtn = false
+    const isChatHideShow = false
+
+    if (isChatBtn) {
+      let isShow = false
+      const close = () => {
+        window.tidioChatApi.hide()
+        isShow = false
+      }
+      
+      const open = () => {
+        window.tidioChatApi.open()
+        window.tidioChatApi.show()
+        isShow = true
+      }
+
+      const onTidioChatApiReady = () => {
+        window.tidioChatApi.hide()
+        window.tidioChatApi.on("close", close)
+      }
+      if (window.tidioChatApi) {
+        window.tidioChatApi.on("ready", onTidioChatApiReady)
+      } else {
+        document.addEventListener("tidioChat-ready", onTidioChatApiReady)
+      }
+
+      window.chatBtnFn = () => {
+        if (!window.tidioChatApi) return
+        isShow ? close() : open()
+      }
+
+      document.getElementById('chat-btn').style.display = 'block'
+
+    } else if (isChatHideShow) {
+      window.chatBtn = {
+        hide: () => window.tidioChatApi && window.tidioChatApi.hide(),
+        show: () => window.tidioChatApi && window.tidioChatApi.show()
+      }
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索一号准备就绪" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>

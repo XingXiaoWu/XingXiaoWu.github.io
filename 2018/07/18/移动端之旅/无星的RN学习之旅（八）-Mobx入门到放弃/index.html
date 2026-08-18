@@ -1,0 +1,364 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>无星的RN学习之旅（八）-Mobx入门到放弃 | 歪比巴卜</title><meta name="author" content="无星"><meta name="copyright" content="无星"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="写的都是自己的一些感受&#x3D;。&#x3D;可能都是野路子&#x3D;。&#x3D;大牛就别看了&#x3D;。&#x3D;代码：https:&#x2F;&#x2F;github.com&#x2F;XingXiaoWu&#x2F;mobx-&#x2F;tree&#x2F;master先声明一句话： #MobX 会对在追踪函数执行过程中读取现存的可观察属性做出反应。以下所有内容基于rn0.56版本以前（即低于0.56），语法是ES6语法（可能有ES7，反正">
+<meta property="og:type" content="article">
+<meta property="og:title" content="无星的RN学习之旅（八）-Mobx入门到放弃">
+<meta property="og:url" content="http://www.xingxiaowu.cn/2018/07/18/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E5%85%AB%EF%BC%89-Mobx%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/index.html">
+<meta property="og:site_name" content="歪比巴卜">
+<meta property="og:description" content="写的都是自己的一些感受&#x3D;。&#x3D;可能都是野路子&#x3D;。&#x3D;大牛就别看了&#x3D;。&#x3D;代码：https:&#x2F;&#x2F;github.com&#x2F;XingXiaoWu&#x2F;mobx-&#x2F;tree&#x2F;master先声明一句话： #MobX 会对在追踪函数执行过程中读取现存的可观察属性做出反应。以下所有内容基于rn0.56版本以前（即低于0.56），语法是ES6语法（可能有ES7，反正">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.xingxiaowu.cn/images/Avatar.jpg">
+<meta property="article:published_time" content="2018-07-18T11:33:00.000Z">
+<meta property="article:modified_time" content="2026-06-22T07:07:14.820Z">
+<meta property="article:author" content="无星">
+<meta property="article:tag" content="react-native">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.xingxiaowu.cn/images/Avatar.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "无星的RN学习之旅（八）-Mobx入门到放弃",
+  "url": "http://www.xingxiaowu.cn/2018/07/18/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E5%85%AB%EF%BC%89-Mobx%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/",
+  "image": "http://www.xingxiaowu.cn/images/Avatar.jpg",
+  "datePublished": "2018-07-18T11:33:00.000Z",
+  "dateModified": "2026-06-22T07:07:14.820Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "无星",
+      "url": "http://www.xingxiaowu.cn"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/images/Avatar.jpg"><link rel="canonical" href="http://www.xingxiaowu.cn/2018/07/18/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E5%85%AB%EF%BC%89-Mobx%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9901724859932050"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-9901724859932050',
+  enable_page_level_ads: 'true'
+});</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?bdba6c3bda62a07f58f3cf06034704d5";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-5976024V60"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-5976024V60')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-5976024V60', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":150,"languages":{"author":"作者: 无星","link":"链接: ","source":"来源: 歪比巴卜","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '无星的RN学习之旅（八）-Mobx入门到放弃',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/rss2.xml" title="歪比巴卜" type="application/rss+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/Avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">198</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">58</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">38</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/images/Avatar.jpg" alt="Logo"><span class="site-name">歪比巴卜</span></a><a class="nav-page-title" href="/"><span class="site-name">无星的RN学习之旅（八）-Mobx入门到放弃</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">无星的RN学习之旅（八）-Mobx入门到放弃</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2018-07-18T11:33:00.000Z" title="发表于 2018-07-18 19:33:00">2018-07-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-06-22T07:07:14.820Z" title="更新于 2026-06-22 15:07:14">2026-06-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/react-native/">react-native</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2018/07/18/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E5%85%AB%EF%BC%89-Mobx%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/#post-comment"><span class="gitalk-comment-count"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>写的都是自己的一些感受&#x3D;。&#x3D;可能都是野路子&#x3D;。&#x3D;大牛就别看了&#x3D;。&#x3D;<br>代码：<a target="_blank" rel="noopener" href="https://github.com/XingXiaoWu/mobx-/tree/master">https://github.com/XingXiaoWu/mobx-/tree/master</a><br>先声明一句话：</p>
+<p>#MobX 会对在追踪函数执行过程中读取现存的可观察属性做出反应。<br>以下所有内容基于rn0.56版本以前（即低于0.56），语法是ES6语法（可能有ES7，反正我是分不清&#x3D;。&#x3D;）<br>#一、引入Mobx<br>首先，安装yarn（别问我为什么不用npm）</p>
+<p>##1.在项目根目录下输入<br>    yarn add mobx mobx-react<br>此命令作用：引入mobx和mobx-react<br>##2.在项目根目录下继续输入(看清楚你的版本选择命令)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//这是0.57以下的</span><br><span class="line">    yarn add babel-plugin-transform-decorators-legacy babel-preset-react-native-stage-0</span><br><span class="line">//这是0.57及以上的</span><br><span class="line">yarn add @babel/core --dev</span><br><span class="line">yarn add @babel/plugin-proposal-decorators --dev</span><br><span class="line">yarn add @babel/plugin-transform-runtime --dev</span><br><span class="line">yarn add @babel/runtime --dev</span><br></pre></td></tr></table></figure>
+<p>此命令作用：能够使用@标签</p>
+<p>##3.用IDE打开项目<br>打开.babelrc文件<br>修改为(看清楚版本)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">//0.57以下</span><br><span class="line">&#123;</span><br><span class="line">    &quot;presets&quot;: [&quot;react-native&quot;],</span><br><span class="line">    &quot;plugins&quot;: [&quot;transform-decorators-legacy&quot;]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//0.57及以上</span><br><span class="line">&#123;</span><br><span class="line">  &quot;presets&quot;: [&quot;module:metro-react-native-babel-preset&quot;],</span><br><span class="line">  &quot;plugins&quot;: [</span><br><span class="line">    [&quot;@babel/plugin-proposal-decorators&quot;, &#123; &quot;legacy&quot;: true &#125;],</span><br><span class="line">    [&quot;@babel/transform-runtime&quot;, &#123;</span><br><span class="line">      &quot;helpers&quot;: true,</span><br><span class="line">      &quot;regenerator&quot;: false</span><br><span class="line">    &#125;]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>至此，如果没报错，环境配置完毕，可以正常使用mobx了<br>#二、mobx的常用标签<br>##1.定义observable<br>observable，顾名思义，可以被观察的，即被观察者<br>一般用于数据，几乎所有数据都可以被观察，无论是对象、数组、类。 循环数据结构、引用，都可以被观察，只要给他们打上@ observable的标签，他们都可以被观察。</p>
+<p>我写了三种导出模式，相互的优劣和使用方式还需要琢磨<br>#ThingModel&#x3D;&gt;static定义的，导出的是ThingModel这个class</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import &#123;observable&#125; from &quot;mobx&quot;</span><br><span class="line"></span><br><span class="line">export class ThingModel &#123;</span><br><span class="line">    @observable</span><br><span class="line">    static thing = &quot;我是数据1&quot;</span><br><span class="line"></span><br><span class="line">   @action</span><br><span class="line">    static setThing(value) &#123;</span><br><span class="line">        ThingModel.thing = value</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//使用</span><br><span class="line">ThingModel.thing</span><br><span class="line">ThingModel. setThing(xxx)</span><br></pre></td></tr></table></figure>
+<p>导出的ThingModel可以理解为全局的，所有的属性和方法都挂载在ThingModel这个类上，因此不会被垃圾回收</p>
+<p>#InitModel &#x3D; &gt; 导出的是InitModel这个Class</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">export class InitModel &#123;</span><br><span class="line">    @observable</span><br><span class="line">    firstValue = &quot;我是初始数据&quot;</span><br><span class="line"></span><br><span class="line">    @action</span><br><span class="line">    setFirstValue(value) &#123;</span><br><span class="line">        this.firstValue = value</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//使用</span><br><span class="line">let initmodel = new InitModel()</span><br><span class="line">initmodel.firstValue</span><br><span class="line">initmodel.setFirstValue(xxx)</span><br></pre></td></tr></table></figure>
+<p>导出的是InitModel，但是其内部所有的方法都是由实例调用的，所以在页面使用前需要对其做实例化，let initmodel &#x3D; new InitModel()，然后通过initmodel去调用，由于不是单例，因此每个页面new得到的实例化也不一样，我们理解其为每个页面单独的model，一旦页面被销毁，其实例化会被垃圾回收，因此销毁页面后重新进来页面的时候，model是全新的。（<br>xx食堂使用的全是ThingModel类型，全都写了销毁时调用的初始化方法，可以对此做优化）。当然，如果对此类型的model做单例的初始化，则是另一回事（例如xx食堂中的urlModel）。</p>
+<p>#SecondModel&#x3D;&gt;导出的是SecondModel的实例</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class SecondModel &#123;</span><br><span class="line">    @observable</span><br><span class="line">    seconedValue = &quot;我是初始数据seconedValue&quot;</span><br><span class="line"></span><br><span class="line">    @action</span><br><span class="line">    setSeconedValue(value) &#123;</span><br><span class="line">        this.seconedValue = value</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const secondSelf = new SecondModel()</span><br><span class="line"></span><br><span class="line">export default secondSelf</span><br><span class="line"></span><br><span class="line">//使用</span><br><span class="line">secondSelf.seconedValue</span><br><span class="line">secondSelf.setSeconedValue(xxxx)</span><br></pre></td></tr></table></figure>
+<p>采用这种方式会发现，导出来的全是secondSelf这个已经被实例化的类，也是全局的。其数据可以在各个页面通用。</p>
+<p>###1）observable修饰的东西其实都是对象<br>你会发现observable可以修饰的东西很多，基本类型，对象，数组等等都可以用observable修饰。但是注意了，大多数的时候，都会被转变成对象。<br>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@ observable</span><br><span class="line">array = []</span><br></pre></td></tr></table></figure>
+<p>####正常情况下，这是一个数组，但是当你使用Array.isArray(array)做判断的时候，会发现的返回值都是false。<br>所以在使用的时候，如果你真的想得到一个数组，不妨使用slice方法创建一个真正的数组。<br>###2）如何创建动态对象并让属性变成可观察的？<br>实际开发过程中肯定经常碰到一些数据是要求动态创建的并且要求可观察。这时候建议使用 [Observable Map]对象。<br>因为普通的对象只有初始化时便存在的属性会转换成可观察的。虽然新添加的属性可以通过使用 extendObservable 转换成可观察的。但毕竟是还是麻烦。<br>###3）@ observable修饰的数组有哪些api</p>
+<ul>
+<li><code>intercept(interceptor)</code> - 可以用来在任何变化作用于数组前将其拦截。参见 <a target="_blank" rel="noopener" href="https://cn.mobx.js.org/refguide/observe.html">observe &amp; intercept</a></li>
+<li><code>observe(listener, fireImmediately? = false)</code> - 监听数组的变化。回调函数将接收表示数组拼接或数组更改的参数，它符合 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/observe">ES7 提议</a>。它返回一个清理函数以用来停止监听器。</li>
+<li><code>clear()</code> - 从数组中删除所有项。</li>
+<li><code>replace(newItems)</code> - 用新项替换数组中所有已存在的项。</li>
+<li><code>find(predicate: (item, index, array) =&gt; boolean, thisArg?)</code> - 基本上等同于 ES7 的 <code>Array.find</code> 提议。</li>
+<li><code>findIndex(predicate: (item, index, array) =&gt; boolean, thisArg?)</code> - 基本上等同于 ES7 的 <code>Array.findIndex</code> 提议。</li>
+<li><code>remove(value)</code> - 通过值从数组中移除一个单个的项。如果项被找到并移除的话，返回 <code>true</code> 。（如果数组里面放了对象，是没法通过这种方式删掉的，亲测）</li>
+<li><code>peek()</code> - 和 <code>slice()</code> 类似， 返回一个有所有值的数组并且数组可以放心的传递给其它库。</li>
+</ul>
+<p>与 <code>slice</code> 相反，<code>peek</code> 不创建保护性拷贝。如果你确定是以只读方式使用数组，请在性能关键的应用中使用此方法。 在性能关键的部分，还建议使用一个扁平的 <code>observable</code> 数组。<br>###4）@ observable修饰的map有哪些api（es提供的就没写，下面是mobx提供的）</p>
+<ul>
+<li><code>toJS()</code> - 将 observable 映射转换成普通映射。</li>
+<li><code>toJSON()</code>. 返回此映射的浅式普通对象表示。(想要深拷贝，请使用 <code>mobx.toJS(map)</code>)。</li>
+<li><code>intercept(interceptor)</code> - 可以用来在任何变化作用于映射前将其拦截。参见 <a target="_blank" rel="noopener" href="https://cn.mobx.js.org/refguide/observe.html">observe &amp; intercept</a>。</li>
+<li><code>observe(listener, fireImmediately?)</code> - 注册侦听器，在映射中的每个更改时触发，类似于为 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/observe">Object.observe</a> 发出的事件。想了解更多详情，请参见 <a target="_blank" rel="noopener" href="https://cn.mobx.js.org/refguide/observe.html">observe &amp; intercept</a>。</li>
+<li><code>merge(values)</code> - 把提供对象的所有项拷贝到映射中。<code>values</code> 可以是普通对象、entries 数组或者 ES6 字符串键的映射。</li>
+<li><code>replace(values)</code> - 用提供值替换映射全部内容。是 <code>.clear().merge(values)</code> 的简写形式。</li>
+</ul>
+<p>##2.定义observer<br>observer，观察者。观察者观察被观察对象。<br>在mobx中，定义好观察者和被观察者以后，一旦被观察者发生变化，mobx会做如下操作：<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/RN8/5.png" alt="图5"></p>
+<p>1.可观察值向其所有观察者发送过时通知，表明它已变得陈旧。任何受影响的计算值将以递归方式将通知传递给其观察者。因此，依赖关系树的一部分将被标记为陈旧。在图5的示例依赖关系树中，当值“1”改变时将变为陈旧的观察者用橙色虚线边框标记。这些都是可能受变化值影响的推导。<br>2.发送过时通知并存储新值后，将发送就绪通知。此消息还指示值是否确实更改。<br>3.一旦派生收到步骤1中收到的每个陈旧通知的就绪通知，它就会知道所有观察到的值都是稳定的并且它将开始重新计算。计算就绪&#x2F;陈旧消息的数量将确保，例如，计算值’4’将仅在计算值’3’变得稳定之后重新评估。<br>4.如果没有任何就绪消息指示值已更改，则派生将简单地告诉其自己的观察者它已再次准备好，但不更改其值。否则，计算将重新计算并向其自己的观察者发送就绪消息。这导致执行的顺序如图5所示。注意（例如）如果计算值’4’重新评估但没有产生新值，那么最后一个反应（用’ - ‘标记）将永远不会执行。</p>
+<p>关于使用：<br>一般用于视图的UI更新<br>例如在示例demo中<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/RN8/6.png" alt="将视图定义为观察者对象"></p>
+<p>在视图中，使用被观察的数据，当该数据发生改变的时候，UI视图将会“自动”刷新（原理上面已经解释了）</p>
+<p>##3.action<br>这个action就比较多了,先说效果<br>效果就是，使用action包裹的方法修改被观察者的值，可以触发观察者的刷新。（注意，只有当前状态，异步中的状态等是无法被action捕获的，可以在runInAction的例子中感受一下）</p>
+<p>action: 创建一个动作<br>action.bound: 创建有范围的动作，不需要name函数，自动绑定上下文对象，不可与箭头函数同用，因为箭头函数已经绑定了（暂时找不到一个好例子，这有个例子，但我无法复现，自行体会一下吧<a target="_blank" rel="noopener" href="https://segmentfault.com/q/1010000011520041%EF%BC%89">https://segmentfault.com/q/1010000011520041）</a><br>下面是官方的例子，应该更容易理解。主要是异步会产生的问题，建议使用bound修饰<br>官网的例子：<a target="_blank" rel="noopener" href="https://cn.mobx.js.org/best/actions.html">https://cn.mobx.js.org/best/actions.html</a></p>
+<p>一般情况下使用@action修饰被观察值的变化方法，注意，是：方法<br>下面是从中文网抄来的用法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1.  action(fn)</span><br><span class="line">2.  action(name, fn)</span><br><span class="line">3.  @action classMethod</span><br><span class="line">4.  @action(name) classMethod</span><br><span class="line">5.  @action boundClassMethod = (args) =&gt; &#123; body &#125;</span><br><span class="line">6.  @action.bound boundClassMethod(args) &#123; body &#125;</span><br><span class="line">7.  runInAction    ps：action(name, fn)()的语法糖，常用于异步</span><br></pre></td></tr></table></figure>
+<p>我们一个个说<br>1）action(fn)<br>这其实没啥说的，就是声明接下来会有一个动作，这个动作会触发被观察的值的改变，会触发观察者捕获到相应的改变并作出应该的动作（比如视图会刷新）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">action((value)=&gt;&#123;</span><br><span class="line">  ThingModel. thing = value</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>2）action(name, fn)<br>和上面那个一样，只是多了个name，name可以做调试别名，只是用过相关调试，换而言之对我来说其实是一个没什么用的值，可以说明你接下来这个函数是干嘛用的，使用方法同上<br>3）@action classMethod</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@action</span><br><span class="line">setThing(value)&#123;</span><br><span class="line">  ThingModel. thing = value</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>4.@action(name) classMethod</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@action(&#x27;name&#x27;)</span><br><span class="line">setThing(value)&#123;</span><br><span class="line">  ThingModel. thing = value</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>5.@action boundClassMethod &#x3D; (args) &#x3D;&gt; { body }</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@action setFirstValueBoundName = （value）=&gt;&#123;</span><br><span class="line">        this.seconedValue = value</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>@action.bound</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@action.bound</span><br><span class="line">setFirstValueBound(value) &#123;</span><br><span class="line">    this.seconedValue = value</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>7.runInAction</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">//大家可以测试一下下面这三种写法</span><br><span class="line">1、正常</span><br><span class="line">@action</span><br><span class="line">    async setFirstValuePromise() &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            let value = await this.getPromise()</span><br><span class="line">            console.log(&#x27;value = &#x27; + value)</span><br><span class="line">            runInAction(() =&gt; &#123;</span><br><span class="line">                this.seconedValue = value</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125; catch (e) &#123;</span><br><span class="line">            console.log(e)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">2.报错</span><br><span class="line">@action</span><br><span class="line">    async setFirstValuePromise() &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            let value = await this.getPromise()</span><br><span class="line">            console.log(&#x27;value = &#x27; + value)</span><br><span class="line">            this.seconedValue = value</span><br><span class="line">        &#125; catch (e) &#123;</span><br><span class="line">            console.log(e)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">3.正常</span><br><span class="line">@action</span><br><span class="line">    async setFirstValuePromise() &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            let value = await this.getPromise()</span><br><span class="line">            console.log(&#x27;value = &#x27; + value)</span><br><span class="line">            this.setFirstValue(value)</span><br><span class="line">        &#125; catch (e) &#123;</span><br><span class="line">            console.log(e)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">@action</span><br><span class="line">setFirstValue(value)&#123;</span><br><span class="line">  this.seconedValue = value</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>从这个例子其实我们就能知道，action其实只会对“当前状态”的被观察对象的改变有触动。对一些已执行（比如：异步）的方法内的被观察值的改变无法知晓。<br>就如上述例子中，await后面的操作，action其实就无法捕捉了，这时候就需要对后面的执行方法用action包裹（例如第3种写法），或者使用runInAction语法糖（例如第1种写法）<br>#4.computed<br>这个比较有意思，一般用于修饰 与已经被监听的值有关，但又不想产生新值的东西。<br>举个简单例子</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">@observable</span><br><span class="line">    number = 1</span><br><span class="line"></span><br><span class="line">    @action</span><br><span class="line">    setNumber(value) &#123;</span><br><span class="line">        this.number = value</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @observable</span><br><span class="line">    price = 1</span><br><span class="line"></span><br><span class="line">    @action</span><br><span class="line">    setPrice(value) &#123;</span><br><span class="line">        this.price = value</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @computed</span><br><span class="line">    get total() &#123;</span><br><span class="line">        return this.number * this.price</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>我定义了number和price，但我想要知道总价，这时候就可以使用computed修饰total方法了。注意，我说的是方法。<br>你看，total返回的东西 与被监听值有关，但是又不想产生新值。<br>使用的时候如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Text&gt;&#123;secondSelf.total&#125;&lt;/Text&gt;</span><br></pre></td></tr></table></figure>
+<p>和iOS类似，.语法指get，所以可以看见total方法中存在get 修饰符<br>至于set，是自动的，不用管。</p>
+<p>善于动手的同学会发现，用computed修饰的get方法和自己手动写一个没什么区别。<br>这里摘录一下区别：<a target="_blank" rel="noopener" href="https://link.jianshu.com/?t=https://github.com/mobxjs/mobx/issues/161">https://github.com/mobxjs/mobx/issues/161</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Both solutions will exhibit the same behavior, but introducing @computed is better in the sense that it allows MobX to optimized it away more smartly.</span><br><span class="line"></span><br><span class="line">If getFullName is not computed, and you change firstName, everyone using getFullName will recompute as well.</span><br><span class="line"></span><br><span class="line">If, in contrast, @computed get fullName is used, the fullname is cached, so if the firstname is changed, the fullname is recomputed as well, but if the output of fullname doesn&#x27;t change, nobody would be notified.</span><br><span class="line"></span><br><span class="line">Also, if you read test.fullName somwhere, you will (usually) get a cached result back if decorated, while without decorator it would always be recomputed (which is the normal function behavior after all)</span><br><span class="line"></span><br><span class="line">So, when in doubt, use it (if your function is pure in terms of depending only on observable values, which it should be)</span><br><span class="line">简单翻译一下：</span><br><span class="line">首先这两者解决方法都会得到一个相同的结果，但使用@computed的意义在于它能够由MobX进行更智能的优化。</span><br><span class="line">如果我不使用computed属性，直接使用自定义的getTheValue函数的话，那么只要value改变，所有用到getTheValue函数的地方都将重新计算。</span><br><span class="line">如果使用了@computed get getValue，那么getValue将会被缓存，如果value没有改变，那么getValue也不会改变，其它组件也不会收到通知。</span><br><span class="line">此外如果你读取getValue的值，你通常会得到一个缓存的值，而不带@computed装饰器，则会重新计算……</span><br></pre></td></tr></table></figure>
+<p>所以应该是有一个缓存的优化。</p>
+<p>#5.autorun<br>可以理解为自动执行的方法，不过要搭配observable使用<br>使用：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">class SecondModel &#123;</span><br><span class="line"></span><br><span class="line">    constructor()&#123;</span><br><span class="line">        autorun(()=&gt;&#123;</span><br><span class="line">            console.log(this.zhangsan.money)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @observable</span><br><span class="line">    zhangsan = &#123;</span><br><span class="line">        name: &#x27;zhangsan&#x27;,</span><br><span class="line">        age: 18,</span><br><span class="line">        money: 20</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @action</span><br><span class="line">    setZhangsan(value) &#123;</span><br><span class="line">        this.zhangsan = value</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>接下来你会发现，改变zhangsan的name，age，都不会有打印，唯独改变money会触发autorun的方法打印。<br>autorun中使用的被观察者属性改变会触发autorun的方法。<br>官方文档的经验法则：如果你有一个函数应该自动运行，但不会产生一个新的值，请使用autorun。 其余情况都应该使用 computed。 Autoruns 是关于 启动效果 (initiating effects) 的 ，而不是产生新的值。<br>不过确实不知道为什么会有这么一个经验法则。可能还需要经验积累<br>#6.when<br>和autorun差不多，他有两个参数，第一个参数的返回值如果是true则执行第二个参数<br>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class SecondModel &#123;</span><br><span class="line"></span><br><span class="line">    constructor() &#123;</span><br><span class="line">        when(</span><br><span class="line">            () =&gt; &#123;</span><br><span class="line">                return this.zhangsan.money &gt; 30</span><br><span class="line">            &#125;,</span><br><span class="line">            () =&gt; &#123;</span><br><span class="line">                console.log(&#x27;张三有钱了&#x27;)</span><br><span class="line">            &#125;</span><br><span class="line">        )</span><br><span class="line">        autorun(() =&gt; &#123;</span><br><span class="line">            console.log(this.zhangsan.money)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @observable</span><br><span class="line">    zhangsan = &#123;</span><br><span class="line">        name: &#x27;zhangsan&#x27;,</span><br><span class="line">        age: 18,</span><br><span class="line">        money: 20</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @action</span><br><span class="line">    setZhangsan(value) &#123;</span><br><span class="line">        this.zhangsan = value</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>配合测试demo中修改张三的金钱，可以发现，当修改金钱大于30时，会打印出“张三有钱了”</p>
+<p>#7.reaction<br>我找不到一个好的case去表现</p>
+<p>#另外的一些东西：<br>##1）.MobX 会对什么作出反应?</p>
+<p>MobX 通常会对你期望的东西做出反应。 这意味着在90％的场景下，mobx “都可以工作”。 然而，在某些时候，你会遇到一个情况，它可能不会像你所期望的那样工作。 在这个时候理解 MobX 如何确定对什么有反应就显得尤为重要。</p>
+<p>MobX 会对在追踪函数执行过程中读取现存的可观察属性做出反应。</p>
+<p>“读取” 是对象属性的间接引用，可以用过 . (例如 user.name) 或者 [] (例如 user[‘name’]) 的形式完成。<br>“追踪函数” 是 computed 表达式、observer 组件的 render() 方法和 when、reaction 和 autorun 的第一个入参函数。<br>“过程(during)” 意味着只追踪那些在函数执行时被读取的 observable 。这些值是否由追踪函数直接或间接使用并不重要。<br>换句话说，MobX 不会对其作出反应:</p>
+<p>从 observable 获取的值，但是在追踪函数之外<br>在异步调用的代码块中读取的 observable<br>更详细：<a target="_blank" rel="noopener" href="https://cn.mobx.js.org/best/react.html">https://cn.mobx.js.org/best/react.html</a></p>
+<p>##2）.mobx和state是否能同时使用？<br>答案是：可以<br>而且你可以通过componentWillReact这个生命函数来看当前的刷新到底是由setstate引起的刷新还是由mobx变化引起的刷新。（没有引入mobx的组件是不会有这个生命周期的）<br>##3）. observer用多了是不是不好？<br>@observer 只会增强你正在装饰的组件，而不是内部使用了的组件。 所以通常你的所有组件都应该是装饰了的。但别担心，这样不会降低效率，相反 observer 组件越多，渲染效率越高。</p>
+<p>#一些注意事项<br><a target="_blank" rel="noopener" href="https://cn.mobx.js.org/best/pitfalls.html">https://cn.mobx.js.org/best/pitfalls.html</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://www.xingxiaowu.cn">无星</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://www.xingxiaowu.cn/2018/07/18/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E5%85%AB%EF%BC%89-Mobx%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/">http://www.xingxiaowu.cn/2018/07/18/移动端之旅/无星的RN学习之旅（八）-Mobx入门到放弃/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://www.xingxiaowu.cn" target="_blank">歪比巴卜</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/react-native/">react-native</a></div><div class="post-share"><div class="social-share" data-image="/images/Avatar.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>V我50，Crazy</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/images/WechatPay.png" target="_blank"><img class="post-qr-code-img" src="/images/WechatPay.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/images/AliPay.png" target="_blank"><img class="post-qr-code-img" src="/images/AliPay.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2017/09/18/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89-%E5%85%B3%E4%BA%8Ereact-navigation%E5%A4%9A%E5%B1%82%E7%BA%A7%E9%A1%B5%E9%9D%A2%E8%BF%94%E5%9B%9E%E6%97%B6%EF%BC%8C%E5%8E%BB%E6%8E%89%E9%80%90%E5%B1%82%E6%8E%A8%E5%87%BA%E5%8A%A8%E7%94%BB/" title="无星的RN学习之旅（五）-关于react-navigation多层级页面返回时，去掉逐层推出动画"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2017-09-18</div><div class="info-item-2">无星的RN学习之旅（五）-关于react-navigation多层级页面返回时，去掉逐层推出动画</div></div><div class="info-2"><div class="info-item-1">git：https://github.com/react-community/react-navigation/issues/1493来，下猛药：首先找到文件：src&#x2F;views&#x2F;ScenesReducer.js然后用下面的代码：　　let k &#x3D; null;　　let v &#x3D; null;　　staleScenes.forEach(scene &#x3D;&gt; {　　let {key} &#x3D; scene;　　k &#x3D; key;　　v &#x3D; scene;　　});　　newStaleScenes &#x3D; k &amp;&amp; v ? new Map([[k, v]]) : new Map();　　newStaleScenes.forEach(mergeScene);替换：staleScenes.forEach(mergeScene);保存编译，就只有返回某页的动画了 转自http://www.cnblogs.com/lc901221/p/7543094.html我就是那个贴了帖子看不懂答案的傻逼，。。 另...</div></div></div></a><a class="pagination-related" href="/2017/07/17/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89-RN%E4%B8%8E%E5%8E%9F%E7%94%9F%E7%9A%84%E9%80%9A%E4%BF%A1/" title="无星的RN学习之旅（二）-RN与原生的通信"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2017-07-17</div><div class="info-item-2">无星的RN学习之旅（二）-RN与原生的通信</div></div><div class="info-2"><div class="info-item-1">接上一篇无星的RN学习之旅（一）最后我给出了一个基础项目地址进行学习。PS：我使用的是VSCode编译器和Xcode编译器一、RN如何调用原生方法1.在新建的项目中打开ios目录下的工程文件，同时使用VSCode打开项目目录。  新建NSObjec对象，名字任意，我这里叫RNruniOS .h文件添加RCTBridgeModule.h头文件，RCTBridgeModule协议 123456//RNruniOS.h文件#import &lt;Foundation/Foundation.h&gt;#import &quot;React/RCTBridgeModule.h&quot;@interface RNruniOS : NSObject&lt;RCTBridgeModule&gt;@end .m文件添加RCTConvert.h头文件，并添加相应宏 123456789101112131415161718//RNruniOS.m文件#import &quot;RNruniOS.h&quot;//RCTConvert提供了一系列辅助函数，用来接收一个JSON值并转换到原生Objecti...</div></div></div></a><a class="pagination-related" href="/2017/08/27/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E9%80%9A%E4%BF%A1%E3%80%81%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8%E3%80%81iOS%E6%89%93%E5%8C%85/" title="无星的RN学习之旅（四）——通信、持久化存储、iOS打包"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2017-08-27</div><div class="info-item-2">无星的RN学习之旅（四）——通信、持久化存储、iOS打包</div></div><div class="info-2"><div class="info-item-1">说说最近项目的一些感想吧。 ###一、RN的创意RN其实我觉得是一个很有创意的想法。不知道各位写RN项目的时候，有没有打开Xcode看过app的层级关系，我发现RN的这个想法，真的很有创意。作为一名原生的开发，一直都是一个控制器上放一个View，然后在这个底层的View上添加UI控件，当需要一个新的视图的时候，创建一个新的视图控制器，再放新的View。###重点来了！RN并不是这么做的 RN是将App创建的时候生成的根视图控制器，也就是底层的视图控制器，作为根本，然后通过JS文件写的视图，也就是View，不停的增加在这个rootViewCtrl上，进行覆盖替换。###二、Text的区别或许有的兄弟还没遇到这个坑，假如使用图片或者其他背景色作为背景，往上添加Text标签的时候，安卓默认为透明背景色，但是苹果默认为灰白色。因此，在写App的时候，需要在Text的样式添加backgroundColor为transparent 1backgroundColor:&#x27;transparent&#x27;, ###三、原生与RN的通信以前对原生与RN的通信不太了解。现在有了一些想法。1...</div></div></div></a><a class="pagination-related" href="/2019/04/23/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/React-Native-%E5%88%86%E4%BA%AB%E4%BA%8C%E4%B9%8BReact-Navigation/" title="React-Native 分享二之React-Navigation"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2019-04-23</div><div class="info-item-2">React-Native 分享二之React-Navigation</div></div><div class="info-2"><div class="info-item-1">我们使用的是3.x版本,需要做如下操作 一.引入react-navigation1yarn add react-navigation  如图,我们发现有很多warn,报的是一些依赖没满足,一般我们说程序员不看warn,肯定就直接运行了. 但是作为过来人,告诉你肯定会报错,缺少这个warn当中的一个库react-native-gesture-handler所以也别走弯路,把这些库都给加上 123456789#这是一个手势库yarn add react-native-gesture-handler#我也不知道用来干嘛的库,大概是一些屏幕设计吧,这是它的github:https://github.com/browniefed/react-native-screensyarn add react-native-screens#react-native-gesture-handler又依赖如下库yarn add react-artyarn add react-domyarn add react-native-web 全都装完以后,link一下项目 1react-native link   ...</div></div></div></a><a class="pagination-related" href="/2017/09/22/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E5%85%AD%EF%BC%89-%E7%AC%AC%E4%B8%89%E6%96%B9App%E8%B7%B3%E8%BD%AC%EF%BC%8C%E8%8B%B9%E6%9E%9C%E5%95%86%E5%BA%97%E8%B7%B3%E8%BD%AC%EF%BC%8Cloading%E6%A1%86/" title="无星的RN学习之旅（六）-第三方App跳转，苹果商店跳转，loading框"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2017-09-22</div><div class="info-item-2">无星的RN学习之旅（六）-第三方App跳转，苹果商店跳转，loading框</div></div><div class="info-2"><div class="info-item-1">#1.第三方App跳转这是很常见的问题，第三方app跳转到本app去做一些业务操作。但是这时候会发现，你跳进来，是黑色的，没有界面，没想到吧23333其实这在前面说过，RN的想法很独特，是一个ctrl上放了无数个view，不停的更改view来渲染，而rn的首页view，则是在appdelegate的初始化方法里去添加的。跳转进来的处理方法里如果你不写，就不会有view添加进来。所以这时候有两种方法来完成这个view的添加操作：####A.在第三方跳转进来的方法里做视图加载操作，但是这会遇到一个问题。假使你使用了RN的启动页，你会发现每次跳转进来都会开启启动页。这对用户的体验明显是很不好的。####B.自己创建一个UIViewCtrl，并作为根视图放进window中，在这个UIViewCtrl中做视图加载操作。这样跳转进来加载根视图的时候就会把这个RN的View给加载上去。而且根据生命周期场景复现的原则，不会再有加载第二次第三次的情况。 如图   另外，如果要跳到某一页面做某一操作，又不想重复跳，可以采用以下方式移除  123456789101112131415#pragma ma...</div></div></div></a><a class="pagination-related" href="/2018/11/10/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%B9%9D%EF%BC%89-ESLint%E5%BC%95%E5%85%A5/" title="无星的RN学习之旅（九）-ESLint引入"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2018-11-10</div><div class="info-item-2">无星的RN学习之旅（九）-ESLint引入</div></div><div class="info-2"><div class="info-item-1">这篇是写给原生老哥们看的，毕竟如果是做js的老哥肯定是不用说了。。。 背景：大家代码写的格式都不一样，希望统一起来，所以引入ESLint这东西是啥应该不用我多说，至于怎么引入，说实话，看了官网教程，也看了各种博客，反正最后我是搞得一团糟。。。。万幸最后引入还是成功了。 我是打算每个项目的标准都不同（因为有的是rn，有的是h5），所以我都是局部引入，没有全局引入。所以我接下来说的都是局部引入，会让你卸掉全局的，想全局引入的同学自己注意一小下，有些步骤就不要照做了。 目前airbnb的标准是最受推崇的，我就引入它了 环境和工具：Mac，webstrom，npm，yarn一、检查本地是否全局安装过相关的包打开终端 12npm ls -g --depth 0复制代码  看看全局是否安装过ESLint相关的包，如果有，卸载掉。 二、进入项目根目录12npm info &quot;eslint-config-airbnb@latest&quot; peerDependencies复制代码  查看目前最新的airbnb标准  好，那目前你看到了这些库，没错，这都是要加入的库&#x3D;。&#x...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/Avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">无星</div><div class="author-info-description">打工人</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">198</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">58</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">38</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/XingXiaoWu"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/XingXiaoWu" target="_blank" title="Github"><i class="fab fa-github" style="color: #hdhfbb;"></i></a><a class="social-icon" href="https://juejin.cn/user/1503787636493886" target="_blank" title="掘金"><i class="fab fa-blogger" style="color: #hdhfbb;"></i></a><a class="social-icon" href="https://www.jianshu.com/u/fef7696741c8" target="_blank" title="简书"><i class="fas fa-blog" style="color: #hdhfbb;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">你有没有好好吃饭</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/29/AI/%E7%A0%B4%E9%99%90%E6%8F%90%E7%A4%BA%E8%AF%8D/" title="破限提示词">破限提示词</a><time datetime="2026-07-29T12:09:00.000Z" title="发表于 2026-07-29 20:09:00">2026-07-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/02/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/1Panel/" title="1Panel">1Panel</a><time datetime="2026-07-02T06:12:00.000Z" title="发表于 2026-07-02 14:12:00">2026-07-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/06/24/AI/MCP/" title="MCP">MCP</a><time datetime="2026-06-24T07:27:08.000Z" title="发表于 2026-06-24 15:27:08">2026-06-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/06/03/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Jenkins%E6%90%AD%E9%85%8DGitea%E6%8B%89%E5%8F%96%E9%A1%B9%E7%9B%AE/" title="Jenkins搭配Gitea拉取项目">Jenkins搭配Gitea拉取项目</a><time datetime="2026-06-03T06:32:00.000Z" title="发表于 2026-06-03 14:32:00">2026-06-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/05/15/CTF/%E6%8A%A5%E5%91%8A/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%8A%A5%E5%91%8A%EF%BC%88%E4%BA%8C%EF%BC%89-%E6%9F%90%E5%AE%81/" title="无星的渗透报告（二）-某宁"><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/报告/一/1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无星的渗透报告（二）-某宁"/></a><div class="content"><a class="title" href="/2026/05/15/CTF/%E6%8A%A5%E5%91%8A/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%8A%A5%E5%91%8A%EF%BC%88%E4%BA%8C%EF%BC%89-%E6%9F%90%E5%AE%81/" title="无星的渗透报告（二）-某宁">无星的渗透报告（二）-某宁</a><time datetime="2026-05-15T12:09:00.000Z" title="发表于 2026-05-15 20:09:00">2026-05-15</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2016 - 2026 By 无星</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span><span class="footer-separator">备案号 | </span><a href="https://beian.miit.gov.cn/" target="_blank">赣ICP备2026018933号-1</a></div><div class="footer_custom_text">歪比巴卜</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const commentCount = n => {
+    const isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+    if (isCommentCount) {
+      isCommentCount.textContent= n
+    }
+  }
+
+  const initGitalk = (el, path) => {
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyGitalk = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+
+    const gitalk = new Gitalk({
+      clientID: 'c06f519d5671dfd10942',
+      clientSecret: '38d97414c2b8bfec7f473f9f3458ca58fd0d25d1',
+      repo: 'XingXiaoWu.github.io',
+      owner: 'XingXiaoWu',
+      admin: ['XingXiaoWu'],
+      updateCountCallback: commentCount,
+      ...option,
+      id: isShuoshuo ? path : (option && option.id) || 'e9756247124ae2197aa314834442af74'
+    })
+
+    gitalk.render('gitalk-container')
+  }
+
+  const loadGitalk = async(el, path) => {
+    if (typeof Gitalk === 'function') initGitalk(el, path)
+    else {
+      await btf.getCSS('https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.css')
+      await btf.getScript('https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.js')
+      initGitalk(el, path)
+    }
+  }
+
+  if (isShuoshuo) {
+    'Gitalk' === 'Gitalk'
+      ? window.shuoshuoComment = { loadComment: loadGitalk }
+      : window.loadOtherComment = loadGitalk
+    return
+  }
+
+  if ('Gitalk' === 'Gitalk' || !false) {
+    if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+    else loadGitalk()
+  } else {
+    window.loadOtherComment = loadGitalk
+  }
+})()</script></div><script>(() => {
+  btf.getScript('//code.tidio.co/.js').then(() => {
+    const isChatBtn = false
+    const isChatHideShow = false
+
+    if (isChatBtn) {
+      let isShow = false
+      const close = () => {
+        window.tidioChatApi.hide()
+        isShow = false
+      }
+      
+      const open = () => {
+        window.tidioChatApi.open()
+        window.tidioChatApi.show()
+        isShow = true
+      }
+
+      const onTidioChatApiReady = () => {
+        window.tidioChatApi.hide()
+        window.tidioChatApi.on("close", close)
+      }
+      if (window.tidioChatApi) {
+        window.tidioChatApi.on("ready", onTidioChatApiReady)
+      } else {
+        document.addEventListener("tidioChat-ready", onTidioChatApiReady)
+      }
+
+      window.chatBtnFn = () => {
+        if (!window.tidioChatApi) return
+        isShow ? close() : open()
+      }
+
+      document.getElementById('chat-btn').style.display = 'block'
+
+    } else if (isChatHideShow) {
+      window.chatBtn = {
+        hide: () => window.tidioChatApi && window.tidioChatApi.hide(),
+        show: () => window.tidioChatApi && window.tidioChatApi.show()
+      }
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索一号准备就绪" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>

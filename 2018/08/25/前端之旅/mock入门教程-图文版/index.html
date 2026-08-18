@@ -1,0 +1,292 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>mock入门教程-图文版 | 歪比巴卜</title><meta name="author" content="无星"><meta name="copyright" content="无星"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="背景：相信经常有这种情况，后端定义好了接口文档，但是还没开发，这时候前端或者客户端就无法进行联调，只能通过自己伪造数据进行开发。 ###伪造数据这个过程，就叫做mock但是总是因为各种各样的情况，不能总拿死数据来开发，需要一些随机数据，这样才能更好的覆盖整个用例的可能性mock的方法其实很多：本地写死返回值，抓包工具断点篡改返回值，本地结果替换等等。这次介绍的是使用mock这个开源项目进行随机返回">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mock入门教程-图文版">
+<meta property="og:url" content="http://www.xingxiaowu.cn/2018/08/25/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/mock%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B-%E5%9B%BE%E6%96%87%E7%89%88/index.html">
+<meta property="og:site_name" content="歪比巴卜">
+<meta property="og:description" content="背景：相信经常有这种情况，后端定义好了接口文档，但是还没开发，这时候前端或者客户端就无法进行联调，只能通过自己伪造数据进行开发。 ###伪造数据这个过程，就叫做mock但是总是因为各种各样的情况，不能总拿死数据来开发，需要一些随机数据，这样才能更好的覆盖整个用例的可能性mock的方法其实很多：本地写死返回值，抓包工具断点篡改返回值，本地结果替换等等。这次介绍的是使用mock这个开源项目进行随机返回">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.xingxiaowu.cn/images/Avatar.jpg">
+<meta property="article:published_time" content="2018-08-25T14:24:00.000Z">
+<meta property="article:modified_time" content="2026-06-22T07:07:14.721Z">
+<meta property="article:author" content="无星">
+<meta property="article:tag" content="前端">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.xingxiaowu.cn/images/Avatar.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "mock入门教程-图文版",
+  "url": "http://www.xingxiaowu.cn/2018/08/25/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/mock%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B-%E5%9B%BE%E6%96%87%E7%89%88/",
+  "image": "http://www.xingxiaowu.cn/images/Avatar.jpg",
+  "datePublished": "2018-08-25T14:24:00.000Z",
+  "dateModified": "2026-06-22T07:07:14.721Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "无星",
+      "url": "http://www.xingxiaowu.cn"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/images/Avatar.jpg"><link rel="canonical" href="http://www.xingxiaowu.cn/2018/08/25/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/mock%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B-%E5%9B%BE%E6%96%87%E7%89%88/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9901724859932050"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-9901724859932050',
+  enable_page_level_ads: 'true'
+});</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?bdba6c3bda62a07f58f3cf06034704d5";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-5976024V60"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-5976024V60')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-5976024V60', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":150,"languages":{"author":"作者: 无星","link":"链接: ","source":"来源: 歪比巴卜","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'mock入门教程-图文版',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/rss2.xml" title="歪比巴卜" type="application/rss+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/Avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">198</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">58</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">38</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/images/Avatar.jpg" alt="Logo"><span class="site-name">歪比巴卜</span></a><a class="nav-page-title" href="/"><span class="site-name">mock入门教程-图文版</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">mock入门教程-图文版</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2018-08-25T14:24:00.000Z" title="发表于 2018-08-25 22:24:00">2018-08-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-06-22T07:07:14.721Z" title="更新于 2026-06-22 15:07:14">2026-06-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2018/08/25/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/mock%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B-%E5%9B%BE%E6%96%87%E7%89%88/#post-comment"><span class="gitalk-comment-count"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>背景：相信经常有这种情况，后端定义好了接口文档，但是还没开发，这时候前端或者客户端就无法进行联调，只能通过自己伪造数据进行开发。</p>
+<p>###伪造数据这个过程，就叫做mock<br>但是总是因为各种各样的情况，不能总拿死数据来开发，需要一些随机数据，这样才能更好的覆盖整个用例的可能性<br>mock的方法其实很多：<br>本地写死返回值，抓包工具断点篡改返回值，本地结果替换等等。<br>这次介绍的是使用mock这个开源项目进行随机返回值的替换<br>###<a target="_blank" rel="noopener" href="http://mockjs.com/">Mock.js</a>虽然名字是js，不过可不限于前端哟<br>###部署的方式很多，比如部署专门的服务器，或者本地部署等等<br>但是我比较菜，也比较懒，我就直接用别人部署好的服务器进行使用，其他的部署方式就需要各位老哥自行学习了。</p>
+<p>先介绍一个网站<br>###<a target="_blank" rel="noopener" href="https://www.easy-mock.com/">Easy Mock</a></p>
+<p>登录进去以后，创建你的第一个项目<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/mock/1.png" alt="mock首页"><br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/mock/2.png" alt="初始化的填写"><br>创建完毕以后就会有一个项目出现在你的首页了，点击该项目</p>
+<p>例如我这里创建了一个wx项目，点进去就可以看到<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/mock/3.png" alt="配置"></p>
+<p>正常在开发过程中，肯定是有正式环境、开发环境这种区分的，除了域名不一样，后面的接口拼接都是一样的，在这里也是一样的。只需要将你某个环境下的域名或者ip替换成图中的baseURL即可，至于怎么替换，在接下来会讲到。</p>
+<p>###我们举个例子来理解一下。<br>我们的域名为：<a target="_blank" rel="noopener" href="http://www.baidu.com/">http://www.baidu.com</a><br>有一个获取版本号的接口为：<a target="_blank" rel="noopener" href="http://www.baidu.com/common/version/ios">http://www.baidu.com/common/version/ios</a><br>还有一个获取helloworld的接口为：<a target="_blank" rel="noopener" href="http://www.baidu.com/helloworld">http://www.baidu.com/helloworld</a><br>可以看到，所有的请求的baseurl都是<a target="_blank" rel="noopener" href="http://www.baidu.com,接口只是在后面拼接.我们先到easymock上建立获取版本号的接口./">http://www.baidu.com，接口只是在后面拼接。我们先到easymock上建立获取版本号的接口。</a></p>
+<p>####点击创建接口<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/mock/4.png" alt="如图"><br>具体的返回值的语法规则这里就不说了，直接在官网能查到，没有写的必要<br><a target="_blank" rel="noopener" href="https://github.com/nuysoft/Mock/wiki/Syntax-Specification">语法规范</a><br>这样我们就得到了一个mock接口<br>###接下来就是替换域名的操作了<br>我们需要用到的工具是Charles<br>因为Charles可以对子集全部代理，所以这里我们选择charles，当然，如果你可以配置node服务进行跨域也是ok的，方式有多种，目的都是一个，替换baseURL<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/mock/5.png" alt="Charles配置"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/mock/6.png" alt="image.png"><br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/mock/7.png" alt="通配符"><br>注意需要使用通配符，至于啥叫通配符就百度一下吧~~<br>ok，至此，Charles配置完毕，让我们看看效果。<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/mock/8.png" alt="网络请求"><br>如图，我写了一个网络请求，地址是<a target="_blank" rel="noopener" href="http://www.baidu.com/common/version/ios">http://www.baidu.com/common/version/ios</a><br>在抓包中得到了什么呢<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/mock/9.png" alt="地址被替换成了mock地址"></p>
+<p>###结束语<br>其实很简单，不过各位该锤后台的还是要锤，毕竟前台后台，相爱相杀，hhhh</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://www.xingxiaowu.cn">无星</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://www.xingxiaowu.cn/2018/08/25/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/mock%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B-%E5%9B%BE%E6%96%87%E7%89%88/">http://www.xingxiaowu.cn/2018/08/25/前端之旅/mock入门教程-图文版/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://www.xingxiaowu.cn" target="_blank">歪比巴卜</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%89%8D%E7%AB%AF/">前端</a></div><div class="post-share"><div class="social-share" data-image="/images/Avatar.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>V我50，Crazy</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/images/WechatPay.png" target="_blank"><img class="post-qr-code-img" src="/images/WechatPay.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/images/AliPay.png" target="_blank"><img class="post-qr-code-img" src="/images/AliPay.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2021/07/17/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E9%85%8D%E7%BD%AEgit%20hook/" title="无星的前端之旅（二十三）—— 手把手教你配置git hook"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-07-17</div><div class="info-item-2">无星的前端之旅（二十三）—— 手把手教你配置git hook</div></div><div class="info-2"><div class="info-item-1">背景要求对git的message做限制，要求要以 [&#39;feat&#39;, &#39;fix&#39;, &#39;docs&#39;, &#39;style&#39;, &#39;refactor&#39;, &#39;perf&#39;, &#39;test&#39;, &#39;build&#39;, &#39;ci&#39;, &#39;revert&#39;, &#39;types&#39;]: 做开头标记 思路git存在hook，在每个步骤后面都会执行对应的🪝 因此我们可以考虑通过git hook去完成这项校验 实际上，在平时的开发过程中，就已经有于此相关的内容了，就是不知道同学们留意到没有 举个🌰比如在Vue项目中，如果在创建项目中，选择了eslint，并选择了保存并格式化  在进行git commit时，代码会自动做一次格式化。 究其原因，实际上是来自Vue的默认配置  那么Vue是怎么做的，实际上，翻开文档，我们能够找到相关内容 git-hook 实际上是尤🌧️溪 fork 了 husky，稍做改造形成了yorkie 但是我们可以看到，yorkie...</div></div></div></a><a class="pagination-related" href="/2021/04/28/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E8%87%AA%E5%AE%9A%E4%B9%89CompositionAPI/" title="无星的前端之旅（二十二）—— 自定义CompositionAPI&#x2F;hook"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-04-28</div><div class="info-item-2">无星的前端之旅（二十二）—— 自定义CompositionAPI&#x2F;hook</div></div><div class="info-2"><div class="info-item-1">背景我们做的大量都是后台管理系统，对于这种系统，我们会发现，里面的业务其实相当单一 大量都是类似这种， 搜索条件，表格，分页  每个页面都要处理上下翻页，搜索，mounted加载首页table数据等等逻辑 虽然不复杂，但很累。 因此，我们需要封装一些DSL来降低我们的重复工作量 啥是CompositionAPI&#x2F;hook看看文档 我们的请求经过封装，大概是这种格式1234567891011121314151617181920212223242526// /api/index.jsimport API from &#x27;@szyx/axios&#x27;;// 请求拦截器API.interceptors.request.use((config) =&gt; &#123;  // xxxx  return config;&#125;);// 结果拦截器API.interceptors.response.use(  (response) =&gt; &#123;    // 判断状态    if (response.status === &#x27;0&#x27;) &#...</div></div></div></a><a class="pagination-related" href="/2021/02/04/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94babel%E5%88%9D%E6%8E%A2/" title="无星的前端之旅（十五）——babel初探"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-04</div><div class="info-item-2">无星的前端之旅（十五）——babel初探</div></div><div class="info-2"><div class="info-item-1">背景其实很早我就知道，babel会帮助我们做一件事，就是把高版本的ES语法，转换为低版本的ES语法，以确保在低版本浏览器上能正确运行。 但是一直我都不知道怎么去操纵它，只知道需要一堆配置，配合webpack可以做这件事（甚至我一度认为必须使用webpack才能做这件事）。 集成(基本就是抄文档)其实如果用百度搜索，集成的东西有各种es版本的依赖，配置文件有js，rc，json文件，乱七八糟什么都有。 其实这是历史原因。但现在已经2021年了，咱们就直接按官网说的来。 1.下载依赖包12npm install --save-dev @babel/core @babel/cli @babel/preset-envnpm install --save @babel/polyfill 当然，我个人认为，如果不需要兼容IE的话，应该不需要下载polyfill了 2.添加依赖文件在项目的根目录下创建一个命名为 babel.config.json 的配置文件（需要 v7.8.0 或更高版本），并将以下内容复制到此文件中： 123456789101112131415161718&#123;  &...</div></div></div></a><a class="pagination-related" href="/2021/07/20/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94Vue%E7%9A%84%E7%BB%84%E4%BB%B6npm%E5%B0%81%E8%A3%85/" title="无星的前端之旅（二十四）——Vue的组件npm封装"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-07-20</div><div class="info-item-2">无星的前端之旅（二十四）——Vue的组件npm封装</div></div><div class="info-2"><div class="info-item-1">背景很早就有这种需求，项目里封装好了组件，但是不知道怎么丢到npm库里 直接写vue文件丢到npm上，项目里好像也能直接用，但总觉的怪怪的 因为别人的库都是最后打包出来的js，不是vue文件 怎奈何一致不知道正规的的做法，webpack也不会用，babel也不懂，js也不精通，只能打打酱油， TODO：未完待续。。。 </div></div></div></a><a class="pagination-related" href="/2021/07/17/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%E5%8D%81%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20css%E7%9A%84%E4%B8%80%E4%BA%9B%E7%94%A8%E6%B3%95/" title="无星的前端之旅（二十五）—— css的一些用法"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-07-17</div><div class="info-item-2">无星的前端之旅（二十五）—— css的一些用法</div></div><div class="info-2"><div class="info-item-1">背景项目中总是遇到class取名难，样式到处定义，重复颜色到处写，代码切换烦得一批 一.dart-sass，node-sass使用dart-sass，废弃node-sass 二.Vue项目中色板的使用在全局css文件中，新建一个文件，放置各种scss变量 例如： src/styles/variables.scss 1$moedu-background-color: #F5F7FA;  配置vue.config.js,将整个变量文件注入 123456789101112//vue.config.jsmodule.exports = &#123;  // …………省略其他配置  css: &#123;    loaderOptions: &#123;      scss:&#123;        additionalData: &#x27;@import &quot;@/styles/variables.scss&quot;;&#x27;      &#125;    &#125;  &#125;,&#125;  在任意vue文件中，可直接使用$moedu-background-co...</div></div></div></a><a class="pagination-related" href="/2021/02/14/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%E5%85%AB%EF%BC%89-Vue3+ts%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" title="无星的前端之旅（十八）-Vue3+ts常见问题"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-14</div><div class="info-item-2">无星的前端之旅（十八）-Vue3+ts常见问题</div></div><div class="info-2"><div class="info-item-1">第一次用Vue3+ts，采用了eslint（aribnb），遇到了一些问题，又不想用经常性使用any，只能逼迫自己解决问题。 本文只是记录一些自己遇到的检测问题 1.使用less并导出变量到ts使用，但是ts报错找不到报错内容： 1Cannot find module &#x27;xxx.less&#x27; or its corresponding type declarations. 解决方法： CSS in Typescript 2.setup中获取proxy，但提示可能为null1const &#123; proxy &#125; = getCurrentInstance(); 提示报错内容： 1Property &#x27;proxy&#x27; does not exist on type &#x27;ComponentInternalInstance | null&#x27;. 解决方法： 1.直接强制确认，因为毫无疑问，在页面或组件中，CurrentInstance一定存在，因此可以使用!强制标记存在 但在aribnb的eslint规则下，仍然会报警告 1cons...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/Avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">无星</div><div class="author-info-description">打工人</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">198</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">58</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">38</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/XingXiaoWu"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/XingXiaoWu" target="_blank" title="Github"><i class="fab fa-github" style="color: #hdhfbb;"></i></a><a class="social-icon" href="https://juejin.cn/user/1503787636493886" target="_blank" title="掘金"><i class="fab fa-blogger" style="color: #hdhfbb;"></i></a><a class="social-icon" href="https://www.jianshu.com/u/fef7696741c8" target="_blank" title="简书"><i class="fas fa-blog" style="color: #hdhfbb;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">你有没有好好吃饭</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/29/AI/%E7%A0%B4%E9%99%90%E6%8F%90%E7%A4%BA%E8%AF%8D/" title="破限提示词">破限提示词</a><time datetime="2026-07-29T12:09:00.000Z" title="发表于 2026-07-29 20:09:00">2026-07-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/02/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/1Panel/" title="1Panel">1Panel</a><time datetime="2026-07-02T06:12:00.000Z" title="发表于 2026-07-02 14:12:00">2026-07-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/06/24/AI/MCP/" title="MCP">MCP</a><time datetime="2026-06-24T07:27:08.000Z" title="发表于 2026-06-24 15:27:08">2026-06-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/06/03/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Jenkins%E6%90%AD%E9%85%8DGitea%E6%8B%89%E5%8F%96%E9%A1%B9%E7%9B%AE/" title="Jenkins搭配Gitea拉取项目">Jenkins搭配Gitea拉取项目</a><time datetime="2026-06-03T06:32:00.000Z" title="发表于 2026-06-03 14:32:00">2026-06-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/05/15/CTF/%E6%8A%A5%E5%91%8A/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%8A%A5%E5%91%8A%EF%BC%88%E4%BA%8C%EF%BC%89-%E6%9F%90%E5%AE%81/" title="无星的渗透报告（二）-某宁"><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/报告/一/1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无星的渗透报告（二）-某宁"/></a><div class="content"><a class="title" href="/2026/05/15/CTF/%E6%8A%A5%E5%91%8A/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%8A%A5%E5%91%8A%EF%BC%88%E4%BA%8C%EF%BC%89-%E6%9F%90%E5%AE%81/" title="无星的渗透报告（二）-某宁">无星的渗透报告（二）-某宁</a><time datetime="2026-05-15T12:09:00.000Z" title="发表于 2026-05-15 20:09:00">2026-05-15</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2016 - 2026 By 无星</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span><span class="footer-separator">备案号 | </span><a href="https://beian.miit.gov.cn/" target="_blank">赣ICP备2026018933号-1</a></div><div class="footer_custom_text">歪比巴卜</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const commentCount = n => {
+    const isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+    if (isCommentCount) {
+      isCommentCount.textContent= n
+    }
+  }
+
+  const initGitalk = (el, path) => {
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyGitalk = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+
+    const gitalk = new Gitalk({
+      clientID: 'c06f519d5671dfd10942',
+      clientSecret: '38d97414c2b8bfec7f473f9f3458ca58fd0d25d1',
+      repo: 'XingXiaoWu.github.io',
+      owner: 'XingXiaoWu',
+      admin: ['XingXiaoWu'],
+      updateCountCallback: commentCount,
+      ...option,
+      id: isShuoshuo ? path : (option && option.id) || 'a9b148ed419050daecc99ff8d7d31d89'
+    })
+
+    gitalk.render('gitalk-container')
+  }
+
+  const loadGitalk = async(el, path) => {
+    if (typeof Gitalk === 'function') initGitalk(el, path)
+    else {
+      await btf.getCSS('https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.css')
+      await btf.getScript('https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.js')
+      initGitalk(el, path)
+    }
+  }
+
+  if (isShuoshuo) {
+    'Gitalk' === 'Gitalk'
+      ? window.shuoshuoComment = { loadComment: loadGitalk }
+      : window.loadOtherComment = loadGitalk
+    return
+  }
+
+  if ('Gitalk' === 'Gitalk' || !false) {
+    if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+    else loadGitalk()
+  } else {
+    window.loadOtherComment = loadGitalk
+  }
+})()</script></div><script>(() => {
+  btf.getScript('//code.tidio.co/.js').then(() => {
+    const isChatBtn = false
+    const isChatHideShow = false
+
+    if (isChatBtn) {
+      let isShow = false
+      const close = () => {
+        window.tidioChatApi.hide()
+        isShow = false
+      }
+      
+      const open = () => {
+        window.tidioChatApi.open()
+        window.tidioChatApi.show()
+        isShow = true
+      }
+
+      const onTidioChatApiReady = () => {
+        window.tidioChatApi.hide()
+        window.tidioChatApi.on("close", close)
+      }
+      if (window.tidioChatApi) {
+        window.tidioChatApi.on("ready", onTidioChatApiReady)
+      } else {
+        document.addEventListener("tidioChat-ready", onTidioChatApiReady)
+      }
+
+      window.chatBtnFn = () => {
+        if (!window.tidioChatApi) return
+        isShow ? close() : open()
+      }
+
+      document.getElementById('chat-btn').style.display = 'block'
+
+    } else if (isChatHideShow) {
+      window.chatBtn = {
+        hide: () => window.tidioChatApi && window.tidioChatApi.hide(),
+        show: () => window.tidioChatApi && window.tidioChatApi.show()
+      }
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索一号准备就绪" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>

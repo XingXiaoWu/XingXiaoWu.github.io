@@ -1,0 +1,309 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>权限判断-位运算 | 歪比巴卜</title><meta name="author" content="无星"><meta name="copyright" content="无星"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="角色权限判断，这应该是大部分应用都有的功能，那么如何进行权限判断？ 这里说下我们用的思路，可能会比较low，各位看官别笑。 打个比方，我现在有A,B,C,D四个功能。要对某个账户是否具有这些功能权限做判断。我们有个list，里面存放着这个账户所有的权限。（list从哪来？当然是后台请求回来啊！）A功能对应的权限是&#x3D;&gt;0,以此类推B&#x3D;&gt;1,C&#x3D;&gt;2,D">
+<meta property="og:type" content="article">
+<meta property="og:title" content="权限判断-位运算">
+<meta property="og:url" content="http://www.xingxiaowu.cn/2018/07/08/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%9D%83%E9%99%90%E5%88%A4%E6%96%AD-%E4%BD%8D%E8%BF%90%E7%AE%97/index.html">
+<meta property="og:site_name" content="歪比巴卜">
+<meta property="og:description" content="角色权限判断，这应该是大部分应用都有的功能，那么如何进行权限判断？ 这里说下我们用的思路，可能会比较low，各位看官别笑。 打个比方，我现在有A,B,C,D四个功能。要对某个账户是否具有这些功能权限做判断。我们有个list，里面存放着这个账户所有的权限。（list从哪来？当然是后台请求回来啊！）A功能对应的权限是&#x3D;&gt;0,以此类推B&#x3D;&gt;1,C&#x3D;&gt;2,D">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.xingxiaowu.cn/images/Avatar.jpg">
+<meta property="article:published_time" content="2018-07-08T14:55:00.000Z">
+<meta property="article:modified_time" content="2026-06-22T07:07:14.823Z">
+<meta property="article:author" content="无星">
+<meta property="article:tag" content="iOS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.xingxiaowu.cn/images/Avatar.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "权限判断-位运算",
+  "url": "http://www.xingxiaowu.cn/2018/07/08/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%9D%83%E9%99%90%E5%88%A4%E6%96%AD-%E4%BD%8D%E8%BF%90%E7%AE%97/",
+  "image": "http://www.xingxiaowu.cn/images/Avatar.jpg",
+  "datePublished": "2018-07-08T14:55:00.000Z",
+  "dateModified": "2026-06-22T07:07:14.823Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "无星",
+      "url": "http://www.xingxiaowu.cn"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/images/Avatar.jpg"><link rel="canonical" href="http://www.xingxiaowu.cn/2018/07/08/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%9D%83%E9%99%90%E5%88%A4%E6%96%AD-%E4%BD%8D%E8%BF%90%E7%AE%97/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9901724859932050"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-9901724859932050',
+  enable_page_level_ads: 'true'
+});</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?bdba6c3bda62a07f58f3cf06034704d5";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-5976024V60"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-5976024V60')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-5976024V60', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":150,"languages":{"author":"作者: 无星","link":"链接: ","source":"来源: 歪比巴卜","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '权限判断-位运算',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/rss2.xml" title="歪比巴卜" type="application/rss+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/Avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">198</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">58</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">38</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/images/Avatar.jpg" alt="Logo"><span class="site-name">歪比巴卜</span></a><a class="nav-page-title" href="/"><span class="site-name">权限判断-位运算</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">权限判断-位运算</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2018-07-08T14:55:00.000Z" title="发表于 2018-07-08 22:55:00">2018-07-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-06-22T07:07:14.823Z" title="更新于 2026-06-22 15:07:14">2026-06-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/iOS/">iOS</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2018/07/08/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%9D%83%E9%99%90%E5%88%A4%E6%96%AD-%E4%BD%8D%E8%BF%90%E7%AE%97/#post-comment"><span class="gitalk-comment-count"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>角色权限判断，这应该是大部分应用都有的功能，那么如何进行权限判断？</p>
+<p>这里说下我们用的思路，可能会比较low，各位看官别笑。<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/%E4%BD%8D%E8%BF%90%E7%AE%97/1.jpg"></p>
+<p>打个比方，我现在有A,B,C,D四个功能。要对某个账户是否具有这些功能权限做判断。<br>我们有个list，里面存放着这个账户所有的权限。（list从哪来？当然是后台请求回来啊！）<br>A功能对应的权限是&#x3D;&gt;0,以此类推B&#x3D;&gt;1,C&#x3D;&gt;2,D&#x3D;&gt;3这样子。</p>
+<p>那么如果我有一个账号拥有所有权限，list就是【0，1，2，3】，如果没有B权限就是【0，2，3，4】这样子，相信大家都应该明白我要表达的意思了。</p>
+<p>那么要判断是否拥有某个权限，这时候肯定就会说，遍历一下list不就知道了？那如果权限比较多呢？而且你不觉得这样更low么&#x3D;。&#x3D;<br>所以这个时候，我们可以使用位运算打成这个目的:</p>
+<p>先说我们用来判断的方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//判断是否存在权限，permission是所有权限展示中的某个权限，只有一个&amp;，不是两个，别搞错了</span><br><span class="line">    hasPermission(permission) &#123;</span><br><span class="line">        return permission &amp; GlobalValue.authValue</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>再定义一个包含了所有权限的声明</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//所有权限列表展示</span><br><span class="line">export let Permission = &#123;</span><br><span class="line">    A: Math.pow(2, 0),   //A功能</span><br><span class="line">    B: Math.pow(2, 1),   //B功能</span><br><span class="line">    C: Math.pow(2, 2),    //C功能</span><br><span class="line">    D: Math.pow(2, 3),   //D功能</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在我们和后台请求拿到某个角色所包含的list的时候，对list做如下操作</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">if (authList &amp;&amp; authList.length &gt; 0) &#123;</span><br><span class="line">      let authValue = 0</span><br><span class="line">      for (let i = 0; i &lt; authList.length; i++) &#123;</span><br><span class="line">          let index = authList[i]</span><br><span class="line">          let permission = Math.pow(2, index)</span><br><span class="line">          authValue += permission</span><br><span class="line">      &#125;</span><br><span class="line">      return authValue//我在代码里GlobalValue.authValue = authValue存起来了，你们也找个全局的东西存起来就好</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>P.S.如果看懂了就不用往下看了，不浪费大牛的时间~~</p>
+<p>可能各位没看懂老哥会很迷我在干嘛，这一步操作是干什么？别慌，让我们往下看</p>
+<p>我们举一个例子来解释这个问题。假设我当前账号只有AC两个功能，那么我拿到的authList是多少呢？很简单：【0，2】</p>
+<p>那么根据上面for循环的一顿操作，我这个返回的authValue会是多少呢？</p>
+<p>2的0次方+2的2次方&#x3D;5，这个数学就不多说了。。<br>那么现在我们可以知道，authValue &#x3D; 5，<br>那么假设我现在要判断当前账户是否存在A功能权限：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let isHave =  this. hasPermission(Permission.A)</span><br></pre></td></tr></table></figure>
+<p>那么接下来重点来了，这就需要一丢丢离散数学的知识了<br>其实就是对Permission.A&amp;5这一步进行计算<br>先转成二进制再进行&amp;运算</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">            0 0 0 0 1</span><br><span class="line">    &amp;       0 0 1 0 1</span><br><span class="line">————————————————————————————————</span><br><span class="line">            0 0 0 0 1</span><br><span class="line"></span><br><span class="line">结果是：2的0次方=1</span><br></pre></td></tr></table></figure>
+<p>0代表false，非0代表true<br>所以答案是，有A权限</p>
+<p>那么判断是否有B权限也是一样的，判断Permission.B&amp;5</p>
+<p>同样先转成二进制再进行&amp;运算</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">            0 0 0 1 0</span><br><span class="line">    &amp;       0 0 1 0 1</span><br><span class="line">————————————————————————————————</span><br><span class="line">            0 0 0 0 0</span><br><span class="line"></span><br><span class="line">结果是：0</span><br></pre></td></tr></table></figure>
+<p>所以答案是，没有B权限</p>
+<p>相信讲到这里应该都明白了。如果不明白&amp;的操作，可以百度一下离散数学这个&amp;的操作。其实说简单一点就是1&amp;1&#x3D;1，0&amp;任何&#x3D;0（不保证对哈，就理解性的看下这句话，不是严格模式&#x3D;。&#x3D;）<br>所以综上：在做任何权限判断时，都可以使用这种位运算的方式来进行判断。</p>
+<p>其他没了emmm</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://www.xingxiaowu.cn">无星</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://www.xingxiaowu.cn/2018/07/08/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%9D%83%E9%99%90%E5%88%A4%E6%96%AD-%E4%BD%8D%E8%BF%90%E7%AE%97/">http://www.xingxiaowu.cn/2018/07/08/移动端之旅/权限判断-位运算/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://www.xingxiaowu.cn" target="_blank">歪比巴卜</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/iOS/">iOS</a></div><div class="post-share"><div class="social-share" data-image="/images/Avatar.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>V我50，Crazy</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/images/WechatPay.png" target="_blank"><img class="post-qr-code-img" src="/images/WechatPay.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/images/AliPay.png" target="_blank"><img class="post-qr-code-img" src="/images/AliPay.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2018/08/09/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E9%9D%99%E9%BB%98%E6%8E%A8%E9%80%81%E4%B9%8B%E4%B8%AA%E6%8E%A8iOS%E7%89%88/" title="个推--静默推送"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2018-08-09</div><div class="info-item-2">个推--静默推送</div></div><div class="info-2"><div class="info-item-1">因为公司业务关系，希望在iOS在后台的时候能存活去做某些业务操作（其实就是流氓的后台保活&#x3D;。&#x3D;）最早是使用后台定位实现的，信心满满的去上架，结果被苹果爸爸锤的头都破了。连续被拒3次，申请打电话苹果代表也锤了我一顿，申请苹果审核申诉又被锤了一顿。想一想我真是头铁啊emmm闲话不多说，开始这篇博客的主题我们的业务其实很简单，就是后台有业务数据来了，客户端哪怕在后台也要处理。 #苹果的保活无非三种方式###1.后台播放无声音乐###2.后台定位###3.推送唤醒 ##播放音乐直接被我pass了，我觉得机审都会把我拒了。。。压根不考虑 ##后台定位正好我们的业务吐过硬扯还能和业务办公场所扯上关系，头铁就是上！通过后台定位让app保活，成功实现了。不过被🍎爸爸锤了。方案二，pass ##推送唤醒那这时候，就剩这最后一种方式了。推送分两种，本地推送和远程推送。####本地推送本地推送其实类似于一个定时器，到了触发的时候就会触发。一般有很多用来做闹钟或者提示用户签到一类的场景。不过根据我的测试，当应用在后台三分钟后，被挂起以后这个本地推送就不再继续推送了。（也不知道是不是...</div></div></div></a><a class="pagination-related" href="/2016/12/17/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/AFNetworking%E5%A6%82%E4%BD%95%E4%BC%A0%E9%80%92%E7%BB%93%E6%9E%9C/" title="AFNetworking如何传递结果"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2016-12-17</div><div class="info-item-2">AFNetworking如何传递结果</div></div><div class="info-2"><div class="info-item-1">因为在AFNetworking中的请求结果采用block，是异步请求结果 那么如何返回结果呢？ 答案很简单：代理。 例如：   代理在哪实现，结果在哪返回。 </div></div></div></a><a class="pagination-related" href="/2017/04/24/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/1.Unicode%E7%A0%81%E5%87%BA%E9%94%99%202.%E5%88%A4%E6%96%AD%E7%B1%BB%E5%9E%8B%203.json%E8%BD%AC%E6%8D%A2%E5%AD%97%E5%85%B8%E6%88%96%E6%95%B0%E7%BB%84/" title="1.Unicode码出错 2.判断类型 3.json转换字典或数组"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2017-04-24</div><div class="info-item-2">1.Unicode码出错 2.判断类型 3.json转换字典或数组</div></div><div class="info-2"><div class="info-item-1">这个是一些小坑，大牛们忽略。 1.有些时候，后台传输一些json数据会是Unicode码，如果存在在数组里，就更尴尬了，无法转成数组，那么这时候怎么办呢。  这时候，一定要把\U转换成\u，转换成功即可正常使用。2.如何判断属于什么类型。数据属于什么类型，使用iskindofclass来进行判断  3.如何将json串转换成dic或array如果json数据正常，直接使用如图方法，如json数据为单引号，则进行转义。  12345678910111213    NSString *arrString = [jsonDic valueForKey:@&quot;XXX&quot;];        if ([arrString isKindOfClass:[NSString class]]) &#123;        NSLog(@&quot;NSString类&quot;);    &#125;else if([arrString isKindOfClass:[NSArray class]])&#123;        NSLog(@&quot;NSArray类&quot;);...</div></div></div></a><a class="pagination-related" href="/2020/02/15/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E8%8B%B9%E6%9E%9C%E5%8D%A1%E9%AA%8C%E8%AF%81%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%8C%E7%BB%88%E4%BA%8E%E2%84%A2%E8%A7%A3%E5%86%B3%E4%BA%86/" title="苹果卡验证的问题，终于™解决了"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-02-15</div><div class="info-item-2">苹果卡验证的问题，终于™解决了</div></div><div class="info-2"><div class="info-item-1">有一说一，在国内上传app到App Store，用transport上传，我打赌你肯定见过这个页面，这个正在验证能卡几个钟头。 “正在验证App-正在通过App Store进行认证…”  终于在stackoverflow这里找到了答案（不是最高票那个）。  真的🐂🍺。 所以你要做的操作就是 1.删除该缓存文件夹（删之前你可以看看是多大，我这是2.5M）1/Users/your_user_name/Library/Caches/com.apple.amp.itmstransporter/  2.打开梯子打开梯子，原因不用我多说，国内的这个网络你懂得。 3.开启终端代理（不建议直接双击运行图中地址下的iTMSTransporter这个程序）不建议直接双击运行iTMSTransporter，原因是双击直接开了终端运行，你会发现，巨慢无比，因为没翻出去，你可能几个钟头都下不完。 这里建议，打开梯子以后，开启终端代理。 如果你开的是🛫，先开全局，再建议看下有没有一个叫“一键复制终端代理命令”的按钮，点一下，然后复制到终端运行一下，这样就开启了终端代理。 你可以通过以下命令测试你当前的...</div></div></div></a><a class="pagination-related" href="/2018/08/12/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E4%B8%AA%E6%8E%A8-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%8E%A8%E9%80%81%E6%B5%8B%E8%AF%95/" title="个推-开发环境推送测试"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2018-08-12</div><div class="info-item-2">个推-开发环境推送测试</div></div><div class="info-2"><div class="info-item-1">没有用过其他推送，不过应该都是大同小异的，可以参考参考。应该有不少老哥接了推送，都存在这么一种情况。推送平台只能放一个P12，肯定要放生产的，那我开发怎么测？难道真的要打包上架去TestFlight再测？那这个风险和耗时有点太大了。 ###Xcode手动管理证书要是不会配置记得用自动证书管理###其实我们只要转变一下思路就好了。创建一个测试应用即可。（读懂了这句话的老哥就不用继续往下看了）不过如果你要是想给特定用户推送不知道怎么做的话，推荐看：个推-iOS特定人群推送####准备好推送证书的p12文件推送证书的申请乱七八糟我就不说了，网上图文教程一大堆。接下来，推送证书分两份，这个应该也不用多说了，如果这个都不知道的开发者那就有点不太称职了。。。导出P12文件并设置密码（怎么导出也不多说了）这时候我们得到了两份推送证书的P12文件，一份开发环境一份生产环境。####打开个推官网剩下的和正式环境的推送一模一样了。 </div></div></div></a><a class="pagination-related" href="/2016/12/12/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E5%A6%82%E4%BD%95%E9%99%90%E5%88%B6%E5%88%AB%E4%BA%BA%E4%BC%A0%E9%80%92%E7%9A%84%E5%AD%97%E5%85%B8%E7%B1%BB%E5%9E%8B%E5%8F%82%E6%95%B0%E7%9A%84key/" title="如何限制别人传递的字典类型参数的key"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2016-12-12</div><div class="info-item-2">如何限制别人传递的字典类型参数的key</div></div><div class="info-2"><div class="info-item-1">在封装SDK时，只能限制开发者传参的类型，而不能限制传递参数的内容。 例如-(void)tranwithDic:(NSDictionary *)traderInfo; 此时，要求别人传字典类型参数，别人传的key:value是什么无法做出限制。 如果你需要拿着别人传递的参数去请求服务器来返回结果，那就必须对key做出限定，那应该怎么办呢？ 答案很简单：-(void)tranwithDic:(NSObject *)traderInfo; 传递一个对象，把需要的key做成对象属性，然后在方法内部将对象转换成字典即可。 </div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/Avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">无星</div><div class="author-info-description">打工人</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">198</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">58</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">38</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/XingXiaoWu"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/XingXiaoWu" target="_blank" title="Github"><i class="fab fa-github" style="color: #hdhfbb;"></i></a><a class="social-icon" href="https://juejin.cn/user/1503787636493886" target="_blank" title="掘金"><i class="fab fa-blogger" style="color: #hdhfbb;"></i></a><a class="social-icon" href="https://www.jianshu.com/u/fef7696741c8" target="_blank" title="简书"><i class="fas fa-blog" style="color: #hdhfbb;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">你有没有好好吃饭</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/29/AI/%E7%A0%B4%E9%99%90%E6%8F%90%E7%A4%BA%E8%AF%8D/" title="破限提示词">破限提示词</a><time datetime="2026-07-29T12:09:00.000Z" title="发表于 2026-07-29 20:09:00">2026-07-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/02/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/1Panel/" title="1Panel">1Panel</a><time datetime="2026-07-02T06:12:00.000Z" title="发表于 2026-07-02 14:12:00">2026-07-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/06/24/AI/MCP/" title="MCP">MCP</a><time datetime="2026-06-24T07:27:08.000Z" title="发表于 2026-06-24 15:27:08">2026-06-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/06/03/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Jenkins%E6%90%AD%E9%85%8DGitea%E6%8B%89%E5%8F%96%E9%A1%B9%E7%9B%AE/" title="Jenkins搭配Gitea拉取项目">Jenkins搭配Gitea拉取项目</a><time datetime="2026-06-03T06:32:00.000Z" title="发表于 2026-06-03 14:32:00">2026-06-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/05/15/CTF/%E6%8A%A5%E5%91%8A/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%8A%A5%E5%91%8A%EF%BC%88%E4%BA%8C%EF%BC%89-%E6%9F%90%E5%AE%81/" title="无星的渗透报告（二）-某宁"><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/报告/一/1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无星的渗透报告（二）-某宁"/></a><div class="content"><a class="title" href="/2026/05/15/CTF/%E6%8A%A5%E5%91%8A/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%8A%A5%E5%91%8A%EF%BC%88%E4%BA%8C%EF%BC%89-%E6%9F%90%E5%AE%81/" title="无星的渗透报告（二）-某宁">无星的渗透报告（二）-某宁</a><time datetime="2026-05-15T12:09:00.000Z" title="发表于 2026-05-15 20:09:00">2026-05-15</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2016 - 2026 By 无星</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span><span class="footer-separator">备案号 | </span><a href="https://beian.miit.gov.cn/" target="_blank">赣ICP备2026018933号-1</a></div><div class="footer_custom_text">歪比巴卜</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const commentCount = n => {
+    const isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+    if (isCommentCount) {
+      isCommentCount.textContent= n
+    }
+  }
+
+  const initGitalk = (el, path) => {
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyGitalk = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+
+    const gitalk = new Gitalk({
+      clientID: 'c06f519d5671dfd10942',
+      clientSecret: '38d97414c2b8bfec7f473f9f3458ca58fd0d25d1',
+      repo: 'XingXiaoWu.github.io',
+      owner: 'XingXiaoWu',
+      admin: ['XingXiaoWu'],
+      updateCountCallback: commentCount,
+      ...option,
+      id: isShuoshuo ? path : (option && option.id) || '3e05a0284d4cb3511b8c372935e26afa'
+    })
+
+    gitalk.render('gitalk-container')
+  }
+
+  const loadGitalk = async(el, path) => {
+    if (typeof Gitalk === 'function') initGitalk(el, path)
+    else {
+      await btf.getCSS('https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.css')
+      await btf.getScript('https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.js')
+      initGitalk(el, path)
+    }
+  }
+
+  if (isShuoshuo) {
+    'Gitalk' === 'Gitalk'
+      ? window.shuoshuoComment = { loadComment: loadGitalk }
+      : window.loadOtherComment = loadGitalk
+    return
+  }
+
+  if ('Gitalk' === 'Gitalk' || !false) {
+    if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+    else loadGitalk()
+  } else {
+    window.loadOtherComment = loadGitalk
+  }
+})()</script></div><script>(() => {
+  btf.getScript('//code.tidio.co/.js').then(() => {
+    const isChatBtn = false
+    const isChatHideShow = false
+
+    if (isChatBtn) {
+      let isShow = false
+      const close = () => {
+        window.tidioChatApi.hide()
+        isShow = false
+      }
+      
+      const open = () => {
+        window.tidioChatApi.open()
+        window.tidioChatApi.show()
+        isShow = true
+      }
+
+      const onTidioChatApiReady = () => {
+        window.tidioChatApi.hide()
+        window.tidioChatApi.on("close", close)
+      }
+      if (window.tidioChatApi) {
+        window.tidioChatApi.on("ready", onTidioChatApiReady)
+      } else {
+        document.addEventListener("tidioChat-ready", onTidioChatApiReady)
+      }
+
+      window.chatBtnFn = () => {
+        if (!window.tidioChatApi) return
+        isShow ? close() : open()
+      }
+
+      document.getElementById('chat-btn').style.display = 'block'
+
+    } else if (isChatHideShow) {
+      window.chatBtn = {
+        hide: () => window.tidioChatApi && window.tidioChatApi.hide(),
+        show: () => window.tidioChatApi && window.tidioChatApi.show()
+      }
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索一号准备就绪" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>

@@ -1,0 +1,460 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>无星的RN学习之旅（十）-一份不太严谨的入门教程 | 歪比巴卜</title><meta name="author" content="无星"><meta name="copyright" content="无星"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="写在前面菜鸡，半个iOS开发，js了解不深入，见解不一定正确，有错指出，意会一下这个意思就行了，大牛就没必要看了、、、 背景以下所有是基于mac的，Windows老哥只能参考着看了 cmd &#x3D; ctrl ， option &#x3D; alt 一、环境安装其实官方的环境安装教程很简单，但也不排除有老哥看不懂，所以还是再赘述一下，下面是mac的傻瓜式环境安装教程（安装好了的不用看，wind">
+<meta property="og:type" content="article">
+<meta property="og:title" content="无星的RN学习之旅（十）-一份不太严谨的入门教程">
+<meta property="og:url" content="http://www.xingxiaowu.cn/2018/11/10/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%EF%BC%89-%E4%B8%80%E4%BB%BD%E4%B8%8D%E5%A4%AA%E4%B8%A5%E8%B0%A8%E7%9A%84%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:site_name" content="歪比巴卜">
+<meta property="og:description" content="写在前面菜鸡，半个iOS开发，js了解不深入，见解不一定正确，有错指出，意会一下这个意思就行了，大牛就没必要看了、、、 背景以下所有是基于mac的，Windows老哥只能参考着看了 cmd &#x3D; ctrl ， option &#x3D; alt 一、环境安装其实官方的环境安装教程很简单，但也不排除有老哥看不懂，所以还是再赘述一下，下面是mac的傻瓜式环境安装教程（安装好了的不用看，wind">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.xingxiaowu.cn/images/Avatar.jpg">
+<meta property="article:published_time" content="2018-11-10T10:21:00.000Z">
+<meta property="article:modified_time" content="2026-06-22T07:07:14.822Z">
+<meta property="article:author" content="无星">
+<meta property="article:tag" content="react-native">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.xingxiaowu.cn/images/Avatar.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "无星的RN学习之旅（十）-一份不太严谨的入门教程",
+  "url": "http://www.xingxiaowu.cn/2018/11/10/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%EF%BC%89-%E4%B8%80%E4%BB%BD%E4%B8%8D%E5%A4%AA%E4%B8%A5%E8%B0%A8%E7%9A%84%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/",
+  "image": "http://www.xingxiaowu.cn/images/Avatar.jpg",
+  "datePublished": "2018-11-10T10:21:00.000Z",
+  "dateModified": "2026-06-22T07:07:14.822Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "无星",
+      "url": "http://www.xingxiaowu.cn"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/images/Avatar.jpg"><link rel="canonical" href="http://www.xingxiaowu.cn/2018/11/10/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%EF%BC%89-%E4%B8%80%E4%BB%BD%E4%B8%8D%E5%A4%AA%E4%B8%A5%E8%B0%A8%E7%9A%84%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9901724859932050"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-9901724859932050',
+  enable_page_level_ads: 'true'
+});</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?bdba6c3bda62a07f58f3cf06034704d5";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-5976024V60"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-5976024V60')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-5976024V60', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":150,"languages":{"author":"作者: 无星","link":"链接: ","source":"来源: 歪比巴卜","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '无星的RN学习之旅（十）-一份不太严谨的入门教程',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/rss2.xml" title="歪比巴卜" type="application/rss+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/Avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">198</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">58</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">38</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/images/Avatar.jpg" alt="Logo"><span class="site-name">歪比巴卜</span></a><a class="nav-page-title" href="/"><span class="site-name">无星的RN学习之旅（十）-一份不太严谨的入门教程</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">无星的RN学习之旅（十）-一份不太严谨的入门教程</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2018-11-10T10:21:00.000Z" title="发表于 2018-11-10 18:21:00">2018-11-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-06-22T07:07:14.822Z" title="更新于 2026-06-22 15:07:14">2026-06-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/react-native/">react-native</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2018/11/10/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%EF%BC%89-%E4%B8%80%E4%BB%BD%E4%B8%8D%E5%A4%AA%E4%B8%A5%E8%B0%A8%E7%9A%84%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/#post-comment"><span class="gitalk-comment-count"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>菜鸡，半个iOS开发，js了解不深入，见解不一定正确，有错指出，意会一下这个意思就行了，大牛就没必要看了、、、</p>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>以下所有是基于mac的，Windows老哥只能参考着看了</p>
+<p>cmd &#x3D; ctrl ， option &#x3D; alt</p>
+<h2 id="一、环境安装"><a href="#一、环境安装" class="headerlink" title="一、环境安装"></a>一、环境安装</h2><p>其实官方的环境安装教程很简单，但也不排除有老哥看不懂，所以还是再赘述一下，下面是mac的傻瓜式环境安装教程（安装好了的不用看，windows老哥挑着看）</p>
+<p>打开终端，我们开始了</p>
+<h3 id="1-开启任意来源"><a href="#1-开启任意来源" class="headerlink" title="1.开启任意来源"></a>1.开启任意来源</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo spctl --master-disable</span><br></pre></td></tr></table></figure>
+<p>输入mac的开机密码，敲回车（linux或类linux系统，输入密码不会提示输入了，界面是空白的，不要以为是键盘坏了或者没输入）</p>
+<h3 id="2-安装homebrew"><a href="#2-安装homebrew" class="headerlink" title="2.安装homebrew"></a>2.安装homebrew</h3><h4 id="homebrew是mac上的包管理器，能非常方便的管理我们的各种环境和路径依赖，久了你就知道好处了。"><a href="#homebrew是mac上的包管理器，能非常方便的管理我们的各种环境和路径依赖，久了你就知道好处了。" class="headerlink" title="homebrew是mac上的包管理器，能非常方便的管理我们的各种环境和路径依赖，久了你就知道好处了。"></a>homebrew是mac上的包管理器，能非常方便的管理我们的各种环境和路径依赖，久了你就知道好处了。</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-安装nvm"><a href="#3-安装nvm" class="headerlink" title="3.安装nvm"></a>3.安装nvm</h3><h4 id="nvm是用来管理node版本的，如果直接使用brew安装node你会发现装的是最新版本（非稳定版），使用nvm可以很方便的管理本机的node环境"><a href="#nvm是用来管理node版本的，如果直接使用brew安装node你会发现装的是最新版本（非稳定版），使用nvm可以很方便的管理本机的node环境" class="headerlink" title="nvm是用来管理node版本的，如果直接使用brew安装node你会发现装的是最新版本（非稳定版），使用nvm可以很方便的管理本机的node环境"></a>nvm是用来管理node版本的，如果直接使用brew安装node你会发现装的是最新版本（非稳定版），使用nvm可以很方便的管理本机的node环境</h4><h4 id="方式一：brew安装-不推荐"><a href="#方式一：brew安装-不推荐" class="headerlink" title="方式一：brew安装(不推荐)"></a>方式一：brew安装(不推荐)</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">brew install nvm</span><br><span class="line"></span><br><span class="line">echo &quot;source $(brew --prefix nvm)/nvm.sh&quot; &gt;&gt; .bash_profile</span><br><span class="line"></span><br><span class="line">source ~/.bash_profile</span><br></pre></td></tr></table></figure>
+<h4 id="方式二：curl安装"><a href="#方式二：curl安装" class="headerlink" title="方式二：curl安装"></a>方式二：curl安装</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash</span><br></pre></td></tr></table></figure>
+
+<p>安装完毕以后输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//zsh的前往zsh环境变量修改（macOS 10.15以后默认为zsh）</span><br><span class="line">vi ~/.zshrc</span><br><span class="line">//bash的前往zsh环境变量修改</span><br><span class="line">vi ~/.bash_profile</span><br></pre></td></tr></table></figure>
+<p>按i进入编辑，在后面粘贴如下环境</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export NVM_DIR=&quot;$HOME/.nvm&quot;</span><br><span class="line">[ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;&amp; . &quot;$NVM_DIR/nvm.sh&quot;</span><br></pre></td></tr></table></figure>
+<p>按esc 依次输入三个字符 : w q (冒号，w，q   中间不要有空格)</p>
+<p>输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//bash</span><br><span class="line">source ~/.bash_profile</span><br><span class="line">//zsh</span><br><span class="line">source ~/.zshrc</span><br></pre></td></tr></table></figure>
+<p>运行完毕以后重启终端，输入nvm并回车，如果识别了nvm命令则nvm安装完毕</p>
+<h3 id="4-使用nvm安装最新的node稳定版本"><a href="#4-使用nvm安装最新的node稳定版本" class="headerlink" title="4.使用nvm安装最新的node稳定版本"></a>4.使用nvm安装最新的node稳定版本</h3><p>打开终端输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm ls-remote</span><br></pre></td></tr></table></figure>
+<p>查看最高的稳定版本（后面会有绿色字体标识lts）<br>输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm install 版本号</span><br></pre></td></tr></table></figure>
+<p>例如： </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm install v8.12.0</span><br></pre></td></tr></table></figure>
+<p>安装完毕以后输入刚刚安装的版本号</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm use 版本号</span><br></pre></td></tr></table></figure>
+<p>例如</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm use v8.12.0</span><br></pre></td></tr></table></figure>
+<p>完成以后，输入以下命令查看当前机子的node版本看与安装使用的是否一致</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
+<p>至此，node和npm安装完毕</p>
+<h3 id="5-1安装nrm"><a href="#5-1安装nrm" class="headerlink" title="5.1安装nrm"></a>5.1安装nrm</h3><h4 id="nrm是管理源的，相信看过看多文章都说npm源切成淘宝源或者其他什么源。"><a href="#nrm是管理源的，相信看过看多文章都说npm源切成淘宝源或者其他什么源。" class="headerlink" title="nrm是管理源的，相信看过看多文章都说npm源切成淘宝源或者其他什么源。"></a>nrm是管理源的，相信看过看多文章都说npm源切成淘宝源或者其他什么源。</h4><p>打开终端输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g nrm</span><br></pre></td></tr></table></figure>
+<p>安装完毕后输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nrm ls</span><br></pre></td></tr></table></figure>
+<p>查看可用版本源</p>
+<p>输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nrm use 源</span><br></pre></td></tr></table></figure>
+<p>例如： </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nrm use npm</span><br></pre></td></tr></table></figure>
+<h3 id="5-2-2019-11-27更新"><a href="#5-2-2019-11-27更新" class="headerlink" title="5.2 2019-11-27更新"></a>5.2 2019-11-27更新</h3><p>安装cocoapods</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install cocoapods</span><br></pre></td></tr></table></figure>
+<h4 id="注意：后续生成rn第一个项目的时候，pod-install可能需要一些时间，不是卡主，耐心等待就好"><a href="#注意：后续生成rn第一个项目的时候，pod-install可能需要一些时间，不是卡主，耐心等待就好" class="headerlink" title="注意：后续生成rn第一个项目的时候，pod install可能需要一些时间，不是卡主，耐心等待就好"></a>注意：后续生成rn第一个项目的时候，pod install可能需要一些时间，不是卡主，耐心等待就好</h4><h3 id="6-安装react-native"><a href="#6-安装react-native" class="headerlink" title="6.安装react-native"></a>6.安装react-native</h3><p>打开终端依次输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install watchman</span><br></pre></td></tr></table></figure>
+<p>Watchman是由Facebook提供的监视文件系统变更的工具。安装此工具可以提高开发时的性能（packager 可以快速捕捉文件的变化从而实现实时刷新）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install yarn --without-node</span><br></pre></td></tr></table></figure>
+<p><del>安装yarn，用于react-native的包管理依赖（npm和yarn的区别可以自行百度），上面我们已经安装了nvm控制node，所以这里安装yarn的时候不要安装node，记得加上–without-node</del><br>2019-3-12更新<br>可能有大哥执行这一步报错,原因是brew更新了,移除了这些可选项.<br>建议切换命令如下进行忽略</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install yarn --ignore-dependencies</span><br></pre></td></tr></table></figure>
+<p>git地址:<a target="_blank" rel="noopener" href="https://github.com/yarnpkg/yarn/issues/6946">https://github.com/yarnpkg/yarn/issues/6946</a><br><br/></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g react-native-cli</span><br></pre></td></tr></table></figure>
+<p>安装react-native-cli，是一个脚手架，方便进行react-native的一些命令操作</p>
+<p>至此，react-native环境安装完毕</p>
+<h2 id="二、开发工具下载"><a href="#二、开发工具下载" class="headerlink" title="二、开发工具下载"></a>二、开发工具下载</h2><table>
+<thead>
+<tr>
+<th align="center">Xcode</th>
+<th align="center">Android Studio</th>
+<th align="center">Chrome</th>
+<th align="center">VSCode&#x2F;Webstrom</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">iOS开发必备</td>
+<td align="center">安卓开发必备</td>
+<td align="center">调试必备</td>
+<td align="center">js开发必备</td>
+</tr>
+<tr>
+<td align="center">这里就不给下载链接了，自己下去吧</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id="三、创建第一个项目"><a href="#三、创建第一个项目" class="headerlink" title="三、创建第一个项目"></a>三、创建第一个项目</h2><h3 id="1-创建项目"><a href="#1-创建项目" class="headerlink" title="1.创建项目"></a>1.创建项目</h3><p>打开终端,cd到桌面目录下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd Desktop/</span><br></pre></td></tr></table></figure>
+<p>创建你的第一个App（默认是最新版本，写这篇文章的时候最新版本是0.57.4版本）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">react-native init FirstApp</span><br></pre></td></tr></table></figure>
+<p>如果你想创建一个指定版本,例如0.57.4版本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">react-native init FirstApp --version 0.57.4</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/RN10/1.png" alt="开始下载安装react-native"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/RN10/2.png" alt="开始安装react和jest"></p>
+<p>从图中我们可以看到，整个安装做了三件事</p>
+<p>安装react-native，安装react，安装jest</p>
+<p>安装完的图就不截了，没钱办网，流量挺贵的。。。</p>
+<p>我们现在安装完了，开始运行。</p>
+<h3 id="2-运行项目"><a href="#2-运行项目" class="headerlink" title="2.运行项目"></a>2.运行项目</h3><p>有2种运行方式</p>
+<h4 id="1-使用命令行启动项目"><a href="#1-使用命令行启动项目" class="headerlink" title="1.使用命令行启动项目"></a>1.使用命令行启动项目</h4><p>1.cd到项目根目录下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /Users/mac/Desktop/FirstApp   </span><br></pre></td></tr></table></figure>
+<p>2.启动iOS</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">react-native run-ios</span><br></pre></td></tr></table></figure>
+<p>启动安卓(安卓需要自行安装安卓模拟器，或者链接真机)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">react-native run-android</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-使用Xcode或者Android-Studio（以下简称AS）启动。（推荐）"><a href="#2-使用Xcode或者Android-Studio（以下简称AS）启动。（推荐）" class="headerlink" title="2.使用Xcode或者Android Studio（以下简称AS）启动。（推荐）"></a>2.使用Xcode或者Android Studio（以下简称AS）启动。（推荐）</h4><p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/RN10/3.png" alt="项目文件夹"><br>从图中可以看到，项目下面有两个命名为Android和iOS的文件夹，里面分别放着安卓和iOS工程，所有的起源，就是这两个目录。这里我们以iOS举例（安卓的我就不讲了，毕竟也不会emmm）</p>
+<p>我们双击打开xcodeproj，就可以从xcode启动项目了。</p>
+<h4 id="3-项目文件大致说明"><a href="#3-项目文件大致说明" class="headerlink" title="3.项目文件大致说明"></a>3.项目文件大致说明</h4><p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/RN10/4.png" alt="图解"></p>
+<p>看图应该都能看明白</p>
+<p>下面我们对各文件大致进行说明。<br>分别用xcode和webstrom（vscode）打开项目文件</p>
+<h4 id="（1）app-json"><a href="#（1）app-json" class="headerlink" title="（1）app.json"></a>（1）app.json</h4><p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/RN10/5.png" alt="app.json文件"></p>
+<hr>
+<h4 id="（2）package-json"><a href="#（2）package-json" class="headerlink" title="（2）package.json"></a>（2）package.json</h4><p>类似iOS中常用的三方库管理工具cocoapods的profile文件，用于三方库的管理。<br><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/RN10/6.png" alt="package.json文件"><br>从图中可以看到，有很多东西，我们一个个说</p>
+<p>name，version，private，这三个应该不用我说。。不知道也没关系，不影响你的开发</p>
+<h3 id="scripts"><a href="#scripts" class="headerlink" title="scripts"></a>scripts</h3><p>脚本，在开发过程中我们可能会输入各种常用命令，比如启动node服务、iOS的bundle包打包、安卓的apk打包、eslint的代码检查等，每次记那么一堆命令烦都烦死了，这时候就可以用到这个脚本了，你可以将一些常用命令放到这里，并赋予一个缩写单词，执行的时候只要在项目根目录下输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run 缩写</span><br></pre></td></tr></table></figure>
+<p>来执行相关命令。在这里我写一个常用命令<br>iOS的bundle包打包命令（可查看文章<a target="_blank" rel="noopener" href="https://juejin.im/post/5bc08bc56fb9a05ce7518583">无星的RN学习之旅（七）——iOS打包（图文教程版）</a>）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">react-native bundle --entry-file index.js --bundle-output ./ios/bundle/index.jsbundle --platform ios --assets-dest ./ios/bundle --dev false</span><br></pre></td></tr></table></figure>
+<p>可以将这个命令粘贴到scripts中，例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">   &quot;start&quot;: &quot;node node_modules/react-native/local-cli/cli.js start&quot;,</span><br><span class="line">   &quot;test&quot;: &quot;jest&quot;,</span><br><span class="line">   &quot;iosbundle&quot;: &quot;react-native bundle --entry-file index.js --bundle-output ./ios/bundle/index.jsbundle --platform ios --assets-dest ./ios/bundle --dev false&quot;</span><br><span class="line"> &#125;,</span><br></pre></td></tr></table></figure>
+<p>执行的时候，只需要输入如下命令即可完成打包</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run iosbundle</span><br></pre></td></tr></table></figure>
+<h3 id="dependencies"><a href="#dependencies" class="headerlink" title="dependencies"></a>dependencies</h3><h4 id="开发过程中用到的三方库的依赖管理"><a href="#开发过程中用到的三方库的依赖管理" class="headerlink" title="开发过程中用到的三方库的依赖管理"></a>开发过程中用到的三方库的依赖管理</h4><p>各位肯定在git上下载过各种项目，下载下来第一件事就是做npm install或者是yarn</p>
+<p>其实就是下载这里标记的三方库。且这里标记的三方库会打入到正式包中。</p>
+<p>我们在其中的版本有时候经常能看见^,这个^有什么作用可以百度一下，不做延展。</p>
+<h3 id="devDependencies"><a href="#devDependencies" class="headerlink" title="devDependencies"></a>devDependencies</h3><p>下载包的时候，使用npm和yarn命令下载，有的时候会添加–dev，例如eslint（大部分公司都会使用这个进行代码风格控制<a target="_blank" rel="noopener" href="https://juejin.im/post/5ba6216af265da0ac726f6d2">无星的RN学习之旅（九）-ESLint引入</a>），这些三方库只在开发过程中需要用到，没必要打包到正式包中增加体积。</p>
+<p>这些只在开发过程中使用而不需要打包到正式包中的库，下载时记得添加–dev，最后会被标记到devDependencies这个下面</p>
+<h3 id="jest"><a href="#jest" class="headerlink" title="jest"></a>jest</h3><p>jest本身是一个测试库，可以理解为执行单元测试的一个三方库，具体作用可以百度，这里不做延展。</p>
+<hr>
+<h4 id="（3）yarn-lock"><a href="#（3）yarn-lock" class="headerlink" title="（3）yarn.lock"></a>（3）yarn.lock</h4><p>上面留了个坑，查询dependencies版本中的^的作用，yarn.lock与此有关，百度了的同学一定知道是什么作用</p>
+<h4 id="（4）-node-modules"><a href="#（4）-node-modules" class="headerlink" title="（4）.node_modules"></a>（4）.node_modules</h4><p>所有的三方库的源文件都在这个文件夹中，react-native，react都是作为三方库的框架在整个app中，所以在node_modules你也能看见它们。和原生项目的三方库引入一样，这里引入的三方库，经过</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">react-native link</span><br></pre></td></tr></table></figure>
+<p>link以后，会被添加到各自原生项目的三方库依赖中，比如在iOS中你会发现，引入的三方库在librarys下面都能找到。</p>
+<p>（一般情况下，npm和yarn进行三方库下载的时候会自动执行link操作，如果没执行的话就自己手动执行一次）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/RN10/7.png" alt="如图"><br>所以如果项目执行中出现<br>library -link xxxx not found</p>
+<p>可以先看看报错的库自己是否用，是否在这里引入link了。</p>
+<h4 id="（5）-webstrom打开文件，你还能看见一个-babelrc的文件"><a href="#（5）-webstrom打开文件，你还能看见一个-babelrc的文件" class="headerlink" title="（5）.webstrom打开文件，你还能看见一个.babelrc的文件"></a>（5）.webstrom打开文件，你还能看见一个.babelrc的文件</h4><p>这个文件是个编译器文件（好像是），具体可以百度一下，一般情况下用不上，如果碰到三方库需要做什么配置的，三方库的说明文档一定会写明如何配置。这里也不多说了（因为我也不会，emmmm）</p>
+<h4 id="（6）-Android文件夹，不提，因为不懂"><a href="#（6）-Android文件夹，不提，因为不懂" class="headerlink" title="（6）.Android文件夹，不提，因为不懂"></a>（6）.Android文件夹，不提，因为不懂</h4><h4 id="（7）-iOS文件夹（不是iOS开发可以不用看，直接跳过）"><a href="#（7）-iOS文件夹（不是iOS开发可以不用看，直接跳过）" class="headerlink" title="（7）.iOS文件夹（不是iOS开发可以不用看，直接跳过）"></a>（7）.iOS文件夹（不是iOS开发可以不用看，直接跳过）</h4><p>里面放的是iOS的原生项目，其实rn就是在原生项目里面套了个壳子，其他都是view在不停滑动（可以看下<a target="_blank" rel="noopener" href="https://juejin.im/post/5bc089915188255c4a7145e1">无星的RN学习之旅（四）——通信、持久化存储、iOS打包</a>这里面记录了一些感想，文章名字是后改的，emmm）</p>
+<p>打开iOS项目AppDelegate.m中就是一切的开始</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Copyright (c) 2015-present, Facebook, Inc.</span><br><span class="line"> *</span><br><span class="line"> * This source code is licensed under the MIT license found in the</span><br><span class="line"> * LICENSE file in the root directory of this source tree.</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">#import &quot;AppDelegate.h&quot;</span><br><span class="line"></span><br><span class="line">#import &lt;React/RCTBundleURLProvider.h&gt;</span><br><span class="line">#import &lt;React/RCTRootView.h&gt;</span><br><span class="line"></span><br><span class="line">@implementation AppDelegate</span><br><span class="line"></span><br><span class="line">- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions</span><br><span class="line">&#123;</span><br><span class="line">  NSURL *jsCodeLocation;</span><br><span class="line"></span><br><span class="line">  jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@&quot;index&quot; fallbackResource:nil];</span><br><span class="line"></span><br><span class="line">  RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation</span><br><span class="line">                                                      moduleName:@&quot;FirstApp&quot;</span><br><span class="line">                                               initialProperties:nil</span><br><span class="line">                                                   launchOptions:launchOptions];</span><br><span class="line">  rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];</span><br><span class="line"></span><br><span class="line">  self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];</span><br><span class="line">  UIViewController *rootViewController = [UIViewController new];</span><br><span class="line">  rootViewController.view = rootView;</span><br><span class="line">  self.window.rootViewController = rootViewController;</span><br><span class="line">  [self.window makeKeyAndVisible];</span><br><span class="line">  return YES;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>懒得截图了，直接复制到这说。<br>jsCodeLocation，这就是rn的东西了，你可以把这当做rn的入口。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@&quot;index&quot; fallbackResource:nil];</span><br></pre></td></tr></table></figure>
+<p>第一个参数是项目中对应的js文件名，这里就是入口了，一般就写index，不做变动，因为项目初始化里面有个index。js，当然改动也无所谓，只要一一对应即可。index.js在下面讲</p>
+<p>[RCTBundleURLProvider sharedSettings]点进去源码，你会发现其实得到一个本机内网ip地址，用来指向node服务开启后的文件源路径。</p>
+<p>所以我们也可以自己改动一下，其实只要指向node服务的本地路径即可。<br>例如:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jsCodeLocation = [NSURL URLWithString:@&quot;http://xxx.xxx.xxx.xxx:8081/index.bundle?platform=ios&amp;dev=true&quot;];</span><br></pre></td></tr></table></figure>
+<p>ip写自己的本地内网ip，8081是node服务的默认端口，如果你改动过就变成对应的端口，platform&#x3D;ios，平台是ios平台，dev&#x3D;true标识是开发状态。<br>这样也能正常连接上你的node服务。</p>
+<p>如果使用codePush（热更新），那么自然会变成codePush上放置jsbundle文件的地址，入门教程，就不多谈了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation</span><br><span class="line">                                                      moduleName:@&quot;FirstApp&quot;</span><br><span class="line">                                               initialProperties:nil</span><br><span class="line">                                                   launchOptions:launchOptions];</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+<p>看见这个moduleName了吗，还记得之前说的package.json文件中name和app.json中的name吗，记得一一对应。不然会报错。</p>
+<p>另外，实测，后面两个参数都可以是nil，依旧可以得出RCTRootView。因此可以自定义ctrl作为rootctrl，添加RCTRootView，不一定要放在appdelegate里。</p>
+<p>另外</p>
+<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/RN10/8.png" alt="image"><br>这里有一个脚本，作用是干啥的，可以百度一下，埋个坑不填，从0.4几老版本升级上来的同学一定改动过（我说的是升级不是迁移）。</p>
+<h4 id="（8）-index-js"><a href="#（8）-index-js" class="headerlink" title="（8）.index.js"></a>（8）.index.js</h4><p>上面iOS文件夹项目的解析中说了，这是对应的rn文件入口。相信有些同学看过其他的rn教程，里面写的可能都是index.ios.js或者index.android.js。其实都是一个东西，在0.4几的版本中将其合并了，变成了index.js。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/** @format */</span><br><span class="line"></span><br><span class="line">import &#123;AppRegistry&#125; from &#x27;react-native&#x27;;</span><br><span class="line">import App from &#x27;./App&#x27;;</span><br><span class="line">import &#123;name as appName&#125; from &#x27;./app.json&#x27;;</span><br><span class="line"></span><br><span class="line">AppRegistry.registerComponent(appName, () =&gt; App);</span><br></pre></td></tr></table></figure>
+<p>AppRegistry.registerComponent，从名字我们也能看出来，这是App的注册入口,点进去粗略的我们看下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/RN10/9.png" alt="image"><br>一共三个参数，string型，component，布尔型(可选)，第一个传了appName是个sting型，第二个肯定传的是component。</p>
+<hr>
+<p>这时候应该有同学要提出两个问题，()&#x3D;&gt;是啥？component又是啥？</p>
+<h3 id="是啥？"><a href="#是啥？" class="headerlink" title="()&#x3D;&gt;是啥？"></a>()&#x3D;&gt;是啥？</h3><p>()&#x3D;&gt;是个箭头函数，ES6语法，后面常常跟一个方法体，不跟就理解为直接return 了一个对象。可以理解为就是一个方法，function(){}，前端中经常使用this（类似于iOS的self），一般得是当前类的实例化对象，如果在加了static的方法中（类方法）使用this，指的就是类本身。</p>
+<p>this的作用域问题（iOS在block中用self有时候self指向的也不是当前类这个问题）肯定经常有人吃亏，一有两种解决方式：<br>1使用bind来解决2.使用箭头函数</p>
+<p>所以箭头函数就是能解决this作用域问题的一个function。</p>
+<h3 id="component又是啥？"><a href="#component又是啥？" class="headerlink" title="component又是啥？"></a>component又是啥？</h3><p>前端肯定知道啥是component，不提。</p>
+<p>iOS同学，把他当做webkit框架，所有的UI控件有关的东西都继承自它。</p>
+<p>安卓同学不知道，所有的UI控件有关的东西都继承自它。</p>
+<hr>
+<p>闲话少扯，我们回到之前的地方</p>
+<p>一共三个参数，string型，component，布尔型(可选)，第一个传了appName是个sting型，第二个肯定传的是component我们看到，是return了一个APP。</p>
+<p>细心的朋友注意到，import的东西有的加了{}，有的没加，我们等会说这个。</p>
+<h4 id="（9）-App-js"><a href="#（9）-App-js" class="headerlink" title="（9）.App.js"></a>（9）.App.js</h4><p><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/RN10/10.png" alt="image"></p>
+<p>语法，css，这些不讲，自己查文档就能搞定。</p>
+<p>export，导出，所有在外部引用的东西，都需要用export这个关键字进行导出。</p>
+<p>export default，默认导出。</p>
+<p>这时候可以回答上面那个问题，没有加default的，需要用{}包裹，且导出的名字和import的名字一一对应。添加了default的，不需要用{}包裹，且可以改名字，任意改名都指向默认导出的东西。</p>
+<p>所以我个人习惯使用export不加default，因为名字和导出名一一对应，代码阅读更加清晰。看个人习惯使用哪一种。</p>
+<p>我们可以看见，App继承自自component，return了一个大UI组件（return只能return一个组件，因此最外层必须用一个组件来包裹）。这和前面的要求类型相符合。没问题。</p>
+<p>因此你可以在这里进行任意页面的更改。打开模拟器</p>
+<p>Windows用户使用ctrl代替cmd</p>
+<p>(ios)cmd+r进行刷新<br>(安卓)cmd+m选reload 进行刷新</p>
+<p>会即时的将更改展现在你的页面上。</p>
+<p>整个新项目就解析完毕</p>
+<h3 id="四，如何debug"><a href="#四，如何debug" class="headerlink" title="四，如何debug"></a>四，如何debug</h3><p>安装Chrome以后</p>
+<p>运行项目，项目启动以后，在模拟器的界面上</p>
+<p>ios cmd+d  安卓 cmd+m 选择第二个选项，进行debug，chrome会自动启动。</p>
+<p>谷歌浏览器启动，等待模拟器项目启动完毕cmd+j，选择source，侧边栏出现的就是本次app启动的文件，可以进行debug了。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://www.xingxiaowu.cn">无星</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://www.xingxiaowu.cn/2018/11/10/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E5%8D%81%EF%BC%89-%E4%B8%80%E4%BB%BD%E4%B8%8D%E5%A4%AA%E4%B8%A5%E8%B0%A8%E7%9A%84%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/">http://www.xingxiaowu.cn/2018/11/10/移动端之旅/无星的RN学习之旅（十）-一份不太严谨的入门教程/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://www.xingxiaowu.cn" target="_blank">歪比巴卜</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/react-native/">react-native</a></div><div class="post-share"><div class="social-share" data-image="/images/Avatar.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>V我50，Crazy</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/images/WechatPay.png" target="_blank"><img class="post-qr-code-img" src="/images/WechatPay.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/images/AliPay.png" target="_blank"><img class="post-qr-code-img" src="/images/AliPay.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2017/07/17/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89-RN%E4%B8%8E%E5%8E%9F%E7%94%9F%E7%9A%84%E9%80%9A%E4%BF%A1/" title="无星的RN学习之旅（二）-RN与原生的通信"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2017-07-17</div><div class="info-item-2">无星的RN学习之旅（二）-RN与原生的通信</div></div><div class="info-2"><div class="info-item-1">接上一篇无星的RN学习之旅（一）最后我给出了一个基础项目地址进行学习。PS：我使用的是VSCode编译器和Xcode编译器一、RN如何调用原生方法1.在新建的项目中打开ios目录下的工程文件，同时使用VSCode打开项目目录。  新建NSObjec对象，名字任意，我这里叫RNruniOS .h文件添加RCTBridgeModule.h头文件，RCTBridgeModule协议 123456//RNruniOS.h文件#import &lt;Foundation/Foundation.h&gt;#import &quot;React/RCTBridgeModule.h&quot;@interface RNruniOS : NSObject&lt;RCTBridgeModule&gt;@end .m文件添加RCTConvert.h头文件，并添加相应宏 123456789101112131415161718//RNruniOS.m文件#import &quot;RNruniOS.h&quot;//RCTConvert提供了一系列辅助函数，用来接收一个JSON值并转换到原生Objecti...</div></div></div></a><a class="pagination-related" href="/2017/07/15/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%80%EF%BC%89-%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E6%96%B0%E5%BB%BA%E9%A1%B9%E7%9B%AE/" title="无星的RN学习之旅（一）-环境安装以及新建项目"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2017-07-15</div><div class="info-item-2">无星的RN学习之旅（一）-环境安装以及新建项目</div></div><div class="info-2"><div class="info-item-1">iOS菜鸟，本周开始了react native的学习。（一）环境安装      官网写的很详细，我觉得就没必要重新再啰嗦了。官网地址：  http://reactnative.cn/docs/0.46/getting-started.html（二）新建第一个项目1.打开“终端”输入 1react-native init MyApp --version 0.44.3 注意：init命令默认会创建最新的版本，而目前最新的0.45及以上版本需要下载boost库编译。此库体积庞大，在国内即便翻墙也很难下载成功，导致很多人无法正常运行iOS项目，推荐暂时使用0.44.3的版本。2.创建成功后cd到项目路径下 1cd MyApp 3.运行该项目 1react-native run-ios P.S 我是运行iOS，如果运行安卓就输入 1react-native run-android 我创建了一个练习文件，可供练习，这五个练习完成应该就能初步知道怎么交互了。包括我的学习路线怎么完成也会慢慢更新~ 地址是：https://github.com/XingXiaoWu/React-Native-Fi...</div></div></div></a><a class="pagination-related" href="/2019/04/23/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/RN%E5%88%86%E4%BA%AB%E4%BA%8C/" title="RN分享二"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2019-04-23</div><div class="info-item-2">RN分享二</div></div><div class="info-2"><div class="info-item-1">常用三方库一. 如何引入三方库上次分享我们讲到我们使用npm或者yarn进行管理 我们建议使用yarn进行管理,原因上节课也说过了,有下面几点 123451.Yarn是由Facebook、Google、Exponent 和 Tilde 联合推出了一个新的 JS 包管理工具 ,我们写的RN是Facebook开源的,我们当然要用匹配的东西2.npm很慢,因为是安装完一个package再安装下一个;yarn是并行安装,并且会生成离线库,安装过的库第二次安装都是从缓存的离线库读取,速度很快3.yarn安装版本统一.存在yarn.lock文件去管理每个库的版本统一4.yarn能对多注册来源进行处理：所有的依赖包，不管他被不同的库间接关联引用多少次，安装这个包时，只会从一个注册来源去装，要么是 npm 要么是 bower, 防止出现混乱不一致。5.………… 1.常用命令符123456789#xxxx代表库名#1.安装package.json中已经存在的库yarn#2.新增一个库yarn add xxxx#3.新增一个库到开发依赖yarn add xxxx --dev#4.移除一个库yarn ...</div></div></div></a><a class="pagination-related" href="/2017/09/18/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%94%EF%BC%89-%E5%85%B3%E4%BA%8Ereact-navigation%E5%A4%9A%E5%B1%82%E7%BA%A7%E9%A1%B5%E9%9D%A2%E8%BF%94%E5%9B%9E%E6%97%B6%EF%BC%8C%E5%8E%BB%E6%8E%89%E9%80%90%E5%B1%82%E6%8E%A8%E5%87%BA%E5%8A%A8%E7%94%BB/" title="无星的RN学习之旅（五）-关于react-navigation多层级页面返回时，去掉逐层推出动画"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2017-09-18</div><div class="info-item-2">无星的RN学习之旅（五）-关于react-navigation多层级页面返回时，去掉逐层推出动画</div></div><div class="info-2"><div class="info-item-1">git：https://github.com/react-community/react-navigation/issues/1493来，下猛药：首先找到文件：src&#x2F;views&#x2F;ScenesReducer.js然后用下面的代码：　　let k &#x3D; null;　　let v &#x3D; null;　　staleScenes.forEach(scene &#x3D;&gt; {　　let {key} &#x3D; scene;　　k &#x3D; key;　　v &#x3D; scene;　　});　　newStaleScenes &#x3D; k &amp;&amp; v ? new Map([[k, v]]) : new Map();　　newStaleScenes.forEach(mergeScene);替换：staleScenes.forEach(mergeScene);保存编译，就只有返回某页的动画了 转自http://www.cnblogs.com/lc901221/p/7543094.html我就是那个贴了帖子看不懂答案的傻逼，。。 另...</div></div></div></a><a class="pagination-related" href="/2017/09/22/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E5%85%AD%EF%BC%89-%E7%AC%AC%E4%B8%89%E6%96%B9App%E8%B7%B3%E8%BD%AC%EF%BC%8C%E8%8B%B9%E6%9E%9C%E5%95%86%E5%BA%97%E8%B7%B3%E8%BD%AC%EF%BC%8Cloading%E6%A1%86/" title="无星的RN学习之旅（六）-第三方App跳转，苹果商店跳转，loading框"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2017-09-22</div><div class="info-item-2">无星的RN学习之旅（六）-第三方App跳转，苹果商店跳转，loading框</div></div><div class="info-2"><div class="info-item-1">#1.第三方App跳转这是很常见的问题，第三方app跳转到本app去做一些业务操作。但是这时候会发现，你跳进来，是黑色的，没有界面，没想到吧23333其实这在前面说过，RN的想法很独特，是一个ctrl上放了无数个view，不停的更改view来渲染，而rn的首页view，则是在appdelegate的初始化方法里去添加的。跳转进来的处理方法里如果你不写，就不会有view添加进来。所以这时候有两种方法来完成这个view的添加操作：####A.在第三方跳转进来的方法里做视图加载操作，但是这会遇到一个问题。假使你使用了RN的启动页，你会发现每次跳转进来都会开启启动页。这对用户的体验明显是很不好的。####B.自己创建一个UIViewCtrl，并作为根视图放进window中，在这个UIViewCtrl中做视图加载操作。这样跳转进来加载根视图的时候就会把这个RN的View给加载上去。而且根据生命周期场景复现的原则，不会再有加载第二次第三次的情况。 如图   另外，如果要跳到某一页面做某一操作，又不想重复跳，可以采用以下方式移除  123456789101112131415#pragma ma...</div></div></div></a><a class="pagination-related" href="/2017/07/24/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84RN%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89-bridge-is-not-set/" title="无星的RN学习之旅（三）-bridge is not set."><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2017-07-24</div><div class="info-item-2">无星的RN学习之旅（三）-bridge is not set.</div></div><div class="info-2"><div class="info-item-1">报错信息：bridge is not set. This is probably because you’ve “            “explicitly synthesized the bridge in %@, even though it’s inherited “            “from RCTEventEmitter. 踩坑了。。。        我相信肯定有兄弟需要从原生的OC向RN主动发起事件。而且这种场景也很多，比如集成第三方的服务，通过代理回调获取结果发送给RN等等等等。。。我将我遇到的坑总结一下吧。先看下官网怎么写的  1.你是不是像官网一样，先写一个继承自RCTEventEmitter的对象，什么都不写，看看能不能运行？答案是：并不能运行&#x3D;。&#x3D;你必须写实现，也就是以下这个方法 12345//.m文件- (NSArray&lt;NSString *&gt; *)supportedEvents&#123;  return @[@&quot;EventReminder&quot;];&#125; 2.你在使用发送文件，也就是 1...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/Avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">无星</div><div class="author-info-description">打工人</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">198</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">58</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">38</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/XingXiaoWu"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/XingXiaoWu" target="_blank" title="Github"><i class="fab fa-github" style="color: #hdhfbb;"></i></a><a class="social-icon" href="https://juejin.cn/user/1503787636493886" target="_blank" title="掘金"><i class="fab fa-blogger" style="color: #hdhfbb;"></i></a><a class="social-icon" href="https://www.jianshu.com/u/fef7696741c8" target="_blank" title="简书"><i class="fas fa-blog" style="color: #hdhfbb;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">你有没有好好吃饭</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="toc-number">1.</span> <span class="toc-text">写在前面</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-number">1.1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85"><span class="toc-number">1.2.</span> <span class="toc-text">一、环境安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%BC%80%E5%90%AF%E4%BB%BB%E6%84%8F%E6%9D%A5%E6%BA%90"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.开启任意来源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85homebrew"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.安装homebrew</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#homebrew%E6%98%AFmac%E4%B8%8A%E7%9A%84%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8%EF%BC%8C%E8%83%BD%E9%9D%9E%E5%B8%B8%E6%96%B9%E4%BE%BF%E7%9A%84%E7%AE%A1%E7%90%86%E6%88%91%E4%BB%AC%E7%9A%84%E5%90%84%E7%A7%8D%E7%8E%AF%E5%A2%83%E5%92%8C%E8%B7%AF%E5%BE%84%E4%BE%9D%E8%B5%96%EF%BC%8C%E4%B9%85%E4%BA%86%E4%BD%A0%E5%B0%B1%E7%9F%A5%E9%81%93%E5%A5%BD%E5%A4%84%E4%BA%86%E3%80%82"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">homebrew是mac上的包管理器，能非常方便的管理我们的各种环境和路径依赖，久了你就知道好处了。</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%AE%89%E8%A3%85nvm"><span class="toc-number">1.2.3.</span> <span class="toc-text">3.安装nvm</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#nvm%E6%98%AF%E7%94%A8%E6%9D%A5%E7%AE%A1%E7%90%86node%E7%89%88%E6%9C%AC%E7%9A%84%EF%BC%8C%E5%A6%82%E6%9E%9C%E7%9B%B4%E6%8E%A5%E4%BD%BF%E7%94%A8brew%E5%AE%89%E8%A3%85node%E4%BD%A0%E4%BC%9A%E5%8F%91%E7%8E%B0%E8%A3%85%E7%9A%84%E6%98%AF%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC%EF%BC%88%E9%9D%9E%E7%A8%B3%E5%AE%9A%E7%89%88%EF%BC%89%EF%BC%8C%E4%BD%BF%E7%94%A8nvm%E5%8F%AF%E4%BB%A5%E5%BE%88%E6%96%B9%E4%BE%BF%E7%9A%84%E7%AE%A1%E7%90%86%E6%9C%AC%E6%9C%BA%E7%9A%84node%E7%8E%AF%E5%A2%83"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">nvm是用来管理node版本的，如果直接使用brew安装node你会发现装的是最新版本（非稳定版），使用nvm可以很方便的管理本机的node环境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E5%BC%8F%E4%B8%80%EF%BC%9Abrew%E5%AE%89%E8%A3%85-%E4%B8%8D%E6%8E%A8%E8%8D%90"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">方式一：brew安装(不推荐)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E5%BC%8F%E4%BA%8C%EF%BC%9Acurl%E5%AE%89%E8%A3%85"><span class="toc-number">1.2.3.3.</span> <span class="toc-text">方式二：curl安装</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E4%BD%BF%E7%94%A8nvm%E5%AE%89%E8%A3%85%E6%9C%80%E6%96%B0%E7%9A%84node%E7%A8%B3%E5%AE%9A%E7%89%88%E6%9C%AC"><span class="toc-number">1.2.4.</span> <span class="toc-text">4.使用nvm安装最新的node稳定版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1%E5%AE%89%E8%A3%85nrm"><span class="toc-number">1.2.5.</span> <span class="toc-text">5.1安装nrm</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#nrm%E6%98%AF%E7%AE%A1%E7%90%86%E6%BA%90%E7%9A%84%EF%BC%8C%E7%9B%B8%E4%BF%A1%E7%9C%8B%E8%BF%87%E7%9C%8B%E5%A4%9A%E6%96%87%E7%AB%A0%E9%83%BD%E8%AF%B4npm%E6%BA%90%E5%88%87%E6%88%90%E6%B7%98%E5%AE%9D%E6%BA%90%E6%88%96%E8%80%85%E5%85%B6%E4%BB%96%E4%BB%80%E4%B9%88%E6%BA%90%E3%80%82"><span class="toc-number">1.2.5.1.</span> <span class="toc-text">nrm是管理源的，相信看过看多文章都说npm源切成淘宝源或者其他什么源。</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-2019-11-27%E6%9B%B4%E6%96%B0"><span class="toc-number">1.2.6.</span> <span class="toc-text">5.2 2019-11-27更新</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%EF%BC%9A%E5%90%8E%E7%BB%AD%E7%94%9F%E6%88%90rn%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8Cpod-install%E5%8F%AF%E8%83%BD%E9%9C%80%E8%A6%81%E4%B8%80%E4%BA%9B%E6%97%B6%E9%97%B4%EF%BC%8C%E4%B8%8D%E6%98%AF%E5%8D%A1%E4%B8%BB%EF%BC%8C%E8%80%90%E5%BF%83%E7%AD%89%E5%BE%85%E5%B0%B1%E5%A5%BD"><span class="toc-number">1.2.6.1.</span> <span class="toc-text">注意：后续生成rn第一个项目的时候，pod install可能需要一些时间，不是卡主，耐心等待就好</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E5%AE%89%E8%A3%85react-native"><span class="toc-number">1.2.7.</span> <span class="toc-text">6.安装react-native</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E4%B8%8B%E8%BD%BD"><span class="toc-number">1.3.</span> <span class="toc-text">二、开发工具下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.4.</span> <span class="toc-text">三、创建第一个项目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.4.1.</span> <span class="toc-text">1.创建项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%BF%90%E8%A1%8C%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.4.2.</span> <span class="toc-text">2.运行项目</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%90%AF%E5%8A%A8%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.4.2.1.</span> <span class="toc-text">1.使用命令行启动项目</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E4%BD%BF%E7%94%A8Xcode%E6%88%96%E8%80%85Android-Studio%EF%BC%88%E4%BB%A5%E4%B8%8B%E7%AE%80%E7%A7%B0AS%EF%BC%89%E5%90%AF%E5%8A%A8%E3%80%82%EF%BC%88%E6%8E%A8%E8%8D%90%EF%BC%89"><span class="toc-number">1.4.2.2.</span> <span class="toc-text">2.使用Xcode或者Android Studio（以下简称AS）启动。（推荐）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E9%A1%B9%E7%9B%AE%E6%96%87%E4%BB%B6%E5%A4%A7%E8%87%B4%E8%AF%B4%E6%98%8E"><span class="toc-number">1.4.2.3.</span> <span class="toc-text">3.项目文件大致说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%881%EF%BC%89app-json"><span class="toc-number">1.4.2.4.</span> <span class="toc-text">（1）app.json</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%882%EF%BC%89package-json"><span class="toc-number">1.4.2.5.</span> <span class="toc-text">（2）package.json</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#scripts"><span class="toc-number">1.4.3.</span> <span class="toc-text">scripts</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dependencies"><span class="toc-number">1.4.4.</span> <span class="toc-text">dependencies</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%94%A8%E5%88%B0%E7%9A%84%E4%B8%89%E6%96%B9%E5%BA%93%E7%9A%84%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86"><span class="toc-number">1.4.4.1.</span> <span class="toc-text">开发过程中用到的三方库的依赖管理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#devDependencies"><span class="toc-number">1.4.5.</span> <span class="toc-text">devDependencies</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jest"><span class="toc-number">1.4.6.</span> <span class="toc-text">jest</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%883%EF%BC%89yarn-lock"><span class="toc-number">1.4.6.1.</span> <span class="toc-text">（3）yarn.lock</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%884%EF%BC%89-node-modules"><span class="toc-number">1.4.6.2.</span> <span class="toc-text">（4）.node_modules</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%885%EF%BC%89-webstrom%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6%EF%BC%8C%E4%BD%A0%E8%BF%98%E8%83%BD%E7%9C%8B%E8%A7%81%E4%B8%80%E4%B8%AA-babelrc%E7%9A%84%E6%96%87%E4%BB%B6"><span class="toc-number">1.4.6.3.</span> <span class="toc-text">（5）.webstrom打开文件，你还能看见一个.babelrc的文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%886%EF%BC%89-Android%E6%96%87%E4%BB%B6%E5%A4%B9%EF%BC%8C%E4%B8%8D%E6%8F%90%EF%BC%8C%E5%9B%A0%E4%B8%BA%E4%B8%8D%E6%87%82"><span class="toc-number">1.4.6.4.</span> <span class="toc-text">（6）.Android文件夹，不提，因为不懂</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%887%EF%BC%89-iOS%E6%96%87%E4%BB%B6%E5%A4%B9%EF%BC%88%E4%B8%8D%E6%98%AFiOS%E5%BC%80%E5%8F%91%E5%8F%AF%E4%BB%A5%E4%B8%8D%E7%94%A8%E7%9C%8B%EF%BC%8C%E7%9B%B4%E6%8E%A5%E8%B7%B3%E8%BF%87%EF%BC%89"><span class="toc-number">1.4.6.5.</span> <span class="toc-text">（7）.iOS文件夹（不是iOS开发可以不用看，直接跳过）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%888%EF%BC%89-index-js"><span class="toc-number">1.4.6.6.</span> <span class="toc-text">（8）.index.js</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%AF%E5%95%A5%EF%BC%9F"><span class="toc-number">1.4.7.</span> <span class="toc-text">()&#x3D;&gt;是啥？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#component%E5%8F%88%E6%98%AF%E5%95%A5%EF%BC%9F"><span class="toc-number">1.4.8.</span> <span class="toc-text">component又是啥？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%889%EF%BC%89-App-js"><span class="toc-number">1.4.8.1.</span> <span class="toc-text">（9）.App.js</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%EF%BC%8C%E5%A6%82%E4%BD%95debug"><span class="toc-number">1.4.9.</span> <span class="toc-text">四，如何debug</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/29/AI/%E7%A0%B4%E9%99%90%E6%8F%90%E7%A4%BA%E8%AF%8D/" title="破限提示词">破限提示词</a><time datetime="2026-07-29T12:09:00.000Z" title="发表于 2026-07-29 20:09:00">2026-07-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/02/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/1Panel/" title="1Panel">1Panel</a><time datetime="2026-07-02T06:12:00.000Z" title="发表于 2026-07-02 14:12:00">2026-07-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/06/24/AI/MCP/" title="MCP">MCP</a><time datetime="2026-06-24T07:27:08.000Z" title="发表于 2026-06-24 15:27:08">2026-06-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/06/03/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Jenkins%E6%90%AD%E9%85%8DGitea%E6%8B%89%E5%8F%96%E9%A1%B9%E7%9B%AE/" title="Jenkins搭配Gitea拉取项目">Jenkins搭配Gitea拉取项目</a><time datetime="2026-06-03T06:32:00.000Z" title="发表于 2026-06-03 14:32:00">2026-06-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/05/15/CTF/%E6%8A%A5%E5%91%8A/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%8A%A5%E5%91%8A%EF%BC%88%E4%BA%8C%EF%BC%89-%E6%9F%90%E5%AE%81/" title="无星的渗透报告（二）-某宁"><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/报告/一/1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无星的渗透报告（二）-某宁"/></a><div class="content"><a class="title" href="/2026/05/15/CTF/%E6%8A%A5%E5%91%8A/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%8A%A5%E5%91%8A%EF%BC%88%E4%BA%8C%EF%BC%89-%E6%9F%90%E5%AE%81/" title="无星的渗透报告（二）-某宁">无星的渗透报告（二）-某宁</a><time datetime="2026-05-15T12:09:00.000Z" title="发表于 2026-05-15 20:09:00">2026-05-15</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2016 - 2026 By 无星</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span><span class="footer-separator">备案号 | </span><a href="https://beian.miit.gov.cn/" target="_blank">赣ICP备2026018933号-1</a></div><div class="footer_custom_text">歪比巴卜</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const commentCount = n => {
+    const isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+    if (isCommentCount) {
+      isCommentCount.textContent= n
+    }
+  }
+
+  const initGitalk = (el, path) => {
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyGitalk = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+
+    const gitalk = new Gitalk({
+      clientID: 'c06f519d5671dfd10942',
+      clientSecret: '38d97414c2b8bfec7f473f9f3458ca58fd0d25d1',
+      repo: 'XingXiaoWu.github.io',
+      owner: 'XingXiaoWu',
+      admin: ['XingXiaoWu'],
+      updateCountCallback: commentCount,
+      ...option,
+      id: isShuoshuo ? path : (option && option.id) || '0a88ce872af6d58a571b74fdfc2d5086'
+    })
+
+    gitalk.render('gitalk-container')
+  }
+
+  const loadGitalk = async(el, path) => {
+    if (typeof Gitalk === 'function') initGitalk(el, path)
+    else {
+      await btf.getCSS('https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.css')
+      await btf.getScript('https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.js')
+      initGitalk(el, path)
+    }
+  }
+
+  if (isShuoshuo) {
+    'Gitalk' === 'Gitalk'
+      ? window.shuoshuoComment = { loadComment: loadGitalk }
+      : window.loadOtherComment = loadGitalk
+    return
+  }
+
+  if ('Gitalk' === 'Gitalk' || !false) {
+    if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+    else loadGitalk()
+  } else {
+    window.loadOtherComment = loadGitalk
+  }
+})()</script></div><script>(() => {
+  btf.getScript('//code.tidio.co/.js').then(() => {
+    const isChatBtn = false
+    const isChatHideShow = false
+
+    if (isChatBtn) {
+      let isShow = false
+      const close = () => {
+        window.tidioChatApi.hide()
+        isShow = false
+      }
+      
+      const open = () => {
+        window.tidioChatApi.open()
+        window.tidioChatApi.show()
+        isShow = true
+      }
+
+      const onTidioChatApiReady = () => {
+        window.tidioChatApi.hide()
+        window.tidioChatApi.on("close", close)
+      }
+      if (window.tidioChatApi) {
+        window.tidioChatApi.on("ready", onTidioChatApiReady)
+      } else {
+        document.addEventListener("tidioChat-ready", onTidioChatApiReady)
+      }
+
+      window.chatBtnFn = () => {
+        if (!window.tidioChatApi) return
+        isShow ? close() : open()
+      }
+
+      document.getElementById('chat-btn').style.display = 'block'
+
+    } else if (isChatHideShow) {
+      window.chatBtn = {
+        hide: () => window.tidioChatApi && window.tidioChatApi.hide(),
+        show: () => window.tidioChatApi && window.tidioChatApi.show()
+      }
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索一号准备就绪" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>

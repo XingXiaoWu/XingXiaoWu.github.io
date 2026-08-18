@@ -1,0 +1,460 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>歪比巴卜 - 技术为辅,业务为主</title><meta name="author" content="无星"><meta name="copyright" content="无星"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="打工人">
+<meta property="og:type" content="website">
+<meta property="og:title" content="歪比巴卜">
+<meta property="og:url" content="http://www.xingxiaowu.cn/page/3/index.html">
+<meta property="og:site_name" content="歪比巴卜">
+<meta property="og:description" content="打工人">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.xingxiaowu.cn/images/Avatar.jpg">
+<meta property="article:author" content="无星">
+<meta property="article:tag" content="无星,歪比巴卜,阿巴阿巴">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.xingxiaowu.cn/images/Avatar.jpg"><script type="application/ld+json"></script><link rel="shortcut icon" href="/images/Avatar.jpg"><link rel="canonical" href="http://www.xingxiaowu.cn/page/3/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9901724859932050"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-9901724859932050',
+  enable_page_level_ads: 'true'
+});</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?bdba6c3bda62a07f58f3cf06034704d5";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-5976024V60"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-5976024V60')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-5976024V60', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":150,"languages":{"author":"作者: 无星","link":"链接: ","source":"来源: 歪比巴卜","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '歪比巴卜',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/rss2.xml" title="歪比巴卜" type="application/rss+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/Avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">198</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">58</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">38</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/images/Avatar.jpg" alt="Logo"><span class="site-name">歪比巴卜</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">歪比巴卜</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/XingXiaoWu" target="_blank" title="Github"><i class="fab fa-github" style="color: #hdhfbb;"></i></a><a class="social-icon" href="https://juejin.cn/user/1503787636493886" target="_blank" title="掘金"><i class="fab fa-blogger" style="color: #hdhfbb;"></i></a><a class="social-icon" href="https://www.jianshu.com/u/fef7696741c8" target="_blank" title="简书"><i class="fas fa-blog" style="color: #hdhfbb;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/12/01/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/telegram_bot/" title="telegram_bot">telegram_bot</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-12-01T15:22:00.000Z" title="发表于 2025-12-01 23:22:00">2025-12-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/telegram-bot/">telegram_bot</a></span></div><div class="content">创建bot 添加@BotFather为好友  依次输入/start ， /newbot，给新机器人自定义起名（可中文），必须以bot结尾，不能和别人重复, 如: giaobot  它会给你一个bot的token,大概像这样xxxxxxx:xxx-xxx-_xx_xxxxxx   如果你只是要一个webhook那么很轻松，默认就支持，你只需要知道【哪个bot】，【给哪个聊天群&#x2F;人】，【发什么消息】 1https://api.telegram.org/bot&lt;token&gt;/sendMessage?chat_id=&lt;chatid&gt;&amp;text=&lt;text&gt; 1. 哪个bot&lt;token&gt;替换为 真实的token 2. chat_id 群组&#x2F;频道：  在需要发送消息的群组&#x2F;频道拉进自己的机器人和官方机器人@get_id_bot 在群组里任意发送消息，@get_id_bot都会告诉你这个群的chat_id，注意id是带-的哦，可不要只复制数字了 把@get_id_botT了，你也不想你的聊天被他看到对吧  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/11/23/%E6%B8%97%E9%80%8F/%E5%85%8D%E8%B4%B9%E8%8A%82%E7%82%B9/" title="免费节点">免费节点</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-11-23T05:54:00.000Z" title="发表于 2025-11-23 13:54:00">2025-11-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AE%89%E5%85%A8/">安全</a></span></div><div class="content">背景备用吧 一些搜索语法XUI 1234#fofa&quot;x-ui&quot; &amp;&amp; title==&quot;欢迎使用X-UI-YG面板&quot;#zoomeyetitle=&quot;欢迎使用X-UI-YG面板&quot;  代理 1234567# zoomeyehttp.body=&quot;get all proxy from proxy pool&quot;protocol==&quot;socks5&quot; &amp;&amp; &quot;Version:5 Method:No Authentication(0x00)&quot; &amp;&amp; after=&quot;1900-01-01&quot; &amp;&amp; country=&quot;CN&quot;&quot;“89e3175.js”&quot; title=&quot;代理池网页管理界面&quot;  clash 1234#fofabody=&quot;&#123;\&quot;hello\&quot;:\&quot;clash\&quot;&#125;&quo...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/11/03/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/CloudFlare%E9%85%8D%E7%BD%AE%E5%BC%BA%E5%88%B6https/" title="CloudFlare配置强制https">CloudFlare配置强制https</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-11-03T08:48:00.000Z" title="发表于 2025-11-03 16:48:00">2025-11-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CloudFlare/">CloudFlare</a></span></div><div class="content">CloudFlare域名解析配置控制台：https://dash.cloudflare.com/ 域名托管这一部分就不截图了，把DNS解析商的地址缓存cf提供的，把域名托管过来就行 DNS解析把域名解析到ip  服务器上nginx怎么配就不多说了，自己查其他blog SSL配置为灵活 所以 为啥要配置成灵活？ 客户端访问服务器上的服务，有两种访问方式如下 1.客户通过cf解析到ip后透传访问服务器 在这种方式下，客户只是通过cf的dns解析服务器解析了你的真实ip地址，访问你的真实ip地址 所以你需要自己配置ssl证书，现在的自签名ssl证书有效时间短，还得管替换 2.客户访问cf，cf再访问服务器 在这种方式下，用户只访问到CF，由CF再去访问你的服务器，并将你服务器返回的内容吐给客户端 客户端与CF之间的链接是https，而CF与你服务器之间的链接是http CF真是太聪明了 那么这两种方式的选择，取决与是否开启代理模式 开启为2，关闭为1，默认开启 创建页面规则，选择始终https over</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/11/03/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E6%97%A0%E6%98%9F%E7%9A%84nginx%E9%85%8D%E7%BD%AE%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E4%B8%80%E5%8F%B0%E6%9C%8D%E5%8A%A1%E5%99%A880%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84%E5%A4%9A%E4%B8%AA%E7%BD%91%E9%A1%B5/" title="无星的nginx配置学习（三）——一台服务器80端口映射多个网页">无星的nginx配置学习（三）——一台服务器80端口映射多个网页</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-11-03T07:48:00.000Z" title="发表于 2025-11-03 15:48:00">2025-11-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/nginx/">nginx</a></span></div><div class="content">买了一台服务器 不干别的，就放几个静态网页 分别在&#x2F;www&#x2F;wwwroot&#x2F;a &#x2F;www&#x2F;wwwroot&#x2F;b &#x2F;www&#x2F;wwwroot&#x2F;c 后面就是html和资源文件了 手里恰好也有几个闲置域名 需要配置这几个直接访问 我们假设域名的dns都配置好了 仅谈nginx配置 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849# 忽略其他配置http&#123;    # 忽略其他配置    server    &#123;        listen 80;        server_name a.com;        include enable-php.conf;        location /        &#123;            root /www/wwwroot/a;            index index.php index.htm...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/10/27/CTF/%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E9%92%93%E9%B1%BC%E5%B0%8F%E6%B5%8B%E8%AF%95/" title="一个简单的钓鱼小测试">一个简单的钓鱼小测试</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-10-27T12:17:00.000Z" title="发表于 2025-10-27 20:17:00">2025-10-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AE%89%E5%85%A8/">安全</a></span></div><div class="content">背景弄简单一点，搞个vbs，设置为隐藏文件 再弄个快捷方式，指向这个vbs 再把快捷方式的logo设置成常见的word,excel,pdf,ppt之类的 弹窗.vbs我们这里图方便，直接写个弹窗 如果要收集其他信息，自己写个curl把收集的信息发给服务端存一下 看看哪些人上当了 alert.vbs 1X=Msgbox(&quot;安全意识不足！&quot;, 48, &quot;安全提醒&quot;)  注意保存的时候，编码需要写成ANSI，不然无法显示中文，会报错  文件Logo我这里给一个logo，兄弟们自己下载到本地使用 https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/icos/ckt.ico https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/icos/dbt.ico https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/icos/doc.ico...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/10/21/%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85/%E6%97%A0%E6%98%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%E5%8D%81%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94Lottie%E5%8A%A8%E6%80%81%E6%9B%B4%E6%8D%A2%E6%96%87%E5%AD%97%E9%97%AE%E9%A2%98/" title="无星的前端之旅（三十五）——Lottie动态更换文字问题">无星的前端之旅（三十五）——Lottie动态更换文字问题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-10-21T10:24:00.000Z" title="发表于 2025-10-21 18:24:00">2025-10-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span></div><div class="content">背景今天我们来解决一个Lottie动态更换文字的问题 比如有个抽奖动画，我们需要动态替换抽奖的奖品，这种需求在实际项目中还是比较常见的 这里我们有两种方式 1. 设计师比较顶让设计师在静态字体处预留出一个占位符，然后在js加载时，动态替换这个占位符 比如 Lottie.json 1&#123;&quot;v&quot;:&quot;5.5.9&quot;,&quot;fr&quot;:24,&quot;ip&quot;:0,&quot;op&quot;:72,&quot;w&quot;:200,&quot;h&quot;:200,&quot;nm&quot;:&quot;合成 2&quot;,&quot;ddd&quot;:0,&quot;assets&quot;:[&#123;&quot;id&quot;:&quot;comp_0&quot;,&quot;layers&quot;:[&#123;&quot;ddd&quot;:0,&quot;ind&quot;:1,&quot;ty&quot;:5,&quot;nm&quot;:&quot;textnode&quot;,&quo...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/10/15/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/gitea%E7%9A%84%E5%AE%89%E8%A3%85/" title="gitea的安装">gitea的安装</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-10-15T05:13:32.000Z" title="发表于 2025-10-15 13:13:32">2025-10-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/iOS/">iOS</a></span></div><div class="content">Ubuntu 安装 gitea二进制安装1. 下载1234mkdir giteacd giteawget -O gitea https://dl.gitea.com/gitea/main-nightly/gitea-main-nightly-linux-amd64chmod +x gitea  2. 注册用户12345678adduser \   --system \   --shell /bin/bash \   --gecos &#x27;Git Version Control&#x27; \   --group \   --disabled-password \   --home /home/git \   git  3. 配置12345678910111213141516mkdir -p /var/lib/gitea/&#123;custom,data,log&#125;chown -R git:git /var/lib/gitea/chmod -R 750 /var/lib/gitea/mkdir /etc/giteachown root:git /etc/giteac...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/09/10/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF%E5%BF%98%E8%AE%B0%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81/" title="青龙面板忘记账号密码">青龙面板忘记账号密码</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-09-10T06:12:00.000Z" title="发表于 2025-09-10 14:12:00">2025-09-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/git/">git</a></span></div><div class="content">青龙面板忘记账号密码了 阅读源码可知，使用的是sqlite 进入容器 1sudo docker exec -it ece2d /bin/sh 并且数据库保存在db目录下 1/ql/data/db/keyv.sqlite  所以我们只要把这个db拷出来打开就能找到账号密码 1sudo docker cp qinglong:/ql/data/db/keyv.sqlite /home/ubuntu/temp/  下载该sqlite打开即可得到账号密码 </div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/08/24/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/%E6%80%8E%E4%B9%88%E6%90%AD%E5%BB%BA%E5%B0%8F%E9%B8%A1/" title="怎么搭建小鸡">怎么搭建小鸡</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-08-24T15:22:00.000Z" title="发表于 2025-08-24 23:22:00">2025-08-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%B0%8F%E9%B8%A1/">小鸡</a></span></div><div class="content">背景有小鸡了，怎么处理 ssh链接不多提 跑性能1curl -L https://gitlab.com/spiritysdx/za/-/raw/main/ecs.sh -o ecs.sh &amp;&amp; chmod +x ecs.sh &amp;&amp; bash ecs.sh 输入1 测速1bash &lt;(curl -Ls Net.Check.Place) -4  测IP1bash &lt;(curl -Ls IP.Check.Place)  开始搭建1bash &lt;(wget -qO- -o- https://github.com/233boy/sing-box/raw/main/install.sh)  输出的vless链接需要记录 输入sb 选择1添加配置 再选择3或者18 可以看到3是hy2,18是vless+reality 随便输入端口名(大于10000小于60000的) 得到hy2节点和一个新的vless+reality，也就是现在总共有三个节点 生成订阅链接Sublink Worker 按照不同节点换行，生成订阅 </div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/08/15/%E6%B8%97%E9%80%8F/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E4%B9%8B%E6%97%85%E9%80%9F%E6%88%90%E7%AF%87%EF%BC%88%E5%8D%81%E4%BA%94%EF%BC%89-Frida/" title="无星的渗透之旅速成篇（十五）-Frida">无星的渗透之旅速成篇（十五）-Frida</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-08-15T12:09:00.000Z" title="发表于 2025-08-15 20:09:00">2025-08-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AE%89%E5%85%A8/">安全</a></span></div><div class="content">fridaFrida 17.9.8 Frida-Tools 14.8.2 先说版本对应关系 12frida==17.9.8frida-tools==14.8.2  建议使用16或17版本，18版本可能存在Java定义问题  注意：frida 18.x 需要 Node.js 运行环境，如果仅使用 Python 调用 frida，建议继续使用 16.x 或 17.x 版本  看雪大哥记录的版本对应关系  frida-tools&#x3D;&#x3D;1.0.0 —— 12.0.0&lt;&#x3D;frida&lt;13.0.0 frida-tools&#x3D;&#x3D;1.1.0 —— 12.0.0&lt;&#x3D;frida&lt;13.0.0 frida-tools&#x3D;&#x3D;1.2.0 —— 12.1.0&lt;&#x3D;frida&lt;13.0.0 frida-tools&#x3D;&#x3D;1.2.1 —— 12.1.0&lt;&#x3D;frida&lt;13.0.0 frida-tools&#x3D;&#x3D;1.2.2 —— 12.1.0&...</div></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/2/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#content-inner">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#content-inner">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/#content-inner">20</a><a class="extend next" rel="next" href="/page/4/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/Avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">无星</div><div class="author-info-description">打工人</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">198</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">58</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">38</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/XingXiaoWu"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/XingXiaoWu" target="_blank" title="Github"><i class="fab fa-github" style="color: #hdhfbb;"></i></a><a class="social-icon" href="https://juejin.cn/user/1503787636493886" target="_blank" title="掘金"><i class="fab fa-blogger" style="color: #hdhfbb;"></i></a><a class="social-icon" href="https://www.jianshu.com/u/fef7696741c8" target="_blank" title="简书"><i class="fas fa-blog" style="color: #hdhfbb;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">你有没有好好吃饭</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/29/AI/%E7%A0%B4%E9%99%90%E6%8F%90%E7%A4%BA%E8%AF%8D/" title="破限提示词">破限提示词</a><time datetime="2026-07-29T12:09:00.000Z" title="发表于 2026-07-29 20:09:00">2026-07-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/02/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/1Panel/" title="1Panel">1Panel</a><time datetime="2026-07-02T06:12:00.000Z" title="发表于 2026-07-02 14:12:00">2026-07-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/06/24/AI/MCP/" title="MCP">MCP</a><time datetime="2026-06-24T07:27:08.000Z" title="发表于 2026-06-24 15:27:08">2026-06-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/06/03/%E8%BF%90%E7%BB%B4%E6%9D%82%E8%B0%88/Jenkins%E6%90%AD%E9%85%8DGitea%E6%8B%89%E5%8F%96%E9%A1%B9%E7%9B%AE/" title="Jenkins搭配Gitea拉取项目">Jenkins搭配Gitea拉取项目</a><time datetime="2026-06-03T06:32:00.000Z" title="发表于 2026-06-03 14:32:00">2026-06-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/05/15/CTF/%E6%8A%A5%E5%91%8A/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%8A%A5%E5%91%8A%EF%BC%88%E4%BA%8C%EF%BC%89-%E6%9F%90%E5%AE%81/" title="无星的渗透报告（二）-某宁"><img src="https://cdn.jsdelivr.net/gh/XingXiaoWu/XingXiaoWu.github.io@pic/报告/一/1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无星的渗透报告（二）-某宁"/></a><div class="content"><a class="title" href="/2026/05/15/CTF/%E6%8A%A5%E5%91%8A/%E6%97%A0%E6%98%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%8A%A5%E5%91%8A%EF%BC%88%E4%BA%8C%EF%BC%89-%E6%9F%90%E5%AE%81/" title="无星的渗透报告（二）-某宁">无星的渗透报告（二）-某宁</a><time datetime="2026-05-15T12:09:00.000Z" title="发表于 2026-05-15 20:09:00">2026-05-15</time></div></div></div></div><div class="card-widget" id="card-newest-comments"><div class="item-headline"><i class="fas fa-comment-dots"></i><span>最新评论</span></div><div class="aside-list"><span>加载中...</span></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+      <i class="fas fa-angle-right"></i></a>
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1Panel/"><span class="card-category-list-name">1Panel</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/AI/"><span class="card-category-list-name">AI</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Android/"><span class="card-category-list-name">Android</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CloudFlare/"><span class="card-category-list-name">CloudFlare</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Jenkins/"><span class="card-category-list-name">Jenkins</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/PlayWright/"><span class="card-category-list-name">PlayWright</span><span class="card-category-list-count">7</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Postman/"><span class="card-category-list-name">Postman</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Vue/"><span class="card-category-list-name">Vue</span><span class="card-category-list-count">1</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/" style="font-size: 1.14em; color: #999b9d">碎碎念</a> <a href="/tags/chrome%E6%8F%92%E4%BB%B6/" style="font-size: 1.1em; color: #999">chrome插件</a> <a href="/tags/clash/" style="font-size: 1.18em; color: #999ca1">clash</a> <a href="/tags/%E5%B0%8F%E9%B8%A1/" style="font-size: 1.1em; color: #999">小鸡</a> <a href="/tags/Burp/" style="font-size: 1.14em; color: #999b9d">Burp</a> <a href="/tags/sass/" style="font-size: 1.1em; color: #999">sass</a> <a href="/tags/typescript/" style="font-size: 1.22em; color: #999ea4">typescript</a> <a href="/tags/AI/" style="font-size: 1.18em; color: #999ca1">AI</a> <a href="/tags/1Panel/" style="font-size: 1.1em; color: #999">1Panel</a> <a href="/tags/ntp/" style="font-size: 1.1em; color: #999">ntp</a> <a href="/tags/PlayWright/" style="font-size: 1.34em; color: #99a3b0">PlayWright</a> <a href="/tags/verdaccio/" style="font-size: 1.1em; color: #999">verdaccio</a> <a href="/tags/jdk/" style="font-size: 1.1em; color: #999">jdk</a> <a href="/tags/react/" style="font-size: 1.1em; color: #999">react</a> <a href="/tags/docx/" style="font-size: 1.1em; color: #999">docx</a> <a href="/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/" style="font-size: 1.3em; color: #99a1ac">微前端</a> <a href="/tags/vscode/" style="font-size: 1.1em; color: #999">vscode</a> <a href="/tags/docker/" style="font-size: 1.18em; color: #999ca1">docker</a> <a href="/tags/iOS/" style="font-size: 1.5em; color: #99a9bf">iOS</a> <a href="/tags/doc/" style="font-size: 1.1em; color: #999">doc</a> <a href="/tags/css/" style="font-size: 1.14em; color: #999b9d">css</a> <a href="/tags/pdf-js/" style="font-size: 1.1em; color: #999">pdf-js</a> <a href="/tags/Vue/" style="font-size: 1.1em; color: #999">Vue</a> <a href="/tags/%E5%AF%86%E7%A0%81/" style="font-size: 1.1em; color: #999">密码</a> <a href="/tags/nginx/" style="font-size: 1.18em; color: #999ca1">nginx</a> <a href="/tags/word/" style="font-size: 1.1em; color: #999">word</a> <a href="/tags/%E6%B8%97%E9%80%8F/" style="font-size: 1.46em; color: #99a7bb">渗透</a> <a href="/tags/%E5%BA%94%E6%80%A5/" style="font-size: 1.1em; color: #999">应急</a> <a href="/tags/flutter/" style="font-size: 1.18em; color: #999ca1">flutter</a> <a href="/tags/Postman/" style="font-size: 1.1em; color: #999">Postman</a> <a href="/tags/CloudFlare/" style="font-size: 1.14em; color: #999b9d">CloudFlare</a> <a href="/tags/react-native/" style="font-size: 1.42em; color: #99a6b7">react-native</a> <a href="/tags/%E6%8A%A5%E5%91%8A/" style="font-size: 1.26em; color: #999fa8">报告</a> <a href="/tags/egg/" style="font-size: 1.18em; color: #999ca1">egg</a> <a href="/tags/shell/" style="font-size: 1.14em; color: #999b9d">shell</a> <a href="/tags/%E9%92%93%E9%B1%BC/" style="font-size: 1.1em; color: #999">钓鱼</a> <a href="/tags/python/" style="font-size: 1.1em; color: #999">python</a> <a href="/tags/%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5/" style="font-size: 1.18em; color: #999ca1">命令速查</a> <a href="/tags/BuuCTF/" style="font-size: 1.1em; color: #999">BuuCTF</a> <a href="/tags/vue/" style="font-size: 1.38em; color: #99a4b4">vue</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      <a class="card-more-btn" href="/archives/"
+            title="查看更多">
+            <i class="fas fa-angle-right"></i>
+          </a>
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/07/">
+            <span class="card-archive-list-date">
+              七月 2026
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/06/">
+            <span class="card-archive-list-date">
+              六月 2026
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/05/">
+            <span class="card-archive-list-date">
+              五月 2026
+            </span>
+            <span class="card-archive-list-count">7</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/04/">
+            <span class="card-archive-list-date">
+              四月 2026
+            </span>
+            <span class="card-archive-list-count">4</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/03/">
+            <span class="card-archive-list-date">
+              三月 2026
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/01/">
+            <span class="card-archive-list-date">
+              一月 2026
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/12/">
+            <span class="card-archive-list-date">
+              十二月 2025
+            </span>
+            <span class="card-archive-list-count">3</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/11/">
+            <span class="card-archive-list-date">
+              十一月 2025
+            </span>
+            <span class="card-archive-list-count">3</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">198</div></div><div class="webinfo-item"><div class="item-name">运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2016-12-12T02:23:12.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-08-18T06:38:24.538Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2016 - 2026 By 无星</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span><span class="footer-separator">备案号 | </span><a href="https://beian.miit.gov.cn/" target="_blank">赣ICP备2026018933号-1</a></div><div class="footer_custom_text">歪比巴卜</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"><script>window.typedJSFn = {
+  init: str => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, null))
+  },
+  run: subtitleType => {
+    if (true) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        btf.getScript('https://cdn.jsdelivr.net/npm/typed.js@3.0.0/dist/typed.umd.min.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  },
+  processSubtitle: (content, extraContents = []) => {
+    if (true) {
+      const sub = ["事已至此，先吃饭吧","歪比巴卜","阿巴阿巴"].slice()
+
+      if (extraContents.length > 0) {
+        sub.unshift(...extraContents)
+      }
+
+      if (typeof content === 'string') {
+        sub.unshift(content)
+      } else if (Array.isArray(content)) {
+        sub.unshift(...content)
+      }
+
+      sub.length > 0 && typedJSFn.init(sub)
+    } else {
+      document.getElementById('subtitle').textContent = typeof content === 'string' ? content :
+        (Array.isArray(content) && content.length > 0 ? content[0] : '')
+    }
+  }
+}
+btf.addGlobalFn('pjaxSendOnce', () => { typed.destroy() }, 'typedDestroy')
+</script><script>function subtitleType () {
+  typedJSFn.processSubtitle(["事已至此，先吃饭吧","歪比巴卜","阿巴阿巴"])
+}
+typedJSFn.run(subtitleType)</script></div><script>window.newestComments = {
+  changeContent: content => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<code>.*?<\/code>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g, "") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0, 150) + '...'
+    }
+    return content
+  },
+
+  generateHtml: (array, ele) => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class="aside-list-item">'
+
+        if (true && array[i].avatar) {
+          const imgAttr = 'src'
+          const lazyloadNative = ''
+          result += `<a href="${array[i].url}" class="thumbnail"><img ${imgAttr}="${array[i].avatar}" alt="${array[i].nick}" ${lazyloadNative}></a>`
+        }
+
+        result += `<div class="content">
+        <a class="comment" href="${array[i].url}" title="${array[i].content}">${array[i].content}</a>
+        <div class="name"><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '暂无评论'
+    }
+
+    ele.innerHTML = result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh(ele)
+  },
+
+  newestCommentInit: (name, getComment) => {
+    const $dom = document.querySelector('#card-newest-comments .aside-list')
+    if ($dom) {
+      const data = btf.saveToLocal.get(name)
+      if (data) {
+        newestComments.generateHtml(JSON.parse(data), $dom)
+      } else {
+        getComment($dom)
+      }
+    }
+  },
+
+  run: (name, getComment) => {
+    newestComments.newestCommentInit(name, getComment)
+    btf.addGlobalFn('pjaxComplete', () => newestComments.newestCommentInit(name, getComment), name)
+  }
+}</script><script>window.addEventListener('load', () => {
+  const keyName = 'github-newest-comments'
+  const { changeContent, generateHtml, run } = window.newestComments
+
+  const findTrueUrl = (array, ele) => {
+    Promise.all(array.map(item =>
+      fetch(item.url).then(resp => resp.json()).then(data => {
+        let urlArray = data.body ? data.body.match(/(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?/ig) : []
+        if (!Array.isArray(urlArray) || urlArray.length === 0) {
+          urlArray = [`${data.html_url}`]
+        }
+        if (data.user.login === 'utterances-bot') {
+          return urlArray.pop()
+        } else {
+          return urlArray.shift()
+        }
+      })
+    )).then(res => {
+        array = array.map((i,index)=> {
+          return {
+            ...i,
+            url: res[index]
+          }
+        })
+
+        btf.saveToLocal.set(keyName, JSON.stringify(array), 10/(60*24))
+        generateHtml(array, ele)
+    });
+  }
+
+  const getComment = ele => {
+    fetch('https://api.github.com/repos/XingXiaoWu/XingXiaoWu.github.io/issues/comments?sort=updated&direction=desc&per_page=6&page=1',{
+      "headers": {
+        Accept: 'application/vnd.github.v3.html+json'
+      }
+    })
+      .then(response => response.json())
+      .then(data => {
+        const githubArray = data.map(item => {
+          return {
+            'avatar': item.user.avatar_url,
+            'content': changeContent(item.body_html || item.body),
+            'nick': item.user.login,
+            'url': item.issue_url,
+            'date': item.updated_at
+          }
+        })
+        findTrueUrl(githubArray, ele)
+      }).catch(e => {
+        console.error(e)
+        ele.textContent= "无法获取评论，请确认相关配置是否正确"
+      })
+  }
+  run(keyName, getComment)
+})</script><script>(() => {
+  btf.getScript('//code.tidio.co/.js').then(() => {
+    const isChatBtn = false
+    const isChatHideShow = false
+
+    if (isChatBtn) {
+      let isShow = false
+      const close = () => {
+        window.tidioChatApi.hide()
+        isShow = false
+      }
+      
+      const open = () => {
+        window.tidioChatApi.open()
+        window.tidioChatApi.show()
+        isShow = true
+      }
+
+      const onTidioChatApiReady = () => {
+        window.tidioChatApi.hide()
+        window.tidioChatApi.on("close", close)
+      }
+      if (window.tidioChatApi) {
+        window.tidioChatApi.on("ready", onTidioChatApiReady)
+      } else {
+        document.addEventListener("tidioChat-ready", onTidioChatApiReady)
+      }
+
+      window.chatBtnFn = () => {
+        if (!window.tidioChatApi) return
+        isShow ? close() : open()
+      }
+
+      document.getElementById('chat-btn').style.display = 'block'
+
+    } else if (isChatHideShow) {
+      window.chatBtn = {
+        hide: () => window.tidioChatApi && window.tidioChatApi.hide(),
+        show: () => window.tidioChatApi && window.tidioChatApi.show()
+      }
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索一号准备就绪" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>
